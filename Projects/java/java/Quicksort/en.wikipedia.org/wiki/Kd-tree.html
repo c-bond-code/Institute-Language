@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Kd-tree by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>k-d tree - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"ba2ca33c-ca98-4a0a-b021-fe3f21b9f684","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"K-d_tree","wgTitle":"K-d tree","wgCurRevisionId":1085189300,"wgRevisionId":1085189300,"wgArticleId":1676725,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles with short description","Short description matches Wikidata","Wikipedia articles needing clarification from January 2017","Articles to be expanded from November 2008","All articles to be expanded","Articles using small message boxes","Articles to be expanded from February 2011",
+"Articles with example Python (programming language) code","Computer graphics data structures","Trees (data structures)","Geometric data structures","Database index techniques","Data types"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"K-d_tree","wgRelevantArticleId":1676725,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Kd-tree","wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":30000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgInternalRedirectTargetUrl":"/wiki/K-d_tree","wgEditSubmitButtonLabelPublish":
+true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q309949","wgGENewcomerTasksGuidanceEnabled":true,"wgGEAskQuestionEnabled":false,"wgGELinkRecommendationsFrontendEnabled":false};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.math.styles":"ready","ext.cite.styles":"ready","ext.pygments":"ready","ext.tmh.player.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["mediawiki.action.view.redirect","ext.math.scripts","ext.cite.ux-enhancements","ext.tmh.player","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart",
+"ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.pygments%2CwikimediaBadges%7Cext.tmh.player.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.9"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/b/b6/3dtree.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="1141"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/b/b6/3dtree.png"/>
+<meta property="og:image:width" content="800"/>
+<meta property="og:image:height" content="761"/>
+<meta property="og:image:width" content="640"/>
+<meta property="og:image:height" content="608"/>
+<meta property="og:title" content="k-d tree - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/K-d_tree"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/K-d_tree"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-K-d_tree rootpage-K-d_tree skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading"><i>k</i>-d tree</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"><span class="mw-redirectedfrom">&#160;&#160;(Redirected from <a href="https://en.wikipedia.org/w/index.php?title=Kd-tree&amp;redirect=no" class="mw-redirect" title="Kd-tree">Kd-tree</a>)</span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Multidimensional search tree for points in k dimensional space</div>
+<style data-mw-deduplicate="TemplateStyles:r1066479718">.mw-parser-output .infobox-subbox{padding:0;border:none;margin:-3px;width:auto;min-width:100%;font-size:100%;clear:none;float:none;background-color:transparent}.mw-parser-output .infobox-3cols-child{margin:auto}.mw-parser-output .infobox .navbar{font-size:100%}body.skin-minerva .mw-parser-output .infobox-header,body.skin-minerva .mw-parser-output .infobox-subheader,body.skin-minerva .mw-parser-output .infobox-above,body.skin-minerva .mw-parser-output .infobox-title,body.skin-minerva .mw-parser-output .infobox-image,body.skin-minerva .mw-parser-output .infobox-full-data,body.skin-minerva .mw-parser-output .infobox-below{text-align:center}</style><table class="infobox"><tbody><tr><th colspan="2" class="infobox-above"><i>k</i>-d tree</th></tr><tr><td colspan="2" class="infobox-image"><a href="https://en.wikipedia.org/wiki/File:3dtree.png" class="image"><img alt="3dtree.png" src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/3dtree.png/220px-3dtree.png" decoding="async" width="220" height="209" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/b/b6/3dtree.png/330px-3dtree.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/b/b6/3dtree.png/440px-3dtree.png 2x" data-file-width="548" data-file-height="521" /></a><div class="infobox-caption">A 3-dimensional <i>k</i>-d tree. The first split (the red vertical plane) cuts the root cell (white) into two subcells, each of which is then split (by the green horizontal planes) into two subcells. Finally,  four cells are split (by the four blue vertical planes) into two subcells. Since there is no more splitting, the final eight are called leaf cells.</div></td></tr><tr><th scope="row" class="infobox-label"><a href="https://en.wikipedia.org/wiki/List_of_data_structures" title="List of data structures">Type</a></th><td class="infobox-data">Multidimensional <a href="https://en.wikipedia.org/wiki/Binary_Search_Tree" class="mw-redirect" title="Binary Search Tree">BST</a></td></tr><tr><th scope="row" class="infobox-label">Invented</th><td class="infobox-data">1975</td></tr><tr><th scope="row" class="infobox-label">Invented by</th><td class="infobox-data"><a href="https://en.wikipedia.org/wiki/Jon_Bentley_(computer_scientist)" title="Jon Bentley (computer scientist)">Jon Louis Bentley</a></td></tr><tr><th colspan="2" class="infobox-header"><a href="https://en.wikipedia.org/wiki/Time_complexity" title="Time complexity">Time complexity</a> in <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">big O notation</a></th></tr><tr><td colspan="2" class="infobox-full-data"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1066479718"/><table class="infobox-subbox infobox-3cols-child"><tbody><tr><th scope="row" class="infobox-label" style="white-space:nowrap;">Algorithm</th><td class="infobox-data infobox-data-a">
+</td><td class="infobox-data infobox-data-b">
+<b>Average</b></td><td class="infobox-data infobox-data-c">
+<b>Worst case</b></td></tr><tr><th scope="row" class="infobox-label" style="white-space:nowrap;">Space</th><td class="infobox-data infobox-data-a">
+</td><td class="infobox-data infobox-data-b">
+<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/34109fe397fdcff370079185bfdb65826cb5565a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.977ex; height:2.843ex;" alt="O(n)"/></span></td><td class="infobox-data infobox-data-c">
+<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/34109fe397fdcff370079185bfdb65826cb5565a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.977ex; height:2.843ex;" alt="O(n)"/></span></td></tr><tr><th scope="row" class="infobox-label" style="white-space:nowrap;">Search</th><td class="infobox-data infobox-data-a">
+</td><td class="infobox-data infobox-data-b">
+<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(\log n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(\log n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aae0f22048ba6b7c05dbae17b056bfa16e21807d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.336ex; height:2.843ex;" alt="O(\log n)"/></span></td><td class="infobox-data infobox-data-c">
+<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/34109fe397fdcff370079185bfdb65826cb5565a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.977ex; height:2.843ex;" alt="O(n)"/></span></td></tr><tr><th scope="row" class="infobox-label" style="white-space:nowrap;">Insert</th><td class="infobox-data infobox-data-a">
+</td><td class="infobox-data infobox-data-b">
+<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(\log n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(\log n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aae0f22048ba6b7c05dbae17b056bfa16e21807d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.336ex; height:2.843ex;" alt="O(\log n)"/></span></td><td class="infobox-data infobox-data-c">
+<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/34109fe397fdcff370079185bfdb65826cb5565a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.977ex; height:2.843ex;" alt="O(n)"/></span></td></tr><tr><th scope="row" class="infobox-label" style="white-space:nowrap;">Delete</th><td class="infobox-data infobox-data-a">
+</td><td class="infobox-data infobox-data-b">
+<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(\log n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(\log n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aae0f22048ba6b7c05dbae17b056bfa16e21807d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.336ex; height:2.843ex;" alt="O(\log n)"/></span></td><td class="infobox-data infobox-data-c">
+<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/34109fe397fdcff370079185bfdb65826cb5565a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.977ex; height:2.843ex;" alt="O(n)"/></span></td></tr></tbody></table></td></tr></tbody></table>
+<p>In <a href="https://en.wikipedia.org/wiki/Computer_science" title="Computer science">computer science</a>, a <b><i>k</i>-d tree</b> (short for <i>k-dimensional <a href="https://en.wikipedia.org/wiki/Tree_data_structure" class="mw-redirect" title="Tree data structure">tree</a></i>) is a <a href="https://en.wikipedia.org/wiki/Space_partitioning" title="Space partitioning">space-partitioning</a> <a href="https://en.wikipedia.org/wiki/Data_structure" title="Data structure">data structure</a> for organizing <a href="https://en.wikipedia.org/wiki/Point_(geometry)" title="Point (geometry)">points</a> in a <i>k</i>-dimensional <a href="https://en.wikipedia.org/wiki/Euclidean_space" title="Euclidean space">space</a>. <i>k</i>-d trees are a useful data structure for several applications, such as searches involving a multidimensional search key (e.g. <a href="https://en.wikipedia.org/wiki/Range_search" class="mw-redirect" title="Range search">range searches</a> and <a href="https://en.wikipedia.org/wiki/Nearest_neighbor_search" title="Nearest neighbor search">nearest neighbor searches</a>) and creating <a href="https://en.wikipedia.org/wiki/Point_cloud" title="Point cloud">point clouds</a>. <i>k</i>-d trees are a special case of <a href="https://en.wikipedia.org/wiki/Binary_space_partitioning" title="Binary space partitioning">binary space partitioning</a> trees.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Operations_on_k-d_trees"><span class="tocnumber">2</span> <span class="toctext">Operations on <i>k</i>-d trees</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Construction"><span class="tocnumber">2.1</span> <span class="toctext">Construction</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="#Example_implementation"><span class="tocnumber">2.1.1</span> <span class="toctext">Example implementation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-5"><a href="#Adding_elements"><span class="tocnumber">2.2</span> <span class="toctext">Adding elements</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Removing_elements"><span class="tocnumber">2.3</span> <span class="toctext">Removing elements</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Balancing"><span class="tocnumber">2.4</span> <span class="toctext">Balancing</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Nearest_neighbour_search"><span class="tocnumber">2.5</span> <span class="toctext">Nearest neighbour search</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Range_search"><span class="tocnumber">2.6</span> <span class="toctext">Range search</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Degradation_in_performance_with_high-dimensional_data"><span class="tocnumber">3</span> <span class="toctext">Degradation in performance with high-dimensional data</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Degradation_in_performance_when_the_query_point_is_far_from_points_in_the_k-d_tree"><span class="tocnumber">4</span> <span class="toctext">Degradation in performance when the query point is far from points in the <i>k</i>-d tree</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Complexity"><span class="tocnumber">5</span> <span class="toctext">Complexity</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#Variations"><span class="tocnumber">6</span> <span class="toctext">Variations</span></a>
+<ul>
+<li class="toclevel-2 tocsection-14"><a href="#Volumetric_objects"><span class="tocnumber">6.1</span> <span class="toctext">Volumetric objects</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Points_only_in_leaves"><span class="tocnumber">6.2</span> <span class="toctext">Points only in leaves</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="#Open_source_implementations"><span class="tocnumber">8</span> <span class="toctext">Open source implementations</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="#References"><span class="tocnumber">9</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Description">Description</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=1" title="Edit section: Description">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The <i>k</i>-d tree is a <a href="https://en.wikipedia.org/wiki/Binary_tree" title="Binary tree">binary tree</a> in which <i>every</i> node is a <i>k</i>-dimensional point. Every non-leaf node can be thought of as implicitly generating a splitting <a href="https://en.wikipedia.org/wiki/Hyperplane" title="Hyperplane">hyperplane</a> that divides the space into two parts, known as <a href="https://en.wikipedia.org/wiki/Half-space_(geometry)" title="Half-space (geometry)">half-spaces</a>. Points to the left of this hyperplane are represented by the left subtree of that node and points to the right of the hyperplane are represented by the right subtree. The hyperplane direction is chosen in the following way: every node in the tree is associated with one of the <i>k</i> dimensions, with the hyperplane perpendicular to that dimension's axis. So, for example, if for a particular split the "x" axis is chosen, all points in the subtree with a smaller "x" value than the node will appear in the left subtree and all points with a larger "x" value will be in the right subtree. In such a case, the hyperplane would be set by the x value of the point, and its <a href="https://en.wikipedia.org/wiki/Surface_normal" class="mw-redirect" title="Surface normal">normal</a> would be the unit x-axis.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Operations_on_k-d_trees">Operations on <i>k</i>-d trees</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=2" title="Edit section: Operations on k-d trees">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Construction">Construction</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=3" title="Edit section: Construction">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Since there are many possible ways to choose axis-aligned splitting planes, there are many different ways to construct <i>k</i>-d trees. The canonical method of <i>k</i>-d tree construction has the following constraints:<sup id="cite_ref-compgeom_2-0" class="reference"><a href="#cite_note-compgeom-2">&#91;2&#93;</a></sup>
+</p>
+<ul><li>As one moves down the tree, one cycles through the axes used to select the splitting planes. (For example, in a 3-dimensional tree, the root would have an <i>x</i>-aligned plane, the root's children would both have <i>y</i>-aligned planes, the root's grandchildren would all have <i>z</i>-aligned planes, the root's great-grandchildren would all have <i>x</i>-aligned planes, the root's great-great-grandchildren would all have <i>y</i>-aligned planes, and so on.)</li>
+<li>Points are inserted by selecting the <a href="https://en.wikipedia.org/wiki/Median" title="Median">median</a> of the points being put into the <a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" title="Tree (data structure)">subtree</a>, with respect to their coordinates in the axis being used to create the splitting plane. (Note the assumption that we feed the entire set of <i>n</i> points into the algorithm up-front.)</li></ul>
+<p>This method leads to a <a href="https://en.wikipedia.org/wiki/Balanced_tree" class="mw-redirect" title="Balanced tree">balanced</a> <i>k</i>-d tree, in which each leaf node is approximately the same distance from the root. However, balanced trees are not necessarily optimal for all applications.
+</p><p>Note that it is not <i>required</i> to select the median point. In the case where median points are not selected, there is no guarantee that the tree will be balanced. To avoid coding a complex <span class="nowrap"> <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">O</a>(<i>n</i>)</span> <a href="https://en.wikipedia.org/wiki/Selection_algorithm" title="Selection algorithm">median-finding</a> <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithm</a><sup id="cite_ref-blum_3-0" class="reference"><a href="#cite_note-blum-3">&#91;3&#93;</a></sup><sup id="cite_ref-cormen_4-0" class="reference"><a href="#cite_note-cormen-4">&#91;4&#93;</a></sup> or using an <span class="nowrap"> <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">O</a>(<i>n</i> log <i>n</i>)</span> sort such as <a href="https://en.wikipedia.org/wiki/Heapsort" title="Heapsort">heapsort</a> or <a href="https://en.wikipedia.org/wiki/Mergesort" class="mw-redirect" title="Mergesort">mergesort</a> to sort all <i>n</i> points, a popular practice is to sort a <i>fixed</i> number of <i>randomly</i> <i>selected</i> points, and use the median of those points to serve as the splitting plane. In practice, this technique often results in nicely balanced trees.
+</p><p>Given a list of <i>n</i> points, the following algorithm uses a median-finding sort to construct a balanced <i>k</i>-d tree containing those points.
+</p>
+<pre><b>function</b> kdtree (<i>list of points</i> pointList, <i>int</i> depth)
+{
+    <i>// Select axis based on depth so that axis cycles through all valid values</i>
+    <b>var</b> <i>int</i> axis&#160;:= depth <b>mod</b> k;
+
+    <i>// Sort point list and choose median as pivot element</i>
+    <b><a href="https://en.wikipedia.org/wiki/Selection_algorithm" title="Selection algorithm">select</a></b> median <b>by</b> axis <b>from</b> pointList;
+
+    <i>// Create node and construct subtree</i>
+    node.location&#160;:= median;
+    node.leftChild&#160;:= kdtree(points <b>in</b> pointList <b>before</b> median, depth+1);
+    node.rightChild&#160;:= kdtree(points <b>in</b> pointList <b>after</b> median, depth+1);
+    <b>return</b> node;
+}
+</pre>
+<p>It is common that points "after" the median include only the ones that are strictly greater than the median. For points that lie on the median, it is possible to define a "superkey" function that compares the points in all dimensions<sup class="noprint Inline-Template" style="margin-left:0.1em; white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Please_clarify" title="Wikipedia:Please clarify"><span title="The text near this tag is a non sequitur, and needs to be integrated into the text in a way that is meaningful to the reader. (January 2017)"><i>non sequitur</i></span></a></i>&#93;</sup>. In some cases, it is acceptable to let points equal to the median lie on one side of the median, for example, by splitting the points into a "lesser than" subset and a "greater than or equal to" subset.
+</p><p>This algorithm creates the <a href="https://en.wikipedia.org/wiki/Invariant_(computer_science)" class="mw-redirect" title="Invariant (computer science)">invariant</a> that for any node, all the nodes in the left <a href="https://en.wikipedia.org/wiki/Subtree" class="mw-redirect" title="Subtree">subtree</a> are on one side of a splitting <a href="https://en.wikipedia.org/wiki/Plane_(mathematics)" class="mw-redirect" title="Plane (mathematics)">plane</a>, and all the nodes in the right subtree are on the other side. Points that lie on the splitting plane may appear on either side. The splitting plane of a node goes through the point associated with that node (referred to in the code as <i>node.location</i>).
+</p><p>Alternative algorithms for building a balanced <span class="nowrap"><i>k</i>-d tree</span> presort the data prior to building the tree. Then, they maintain the order of the presort during tree construction and hence eliminate the costly step of finding the median at each level of subdivision. Two such algorithms build a balanced <span class="nowrap"><i>k</i>-d tree</span> to sort triangles in order to improve the execution time of <a href="https://en.wikipedia.org/wiki/Ray_tracing_(graphics)" title="Ray tracing (graphics)">ray tracing</a> for three-dimensional <a href="https://en.wikipedia.org/wiki/Computer_graphics" title="Computer graphics">computer graphics</a>. These algorithms presort <i>n</i> triangles prior to building the <span class="nowrap"><i>k</i>-d tree</span>, then build the tree in <span class="nowrap"> <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">O</a>(<i>n</i> log <i>n</i>)</span> time in the best case.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup><sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup>  An algorithm that builds a balanced <span class="nowrap"><i>k</i>-d tree</span> to sort points has a worst-case complexity of <span class="nowrap"> <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">O</a>(<i>kn</i> log <i>n</i>)</span>.<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup><sup id="cite_ref-knlogn_8-0" class="reference"><a href="#cite_note-knlogn-8">&#91;8&#93;</a></sup> This algorithm presorts <i>n</i> points in each of <i>k</i> dimensions using an <span class="nowrap"> <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">O</a>(<i>n</i> log <i>n</i>)</span> sort such as <a href="https://en.wikipedia.org/wiki/Heapsort" title="Heapsort">Heapsort</a> or <a href="https://en.wikipedia.org/wiki/Mergesort" class="mw-redirect" title="Mergesort">Mergesort</a> prior to building the tree. It then maintains the order of these <i>k</i> presorts during tree construction and thereby avoids finding the median at each level of subdivision.
+</p>
+<h4><span class="mw-headline" id="Example_implementation">Example implementation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=4" title="Edit section: Example implementation">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>The above algorithm implemented in the <a href="https://en.wikipedia.org/wiki/Python_(programming_language)" title="Python (programming language)">Python programming language</a> is as follows:
+</p>
+<div class="mw-highlight mw-highlight-lang-python mw-content-ltr" dir="ltr"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+<span class="kn">from</span> <span class="nn">operator</span> <span class="kn">import</span> <span class="n">itemgetter</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pformat</span>
+
+<span class="k">class</span> <span class="nc">Node</span><span class="p">(</span><span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;Node&quot;</span><span class="p">,</span> <span class="s2">&quot;location left_child right_child&quot;</span><span class="p">)):</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pformat</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">kdtree</span><span class="p">(</span><span class="n">point_list</span><span class="p">,</span> <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">point_list</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">k</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">point_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># assumes all points have the same dimension</span>
+    <span class="c1"># Select axis based on depth so that axis cycles through all valid values</span>
+    <span class="n">axis</span> <span class="o">=</span> <span class="n">depth</span> <span class="o">%</span> <span class="n">k</span>
+
+    <span class="c1"># Sort point list by axis and choose median as pivot element</span>
+    <span class="n">point_list</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="n">axis</span><span class="p">))</span>
+    <span class="n">median</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">point_list</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+
+    <span class="c1"># Create node and construct subtrees</span>
+    <span class="k">return</span> <span class="n">Node</span><span class="p">(</span>
+        <span class="n">location</span><span class="o">=</span><span class="n">point_list</span><span class="p">[</span><span class="n">median</span><span class="p">],</span>
+        <span class="n">left_child</span><span class="o">=</span><span class="n">kdtree</span><span class="p">(</span><span class="n">point_list</span><span class="p">[:</span><span class="n">median</span><span class="p">],</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+        <span class="n">right_child</span><span class="o">=</span><span class="n">kdtree</span><span class="p">(</span><span class="n">point_list</span><span class="p">[</span><span class="n">median</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:],</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Example usage&quot;&quot;&quot;</span>
+    <span class="n">point_list</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="n">kdtree</span><span class="p">(</span><span class="n">point_list</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+<p>Output would be:
+</p>
+<div class="mw-highlight mw-highlight-lang-text mw-content-ltr" dir="ltr"><pre><span></span>((7, 2),
+ ((5, 4), ((2, 3), None, None), ((4, 7), None, None)),
+ ((9, 6), ((8, 1), None, None), None))
+</pre></div>
+<p>The generated tree is shown below.
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:372px;"><a href="https://en.wikipedia.org/wiki/File:Kdtree_2d.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Kdtree_2d.svg/370px-Kdtree_2d.svg.png" decoding="async" width="370" height="368" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Kdtree_2d.svg/555px-Kdtree_2d.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Kdtree_2d.svg/740px-Kdtree_2d.svg.png 2x" data-file-width="370" data-file-height="368" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Kdtree_2d.svg" class="internal" title="Enlarge"></a></div><i>k</i>-d tree decomposition for the point set<br /><code>(2,3), (5,4), (9,6), (4,7), (8,1), (7,2)</code>.</div></div></div></div>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:372px;"><a href="https://en.wikipedia.org/wiki/File:Tree_0001.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Tree_0001.svg/370px-Tree_0001.svg.png" decoding="async" width="370" height="177" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/25/Tree_0001.svg/555px-Tree_0001.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/25/Tree_0001.svg/740px-Tree_0001.svg.png 2x" data-file-width="596" data-file-height="285" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Tree_0001.svg" class="internal" title="Enlarge"></a></div>The resulting <i>k</i>-d tree.</div></div></div></div>
+<h3><span class="mw-headline" id="Adding_elements">Adding elements</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=5" title="Edit section: Adding elements">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<table class="box-Expand_section plainlinks metadata ambox mbox-small-left ambox-content" role="presentation"><tbody><tr><td class="mbox-image"><a href="https://en.wikipedia.org/wiki/File:Wiki_letter_w_cropped.svg" class="image"><img alt="[icon]" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/20px-Wiki_letter_w_cropped.svg.png" decoding="async" width="20" height="14" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/30px-Wiki_letter_w_cropped.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/40px-Wiki_letter_w_cropped.svg.png 2x" data-file-width="44" data-file-height="31" /></a></td><td class="mbox-text"><div class="mbox-text-span">This section <b>needs expansion</b>. You can help by <a class="external text" href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=">adding to it</a>.  <span class="date-container"><i>(<span class="date">November 2008</span>)</i></span></div></td></tr></tbody></table>
+<p>One adds a new point to a <i>k</i>-d tree in the same way as one adds an element to any other <a href="https://en.wikipedia.org/wiki/Binary_search_tree" title="Binary search tree">search tree</a>. First, traverse the tree, starting from the root and moving to either the left or the right child depending on whether the point to be inserted is on the "left" or "right" side of the splitting plane. Once you get to the node under which the child should be located, add the new point as either the left or right child of the leaf node, again depending on which side of the node's splitting plane contains the new node.
+</p><p>Adding points in this manner can cause the tree to become unbalanced, leading to decreased tree performance. The rate of tree performance degradation is dependent upon the spatial distribution of tree points being added, and the number of points added in relation to the tree size. If a tree becomes too unbalanced, it may need to be re-balanced to restore the performance of queries that rely on the tree balancing, such as nearest neighbour searching.
+</p>
+<h3><span class="mw-headline" id="Removing_elements">Removing elements</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=6" title="Edit section: Removing elements">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<table class="box-Expand_section plainlinks metadata ambox mbox-small-left ambox-content" role="presentation"><tbody><tr><td class="mbox-image"><a href="https://en.wikipedia.org/wiki/File:Wiki_letter_w_cropped.svg" class="image"><img alt="[icon]" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/20px-Wiki_letter_w_cropped.svg.png" decoding="async" width="20" height="14" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/30px-Wiki_letter_w_cropped.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/40px-Wiki_letter_w_cropped.svg.png 2x" data-file-width="44" data-file-height="31" /></a></td><td class="mbox-text"><div class="mbox-text-span">This section <b>needs expansion</b>. You can help by <a class="external text" href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=">adding to it</a>.  <span class="date-container"><i>(<span class="date">February 2011</span>)</i></span></div></td></tr></tbody></table>
+<p>To remove a point from an existing <i>k</i>-d tree, without breaking the invariant, the easiest way is to form the set of all nodes and leaves from the children of the target node, and recreate that part of the tree.
+</p><p>Another approach is to find a replacement for the point removed.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">&#91;9&#93;</a></sup> First, find the node R that contains the point to be removed. For the base case where R is a leaf node, no replacement is required. For the general case, find a replacement point, say p, from the subtree rooted at R. Replace the point stored at R with p. Then, recursively remove p.
+</p><p>For finding a replacement point, if R discriminates on x (say) and R has a right child, find the point with the minimum x value from the subtree rooted at the right child. Otherwise, find the point with the maximum x value from the subtree rooted at the left child.
+</p>
+<h3><span class="mw-headline" id="Balancing">Balancing</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=7" title="Edit section: Balancing">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Balancing a <i>k</i>-d tree requires care because <i>k</i>-d trees are sorted in multiple dimensions so the <a href="https://en.wikipedia.org/wiki/Tree_rotation" title="Tree rotation">tree-rotation</a> technique cannot be used to balance them as this may break the invariant.
+</p><p>Several variants of balanced <i>k</i>-d trees exist. They include divided <i>k</i>-d tree, pseudo <i>k</i>-d tree, <a href="https://en.wikipedia.org/wiki/K-D-B-tree" title="K-D-B-tree">K-D-B-tree</a>, hB-tree and <a href="https://en.wikipedia.org/wiki/K-D-B-tree#BKD_tree" title="K-D-B-tree">Bkd-tree</a>. Many of these variants are <a href="https://en.wikipedia.org/wiki/Adaptive_k-d_tree" title="Adaptive k-d tree">adaptive k-d trees</a>.
+</p>
+<h3><span class="mw-headline" id="Nearest_neighbour_search">Nearest neighbour search</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=8" title="Edit section: Nearest neighbour search">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="thumb tright"><div class="thumbinner" style="width:438px;"><video id="mwe_player_0" poster="http://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Kdtreeogg.ogv/436px--Kdtreeogg.ogv.jpg" controls="" preload="none" class="thumbimage" width="436" height="245" data-durationhint="134" data-mwtitle="Kdtreeogg.ogv" data-mwprovider="wikimediacommons"><source src="http://upload.wikimedia.org/wikipedia/commons/4/48/Kdtreeogg.ogv" type="video/ogg; codecs=&quot;theora&quot;" data-title="Original Ogg file, 1,920 × 1,080 (1.03 Mbps)" data-shorttitle="Ogg source" data-width="1920" data-height="1080" data-bandwidth="1033625" data-framerate="60" /></video>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Kdtreeogg.ogg" class="internal" title="Enlarge"></a></div>Example of a nearest neighbor search in a 2-d tree. Here, the tree is already built, each node corresponds to a rectangle, each rectangle is split in two equal subrectangles, and leaves correspond to rectangles containing a single point</div></div></div>
+<p>The <a href="https://en.wikipedia.org/wiki/Nearest_neighbour_search" class="mw-redirect" title="Nearest neighbour search">nearest neighbour search</a> (NN) algorithm aims to find the point in the tree that is nearest to a given input point. This search can be done efficiently by using the tree properties to quickly eliminate large portions of the search space.
+</p><p>Searching for a nearest neighbour in a <i>k</i>-d tree proceeds as follows:
+</p>
+<ol><li>Starting with the root node, the algorithm moves down the tree recursively, in the same way that it would if the search point were being inserted (i.e. it goes left or right depending on whether the point is lesser than or greater than the current node in the split dimension).</li>
+<li>Once the algorithm reaches a leaf node, it checks that node point and if the distance is better, that node point is saved as the "current best".</li>
+<li>The algorithm unwinds the recursion of the tree, performing the following steps at each node:
+<ol><li>If the current node is closer than the current best, then it becomes the current best.</li>
+<li>The algorithm checks whether there could be any points on the other side of the splitting plane that are closer to the search point than the current best. In concept, this is done by intersecting the splitting <a href="https://en.wikipedia.org/wiki/Hyperplane" title="Hyperplane">hyperplane</a> with a <a href="https://en.wikipedia.org/wiki/Hypersphere" class="mw-redirect" title="Hypersphere">hypersphere</a> around the search point that has a radius equal to the current nearest distance. Since the hyperplanes are all axis-aligned this is implemented as a simple comparison to see whether the distance between the splitting coordinate of the search point and current node is lesser than the distance (overall coordinates) from the search point to the current best.
+<ol><li>If the hypersphere crosses the plane, there could be nearer points on the other side of the plane, so the algorithm must move down the other branch of the tree from the current node looking for closer points, following the same recursive process as the entire search.</li>
+<li>If the hypersphere doesn't intersect the splitting plane, then the algorithm continues walking up the tree, and the entire branch on the other side of that node is eliminated.</li></ol></li></ol></li>
+<li>When the algorithm finishes this process for the root node, then the search is complete.</li></ol>
+<p>Generally the algorithm uses squared distances for comparison to avoid computing square roots. Additionally, it can save computation by holding the squared current best distance in a variable for comparison.
+</p><p>The algorithm can be extended in several ways by simple modifications. It can provide the <i>k</i> nearest neighbours to a point by maintaining <i>k</i> current bests instead of just one. A branch is only eliminated when <i>k</i> points have been found and the branch cannot have points closer than any of the <i>k</i> current bests.
+</p><p>It can also be converted to an approximation algorithm to run faster. For example, approximate nearest neighbour searching can be achieved by simply setting an upper bound on the number points to examine in the tree, or by interrupting the search process based upon a real time clock (which may be more appropriate in hardware implementations). Nearest neighbour for points that are in the tree already can be achieved by not updating the refinement for nodes that give zero distance as the result, this has the downside of discarding points that are not unique, but are co-located with the original search point.
+</p><p>Approximate nearest neighbour is useful in real-time applications such as robotics due to the significant speed increase gained by not searching for the best point exhaustively. One of its implementations is <a href="https://en.wikipedia.org/wiki/Best-bin-first_search" class="mw-redirect" title="Best-bin-first search">best-bin-first search</a>.
+</p>
+<h3><span class="mw-headline" id="Range_search">Range search</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=9" title="Edit section: Range search">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="https://en.wikipedia.org/wiki/Range_searching" title="Range searching">Range searching</a></div>
+<p>A range search searches for ranges of parameters. For example, if a tree is storing values corresponding to income and age, then a range search might be something like looking for all members of the tree which have an age between 20 and 50 years and an income between 50,000 and 80,000. Since k-d trees divide the range of a domain in half at each level of the tree, they are useful for performing range searches.
+</p><p>Analyses of binary search trees has found that the worst case time for range search in a <i>k</i>-dimensional <i>k</i>-d tree containing <i>n</i> nodes is given by the following equation.<sup id="cite_ref-Lee1977_10-0" class="reference"><a href="#cite_note-Lee1977-10">&#91;10&#93;</a></sup>
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle t_{\text{worst}}=O\left(k\cdot n^{1-{\frac {1}{k}}}\right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>t</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>worst</mtext>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>O</mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mi>k</mi>
+            <mo>&#x22C5;<!-- ⋅ --></mo>
+            <msup>
+              <mi>n</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>1</mn>
+                <mo>&#x2212;<!-- − --></mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mfrac>
+                    <mn>1</mn>
+                    <mi>k</mi>
+                  </mfrac>
+                </mrow>
+              </mrow>
+            </msup>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle t_{\text{worst}}=O\left(k\cdot n^{1-{\frac {1}{k}}}\right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5cb5366f8bde88429fef45e5d88f4ceda1eaecda" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:21.842ex; height:6.176ex;" alt="{\displaystyle t_{\text{worst}}=O\left(k\cdot n^{1-{\frac {1}{k}}}\right)}"/></span></dd></dl>
+<h2><span class="mw-headline" id="Degradation_in_performance_with_high-dimensional_data">Degradation in performance with high-dimensional data</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=10" title="Edit section: Degradation in performance with high-dimensional data">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Finding the nearest point is an <span class="nowrap"> <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">O</a>(log <i>n</i>)</span> operation on average, in the case of randomly distributed points, although analysis in general is tricky.<sup id="cite_ref-Friedman:1977:AFB:355744.355745_11-0" class="reference"><a href="#cite_note-Friedman:1977:AFB:355744.355745-11">&#91;11&#93;</a></sup>
+</p><p>In high-dimensional spaces, the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality" title="Curse of dimensionality">curse of dimensionality</a> causes the algorithm to need to visit many more branches than in lower-dimensional spaces. In particular, when the number of points is only slightly higher than the number of dimensions, the algorithm is only slightly better than a linear search of all of the points. As a general rule, if the dimensionality is <i>k</i>, the number of points in the data, <i>n</i>, should be <span class="nowrap"><i>n</i> ≫ 2<sup><i>k</i></sup></span>. Otherwise, when <i>k</i>-d trees are used with high-dimensional data, most of the points in the tree will be evaluated and the efficiency is no better than exhaustive search,<sup id="cite_ref-12" class="reference"><a href="#cite_note-12">&#91;12&#93;</a></sup> and, if a good-enough fast answer is required, approximate nearest-neighbour methods should be used instead.
+</p>
+<h2><span class="mw-headline" id="Degradation_in_performance_when_the_query_point_is_far_from_points_in_the_k-d_tree">Degradation in performance when the query point is far from points in the <i>k</i>-d tree</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=11" title="Edit section: Degradation in performance when the query point is far from points in the k-d tree">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Additionally, even in low-dimensional space, if the average pairwise distance between the <i>k</i> nearest neighbors of the query point is significantly less than the average distance between the query point and each of the <i>k</i> nearest neighbors, the performance of nearest neighbor search degrades towards linear, since the distances from the query point to each nearest neighbor are of similar magnitude. (In the worst case, consider a cloud of points distributed on the surface of a sphere centered at the origin. Every point is equidistant from the origin, so a search for the nearest neighbor from the origin would have to iterate through all points on the surface of the sphere to identify the nearest neighbor – which in this case is not even unique.)
+</p><p>To mitigate the potentially significant performance degradation of a <i>k</i>-d tree search in the worst case, a maximum distance parameter can be provided to the tree search algorithm, and the recursive search can be pruned whenever the closest point in a given branch of the tree cannot be closer than this maximum distance. This may result in a nearest neighbor search failing to return a nearest neighbor, which means no points are within this maximum distance from the query point.
+</p>
+<h2><span class="mw-headline" id="Complexity">Complexity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=12" title="Edit section: Complexity">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>Building a static <i>k</i>-d tree from <i>n</i> points has the following worst-case complexity:
+<ul><li><a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">O</a>(<i>n</i> log<sup>2</sup> <i>n</i>) if an <span class="nowrap"> <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">O</a>(<i>n</i> log <i>n</i>)</span> sort such as <a href="https://en.wikipedia.org/wiki/Heapsort" title="Heapsort">Heapsort</a> or <a href="https://en.wikipedia.org/wiki/Mergesort" class="mw-redirect" title="Mergesort">Mergesort</a> is used to find the median at each level of the nascent tree;</li>
+<li><a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">O</a>(<i>n</i> log <i>n</i>) if an <span class="nowrap"> <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">O</a>(<i>n</i>)</span> <a href="https://en.wikipedia.org/wiki/Median_of_medians" title="Median of medians">median of medians</a> algorithm<sup id="cite_ref-blum_3-1" class="reference"><a href="#cite_note-blum-3">&#91;3&#93;</a></sup><sup id="cite_ref-cormen_4-1" class="reference"><a href="#cite_note-cormen-4">&#91;4&#93;</a></sup> is used to select the median at each level of the nascent tree;</li>
+<li><a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">O</a>(<i>kn</i> log <i>n</i>) if <i>n</i> points are presorted in each of <i>k</i> dimensions using an <span class="nowrap"> <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">O</a>(<i>n</i> log <i>n</i>)</span> sort such as <a href="https://en.wikipedia.org/wiki/Heapsort" title="Heapsort">Heapsort</a> or <a href="https://en.wikipedia.org/wiki/Mergesort" class="mw-redirect" title="Mergesort">Mergesort</a> prior to building the <span class="nowrap"><i>k</i>-d tree</span>.<sup id="cite_ref-knlogn_8-1" class="reference"><a href="#cite_note-knlogn-8">&#91;8&#93;</a></sup></li></ul></li>
+<li>Inserting a new point into a balanced <i>k</i>-d tree takes <span class="nowrap"> <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">O</a>(log <i>n</i>)</span> time.</li>
+<li>Removing a point from a balanced <i>k</i>-d tree takes <span class="nowrap"> <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">O</a>(log <i>n</i>)</span> time.</li>
+<li>Querying an axis-parallel range in a balanced <i>k</i>-d tree takes <span class="nowrap"> <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">O</a>(<i>n</i><sup>1−1/k</sup> +<i>m</i>)</span> time, where <i>m</i> is the number of the reported points, and <i>k</i> the dimension of the <i>k</i>-d tree.</li>
+<li>Finding 1 nearest neighbour in a balanced <i>k</i>-d tree with randomly distributed points takes <span class="nowrap"> <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">O</a>(log <i>n</i>)</span> time on average.</li></ul>
+<h2><span class="mw-headline" id="Variations">Variations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=13" title="Edit section: Variations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Volumetric_objects">Volumetric objects</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=14" title="Edit section: Volumetric objects">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Instead of points, a <i>k</i>-d tree can also contain <a href="https://en.wikipedia.org/wiki/Rectangle" title="Rectangle">rectangles</a> or <a href="https://en.wikipedia.org/wiki/Hyperrectangle" title="Hyperrectangle">hyperrectangles</a>.<sup id="cite_ref-13" class="reference"><a href="#cite_note-13">&#91;13&#93;</a></sup><sup id="cite_ref-14" class="reference"><a href="#cite_note-14">&#91;14&#93;</a></sup> Thus range search becomes the problem of returning all rectangles intersecting the search rectangle. The tree is constructed the usual way with all the rectangles at the leaves. In an <a href="https://en.wikipedia.org/wiki/Orthogonal_range_searching" class="mw-redirect" title="Orthogonal range searching">orthogonal range search</a>, the <i>opposite</i> coordinate is used when comparing against the median. For example, if the current level is split along x<sub>high</sub>, we check the x<sub>low</sub> coordinate of the search rectangle. If the median is less than the x<sub>low</sub> coordinate of the search rectangle, then no rectangle in the left branch can ever intersect with the search rectangle and so can be pruned. Otherwise both branches should be traversed. See also <a href="https://en.wikipedia.org/wiki/Interval_tree" title="Interval tree">interval tree</a>, which is a 1-dimensional special case.
+</p>
+<h3><span class="mw-headline" id="Points_only_in_leaves">Points only in leaves</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=15" title="Edit section: Points only in leaves">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>It is also possible to define a <i>k</i>-d tree with points stored solely in leaves.<sup id="cite_ref-compgeom_2-1" class="reference"><a href="#cite_note-compgeom-2">&#91;2&#93;</a></sup> This form of <i>k</i>-d tree allows a variety of split mechanics other than the standard median split. The midpoint splitting rule<sup id="cite_ref-midpointsplit_15-0" class="reference"><a href="#cite_note-midpointsplit-15">&#91;15&#93;</a></sup> selects on the middle of the longest axis of the space being searched, regardless of the distribution of points. This guarantees that the aspect ratio will be at most 2:1, but the depth is dependent on the distribution of points. A variation, called sliding-midpoint, only splits on the middle if there are points on both sides of the split. Otherwise, it splits on point nearest to the middle. Maneewongvatana and Mount show that this offers "good enough" performance on common data sets.
+</p><p>Using sliding-midpoint, an <a href="https://en.wikipedia.org/wiki/Nearest_neighbour_search#Approximate_nearest_neighbour" class="mw-redirect" title="Nearest neighbour search">approximate nearest neighbour</a> query can be answered in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O\left({\tfrac {1}{{\epsilon \ }^{d}}}\log n\right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mstyle displaystyle="false" scriptlevel="0">
+                <mfrac>
+                  <mn>1</mn>
+                  <msup>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>&#x03F5;<!-- ϵ --></mi>
+                      <mtext>&#xA0;</mtext>
+                    </mrow>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>d</mi>
+                    </mrow>
+                  </msup>
+                </mfrac>
+              </mstyle>
+            </mrow>
+            <mi>log</mi>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mi>n</mi>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O\left({\tfrac {1}{{\epsilon \ }^{d}}}\log n\right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/698954e46c80b94963996d5fd72079f512b072b0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:13.023ex; height:4.843ex;" alt="{\displaystyle O\left({\tfrac {1}{{\epsilon \ }^{d}}}\log n\right)}"/></span>.
+Approximate range counting can be answered in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O\left(\log n+{\left({\tfrac {1}{\epsilon \ }}\right)}^{d}\right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mi>log</mi>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mi>n</mi>
+            <mo>+</mo>
+            <msup>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow>
+                  <mo>(</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mstyle displaystyle="false" scriptlevel="0">
+                      <mfrac>
+                        <mn>1</mn>
+                        <mrow>
+                          <mi>&#x03F5;<!-- ϵ --></mi>
+                          <mtext>&#xA0;</mtext>
+                        </mrow>
+                      </mfrac>
+                    </mstyle>
+                  </mrow>
+                  <mo>)</mo>
+                </mrow>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>d</mi>
+              </mrow>
+            </msup>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O\left(\log n+{\left({\tfrac {1}{\epsilon \ }}\right)}^{d}\right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b2a5f6a94286199e291bccf319fdbe61fbdca0cb" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:17.836ex; height:4.843ex;" alt="{\displaystyle O\left(\log n+{\left({\tfrac {1}{\epsilon \ }}\right)}^{d}\right)}"/></span> with this method.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=16" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Close variations:
+</p>
+<ul><li><a href="https://en.wikipedia.org/wiki/Implicit_kd-tree" class="mw-redirect" title="Implicit kd-tree">implicit <i>k</i>-d tree</a>, a <i>k</i>-d tree defined by an implicit splitting function rather than an explicitly-stored set of splits</li>
+<li><a href="https://en.wikipedia.org/wiki/Min/max_kd-tree" title="Min/max kd-tree">min/max <i>k</i>-d tree</a>, a <i>k</i>-d tree that associates a minimum and maximum value with each of its nodes</li>
+<li><a href="https://en.wikipedia.org/wiki/Relaxed_k-d_tree" title="Relaxed k-d tree">Relaxed <i>k</i>-d tree</a>,  a <i>k</i>-d tree such that the discriminants in each node are arbitrary</li></ul>
+<p>Related variations:
+</p>
+<ul><li><a href="https://en.wikipedia.org/wiki/Quadtree" title="Quadtree">Quadtree</a>, a space-partitioning structure that splits in two dimensions simultaneously, so that each node has 4 children</li>
+<li><a href="https://en.wikipedia.org/wiki/Octree" title="Octree">Octree</a>, a space-partitioning structure that splits in three dimensions simultaneously, so that each node has 8 children</li>
+<li><a href="https://en.wikipedia.org/wiki/Ball_tree" title="Ball tree">Ball tree</a>, a multi-dimensional space partitioning useful for nearest neighbor search</li>
+<li><a href="https://en.wikipedia.org/wiki/R-tree" title="R-tree">R-tree</a> and <a href="https://en.wikipedia.org/wiki/Bounding_interval_hierarchy" title="Bounding interval hierarchy">bounding interval hierarchy</a>, structure for partitioning objects rather than points, with overlapping regions</li>
+<li><a href="https://en.wikipedia.org/wiki/Vantage-point_tree" title="Vantage-point tree">Vantage-point tree</a>, a variant of a <i>k</i>-d tree that uses hyperspheres instead of hyperplanes to partition the data</li></ul>
+<p>Problems that can be addressed with <i>k</i>-d trees:
+</p>
+<ul><li><a href="https://en.wikipedia.org/wiki/Recursive_partitioning" title="Recursive partitioning">Recursive partitioning</a>, a technique for constructing statistical decision trees that are similar to <i>k</i>-d trees</li>
+<li><a href="https://en.wikipedia.org/wiki/Klee%27s_measure_problem" title="Klee&#39;s measure problem">Klee's measure problem</a>, a problem of computing the area of a union of rectangles, solvable using <i>k</i>-d trees</li>
+<li><a href="https://en.wikipedia.org/wiki/Guillotine_problem" class="mw-redirect" title="Guillotine problem">Guillotine problem</a>, a problem of finding a <i>k</i>-d tree whose cells are large enough to contain a given set of rectangles</li></ul>
+<h2><span class="mw-headline" id="Open_source_implementations">Open source implementations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=17" title="Edit section: Open source implementations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/ALGLIB" title="ALGLIB">ALGLIB</a> has <a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)" title="C Sharp (programming language)">C#</a> and <a href="https://en.wikipedia.org/wiki/C++" title="C++">C++</a> implementations of <i>k</i>-d tree based nearest neighbor and approximate nearest neighbor algorithms</li>
+<li><a href="https://en.wikipedia.org/wiki/CGAL" title="CGAL">CGAL</a> the Computational Algorihms Library, has an implementations of <i>k</i>-d tree based nearest neighbor, approximate nearest neighbor as well as range search algorithms.</li>
+<li><a href="https://en.wikipedia.org/wiki/SciPy" title="SciPy">SciPy</a>, a Python library for scientific computing, contains implementations of <i>k</i>-d tree based nearest neighbor lookup algorithms.</li>
+<li><a href="https://en.wikipedia.org/wiki/Scikit-learn" title="Scikit-learn">scikit-learn</a>, a Python library for machine learning, contains implementations of <i>k</i>-d trees to back nearest neighbor and radius neighbors searches.</li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit&amp;section=18" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFBentley1975" class="citation journal cs1"><a href="https://en.wikipedia.org/wiki/Jon_Bentley_(computer_scientist)" title="Jon Bentley (computer scientist)">Bentley, J. L.</a> (1975). "Multidimensional binary search trees used for associative searching". <i><a href="https://en.wikipedia.org/wiki/Communications_of_the_ACM" title="Communications of the ACM">Communications of the ACM</a></i>. <b>18</b> (9): 509–517. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F361002.361007">10.1145/361002.361007</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:13091446">13091446</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Communications+of+the+ACM&amp;rft.atitle=Multidimensional+binary+search+trees+used+for+associative+searching&amp;rft.volume=18&amp;rft.issue=9&amp;rft.pages=509-517&amp;rft.date=1975&amp;rft_id=info%3Adoi%2F10.1145%2F361002.361007&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A13091446%23id-name%3DS2CID&amp;rft.aulast=Bentley&amp;rft.aufirst=J.+L.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AK-d+tree" class="Z3988"></span></span>
+</li>
+<li id="cite_note-compgeom-2"><span class="mw-cite-backlink">^ <a href="#cite_ref-compgeom_2-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-compgeom_2-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBergCheongKreveldOvermars2008" class="citation book cs1">Berg, Mark de; Cheong, Otfried; Kreveld, Marc van; Overmars, Mark (2008). "Orthogonal Range Searching". <i>Computational Geometry</i>. pp.&#160;95–120. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-3-540-77974-2_5">10.1007/978-3-540-77974-2_5</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-3-540-77973-5" title="Special:BookSources/978-3-540-77973-5"><bdi>978-3-540-77973-5</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Orthogonal+Range+Searching&amp;rft.btitle=Computational+Geometry&amp;rft.pages=95-120&amp;rft.date=2008&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-540-77974-2_5&amp;rft.isbn=978-3-540-77973-5&amp;rft.aulast=Berg&amp;rft.aufirst=Mark+de&amp;rft.au=Cheong%2C+Otfried&amp;rft.au=Kreveld%2C+Marc+van&amp;rft.au=Overmars%2C+Mark&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AK-d+tree" class="Z3988"></span></span>
+</li>
+<li id="cite_note-blum-3"><span class="mw-cite-backlink">^ <a href="#cite_ref-blum_3-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-blum_3-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBlumFloydPrattRivest1973" class="citation journal cs1"><a href="https://en.wikipedia.org/wiki/Manuel_Blum" title="Manuel Blum">Blum, M.</a>; <a href="https://en.wikipedia.org/wiki/Robert_Floyd" class="mw-redirect" title="Robert Floyd">Floyd, R. W.</a>; <a href="https://en.wikipedia.org/wiki/Vaughan_Pratt" title="Vaughan Pratt">Pratt, V. R.</a>; <a href="https://en.wikipedia.org/wiki/Ron_Rivest" title="Ron Rivest">Rivest, R. L.</a>; <a href="https://en.wikipedia.org/wiki/Robert_Tarjan" title="Robert Tarjan">Tarjan, R. E.</a> (August 1973). <a rel="nofollow" class="external text" href="http://people.csail.mit.edu/rivest/pubs/BFPRT73.pdf">"Time bounds for selection"</a> <span class="cs1-format">(PDF)</span>. <i>Journal of Computer and System Sciences</i>. <b>7</b> (4): 448–461. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1016%2FS0022-0000(73)80033-9">10.1016/S0022-0000(73)80033-9</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Computer+and+System+Sciences&amp;rft.atitle=Time+bounds+for+selection&amp;rft.volume=7&amp;rft.issue=4&amp;rft.pages=448-461&amp;rft.date=1973-08&amp;rft_id=info%3Adoi%2F10.1016%2FS0022-0000%2873%2980033-9&amp;rft.aulast=Blum&amp;rft.aufirst=M.&amp;rft.au=Floyd%2C+R.+W.&amp;rft.au=Pratt%2C+V.+R.&amp;rft.au=Rivest%2C+R.+L.&amp;rft.au=Tarjan%2C+R.+E.&amp;rft_id=http%3A%2F%2Fpeople.csail.mit.edu%2Frivest%2Fpubs%2FBFPRT73.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AK-d+tree" class="Z3988"></span></span>
+</li>
+<li id="cite_note-cormen-4"><span class="mw-cite-backlink">^ <a href="#cite_ref-cormen_4-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-cormen_4-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCormenLeisersonRivest" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Cormen, Thomas H.</a>; <a href="https://en.wikipedia.org/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Leiserson, Charles E.</a>; <a href="https://en.wikipedia.org/wiki/Ron_Rivest" title="Ron Rivest">Rivest, Ronald L.</a> <a href="https://en.wikipedia.org/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms"><i>Introduction to Algorithms</i></a>. MIT Press and McGraw-Hill.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Introduction+to+Algorithms&amp;rft.pub=MIT+Press+and+McGraw-Hill&amp;rft.aulast=Cormen&amp;rft.aufirst=Thomas+H.&amp;rft.au=Leiserson%2C+Charles+E.&amp;rft.au=Rivest%2C+Ronald+L.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AK-d+tree" class="Z3988"></span> Chapter 10.</span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFWald_I,_Havran_V2006" class="citation journal cs1">Wald I, Havran V (September 2006). <a rel="nofollow" class="external text" href="http://dcgi.felk.cvut.cz/home/havran/ARTICLES/ingo06rtKdtree.pdf">"On building fast kd-trees for ray tracing, and on doing that in O(N log N)"</a> <span class="cs1-format">(PDF)</span>. <i>In: Proceedings of the 2006 IEEE Symposium on Interactive Ray Tracing</i>: 61–69. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FRT.2006.280216">10.1109/RT.2006.280216</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/1-4244-0693-5" title="Special:BookSources/1-4244-0693-5"><bdi>1-4244-0693-5</bdi></a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:1603250">1603250</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=In%3A+Proceedings+of+the+2006+IEEE+Symposium+on+Interactive+Ray+Tracing&amp;rft.atitle=On+building+fast+kd-trees+for+ray+tracing%2C+and+on+doing+that+in+O%28N+log+N%29&amp;rft.pages=61-69&amp;rft.date=2006-09&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A1603250%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1109%2FRT.2006.280216&amp;rft.isbn=1-4244-0693-5&amp;rft.au=Wald+I%2C+Havran+V&amp;rft_id=http%3A%2F%2Fdcgi.felk.cvut.cz%2Fhome%2Fhavran%2FARTICLES%2Fingo06rtKdtree.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AK-d+tree" class="Z3988"></span></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHavran_V,_Bittner_J2002" class="citation journal cs1">Havran V, Bittner J (2002). <a rel="nofollow" class="external text" href="http://dcgi.felk.cvut.cz/home/bittner/publications/wscg02.pdf">"On improving k-d trees for ray shooting"</a> <span class="cs1-format">(PDF)</span>. <i>In: Proceedings of the WSCG</i>: 209–216.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=In%3A+Proceedings+of+the+WSCG&amp;rft.atitle=On+improving+k-d+trees+for+ray+shooting&amp;rft.pages=209-216&amp;rft.date=2002&amp;rft.au=Havran+V%2C+Bittner+J&amp;rft_id=http%3A%2F%2Fdcgi.felk.cvut.cz%2Fhome%2Fbittner%2Fpublications%2Fwscg02.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AK-d+tree" class="Z3988"></span></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFProcopiucAgarwalArgeVittner2003" class="citation book cs1">Procopiuc, T; Agarwal, M; Arge, L; Vittner, J (2003). "Bkd-tree: A dynamic scalable kd-tree".  In Hadzilacos, T; Manolopoulos, Y; Roddick, J; Theodoridis, Y (eds.). <i>Lecture Notes in Computer Science</i>. Vol.&#160;2750. Berlin: Springer-Verlag. pp.&#160;46–65.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Bkd-tree%3A+A+dynamic+scalable+kd-tree&amp;rft.btitle=Lecture+Notes+in+Computer+Science&amp;rft.place=Berlin&amp;rft.pages=46-65&amp;rft.pub=Springer-Verlag&amp;rft.date=2003&amp;rft.aulast=Procopiuc&amp;rft.aufirst=T&amp;rft.au=Agarwal%2C+M&amp;rft.au=Arge%2C+L&amp;rft.au=Vittner%2C+J&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AK-d+tree" class="Z3988"></span></span>
+</li>
+<li id="cite_note-knlogn-8"><span class="mw-cite-backlink">^ <a href="#cite_ref-knlogn_8-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-knlogn_8-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBrown_R2015" class="citation journal cs1">Brown R (2015). <a rel="nofollow" class="external text" href="http://jcgt.org/published/0004/01/03/">"Building a balanced <i>k</i>-d tree in <span class="texhtml">O(<i>kn</i> log <i>n</i>)</span> time"</a>. <i>Journal of Computer Graphics Techniques</i>. <b>4</b> (1): 50–68.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Computer+Graphics+Techniques&amp;rft.atitle=Building+a+balanced+k-d+tree+in+%3Cspan+class%3D%22texhtml+%22+%3EO%28kn+log+n%29%3C%2Fspan%3E+time&amp;rft.volume=4&amp;rft.issue=1&amp;rft.pages=50-68&amp;rft.date=2015&amp;rft.au=Brown+R&amp;rft_id=http%3A%2F%2Fjcgt.org%2Fpublished%2F0004%2F01%2F03%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AK-d+tree" class="Z3988"></span></span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text">Chandran, Sharat. <a rel="nofollow" class="external text" href="http://www.cs.umd.edu/class/spring2002/cmsc420-0401/pbasic.pdf">Introduction to kd-trees</a>. University of Maryland Department of Computer Science.</span>
+</li>
+<li id="cite_note-Lee1977-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-Lee1977_10-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFLeeWong1977" class="citation journal cs1">Lee, D. T.; Wong, C. K. (1977). "Worst-case analysis for region and partial region searches in multidimensional binary search trees and balanced quad trees". <i>Acta Informatica</i>. <b>9</b>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2FBF00263763">10.1007/BF00263763</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:36580055">36580055</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Acta+Informatica&amp;rft.atitle=Worst-case+analysis+for+region+and+partial+region+searches+in+multidimensional+binary+search+trees+and+balanced+quad+trees&amp;rft.volume=9&amp;rft.date=1977&amp;rft_id=info%3Adoi%2F10.1007%2FBF00263763&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A36580055%23id-name%3DS2CID&amp;rft.aulast=Lee&amp;rft.aufirst=D.+T.&amp;rft.au=Wong%2C+C.+K.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AK-d+tree" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Friedman:1977:AFB:355744.355745-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-Friedman:1977:AFB:355744.355745_11-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFFreidmanBentleyFinkel1977" class="citation journal cs1"><a href="https://en.wikipedia.org/wiki/Jerome_H._Friedman" title="Jerome H. Friedman">Freidman, J. H.</a>; <a href="https://en.wikipedia.org/wiki/Jon_Bentley_(computer_scientist)" title="Jon Bentley (computer scientist)">Bentley, J. L.</a>; Finkel, R. A. (1977). "An Algorithm for Finding Best Matches in Logarithmic Expected Time". <i><a href="https://en.wikipedia.org/wiki/ACM_Transactions_on_Mathematical_Software" title="ACM Transactions on Mathematical Software">ACM Transactions on Mathematical Software</a></i>. <b>3</b> (3): 209. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F355744.355745">10.1145/355744.355745</a>. <a href="https://en.wikipedia.org/wiki/OSTI_(identifier)" class="mw-redirect" title="OSTI (identifier)">OSTI</a>&#160;<a rel="nofollow" class="external text" href="https://www.osti.gov/biblio/1443274">1443274</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:10811510">10811510</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=ACM+Transactions+on+Mathematical+Software&amp;rft.atitle=An+Algorithm+for+Finding+Best+Matches+in+Logarithmic+Expected+Time&amp;rft.volume=3&amp;rft.issue=3&amp;rft.pages=209&amp;rft.date=1977&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A10811510%23id-name%3DS2CID&amp;rft_id=%2F%2Fwww.osti.gov%2Fbiblio%2F1443274%23id-name%3DOSTI&amp;rft_id=info%3Adoi%2F10.1145%2F355744.355745&amp;rft.aulast=Freidman&amp;rft.aufirst=J.+H.&amp;rft.au=Bentley%2C+J.+L.&amp;rft.au=Finkel%2C+R.+A.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AK-d+tree" class="Z3988"></span></span>
+</li>
+<li id="cite_note-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-12">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFJacob_E._Goodman,_Joseph_O&#39;Rourke_and_Piotr_Indyk2004" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Jacob_E._Goodman" title="Jacob E. Goodman">Jacob E. Goodman</a>, Joseph O'Rourke and <a href="https://en.wikipedia.org/wiki/Piotr_Indyk" title="Piotr Indyk">Piotr Indyk</a>, ed. (2004). "Chapter 39: Nearest neighbours in high-dimensional spaces". <i>Handbook of Discrete and Computational Geometry</i> (2nd&#160;ed.). CRC Press.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Chapter+39%3A+Nearest+neighbours+in+high-dimensional+spaces&amp;rft.btitle=Handbook+of+Discrete+and+Computational+Geometry&amp;rft.edition=2nd&amp;rft.pub=CRC+Press&amp;rft.date=2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AK-d+tree" class="Z3988"></span></span>
+</li>
+<li id="cite_note-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-13">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFRosenberg1985" class="citation journal cs1">Rosenberg, J. B. (1985). "Geographical Data Structures Compared: A Study of Data Structures Supporting Region Queries". <i>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</i>. <b>4</b>: 53–67. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FTCAD.1985.1270098">10.1109/TCAD.1985.1270098</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:31223074">31223074</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=IEEE+Transactions+on+Computer-Aided+Design+of+Integrated+Circuits+and+Systems&amp;rft.atitle=Geographical+Data+Structures+Compared%3A+A+Study+of+Data+Structures+Supporting+Region+Queries&amp;rft.volume=4&amp;rft.pages=53-67&amp;rft.date=1985&amp;rft_id=info%3Adoi%2F10.1109%2FTCAD.1985.1270098&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A31223074%23id-name%3DS2CID&amp;rft.aulast=Rosenberg&amp;rft.aufirst=J.+B.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AK-d+tree" class="Z3988"></span></span>
+</li>
+<li id="cite_note-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-14">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHouthuys1987" class="citation journal cs1">Houthuys, P. (1987). "Box Sort, a multidimensional binary sorting method for rectangular boxes, used for quick range searching". <i>The Visual Computer</i>. <b>3</b> (4): 236–249. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2FBF01952830">10.1007/BF01952830</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:3197488">3197488</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=The+Visual+Computer&amp;rft.atitle=Box+Sort%2C+a+multidimensional+binary+sorting+method+for+rectangular+boxes%2C+used+for+quick+range+searching&amp;rft.volume=3&amp;rft.issue=4&amp;rft.pages=236-249&amp;rft.date=1987&amp;rft_id=info%3Adoi%2F10.1007%2FBF01952830&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A3197488%23id-name%3DS2CID&amp;rft.aulast=Houthuys&amp;rft.aufirst=P.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AK-d+tree" class="Z3988"></span></span>
+</li>
+<li id="cite_note-midpointsplit-15"><span class="mw-cite-backlink"><b><a href="#cite_ref-midpointsplit_15-0">^</a></b></span> <span class="reference-text">S. Maneewongvatana and <a href="https://en.wikipedia.org/wiki/David_Mount" title="David Mount">D. M. Mount</a>. <a rel="nofollow" class="external text" href="http://www.cs.umd.edu/~mount/Papers/cgc99-smpack.pdf">It's okay to be skinny, if your friends are fat</a>. 4th Annual CGC Workshop on Computational Geometry, 1999.</span>
+</li>
+</ol></div></div>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Tree_data_structures" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:CS_trees" title="Template:CS trees"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:CS_trees" title="Template talk:CS trees"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:CS_trees&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Tree_data_structures" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" title="Tree (data structure)">Tree data structures</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Search_tree" title="Search tree">Search trees</a><br />(<a href="https://en.wikipedia.org/wiki/Set_(abstract_data_type)" title="Set (abstract data type)">dynamic sets</a>/<a href="https://en.wikipedia.org/wiki/Associative_array" title="Associative array">associative arrays</a>)</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/2–3_tree" title="2–3 tree">2–3</a></li>
+<li><a href="https://en.wikipedia.org/wiki/2–3–4_tree" title="2–3–4 tree">2–3–4</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AA_tree" title="AA tree">AA</a></li>
+<li><a href="https://en.wikipedia.org/wiki/(a,b)-tree" title="(a,b)-tree">(a,b)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AVL_tree" title="AVL tree">AVL</a></li>
+<li><a href="https://en.wikipedia.org/wiki/B-tree" title="B-tree">B</a></li>
+<li><a href="https://en.wikipedia.org/wiki/B+_tree" title="B+ tree">B+</a></li>
+<li><a href="https://en.wikipedia.org/wiki/B*-tree" class="mw-redirect" title="B*-tree">B*</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bx-tree" title="Bx-tree">B<sup>x</sup></a></li>
+<li>(<a href="https://en.wikipedia.org/wiki/Optimal_binary_search_tree" title="Optimal binary search tree">Optimal</a>)&#160;<a href="https://en.wikipedia.org/wiki/Binary_search_tree" title="Binary search tree">Binary search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dancing_tree" title="Dancing tree">Dancing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/HTree" title="HTree">HTree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interval_tree" title="Interval tree">Interval</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Order_statistic_tree" title="Order statistic tree">Order statistic</a></li>
+<li>(<a href="https://en.wikipedia.org/wiki/Left-leaning_red–black_tree" title="Left-leaning red–black tree">Left-leaning</a>)&#160;<a href="https://en.wikipedia.org/wiki/Red–black_tree" title="Red–black tree">Red–black</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Scapegoat_tree" title="Scapegoat tree">Scapegoat</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Splay_tree" title="Splay tree">Splay</a></li>
+<li><a href="https://en.wikipedia.org/wiki/T-tree" title="T-tree">T</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Treap" title="Treap">Treap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/UB-tree" title="UB-tree">UB</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Weight-balanced_tree" title="Weight-balanced tree">Weight-balanced</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" title="Heap (data structure)">Heaps</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Binary_heap" title="Binary heap">Binary</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binomial_heap" title="Binomial heap">Binomial</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Brodal_queue" title="Brodal queue">Brodal</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Leftist_tree" title="Leftist tree">Leftist</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pairing_heap" title="Pairing heap">Pairing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Skew_heap" title="Skew heap">Skew</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Van_Emde_Boas_tree" title="Van Emde Boas tree">van Emde Boas</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Weak_heap" title="Weak heap">Weak</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Trie" title="Trie">Tries</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Ctrie" title="Ctrie">Ctrie</a></li>
+<li><a href="https://en.wikipedia.org/wiki/C-trie" title="C-trie">C-trie (compressed ADT)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hash_tree_(persistent_data_structure)" title="Hash tree (persistent data structure)">Hash</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Radix_tree" title="Radix tree">Radix</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Suffix_tree" title="Suffix tree">Suffix</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ternary_search_tree" title="Ternary search tree">Ternary search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X-fast_trie" title="X-fast trie">X-fast</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Y-fast_trie" title="Y-fast trie">Y-fast</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Spatial_index" class="mw-redirect" title="Spatial index">Spatial</a> data partitioning trees</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Ball_tree" title="Ball tree">Ball</a></li>
+<li><a href="https://en.wikipedia.org/wiki/BK-tree" title="BK-tree">BK</a></li>
+<li><a href="https://en.wikipedia.org/wiki/BSP_tree" class="mw-redirect" title="BSP tree">BSP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cartesian_tree" title="Cartesian tree">Cartesian</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hilbert_R-tree" title="Hilbert R-tree">Hilbert R</a></li>
+<li><a class="mw-selflink selflink"><i>k</i>-d</a> (<a href="https://en.wikipedia.org/wiki/Implicit_k-d_tree" title="Implicit k-d tree">implicit <i>k</i>-d</a>)</li>
+<li><a href="https://en.wikipedia.org/wiki/M-tree" title="M-tree">M</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Metric_tree" title="Metric tree">Metric</a></li>
+<li><a href="https://en.wikipedia.org/wiki/MVP_tree" class="mw-redirect" title="MVP tree">MVP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Octree" title="Octree">Octree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/PH-tree" title="PH-tree">PH</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Priority_R-tree" title="Priority R-tree">Priority R</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quadtree" title="Quadtree">Quad</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R-tree" title="R-tree">R</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R+_tree" title="R+ tree">R+</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R*_tree" class="mw-redirect" title="R* tree">R*</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Segment_tree" title="Segment tree">Segment</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Vantage-point_tree" title="Vantage-point tree">VP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X-tree" title="X-tree">X</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Other trees</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Cover_tree" title="Cover tree">Cover</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Exponential_tree" title="Exponential tree">Exponential</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fenwick_tree" title="Fenwick tree">Fenwick</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Finger_tree" title="Finger tree">Finger</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fractal_tree_index" title="Fractal tree index">Fractal tree index</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fusion_tree" title="Fusion tree">Fusion</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hash_calendar" title="Hash calendar">Hash calendar</a></li>
+<li><a href="https://en.wikipedia.org/wiki/IDistance" title="IDistance">iDistance</a></li>
+<li><a href="https://en.wikipedia.org/wiki/K-ary_tree" class="mw-redirect" title="K-ary tree">K-ary</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Left-child_right-sibling_binary_tree" title="Left-child right-sibling binary tree">Left-child right-sibling</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Link/cut_tree" title="Link/cut tree">Link/cut</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Log-structured_merge-tree" title="Log-structured merge-tree">Log-structured merge</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Merkle_tree" title="Merkle tree">Merkle</a></li>
+<li><a href="https://en.wikipedia.org/wiki/PQ_tree" title="PQ tree">PQ</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Range_tree" title="Range tree">Range</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SPQR_tree" title="SPQR tree">SPQR</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Top_tree" title="Top tree">Top</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1333
+Cached time: 20220503061502
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.628 seconds
+Real time usage: 0.781 seconds
+Preprocessor visited node count: 1959/1000000
+Post‐expand include size: 60283/2097152 bytes
+Template argument size: 2650/2097152 bytes
+Highest expansion depth: 12/100
+Expensive parser function count: 4/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 53822/5000000 bytes
+Lua time usage: 0.297/10.000 seconds
+Lua memory usage: 6979909/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  552.868      1 -total
+ 42.58%  235.435      1 Template:Reflist
+ 28.92%  159.887      9 Template:Cite_journal
+ 14.68%   81.147      1 Template:Short_description
+ 11.74%   64.888      1 Template:CS-Trees
+ 10.82%   59.832      1 Template:Navbox
+ 10.06%   55.612      1 Template:Infobox_data_structure
+  9.12%   50.414      1 Template:Infobox
+  9.10%   50.295      1 Template:Non_sequitur
+  8.47%   46.834      1 Template:Pagetype
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:1676725-0!canonical and timestamp 20220503061501 and revision id 1085189300. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;oldid=1085189300">https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;oldid=1085189300</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Computer_graphics_data_structures" title="Category:Computer graphics data structures">Computer graphics data structures</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Trees_(data_structures)" title="Category:Trees (data structures)">Trees (data structures)</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Geometric_data_structures" title="Category:Geometric data structures">Geometric data structures</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Database_index_techniques" title="Category:Database index techniques">Database index techniques</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Data_types" title="Category:Data types">Data types</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_matches_Wikidata" title="Category:Short description matches Wikidata">Short description matches Wikidata</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Wikipedia_articles_needing_clarification_from_January_2017" title="Category:Wikipedia articles needing clarification from January 2017">Wikipedia articles needing clarification from January 2017</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_to_be_expanded_from_November_2008" title="Category:Articles to be expanded from November 2008">Articles to be expanded from November 2008</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_to_be_expanded" title="Category:All articles to be expanded">All articles to be expanded</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_using_small_message_boxes" title="Category:Articles using small message boxes">Articles using small message boxes</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_to_be_expanded_from_February_2011" title="Category:Articles to be expanded from February 2011">Articles to be expanded from February 2011</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_example_Python_(programming_language)_code" title="Category:Articles with example Python (programming language) code">Articles with example Python (programming language) code</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=K-d+tree" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=K-d+tree" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/K-d_tree" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:K-d_tree" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/K-d_tree"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/K-d_tree" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/K-d_tree" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;oldid=1085189300" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=K-d_tree&amp;id=1085189300&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q309949" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=K-d_tree&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=K-d_tree&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/K-d-Baum" title="K-d-Baum – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Árbol_kd" title="Árbol kd – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/درخت_کی‌دی" title="درخت کی‌دی – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Arbre_kd" title="Arbre kd – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-ko mw-list-item"><a href="https://ko.wikipedia.org/wiki/K-d_트리" title="K-d 트리 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target"><span>한국어</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/עץ_kd" title="עץ kd – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/Kd木" title="Kd木 – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Drzewo_kd" title="Drzewo kd – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/Árvore_k-d" title="Árvore k-d – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/K-d-дерево" title="K-d-дерево – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-sl mw-list-item"><a href="https://sl.wikipedia.org/wiki/KD_drevo" title="KD drevo – Slovenian" lang="sl" hreflang="sl" class="interlanguage-link-target"><span>Slovenščina</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/K-D_stablo" title="K-D stablo – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/K-вимірне_дерево" title="K-вимірне дерево – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/K-d树" title="K-d树 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q309949#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 29 April 2022, at 00:03<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=K-d_tree&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.628","walltime":"0.781","ppvisitednodes":{"value":1959,"limit":1000000},"postexpandincludesize":{"value":60283,"limit":2097152},"templateargumentsize":{"value":2650,"limit":2097152},"expansiondepth":{"value":12,"limit":100},"expensivefunctioncount":{"value":4,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":53822,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  552.868      1 -total"," 42.58%  235.435      1 Template:Reflist"," 28.92%  159.887      9 Template:Cite_journal"," 14.68%   81.147      1 Template:Short_description"," 11.74%   64.888      1 Template:CS-Trees"," 10.82%   59.832      1 Template:Navbox"," 10.06%   55.612      1 Template:Infobox_data_structure","  9.12%   50.414      1 Template:Infobox","  9.10%   50.295      1 Template:Non_sequitur","  8.47%   46.834      1 Template:Pagetype"]},"scribunto":{"limitreport-timeusage":{"value":"0.297","limit":"10.000"},"limitreport-memusage":{"value":6979909,"limit":52428800}},"cachereport":{"origin":"mw1333","timestamp":"20220503061502","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"K-d tree","url":"https:\/\/en.wikipedia.org\/wiki\/K-d_tree","sameAs":"http:\/\/www.wikidata.org\/entity\/Q309949","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q309949","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2005-04-01T01:13:39Z","dateModified":"2022-04-29T00:03:07Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/b\/b6\/3dtree.png","headline":"multidimensional search tree for points in k dimensional space"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"K-d tree","url":"https:\/\/en.wikipedia.org\/wiki\/K-d_tree","sameAs":"http:\/\/www.wikidata.org\/entity\/Q309949","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q309949","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2005-04-01T01:13:39Z","dateModified":"2022-04-29T00:03:07Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/b\/b6\/3dtree.png","headline":"multidimensional search tree for points in k dimensional space"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":172,"wgHostname":"mw1370"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Kd-tree by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:50 GMT -->
+</html>

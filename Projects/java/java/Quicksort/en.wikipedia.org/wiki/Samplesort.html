@@ -1,0 +1,2207 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Samplesort by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Samplesort - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"61a548f2-b37a-401c-b433-280fb4194c56","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Samplesort","wgTitle":"Samplesort","wgCurRevisionId":1051885019,"wgRevisionId":1051885019,"wgArticleId":22405006,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["All articles with unsourced statements","Articles with unsourced statements from January 2018","Sorting algorithms","Distributed algorithms"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Samplesort","wgRelevantArticleId":22405006,"wgIsProbablyEditable":true,
+"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":20000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q182425"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":
+"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="Samplesort - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Samplesort"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Samplesort"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Samplesort rootpage-Samplesort skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Samplesort</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><p><b>Samplesort</b> is a <a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">sorting algorithm</a> that is a <a href="https://en.wikipedia.org/wiki/Divide_and_conquer_algorithm" class="mw-redirect" title="Divide and conquer algorithm">divide and conquer algorithm</a> often used in parallel processing systems.<sup id="cite_ref-sample_sort_tr.pdf_1-0" class="reference"><a href="#cite_note-sample_sort_tr.pdf-1">&#91;1&#93;</a></sup> Conventional divide and conquer sorting algorithms partitions the array into sub-intervals or buckets. The buckets are then sorted individually and then concatenated together. However, if the array is non-uniformly distributed, the performance of these sorting algorithms can be significantly throttled. Samplesort addresses this issue by selecting a sample of size <span class="texhtml mvar" style="font-style:italic;">s</span> from the <span class="texhtml mvar" style="font-style:italic;">n</span>-element sequence, and determining the range of the buckets by sorting the sample and choosing <span class="texhtml"><i>p</i>−1 &lt; <i>s</i></span> elements from the result. These elements (called splitters) then divide the array into <span class="texhtml mvar" style="font-style:italic;">p</span> approximately equal-sized buckets.<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup> Samplesort is described in the 1970 paper, "Samplesort: A Sampling Approach to Minimal Storage Tree Sorting", by W. D. Frazer and A. C. McKellar.<sup id="cite_ref-Frazer70_3-0" class="reference"><a href="#cite_note-Frazer70-3">&#91;3&#93;</a></sup>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Algorithm"><span class="tocnumber">1</span> <span class="toctext">Algorithm</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Pseudocode"><span class="tocnumber">1.1</span> <span class="toctext">Pseudocode</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Complexity"><span class="tocnumber">1.2</span> <span class="toctext">Complexity</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Sampling_the_data"><span class="tocnumber">2</span> <span class="toctext">Sampling the data</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Oversampling"><span class="tocnumber">2.1</span> <span class="toctext">Oversampling</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Bucket_size_estimate"><span class="tocnumber">2.2</span> <span class="toctext">Bucket size estimate</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Many_identical_keys"><span class="tocnumber">3</span> <span class="toctext">Many identical keys</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Uses_in_parallel_systems"><span class="tocnumber">4</span> <span class="toctext">Uses in parallel systems</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Efficient_Implementation_of_Samplesort"><span class="tocnumber">5</span> <span class="toctext">Efficient Implementation of Samplesort</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="#Determining_buckets"><span class="tocnumber">5.1</span> <span class="toctext">Determining buckets</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Partitioning"><span class="tocnumber">5.2</span> <span class="toctext">Partitioning</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#In-place_samplesort"><span class="tocnumber">6</span> <span class="toctext">In-place samplesort</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="#Local_classification"><span class="tocnumber">6.1</span> <span class="toctext">Local classification</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Block_permutation"><span class="tocnumber">6.2</span> <span class="toctext">Block permutation</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Cleanup"><span class="tocnumber">6.3</span> <span class="toctext">Cleanup</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="#External_links"><span class="tocnumber">9</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Algorithm">Algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit&amp;section=1" title="Edit section: Algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Samplesort is a generalization of <a href="https://en.wikipedia.org/wiki/Quicksort" title="Quicksort">quicksort</a>. Where quicksort partitions its input into two parts at each step, based on a single value called the pivot, samplesort instead takes a larger <a href="https://en.wikipedia.org/wiki/Sample_(statistics)" title="Sample (statistics)">sample</a> from its input and divides its data into buckets accordingly. Like quicksort, it then recursively sorts the buckets.
+</p><p>To devise a samplesort implementation, one needs to decide on the number of buckets <span class="texhtml mvar" style="font-style:italic;">p</span>. When this is done, the actual algorithm operates in three phases:<sup id="cite_ref-hill_4-0" class="reference"><a href="#cite_note-hill-4">&#91;4&#93;</a></sup>
+</p>
+<ol><li>Sample <span class="texhtml"><i>p</i>−1</span> elements from the input (the <i>splitters</i>). Sort these; each pair of adjacent splitters then defines a <i>bucket</i>.</li>
+<li>Loop over the data, placing each element in the appropriate bucket. (This may mean: send it to a processor, in a <a href="https://en.wikipedia.org/wiki/Multiprocessor" class="mw-redirect" title="Multiprocessor">multiprocessor</a> system.)</li>
+<li>Sort each of the buckets.</li></ol>
+<p>The full sorted output is the concatenation of the buckets.
+</p><p>A common strategy is to set <span class="texhtml mvar" style="font-style:italic;">p</span> equal to the number of processors available. The data is then distributed among the processors, which perform the sorting of buckets using some other, sequential, sorting algorithm.
+</p>
+<h3><span class="mw-headline" id="Pseudocode">Pseudocode</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit&amp;section=2" title="Edit section: Pseudocode">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The following listing shows the above mentioned three step algorithm as pseudocode and shows how the algorithm works in principle.<sup id="cite_ref-:0_5-0" class="reference"><a href="#cite_note-:0-5">&#91;5&#93;</a></sup> In the following, <span class="texhtml mvar" style="font-style:italic;">A</span> is the unsorted data, <span class="texhtml mvar" style="font-style:italic;">k</span> is the oversampling factor, discussed later, and <span class="texhtml mvar" style="font-style:italic;">p</span> is the number of splitters.
+</p>
+<pre><b>function</b> sampleSort(A[1..n], <span class="texhtml mvar" style="font-style:italic;">k</span>, <span class="texhtml mvar" style="font-style:italic;">p</span>)
+    // if average bucket size is below a threshold switch to e.g. quicksort
+    <b>if</b> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n/k&lt;}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mi>k</mi>
+        <mo>&lt;</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n/k&lt;}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/136f6e665d9f490f956a85e7682c152253952bbe" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.222ex; height:2.843ex;" alt="{\displaystyle n/k&lt;}"/></span> threshold <b>then</b> smallSort(A) 
+    /* Step 1 */
+    select <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle S=[S_{1},\dots ,S_{(p-1)k}]}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+        <mo>=</mo>
+        <mo stretchy="false">[</mo>
+        <msub>
+          <mi>S</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>S</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">(</mo>
+            <mi>p</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+            <mo stretchy="false">)</mo>
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">]</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S=[S_{1},\dots ,S_{(p-1)k}]}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/49ed280520f0c101c97440bf60c63194dae47b05" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.171ex; width:20.269ex; height:3.176ex;" alt="{\displaystyle S=[S_{1},\dots ,S_{(p-1)k}]}"/></span> randomly from // select samples
+    sort <span class="texhtml mvar" style="font-style:italic;">S</span> // sort sample
+    <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle [s_{0},s_{1},\dots ,s_{p-1},s_{p}]\leftarrow [-\infty ,S_{k},S_{2k},\dots ,S_{(p-1)k},\infty ]}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">[</mo>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">]</mo>
+        <mo stretchy="false">&#x2190;<!-- ← --></mo>
+        <mo stretchy="false">[</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi mathvariant="normal">&#x221E;<!-- ∞ --></mi>
+        <mo>,</mo>
+        <msub>
+          <mi>S</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>S</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>S</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">(</mo>
+            <mi>p</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+            <mo stretchy="false">)</mo>
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mi mathvariant="normal">&#x221E;<!-- ∞ --></mi>
+        <mo stretchy="false">]</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle [s_{0},s_{1},\dots ,s_{p-1},s_{p}]\leftarrow [-\infty ,S_{k},S_{2k},\dots ,S_{(p-1)k},\infty ]}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a7532bcc5c2e4eddbb65e4b413110e742277e979" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.171ex; width:51.442ex; height:3.176ex;" alt="{\displaystyle [s_{0},s_{1},\dots ,s_{p-1},s_{p}]\leftarrow [-\infty ,S_{k},S_{2k},\dots ,S_{(p-1)k},\infty ]}"/></span> // select splitters
+    /* Step 2 */
+    <b>for each</b> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle a\in A}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>a</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mi>A</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a\in A}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a97387981adb5d65f74518e20b6785a284d7abd5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.814ex; height:2.176ex;" alt="{\displaystyle a\in A}"/></span>
+        find <span class="texhtml mvar" style="font-style:italic;">j</span> such that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle s_{j-1}&lt;a\leq s_{j}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>&lt;</mo>
+        <mi>a</mi>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s_{j-1}&lt;a\leq s_{j}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3d4dcb21e9b5d460cf2f035592ba8ac87aa6e7f2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:13.528ex; height:2.676ex;" alt="{\displaystyle s_{j-1}&lt;a\leq s_{j}}"/></span>
+        place <span class="texhtml mvar" style="font-style:italic;">a</span> in bucket <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle b_{j}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>b</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle b_{j}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fa56eff4488494085785b7b0d6e2069bd45a3ce5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:1.907ex; height:2.843ex;" alt="b_{j}"/></span>
+    /* Step 3 and concatenation */
+    <b>return</b> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\texttt {concatenate}}({\texttt {sampleSort}}(b_{1}),\dots ,{\texttt {sampleSort}}(b_{k}))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext mathvariant="monospace">concatenate</mtext>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext mathvariant="monospace">sampleSort</mtext>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>b</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext mathvariant="monospace">sampleSort</mtext>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>b</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\texttt {concatenate}}({\texttt {sampleSort}}(b_{1}),\dots ,{\texttt {sampleSort}}(b_{k}))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/41b86d4385ddd24eb0956fb479def11dfd0524e7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:52.58ex; height:2.843ex;" alt="{\displaystyle {\texttt {concatenate}}({\texttt {sampleSort}}(b_{1}),\dots ,{\texttt {sampleSort}}(b_{k}))}"/></span>
+</pre>
+<p>The pseudo code is different from the original Frazer and McKellar algorithm.<sup id="cite_ref-Frazer70_3-1" class="reference"><a href="#cite_note-Frazer70-3">&#91;3&#93;</a></sup> In the pseudo code, samplesort is called recursively. Frazer and McKellar called samplesort just once and used <a href="https://en.wikipedia.org/wiki/Quicksort" title="Quicksort">quicksort</a> in all following iterations.
+</p>
+<h3><span class="mw-headline" id="Complexity">Complexity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit&amp;section=3" title="Edit section: Complexity">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The complexity, given in <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">Big O notation</a>, for a parallelized implementation with <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/81eac1e205430d1f40810df36a0edffdc367af36" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:1.259ex; height:2.009ex;" alt="p"/></span> processors:
+</p><p>Find the splitters.
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O\left({\frac {n}{p}}+\log(p)\right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mfrac>
+                <mi>n</mi>
+                <mi>p</mi>
+              </mfrac>
+            </mrow>
+            <mo>+</mo>
+            <mi>log</mi>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mo stretchy="false">(</mo>
+            <mi>p</mi>
+            <mo stretchy="false">)</mo>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O\left({\frac {n}{p}}+\log(p)\right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/eca3bf709ffac79d21136ff76d7eb8da6da89df7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:16.603ex; height:6.176ex;" alt="{\displaystyle O\left({\frac {n}{p}}+\log(p)\right)}"/></span></dd></dl>
+<p>Send to buckets.
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(p)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(p)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5510b57d11b2fccc9db45fbd935e5da525c8649a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.752ex; height:2.843ex;" alt="{\displaystyle O(p)}"/></span> for reading all nodes</dd>
+<dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(\log(p))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(\log(p))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2e6db309bda7ba2c6a83a631c558f465ffe3ab90" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.533ex; height:2.843ex;" alt="{\displaystyle O(\log(p))}"/></span> for broadcasting</dd>
+<dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O\left({\frac {n}{p}}\log(p)\right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mfrac>
+                <mi>n</mi>
+                <mi>p</mi>
+              </mfrac>
+            </mrow>
+            <mi>log</mi>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mo stretchy="false">(</mo>
+            <mi>p</mi>
+            <mo stretchy="false">)</mo>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O\left({\frac {n}{p}}\log(p)\right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d78671d66858c0198befa61e74106619fe5d5bcc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:14.15ex; height:6.176ex;" alt="{\displaystyle O\left({\frac {n}{p}}\log(p)\right)}"/></span> for binary search for all keys</dd>
+<dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O\left({\frac {n}{p}}\right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mfrac>
+              <mi>n</mi>
+              <mi>p</mi>
+            </mfrac>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O\left({\frac {n}{p}}\right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e90a29758f2a743e4924d1b704783e36ff23bdab" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:7.812ex; height:6.176ex;" alt="O\left({\frac  {n}{p}}\right)"/></span> to send keys to bucket</dd></dl>
+<p>Sort buckets. 
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O\left(c\left({\frac {n}{p}}\right)\right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mi>c</mi>
+            <mrow>
+              <mo>(</mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mfrac>
+                  <mi>n</mi>
+                  <mi>p</mi>
+                </mfrac>
+              </mrow>
+              <mo>)</mo>
+            </mrow>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O\left(c\left({\frac {n}{p}}\right)\right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/86a8c0ee6a9ee696dfc863cd6430518df6a4286e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:12.628ex; height:6.176ex;" alt="{\displaystyle O\left(c\left({\frac {n}{p}}\right)\right)}"/></span> where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle c(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>c</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle c(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/222cba36cd898cdaa8a752e7e7cb041ee5b27a3c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.211ex; height:2.843ex;" alt="{\displaystyle c(n)}"/></span> is the complexity of the underlying sequential sorting method.<sup id="cite_ref-sample_sort_tr.pdf_1-1" class="reference"><a href="#cite_note-sample_sort_tr.pdf-1">&#91;1&#93;</a></sup> Often <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle c(n)=n\log(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>c</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>n</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle c(n)=n\log(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b53e4dbe718feb84b0e2b4b8954a9c88e8c758cc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:15.267ex; height:2.843ex;" alt="{\displaystyle c(n)=n\log(n)}"/></span>.</dd></dl>
+<p>The number of comparisons, performed by this algorithm, approaches the information theoretical optimum <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \log _{2}(n!)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>log</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo>!</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \log _{2}(n!)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3302f39247461d4424e36724ad447b3236cd1d49" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.877ex; height:2.843ex;" alt="\log_2(n!)"/></span> for big input sequences. In experiments, conducted by Frazer and McKellar, the algorithm needed 15% fewer comparisons than quicksort.
+</p>
+<h2><span class="mw-headline" id="Sampling_the_data">Sampling the data</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit&amp;section=4" title="Edit section: Sampling the data">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The data may be sampled through different methods. Some methods include:
+</p>
+<ol><li>Pick evenly spaced samples.</li>
+<li>Pick randomly selected samples.</li></ol>
+<h3><span class="mw-headline" id="Oversampling">Oversampling</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit&amp;section=5" title="Edit section: Oversampling">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Oversampling" title="Oversampling">oversampling</a> ratio determines how many times more data elements to pull as samples, before determining the splitters. The goal is to get a good representation of the distribution of the data. If the data values are widely distributed, in that there are not many duplicate values, then a small sampling ratio is sufficient. In other cases where there are many duplicates in the distribution, a larger oversampling ratio will be necessary. In the ideal case, after step 2, each bucket contains <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n/p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n/p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4b40bd0a1d3c9771117157039602170561e5902f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:3.727ex; height:2.843ex;" alt="n/p"/></span> elements. In this case, no bucket takes longer to sort than the others, because all buckets are of equal size.
+</p><p>After pulling <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c3c9a2c7b599b37105512c5d570edc034056dd40" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="k"/></span> times more samples than necessary, the samples are sorted. Thereafter, the splitters used as bucket boundaries are the samples at position <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k,2k,3k,\dots ,(p-1)k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+        <mo>,</mo>
+        <mn>2</mn>
+        <mi>k</mi>
+        <mo>,</mo>
+        <mn>3</mn>
+        <mi>k</mi>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k,2k,3k,\dots ,(p-1)k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/81631e99075dab0123474e4edc82bef0747092a4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:21.397ex; height:2.843ex;" alt="{\displaystyle k,2k,3k,\dots ,(p-1)k}"/></span> of the sample sequence (together with <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle -\infty }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo>&#x2212;<!-- − --></mo>
+        <mi mathvariant="normal">&#x221E;<!-- ∞ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle -\infty }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ca2608c4b5fd3bffc73585f8c67e379b4e99b6f1" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:4.132ex; height:2.176ex;" alt="-\infty "/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \infty }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x221E;<!-- ∞ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \infty }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c26c105004f30c27aa7c2a9c601550a4183b1f21" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.324ex; height:1.676ex;" alt="\infty "/></span> as left and right boundaries for the left most and right most buckets respectively). This provides a better heuristic for good splitters than just selecting <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/81eac1e205430d1f40810df36a0edffdc367af36" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:1.259ex; height:2.009ex;" alt="p"/></span> splitters randomly.
+</p>
+<h3><span class="mw-headline" id="Bucket_size_estimate">Bucket size estimate</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit&amp;section=6" title="Edit section: Bucket size estimate">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>With the resulting sample size, the expected bucket size and especially the probability of a bucket exceeding a certain size can be estimated. The following will show that for an oversampling factor of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle S\in \Theta \left({\dfrac {\log n}{\epsilon ^{2}}}\right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mi mathvariant="normal">&#x0398;<!-- Θ --></mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mstyle displaystyle="true" scriptlevel="0">
+              <mfrac>
+                <mrow>
+                  <mi>log</mi>
+                  <mo>&#x2061;<!-- ⁡ --></mo>
+                  <mi>n</mi>
+                </mrow>
+                <msup>
+                  <mi>&#x03F5;<!-- ϵ --></mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>2</mn>
+                  </mrow>
+                </msup>
+              </mfrac>
+            </mstyle>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S\in \Theta \left({\dfrac {\log n}{\epsilon ^{2}}}\right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/297a785b2e4532ee0ccc7d35be50e20c4f9bf2cd" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:15.546ex; height:6.176ex;" alt="{\displaystyle S\in \Theta \left({\dfrac {\log n}{\epsilon ^{2}}}\right)}"/></span> the probability that no bucket has more than <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (1+\epsilon )\cdot {\dfrac {n}{p}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>+</mo>
+        <mi>&#x03F5;<!-- ϵ --></mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mstyle displaystyle="true" scriptlevel="0">
+            <mfrac>
+              <mi>n</mi>
+              <mi>p</mi>
+            </mfrac>
+          </mstyle>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (1+\epsilon )\cdot {\dfrac {n}{p}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0467d5e70aa9c9023a2acfdbafc325b375ec8ae9" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.338ex; width:10.666ex; height:5.176ex;" alt="{\displaystyle (1+\epsilon )\cdot {\dfrac {n}{p}}}"/></span> elements is larger than <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 1-{\dfrac {1}{n}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>1</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mstyle displaystyle="true" scriptlevel="0">
+            <mfrac>
+              <mn>1</mn>
+              <mi>n</mi>
+            </mfrac>
+          </mstyle>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 1-{\dfrac {1}{n}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c3bf3af45f0c9452fe8ce4c5fd0a180a3b661deb" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:6.234ex; height:5.176ex;" alt="{\displaystyle 1-{\dfrac {1}{n}}}"/></span>.
+</p><p>To show this let <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \langle e_{1},\dots ,e_{n}\rangle }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">&#x27E8;<!-- ⟨ --></mo>
+        <msub>
+          <mi>e</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>e</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo fence="false" stretchy="false">&#x27E9;<!-- ⟩ --></mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \langle e_{1},\dots ,e_{n}\rangle }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8ba3cd1d1a9a6fdfdb538cc0a4a0d94f7ab1ad04" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:11.427ex; height:2.843ex;" alt="{\displaystyle \langle e_{1},\dots ,e_{n}\rangle }"/></span> be the input as a sorted sequence. For a processor to get more than <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (1+\epsilon )\cdot n/p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>+</mo>
+        <mi>&#x03F5;<!-- ϵ --></mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mi>n</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (1+\epsilon )\cdot n/p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/965b683556428d06435dd452d674a60cb8cca40d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:12.162ex; height:2.843ex;" alt="{\displaystyle (1+\epsilon )\cdot n/p}"/></span> elements, there has to exist a subsequence of the input of length <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (1+\epsilon )\cdot n/p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>+</mo>
+        <mi>&#x03F5;<!-- ϵ --></mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mi>n</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (1+\epsilon )\cdot n/p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/965b683556428d06435dd452d674a60cb8cca40d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:12.162ex; height:2.843ex;" alt="{\displaystyle (1+\epsilon )\cdot n/p}"/></span>, of which a maximum of <span class="texhtml mvar" style="font-style:italic;">S</span> samples are picked. These cases constitute the probability <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle P_{\text{fail}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>P</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>fail</mtext>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle P_{\text{fail}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/64408c770c8f679ff5bd7070af52c57426642e6e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:3.965ex; height:2.509ex;" alt="{\displaystyle P_{\text{fail}}}"/></span>. This can be represented as the random variable:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X_{i}:={\begin{cases}1,&amp;{\text{if }}s_{i}\in \left\langle e_{j},\dots ,e_{j}+(1+\epsilon )\cdot {\dfrac {n}{p}}\right\rangle \\0,&amp;{\text{otherwise}}\end{cases}},X:=\sum _{i=0}^{S\cdot p-1}X_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>:=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mo>{</mo>
+            <mtable columnalign="left left" rowspacing=".2em" columnspacing="1em" displaystyle="false">
+              <mtr>
+                <mtd>
+                  <mn>1</mn>
+                  <mo>,</mo>
+                </mtd>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>if&#xA0;</mtext>
+                  </mrow>
+                  <msub>
+                    <mi>s</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mi>i</mi>
+                    </mrow>
+                  </msub>
+                  <mo>&#x2208;<!-- ∈ --></mo>
+                  <mrow>
+                    <mo>&#x27E8;</mo>
+                    <mrow>
+                      <msub>
+                        <mi>e</mi>
+                        <mrow class="MJX-TeXAtom-ORD">
+                          <mi>j</mi>
+                        </mrow>
+                      </msub>
+                      <mo>,</mo>
+                      <mo>&#x2026;<!-- … --></mo>
+                      <mo>,</mo>
+                      <msub>
+                        <mi>e</mi>
+                        <mrow class="MJX-TeXAtom-ORD">
+                          <mi>j</mi>
+                        </mrow>
+                      </msub>
+                      <mo>+</mo>
+                      <mo stretchy="false">(</mo>
+                      <mn>1</mn>
+                      <mo>+</mo>
+                      <mi>&#x03F5;<!-- ϵ --></mi>
+                      <mo stretchy="false">)</mo>
+                      <mo>&#x22C5;<!-- ⋅ --></mo>
+                      <mrow class="MJX-TeXAtom-ORD">
+                        <mstyle displaystyle="true" scriptlevel="0">
+                          <mfrac>
+                            <mi>n</mi>
+                            <mi>p</mi>
+                          </mfrac>
+                        </mstyle>
+                      </mrow>
+                    </mrow>
+                    <mo>&#x27E9;</mo>
+                  </mrow>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mn>0</mn>
+                  <mo>,</mo>
+                </mtd>
+                <mtd>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mtext>otherwise</mtext>
+                  </mrow>
+                </mtd>
+              </mtr>
+            </mtable>
+            <mo fence="true" stretchy="true" symmetric="true"></mo>
+          </mrow>
+        </mrow>
+        <mo>,</mo>
+        <mi>X</mi>
+        <mo>:=</mo>
+        <munderover>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>=</mo>
+            <mn>0</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>S</mi>
+            <mo>&#x22C5;<!-- ⋅ --></mo>
+            <mi>p</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </munderover>
+        <msub>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X_{i}:={\begin{cases}1,&amp;{\text{if }}s_{i}\in \left\langle e_{j},\dots ,e_{j}+(1+\epsilon )\cdot {\dfrac {n}{p}}\right\rangle \\0,&amp;{\text{otherwise}}\end{cases}},X:=\sum _{i=0}^{S\cdot p-1}X_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6303109caca0a8dffeb2d736045de8eec05113b8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.838ex; width:60.561ex; height:8.843ex;" alt="{\displaystyle X_{i}:={\begin{cases}1,&amp;{\text{if }}s_{i}\in \left\langle e_{j},\dots ,e_{j}+(1+\epsilon )\cdot {\dfrac {n}{p}}\right\rangle \\0,&amp;{\text{otherwise}}\end{cases}},X:=\sum _{i=0}^{S\cdot p-1}X_{i}}"/></span></dd></dl>
+<p>For the expected value of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/af4a0955af42beb5f85aa05fb8c07abedc13990d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.724ex; height:2.509ex;" alt="X_{i}"/></span> holds:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle E(X_{i})=P(X_{i}=1)={\dfrac {1+\epsilon }{p}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>E</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>P</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mstyle displaystyle="true" scriptlevel="0">
+            <mfrac>
+              <mrow>
+                <mn>1</mn>
+                <mo>+</mo>
+                <mi>&#x03F5;<!-- ϵ --></mi>
+              </mrow>
+              <mi>p</mi>
+            </mfrac>
+          </mstyle>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle E(X_{i})=P(X_{i}=1)={\dfrac {1+\epsilon }{p}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1b43a4cc56f13151761d0f0bc9a07d22ddd2aff7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.338ex; width:28.828ex; height:5.676ex;" alt="{\displaystyle E(X_{i})=P(X_{i}=1)={\dfrac {1+\epsilon }{p}}}"/></span></dd></dl>
+<p>This will be used to estimate <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle P_{fail}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>P</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>f</mi>
+            <mi>a</mi>
+            <mi>i</mi>
+            <mi>l</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle P_{fail}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f8ab80a7a8564605a78c0c6eb9185563c18ed20e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:4.556ex; height:2.843ex;" alt="{\displaystyle P_{fail}}"/></span>:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle P(X&lt;S)\approx P(X&lt;(1-\epsilon ^{2})S)=P(X&lt;(1-\epsilon )E(X))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>P</mi>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo>&lt;</mo>
+        <mi>S</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2248;<!-- ≈ --></mo>
+        <mi>P</mi>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo>&lt;</mo>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <msup>
+          <mi>&#x03F5;<!-- ϵ --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mi>S</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>P</mi>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo>&lt;</mo>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>&#x03F5;<!-- ϵ --></mi>
+        <mo stretchy="false">)</mo>
+        <mi>E</mi>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle P(X&lt;S)\approx P(X&lt;(1-\epsilon ^{2})S)=P(X&lt;(1-\epsilon )E(X))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/25bb022d1853459091aab1653d9ce339c32f6d90" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:55.227ex; height:3.176ex;" alt="{\displaystyle P(X&lt;S)\approx P(X&lt;(1-\epsilon ^{2})S)=P(X&lt;(1-\epsilon )E(X))}"/></span></dd></dl>
+<p>Using the <a href="https://en.wikipedia.org/wiki/Chernoff_bound" title="Chernoff bound">chernoff bound</a> now, it can be shown:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle P_{\text{fail}}=n\cdot P(X&lt;S)\leq n\cdot \exp \left({\dfrac {-\epsilon ^{2}\cdot S}{2}}\right)\leq n\cdot {\dfrac {1}{n^{2}}}{\text{ for }}S\geq {\dfrac {4}{\epsilon ^{2}}}\ln n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>P</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>fail</mtext>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>n</mi>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mi>P</mi>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo>&lt;</mo>
+        <mi>S</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mi>n</mi>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mi>exp</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mrow>
+          <mo>(</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mstyle displaystyle="true" scriptlevel="0">
+              <mfrac>
+                <mrow>
+                  <mo>&#x2212;<!-- − --></mo>
+                  <msup>
+                    <mi>&#x03F5;<!-- ϵ --></mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>2</mn>
+                    </mrow>
+                  </msup>
+                  <mo>&#x22C5;<!-- ⋅ --></mo>
+                  <mi>S</mi>
+                </mrow>
+                <mn>2</mn>
+              </mfrac>
+            </mstyle>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mi>n</mi>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mstyle displaystyle="true" scriptlevel="0">
+            <mfrac>
+              <mn>1</mn>
+              <msup>
+                <mi>n</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+            </mfrac>
+          </mstyle>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>&#xA0;for&#xA0;</mtext>
+        </mrow>
+        <mi>S</mi>
+        <mo>&#x2265;<!-- ≥ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mstyle displaystyle="true" scriptlevel="0">
+            <mfrac>
+              <mn>4</mn>
+              <msup>
+                <mi>&#x03F5;<!-- ϵ --></mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msup>
+            </mfrac>
+          </mstyle>
+        </mrow>
+        <mi>ln</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle P_{\text{fail}}=n\cdot P(X&lt;S)\leq n\cdot \exp \left({\dfrac {-\epsilon ^{2}\cdot S}{2}}\right)\leq n\cdot {\dfrac {1}{n^{2}}}{\text{ for }}S\geq {\dfrac {4}{\epsilon ^{2}}}\ln n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a32b9418e6b3e55abff5bbb258f708b02b078065" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:66.181ex; height:6.343ex;" alt="{\displaystyle P_{\text{fail}}=n\cdot P(X&lt;S)\leq n\cdot \exp \left({\dfrac {-\epsilon ^{2}\cdot S}{2}}\right)\leq n\cdot {\dfrac {1}{n^{2}}}{\text{ for }}S\geq {\dfrac {4}{\epsilon ^{2}}}\ln n}"/></span></dd></dl>
+<h2><span class="mw-headline" id="Many_identical_keys">Many identical keys</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit&amp;section=7" title="Edit section: Many identical keys">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In case of many identical keys, the algorithm goes through many recursion levels where sequences are sorted, because the whole sequence consists of identical keys. This can be counteracted by introducing equality buckets. Elements equal to a pivot are sorted into their respective equality bucket, which can be implemented with only one additional conditional branch. Equality buckets are not further sorted. This works, since keys occurring more than <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n/k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n/k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/761557c05efc5c1109da15c578dc9df4a7a32790" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:3.768ex; height:2.843ex;" alt="n/k"/></span> times are likely to become pivots.
+</p>
+<h2><span class="mw-headline" id="Uses_in_parallel_systems">Uses in parallel systems</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit&amp;section=8" title="Edit section: Uses in parallel systems">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Parallelersamplesort.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Parallelersamplesort.svg/220px-Parallelersamplesort.svg.png" decoding="async" width="220" height="244" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Parallelersamplesort.svg/330px-Parallelersamplesort.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Parallelersamplesort.svg/440px-Parallelersamplesort.svg.png 2x" data-file-width="3189" data-file-height="3543" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Parallelersamplesort.svg" class="internal" title="Enlarge"></a></div>Example of parallel Samplesort on <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle p=3}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+        <mo>=</mo>
+        <mn>3</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p=3}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b37be793795be56f61768c16dd72a1db0569fb14" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:5.52ex; height:2.509ex;" alt="p=3"/></span> processors and an oversampling factor of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k=3}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+        <mo>=</mo>
+        <mn>3</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k=3}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/662e06a2436f8a44fec791f5c794621f10dc8f30" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.472ex; height:2.176ex;" alt="k=3"/></span>.</div></div></div>
+<p>Samplesort is often used in parallel systems, including <a href="https://en.wikipedia.org/wiki/Distributed_computing" title="Distributed computing">distributed systems</a> such as <a href="https://en.wikipedia.org/wiki/Bulk_synchronous_parallel" title="Bulk synchronous parallel">bulk synchronous parallel</a> machines.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup><sup id="cite_ref-hill_4-1" class="reference"><a href="#cite_note-hill-4">&#91;4&#93;</a></sup><sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup> Due to the variable amount of splitters (in contrast to only one pivot in <a href="https://en.wikipedia.org/wiki/Quicksort" title="Quicksort">Quicksort</a>), Samplesort is very well suited and intuitive for parallelization and scaling. Furthermore Samplesort is also more cache-efficient than implementations of e.g. quicksort.
+</p><p>Parallelization is implemented by splitting the sorting for each processor or node, where the number of buckets is equal to the number of processors <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/81eac1e205430d1f40810df36a0edffdc367af36" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:1.259ex; height:2.009ex;" alt="p"/></span>. Samplesort is efficient in parallel systems because each processor receives approximately the same bucket size <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n/p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n/p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4b40bd0a1d3c9771117157039602170561e5902f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:3.727ex; height:2.843ex;" alt="n/p"/></span>. Since the buckets are sorted concurrently, the processors will complete the sorting at approximately the same time, thus not having a processor wait for others.
+</p><p>On <a href="https://en.wikipedia.org/wiki/Distributed_systems" class="mw-redirect" title="Distributed systems">distributed systems</a>, the splitters are chosen by taking <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c3c9a2c7b599b37105512c5d570edc034056dd40" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="k"/></span> elements on each processor, sorting the resulting <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle kp}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle kp}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7c96e725f84cb7e2fb89a5eb48164a5025369451" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.381ex; height:2.509ex;" alt="kp"/></span> elements with a distributed sorting algorithm, taking every <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c3c9a2c7b599b37105512c5d570edc034056dd40" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="k"/></span>-th element and broadcasting the result to all processors. This costs <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle T_{\text{sort}}(kp,p)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>T</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>sort</mtext>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>k</mi>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mi>p</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T_{\text{sort}}(kp,p)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3edd89ac01e612d95d50b9731e44ef12e804133d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.737ex; height:2.843ex;" alt="{\displaystyle T_{\text{sort}}(kp,p)}"/></span> for sorting the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle kp}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle kp}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7c96e725f84cb7e2fb89a5eb48164a5025369451" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.381ex; height:2.509ex;" alt="kp"/></span> elements on <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/81eac1e205430d1f40810df36a0edffdc367af36" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:1.259ex; height:2.009ex;" alt="p"/></span> processors, as well as  <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle T_{\text{allgather}}(p,p)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>T</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>allgather</mtext>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>,</mo>
+        <mi>p</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T_{\text{allgather}}(p,p)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/abdf8520d909bc5a4852408c070e1855c4a14ee5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:13.081ex; height:3.009ex;" alt="{\displaystyle T_{\text{allgather}}(p,p)}"/></span> for distributing the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/81eac1e205430d1f40810df36a0edffdc367af36" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:1.259ex; height:2.009ex;" alt="p"/></span> chosen splitters to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/81eac1e205430d1f40810df36a0edffdc367af36" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:1.259ex; height:2.009ex;" alt="p"/></span> processors.
+</p><p>With the resulting splitters, each processor places its own input data into local buckets. This takes <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathcal {O}}(n/p\log p)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">O</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mi>p</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>p</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {O}}(n/p\log p)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e902ff57dfdfa7e26a2df05968bf2b1355f1155d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:12.301ex; height:2.843ex;" alt="{\displaystyle {\mathcal {O}}(n/p\log p)}"/></span> with <a href="https://en.wikipedia.org/wiki/Binary_search" class="mw-redirect" title="Binary search">binary search</a>. Thereafter, the local buckets are redistributed to the processors. Processor <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle i}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>i</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle i}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/add78d8608ad86e54951b8c8bd6c8d8416533d20" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:0.802ex; height:2.176ex;" alt="i"/></span> gets the local buckets <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle b_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>b</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle b_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/40a8c2db2990a53c683e75961826167c5adac7c3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.797ex; height:2.509ex;" alt="b_{i}"/></span> of all other processors and sorts these locally. The distribution takes <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle T_{\text{all-to-all}}(N,p)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>T</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>all-to-all</mtext>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>N</mi>
+        <mo>,</mo>
+        <mi>p</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T_{\text{all-to-all}}(N,p)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9e4228ac2f172ebf934253edb35fc73d1c6d0032" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:13.697ex; height:2.843ex;" alt="{\displaystyle T_{\text{all-to-all}}(N,p)}"/></span> time, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle N}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>N</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle N}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5e3890c981ae85503089652feb48b191b57aae3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.064ex; height:2.176ex;" alt="N"/></span> is the size of the biggest bucket. The local sorting takes <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle T_{\text{localsort}}(N)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>T</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext>localsort</mtext>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>N</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T_{\text{localsort}}(N)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2a8ede52d6e08e994acd6ce0d330d296a964a7d6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:11.506ex; height:2.843ex;" alt="{\displaystyle T_{\text{localsort}}(N)}"/></span>.
+</p><p>Experiments performed in the early 1990s on <a href="https://en.wikipedia.org/wiki/Connection_Machine" title="Connection Machine">Connection Machine</a> supercomputers showed samplesort to be particularly good at sorting large datasets on these machines, because its incurs little interprocessor communication overhead.<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup> On latter-day <a href="https://en.wikipedia.org/wiki/GPGPU" class="mw-redirect" title="GPGPU">GPUs</a>, the algorithm may be less effective than its alternatives.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">&#91;9&#93;</a></sup><sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="The data are outdated in this paper since both GPU and CPU versions are much more efficient nowadays. (January 2018)">citation needed</span></a></i>&#93;</sup>
+</p>
+<h2><span class="mw-headline" id="Efficient_Implementation_of_Samplesort">Efficient Implementation of Samplesort</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit&amp;section=9" title="Edit section: Efficient Implementation of Samplesort">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Animation.png" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Animation.png/220px-Animation.png" decoding="async" width="220" height="159" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Animation.png/330px-Animation.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Animation.png/440px-Animation.png 2x" data-file-width="500" data-file-height="362" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Animation.png" class="internal" title="Enlarge"></a></div>Animated example of Super Scalar Samplesort. In each step, numbers that are compared are marked blue and numbers that are otherwise read or written are marked red.</div></div></div>
+<p>As described above, the samplesort algorithm splits the elements according to the selected splitters. An efficient implementation strategy is proposed in the paper "Super Scalar Sample Sort".<sup id="cite_ref-:0_5-1" class="reference"><a href="#cite_note-:0-5">&#91;5&#93;</a></sup> The implementation proposed in the paper uses two arrays of size <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> (the original array containing the input data and a temporary one) for an efficient implementation. Hence, this version of the implementation is not an in-place algorithm.
+</p><p>In each recursion step, the data gets copied to the other array in a partitioned fashion. If the data is in the temporary array in the last recursion step, then the data is copied back to the original array.
+</p>
+<h3><span class="mw-headline" id="Determining_buckets">Determining buckets</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit&amp;section=10" title="Edit section: Determining buckets">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In a comparison based sorting algorithm the comparison operation is the most performance critical part. In Samplesort this corresponds to determining the bucket for each element. This needs <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \log k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \log k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b6da5ed161853319a3a48f3c479cd0339bc5bded" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:4.57ex; height:2.509ex;" alt="\log k"/></span> time for each element.
+</p><p>Super Scalar Sample Sort uses a balanced search tree which is implicitly stored in an array <span class="texhtml mvar" style="font-style:italic;">t</span>. The root is stored at 0, the left successor of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle t_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>t</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle t_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8b61e3d4d909be4a19c9a554a301684232f59e5a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.639ex; height:2.343ex;" alt="t_{i}"/></span> is stored at <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle t_{2i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>t</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle t_{2i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cde6d0959afca40efe9cd4d4eff0ef8f39ab0763" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.461ex; height:2.343ex;" alt="{\displaystyle t_{2i}}"/></span> and the right successor is stored at <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle t_{2i+1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>t</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+            <mi>i</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle t_{2i+1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f6ba82fd56f4a1ea43bd99214a0fa7149d8dd5a2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:4.562ex; height:2.343ex;" alt="{\displaystyle t_{2i+1}}"/></span>. Given the search tree <span class="texhtml mvar" style="font-style:italic;">t</span>, the algorithm calculates the bucket number <span class="texhtml mvar" style="font-style:italic;">j</span> of element <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle a_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0bc77764b2e74e64a63341054fa90f3e07db275f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.029ex; height:2.009ex;" alt="a_{i}"/></span> as follows (assuming <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle a_{i}&gt;t_{j}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>&gt;</mo>
+        <msub>
+          <mi>t</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a_{i}&gt;t_{j}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/18ed37608397ada17566cdb6f395d26948b07cb8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:6.877ex; height:2.676ex;" alt="{\displaystyle a_{i}&gt;t_{j}}"/></span> evaluates to 1 if it is <i>true</i> and 0 otherwise):
+</p>
+<pre><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle j\leftarrow 1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>j</mi>
+        <mo stretchy="false">&#x2190;<!-- ← --></mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle j\leftarrow 1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a201d50e7afb971fd2b4bbcca67ec7e84238a446" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.027ex; width:5.761ex; height:2.509ex;" alt="{\displaystyle j\leftarrow 1}"/></span>
+<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\texttt {repeat}}\log _{2}p\ {\texttt {times}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext mathvariant="monospace">repeat</mtext>
+          </mrow>
+        </mrow>
+        <msub>
+          <mi>log</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>p</mi>
+        <mtext>&#xA0;</mtext>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mtext mathvariant="monospace">times</mtext>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\texttt {repeat}}\log _{2}p\ {\texttt {times}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0046abbc5325766411502241f02048ec57aec5c8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:19.976ex; height:2.676ex;" alt="{\displaystyle {\texttt {repeat}}\log _{2}p\ {\texttt {times}}}"/></span>
+    <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle j\leftarrow 2j+(a&gt;t_{j})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>j</mi>
+        <mo stretchy="false">&#x2190;<!-- ← --></mo>
+        <mn>2</mn>
+        <mi>j</mi>
+        <mo>+</mo>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>&gt;</mo>
+        <msub>
+          <mi>t</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle j\leftarrow 2j+(a&gt;t_{j})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6e8fafb27782ba2f76c70f5ee9daf3286e3dd7b4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; margin-left: -0.027ex; width:17.447ex; height:3.009ex;" alt="{\displaystyle j\leftarrow 2j+(a&gt;t_{j})}"/></span>
+<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle j\leftarrow j-p+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>j</mi>
+        <mo stretchy="false">&#x2190;<!-- ← --></mo>
+        <mi>j</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>p</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle j\leftarrow j-p+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9ecb91722e0355e6c3f5e7f1ed8e158810dcafe7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.027ex; width:13.57ex; height:2.509ex;" alt="{\displaystyle j\leftarrow j-p+1}"/></span>
+</pre>
+<p>Since the number of buckets <span class="texhtml mvar" style="font-style:italic;">k</span> is known at compile time, this loop can be <a href="https://en.wikipedia.org/wiki/Loop_unrolling" title="Loop unrolling">unrolled</a> by the compiler. The comparison operation is implemented with <a href="https://en.wikipedia.org/wiki/Predication_(computer_architecture)" title="Predication (computer architecture)">predicated instructions</a>. Thus, there occur no <a href="https://en.wikipedia.org/wiki/Branch_misprediction" class="mw-redirect" title="Branch misprediction">branch mispredictions</a>, which would slow down the comparison operation significantly.
+</p>
+<h3><span class="mw-headline" id="Partitioning">Partitioning</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit&amp;section=11" title="Edit section: Partitioning">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>For an efficient partitioning of the elements, the algorithm needs to know the sizes of the buckets in advance. To partition the elements of the sequence and put them into the array, we need to know the size of the buckets in advance. A naive algorithm could count the number of elements of each bucket. Then the elements could be inserted to the other array at the right place. Using this, one has to determine the bucket for each elements twice (one time for counting the number of elements in a bucket, and one time for inserting them).
+</p><p>To avoid this doubling of comparisons, Super Scalar Sample Sort uses an additional array <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle o}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>o</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle o}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0c1031f61947aa3d1cf3a70ec3e4904df2c3675d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.128ex; height:1.676ex;" alt="o"/></span> (called oracle) which assigns each index of the elements to a bucket. First, the algorithm determines the contents of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle o}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>o</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle o}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0c1031f61947aa3d1cf3a70ec3e4904df2c3675d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.128ex; height:1.676ex;" alt="o"/></span> by determining the bucket for each element and the bucket sizes, and then placing the elements into the bucket determined by <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle o}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>o</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle o}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0c1031f61947aa3d1cf3a70ec3e4904df2c3675d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.128ex; height:1.676ex;" alt="o"/></span>. The array <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle o}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>o</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle o}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0c1031f61947aa3d1cf3a70ec3e4904df2c3675d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.128ex; height:1.676ex;" alt="o"/></span> also incurs cost in storage space, but as it only needs to store <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n\cdot \log k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n\cdot \log k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6b8b4295abc0e03a28c4e6aff775f8ecf0ece4fb" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:7.644ex; height:2.509ex;" alt="{\displaystyle n\cdot \log k}"/></span> bits, these cost are small compared to the space of the input array.
+</p>
+<h2><span class="mw-headline" id="In-place_samplesort">In-place samplesort</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit&amp;section=12" title="Edit section: In-place samplesort">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A key disadvantage of the efficient Samplesort implementation shown above is that it is not in-place and requires a second temporary array of the same size as the input sequence during sorting. Efficient implementations of e.g. quicksort are in-place and thus more space efficient. However, Samplesort can be implemented in-place as well.<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">&#91;10&#93;</a></sup>
+</p><p>The in-place algorithm is separated into four phases:
+</p>
+<ol><li><b>Sampling</b> which is equivalent to the sampling in the above mentioned efficient implementation.</li>
+<li><b>Local Classification</b> on each processor, which groups the input into blocks such that all elements in each block belong to the same bucket, but buckets are not necessarily continuous in memory.</li>
+<li><b>Block permutation</b> brings the blocks into the globally correct order.</li>
+<li><b>Cleanup</b> moves some elements on the edges of the buckets.</li></ol>
+<p>One obvious disadvantage of this algorithm is that it reads and writes every element twice, once in the classification phase and once in the block permutation phase. However, the algorithm performs up to three times faster than other state of the art in-place competitors and up to 1.5 times faster than other state of the art sequential competitors. As sampling was already discussed above, the three later stages will be further detailed in the following.
+</p>
+<h3><span class="mw-headline" id="Local_classification">Local classification</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit&amp;section=13" title="Edit section: Local classification">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In a first step, the input array is split up into <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/81eac1e205430d1f40810df36a0edffdc367af36" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:1.259ex; height:2.009ex;" alt="p"/></span> stripes of blocks of equal size, one for each processor. Each processor additionally allocates <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c3c9a2c7b599b37105512c5d570edc034056dd40" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="k"/></span> buffers that are of equal size to the blocks, one for each bucket. Thereafter, each processor scans its stripe and moves the elements into the buffer of the according bucket. If a buffer is full, the buffer is written into the processors stripe, beginning at the front. There is always at least one buffer size of empty memory, because for a buffer to be written (i.e. buffer is full), at least a whole buffer size of elements more than elements written back had to be scanned. Thus, every full block contains elements of the same bucket. While scanning, the size of each bucket is kept track of.
+</p>
+<h3><span class="mw-headline" id="Block_permutation">Block permutation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit&amp;section=14" title="Edit section: Block permutation">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Firstly, a prefix sum operation is performed that calculates the boundaries of the buckets. However, since only full blocks are moved in this phase, the boundaries are rounded up to a multiple of the block size and a single overflow buffer is allocated. Before starting the block permutation, some empty blocks might have to be moved to the end of its bucket. Thereafter, a write pointer <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle w_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fe22f0329d3ecb2e1880d44d191aba0e5475db68" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.464ex; height:2.009ex;" alt="w_{i}"/></span> is set to the start of the bucket <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle b_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>b</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle b_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/40a8c2db2990a53c683e75961826167c5adac7c3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.797ex; height:2.509ex;" alt="b_{i}"/></span> subarray for each bucket and a read pointer <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a0b6d651eaf432dbf1f106021c8bb499ae83fd1f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.848ex; height:2.009ex;" alt="r_{i}"/></span> is set to the last non empty block in the bucket <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle b_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>b</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle b_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/40a8c2db2990a53c683e75961826167c5adac7c3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.797ex; height:2.509ex;" alt="b_{i}"/></span> subarray for each bucket.
+</p><p>To limit work contention, each processor is assigned a different primary bucket <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle b_{prim}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>b</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+            <mi>r</mi>
+            <mi>i</mi>
+            <mi>m</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle b_{prim}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7a7dc37f6104428d18f36ec790b00946b9e72473" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:4.808ex; height:2.843ex;" alt="{\displaystyle b_{prim}}"/></span> and two swap buffers that can each hold a block. In each step, if both swap buffers are empty, the processor decrements the read pointer <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r_{prim}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+            <mi>r</mi>
+            <mi>i</mi>
+            <mi>m</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r_{prim}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/688194b40dbf579c17334a0191809f80f485a5aa" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:4.86ex; height:2.343ex;" alt="{\displaystyle r_{prim}}"/></span> of its primary bucket and reads the block at <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r_{prim-1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+            <mi>r</mi>
+            <mi>i</mi>
+            <mi>m</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r_{prim-1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/25594820ef0fd616a231c9afe2c455f36c58d0b0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:6.96ex; height:2.343ex;" alt="{\displaystyle r_{prim-1}}"/></span> and places it in one of its swap buffers. After determining the destination bucket <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle b_{dest}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>b</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>d</mi>
+            <mi>e</mi>
+            <mi>s</mi>
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle b_{dest}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1f0b8c90fc330d3202dac0d4642927a74981ad36" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:4.22ex; height:2.509ex;" alt="{\displaystyle b_{dest}}"/></span> of the block by classifying the first element of the block, it increases the write pointer <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle w_{dest}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>d</mi>
+            <mi>e</mi>
+            <mi>s</mi>
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w_{dest}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2005205ace6f26412a547f64d4f45612a4aac419" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:4.887ex; height:2.009ex;" alt="{\displaystyle w_{dest}}"/></span>, reads the block at <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle w_{dest-1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>d</mi>
+            <mi>e</mi>
+            <mi>s</mi>
+            <mi>t</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w_{dest-1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/527fe8c0e57b2f563f283f8121a99d2e83c75e6f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:6.988ex; height:2.009ex;" alt="{\displaystyle w_{dest-1}}"/></span> into the other swap buffer and writes the block into its destination bucket. If <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle w_{dest}&gt;r_{dest}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>d</mi>
+            <mi>e</mi>
+            <mi>s</mi>
+            <mi>t</mi>
+          </mrow>
+        </msub>
+        <mo>&gt;</mo>
+        <msub>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>d</mi>
+            <mi>e</mi>
+            <mi>s</mi>
+            <mi>t</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w_{dest}&gt;r_{dest}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a6dc2c2217303f0b9abed10e65640fc0ebf3ef9a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:12.257ex; height:2.176ex;" alt="{\displaystyle w_{dest}&gt;r_{dest}}"/></span>, the swap buffers are empty again. Otherwise the block remaining in the swap buffers has to be inserted into its destination bucket.
+</p><p>If all blocks in the subarray of the primary bucket of a processor are in the correct bucket, the next bucket is chosen as the primary bucket. If a processor chose all buckets as primary bucket once, the processor is finished.
+</p>
+<h3><span class="mw-headline" id="Cleanup">Cleanup</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit&amp;section=15" title="Edit section: Cleanup">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Since only whole blocks were moved in the block permutation phase, some elements might still be incorrectly placed around the bucket boundaries. Since there has to be enough space in the array for each element, those incorrectly placed elements can be moved to empty spaces from left to right, lastly considering the overflow buffer.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit&amp;section=16" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Flashsort" title="Flashsort">Flashsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quicksort" title="Quicksort">Quicksort</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit&amp;section=17" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-sample_sort_tr.pdf-1"><span class="mw-cite-backlink">^ <a href="#cite_ref-sample_sort_tr.pdf_1-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-sample_sort_tr.pdf_1-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.cra.org/Activities/craw_archive/dmp/awards/2007/Berlin/jberlin/sample_sort_tr.pdf">"Samplesort using the Standard Template Adaptive Parallel Library"</a> <span class="cs1-format">(PDF)</span> (Technical report). Texas A&amp;M University.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Samplesort+using+the+Standard+Template+Adaptive+Parallel+Library&amp;rft.pub=Texas+A%26M+University&amp;rft_id=http%3A%2F%2Fwww.cra.org%2FActivities%2Fcraw_archive%2Fdmp%2Fawards%2F2007%2FBerlin%2Fjberlin%2Fsample_sort_tr.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASamplesort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGramaKarypisKumar2003" class="citation book cs1">Grama, Ananth; Karypis, George; Kumar, Vipin (2003). <a rel="nofollow" class="external text" href="http://parallelcomp.uw.hu/ch09lev1sec5.html">"9.5 Bucket and Sample Sort"</a>. <i>Introduction to Parallel Computing</i> (2nd&#160;ed.). <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-201-64865-2" title="Special:BookSources/0-201-64865-2"><bdi>0-201-64865-2</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=9.5+Bucket+and+Sample+Sort&amp;rft.btitle=Introduction+to+Parallel+Computing&amp;rft.edition=2nd&amp;rft.date=2003&amp;rft.isbn=0-201-64865-2&amp;rft.aulast=Grama&amp;rft.aufirst=Ananth&amp;rft.au=Karypis%2C+George&amp;rft.au=Kumar%2C+Vipin&amp;rft_id=http%3A%2F%2Fparallelcomp.uw.hu%2Fch09lev1sec5.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASamplesort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Frazer70-3"><span class="mw-cite-backlink">^ <a href="#cite_ref-Frazer70_3-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Frazer70_3-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFFrazerMcKellar1970" class="citation journal cs1">Frazer, W. D.; McKellar, A. C. (1970-07-01). "Samplesort: A Sampling Approach to Minimal Storage Tree Sorting". <i>Journal of the ACM</i>. <b>17</b> (3): 496–507. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F321592.321600">10.1145/321592.321600</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+the+ACM&amp;rft.atitle=Samplesort%3A+A+Sampling+Approach+to+Minimal+Storage+Tree+Sorting&amp;rft.volume=17&amp;rft.issue=3&amp;rft.pages=496-507&amp;rft.date=1970-07-01&amp;rft_id=info%3Adoi%2F10.1145%2F321592.321600&amp;rft.aulast=Frazer&amp;rft.aufirst=W.+D.&amp;rft.au=McKellar%2C+A.+C.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASamplesort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-hill-4"><span class="mw-cite-backlink">^ <a href="#cite_ref-hill_4-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-hill_4-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHillMcCollStefanescuGoudreau1998" class="citation journal cs1">Hill, Jonathan M. D.; McColl, Bill; Stefanescu, Dan C.; Goudreau, Mark W.; Lang, Kevin; Rao, Satish B.; Suel, Torsten; Tsantilas, Thanasis; Bisseling, Rob H. (1998). "BSPlib: The BSP Programming Library". <i>Parallel Computing</i>. <b>24</b> (14): 1947–1980. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.48.1862">10.1.1.48.1862</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2FS0167-8191(98)00093-3">10.1016/S0167-8191(98)00093-3</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Parallel+Computing&amp;rft.atitle=BSPlib%3A+The+BSP+Programming+Library&amp;rft.volume=24&amp;rft.issue=14&amp;rft.pages=1947-1980&amp;rft.date=1998&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.48.1862%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1016%2FS0167-8191%2898%2900093-3&amp;rft.aulast=Hill&amp;rft.aufirst=Jonathan+M.+D.&amp;rft.au=McColl%2C+Bill&amp;rft.au=Stefanescu%2C+Dan+C.&amp;rft.au=Goudreau%2C+Mark+W.&amp;rft.au=Lang%2C+Kevin&amp;rft.au=Rao%2C+Satish+B.&amp;rft.au=Suel%2C+Torsten&amp;rft.au=Tsantilas%2C+Thanasis&amp;rft.au=Bisseling%2C+Rob+H.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASamplesort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-:0-5"><span class="mw-cite-backlink">^ <a href="#cite_ref-:0_5-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-:0_5-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSandersWinkel2004" class="citation book cs1">Sanders, Peter; Winkel, Sebastian (2004-09-14). <i>Super Scalar Sample Sort</i>. <i>Algorithms - ESA 2004</i>. Lecture Notes in Computer Science. Vol.&#160;3221. pp.&#160;784–796. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.68.9881">10.1.1.68.9881</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-3-540-30140-0_69">10.1007/978-3-540-30140-0_69</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-3-540-23025-0" title="Special:BookSources/978-3-540-23025-0"><bdi>978-3-540-23025-0</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Super+Scalar+Sample+Sort&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=784-796&amp;rft.date=2004-09-14&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.68.9881%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-540-30140-0_69&amp;rft.isbn=978-3-540-23025-0&amp;rft.aulast=Sanders&amp;rft.aufirst=Peter&amp;rft.au=Winkel%2C+Sebastian&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASamplesort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGerbessiotisValiant1992" class="citation journal cs1">Gerbessiotis, Alexandros V.; Valiant, Leslie G. (1992). "Direct Bulk-Synchronous Parallel Algorithms". <i>J. Parallel and Distributed Computing</i>. <b>22</b>: 22–251. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.51.9332">10.1.1.51.9332</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=J.+Parallel+and+Distributed+Computing&amp;rft.atitle=Direct+Bulk-Synchronous+Parallel+Algorithms&amp;rft.volume=22&amp;rft.pages=22-251&amp;rft.date=1992&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.51.9332%23id-name%3DCiteSeerX&amp;rft.aulast=Gerbessiotis&amp;rft.aufirst=Alexandros+V.&amp;rft.au=Valiant%2C+Leslie+G.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASamplesort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHightowerPrinsReif1992" class="citation conference cs1">Hightower, William L.; Prins, Jan F.; Reif, John H. (1992). <a rel="nofollow" class="external text" href="https://users.cs.duke.edu/~reif/paper/proteus/randsort.pdf"><i>Implementations of randomized sorting on large parallel machines</i></a> <span class="cs1-format">(PDF)</span>. ACM Symp. on Parallel Algorithms and Architectures.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Implementations+of+randomized+sorting+on+large+parallel+machines&amp;rft.date=1992&amp;rft.aulast=Hightower&amp;rft.aufirst=William+L.&amp;rft.au=Prins%2C+Jan+F.&amp;rft.au=Reif%2C+John+H.&amp;rft_id=https%3A%2F%2Fusers.cs.duke.edu%2F~reif%2Fpaper%2Fproteus%2Frandsort.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASamplesort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBlellochLeisersonMaggsPlaxton1991" class="citation conference cs1"><a href="https://en.wikipedia.org/wiki/Guy_Blelloch" title="Guy Blelloch">Blelloch, Guy E.</a>; <a href="https://en.wikipedia.org/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Leiserson, Charles E.</a>; Maggs, Bruce M.; Plaxton, C. Gregory; Smith, Stephen J.; Zagha, Marco (1991). <a rel="nofollow" class="external text" href="https://www.cs.cmu.edu/~scandal/papers/cm-sort-SPAA91.html"><i>A Comparison of Sorting Algorithms for the Connection Machine CM-2</i></a>. ACM Symp. on Parallel Algorithms and Architectures. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.131.1835">10.1.1.131.1835</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=A+Comparison+of+Sorting+Algorithms+for+the+Connection+Machine+CM-2&amp;rft.date=1991&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.131.1835%23id-name%3DCiteSeerX&amp;rft.aulast=Blelloch&amp;rft.aufirst=Guy+E.&amp;rft.au=Leiserson%2C+Charles+E.&amp;rft.au=Maggs%2C+Bruce+M.&amp;rft.au=Plaxton%2C+C.+Gregory&amp;rft.au=Smith%2C+Stephen+J.&amp;rft.au=Zagha%2C+Marco&amp;rft_id=https%3A%2F%2Fwww.cs.cmu.edu%2F~scandal%2Fpapers%2Fcm-sort-SPAA91.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASamplesort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSatishHarrisGarland" class="citation conference cs1">Satish, Nadathur; Harris, Mark; Garland, Michael. <i>Designing Efficient Sorting Algorithms for Manycore GPUs</i>. Proc. IEEE Int'l Parallel and Distributed Processing Symp. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.190.9846">10.1.1.190.9846</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Designing+Efficient+Sorting+Algorithms+for+Manycore+GPUs&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.190.9846%23id-name%3DCiteSeerX&amp;rft.aulast=Satish&amp;rft.aufirst=Nadathur&amp;rft.au=Harris%2C+Mark&amp;rft.au=Garland%2C+Michael&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASamplesort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFAxtmannWittFerizovicSanders2017" class="citation journal cs1">Axtmann, Michael; Witt, Sascha; Ferizovic, Daniel; Sanders, Peter (2017). "In-Place Parallel Super Scalar Samplesort (IPSSSSo)". <i>25th Annual European Symposium on Algorithms (ESA 2017)</i>. <b>87</b> (Leibniz International Proceedings in Informatics (LIPIcs)): 9:1–9:14. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.4230%2FLIPIcs.ESA.2017.9">10.4230/LIPIcs.ESA.2017.9</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=25th+Annual+European+Symposium+on+Algorithms+%28ESA+2017%29&amp;rft.atitle=In-Place+Parallel+Super+Scalar+Samplesort+%28IPSSSSo%29&amp;rft.volume=87&amp;rft.issue=Leibniz+International+Proceedings+in+Informatics+%28LIPIcs%29&amp;rft.pages=9%3A1-9%3A14&amp;rft.date=2017&amp;rft_id=info%3Adoi%2F10.4230%2FLIPIcs.ESA.2017.9&amp;rft.aulast=Axtmann&amp;rft.aufirst=Michael&amp;rft.au=Witt%2C+Sascha&amp;rft.au=Ferizovic%2C+Daniel&amp;rft.au=Sanders%2C+Peter&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASamplesort" class="Z3988"></span></span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit&amp;section=18" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Frazer and McKellar's samplesort and derivatives:
+</p>
+<ul><li><a rel="nofollow" class="external text" href="http://portal.acm.org/citation.cfm?id=321600">Frazer and McKellar's original paper</a></li>
+<li><a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F3-540-60688-2_30">DOI.org</a></li>
+<li><a rel="nofollow" class="external text" href="https://doi.org/10.1007%2FBF01931688">DOI.org</a></li></ul>
+<p>Adapted for use on parallel computers:
+</p>
+<ul><li><a rel="nofollow" class="external free" href="http://citeseer.ist.psu.edu/91922.html">http://citeseer.ist.psu.edu/91922.html</a></li>
+<li><a rel="nofollow" class="external free" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.49.214">http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.49.214</a></li></ul>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Sorting_algorithms" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Sorting" title="Template:Sorting"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Sorting" title="Template talk:Sorting"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Sorting&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Sorting_algorithms" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">Sorting algorithms</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Theory</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" title="Computational complexity theory">Computational complexity theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">Big O notation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Total_order" title="Total order">Total order</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_(abstract_data_type)" title="List (abstract data type)">Lists</a></li>
+<li><a href="https://en.wikipedia.org/wiki/In-place_algorithm" title="In-place algorithm">Inplacement</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sorting_algorithm#Stability" title="Sorting algorithm">Stability</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Comparison_sort" title="Comparison sort">Comparison sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Adaptive_sort" title="Adaptive sort">Adaptive sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sorting_network" title="Sorting network">Sorting network</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Integer_sorting" title="Integer sorting">Integer sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X_+_Y_sorting" title="X + Y sorting">X + Y sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Transdichotomous_model" title="Transdichotomous model">Transdichotomous model</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quantum_sort" title="Quantum sort">Quantum sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Exchange sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Bubble_sort" title="Bubble sort">Bubble sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cocktail_shaker_sort" title="Cocktail shaker sort">Cocktail shaker sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Odd–even_sort" title="Odd–even sort">Odd–even sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Comb_sort" title="Comb sort">Comb sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gnome_sort" title="Gnome sort">Gnome sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Proportion_extend_sort" title="Proportion extend sort">Proportion extend sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quicksort" title="Quicksort">Quicksort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Slowsort" title="Slowsort">Slowsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stooge_sort" title="Stooge sort">Stooge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bogosort" title="Bogosort">Bogosort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Selection_algorithm" title="Selection algorithm">Selection sorts</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Selection_sort" title="Selection sort">Selection sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Heapsort" title="Heapsort">Heapsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Smoothsort" title="Smoothsort">Smoothsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cartesian_tree#Application_in_sorting" title="Cartesian tree">Cartesian tree sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tournament_sort" title="Tournament sort">Tournament sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cycle_sort" title="Cycle sort">Cycle sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Weak_heap#Weak-heap_sort" title="Weak heap">Weak-heap sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Insertion sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Insertion_sort" title="Insertion sort">Insertion sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shellsort" title="Shellsort">Shellsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Splaysort" title="Splaysort">Splaysort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tree_sort" title="Tree sort">Tree sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Library_sort" title="Library sort">Library sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Patience_sorting" title="Patience sorting">Patience sorting</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Merge sorts</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Merge_sort" title="Merge sort">Merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cascade_merge_sort" title="Cascade merge sort">Cascade merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Oscillating_merge_sort" title="Oscillating merge sort">Oscillating merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Polyphase_merge_sort" title="Polyphase merge sort">Polyphase merge sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Distribution sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/American_flag_sort" title="American flag sort">American flag sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bead_sort" title="Bead sort">Bead sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bucket_sort" title="Bucket sort">Bucket sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Burstsort" title="Burstsort">Burstsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Counting_sort" title="Counting sort">Counting sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interpolation_sort" title="Interpolation sort">Interpolation sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pigeonhole_sort" title="Pigeonhole sort">Pigeonhole sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Proxmap_sort" title="Proxmap sort">Proxmap sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Radix_sort" title="Radix sort">Radix sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Flashsort" title="Flashsort">Flashsort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Concurrent sorts</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Bitonic_sorter" title="Bitonic sorter">Bitonic sorter</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Batcher_odd–even_mergesort" title="Batcher odd–even mergesort">Batcher odd–even mergesort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pairwise_sorting_network" title="Pairwise sorting network">Pairwise sorting network</a></li>
+<li><a class="mw-selflink selflink">Samplesort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Hybrid_algorithm" title="Hybrid algorithm">Hybrid sorts</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Block_sort" title="Block sort">Block merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kirkpatrick-Reisch_sort" class="mw-redirect" title="Kirkpatrick-Reisch sort">Kirkpatrick-Reisch sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Timsort" title="Timsort">Timsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Introsort" title="Introsort">Introsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Spreadsort" title="Spreadsort">Spreadsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Merge-insertion_sort" title="Merge-insertion sort">Merge-insertion sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Other</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Topological_sorting" title="Topological sorting">Topological sorting</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Pre-topological_order" title="Pre-topological order">Pre-topological order</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Pancake_sorting" title="Pancake sorting">Pancake sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Spaghetti_sort" title="Spaghetti sort">Spaghetti sort</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1416
+Cached time: 20220505163834
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.490 seconds
+Real time usage: 0.634 seconds
+Preprocessor visited node count: 2012/1000000
+Post‐expand include size: 38304/2097152 bytes
+Template argument size: 1007/2097152 bytes
+Highest expansion depth: 12/100
+Expensive parser function count: 1/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 39154/5000000 bytes
+Lua time usage: 0.182/10.000 seconds
+Lua memory usage: 4742767/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  365.775      1 -total
+ 48.70%  178.135      1 Template:Reflist
+ 26.78%   97.971      1 Template:Cite_web
+ 15.96%   58.367      1 Template:Citation_needed
+ 14.35%   52.499      1 Template:Sorting
+ 14.04%   51.342      1 Template:Fix
+ 13.73%   50.229      1 Template:Navbox
+ 10.99%   40.217      2 Template:R
+  7.98%   29.182      2 Template:Category_handler
+  7.11%   26.011      2 Template:R/ref
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:22405006-0!canonical and timestamp 20220505163833 and revision id 1051885019. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;oldid=1051885019">https://en.wikipedia.org/w/index.php?title=Samplesort&amp;oldid=1051885019</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Sorting_algorithms" title="Category:Sorting algorithms">Sorting algorithms</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Distributed_algorithms" title="Category:Distributed algorithms">Distributed algorithms</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_unsourced_statements_from_January_2018" title="Category:Articles with unsourced statements from January 2018">Articles with unsourced statements from January 2018</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Samplesort" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Samplesort" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Samplesort" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Samplesort" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Samplesort"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Samplesort" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Samplesort" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;oldid=1051885019" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Samplesort&amp;id=1051885019&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q182425" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Samplesort&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Samplesort&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Samplesort" title="Samplesort – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-no mw-list-item"><a href="https://no.wikipedia.org/wiki/Samplesort" title="Samplesort – Norwegian Bokmål" lang="nb" hreflang="nb" class="interlanguage-link-target"><span>Norsk bokmål</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q182425#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 26 October 2021, at 04:09<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Samplesort&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.490","walltime":"0.634","ppvisitednodes":{"value":2012,"limit":1000000},"postexpandincludesize":{"value":38304,"limit":2097152},"templateargumentsize":{"value":1007,"limit":2097152},"expansiondepth":{"value":12,"limit":100},"expensivefunctioncount":{"value":1,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":39154,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  365.775      1 -total"," 48.70%  178.135      1 Template:Reflist"," 26.78%   97.971      1 Template:Cite_web"," 15.96%   58.367      1 Template:Citation_needed"," 14.35%   52.499      1 Template:Sorting"," 14.04%   51.342      1 Template:Fix"," 13.73%   50.229      1 Template:Navbox"," 10.99%   40.217      2 Template:R","  7.98%   29.182      2 Template:Category_handler","  7.11%   26.011      2 Template:R/ref"]},"scribunto":{"limitreport-timeusage":{"value":"0.182","limit":"10.000"},"limitreport-memusage":{"value":4742767,"limit":52428800}},"cachereport":{"origin":"mw1416","timestamp":"20220505163834","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Samplesort","url":"https:\/\/en.wikipedia.org\/wiki\/Samplesort","sameAs":"http:\/\/www.wikidata.org\/entity\/Q182425","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q182425","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2009-04-14T09:55:10Z","dateModified":"2021-10-26T04:09:11Z","headline":"divide-and-conquer sorting algorithm that ensures approximately equal-sized buckets by selecting a sample from the sequence"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Samplesort","url":"https:\/\/en.wikipedia.org\/wiki\/Samplesort","sameAs":"http:\/\/www.wikidata.org\/entity\/Q182425","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q182425","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2009-04-14T09:55:10Z","dateModified":"2021-10-26T04:09:11Z","headline":"divide-and-conquer sorting algorithm that ensures approximately equal-sized buckets by selecting a sample from the sequence"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":154,"wgHostname":"mw1401"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Samplesort by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:39 GMT -->
+</html>

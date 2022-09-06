@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Block_merge_sort by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:32:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Block sort - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"79b4d09a-dde3-4932-8948-7e12fff53e21","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Block_sort","wgTitle":"Block sort","wgCurRevisionId":1058770564,"wgRevisionId":1058770564,"wgArticleId":42275702,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CS1 Russian-language sources (ru)","Articles with short description","Short description matches Wikidata","Articles with example pseudocode","Sorting algorithms","Comparison sorts","Stable sorts"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Block_sort",
+"wgRelevantArticleId":42275702,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Block_merge_sort","wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":40000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgInternalRedirectTargetUrl":"/wiki/Block_sort","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q17019833"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready"
+,"user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["mediawiki.action.view.redirect","ext.cite.ux-enhancements","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/9/9f/Block_sort_with_numbers_1_to_16_%28thumb%29.gif"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="840"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/9/9f/Block_sort_with_numbers_1_to_16_%28thumb%29.gif"/>
+<meta property="og:image:width" content="800"/>
+<meta property="og:image:height" content="560"/>
+<meta property="og:image:width" content="640"/>
+<meta property="og:image:height" content="448"/>
+<meta property="og:title" content="Block sort - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Block_sort"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Block_sort"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Block_sort rootpage-Block_sort skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Block sort</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"><span class="mw-redirectedfrom">&#160;&#160;(Redirected from <a href="https://en.wikipedia.org/w/index.php?title=Block_merge_sort&amp;redirect=no" class="mw-redirect" title="Block merge sort">Block merge sort</a>)</span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Efficient sorting algorithm that combines insert and merge operations</div>
+<style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">Not to be confused with <a href="https://en.wikipedia.org/wiki/Block-sorting_compression" class="mw-redirect" title="Block-sorting compression">Block-sorting compression</a>.</div>
+<style data-mw-deduplicate="TemplateStyles:r1066479718">.mw-parser-output .infobox-subbox{padding:0;border:none;margin:-3px;width:auto;min-width:100%;font-size:100%;clear:none;float:none;background-color:transparent}.mw-parser-output .infobox-3cols-child{margin:auto}.mw-parser-output .infobox .navbar{font-size:100%}body.skin-minerva .mw-parser-output .infobox-header,body.skin-minerva .mw-parser-output .infobox-subheader,body.skin-minerva .mw-parser-output .infobox-above,body.skin-minerva .mw-parser-output .infobox-title,body.skin-minerva .mw-parser-output .infobox-image,body.skin-minerva .mw-parser-output .infobox-full-data,body.skin-minerva .mw-parser-output .infobox-below{text-align:center}</style><table class="infobox"><caption class="infobox-title">Block sort</caption><tbody><tr><td colspan="2" class="infobox-image"><a href="https://en.wikipedia.org/wiki/File:Block_sort_with_numbers_1_to_16.gif" title="File:Block sort with numbers 1 to 16.gif"><img alt="Block sort with numbers 1 to 16 (thumb).gif" src="http://upload.wikimedia.org/wikipedia/commons/9/9f/Block_sort_with_numbers_1_to_16_(thumb).gif" decoding="async" width="343" height="240" class="thumbborder" data-file-width="343" data-file-height="240" /></a><div class="infobox-caption">Block sort stably sorting numbers 1 to 16.<br />Insertion sort groups of 16, extract two internal buffers, tag the <span class="texhtml mvar" style="font-style:italic;">A</span> blocks (of size <span class="texhtml"><span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">16</span></span> = 4</span> each), roll the <span class="texhtml mvar" style="font-style:italic;">A</span> blocks through <span class="texhtml mvar" style="font-style:italic;">B</span>, locally merge them, sort the second buffer, and redistribute the buffers.</div></td></tr><tr><th scope="row" class="infobox-label">Class</th><td class="infobox-data"><a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">Sorting algorithm</a></td></tr><tr><th scope="row" class="infobox-label">Data structure</th><td class="infobox-data"><a href="https://en.wikipedia.org/wiki/Array_data_structure" title="Array data structure">Array</a></td></tr><tr><th scope="row" class="infobox-label"><a href="https://en.wikipedia.org/wiki/Best,_worst_and_average_case" title="Best, worst and average case">Worst-case</a> <a href="https://en.wikipedia.org/wiki/Time_complexity" title="Time complexity">performance</a></th><td class="infobox-data"><span class="texhtml"><i>O</i>(<i>n</i> log <i>n</i>)</span></td></tr><tr><th scope="row" class="infobox-label"><a href="https://en.wikipedia.org/wiki/Best,_worst_and_average_case" title="Best, worst and average case">Best-case</a> <a href="https://en.wikipedia.org/wiki/Time_complexity" title="Time complexity">performance</a></th><td class="infobox-data"><span class="texhtml"><i>O</i>(<i>n</i>)</span></td></tr><tr><th scope="row" class="infobox-label"><a href="https://en.wikipedia.org/wiki/Best,_worst_and_average_case" title="Best, worst and average case">Average</a> <a href="https://en.wikipedia.org/wiki/Time_complexity" title="Time complexity">performance</a></th><td class="infobox-data"><span class="texhtml"><i>O</i>(<i>n</i> log <i>n</i>)</span></td></tr><tr><th scope="row" class="infobox-label"><a href="https://en.wikipedia.org/wiki/Best,_worst_and_average_case" title="Best, worst and average case">Worst-case</a> <a href="https://en.wikipedia.org/wiki/Space_complexity" title="Space complexity">space complexity</a></th><td class="infobox-data"><span class="texhtml"><i>O</i>(1)</span></td></tr></tbody></table>
+<p><b>Block sort</b>, or <b>block merge sort</b>, is a <a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">sorting algorithm</a> combining at least two <a href="https://en.wikipedia.org/wiki/Merge_algorithm" title="Merge algorithm">merge</a> operations with an <a href="https://en.wikipedia.org/wiki/Insertion_sort" title="Insertion sort">insertion sort</a> to arrive at <span class="texhtml"><i>O</i>(<i>n</i> log <i>n</i>)</span> <a href="https://en.wikipedia.org/wiki/In-place" class="mw-redirect" title="In-place">in-place</a> <a href="https://en.wikipedia.org/wiki/Sorting_algorithm#Stability" title="Sorting algorithm">stable</a> sorting. It gets its name from the observation that merging two sorted lists, <span class="texhtml mvar" style="font-style:italic;">A</span> and <span class="texhtml mvar" style="font-style:italic;">B</span>, is equivalent to breaking <span class="texhtml mvar" style="font-style:italic;">A</span> into evenly sized <i>blocks</i>, inserting each <span class="texhtml mvar" style="font-style:italic;">A</span> block into <span class="texhtml mvar" style="font-style:italic;">B</span> under special rules, and merging <span class="texhtml mvar" style="font-style:italic;">AB</span> pairs.
+</p><p>One practical algorithm for O(log n) in place merging was proposed by Pok-Son Kim and Arne Kutzner in 2008.<sup id="cite_ref-kim2008_1-0" class="reference"><a href="#cite_note-kim2008-1">&#91;1&#93;</a></sup>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Algorithm"><span class="tocnumber">2</span> <span class="toctext">Algorithm</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Outer_loop"><span class="tocnumber">2.1</span> <span class="toctext">Outer loop</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Extract_buffers"><span class="tocnumber">2.2</span> <span class="toctext">Extract buffers</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Tag_A_blocks"><span class="tocnumber">2.3</span> <span class="toctext">Tag A blocks</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Roll_and_drop"><span class="tocnumber">2.4</span> <span class="toctext">Roll and drop</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Local_merges"><span class="tocnumber">2.5</span> <span class="toctext">Local merges</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Redistribute"><span class="tocnumber">2.6</span> <span class="toctext">Redistribute</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#Variants"><span class="tocnumber">3</span> <span class="toctext">Variants</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Analysis"><span class="tocnumber">4</span> <span class="toctext">Analysis</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#Complexity"><span class="tocnumber">4.1</span> <span class="toctext">Complexity</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Memory"><span class="tocnumber">4.2</span> <span class="toctext">Memory</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Stability"><span class="tocnumber">4.3</span> <span class="toctext">Stability</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Adaptivity"><span class="tocnumber">4.4</span> <span class="toctext">Adaptivity</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="#Advantages"><span class="tocnumber">5</span> <span class="toctext">Advantages</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="#Disadvantages"><span class="tocnumber">6</span> <span class="toctext">Disadvantages</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=edit&amp;section=1" title="Edit section: Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The outer loop of block sort is identical to a <a href="https://en.wikipedia.org/wiki/Merge_sort#Bottom-up_implementation" title="Merge sort">bottom-up merge sort</a>, where each <i>level</i> of the sort merges pairs of subarrays, <span class="texhtml mvar" style="font-style:italic;">A</span> and <span class="texhtml mvar" style="font-style:italic;">B</span>, in sizes of 1, then 2, then 4, 8, 16, and so on, until both subarrays combined are the array itself.
+</p><p>Rather than merging <span class="texhtml mvar" style="font-style:italic;">A</span> and <span class="texhtml mvar" style="font-style:italic;">B</span> directly as with traditional methods, a block-based merge algorithm divides <span class="texhtml mvar" style="font-style:italic;">A</span> into discrete blocks of size <span class="texhtml"><span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;"><i>A</i></span></span></span> (resulting in <span class="texhtml"><span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;"><i>A</i></span></span></span> <i>number</i> of blocks as well),<sup id="cite_ref-mannilla_2-0" class="reference"><a href="#cite_note-mannilla-2">&#91;2&#93;</a></sup> inserts each <span class="texhtml mvar" style="font-style:italic;">A</span> block into <span class="texhtml mvar" style="font-style:italic;">B</span> such that the first value of each <span class="texhtml mvar" style="font-style:italic;">A</span> block is less than or equal (≤) to the <span class="texhtml mvar" style="font-style:italic;">B</span> value immediately after it, then <i>locally merges</i> each <span class="texhtml mvar" style="font-style:italic;">A</span> block with any <span class="texhtml mvar" style="font-style:italic;">B</span> values between it and the next <span class="texhtml mvar" style="font-style:italic;">A</span> block.
+</p><p>As merges still require a separate buffer large enough to hold the <span class="texhtml mvar" style="font-style:italic;">A</span> block to be merged, two areas within the array are reserved for this purpose (known as <i>internal buffers</i>).<sup id="cite_ref-kronrod_3-0" class="reference"><a href="#cite_note-kronrod-3">&#91;3&#93;</a></sup> The first two <span class="texhtml mvar" style="font-style:italic;">A</span> blocks are thus modified to contain the first instance of each value within <span class="texhtml mvar" style="font-style:italic;">A</span>, with the original contents of those blocks shifted over if necessary. The remaining <span class="texhtml mvar" style="font-style:italic;">A</span> blocks are then inserted into <span class="texhtml mvar" style="font-style:italic;">B</span> and merged using one of the two buffers as swap space. This process causes the values in that buffer to be rearranged.
+</p><p>Once every <span class="texhtml mvar" style="font-style:italic;">A</span> and <span class="texhtml mvar" style="font-style:italic;">B</span> block of every <span class="texhtml mvar" style="font-style:italic;">A</span> and <span class="texhtml mvar" style="font-style:italic;">B</span> subarray have been merged for that level of the merge sort, the values in that buffer must be sorted to restore their original order, so an insertion sort must be applied. The values in the buffers are then redistributed to their first sorted position within the array. This process repeats for each level of the outer bottom-up merge sort, at which point the array will have been stably sorted.
+</p>
+<h2><span class="mw-headline" id="Algorithm">Algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=edit&amp;section=2" title="Edit section: Algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The following operators are used in the code examples:
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th>&#124;
+</th>
+<td><a href="https://en.wikipedia.org/wiki/Bitwise_operation#OR" title="Bitwise operation">bitwise OR</a>
+</td></tr>
+<tr>
+<th>&gt;&gt;
+</th>
+<td><a href="https://en.wikipedia.org/wiki/Bitwise_operation#Logical_shift" title="Bitwise operation">shift right</a>
+</td></tr>
+<tr>
+<th>%
+</th>
+<td><a href="https://en.wikipedia.org/wiki/Modulo_operation" title="Modulo operation">modulo</a>
+</td></tr>
+<tr>
+<th>++ and +=
+</th>
+<td><a href="https://en.wikipedia.org/wiki/Increment_and_decrement_operators" title="Increment and decrement operators">increment</a>
+</td></tr>
+<tr>
+<th>[<i>x</i>, <i>y</i>)
+</th>
+<td><a href="https://en.wikipedia.org/wiki/Interval_(mathematics)#Excluding_the_endpoints" title="Interval (mathematics)">range</a> from ≥ <i>x</i> and &lt; <i>y</i>
+</td></tr>
+<tr>
+<th>&#124;range&#124;
+</th>
+<td>range.end – range.start
+</td></tr>
+<tr>
+<th>array[i]
+</th>
+<td><i>i</i>-th item of <i>array</i>
+</td></tr></tbody></table>
+<p>Additionally, block sort relies on the following operations as part of its overall algorithm:
+</p>
+<ul><li><b><a href="https://en.wikipedia.org/wiki/Swap_(computer_science)" class="mw-redirect" title="Swap (computer science)">Swap</a></b>: exchange the positions of two values in an array.</li>
+<li><b><a href="https://en.wikipedia.org/wiki/Block_swap_algorithms" title="Block swap algorithms">Block swap</a></b>: exchange a range of values within an array with values in a different range of the array.</li>
+<li><b><a href="https://en.wikipedia.org/wiki/Binary_search_algorithm" title="Binary search algorithm">Binary search</a></b>: assuming the array is sorted, check the middle value of the current search range, then if the value is lesser check the lower range, and if the value is greater check the upper range. Block sort uses two variants: one which finds the <i>first</i> position to insert a value in the sorted array, and one which finds the <i>last</i> position.</li>
+<li><b><a href="https://en.wikipedia.org/wiki/Linear_search" title="Linear search">Linear search</a></b>: find a particular value in an array by checking every single element in order, until it is found.</li>
+<li><b><a href="https://en.wikipedia.org/wiki/Insertion_sort" title="Insertion sort">Insertion sort</a></b>: for each item in the array, loop backward and find where it needs to be inserted, then insert it at that position.</li>
+<li><b>Array rotation</b>: move the items in an array to the left or right by some number of spaces, with values on the edges wrapping around to the other side. Rotations can be implemented as three <a href="https://en.wikipedia.org/wiki/In-place_algorithm#Examples" title="In-place algorithm">reversals</a>.<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup></li></ul>
+<pre><b>Rotate</b>(array, amount, range)
+    <b>Reverse</b>(array, range)
+    <b>Reverse</b>(array, [range.start, range.start + amount))
+    <b>Reverse</b>(array, [range.start + amount, range.end))
+</pre>
+<ul><li><b>Floor power of two</b>: <a href="https://en.wikipedia.org/wiki/Floor_and_ceiling_functions" title="Floor and ceiling functions">floor</a> a value to the next power of two. Thus 63 becomes 32, 64 stays 64, and so forth.<sup id="cite_ref-Warren_2013_5-0" class="reference"><a href="#cite_note-Warren_2013-5">&#91;5&#93;</a></sup></li></ul>
+<pre><b>FloorPowerOfTwo</b>(x)
+    x = x | (x &gt;&gt; 1)
+    x = x | (x &gt;&gt; 2)
+    x = x | (x &gt;&gt; 4)
+    x = x | (x &gt;&gt; 8)
+    x = x | (x &gt;&gt; 16)
+    <b>if</b> (this is a <a href="https://en.wikipedia.org/wiki/64-bit_computing" title="64-bit computing">64-bit</a> system)
+        x = x | (x &gt;&gt; 32)
+    return x - (x &gt;&gt; 1)
+</pre>
+<h3><span class="mw-headline" id="Outer_loop">Outer loop</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=edit&amp;section=3" title="Edit section: Outer loop">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>As previously stated, the outer loop of a block sort is identical to a bottom-up merge sort. However, it benefits from the variant that ensures each <var style="padding-right: 1px;">A</var> and <var style="padding-right: 1px;">B</var> subarray are the same size to within one item:
+</p>
+<pre>   <b>BlockSort</b>(array)
+       power_of_two = <b>FloorPowerOfTwo</b>(array.size)
+       scale = array.size/power_of_two <span style="color:green;">// 1.0 ≤ scale &lt; 2.0</span>
+      
+       <span style="color:green;">// insertion sort 16–31 items at a time</span>
+       <b>for</b> (merge = 0; merge &lt; power_of_two; merge += 16)
+           start = merge * scale
+           end = start + 16 * scale
+           <b>InsertionSort</b>(array, [start, end))
+      
+       <b>for</b> (length = 16; length &lt; power_of_two; length += length)
+           <b>for</b> (merge = 0; merge &lt; power_of_two; merge += length * 2)
+               start = merge * scale
+               mid = (merge + length) * scale
+               end = (merge + length * 2) * scale
+              
+               <b>if</b> (array[end − 1] &lt; array[start])
+                   <span style="color:green;">// the two ranges are in reverse order, so a rotation is enough to merge them</span>
+                   <b>Rotate</b>(array, mid − start, [start, end))
+               <b>else if</b> (array[mid − 1] &gt; array[mid])
+                   <b>Merge</b>(array, A = [start, mid), B = [mid, end))
+               <span style="color:green;">// else the ranges are already correctly ordered</span>
+</pre>
+<p><a href="https://en.wikipedia.org/wiki/Fixed-point_arithmetic" title="Fixed-point arithmetic">Fixed-point math</a> may also be used, by representing the scale factor as a fraction <code>integer_part + numerator/denominator</code>:
+</p>
+<pre>   power_of_two = <b>FloorPowerOfTwo</b>(array.size)
+   denominator = power_of_two/16
+   numerator_step = array.size&#160;% denominator
+   integer_step = <b>floor</b>(array.size/denominator)
+  
+   <span style="color:green;">// insertion sort 16&#8211;31 items at a time</span>
+  
+   <b>while</b> (integer_step &lt; array.size)
+       integer_part = numerator = 0
+       <b>while</b> (integer_part &lt; array.size)
+           <span style="color:green;">// get the ranges for A and B</span>
+           start = integer_part
+          
+           integer_part += integer_step
+           numerator += numerator_step
+           <b>if</b> (numerator ≥ denominator)
+               numerator &#8722;= denominator
+               integer_part++
+          
+           mid = integer_part
+          
+           integer_part += integer_step
+           numerator += numerator_step
+           <b>if</b> (numerator ≥ denominator)
+               numerator −= denominator
+               integer_part++
+          
+           end = integer_part
+          
+           <b>if</b> (array[end − 1] &lt; array[start])
+               <b>Rotate</b>(array, mid − start, [start, end))
+           <b>else if</b> (array[mid − 1] &gt; array[mid])
+               <b>Merge</b>(array, A = [start, mid), B = [mid, end))
+      
+       integer_step += integer_step
+       numerator_step += numerator_step
+       <b>if</b> (numerator_step ≥ denominator)
+           numerator_step −= denominator
+           integer_step++
+</pre>
+<h3><span class="mw-headline" id="Extract_buffers">Extract buffers</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=edit&amp;section=4" title="Edit section: Extract buffers">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Buffer_extraction_for_block_sort.gif" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Buffer_extraction_for_block_sort.gif/220px-Buffer_extraction_for_block_sort.gif" decoding="async" width="220" height="59" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Buffer_extraction_for_block_sort.gif/330px-Buffer_extraction_for_block_sort.gif 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Buffer_extraction_for_block_sort.gif/440px-Buffer_extraction_for_block_sort.gif 2x" data-file-width="640" data-file-height="172" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Buffer_extraction_for_block_sort.gif" class="internal" title="Enlarge"></a></div>The buffer extraction process for block sort.</div></div></div>
+<p>The two internal buffers needed for each level of the merge step are created by moving the first 2<span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">A</span></span> instances of each value within an <var style="padding-right: 1px;">A</var> subarray to the start of <var style="padding-right: 1px;">A</var>. First it iterates over the elements in <var style="padding-right: 1px;">A</var> and counts off the unique values it needs, then it applies array rotations to move those unique values to the start.<sup id="cite_ref-pardo_6-0" class="reference"><a href="#cite_note-pardo-6">&#91;6&#93;</a></sup> If A did not contain enough unique values to fill the two buffers (of size <span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">A</span></span> each), <var style="padding-right: 1px;">B</var> can be used just as well. In this case it moves the <i>last</i> instance of each value to the <i>end</i> of <var style="padding-right: 1px;">B</var>, with that part of <var style="padding-right: 1px;">B</var> not being included during the merges.
+</p>
+<pre><b>while</b> (integer_step &lt; array.size)
+    block_size = <span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">integer_step</span></span>
+    buffer_size = integer_step/block_size + 1
+    <span style="color:green;">[extract two buffers of size 'buffer_size' each]</span>
+</pre>
+<p>If <var style="padding-right: 1px;">B</var> does not contain enough unique values either, it pulls out the largest number of unique values it <i>could</i> find, then adjusts the size of the <var style="padding-right: 1px;">A</var> and <var style="padding-right: 1px;">B</var> blocks such that the number of resulting <var style="padding-right: 1px;">A</var> blocks is less than or equal to the number of unique items pulled out for the buffer. Only one buffer will be used in this case – the second buffer won't exist.
+</p>
+<pre>buffer_size = <span style="color:green;">[number of unique values found]</span>
+block_size = integer_step/buffer_size + 1
+  
+integer_part = numerator = 0
+<b>while</b> (integer_part &lt; array.size)
+    <span style="color:green;">[get the ranges for A and B]</span>
+    <span style="color:green;">[adjust A and B to not include the ranges used by the buffers]</span>
+</pre>
+<h3><span class="mw-headline" id="Tag_A_blocks">Tag A blocks</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=edit&amp;section=5" title="Edit section: Tag A blocks">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Block_sort_tagging_A_blocks.gif" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Block_sort_tagging_A_blocks.gif/220px-Block_sort_tagging_A_blocks.gif" decoding="async" width="220" height="58" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/16/Block_sort_tagging_A_blocks.gif/330px-Block_sort_tagging_A_blocks.gif 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/16/Block_sort_tagging_A_blocks.gif/440px-Block_sort_tagging_A_blocks.gif 2x" data-file-width="616" data-file-height="161" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Block_sort_tagging_A_blocks.gif" class="internal" title="Enlarge"></a></div>Tagging the <var style="padding-right: 1px;">A</var> blocks using values from the first internal buffer. Note that the first <var style="padding-right: 1px;">A</var> block and last <var style="padding-right: 1px;">B</var> block are unevenly sized.</div></div></div>
+<p>Once the one or two internal buffers have been created, it begins merging each <var style="padding-right: 1px;">A</var> and <var style="padding-right: 1px;">B</var> subarray for this level of the merge sort. To do so, it divides each A and B subarray into evenly sized blocks of the size calculated in the previous step, where the first <var style="padding-right: 1px;">A</var> block and last <var style="padding-right: 1px;">B</var> block are unevenly sized if needed. It then loops over each of the evenly sized A blocks and swaps the second value with a corresponding value from the first of the two internal buffers. This is known as <i>tagging</i> the blocks.
+</p>
+<pre><span style="color:green;">// blockA is the range of the remaining A blocks,</span>
+<span style="color:green;">// and firstA is the unevenly sized first A block</span>
+blockA = [A.start, A.end)
+firstA = [A.start, A.start + |blockA|&#160;% block_size)
+  
+<span style="color:green;">// swap the second value of each A block with the value in buffer1</span>
+<b>for</b> (index = 0, indexA = firstA.end + 1; indexA &lt; blockA.end; indexA += block_size)
+    <b>Swap</b>(array[buffer1.start + index], array[indexA])
+    index++
+  
+lastA = firstA
+blockB = [B.start, B.start + <b>minimum</b>(block_size, |B|))
+blockA.start += |firstA|
+</pre>
+<h3><span class="mw-headline" id="Roll_and_drop">Roll and drop</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=edit&amp;section=6" title="Edit section: Roll and drop">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Block_sort_roll_and_drop.gif" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Block_sort_roll_and_drop.gif/220px-Block_sort_roll_and_drop.gif" decoding="async" width="220" height="60" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Block_sort_roll_and_drop.gif/330px-Block_sort_roll_and_drop.gif 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Block_sort_roll_and_drop.gif/440px-Block_sort_roll_and_drop.gif 2x" data-file-width="501" data-file-height="137" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Block_sort_roll_and_drop.gif" class="internal" title="Enlarge"></a></div>Two A blocks rolling through the B blocks. Once the first A block is dropped behind, the unevenly sized A block is locally merged with the B values that follow it.</div></div></div>
+<p>After defining and tagging the A blocks in this manner, the A blocks are <i>rolled</i> through the B blocks by block swapping the first evenly sized A block with the next B block. This process repeats until the first value of the A block with the smallest tag value is less than or equal to the last value of the B block that was just swapped with an A block.
+</p><p>At that point, the minimum A block (the A block with the smallest tag value) is swapped to the start of the rolling A blocks and the tagged value is restored with its original value from the first buffer. This is known as <i>dropping</i> a block behind, as it will no longer be rolled along with the remaining A blocks. That A block is then inserted into the previous B block, first by using a binary search on B to find the index where the first value of A is less than or equal to the value at that index of B, and then by rotating A into B at that index.
+</p>
+<pre>   minA = blockA.start
+   indexA = 0
+  
+   <b>while</b> (true)
+       <span style="color:green;">// if there's a previous B block and the first value of the minimum A block is ≤</span>
+       <span style="color:green;">// the last value of the previous B block, then drop that minimum A block behind.</span>
+       <span style="color:green;">// or if there are no B blocks left then keep dropping the remaining A blocks.</span>
+       <b>if</b> ((|lastB| &gt; 0 <b>and</b> array[lastB.end - 1] ≥ array[minA]) <b>or</b> |blockB| = 0)
+           <span style="color:green;">// figure out where to split the previous B block, and rotate it at the split</span>
+           B_split = <b>BinaryFirst</b>(array, array[minA], lastB)
+           B_remaining = lastB.end - B_split
+          
+           <span style="color:green;">// swap the minimum A block to the beginning of the rolling A blocks</span>
+           <b>BlockSwap</b>(array, blockA.start, minA, block_size)
+          
+           <span style="color:green;">// restore the second value for the A block</span>
+           <b>Swap</b>(array[blockA.start + 1], array[buffer1.start + indexA])
+           indexA++
+          
+           <span style="color:green;">// rotate the A block into the previous B block</span>
+           <b>Rotate</b>(array, blockA.start - B_split, [B_split, blockA.start + block_size))
+          
+           <span style="color:green;">// locally merge the previous A block with the B values that follow it,</span>
+           <span style="color:green;">// using the second internal buffer as swap space (if it exists)</span>
+           <b>if</b> (|buffer2| &gt; 0)
+               <b>MergeInternal</b>(array, lastA, [lastA.end, B_split), buffer2)
+           <b>else</b>
+               <b>MergeInPlace</b>(array, lastA, [lastA.end, B_split))
+          
+           <span style="color:green;">// update the range for the remaining A blocks,</span>
+           <span style="color:green;">// and the range remaining from the B block after it was split</span>
+           lastA = [blockA.start - B_remaining, blockA.start - B_remaining + block_size)
+           lastB = [lastA.end, lastA.end + B_remaining)
+          
+           <span style="color:green;">// if there are no more A blocks remaining, this step is finished</span>
+           blockA.start = blockA.start + block_size
+           <b>if</b> (|blockA| = 0)
+               <b>break</b>
+          
+           minA = <span style="color:green;">[new minimum A block]</span> <i>(see below)</i>
+       <b>else if</b> (|blockB| &lt; block_size)
+           <span style="color:green;">// move the last B block, which is unevenly sized,</span>
+           <span style="color:green;">// to before the remaining A blocks, by using a rotation</span>
+           <b>Rotate</b>(array, blockB.start - blockA.start, [blockA.start, blockB.end))
+          
+           lastB = [blockA.start, blockA.start + |blockB|)
+           blockA.start += |blockB|
+           blockA.end += |blockB|
+           minA += |blockB|
+           blockB.end = blockB.start
+       <b>else</b>
+           <span style="color:green;">// roll the leftmost A block to the end by swapping it with the next B block</span>
+           <b>BlockSwap</b>(array, blockA.start, blockB.start, block_size)
+           lastB = [blockA.start, blockA.start + block_size)
+           <b>if</b> (minA = blockA.start)
+               minA = blockA.end
+          
+           blockA.start += block_size
+           blockA.end += block_size
+           blockB.start += block_size
+          
+           <span style="color:green;">// this is equivalent to <b>minimum</b>(blockB.end + block_size, B.end),</span>
+           <span style="color:green;">// but that has the potential to <a href="https://en.wikipedia.org/wiki/Integer_overflow" title="Integer overflow">overflow</a></span>
+           <b>if</b> (blockB.end &gt; B.end - block_size)
+               blockB.end = B.end
+           <b>else</b>
+               blockB.end += block_size
+  
+   <span style="color:green;">// merge the last A block with the remaining B values</span>
+   <b>if</b> (|buffer2| &gt; 0)
+       <b>MergeInternal</b>(array, lastA, [lastA.end, B.end), buffer2)
+   <b>else</b>
+       <b>MergeInPlace</b>(array, lastA, [lastA.end, B.end))
+</pre>
+<p>One optimization that can be applied during this step is the <i>floating-hole technique</i>.<sup id="cite_ref-geffert_7-0" class="reference"><a href="#cite_note-geffert-7">&#91;7&#93;</a></sup> When the minimum A block is dropped behind and needs to be rotated into the previous B block, after which its contents are swapped into the second internal buffer for the local merges, it would be faster to swap the A block to the buffer beforehand, and to take advantage of the fact that the contents of that buffer do not need to retain any order. So rather than rotating the second buffer (which used to be the A block before the block swap) into the previous B block at position <i>index</i>, the values in the B block after <i>index</i> can simply be block swapped with the last items of the buffer.
+</p><p>The <i>floating hole</i> in this case refers to the contents of the second internal buffer <i>floating</i> around the array, and acting as a <i>hole</i> in the sense that the items do not need to retain their order.
+</p>
+<h3><span class="mw-headline" id="Local_merges">Local merges</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=edit&amp;section=7" title="Edit section: Local merges">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Once the A block has been rotated into the B block, the previous A block is then merged with the B values that follow it, using the second buffer as swap space. When the first A block is dropped behind this refers to the unevenly sized A block at the start, when the second A block is dropped behind it means the first A block, and so forth.
+</p>
+<pre>   <b>MergeInternal</b>(array, A, B, buffer)
+       <span style="color:green;">// block swap the values in A with those in 'buffer'</span>
+       <b>BlockSwap</b>(array, A.start, buffer.start, |A|)
+      
+       A_count = 0, B_count = 0, insert = 0
+       <b>while</b> (A_count &lt; |A| <b>and</b> B_count &lt; |B|)
+           <b>if</b> (array[buffer.start + A_count] ≤ array[B.start + B_count])
+               <b>Swap</b>(array[A.start + insert], array[buffer.start + A_count])
+               A_count++
+           <b>else</b>
+               <b>Swap</b>(array[A.start + insert], array[B.start + B_count])
+               B_count++
+           insert++
+      
+       <span style="color:green;">// block swap the remaining part of the buffer with the remaining part of the array</span>
+       <b>BlockSwap</b>(array, buffer.start + A_count, A.start + insert, |A| - A_count)
+</pre>
+<p>If the second buffer does not exist, a strictly in-place merge operation must be performed, such as a rotation-based version of the Hwang and Lin algorithm,<sup id="cite_ref-geffert_7-1" class="reference"><a href="#cite_note-geffert-7">&#91;7&#93;</a></sup><sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup> the Dudzinski and Dydek algorithm,<sup id="cite_ref-dydek_9-0" class="reference"><a href="#cite_note-dydek-9">&#91;9&#93;</a></sup> or a repeated binary search and rotate.
+</p>
+<pre>   <b>MergeInPlace</b>(array, A, B)
+       <b>while</b> (|A| &gt; 0 <b>and</b> |B| &gt; 0)
+           <span style="color:green;">// find the first place in B where the first item in A needs to be inserted</span>
+           mid = <b>BinaryFirst</b>(array, array[A.start], B)
+          
+           <span style="color:green;">// rotate A into place</span>
+           amount = mid - A.end
+           <b>Rotate</b>(array, amount, [A.start, mid))
+          
+           <span style="color:green;">// calculate the new A and B ranges</span>
+           B = [mid, B.end)
+           A = [A.start + amount, mid)
+           A.start = <b>BinaryLast</b>(array, array[A.start], A)
+</pre>
+<p>After dropping the minimum A block and merging the previous A block with the B values that follow it, the new minimum A block must be found within the blocks that are still being rolled through the array. This is handled by running a linear search through those A blocks and comparing the tag values to find the smallest one.
+</p>
+<pre>minA = blockA.start
+<b>for</b> (findA = minA + block_size; findA &lt; blockA.end - 1; findA += block_size)
+    <b>if</b> (array[findA + 1] &lt; array[minA + 1])
+        minA = findA
+</pre>
+<p>These remaining A blocks then continue rolling through the array and being dropped and inserted where they belong. This process repeats until all of the A blocks have been dropped and rotated into the previous B block.
+</p><p>Once the last remaining A block has been dropped behind and inserted into B where it belongs, it should be merged with the remaining B values that follow it. This completes the merge process for that particular pair of A and B subarrays. However, it must then repeat the process for the remaining A and B subarrays for the current level of the merge sort.
+</p><p>Note that the internal buffers can be reused for every set of A and B subarrays for this level of the merge sort, and do not need to be re-extracted or modified in any way.
+</p>
+<h3><span class="mw-headline" id="Redistribute">Redistribute</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=edit&amp;section=8" title="Edit section: Redistribute">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>After all of the A and B subarrays have been merged, the one or two internal buffers are still left over. The first internal buffer was used for tagging the A blocks, and its contents are still in the same order as before, but the second internal buffer may have had its contents rearranged when it was used as swap space for the merges. This means the contents of the second buffer will need to be sorted using a different algorithm, such as insertion sort. The two buffers must then be redistributed back into the array using the opposite process that was used to create them.
+</p><p>After repeating these steps for every level of the bottom-up merge sort, the block sort is completed.
+</p>
+<h2><span class="mw-headline" id="Variants">Variants</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=edit&amp;section=9" title="Edit section: Variants">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Block sort works by extracting two internal buffers, breaking A and B subarrays into evenly sized blocks, rolling and dropping the A blocks into B (using the first buffer to track the order of the A blocks), locally merging using the second buffer as swap space, sorting the second buffer, and redistributing both buffers. While the steps do not change, these subsystems can vary in their actual implementation.
+</p><p>One variant of block sort allows it to use any amount of additional memory provided to it, by using this <i>external buffer</i> for merging an A subarray or A block with B whenever A fits into it. In this situation it would be identical to a merge sort.
+</p><p>Good choices for the buffer size include:
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Size
+</th>
+<th>Notes
+</th></tr>
+<tr>
+<th>(count + 1)/2
+</th>
+<td>turns into a full-speed merge sort since all of the A subarrays will fit into it
+</td></tr>
+<tr>
+<th><span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">(count + 1)/2</span></span> + 1
+</th>
+<td>this will be the size of the A blocks at the largest level of merges, so block sort can skip using internal or in-place merges for anything
+</td></tr>
+<tr>
+<th>512
+</th>
+<td>a fixed-size buffer large enough to handle the numerous merges at the smaller levels of the merge sort
+</td></tr>
+<tr>
+<th>0
+</th>
+<td>if the system cannot allocate any extra memory, no memory works well
+</td></tr></tbody></table>
+<p>Rather than tagging the A blocks using the contents of one of the internal buffers, an indirect <i>movement-imitation buffer</i> can be used instead.<sup id="cite_ref-kim2008_1-1" class="reference"><a href="#cite_note-kim2008-1">&#91;1&#93;</a></sup><sup id="cite_ref-symvonis_10-0" class="reference"><a href="#cite_note-symvonis-10">&#91;10&#93;</a></sup> This is an internal buffer defined as <i>s1 t s2</i>, where <i>s1</i> and <i>s2</i> are each as large as the number of A and B blocks, and <i>t</i> contains any values immediately following <i>s1</i> that are equal to the last value of <i>s1</i> (thus ensuring that no value in <i>s2</i> appears in <i>s1</i>). A second internal buffer containing <span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">A</span></span> unique values is still used. The first <span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">A</span></span> values of <i>s1</i> and <i>s2</i> are then swapped with each other to encode information into the buffer about which blocks are A blocks and which are B blocks. When an A block at index <i>i</i> is swapped with a B block at index <i>j</i> (where the first evenly sized A block is initially at index 0), s1[i] and s1[j] are swapped with s2[i] and s2[j], respectively. This <i>imitates the movements</i> of the A blocks through B. The unique values in the second buffer are used to determine the original order of the A blocks as they are rolled through the B blocks. Once all of the A blocks have been dropped, the movement-imitation buffer is used to decode whether a given block in the array is an A block or a B block, each A block is rotated into B, and the second internal buffer is used as swap space for the local merges.
+</p><p>The <i>second</i> value of each A block doesn't necessarily need to be tagged – the first, last, or any other element could be used instead. However, if the first value is tagged, the values will need to be read from the first internal buffer (where they were swapped) when deciding where to drop the minimum A block.
+</p><p>Many sorting algorithms can be used to sort the contents of the second internal buffer, including unstable sorts like <a href="https://en.wikipedia.org/wiki/Quicksort" title="Quicksort">quicksort</a>, since the contents of the buffer are guaranteed to unique. Insertion sort is still recommended, though, for its situational performance and lack of recursion.
+</p>
+<h2><span class="mw-headline" id="Analysis">Analysis</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=edit&amp;section=10" title="Edit section: Analysis">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Block sort is a well-defined and testable class of algorithms, with working implementations available as a merge and as a sort.<sup id="cite_ref-implementation_11-0" class="reference"><a href="#cite_note-implementation-11">&#91;11&#93;</a></sup><sup id="cite_ref-download_12-0" class="reference"><a href="#cite_note-download-12">&#91;12&#93;</a></sup><sup id="cite_ref-wikisort_13-0" class="reference"><a href="#cite_note-wikisort-13">&#91;13&#93;</a></sup> This allows its characteristics to be measured and considered.
+</p>
+<h3><span class="mw-headline" id="Complexity">Complexity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=edit&amp;section=11" title="Edit section: Complexity">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Block sort begins by performing insertion sort on groups of 16&#8211;31 items in the array. Insertion sort is an <span class="texhtml"><a href="https://en.wikipedia.org/wiki/Big_O_notation#Orders_of_common_functions" title="Big O notation"><i>O</i></a>(<i>n</i><sup>2</sup>)</span> operation, so this leads to anywhere from <span class="texhtml"><i>O</i>(16<sup>2</sup> × <i>n</i>/16)</span> to <span class="texhtml"><i>O</i>(31<sup>2</sup> × <i>n</i>/31)</span>, which is <span class="texhtml"><i>O</i>(<i>n</i>)</span> once the <a href="https://en.wikipedia.org/wiki/Big_O_notation#Example" title="Big O notation">constant factors are omitted</a>. It must also apply an insertion sort on the second internal buffer after each level of merging is completed. However, as this buffer was limited to <span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">A</span></span> in size, the <span class="texhtml"><i>O</i>(<span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;"><i>n</i></span></span><sup>2</sup>)</span> operation also ends up being <span class="texhtml"><i>O</i>(<i>n</i>)</span>.
+</p><p>Next it must extract two internal buffers for each level of the merge sort. It does so by iterating over the items in the A and B subarrays and incrementing a counter whenever the value changes, and upon finding enough values it rotates them to the start of A or the end of B. In the worst case this will end up searching the entire array before finding <span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">A</span></span> non-contiguous unique values, which requires <span class="texhtml"><i>O</i>(<i>n</i>)</span> comparisons and <span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">A</span></span> rotations for <span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">A</span></span> values. This resolves to <span class="texhtml"><i>O</i>(<i>n</i> + <span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;"><i>n</i></span></span> × <span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;"><i>n</i></span></span>)</span>, or <span class="texhtml"><i>O</i>(<i>n</i>)</span>.
+</p><p>When none of the A or B subarrays contained <span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">A</span></span> unique values to create the internal buffers, a normally suboptimal in-place merge operation is performed where it repeatedly binary searches and rotates A into B. However, the known lack of unique values within any of the subarrays places a hard limit on the number of binary searches and rotations that will be performed during this step, which is again <span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">A</span></span> items rotated up to <span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">A</span></span> times, or <span class="texhtml"><i>O</i>(<i>n</i>)</span>. The size of each block is also adjusted to be smaller in the case where it found <span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">A</span></span> unique values but not 2<span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">A</span></span>, which further limits the number of unique values contained within any A or B block.
+</p><p>Tagging the A blocks is performed <span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">A</span></span> times for each A subarray, then the A blocks are rolled through and inserted into the B blocks up to <span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">A</span></span> times. The local merges retain the same <span class="texhtml"><i>O</i>(<i>n</i>)</span> complexity of a standard merge, albeit with more assignments since the values must be swapped rather than copied. The linear search for finding the new minimum A block iterates over <span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">A</span></span> blocks <span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">A</span></span> times. And the buffer redistribution process is identical to the buffer extraction but in reverse, and therefore has the same <span class="texhtml"><i>O</i>(<i>n</i>)</span> complexity.
+</p><p>After <a href="https://en.wikipedia.org/wiki/Big_O_notation#Example" title="Big O notation">omitting all but the highest complexity</a> and considering that there are <i>log n</i> levels in the outer merge loop, this leads to a final asymptotic complexity of <span class="texhtml"><i>O</i>(<i>n</i> log <i>n</i>)</span> for the worst and average cases. For the best case, where the data is already in order, the merge step performs <span class="texhtml"><i>n</i>/16</span> comparisons for the first level, then <span class="texhtml"><i>n</i>/32</span>, <span class="texhtml"><i>n</i>/64</span>, <span class="texhtml"><i>n</i>/128</span>, etc. This is a <a href="https://en.wikipedia.org/wiki/1/2_+_1/4_+_1/8_+_1/16_+_·_·_·" class="mw-redirect" title="1/2 + 1/4 + 1/8 + 1/16 + · · ·">well-known mathematical series</a> which resolves to <span class="texhtml"><i>O</i>(<i>n</i>)</span>.
+</p>
+<h3><span class="mw-headline" id="Memory">Memory</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=edit&amp;section=12" title="Edit section: Memory">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>As block sort is <a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)" title="Recursion (computer science)">non-recursive</a> and does not require the use of <a href="https://en.wikipedia.org/wiki/Memory_management#Dynamic_memory_allocation" title="Memory management">dynamic allocations</a>, this leads to constant <a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)" title="Stack (abstract data type)">stack</a> and heap space. It uses O(1) auxiliary memory in a <a href="https://en.wikipedia.org/wiki/Transdichotomous_model" title="Transdichotomous model">transdichotomous model</a>, which accepts that the O(log <i>n</i>) bits needed to keep track of the ranges for A and B cannot be any greater than 32 or 64 on 32-bit or 64-bit computing systems, respectively, and therefore simplifies to O(1) space for any array that can feasibly be allocated.
+</p>
+<h3><span class="mw-headline" id="Stability">Stability</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=edit&amp;section=13" title="Edit section: Stability">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Although items in the array are moved out of order during a block sort, each operation is fully reversible and will have restored the original order of equivalent items by its completion.
+</p><p>Stability requires the first instance of each value in an array before sorting to still be the first instance of that value after sorting. Block sort moves these first instances to the start of the array to create the two internal buffers, but when all of the merges are completed for the current level of the block sort, those values are distributed back to the first sorted position within the array. This maintains stability.
+</p><p>Before rolling the A blocks through the B blocks, each A block has its second value swapped with a value from the first buffer. At that point the A blocks are moved out of order to roll through the B blocks. However, once it finds where it should insert the smallest A block into the previous B block, that smallest A block is moved back to the start of the A blocks and its second value is restored. By the time all of the A blocks have been inserted, the A blocks will be in order again and the first buffer will contain its original values in the original order.
+</p><p>Using the second buffer as swap space when merging an A block with some B values causes the contents of that buffer to be rearranged. However, as the algorithm already ensured the buffer only contains unique values, sorting the contents of the buffer is sufficient to restore their original stable order.
+</p>
+<h3><span class="mw-headline" id="Adaptivity">Adaptivity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=edit&amp;section=14" title="Edit section: Adaptivity">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Block sort is an <a href="https://en.wikipedia.org/wiki/Adaptive_sort" title="Adaptive sort">adaptive sort</a> on two levels: first, it skips merging A and B subarrays that are already in order. Next, when A and B need to be merged and are broken into evenly sized blocks, the A blocks are only rolled through B as far as is necessary, and each block is only merged with the B values immediately following it. The more ordered the data originally was, the fewer B values there will be that need to be merged into A.
+</p>
+<h2><span class="mw-headline" id="Advantages">Advantages</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=edit&amp;section=15" title="Edit section: Advantages">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Block sort is a stable sort that does not require additional memory, which is useful in cases where there is not enough free memory to allocate the O(n) buffer. When using the <i>external buffer</i> variant of block sort, it can scale from using O(n) memory to progressively smaller buffers as needed, and will still work efficiently within those constraints.
+</p>
+<h2><span class="mw-headline" id="Disadvantages">Disadvantages</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=edit&amp;section=16" title="Edit section: Disadvantages">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Block sort does not exploit sorted ranges of data on as fine a level as some other algorithms, such as <a href="https://en.wikipedia.org/wiki/Timsort" title="Timsort">Timsort</a>.<sup id="cite_ref-tim_14-0" class="reference"><a href="#cite_note-tim-14">&#91;14&#93;</a></sup> It only checks for these sorted ranges at the two predefined levels: the A and B subarrays, and the A and B blocks. It is also harder to implement and parallelize compared to a merge sort.
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=edit&amp;section=17" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist reflist-columns references-column-width" style="column-width: 30em;">
+<ol class="references">
+<li id="cite_note-kim2008-1"><span class="mw-cite-backlink">^ <a href="#cite_ref-kim2008_1-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-kim2008_1-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFKutznerKim2008" class="citation book cs1">Kutzner, Arne; Kim, Pok-Son (2008). <a rel="nofollow" class="external text" href="http://itbe.hanyang.ac.kr/ak/papers/tamc2008.pdf"><i>Ratio Based Stable In-Place Merging</i></a> <span class="cs1-format">(PDF)</span>. <a href="https://en.wikipedia.org/wiki/Lecture_Notes_in_Computer_Science" title="Lecture Notes in Computer Science">Lecture Notes in Computer Science</a>. Vol.&#160;4978. Springer Berlin Heidelberg. pp.&#160;246–257<span class="reference-accessdate">. Retrieved <span class="nowrap">2016-09-07</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Ratio+Based+Stable+In-Place+Merging&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=246-257&amp;rft.pub=Springer+Berlin+Heidelberg&amp;rft.date=2008&amp;rft.aulast=Kutzner&amp;rft.aufirst=Arne&amp;rft.au=Kim%2C+Pok-Son&amp;rft_id=http%3A%2F%2Fitbe.hanyang.ac.kr%2Fak%2Fpapers%2Ftamc2008.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABlock+sort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-mannilla-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-mannilla_2-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFMannilaUkkonen1984" class="citation journal cs1">Mannila, Heikki; Ukkonen, Esko (14 May 1984). "A Simple Linear Time Algorithm for In-Situ Merging". <i><a href="https://en.wikipedia.org/wiki/Information_Processing_Letters" title="Information Processing Letters">Information Processing Letters</a></i>. <b>18</b> (4): 203–208. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2F0020-0190(84)90112-1">10.1016/0020-0190(84)90112-1</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Information+Processing+Letters&amp;rft.atitle=A+Simple+Linear+Time+Algorithm+for+In-Situ+Merging&amp;rft.volume=18&amp;rft.issue=4&amp;rft.pages=203-208&amp;rft.date=1984-05-14&amp;rft_id=info%3Adoi%2F10.1016%2F0020-0190%2884%2990112-1&amp;rft.aulast=Mannila&amp;rft.aufirst=Heikki&amp;rft.au=Ukkonen%2C+Esko&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABlock+sort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-kronrod-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-kronrod_3-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKronrod1969" class="citation journal cs1 cs1-prop-foreign-lang-source">Kronrod, M. Alexander (February 1969). <a rel="nofollow" class="external text" href="http://mi.mathnet.ru/eng/dan34705">"Оптимальный алгоритм упорядочения без рабочего поля"</a> &#91;An Optimal Ordering Algorithm without a Field of Operation&#93;. <i><a href="https://en.wikipedia.org/wiki/Proceedings_of_the_USSR_Academy_of_Sciences" title="Proceedings of the USSR Academy of Sciences">Proceedings of the USSR Academy of Sciences</a></i> (in Russian). <b>186</b> (6): 1256–1258.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Proceedings+of+the+USSR+Academy+of+Sciences&amp;rft.atitle=%D0%9E%D0%BF%D1%82%D0%B8%D0%BC%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9+%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC+%D1%83%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BE%D1%87%D0%B5%D0%BD%D0%B8%D1%8F+%D0%B1%D0%B5%D0%B7+%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B5%D0%B3%D0%BE+%D0%BF%D0%BE%D0%BB%D1%8F&amp;rft.volume=186&amp;rft.issue=6&amp;rft.pages=1256-1258&amp;rft.date=1969-02&amp;rft.aulast=Kronrod&amp;rft.aufirst=M.+Alexander&amp;rft_id=http%3A%2F%2Fmi.mathnet.ru%2Feng%2Fdan34705&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABlock+sort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBentley2006" class="citation book cs1">Bentley, Jon (2006). <a href="https://en.wikipedia.org/wiki/Programming_Pearls" class="mw-redirect" title="Programming Pearls"><i>Programming Pearls</i></a> (2nd&#160;ed.).</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Programming+Pearls&amp;rft.edition=2nd&amp;rft.date=2006&amp;rft.aulast=Bentley&amp;rft.aufirst=Jon&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABlock+sort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Warren_2013-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-Warren_2013_5-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFWarren_Jr.2013" class="citation book cs1">Warren Jr., Henry S. (2013) [2002]. <a href="https://en.wikipedia.org/wiki/Hacker%27s_Delight" title="Hacker&#39;s Delight"><i>Hacker's Delight</i></a> (2&#160;ed.). <a href="https://en.wikipedia.org/wiki/Addison_Wesley" class="mw-redirect" title="Addison Wesley">Addison Wesley</a> - <a href="https://en.wikipedia.org/wiki/Pearson_Education,_Inc." class="mw-redirect" title="Pearson Education, Inc.">Pearson Education, Inc.</a> <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-321-84268-8" title="Special:BookSources/978-0-321-84268-8"><bdi>978-0-321-84268-8</bdi></a>. 0-321-84268-5.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Hacker%27s+Delight&amp;rft.edition=2&amp;rft.pub=Addison+Wesley+-+Pearson+Education%2C+Inc.&amp;rft.date=2013&amp;rft.isbn=978-0-321-84268-8&amp;rft.aulast=Warren+Jr.&amp;rft.aufirst=Henry+S.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABlock+sort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-pardo-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-pardo_6-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFPardo1977" class="citation book cs1">Pardo, Luis Trabb (1977). <i>Stable Sorting and Merging with Optimal Space and Time Bounds</i>. <a href="https://en.wikipedia.org/wiki/SIAM_Journal_on_Computing" title="SIAM Journal on Computing">SIAM Journal on Computing</a>. Vol.&#160;6. pp.&#160;351–372.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Stable+Sorting+and+Merging+with+Optimal+Space+and+Time+Bounds&amp;rft.series=SIAM+Journal+on+Computing&amp;rft.pages=351-372&amp;rft.date=1977&amp;rft.aulast=Pardo&amp;rft.aufirst=Luis+Trabb&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABlock+sort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-geffert-7"><span class="mw-cite-backlink">^ <a href="#cite_ref-geffert_7-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-geffert_7-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGeffertKatajainenPasanen2000" class="citation journal cs1">Geffert, Viliam; Katajainen, Jykri; Pasanen, Tomi (April 2000). "Asymptotically efficient in-place merging". <i><a href="https://en.wikipedia.org/wiki/Theoretical_Computer_Science_(journal)" title="Theoretical Computer Science (journal)">Theoretical Computer Science</a></i>. <b>237</b> (1–2): 159–181. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.22.5750">10.1.1.22.5750</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2FS0304-3975(98)00162-5">10.1016/S0304-3975(98)00162-5</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Theoretical+Computer+Science&amp;rft.atitle=Asymptotically+efficient+in-place+merging&amp;rft.volume=237&amp;rft.issue=1%E2%80%932&amp;rft.pages=159-181&amp;rft.date=2000-04&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.22.5750%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1016%2FS0304-3975%2898%2900162-5&amp;rft.aulast=Geffert&amp;rft.aufirst=Viliam&amp;rft.au=Katajainen%2C+Jykri&amp;rft.au=Pasanen%2C+Tomi&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABlock+sort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHwangLin1972" class="citation book cs1">Hwang, F. K.; Lin, S. (1972). <i>A Simple Algorithm for Merging Two Disjoint Linearly Ordered Sets</i>. <a href="https://en.wikipedia.org/wiki/SIAM_Journal_on_Computing" title="SIAM Journal on Computing">SIAM Journal on Computing</a>. Vol.&#160;1. pp.&#160;31–39. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1137%2F0201004">10.1137/0201004</a>. <a href="https://en.wikipedia.org/wiki/ISSN_(identifier)" class="mw-redirect" title="ISSN (identifier)">ISSN</a>&#160;<a rel="nofollow" class="external text" href="http://www.worldcat.org/issn/0097-5397">0097-5397</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=A+Simple+Algorithm+for+Merging+Two+Disjoint+Linearly+Ordered+Sets&amp;rft.series=SIAM+Journal+on+Computing&amp;rft.pages=31-39&amp;rft.date=1972&amp;rft_id=info%3Adoi%2F10.1137%2F0201004&amp;rft.issn=0097-5397&amp;rft.aulast=Hwang&amp;rft.aufirst=F.+K.&amp;rft.au=Lin%2C+S.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABlock+sort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-dydek-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-dydek_9-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFDudzinskiDydek1981" class="citation book cs1">Dudzinski, Krzysztof; Dydek, Andrzej (1981). <i>On a Stable Storage Merging Algorithm</i>. <a href="https://en.wikipedia.org/wiki/Information_Processing_Letters" title="Information Processing Letters">Information Processing Letters</a>. Vol.&#160;12. pp.&#160;5–8.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=On+a+Stable+Storage+Merging+Algorithm&amp;rft.series=Information+Processing+Letters&amp;rft.pages=5-8&amp;rft.date=1981&amp;rft.aulast=Dudzinski&amp;rft.aufirst=Krzysztof&amp;rft.au=Dydek%2C+Andrzej&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABlock+sort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-symvonis-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-symvonis_10-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSymvonis1995" class="citation journal cs1">Symvonis, Antonios (1995). "Optimal Stable Merging". <i>The Computer Journal</i>. <b>38</b> (8): 681–690. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.55.6058">10.1.1.55.6058</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1093%2Fcomjnl%2F38.8.681">10.1093/comjnl/38.8.681</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=The+Computer+Journal&amp;rft.atitle=Optimal+Stable+Merging&amp;rft.volume=38&amp;rft.issue=8&amp;rft.pages=681-690&amp;rft.date=1995&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.55.6058%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1093%2Fcomjnl%2F38.8.681&amp;rft.aulast=Symvonis&amp;rft.aufirst=Antonios&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABlock+sort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-implementation-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-implementation_11-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFArne_Kutzner" class="citation web cs1">Arne Kutzner. <a rel="nofollow" class="external text" href="https://archive.today/20140415030845/http://ak.hanyang.ac.kr/research/benchmarking-tool/benchmarking-tool.html">"In-place Merging Algorithm Benchmarking Tool"</a>. Archived from <a rel="nofollow" class="external text" href="http://ak.hanyang.ac.kr/research/benchmarking-tool/benchmarking-tool.html">the original</a> on 2014-04-15<span class="reference-accessdate">. Retrieved <span class="nowrap">2014-03-23</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=In-place+Merging+Algorithm+Benchmarking+Tool&amp;rft.au=Arne+Kutzner&amp;rft_id=http%3A%2F%2Fak.hanyang.ac.kr%2Fresearch%2Fbenchmarking-tool%2Fbenchmarking-tool.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABlock+sort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-download-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-download_12-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFArne_Kutzner" class="citation web cs1">Arne Kutzner. <a rel="nofollow" class="external text" href="https://web.archive.org/web/20161220094823/http://itbe.hanyang.ac.kr/research-articles/in-place-merging-algorithm-benchmarking-tool/">"In-place Merging Algorithm Benchmarking Tool"</a>. Archived from <a rel="nofollow" class="external text" href="http://itbe.hanyang.ac.kr/research-articles/in-place-merging-algorithm-benchmarking-tool/">the original</a> on 2016-12-20<span class="reference-accessdate">. Retrieved <span class="nowrap">2016-12-11</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=In-place+Merging+Algorithm+Benchmarking+Tool&amp;rft.au=Arne+Kutzner&amp;rft_id=http%3A%2F%2Fitbe.hanyang.ac.kr%2Fresearch-articles%2Fin-place-merging-algorithm-benchmarking-tool%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABlock+sort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-wikisort-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-wikisort_13-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://github.com/BonzaiThePenguin/WikiSort">"Public domain implementations of block sort for C, C++, and Java"</a><span class="reference-accessdate">. Retrieved <span class="nowrap">2014-03-23</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Public+domain+implementations+of+block+sort+for+C%2C+C%2B%2B%2C+and+Java&amp;rft_id=https%3A%2F%2Fgithub.com%2FBonzaiThePenguin%2FWikiSort&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABlock+sort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-tim-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-tim_14-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFTim_Peters" class="citation web cs1">Tim Peters. <a rel="nofollow" class="external text" href="https://lists.archive.carbon60.com/python/dev/1126593?do=post_view_threaded">"Re: WikiSort"</a><span class="reference-accessdate">. Retrieved <span class="nowrap">2020-09-13</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Re%3A+WikiSort&amp;rft.au=Tim+Peters&amp;rft_id=https%3A%2F%2Flists.archive.carbon60.com%2Fpython%2Fdev%2F1126593%3Fdo%3Dpost_view_threaded&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABlock+sort" class="Z3988"></span></span>
+</li>
+</ol></div>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Sorting_algorithms" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Sorting" title="Template:Sorting"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Sorting" title="Template talk:Sorting"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Sorting&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Sorting_algorithms" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">Sorting algorithms</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Theory</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" title="Computational complexity theory">Computational complexity theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">Big O notation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Total_order" title="Total order">Total order</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_(abstract_data_type)" title="List (abstract data type)">Lists</a></li>
+<li><a href="https://en.wikipedia.org/wiki/In-place_algorithm" title="In-place algorithm">Inplacement</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sorting_algorithm#Stability" title="Sorting algorithm">Stability</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Comparison_sort" title="Comparison sort">Comparison sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Adaptive_sort" title="Adaptive sort">Adaptive sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sorting_network" title="Sorting network">Sorting network</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Integer_sorting" title="Integer sorting">Integer sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X_+_Y_sorting" title="X + Y sorting">X + Y sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Transdichotomous_model" title="Transdichotomous model">Transdichotomous model</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quantum_sort" title="Quantum sort">Quantum sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Exchange sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Bubble_sort" title="Bubble sort">Bubble sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cocktail_shaker_sort" title="Cocktail shaker sort">Cocktail shaker sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Odd–even_sort" title="Odd–even sort">Odd–even sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Comb_sort" title="Comb sort">Comb sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gnome_sort" title="Gnome sort">Gnome sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Proportion_extend_sort" title="Proportion extend sort">Proportion extend sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quicksort" title="Quicksort">Quicksort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Slowsort" title="Slowsort">Slowsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stooge_sort" title="Stooge sort">Stooge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bogosort" title="Bogosort">Bogosort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Selection_algorithm" title="Selection algorithm">Selection sorts</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Selection_sort" title="Selection sort">Selection sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Heapsort" title="Heapsort">Heapsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Smoothsort" title="Smoothsort">Smoothsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cartesian_tree#Application_in_sorting" title="Cartesian tree">Cartesian tree sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tournament_sort" title="Tournament sort">Tournament sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cycle_sort" title="Cycle sort">Cycle sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Weak_heap#Weak-heap_sort" title="Weak heap">Weak-heap sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Insertion sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Insertion_sort" title="Insertion sort">Insertion sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shellsort" title="Shellsort">Shellsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Splaysort" title="Splaysort">Splaysort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tree_sort" title="Tree sort">Tree sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Library_sort" title="Library sort">Library sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Patience_sorting" title="Patience sorting">Patience sorting</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Merge sorts</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Merge_sort" title="Merge sort">Merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cascade_merge_sort" title="Cascade merge sort">Cascade merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Oscillating_merge_sort" title="Oscillating merge sort">Oscillating merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Polyphase_merge_sort" title="Polyphase merge sort">Polyphase merge sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Distribution sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/American_flag_sort" title="American flag sort">American flag sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bead_sort" title="Bead sort">Bead sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bucket_sort" title="Bucket sort">Bucket sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Burstsort" title="Burstsort">Burstsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Counting_sort" title="Counting sort">Counting sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interpolation_sort" title="Interpolation sort">Interpolation sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pigeonhole_sort" title="Pigeonhole sort">Pigeonhole sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Proxmap_sort" title="Proxmap sort">Proxmap sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Radix_sort" title="Radix sort">Radix sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Flashsort" title="Flashsort">Flashsort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Concurrent sorts</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Bitonic_sorter" title="Bitonic sorter">Bitonic sorter</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Batcher_odd–even_mergesort" title="Batcher odd–even mergesort">Batcher odd–even mergesort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pairwise_sorting_network" title="Pairwise sorting network">Pairwise sorting network</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Samplesort" title="Samplesort">Samplesort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Hybrid_algorithm" title="Hybrid algorithm">Hybrid sorts</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a class="mw-selflink selflink">Block merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kirkpatrick-Reisch_sort" class="mw-redirect" title="Kirkpatrick-Reisch sort">Kirkpatrick-Reisch sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Timsort" title="Timsort">Timsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Introsort" title="Introsort">Introsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Spreadsort" title="Spreadsort">Spreadsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Merge-insertion_sort" title="Merge-insertion sort">Merge-insertion sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Other</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Topological_sorting" title="Topological sorting">Topological sorting</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Pre-topological_order" title="Pre-topological order">Pre-topological order</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Pancake_sorting" title="Pancake sorting">Pancake sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Spaghetti_sort" title="Spaghetti sort">Spaghetti sort</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1353
+Cached time: 20220505162002
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.528 seconds
+Real time usage: 0.622 seconds
+Preprocessor visited node count: 3092/1000000
+Post‐expand include size: 54366/2097152 bytes
+Template argument size: 4340/2097152 bytes
+Highest expansion depth: 12/100
+Expensive parser function count: 1/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 46317/5000000 bytes
+Lua time usage: 0.269/10.000 seconds
+Lua memory usage: 6028043/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  497.163      1 -total
+ 38.70%  192.379      1 Template:Reflist
+ 23.98%  119.208      6 Template:Cite_book
+ 15.17%   75.416      1 Template:Sorting
+ 14.72%   73.181      1 Template:Navbox
+ 14.33%   71.223      1 Template:Short_description
+ 12.08%   60.060      1 Template:Infobox_Algorithm
+ 10.77%   53.527      1 Template:Infobox
+ 10.35%   51.443     26 Template:Math
+  7.37%   36.640      1 Template:Pagetype
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:42275702-0!canonical and timestamp 20220505162002 and revision id 1058770564. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;oldid=1058770564">https://en.wikipedia.org/w/index.php?title=Block_sort&amp;oldid=1058770564</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Sorting_algorithms" title="Category:Sorting algorithms">Sorting algorithms</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Comparison_sorts" title="Category:Comparison sorts">Comparison sorts</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Stable_sorts" title="Category:Stable sorts">Stable sorts</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:CS1_Russian-language_sources_(ru)" title="Category:CS1 Russian-language sources (ru)">CS1 Russian-language sources (ru)</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_matches_Wikidata" title="Category:Short description matches Wikidata">Short description matches Wikidata</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_example_pseudocode" title="Category:Articles with example pseudocode">Articles with example pseudocode</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Block+sort" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Block+sort" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Block_sort" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Block_sort" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Block_sort"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Block_sort" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Block_sort" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;oldid=1058770564" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Block_sort&amp;id=1058770564&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q17019833" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Block_sort&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Block_sort&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-wikibase-otherprojects" class="mw-portlet mw-portlet-wikibase-otherprojects vector-menu vector-menu-portal portal" aria-labelledby="p-wikibase-otherprojects-label" role="navigation" 
+	 >
+	<label id="p-wikibase-otherprojects-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">In other projects</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="wb-otherproject-link wb-otherproject-commons mw-list-item"><a href="https://commons.wikimedia.org/wiki/Category:Block_sort" hreflang="en"><span>Wikimedia Commons</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/Блоксорт" title="Блоксорт – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q17019833#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 5 December 2021, at 14:37<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Block_sort&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.528","walltime":"0.622","ppvisitednodes":{"value":3092,"limit":1000000},"postexpandincludesize":{"value":54366,"limit":2097152},"templateargumentsize":{"value":4340,"limit":2097152},"expansiondepth":{"value":12,"limit":100},"expensivefunctioncount":{"value":1,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":46317,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  497.163      1 -total"," 38.70%  192.379      1 Template:Reflist"," 23.98%  119.208      6 Template:Cite_book"," 15.17%   75.416      1 Template:Sorting"," 14.72%   73.181      1 Template:Navbox"," 14.33%   71.223      1 Template:Short_description"," 12.08%   60.060      1 Template:Infobox_Algorithm"," 10.77%   53.527      1 Template:Infobox"," 10.35%   51.443     26 Template:Math","  7.37%   36.640      1 Template:Pagetype"]},"scribunto":{"limitreport-timeusage":{"value":"0.269","limit":"10.000"},"limitreport-memusage":{"value":6028043,"limit":52428800}},"cachereport":{"origin":"mw1353","timestamp":"20220505162002","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Block sort","url":"https:\/\/en.wikipedia.org\/wiki\/Block_sort","sameAs":"http:\/\/www.wikidata.org\/entity\/Q17019833","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q17019833","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2014-03-22T15:14:17Z","dateModified":"2021-12-05T14:37:09Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/9\/9f\/Block_sort_with_numbers_1_to_16_%28thumb%29.gif","headline":"Efficient sorting algorithm that combines insert and merge operations"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Block sort","url":"https:\/\/en.wikipedia.org\/wiki\/Block_sort","sameAs":"http:\/\/www.wikidata.org\/entity\/Q17019833","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q17019833","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2014-03-22T15:14:17Z","dateModified":"2021-12-05T14:37:09Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/9\/9f\/Block_sort_with_numbers_1_to_16_%28thumb%29.gif","headline":"Efficient sorting algorithm that combines insert and merge operations"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":186,"wgHostname":"mw1441"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Block_merge_sort by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:32:05 GMT -->
+</html>

@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Space_complexity by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:20:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Space complexity - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"afb199a6-259e-478c-97a4-81abdeddc13c","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Space_complexity","wgTitle":"Space complexity","wgCurRevisionId":1082974392,"wgRevisionId":1082974392,"wgArticleId":338946,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles with short description","Short description is different from Wikidata","Computational complexity theory","Computational resources"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Space_complexity","wgRelevantArticleId":338946,
+"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":7000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q2098905"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","skins.vector.styles.legacy":"ready",
+"ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.ready","mediawiki.toc","Skins.vector.legacy.html","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="Space complexity - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Space_complexity"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Space_complexity&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="Space_complexity.html"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Space_complexity rootpage-Space_complexity skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Space complexity</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Computer memory needed by an algorithm</div>
+<p>The <b>space complexity</b> of an <a href="Algorithm.html" title="Algorithm">algorithm</a> or a <a href="Computer_program.html" title="Computer program">computer program</a> is the amount of memory space required to solve an instance of the <a href="Computational_problem.html" title="Computational problem">computational problem</a> as a function of characteristics of the input. It is the memory required by an algorithm until it executes completely.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
+</p><p>Similar to <a href="Time_complexity.html" title="Time complexity">time complexity</a>, space complexity is often expressed asymptotically in <a href="Big_O_notation.html" title="Big O notation">big O notation</a>, such as <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n),}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n),}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/328a10f1262414118d5f14b437b7b4ae4c2ac1a0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.624ex; height:2.843ex;" alt="O(n),"/></span>
+<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n\log n),}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n\log n),}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/497720dca0f6c8c6268f7a1332b993e597136e8b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.765ex; height:2.843ex;" alt="{\displaystyle O(n\log n),}"/></span> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n^{\alpha }),}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03B1;<!-- α --></mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n^{\alpha }),}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b3ac153dc1218e0479ba844225929249ed3057bf" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.908ex; height:2.843ex;" alt="{\displaystyle O(n^{\alpha }),}"/></span> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(2^{n}),}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(2^{n}),}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0789ffe69d9b6089a08167f1500221ebdba03ffc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.61ex; height:2.843ex;" alt="{\displaystyle O(2^{n}),}"/></span> etc., where <span class="texhtml mvar" style="font-style:italic;">n</span> is a characteristic of the input influencing space complexity.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Space_complexity_classes"><span class="tocnumber">1</span> <span class="toctext">Space complexity classes</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Relationships_between_classes"><span class="tocnumber">2</span> <span class="toctext">Relationships between classes</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#LOGSPACE"><span class="tocnumber">3</span> <span class="toctext">LOGSPACE</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Auxiliary_space_complexity"><span class="tocnumber">4</span> <span class="toctext">Auxiliary space complexity</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Space_complexity_classes">Space complexity classes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Space_complexity&amp;action=edit&amp;section=1" title="Edit section: Space complexity classes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Analogously to time complexity classes <a href="DTIME.html" title="DTIME">DTIME(f(n))</a> and <a href="NTIME.html" title="NTIME">NTIME(f(n))</a>, the complexity classes <a href="DSPACE.html" title="DSPACE">DSPACE(f(n))</a> and <a href="NSPACE.html" title="NSPACE">NSPACE(f(n))</a> are the sets of languages that are decidable by deterministic (respectively, non-deterministic) <a href="Turing_machine.html" title="Turing machine">Turing machines</a> that use <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(f(n))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(f(n))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/756b4d8648334719f65bf5e6269c7a2b3a502f13" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.065ex; height:2.843ex;" alt="O(f(n))"/></span> space. The complexity classes <a href="PSPACE.html" title="PSPACE">PSPACE</a> and <a href="NPSPACE.html" class="mw-redirect" title="NPSPACE">NPSPACE</a> allow <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/132e57acb643253e7810ee9702d9581f159a1c61" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.279ex; height:2.509ex;" alt="f"/></span> to be any polynomial, analogously to <a href="P_(complexity).html" title="P (complexity)">P</a> and <a href="NP_(complexity).html" title="NP (complexity)">NP</a>.  That is,
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathsf {PSPACE}}=\bigcup _{c\in \mathbb {Z} ^{+}}{\mathsf {DSPACE}}(n^{c})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="sans-serif">P</mi>
+            <mi mathvariant="sans-serif">S</mi>
+            <mi mathvariant="sans-serif">P</mi>
+            <mi mathvariant="sans-serif">A</mi>
+            <mi mathvariant="sans-serif">C</mi>
+            <mi mathvariant="sans-serif">E</mi>
+          </mrow>
+        </mrow>
+        <mo>=</mo>
+        <munder>
+          <mo>&#x22C3;<!-- ⋃ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>c</mi>
+            <mo>&#x2208;<!-- ∈ --></mo>
+            <msup>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi mathvariant="double-struck">Z</mi>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo>+</mo>
+              </mrow>
+            </msup>
+          </mrow>
+        </munder>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="sans-serif">D</mi>
+            <mi mathvariant="sans-serif">S</mi>
+            <mi mathvariant="sans-serif">P</mi>
+            <mi mathvariant="sans-serif">A</mi>
+            <mi mathvariant="sans-serif">C</mi>
+            <mi mathvariant="sans-serif">E</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>c</mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathsf {PSPACE}}=\bigcup _{c\in \mathbb {Z} ^{+}}{\mathsf {DSPACE}}(n^{c})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/20155d644b339b7fe810b48fed8c2e574de597c5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.338ex; width:29.306ex; height:5.843ex;" alt="{\displaystyle {\mathsf {PSPACE}}=\bigcup _{c\in \mathbb {Z} ^{+}}{\mathsf {DSPACE}}(n^{c})}"/></span></dd></dl>
+<p>and
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathsf {NPSPACE}}=\bigcup _{c\in \mathbb {Z} ^{+}}{\mathsf {NSPACE}}(n^{c})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="sans-serif">N</mi>
+            <mi mathvariant="sans-serif">P</mi>
+            <mi mathvariant="sans-serif">S</mi>
+            <mi mathvariant="sans-serif">P</mi>
+            <mi mathvariant="sans-serif">A</mi>
+            <mi mathvariant="sans-serif">C</mi>
+            <mi mathvariant="sans-serif">E</mi>
+          </mrow>
+        </mrow>
+        <mo>=</mo>
+        <munder>
+          <mo>&#x22C3;<!-- ⋃ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>c</mi>
+            <mo>&#x2208;<!-- ∈ --></mo>
+            <msup>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi mathvariant="double-struck">Z</mi>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo>+</mo>
+              </mrow>
+            </msup>
+          </mrow>
+        </munder>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="sans-serif">N</mi>
+            <mi mathvariant="sans-serif">S</mi>
+            <mi mathvariant="sans-serif">P</mi>
+            <mi mathvariant="sans-serif">A</mi>
+            <mi mathvariant="sans-serif">C</mi>
+            <mi mathvariant="sans-serif">E</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>c</mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathsf {NPSPACE}}=\bigcup _{c\in \mathbb {Z} ^{+}}{\mathsf {NSPACE}}(n^{c})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0e3672288f65e32fdd79d95c47fe2f20adaf1aef" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.338ex; width:30.919ex; height:5.843ex;" alt="{\displaystyle {\mathsf {NPSPACE}}=\bigcup _{c\in \mathbb {Z} ^{+}}{\mathsf {NSPACE}}(n^{c})}"/></span></dd></dl>
+<h2><span class="mw-headline" id="Relationships_between_classes">Relationships between classes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Space_complexity&amp;action=edit&amp;section=2" title="Edit section: Relationships between classes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The <a href="Space_hierarchy_theorem.html" title="Space hierarchy theorem">space hierarchy theorem</a> states that, for all <a href="Space-constructible_function.html" class="mw-redirect" title="Space-constructible function">space-constructible functions</a> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c1c49fad1eccc4e9af1e4f23f32efdc3ac4da973" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.483ex; height:2.843ex;" alt="f(n)"/></span>, there exists a problem that can be solved by a machine with <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c1c49fad1eccc4e9af1e4f23f32efdc3ac4da973" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.483ex; height:2.843ex;" alt="f(n)"/></span> memory space, but cannot be solved by a machine with asymptotically less than <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c1c49fad1eccc4e9af1e4f23f32efdc3ac4da973" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.483ex; height:2.843ex;" alt="f(n)"/></span> space.
+</p><p>The following containments between complexity classes hold.<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup>
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathsf {DTIME}}\left(f\left(n\right)\right)\subseteq {\mathsf {DSPACE}}\left(f\left(n\right)\right)\subseteq {\mathsf {NSPACE}}\left(f\left(n\right)\right)\subseteq {\mathsf {DTIME}}\left(2^{O\left(f\left(n\right)\right)}\right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="sans-serif">D</mi>
+            <mi mathvariant="sans-serif">T</mi>
+            <mi mathvariant="sans-serif">I</mi>
+            <mi mathvariant="sans-serif">M</mi>
+            <mi mathvariant="sans-serif">E</mi>
+          </mrow>
+        </mrow>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mi>f</mi>
+            <mrow>
+              <mo>(</mo>
+              <mi>n</mi>
+              <mo>)</mo>
+            </mrow>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mo>&#x2286;<!-- ⊆ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="sans-serif">D</mi>
+            <mi mathvariant="sans-serif">S</mi>
+            <mi mathvariant="sans-serif">P</mi>
+            <mi mathvariant="sans-serif">A</mi>
+            <mi mathvariant="sans-serif">C</mi>
+            <mi mathvariant="sans-serif">E</mi>
+          </mrow>
+        </mrow>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mi>f</mi>
+            <mrow>
+              <mo>(</mo>
+              <mi>n</mi>
+              <mo>)</mo>
+            </mrow>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mo>&#x2286;<!-- ⊆ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="sans-serif">N</mi>
+            <mi mathvariant="sans-serif">S</mi>
+            <mi mathvariant="sans-serif">P</mi>
+            <mi mathvariant="sans-serif">A</mi>
+            <mi mathvariant="sans-serif">C</mi>
+            <mi mathvariant="sans-serif">E</mi>
+          </mrow>
+        </mrow>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mi>f</mi>
+            <mrow>
+              <mo>(</mo>
+              <mi>n</mi>
+              <mo>)</mo>
+            </mrow>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mo>&#x2286;<!-- ⊆ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="sans-serif">D</mi>
+            <mi mathvariant="sans-serif">T</mi>
+            <mi mathvariant="sans-serif">I</mi>
+            <mi mathvariant="sans-serif">M</mi>
+            <mi mathvariant="sans-serif">E</mi>
+          </mrow>
+        </mrow>
+        <mrow>
+          <mo>(</mo>
+          <msup>
+            <mn>2</mn>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>O</mi>
+              <mrow>
+                <mo>(</mo>
+                <mrow>
+                  <mi>f</mi>
+                  <mrow>
+                    <mo>(</mo>
+                    <mi>n</mi>
+                    <mo>)</mo>
+                  </mrow>
+                </mrow>
+                <mo>)</mo>
+              </mrow>
+            </mrow>
+          </msup>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathsf {DTIME}}\left(f\left(n\right)\right)\subseteq {\mathsf {DSPACE}}\left(f\left(n\right)\right)\subseteq {\mathsf {NSPACE}}\left(f\left(n\right)\right)\subseteq {\mathsf {DTIME}}\left(2^{O\left(f\left(n\right)\right)}\right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4606bf49134bd705038cedfcd42a68bec0cecf3e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:73.138ex; height:4.843ex;" alt="{\displaystyle {\mathsf {DTIME}}\left(f\left(n\right)\right)\subseteq {\mathsf {DSPACE}}\left(f\left(n\right)\right)\subseteq {\mathsf {NSPACE}}\left(f\left(n\right)\right)\subseteq {\mathsf {DTIME}}\left(2^{O\left(f\left(n\right)\right)}\right)}"/></span></dd></dl>
+<p>Furthermore, <a href="Savitch%27s_theorem.html" title="Savitch&#39;s theorem">Savitch's theorem</a> gives the reverse containment that if <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f\in \Omega (\log(n))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mi mathvariant="normal">&#x03A9;<!-- Ω --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f\in \Omega (\log(n))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ad862347b5672ea7840ce888454e377fe7da37e2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:13.782ex; height:2.843ex;" alt="f\in \Omega (\log(n))"/></span>,
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathsf {NSPACE}}\left(f\left(n\right)\right)\subseteq {\mathsf {DSPACE}}\left(\left(f\left(n\right)\right)^{2}\right).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="sans-serif">N</mi>
+            <mi mathvariant="sans-serif">S</mi>
+            <mi mathvariant="sans-serif">P</mi>
+            <mi mathvariant="sans-serif">A</mi>
+            <mi mathvariant="sans-serif">C</mi>
+            <mi mathvariant="sans-serif">E</mi>
+          </mrow>
+        </mrow>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mi>f</mi>
+            <mrow>
+              <mo>(</mo>
+              <mi>n</mi>
+              <mo>)</mo>
+            </mrow>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mo>&#x2286;<!-- ⊆ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="sans-serif">D</mi>
+            <mi mathvariant="sans-serif">S</mi>
+            <mi mathvariant="sans-serif">P</mi>
+            <mi mathvariant="sans-serif">A</mi>
+            <mi mathvariant="sans-serif">C</mi>
+            <mi mathvariant="sans-serif">E</mi>
+          </mrow>
+        </mrow>
+        <mrow>
+          <mo>(</mo>
+          <msup>
+            <mrow>
+              <mo>(</mo>
+              <mrow>
+                <mi>f</mi>
+                <mrow>
+                  <mo>(</mo>
+                  <mi>n</mi>
+                  <mo>)</mo>
+                </mrow>
+              </mrow>
+              <mo>)</mo>
+            </mrow>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mn>2</mn>
+            </mrow>
+          </msup>
+          <mo>)</mo>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathsf {NSPACE}}\left(f\left(n\right)\right)\subseteq {\mathsf {DSPACE}}\left(\left(f\left(n\right)\right)^{2}\right).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7df5ac9c1a374c3128e4698bca34799d254bae49" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:39.82ex; height:4.843ex;" alt="{\displaystyle {\mathsf {NSPACE}}\left(f\left(n\right)\right)\subseteq {\mathsf {DSPACE}}\left(\left(f\left(n\right)\right)^{2}\right).}"/></span></dd></dl>
+<p>As a direct corollary, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathsf {PSPACE}}={\mathsf {NPSPACE}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="sans-serif">P</mi>
+            <mi mathvariant="sans-serif">S</mi>
+            <mi mathvariant="sans-serif">P</mi>
+            <mi mathvariant="sans-serif">A</mi>
+            <mi mathvariant="sans-serif">C</mi>
+            <mi mathvariant="sans-serif">E</mi>
+          </mrow>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="sans-serif">N</mi>
+            <mi mathvariant="sans-serif">P</mi>
+            <mi mathvariant="sans-serif">S</mi>
+            <mi mathvariant="sans-serif">P</mi>
+            <mi mathvariant="sans-serif">A</mi>
+            <mi mathvariant="sans-serif">C</mi>
+            <mi mathvariant="sans-serif">E</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathsf {PSPACE}}={\mathsf {NPSPACE}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cc6c80b08d517f18a3287a13ddb57035960de5cc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:22.117ex; height:2.176ex;" alt="{\displaystyle {\mathsf {PSPACE}}={\mathsf {NPSPACE}}}"/></span>. This result is surprising because it suggests that non-determinism can reduce the space necessary to solve a problem only by a small amount. In contrast, the <a href="Exponential_time_hypothesis.html" title="Exponential time hypothesis">exponential time hypothesis</a> conjectures that for time complexity, there can be an exponential gap between deterministic and non-deterministic complexity.
+</p><p>The <a href="Immerman%e2%80%93Szelepcs%c3%a9nyi_theorem.html" title="Immerman–Szelepcsényi theorem">Immerman–Szelepcsényi theorem</a> states that, again for <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f\in \Omega (\log(n))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mi mathvariant="normal">&#x03A9;<!-- Ω --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f\in \Omega (\log(n))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ad862347b5672ea7840ce888454e377fe7da37e2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:13.782ex; height:2.843ex;" alt="f\in \Omega (\log(n))"/></span>, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathsf {NSPACE}}(f(n))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="sans-serif">N</mi>
+            <mi mathvariant="sans-serif">S</mi>
+            <mi mathvariant="sans-serif">P</mi>
+            <mi mathvariant="sans-serif">A</mi>
+            <mi mathvariant="sans-serif">C</mi>
+            <mi mathvariant="sans-serif">E</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathsf {NSPACE}}(f(n))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bdac98ebaa0b38da018080c1d4901e0cc850312d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:15.139ex; height:2.843ex;" alt="{\displaystyle {\mathsf {NSPACE}}(f(n))}"/></span> is closed under complementation. This shows another qualitative difference between time and space complexity classes, as nondeterministic time complexity classes are not believed to be closed under complementation; for instance, it is conjectured that NP ≠ <a href="Co-NP.html" title="Co-NP">co-NP</a>.<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup><sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="LOGSPACE">LOGSPACE</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Space_complexity&amp;action=edit&amp;section=3" title="Edit section: LOGSPACE">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><a href="L_(complexity).html" title="L (complexity)">L</a> or LOGSPACE is the set of problems that can be solved by a deterministic Turing machine using only <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(\log n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(\log n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aae0f22048ba6b7c05dbae17b056bfa16e21807d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.336ex; height:2.843ex;" alt="O(\log n)"/></span> memory space with regards to input size. Even a single counter that can index the entire <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span>-bit input requires <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \log n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \log n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/317ab5292da7c7935aec01a570461fe0613b21d5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:4.754ex; height:2.509ex;" alt="\log n"/></span> space, so LOGSPACE algorithms can maintain only a constant number of counters or other variables of similar bit complexity.
+</p><p>LOGSPACE and other sub-linear space complexity is useful when processing large data that cannot fit into a computer's <a href="Random_access_memory.html" class="mw-redirect" title="Random access memory">RAM</a>. They are related to <a href="Streaming_algorithm.html" title="Streaming algorithm">Streaming algorithms</a>, but only restrict how much memory can be used, while streaming algorithms have further constraints on how the input is fed into the algorithm.
+This class also sees use in the field of <a href="Pseudorandomness.html" title="Pseudorandomness">pseudorandomness</a> and <a href="Derandomization.html" class="mw-redirect" title="Derandomization">derandomization</a>, where researchers consider the open problem of whether <a href="L_(complexity).html" title="L (complexity)">L</a> = <a href="RL_(complexity).html" title="RL (complexity)">RL</a>.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup><sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup>
+</p><p>The corresponding nondeterministic space complexity class is <a href="NL_(complexity).html" title="NL (complexity)">NL</a>.
+</p>
+<h2><span class="mw-headline" id="Auxiliary_space_complexity">Auxiliary space complexity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Space_complexity&amp;action=edit&amp;section=4" title="Edit section: Auxiliary space complexity">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The term <b>auxiliary space</b> refers to space other than that consumed by the input.
+Auxiliary space complexity could be formally defined in terms of a <a href="Turing_machine.html" title="Turing machine">Turing machine</a> with a separate <i>input tape</i> which cannot be written to, only read, and a conventional working tape which can be written to.
+The auxiliary space complexity is then defined (and analyzed) via the working tape.
+For example, consider the <a href="Depth-first_search.html" title="Depth-first search">depth-first search</a> of a <a href="Binary_tree.html#Types_of_binary_trees" title="Binary tree">balanced binary tree</a> with <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> nodes: its auxiliary space complexity is <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \Theta (\log n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x0398;<!-- Θ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Theta (\log n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/65bac5223de9c91eb3e89a032b5c51fd3041dc66" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.371ex; height:2.843ex;" alt="\Theta (\log n)"/></span>.
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Space_complexity&amp;action=edit&amp;section=5" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFKuoZuo2003" class="citation cs2">Kuo, Way; Zuo, Ming J. (2003), <a rel="nofollow" class="external text" href="https://books.google.com/books?id=vdZ4Bm-LnHMC&amp;pg=PA62"><i>Optimal Reliability Modeling: Principles and Applications</i></a>, John Wiley &amp; Sons, p.&#160;62, <a href="ISBN_(identifier).html" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special_BookSources/9780471275459.html" title="Special:BookSources/9780471275459"><bdi>9780471275459</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Optimal+Reliability+Modeling%3A+Principles+and+Applications&amp;rft.pages=62&amp;rft.pub=John+Wiley+%26+Sons&amp;rft.date=2003&amp;rft.isbn=9780471275459&amp;rft.aulast=Kuo&amp;rft.aufirst=Way&amp;rft.au=Zuo%2C+Ming+J.&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3DvdZ4Bm-LnHMC%26pg%3DPA62&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASpace+complexity" class="Z3988"></span></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFAroraBarak2007" class="citation cs2"><a href="Sanjeev_Arora.html" title="Sanjeev Arora">Arora, Sanjeev</a>; Barak, Boaz (2007), <a rel="nofollow" class="external text" href="https://theory.cs.princeton.edu/complexity/book.pdf"><i>Computational Complexity&#160;: A Modern Approach</i></a> <span class="cs1-format">(PDF)</span> (draft&#160;ed.), p.&#160;76, <a href="ISBN_(identifier).html" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special_BookSources/9780511804090.html" title="Special:BookSources/9780511804090"><bdi>9780511804090</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Computational+Complexity+%3A+A+Modern+Approach&amp;rft.pages=76&amp;rft.edition=draft&amp;rft.date=2007&amp;rft.isbn=9780511804090&amp;rft.aulast=Arora&amp;rft.aufirst=Sanjeev&amp;rft.au=Barak%2C+Boaz&amp;rft_id=https%3A%2F%2Ftheory.cs.princeton.edu%2Fcomplexity%2Fbook.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASpace+complexity" class="Z3988"></span></span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFImmerman1988" class="citation cs2"><a href="Neil_Immerman.html" title="Neil Immerman">Immerman, Neil</a> (1988), <a rel="nofollow" class="external text" href="http://www.cs.umass.edu/~immerman/pub/space.pdf">"Nondeterministic space is closed under complementation"</a> <span class="cs1-format">(PDF)</span>, <i>SIAM Journal on Computing</i>, <b>17</b> (5): 935–938, <a href="Doi_(identifier).html" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1137%2F0217058">10.1137/0217058</a>, <a href="MR_(identifier).html" class="mw-redirect" title="MR (identifier)">MR</a>&#160;<a rel="nofollow" class="external text" href="http://www.ams.org/mathscinet-getitem?mr=0961049">0961049</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=SIAM+Journal+on+Computing&amp;rft.atitle=Nondeterministic+space+is+closed+under+complementation&amp;rft.volume=17&amp;rft.issue=5&amp;rft.pages=935-938&amp;rft.date=1988&amp;rft_id=info%3Adoi%2F10.1137%2F0217058&amp;rft_id=%2F%2Fwww.ams.org%2Fmathscinet-getitem%3Fmr%3D961049%23id-name%3DMR&amp;rft.aulast=Immerman&amp;rft.aufirst=Neil&amp;rft_id=http%3A%2F%2Fwww.cs.umass.edu%2F~immerman%2Fpub%2Fspace.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASpace+complexity" class="Z3988"></span></span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFSzelepcsényi1987" class="citation cs2"><a href="R%c3%b3bert_Szelepcs%c3%a9nyi.html" title="Róbert Szelepcsényi">Szelepcsényi, Róbert</a> (1987), "The method of forcing for nondeterministic automata", <i>Bulletin of the EATCS</i>, <b>33</b>: 96–100</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Bulletin+of+the+EATCS&amp;rft.atitle=The+method+of+forcing+for+nondeterministic+automata&amp;rft.volume=33&amp;rft.pages=96-100&amp;rft.date=1987&amp;rft.aulast=Szelepcs%C3%A9nyi&amp;rft.aufirst=R%C3%B3bert&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASpace+complexity" class="Z3988"></span></span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFNisan1992" class="citation cs2"><a href="Noam_Nisan.html" title="Noam Nisan">Nisan, Noam</a> (1992), "RL ⊆ SC", <i>Proceedings of the 24th ACM Symposium on Theory of computing (STOC '92)</i>, Victoria, British Columbia, Canada, pp.&#160;619–623, <a href="Doi_(identifier).html" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F129712.129772">10.1145/129712.129772</a>, <a href="S2CID_(identifier).html" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:11651375">11651375</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=RL+%E2%8A%86+SC&amp;rft.btitle=Proceedings+of+the+24th+ACM+Symposium+on+Theory+of+computing+%28STOC+%2792%29&amp;rft.place=Victoria%2C+British+Columbia%2C+Canada&amp;rft.pages=619-623&amp;rft.date=1992&amp;rft_id=info%3Adoi%2F10.1145%2F129712.129772&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A11651375%23id-name%3DS2CID&amp;rft.aulast=Nisan&amp;rft.aufirst=Noam&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASpace+complexity" class="Z3988"></span>.</span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFReingoldTrevisanVadhan2006" class="citation cs2"><a href="Omer_Reingold.html" title="Omer Reingold">Reingold, Omer</a>; <a href="Luca_Trevisan.html" title="Luca Trevisan">Trevisan, Luca</a>; <a href="Salil_Vadhan.html" title="Salil Vadhan">Vadhan, Salil</a> (2006), <a rel="nofollow" class="external text" href="http://people.seas.harvard.edu/~salil/research/regular.pdf">"Pseudorandom walks on regular digraphs and the RL vs. L problem"</a> <span class="cs1-format">(PDF)</span>, <i>STOC'06: Proceedings of the 38th Annual ACM Symposium on Theory of Computing</i>, New York: ACM, pp.&#160;457–466, <a href="Doi_(identifier).html" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F1132516.1132583">10.1145/1132516.1132583</a>, <a href="MR_(identifier).html" class="mw-redirect" title="MR (identifier)">MR</a>&#160;<a rel="nofollow" class="external text" href="http://www.ams.org/mathscinet-getitem?mr=2277171">2277171</a>, <a href="S2CID_(identifier).html" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:17360260">17360260</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Pseudorandom+walks+on+regular+digraphs+and+the+RL+vs.+L+problem&amp;rft.btitle=STOC%2706%3A+Proceedings+of+the+38th+Annual+ACM+Symposium+on+Theory+of+Computing&amp;rft.place=New+York&amp;rft.pages=457-466&amp;rft.pub=ACM&amp;rft.date=2006&amp;rft_id=%2F%2Fwww.ams.org%2Fmathscinet-getitem%3Fmr%3D2277171%23id-name%3DMR&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A17360260%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1145%2F1132516.1132583&amp;rft.aulast=Reingold&amp;rft.aufirst=Omer&amp;rft.au=Trevisan%2C+Luca&amp;rft.au=Vadhan%2C+Salil&amp;rft_id=http%3A%2F%2Fpeople.seas.harvard.edu%2F~salil%2Fresearch%2Fregular.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASpace+complexity" class="Z3988"></span></span>
+</li>
+</ol></div></div>
+<!-- 
+NewPP limit report
+Parsed by mw1383
+Cached time: 20220416065830
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.279 seconds
+Real time usage: 0.348 seconds
+Preprocessor visited node count: 605/1000000
+Post‐expand include size: 13093/2097152 bytes
+Template argument size: 495/2097152 bytes
+Highest expansion depth: 8/100
+Expensive parser function count: 0/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 20598/5000000 bytes
+Lua time usage: 0.139/10.000 seconds
+Lua memory usage: 4098823/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  249.647      1 -total
+ 68.82%  171.813      1 Template:Reflist
+ 56.41%  140.831      6 Template:Citation
+ 27.94%   69.743      1 Template:Short_description
+ 16.52%   41.244      1 Template:Pagetype
+  6.21%   15.508      3 Template:Main_other
+  5.05%   12.614      1 Template:SDcat
+  1.31%    3.263      1 Template:Short_description/lowercasecheck
+  0.67%    1.661      1 Template:Mvar
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:338946-0!canonical and timestamp 20220416065830 and revision id 1082974392. Serialized with JSON.
+ -->
+</div><noscript><img src="Special_CentralAutoLogin/starte375?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Space_complexity&amp;oldid=1082974392">https://en.wikipedia.org/w/index.php?title=Space_complexity&amp;oldid=1082974392</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Help_Category.html" title="Help:Category">Categories</a>: <ul><li><a href="Category_Computational_complexity_theory.html" title="Category:Computational complexity theory">Computational complexity theory</a></li><li><a href="Category_Computational_resources.html" title="Category:Computational resources">Computational resources</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="Category_Articles_with_short_description.html" title="Category:Articles with short description">Articles with short description</a></li><li><a href="Category_Short_description_is_different_from_Wikidata.html" title="Category:Short description is different from Wikidata">Short description is different from Wikidata</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="Special_MyTalk.html" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="Special_MyContributions.html" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Space+complexity" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Space+complexity" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="Space_complexity.html" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="Talk_Space_complexity.html" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="Space_complexity.html"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Space_complexity&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Space_complexity&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="Main_Page.html"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="Main_Page.html" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="Wikipedia_Contents.html" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="Portal_Current_events.html" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="George_Jacobs_(bridge_player).html" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="Wikipedia_About.html" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="Wikipedia_Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="Help_Contents.html" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="Help_Introduction.html" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="Wikipedia_Community_portal.html" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="Special_RecentChanges.html" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="Wikipedia_File_Upload_Wizard.html" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="Special_WhatLinksHere/Space_complexity.html" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="Special_RecentChangesLinked/Space_complexity.html" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="Wikipedia_File_Upload_Wizard.html" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="Special_SpecialPages.html" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Space_complexity&amp;oldid=1082974392" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Space_complexity&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Space_complexity&amp;id=1082974392&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q2098905" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Space_complexity&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Space_complexity&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Platzkomplexität" title="Platzkomplexität – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Complexité_en_espace" title="Complexité en espace – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/סיבוכיות_מקום" title="סיבוכיות מקום – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-sv mw-list-item"><a href="https://sv.wikipedia.org/wiki/Minneskomplexitet" title="Minneskomplexitet – Swedish" lang="sv" hreflang="sv" class="interlanguage-link-target"><span>Svenska</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Просторова_складність" title="Просторова складність – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-zh-yue mw-list-item"><a href="https://zh-yue.wikipedia.org/wiki/空間複雜度" title="空間複雜度 – Cantonese" lang="yue" hreflang="yue" class="interlanguage-link-target"><span>粵語</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/空间复杂度" title="空间复杂度 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q2098905#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 16 April 2022, at 06:58<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="Wikipedia_Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="Wikipedia_About.html" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="Wikipedia_General_disclaimer.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="Wikipedia_Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Space_complexity&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.279","walltime":"0.348","ppvisitednodes":{"value":605,"limit":1000000},"postexpandincludesize":{"value":13093,"limit":2097152},"templateargumentsize":{"value":495,"limit":2097152},"expansiondepth":{"value":8,"limit":100},"expensivefunctioncount":{"value":0,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":20598,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  249.647      1 -total"," 68.82%  171.813      1 Template:Reflist"," 56.41%  140.831      6 Template:Citation"," 27.94%   69.743      1 Template:Short_description"," 16.52%   41.244      1 Template:Pagetype","  6.21%   15.508      3 Template:Main_other","  5.05%   12.614      1 Template:SDcat","  1.31%    3.263      1 Template:Short_description/lowercasecheck","  0.67%    1.661      1 Template:Mvar"]},"scribunto":{"limitreport-timeusage":{"value":"0.139","limit":"10.000"},"limitreport-memusage":{"value":4098823,"limit":52428800}},"cachereport":{"origin":"mw1383","timestamp":"20220416065830","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Space complexity","url":"https:\/\/en.wikipedia.org\/wiki\/Space_complexity","sameAs":"http:\/\/www.wikidata.org\/entity\/Q2098905","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q2098905","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2003-10-11T21:48:20Z","dateModified":"2022-04-16T06:58:26Z","headline":"amount of memory space required to solve an instance of the computational problem as a function of the size of the input"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Space complexity","url":"https:\/\/en.wikipedia.org\/wiki\/Space_complexity","sameAs":"http:\/\/www.wikidata.org\/entity\/Q2098905","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q2098905","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2003-10-11T21:48:20Z","dateModified":"2022-04-16T06:58:26Z","headline":"amount of memory space required to solve an instance of the computational problem as a function of the size of the input"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":131,"wgHostname":"mw1405"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Space_complexity by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:20:51 GMT -->
+</html>

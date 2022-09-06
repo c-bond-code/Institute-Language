@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Pollard%27s_rho_algorithm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Pollard's rho algorithm - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"97f758e2-3370-4eae-aa62-c317692e1fea","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Pollard's_rho_algorithm","wgTitle":"Pollard's rho algorithm","wgCurRevisionId":1080415596,"wgRevisionId":1080415596,"wgArticleId":580668,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles with example Python (programming language) code","Integer factorization algorithms"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Pollard's_rho_algorithm","wgRelevantArticleId":580668,"wgIsProbablyEditable":true,
+"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":10000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q946489","wgGENewcomerTasksGuidanceEnabled":true,"wgGEAskQuestionEnabled":false,"wgGELinkRecommendationsFrontendEnabled":false};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading",
+"ext.cite.styles":"ready","ext.math.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.9"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="Pollard&#039;s rho algorithm - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Pollard%27s_rho_algorithm"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Pollard_s_rho_algorithm rootpage-Pollard_s_rho_algorithm skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Pollard's rho algorithm</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">This article is about the integer factorization algorithm. For the discrete logarithm algorithm, see <a href="https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm_for_logarithms" title="Pollard&#39;s rho algorithm for logarithms">Pollard's rho algorithm for logarithms</a>.</div>
+<p><b>Pollard's rho algorithm</b> is an <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithm</a> for <a href="https://en.wikipedia.org/wiki/Integer_factorization" title="Integer factorization">integer factorization</a>. It was invented by <a href="https://en.wikipedia.org/wiki/John_Pollard_(mathematician)" title="John Pollard (mathematician)">John Pollard</a> in 1975.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup> It uses only a small amount of space, and its expected running time is proportional to the <a href="https://en.wikipedia.org/wiki/Square_root" title="Square root">square root</a> of the size of the smallest <a href="https://en.wikipedia.org/wiki/Prime_factor" class="mw-redirect" title="Prime factor">prime factor</a> of the <a href="https://en.wikipedia.org/wiki/Composite_number" title="Composite number">composite number</a> being factorized.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Core_ideas"><span class="tocnumber">1</span> <span class="toctext">Core ideas</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Algorithm"><span class="tocnumber">2</span> <span class="toctext">Algorithm</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_factorization"><span class="tocnumber">3</span> <span class="toctext">Example factorization</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Variants"><span class="tocnumber">4</span> <span class="toctext">Variants</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Application"><span class="tocnumber">5</span> <span class="toctext">Application</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Example:_factoring_n_=_10403_=_101_·_103"><span class="tocnumber">6</span> <span class="toctext">Example: factoring <span>n</span> = 10403 = 101 · 103</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Complexity"><span class="tocnumber">7</span> <span class="toctext">Complexity</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#References"><span class="tocnumber">9</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Further_reading"><span class="tocnumber">10</span> <span class="toctext">Further reading</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#External_links"><span class="tocnumber">11</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Core_ideas">Core ideas</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;action=edit&amp;section=1" title="Edit section: Core ideas">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The algorithm is used to factorize a number <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n=pq}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mo>=</mo>
+        <mi>p</mi>
+        <mi>q</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n=pq}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/edd7540bf012670052b38c45bf043b5c8e6cd159" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:6.732ex; height:2.009ex;" alt="n = pq"/></span>, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/81eac1e205430d1f40810df36a0edffdc367af36" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:1.259ex; height:2.009ex;" alt="p"/></span> is a non-trivial factor. A <a href="https://en.wikipedia.org/wiki/Polynomial" title="Polynomial">polynomial</a> modulo <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span>, called <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle g(x)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>g</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle g(x)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c6ca91363022bd5e4dcb17e5ef29f78b8ef00b59" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.255ex; height:2.843ex;" alt="g(x)"/></span> (e.g., <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle g(x)=(x^{2}+1){\bmod {n}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>g</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo lspace="thickmathspace" rspace="thickmathspace">mod</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle g(x)=(x^{2}+1){\bmod {n}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5592772b6d526768cb3125515deda6f70a700d4b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:22.625ex; height:3.176ex;" alt="{\displaystyle g(x)=(x^{2}+1){\bmod {n}}}"/></span>), is used to generate a <a href="https://en.wikipedia.org/wiki/Pseudorandom_sequence" class="mw-redirect" title="Pseudorandom sequence">pseudorandom sequence</a>: A starting value, say 2, is chosen, and the sequence continues as <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{1}=g(2)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>g</mi>
+        <mo stretchy="false">(</mo>
+        <mn>2</mn>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{1}=g(2)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2d45ced508716c831c49a599ae4895f886321f17" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.57ex; height:2.843ex;" alt="{\displaystyle x_{1}=g(2)}"/></span>, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{2}=g(g(2))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>g</mi>
+        <mo stretchy="false">(</mo>
+        <mi>g</mi>
+        <mo stretchy="false">(</mo>
+        <mn>2</mn>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{2}=g(g(2))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/697bc692efcdd69bb6a61bbc50822aa44e496396" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:12.495ex; height:2.843ex;" alt="{\displaystyle x_{2}=g(g(2))}"/></span>, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{3}=g(g(g(2)))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>g</mi>
+        <mo stretchy="false">(</mo>
+        <mi>g</mi>
+        <mo stretchy="false">(</mo>
+        <mi>g</mi>
+        <mo stretchy="false">(</mo>
+        <mn>2</mn>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{3}=g(g(g(2)))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/615fc57d031bedb6dded9a37e94613ada0e2592f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:15.421ex; height:2.843ex;" alt="{\displaystyle x_{3}=g(g(g(2)))}"/></span>, etc. The sequence is related to another sequence <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{x_{k}{\bmod {p}}\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo lspace="thickmathspace" rspace="thickmathspace">mod</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{x_{k}{\bmod {p}}\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9b0c8def553c88d519c1c78ab0ca87dc9227e4a0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:11.594ex; height:2.843ex;" alt="{\displaystyle \{x_{k}{\bmod {p}}\}}"/></span>. Since <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/81eac1e205430d1f40810df36a0edffdc367af36" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:1.259ex; height:2.009ex;" alt="p"/></span> is not known beforehand, this sequence cannot be explicitly computed in the algorithm. Yet, in it lies the core idea of the algorithm.
+</p><p>Because the number of possible values for these sequences is finite, both the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{x_{k}\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{x_{k}\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/da303cc40bcf961218a8415e24719e51f30c224e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.743ex; height:2.843ex;" alt="{\displaystyle \{x_{k}\}}"/></span> sequence, which is mod <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span>, and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{x_{k}{\bmod {p}}\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo lspace="thickmathspace" rspace="thickmathspace">mod</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{x_{k}{\bmod {p}}\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9b0c8def553c88d519c1c78ab0ca87dc9227e4a0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:11.594ex; height:2.843ex;" alt="{\displaystyle \{x_{k}{\bmod {p}}\}}"/></span> sequence will eventually repeat, even though these values are unknown. If the sequences were to behave like random numbers, the <a href="https://en.wikipedia.org/wiki/Birthday_paradox" class="mw-redirect" title="Birthday paradox">birthday paradox</a> implies that the number of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{k}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{k}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6d2b88c64c76a03611549fb9b4cf4ed060b56002" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.418ex; height:2.009ex;" alt="x_{k}"/></span> before a repetition occurs would be expected to be <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O({\sqrt {N}})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <msqrt>
+            <mi>N</mi>
+          </msqrt>
+        </mrow>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O({\sqrt {N}})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6a8566840a0a5d4480a0b8ed63d0717c3a89ec9a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.582ex; height:3.176ex;" alt="{\displaystyle O({\sqrt {N}})}"/></span>, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle N}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>N</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle N}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5e3890c981ae85503089652feb48b191b57aae3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.064ex; height:2.176ex;" alt="N"/></span> is the number of possible values. So the sequence <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{x_{k}{\bmod {p}}\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo lspace="thickmathspace" rspace="thickmathspace">mod</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{x_{k}{\bmod {p}}\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9b0c8def553c88d519c1c78ab0ca87dc9227e4a0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:11.594ex; height:2.843ex;" alt="{\displaystyle \{x_{k}{\bmod {p}}\}}"/></span> will likely repeat much earlier than the sequence <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{x_{k}\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{x_{k}\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/da303cc40bcf961218a8415e24719e51f30c224e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.743ex; height:2.843ex;" alt="{\displaystyle \{x_{k}\}}"/></span>. Once a sequence has a repeated value, the sequence will cycle, because each value depends only on the one before it. This structure of eventual cycling gives rise to the name "rho algorithm", owing to similarity to the shape of the Greek letter <i>ρ</i> when the values <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{1}{\bmod {p}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo lspace="thickmathspace" rspace="thickmathspace">mod</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{1}{\bmod {p}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/917e02f893a77a3bef3319437fa3fb077c4970ad" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:9.235ex; height:2.509ex;" alt="{\displaystyle x_{1}{\bmod {p}}}"/></span>, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{2}{\bmod {p}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo lspace="thickmathspace" rspace="thickmathspace">mod</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{2}{\bmod {p}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/90f5c8edfb106ff6d3f27501a5df1a59acca02de" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:9.235ex; height:2.509ex;" alt="{\displaystyle x_{2}{\bmod {p}}}"/></span>, etc. are represented as nodes in a <a href="https://en.wikipedia.org/wiki/Directed_graph" title="Directed graph">directed graph</a>.
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Pollard_rho_cycle.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Pollard_rho_cycle.svg/220px-Pollard_rho_cycle.svg.png" decoding="async" width="220" height="203" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/5/50/Pollard_rho_cycle.svg/330px-Pollard_rho_cycle.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/5/50/Pollard_rho_cycle.svg/440px-Pollard_rho_cycle.svg.png 2x" data-file-width="520" data-file-height="480" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Pollard_rho_cycle.svg" class="internal" title="Enlarge"></a></div>Cycle diagram resembling the Greek letter&#160;<i>ρ</i></div></div></div>
+<p>This is detected by <a href="https://en.wikipedia.org/wiki/Floyd%27s_cycle-finding_algorithm" class="mw-redirect" title="Floyd&#39;s cycle-finding algorithm">Floyd's cycle-finding algorithm</a>: two nodes <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle i}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>i</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle i}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/add78d8608ad86e54951b8c8bd6c8d8416533d20" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:0.802ex; height:2.176ex;" alt="i"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle j}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>j</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle j}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2f461e54f5c093e92a55547b9764291390f0b5d0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.027ex; width:0.985ex; height:2.509ex;" alt="j"/></span> (i.e., <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e87000dd6142b81d041896a30fe58f0c3acb2158" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.129ex; height:2.009ex;" alt="x_{i}"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{j}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{j}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5db47cb3d2f9496205a17a6856c91c1d3d363ccd" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:2.239ex; height:2.343ex;" alt="x_{j}"/></span>) are kept. In each step, one moves to the next node in the sequence and the other moves forward by two nodes. After that, it is checked whether <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \gcd(x_{i}-x_{j},n)\neq 1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo movablelimits="true" form="prefix">gcd</mo>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2260;<!-- ≠ --></mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \gcd(x_{i}-x_{j},n)\neq 1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8fb22fd82ffb94bd9b6cb2446e77cd4983cd03ec" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:19.195ex; height:3.009ex;" alt="{\displaystyle \gcd(x_{i}-x_{j},n)\neq 1}"/></span>. If it is not 1, then this implies that there is a repetition in the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{x_{k}{\bmod {p}}\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo lspace="thickmathspace" rspace="thickmathspace">mod</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{x_{k}{\bmod {p}}\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9b0c8def553c88d519c1c78ab0ca87dc9227e4a0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:11.594ex; height:2.843ex;" alt="{\displaystyle \{x_{k}{\bmod {p}}\}}"/></span> sequence (i.e. <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{i}{\bmod {p}}=x_{j}{\bmod {p}})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo lspace="thickmathspace" rspace="thickmathspace">mod</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </mrow>
+        <mo>=</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo lspace="thickmathspace" rspace="thickmathspace">mod</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{i}{\bmod {p}}=x_{j}{\bmod {p}})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9c5e5a3be0768dc1520b173b80fa8956abdc6a5e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:22.073ex; height:3.009ex;" alt="{\displaystyle x_{i}{\bmod {p}}=x_{j}{\bmod {p}})}"/></span>. This works because if the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e87000dd6142b81d041896a30fe58f0c3acb2158" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.129ex; height:2.009ex;" alt="x_{i}"/></span> is the same as <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{j}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{j}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5db47cb3d2f9496205a17a6856c91c1d3d363ccd" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:2.239ex; height:2.343ex;" alt="x_{j}"/></span>, the difference between <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e87000dd6142b81d041896a30fe58f0c3acb2158" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.129ex; height:2.009ex;" alt="x_{i}"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{j}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{j}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5db47cb3d2f9496205a17a6856c91c1d3d363ccd" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:2.239ex; height:2.343ex;" alt="x_{j}"/></span> is necessarily a multiple of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/81eac1e205430d1f40810df36a0edffdc367af36" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:1.259ex; height:2.009ex;" alt="p"/></span>. Although this always happens eventually, the resulting <a href="https://en.wikipedia.org/wiki/Greatest_common_divisor" title="Greatest common divisor">greatest common divisor</a> (GCD) is a divisor of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> other than 1. This may be <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> itself, since the two sequences might repeat at the same time. In this (uncommon) case the algorithm fails, and can be repeated with a different parameter.
+</p>
+<h2><span class="mw-headline" id="Algorithm">Algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;action=edit&amp;section=2" title="Edit section: Algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The algorithm takes as its inputs <span class="texhtml mvar" style="font-style:italic;">n</span>, the <a href="https://en.wikipedia.org/wiki/Integer" title="Integer">integer</a> to be factored; and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle g(x)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>g</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle g(x)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c6ca91363022bd5e4dcb17e5ef29f78b8ef00b59" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.255ex; height:2.843ex;" alt="g(x)"/></span>, a polynomial in <span class="texhtml mvar" style="font-style:italic;">x</span> computed modulo <span class="texhtml mvar" style="font-style:italic;">n</span>. In the original algorithm, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle g(x)=(x^{2}-1){\bmod {n}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>g</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo lspace="thickmathspace" rspace="thickmathspace">mod</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle g(x)=(x^{2}-1){\bmod {n}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4759d3cbbe36ac1fc07591c6d3191f737ed7d6bf" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:22.625ex; height:3.176ex;" alt="{\displaystyle g(x)=(x^{2}-1){\bmod {n}}}"/></span>, but nowadays it is more common to use <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle g(x)=(x^{2}+1){\bmod {n}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>g</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo lspace="thickmathspace" rspace="thickmathspace">mod</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle g(x)=(x^{2}+1){\bmod {n}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5592772b6d526768cb3125515deda6f70a700d4b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:22.625ex; height:3.176ex;" alt="{\displaystyle g(x)=(x^{2}+1){\bmod {n}}}"/></span>. The output is either a non-trivial factor of <span class="texhtml mvar" style="font-style:italic;">n</span>, or failure. It performs the following steps:<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup>
+</p>
+<pre>    x ← 2
+    y ← 2
+    d ← 1
+
+    <b>while</b> d = 1:
+        x ← g(x)
+        y ← g(g(y))
+        d ← gcd(|x - y|, n)
+
+    <b>if</b> d = n: 
+        <b>return failure</b>
+    <b>else</b>:
+        <b>return</b> d
+</pre>
+<p>Here <span class="texhtml mvar" style="font-style:italic;">x</span> and <span class="texhtml mvar" style="font-style:italic;">y</span> corresponds to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e87000dd6142b81d041896a30fe58f0c3acb2158" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.129ex; height:2.009ex;" alt="x_{i}"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{j}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{j}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5db47cb3d2f9496205a17a6856c91c1d3d363ccd" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:2.239ex; height:2.343ex;" alt="x_{j}"/></span> in the previous section. Note that this algorithm may fail to find a nontrivial factor even when <span class="texhtml mvar" style="font-style:italic;">n</span> is composite. In that case, the method can be tried again, using a starting value other than 2 or a different <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle g(x)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>g</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle g(x)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c6ca91363022bd5e4dcb17e5ef29f78b8ef00b59" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.255ex; height:2.843ex;" alt="g(x)"/></span>.
+</p>
+<h2><span class="mw-headline" id="Example_factorization">Example factorization</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;action=edit&amp;section=3" title="Edit section: Example factorization">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Let <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n=8051}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mo>=</mo>
+        <mn>8051</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n=8051}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/23875b960da693717f40b71d7d835a3b8acf5845" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:9.143ex; height:2.176ex;" alt="{\displaystyle n=8051}"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle g(x)=(x^{2}+1){\bmod {8}}051}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>g</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo lspace="thickmathspace" rspace="thickmathspace">mod</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>8</mn>
+          </mrow>
+        </mrow>
+        <mn>051</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle g(x)=(x^{2}+1){\bmod {8}}051}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ba569a87337990ebb0e695fc8f5d65dd62a85536" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:25.881ex; height:3.176ex;" alt="{\displaystyle g(x)=(x^{2}+1){\bmod {8}}051}"/></span>.
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:332px;"><a href="https://en.wikipedia.org/wiki/File:Rho-example-animated.gif" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rho-example-animated.gif/330px-Rho-example-animated.gif" decoding="async" width="330" height="348" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rho-example-animated.gif/495px-Rho-example-animated.gif 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rho-example-animated.gif/660px-Rho-example-animated.gif 2x" data-file-width="707" data-file-height="745" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Rho-example-animated.gif" class="internal" title="Enlarge"></a></div>Pollard's rho algorithm example factorization for <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n=253}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mo>=</mo>
+        <mn>253</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n=253}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8f75c54af2cf607f6a78892fc9d30c42312ec004" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:7.981ex; height:2.176ex;" alt="{\displaystyle n=253}"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle g(x)=x^{2}{\bmod {2}}53}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>g</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo lspace="thickmathspace" rspace="thickmathspace">mod</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </mrow>
+        <mn>53</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle g(x)=x^{2}{\bmod {2}}53}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/580c9d1054f2e846d7aaf0210c58be26528d577e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:18.906ex; height:3.176ex;" alt="{\displaystyle g(x)=x^{2}{\bmod {2}}53}"/></span>, with starting value 2. The example is using <a href="https://en.wikipedia.org/wiki/Floyd%27s_cycle-finding_algorithm" class="mw-redirect" title="Floyd&#39;s cycle-finding algorithm">Floyd's cycle-finding algorithm</a>.</div></div></div>
+<table class="wikitable" style="text-align:right">
+<tbody><tr>
+<th width="30"><span class="texhtml mvar" style="font-style:italic;">i</span></th>
+<th width="60"><span class="texhtml mvar" style="font-style:italic;">x</span></th>
+<th width="60"><span class="texhtml mvar" style="font-style:italic;">y</span></th>
+<th><span class="texhtml">gcd(&#124;<span class="nowrap" style="padding-left:0.1em; padding-right:0.1em;"><i>x</i> − <i>y</i></span>&#124;, 8051)</span>
+</th></tr>
+<tr>
+<td>1</td>
+<td>5</td>
+<td>26</td>
+<td>1
+</td></tr>
+<tr>
+<td>2</td>
+<td>26</td>
+<td>7474</td>
+<td>1
+</td></tr>
+<tr>
+<td>3</td>
+<td>677</td>
+<td>871</td>
+<td>97
+</td></tr>
+<tr>
+<td>4</td>
+<td>7474</td>
+<td>1481</td>
+<td>1
+</td></tr></tbody></table>
+<p>97 is a non-trivial factor of 8051. Starting values other than <span class="texhtml"><i>x</i> = <i>y</i> = 2</span> may give the cofactor (83) instead of 97. One extra iteration is shown above to make it clear that <span class="texhtml mvar" style="font-style:italic;">y</span> moves twice as fast as <span class="texhtml mvar" style="font-style:italic;">x</span>. Note that even after a repetition, the GCD can return to 1.
+</p>
+<h2><span class="mw-headline" id="Variants">Variants</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;action=edit&amp;section=4" title="Edit section: Variants">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In 1980, <a href="https://en.wikipedia.org/wiki/Richard_Brent_(scientist)" class="mw-redirect" title="Richard Brent (scientist)">Richard Brent</a> published a faster variant of the rho algorithm. He used the same core ideas as Pollard but a different method of cycle detection, replacing <a href="https://en.wikipedia.org/wiki/Floyd%27s_cycle-finding_algorithm" class="mw-redirect" title="Floyd&#39;s cycle-finding algorithm">Floyd's cycle-finding algorithm</a> with the related <a href="https://en.wikipedia.org/wiki/Cycle_detection#Brent.27s_algorithm" title="Cycle detection">Brent's cycle finding method</a>.<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup>
+</p><p>A further improvement was made by Pollard and Brent. They observed that if <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \gcd(a,n)&gt;1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo movablelimits="true" form="prefix">gcd</mo>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&gt;</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \gcd(a,n)&gt;1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/af8219b5fdf5b6193d9dab15be6ffa4c1979d2a7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:13.216ex; height:2.843ex;" alt="{\displaystyle \gcd(a,n)&gt;1}"/></span>, then also <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \gcd(ab,n)&gt;1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo movablelimits="true" form="prefix">gcd</mo>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mi>b</mi>
+        <mo>,</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&gt;</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \gcd(ab,n)&gt;1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/686e1522a7fa3e1cb0a4b6f3dec941ad77694e2f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:14.214ex; height:2.843ex;" alt="{\displaystyle \gcd(ab,n)&gt;1}"/></span> for any positive integer <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle b}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>b</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle b}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f11423fbb2e967f986e36804a8ae4271734917c3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:0.998ex; height:2.176ex;" alt="b"/></span>. In particular, instead of computing <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \gcd(|x-y|,n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo movablelimits="true" form="prefix">gcd</mo>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>x</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>y</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo>,</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \gcd(|x-y|,n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/65c4ec1a3cd6710fb33c2745fd1f1d6dae0bb8a7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:14.345ex; height:2.843ex;" alt="\gcd(|x-y|,n)"/></span> at every step, it suffices to define <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle z}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>z</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle z}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bf368e72c009decd9b6686ee84a375632e11de98" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.088ex; height:1.676ex;" alt="z"/></span> as the product of 100 consecutive <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle |x-y|}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>x</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>y</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle |x-y|}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9eca622011e2b10520e69a7fa83f3bd75159ab66" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.619ex; height:2.843ex;" alt="|x-y|"/></span> terms modulo <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span>, and then compute a single <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \gcd(z,n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo movablelimits="true" form="prefix">gcd</mo>
+        <mo stretchy="false">(</mo>
+        <mi>z</mi>
+        <mo>,</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \gcd(z,n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bf658f32fdc3f23823f993bc7e3527aad2321a57" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.813ex; height:2.843ex;" alt="{\displaystyle \gcd(z,n)}"/></span>. A major speed up results as 100 <span class="texhtml">gcd</span> steps are replaced with 99 multiplications modulo <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> and a single <span class="texhtml">gcd</span>. Occasionally it may cause the algorithm to fail by introducing a repeated factor, for instance when <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> is a <a href="https://en.wikipedia.org/wiki/Square_(algebra)" title="Square (algebra)">square</a>. But it then suffices to go back to the previous <span class="texhtml">gcd</span> term, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \gcd(z,n)=1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo movablelimits="true" form="prefix">gcd</mo>
+        <mo stretchy="false">(</mo>
+        <mi>z</mi>
+        <mo>,</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \gcd(z,n)=1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8530072e380bc53fa7dfe4afc85013a089d74704" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:13.074ex; height:2.843ex;" alt="\gcd(z,n)=1"/></span>, and use the regular <i>ρ</i> algorithm from there.
+</p>
+<h2><span class="mw-headline" id="Application">Application</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;action=edit&amp;section=5" title="Edit section: Application">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The algorithm is very fast for numbers with small factors, but slower in cases where all factors are large. The <i>ρ</i> algorithm's most remarkable success was the 1980 factorization of the <a href="https://en.wikipedia.org/wiki/Fermat_number" title="Fermat number">Fermat number</a> <span class="texhtml"><i>F</i><sub>8</sub></span> = 1238926361552897&#160;×&#160;93461639715357977769163558199606896584051237541638188580280321.<sup id="cite_ref-FotEFN_4-0" class="reference"><a href="#cite_note-FotEFN-4">&#91;4&#93;</a></sup> The <i>ρ</i> algorithm was a good choice for <span class="texhtml"><i>F</i><sub>8</sub></span> because the prime factor <span class="texhtml mvar" style="font-style:italic;">p</span> = 1238926361552897 is much smaller than the other factor. The factorization took 2 hours on a <a href="https://en.wikipedia.org/wiki/UNIVAC" title="UNIVAC">UNIVAC</a> <a href="https://en.wikipedia.org/wiki/UNIVAC_1110" class="mw-redirect" title="UNIVAC 1110">1100/42</a>.<sup id="cite_ref-FotEFN_4-1" class="reference"><a href="#cite_note-FotEFN-4">&#91;4&#93;</a></sup>
+</p>
+<h2><span id="Example:_factoring_n_.3D_10403_.3D_101_.C2.B7_103"></span><span class="mw-headline" id="Example:_factoring_n_=_10403_=_101_·_103">Example: factoring <span class="texhtml mvar" style="font-style:italic;">n</span> = 10403 = 101 · 103</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;action=edit&amp;section=6" title="Edit section: Example: factoring n = 10403 = 101 · 103">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In following table shows numbers produced by the algorithm, starting with <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x=2}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+        <mo>=</mo>
+        <mn>2</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x=2}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9f39b6e42e5ffb81ac7b051b9e48b9a91d0713c7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.591ex; height:2.176ex;" alt="x=2"/></span> and using the polynomial <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle g(x)=(x^{2}+1){\bmod {1}}0403}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>g</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo lspace="thickmathspace" rspace="thickmathspace">mod</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </mrow>
+        <mn>0403</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle g(x)=(x^{2}+1){\bmod {1}}0403}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ac3af8f6a203826c93618d63ae74d3244cdd3029" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:27.043ex; height:3.176ex;" alt="{\displaystyle g(x)=(x^{2}+1){\bmod {1}}0403}"/></span>.
+The third and fourth columns of the table contain additional information not known by the algorithm.
+They are included to show how the algorithm works. 
+</p>
+<table class="wikitable" style="text-align:right;">
+<tbody><tr>
+<th><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/87f9e315fd7e2ba406057a97300593c4802b53e4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.33ex; height:1.676ex;" alt="x"/></span></th>
+<th><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>y</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b8a6208ec717213d4317e666f1ae872e00620a0d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.155ex; height:2.009ex;" alt="y "/></span></th>
+<th><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x{\bmod {1}}01}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo lspace="thickmathspace" rspace="thickmathspace">mod</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </mrow>
+        <mn>01</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x{\bmod {1}}01}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5cfbf505328a6362bb5227f6a059fb5b0ec564bd" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:10.498ex; height:2.176ex;" alt="{\displaystyle x{\bmod {1}}01}"/></span></th>
+<th><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle y{\bmod {1}}01}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>y</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo lspace="thickmathspace" rspace="thickmathspace">mod</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </mrow>
+        <mn>01</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle y{\bmod {1}}01}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d5780633967fb4f1fc8b706e748d3dfe143751de" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:10.324ex; height:2.509ex;" alt="{\displaystyle y{\bmod {1}}01}"/></span></th>
+<th>step
+</th></tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>0
+</td></tr>
+<tr>
+<td>5</td>
+<td>2</td>
+<td>5</td>
+<td>2</td>
+<td>1
+</td></tr>
+<tr>
+<td>26</td>
+<td>2</td>
+<td>26</td>
+<td>2</td>
+<td>2
+</td></tr>
+<tr>
+<td>677</td>
+<td>26</td>
+<td>71</td>
+<td>26</td>
+<td>3
+</td></tr>
+<tr>
+<td>598</td>
+<td>26</td>
+<td>93</td>
+<td>26</td>
+<td>4
+</td></tr>
+<tr>
+<td>3903</td>
+<td>26</td>
+<td>65</td>
+<td>26</td>
+<td>5
+</td></tr>
+<tr>
+<td>3418</td>
+<td>26</td>
+<td>85</td>
+<td>26</td>
+<td>6
+</td></tr>
+<tr>
+<td>156</td>
+<td>3418</td>
+<td>55</td>
+<td>85</td>
+<td>7
+</td></tr>
+<tr>
+<td>3531</td>
+<td>3418</td>
+<td style="background: #ececec; color: black; font-weight: bold; vertical-align: middle; text-align: right;" class="table-rh">97</td>
+<td>85</td>
+<td>8
+</td></tr>
+<tr>
+<td>5168</td>
+<td>3418</td>
+<td>17</td>
+<td>85</td>
+<td>9
+</td></tr>
+<tr>
+<td>3724</td>
+<td>3418</td>
+<td>88</td>
+<td>85</td>
+<td>10
+</td></tr>
+<tr>
+<td>978</td>
+<td>3418</td>
+<td>69</td>
+<td>85</td>
+<td>11
+</td></tr>
+<tr>
+<td>9812</td>
+<td>3418</td>
+<td>15</td>
+<td>85</td>
+<td>12
+</td></tr>
+<tr>
+<td>5983</td>
+<td>3418</td>
+<td>24</td>
+<td>85</td>
+<td>13
+</td></tr>
+<tr>
+<td>9970</td>
+<td>3418</td>
+<td>72</td>
+<td>85</td>
+<td>14
+</td></tr>
+<tr>
+<td>236</td>
+<td>9970</td>
+<td>34</td>
+<td>72</td>
+<td>15
+</td></tr>
+<tr>
+<td>3682</td>
+<td>9970</td>
+<td>46</td>
+<td>72</td>
+<td>16
+</td></tr>
+<tr>
+<td>2016</td>
+<td>9970</td>
+<td style="background: #ececec; color: black; font-weight: bold; vertical-align: middle; text-align: right;" class="table-rh">97</td>
+<td>72</td>
+<td>17
+</td></tr>
+<tr>
+<td>7087</td>
+<td>9970</td>
+<td>17</td>
+<td>72</td>
+<td>18
+</td></tr>
+<tr>
+<td>10289</td>
+<td>9970</td>
+<td>88</td>
+<td>72</td>
+<td>19
+</td></tr>
+<tr>
+<td>2594</td>
+<td>9970</td>
+<td>69</td>
+<td>72</td>
+<td>20
+</td></tr>
+<tr>
+<td>8499</td>
+<td>9970</td>
+<td>15</td>
+<td>72</td>
+<td>21
+</td></tr>
+<tr>
+<td>4973</td>
+<td>9970</td>
+<td>24</td>
+<td>72</td>
+<td>22
+</td></tr>
+<tr>
+<td>2799</td>
+<td>9970</td>
+<td style="background: #ececec; color: black; font-weight: bold; vertical-align: middle; text-align: right;" class="table-rh">72</td>
+<td><b>72</b></td>
+<td>23
+</td></tr></tbody></table>
+<p>The first repetition modulo 101 is 97 which occurs in step 17. The repetition is not detected until step 23, when <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x\equiv y{\pmod {101}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+        <mo>&#x2261;<!-- ≡ --></mo>
+        <mi>y</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mspace width="1em" />
+          <mo stretchy="false">(</mo>
+          <mi>mod</mi>
+          <mspace width="0.333em" />
+          <mn>101</mn>
+          <mo stretchy="false">)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x\equiv y{\pmod {101}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a764c8c430ae19722f36c46f76425f64e8efc45a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:18.755ex; height:2.843ex;" alt="{\displaystyle x\equiv y{\pmod {101}}}"/></span>. This causes <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \gcd(x-y,n)=\gcd(2799-9970,n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo movablelimits="true" form="prefix">gcd</mo>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>y</mi>
+        <mo>,</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mo movablelimits="true" form="prefix">gcd</mo>
+        <mo stretchy="false">(</mo>
+        <mn>2799</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>9970</mn>
+        <mo>,</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \gcd(x-y,n)=\gcd(2799-9970,n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/038aefa1f3a1e8f2805a20cbc666a2b02e21af79" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:36.015ex; height:2.843ex;" alt="{\displaystyle \gcd(x-y,n)=\gcd(2799-9970,n)}"/></span> to be <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle p=101}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+        <mo>=</mo>
+        <mn>101</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p=101}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/67cbb9a5d4ec444da4bd0937c8de7252bfc5e896" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:7.845ex; height:2.509ex;" alt="{\displaystyle p=101}"/></span>, and a factor is found.
+</p>
+<h2><span class="mw-headline" id="Complexity">Complexity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;action=edit&amp;section=7" title="Edit section: Complexity">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>If the pseudorandom number <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x=g(x)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+        <mo>=</mo>
+        <mi>g</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x=g(x)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/608bf2758bdb761cb78a3104f6a8467613c8b449" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.683ex; height:2.843ex;" alt="{\displaystyle x=g(x)}"/></span> occurring in the Pollard <i>ρ</i> algorithm were an actual random number, it would follow that success would be achieved half the time, by the <a href="https://en.wikipedia.org/wiki/Birthday_paradox" class="mw-redirect" title="Birthday paradox">Birthday paradox</a> in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O({\sqrt {p}})\leq O(n^{1/4})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <msqrt>
+            <mi>p</mi>
+          </msqrt>
+        </mrow>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo>/</mo>
+            </mrow>
+            <mn>4</mn>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O({\sqrt {p}})\leq O(n^{1/4})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/efa7863f3c60869445b9b7b918d508a73f4fd206" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.171ex; width:17.462ex; height:3.676ex;" alt="O({\sqrt  p})\leq O(n^{{1/4}})"/></span> iterations. It is believed that the same analysis applies as well to the actual rho algorithm, but this is a heuristic claim, and rigorous analysis of the algorithm remains open.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;action=edit&amp;section=8" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm_for_logarithms" title="Pollard&#39;s rho algorithm for logarithms">Pollard's rho algorithm for logarithms</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pollard%27s_kangaroo_algorithm" title="Pollard&#39;s kangaroo algorithm">Pollard's kangaroo algorithm</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;action=edit&amp;section=9" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFPollard1975" class="citation journal cs1">Pollard, J. M. (1975). "A Monte Carlo method for factorization". <i>BIT Numerical Mathematics</i>. <b>15</b> (3): 331–334. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2Fbf01933667">10.1007/bf01933667</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=BIT+Numerical+Mathematics&amp;rft.atitle=A+Monte+Carlo+method+for+factorization&amp;rft.volume=15&amp;rft.issue=3&amp;rft.pages=331-334&amp;rft.date=1975&amp;rft_id=info%3Adoi%2F10.1007%2Fbf01933667&amp;rft.aulast=Pollard&amp;rft.aufirst=J.+M.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APollard%27s+rho+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCormenLeisersonRivestStein2009" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Cormen, Thomas H.</a>; <a href="https://en.wikipedia.org/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Leiserson, Charles E.</a>; <a href="https://en.wikipedia.org/wiki/Ronald_L._Rivest" class="mw-redirect" title="Ronald L. Rivest">Rivest, Ronald L.</a> &amp; <a href="https://en.wikipedia.org/wiki/Clifford_Stein" title="Clifford Stein">Stein, Clifford</a> (2009). "Section 31.9: Integer factorization". <i><a href="https://en.wikipedia.org/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms">Introduction to Algorithms</a></i> (third&#160;ed.). Cambridge, MA: MIT Press. pp.&#160;975–980. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-262-03384-8" title="Special:BookSources/978-0-262-03384-8"><bdi>978-0-262-03384-8</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Section+31.9%3A+Integer+factorization&amp;rft.btitle=Introduction+to+Algorithms&amp;rft.place=Cambridge%2C+MA&amp;rft.pages=975-980&amp;rft.edition=third&amp;rft.pub=MIT+Press&amp;rft.date=2009&amp;rft.isbn=978-0-262-03384-8&amp;rft.aulast=Cormen&amp;rft.aufirst=Thomas+H.&amp;rft.au=Leiserson%2C+Charles+E.&amp;rft.au=Rivest%2C+Ronald+L.&amp;rft.au=Stein%2C+Clifford&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APollard%27s+rho+algorithm" class="Z3988"></span> (this section discusses only Pollard's rho algorithm).</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBrent1980" class="citation journal cs1"><a href="https://en.wikipedia.org/wiki/Richard_Brent_(scientist)" class="mw-redirect" title="Richard Brent (scientist)">Brent, Richard P.</a> (1980). <a rel="nofollow" class="external text" href="http://maths-people.anu.edu.au/~brent/pub/pub051.html">"An Improved Monte Carlo Factorization Algorithm"</a>. <i>BIT</i>. <b>20</b>: 176–184. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2FBF01933190">10.1007/BF01933190</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=BIT&amp;rft.atitle=An+Improved+Monte+Carlo+Factorization+Algorithm&amp;rft.volume=20&amp;rft.pages=176-184&amp;rft.date=1980&amp;rft_id=info%3Adoi%2F10.1007%2FBF01933190&amp;rft.aulast=Brent&amp;rft.aufirst=Richard+P.&amp;rft_id=http%3A%2F%2Fmaths-people.anu.edu.au%2F~brent%2Fpub%2Fpub051.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APollard%27s+rho+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-FotEFN-4"><span class="mw-cite-backlink">^ <a href="#cite_ref-FotEFN_4-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-FotEFN_4-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBrentPollard1981" class="citation journal cs1">Brent, R.P.; Pollard, J. M. (1981). <a rel="nofollow" class="external text" href="https://doi.org/10.2307%2F2007666">"Factorization of the Eighth Fermat Number"</a>. <i>Mathematics of Computation</i>. <b>36</b> (154): 627–630. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.2307%2F2007666">10.2307/2007666</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Mathematics+of+Computation&amp;rft.atitle=Factorization+of+the+Eighth+Fermat+Number&amp;rft.volume=36&amp;rft.issue=154&amp;rft.pages=627-630&amp;rft.date=1981&amp;rft_id=info%3Adoi%2F10.2307%2F2007666&amp;rft.aulast=Brent&amp;rft.aufirst=R.P.&amp;rft.au=Pollard%2C+J.+M.&amp;rft_id=%2F%2Fdoi.org%2F10.2307%252F2007666&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APollard%27s+rho+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGalbraith2012" class="citation book cs1">Galbraith, Steven D. (2012). "14.2.5 Towards a rigorous analysis of Pollard rho". <a rel="nofollow" class="external text" href="https://books.google.com/books?id=owd76BElvosC&amp;pg=PA272"><i>Mathematics of Public Key Cryptography</i></a>. Cambridge University Press. pp.&#160;272–273. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/9781107013926" title="Special:BookSources/9781107013926"><bdi>9781107013926</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=14.2.5+Towards+a+rigorous+analysis+of+Pollard+rho&amp;rft.btitle=Mathematics+of+Public+Key+Cryptography&amp;rft.pages=272-273&amp;rft.pub=Cambridge+University+Press&amp;rft.date=2012&amp;rft.isbn=9781107013926&amp;rft.aulast=Galbraith&amp;rft.aufirst=Steven+D.&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3Dowd76BElvosC%26pg%3DPA272&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APollard%27s+rho+algorithm" class="Z3988"></span>.</span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="Further_reading">Further reading</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;action=edit&amp;section=10" title="Edit section: Further reading">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKatzLindell2007" class="citation book cs1">Katz, Jonathan; Lindell, Yehuda (2007). "Chapter 8". <i>Introduction to Modern Cryptography</i>. CRC Press.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Chapter+8&amp;rft.btitle=Introduction+to+Modern+Cryptography&amp;rft.pub=CRC+Press&amp;rft.date=2007&amp;rft.aulast=Katz&amp;rft.aufirst=Jonathan&amp;rft.au=Lindell%2C+Yehuda&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APollard%27s+rho+algorithm" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSamuel_S._Wagstaff,_Jr.2013" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Samuel_S._Wagstaff,_Jr." class="mw-redirect" title="Samuel S. Wagstaff, Jr.">Samuel S. Wagstaff, Jr.</a> (2013). <a rel="nofollow" class="external text" href="https://www.ams.org/bookpages/stml-68"><i>The Joy of Factoring</i></a>. Providence, RI: American Mathematical Society. pp.&#160;135–138. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-1-4704-1048-3" title="Special:BookSources/978-1-4704-1048-3"><bdi>978-1-4704-1048-3</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Joy+of+Factoring&amp;rft.place=Providence%2C+RI&amp;rft.pages=135-138&amp;rft.pub=American+Mathematical+Society&amp;rft.date=2013&amp;rft.isbn=978-1-4704-1048-3&amp;rft.au=Samuel+S.+Wagstaff%2C+Jr.&amp;rft_id=https%3A%2F%2Fwww.ams.org%2Fbookpages%2Fstml-68&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APollard%27s+rho+algorithm" class="Z3988"></span></li></ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;action=edit&amp;section=11" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="https://sofosband.wixsite.com/pversusnp/single-post/2018/08/27/factorising-part-2-pollards-rho-algorithm">Comprehensive article on Pollard's Rho algorithm aimed at an introductory-level audience</a></li>
+<li><span class="citation mathworld" id="Reference-Mathworld-Pollard_rho_Factorization_Method"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFWeisstein" class="citation web cs1"><a href="https://en.wikipedia.org/wiki/Eric_W._Weisstein" title="Eric W. Weisstein">Weisstein, Eric W.</a> <a rel="nofollow" class="external text" href="https://mathworld.wolfram.com/PollardRhoFactorizationMethod.html">"Pollard rho Factorization Method"</a>. <i><a href="https://en.wikipedia.org/wiki/MathWorld" title="MathWorld">MathWorld</a></i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=MathWorld&amp;rft.atitle=Pollard+rho+Factorization+Method&amp;rft.au=Weisstein%2C+Eric+W.&amp;rft_id=https%3A%2F%2Fmathworld.wolfram.com%2FPollardRhoFactorizationMethod.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APollard%27s+rho+algorithm" class="Z3988"></span></span></li>
+<li><a rel="nofollow" class="external text" href="https://introcs.cs.princeton.edu/java/99crypto/PollardRho.java.html">Java Implementation</a></li>
+<li><a rel="nofollow" class="external text" href="https://forthmath.blogspot.com/2020/01/about-pollard-rho.html">About Pollard rho</a></li></ul>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Number-theoretic_algorithms" style="padding:3px"><table class="nowraplinks mw-collapsible uncollapsed navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Number-theoretic_algorithms" title="Template:Number-theoretic algorithms"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Number-theoretic_algorithms" title="Template talk:Number-theoretic algorithms"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Number-theoretic_algorithms&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Number-theoretic_algorithms" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Number_theory" title="Number theory">Number-theoretic</a> <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithms</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Primality_test" title="Primality test">Primality tests</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/AKS_primality_test" title="AKS primality test">AKS</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Adleman–Pomerance–Rumely_primality_test" title="Adleman–Pomerance–Rumely primality test">APR</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Baillie–PSW_primality_test" title="Baillie–PSW primality test">Baillie–PSW</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Elliptic_curve_primality" title="Elliptic curve primality">Elliptic curve</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pocklington_primality_test" title="Pocklington primality test">Pocklington</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fermat_primality_test" title="Fermat primality test">Fermat</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lucas_primality_test" title="Lucas primality test">Lucas</a></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Lucas–Lehmer_primality_test" title="Lucas–Lehmer primality test">Lucas–Lehmer</a></i></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Lucas–Lehmer–Riesel_test" title="Lucas–Lehmer–Riesel test">Lucas–Lehmer–Riesel</a></i></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Proth%27s_theorem" title="Proth&#39;s theorem">Proth's theorem</a></i></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Pépin%27s_test" title="Pépin&#39;s test">Pépin's</a></i></li>
+<li><a href="https://en.wikipedia.org/wiki/Quadratic_Frobenius_test" title="Quadratic Frobenius test">Quadratic Frobenius</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Solovay–Strassen_primality_test" title="Solovay–Strassen primality test">Solovay–Strassen</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Miller–Rabin_primality_test" title="Miller–Rabin primality test">Miller–Rabin</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Generating_primes" class="mw-redirect" title="Generating primes">Prime-generating</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Sieve_of_Atkin" title="Sieve of Atkin">Sieve of Atkin</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes" title="Sieve of Eratosthenes">Sieve of Eratosthenes</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sieve_of_Sundaram" title="Sieve of Sundaram">Sieve of Sundaram</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Wheel_factorization" title="Wheel factorization">Wheel factorization</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Integer_factorization" title="Integer factorization">Integer factorization</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Continued_fraction_factorization" title="Continued fraction factorization">Continued fraction (CFRAC)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dixon%27s_factorization_method" title="Dixon&#39;s factorization method">Dixon's</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lenstra_elliptic-curve_factorization" title="Lenstra elliptic-curve factorization">Lenstra elliptic curve (ECM)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Euler%27s_factorization_method" title="Euler&#39;s factorization method">Euler's</a></li>
+<li><a class="mw-selflink selflink">Pollard's rho</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pollard%27s_p_−_1_algorithm" title="Pollard&#39;s p − 1 algorithm"><i>p</i> − 1</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Williams%27s_p_+_1_algorithm" title="Williams&#39;s p + 1 algorithm"><i>p</i> + 1</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quadratic_sieve" title="Quadratic sieve">Quadratic sieve (QS)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/General_number_field_sieve" title="General number field sieve">General number field sieve (GNFS)</a></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Special_number_field_sieve" title="Special number field sieve">Special number field sieve (SNFS)</a></i></li>
+<li><a href="https://en.wikipedia.org/wiki/Rational_sieve" title="Rational sieve">Rational sieve</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fermat%27s_factorization_method" title="Fermat&#39;s factorization method">Fermat's</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shanks%27s_square_forms_factorization" title="Shanks&#39;s square forms factorization">Shanks's square forms</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Trial_division" title="Trial division">Trial division</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shor%27s_algorithm" title="Shor&#39;s algorithm">Shor's</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Multiplication_algorithm" title="Multiplication algorithm">Multiplication</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Ancient_Egyptian_multiplication" title="Ancient Egyptian multiplication">Ancient Egyptian</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Long_multiplication" class="mw-redirect" title="Long multiplication">Long</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Karatsuba_algorithm" title="Karatsuba algorithm">Karatsuba</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Toom–Cook_multiplication" title="Toom–Cook multiplication">Toom–Cook</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Schönhage–Strassen_algorithm" title="Schönhage–Strassen algorithm">Schönhage–Strassen</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fürer%27s_algorithm" title="Fürer&#39;s algorithm">Fürer's</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Euclidean_division" title="Euclidean division">Euclidean</a> <a href="https://en.wikipedia.org/wiki/Division_algorithm" title="Division algorithm">division</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Binary_division" class="mw-redirect" title="Binary division">Binary</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Chunking_(division)" title="Chunking (division)">Chunking</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fourier_division" title="Fourier division">Fourier</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Goldschmidt_division" class="mw-redirect" title="Goldschmidt division">Goldschmidt</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Newton–Raphson_division" class="mw-redirect" title="Newton–Raphson division">Newton-Raphson</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Long_division" title="Long division">Long</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Short_division" title="Short division">Short</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SRT_division" class="mw-redirect" title="SRT division">SRT</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Discrete_logarithm" title="Discrete logarithm">Discrete logarithm</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Baby-step_giant-step" title="Baby-step giant-step">Baby-step giant-step</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm_for_logarithms" title="Pollard&#39;s rho algorithm for logarithms">Pollard rho</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pollard%27s_kangaroo_algorithm" title="Pollard&#39;s kangaroo algorithm">Pollard kangaroo</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pohlig–Hellman_algorithm" title="Pohlig–Hellman algorithm">Pohlig–Hellman</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Index_calculus_algorithm" title="Index calculus algorithm">Index calculus</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Function_field_sieve" title="Function field sieve">Function field sieve</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Greatest_common_divisor" title="Greatest common divisor">Greatest common divisor</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Binary_GCD_algorithm" title="Binary GCD algorithm">Binary</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Euclidean_algorithm" title="Euclidean algorithm">Euclidean</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm" title="Extended Euclidean algorithm">Extended Euclidean</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lehmer%27s_GCD_algorithm" title="Lehmer&#39;s GCD algorithm">Lehmer's</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Quadratic_residue" title="Quadratic residue">Modular square root</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Cipolla%27s_algorithm" title="Cipolla&#39;s algorithm">Cipolla</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pocklington%27s_algorithm" title="Pocklington&#39;s algorithm">Pocklington's</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tonelli–Shanks_algorithm" title="Tonelli–Shanks algorithm">Tonelli–Shanks</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Berlekamp–Rabin_algorithm" title="Berlekamp–Rabin algorithm">Berlekamp</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kunerth%27s_algorithm" title="Kunerth&#39;s algorithm">Kunerth</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Other algorithms</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Chakravala_method" title="Chakravala method">Chakravala</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cornacchia%27s_algorithm" title="Cornacchia&#39;s algorithm">Cornacchia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Exponentiation_by_squaring" title="Exponentiation by squaring">Exponentiation by squaring</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Integer_square_root" title="Integer square root">Integer square root</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Integer_relation_algorithm" title="Integer relation algorithm">Integer relation</a> (<a href="https://en.wikipedia.org/wiki/Lenstra–Lenstra–Lovász_lattice_basis_reduction_algorithm" title="Lenstra–Lenstra–Lovász lattice basis reduction algorithm">LLL</a>; <a href="https://en.wikipedia.org/wiki/Korkine–Zolotarev_lattice_basis_reduction_algorithm" title="Korkine–Zolotarev lattice basis reduction algorithm">KZ</a>)</li>
+<li><a href="https://en.wikipedia.org/wiki/Modular_exponentiation" title="Modular exponentiation">Modular exponentiation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Montgomery_reduction" class="mw-redirect" title="Montgomery reduction">Montgomery reduction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Schoof%27s_algorithm" title="Schoof&#39;s algorithm">Schoof</a></li></ul>
+</div></td></tr><tr><td class="navbox-abovebelow hlist" colspan="2"><div>
+<ul><li><i>Italics</i> indicate that algorithm is for numbers of special forms</li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1420
+Cached time: 20220414141213
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.411 seconds
+Real time usage: 0.635 seconds
+Preprocessor visited node count: 1438/1000000
+Post‐expand include size: 37688/2097152 bytes
+Template argument size: 918/2097152 bytes
+Highest expansion depth: 8/100
+Expensive parser function count: 1/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 27313/5000000 bytes
+Lua time usage: 0.176/10.000 seconds
+Lua memory usage: 3874857/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  304.544      1 -total
+ 42.82%  130.397      1 Template:Reflist
+ 31.68%   96.471      3 Template:Cite_journal
+ 18.83%   57.339      1 Template:About
+ 18.58%   56.573      1 Template:Number_theoretic_algorithms
+ 17.46%   53.182      1 Template:Navbox
+  8.18%   24.908      4 Template:Cite_book
+  5.56%   16.928      7 Template:Math
+  5.36%   16.338      1 Template:MathWorld
+  1.50%    4.553      1 Template:SfnRef
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:580668-0!canonical and timestamp 20220414141213 and revision id 1080415596. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;oldid=1080415596">https://en.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;oldid=1080415596</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Integer_factorization_algorithms" title="Category:Integer factorization algorithms">Integer factorization algorithms</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_example_Python_(programming_language)_code" title="Category:Articles with example Python (programming language) code">Articles with example Python (programming language) code</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Pollard%27s+rho+algorithm" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Pollard%27s+rho+algorithm" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Pollard%27s_rho_algorithm" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Pollard%27s_rho_algorithm" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Pollard%27s_rho_algorithm" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;oldid=1080415596" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Pollard%27s_rho_algorithm&amp;id=1080415596&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q946489" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Pollard%27s_rho_algorithm&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-ca mw-list-item"><a href="https://ca.wikipedia.org/wiki/Algorisme_ro_de_Pollard" title="Algorisme ro de Pollard – Catalan" lang="ca" hreflang="ca" class="interlanguage-link-target"><span>Català</span></a></li><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Pollard-Rho-Methode" title="Pollard-Rho-Methode – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Algoritmo_rho_de_Pollard" title="Algoritmo rho de Pollard – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/الگوریتم_رو_پولارد" title="الگوریتم رو پولارد – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Algorithme_rho_de_Pollard" title="Algorithme rho de Pollard – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-ko mw-list-item"><a href="https://ko.wikipedia.org/wiki/폴라드_로_알고리즘" title="폴라드 로 알고리즘 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target"><span>한국어</span></a></li><li class="interlanguage-link interwiki-it mw-list-item"><a href="https://it.wikipedia.org/wiki/Algoritmo_rho_di_Pollard" title="Algoritmo rho di Pollard – Italian" lang="it" hreflang="it" class="interlanguage-link-target"><span>Italiano</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/אלגוריתם_rho_של_פולרד" title="אלגוריתם rho של פולרד – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/ポラード・ロー素因数分解法" title="ポラード・ロー素因数分解法 – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Algorytm_faktoryzacji_rho_Pollarda" title="Algorytm faktoryzacji rho Pollarda – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-ru badge-Q17559452 badge-recommendedarticle mw-list-item" title="recommended article"><a href="https://ru.wikipedia.org/wiki/Ро-алгоритм_Полларда" title="Ро-алгоритм Полларда – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-th mw-list-item"><a href="https://th.wikipedia.org/wiki/ขั้นตอนวิธีโรห์ของพอลลาร์ด" title="ขั้นตอนวิธีโรห์ของพอลลาร์ด – Thai" lang="th" hreflang="th" class="interlanguage-link-target"><span>ไทย</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/P-алгоритм_Поларда" title="P-алгоритм Поларда – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-vi mw-list-item"><a href="https://vi.wikipedia.org/wiki/Thuật_toán_RHO" title="Thuật toán RHO – Vietnamese" lang="vi" hreflang="vi" class="interlanguage-link-target"><span>Tiếng Việt</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q946489#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 1 April 2022, at 04:07<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Pollard%27s_rho_algorithm&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.411","walltime":"0.635","ppvisitednodes":{"value":1438,"limit":1000000},"postexpandincludesize":{"value":37688,"limit":2097152},"templateargumentsize":{"value":918,"limit":2097152},"expansiondepth":{"value":8,"limit":100},"expensivefunctioncount":{"value":1,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":27313,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  304.544      1 -total"," 42.82%  130.397      1 Template:Reflist"," 31.68%   96.471      3 Template:Cite_journal"," 18.83%   57.339      1 Template:About"," 18.58%   56.573      1 Template:Number_theoretic_algorithms"," 17.46%   53.182      1 Template:Navbox","  8.18%   24.908      4 Template:Cite_book","  5.56%   16.928      7 Template:Math","  5.36%   16.338      1 Template:MathWorld","  1.50%    4.553      1 Template:SfnRef"]},"scribunto":{"limitreport-timeusage":{"value":"0.176","limit":"10.000"},"limitreport-memusage":{"value":3874857,"limit":52428800}},"cachereport":{"origin":"mw1420","timestamp":"20220414141213","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Pollard's rho algorithm","url":"https:\/\/en.wikipedia.org\/wiki\/Pollard%27s_rho_algorithm","sameAs":"http:\/\/www.wikidata.org\/entity\/Q946489","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q946489","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-04-06T20:46:57Z","dateModified":"2022-04-01T04:07:48Z","headline":"algorithm"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Pollard's rho algorithm","url":"https:\/\/en.wikipedia.org\/wiki\/Pollard%27s_rho_algorithm","sameAs":"http:\/\/www.wikidata.org\/entity\/Q946489","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q946489","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-04-06T20:46:57Z","dateModified":"2022-04-01T04:07:48Z","headline":"algorithm"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":141,"wgHostname":"mw1352"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Pollard%27s_rho_algorithm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:54 GMT -->
+</html>

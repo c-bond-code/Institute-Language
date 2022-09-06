@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Reduction_(complexity) by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Reduction (complexity) - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"b1b4c3b4-e53c-492a-92dc-76d7d6530489","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Reduction_(complexity)","wgTitle":"Reduction (complexity)","wgCurRevisionId":1047773420,"wgRevisionId":1047773420,"wgArticleId":848067,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Reduction (complexity)"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Reduction_(complexity)","wgRelevantArticleId":848067,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],
+"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":10000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q1197709","wgGENewcomerTasksGuidanceEnabled":true,"wgGEAskQuestionEnabled":false,"wgGELinkRecommendationsFrontendEnabled":false};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.math.styles":"ready","skins.vector.styles.legacy":"ready",
+"ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.math.scripts","site","mediawiki.page.ready","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.9"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/3SAT_reduced_too_VC.svg/1200px-3SAT_reduced_too_VC.svg.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="684"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/3SAT_reduced_too_VC.svg/800px-3SAT_reduced_too_VC.svg.png"/>
+<meta property="og:image:width" content="800"/>
+<meta property="og:image:height" content="456"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/3SAT_reduced_too_VC.svg/640px-3SAT_reduced_too_VC.svg.png"/>
+<meta property="og:image:width" content="640"/>
+<meta property="og:image:height" content="365"/>
+<meta property="og:title" content="Reduction (complexity) - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Reduction_(complexity)"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Reduction_(complexity)&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Reduction_(complexity)"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Reduction_complexity rootpage-Reduction_complexity skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Reduction (complexity)</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://en.wikipedia.org/wiki/File:3SAT_reduced_too_VC.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/0/02/3SAT_reduced_too_VC.svg/300px-3SAT_reduced_too_VC.svg.png" decoding="async" width="300" height="171" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/0/02/3SAT_reduced_too_VC.svg/450px-3SAT_reduced_too_VC.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/02/3SAT_reduced_too_VC.svg/600px-3SAT_reduced_too_VC.svg.png 2x" data-file-width="388" data-file-height="221" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:3SAT_reduced_too_VC.svg" class="internal" title="Enlarge"></a></div>Example of a reduction from the <a href="https://en.wikipedia.org/wiki/Boolean_satisfiability_problem" title="Boolean satisfiability problem">boolean satisfiability problem</a> (<i>A</i> ∨ <i>B</i>) ∧ (¬<i>A</i> ∨ ¬<i>B</i> ∨ ¬<i>C</i>) ∧ (¬<i>A</i> ∨ <i>B</i> ∨ <i>C</i>) to a <a href="https://en.wikipedia.org/wiki/Vertex_cover_problem" class="mw-redirect" title="Vertex cover problem">vertex cover problem</a>. The blue vertices form a minimum vertex cover, and the blue vertices in the gray oval correspond to a satisfying <a href="https://en.wikipedia.org/wiki/Truth_assignment" class="mw-redirect" title="Truth assignment">truth assignment</a> for the original formula.</div></div></div>
+<p>In <a href="https://en.wikipedia.org/wiki/Computability_theory" title="Computability theory">computability theory</a> and <a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" title="Computational complexity theory">computational complexity theory</a>, a <b>reduction</b> is an <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithm</a> for transforming one <a href="https://en.wikipedia.org/wiki/Computational_problem" title="Computational problem">problem</a> into another problem. A sufficiently efficient reduction from one problem to another may be used to show that the second problem is at least as difficult as the first.
+</p><p>Intuitively, problem <i>A</i> is <b>reducible</b> to problem <i>B</i>, if an algorithm for solving problem <i>B</i> efficiently (if it existed) could also be used as a subroutine to solve problem <i>A</i> efficiently. When this is true, solving <i>A</i> cannot be harder than solving <i>B</i>. "Harder" means having a higher estimate of the required computational resources in a given context (e.g., higher <a href="https://en.wikipedia.org/wiki/Time_complexity" title="Time complexity">time complexity</a>, greater memory requirement, expensive need for extra hardware processor cores for a parallel solution compared to a single-threaded solution, etc.). The existence of a reduction from <i>A</i> to <i>B</i>, can be written in the shorthand notation <i>A</i> ≤<sub>m</sub> <i>B</i>, usually with a subscript on the ≤ to indicate the type of reduction being used (m&#160;: <a href="https://en.wikipedia.org/wiki/Mapping_reduction" class="mw-redirect" title="Mapping reduction">mapping reduction</a>, p&#160;: <a href="https://en.wikipedia.org/wiki/Polynomial_reduction" class="mw-redirect" title="Polynomial reduction">polynomial reduction</a>).
+</p><p>The mathematical structure generated on a set of problems by the reductions of a particular type generally forms a <a href="https://en.wikipedia.org/wiki/Preorder" title="Preorder">preorder</a>, whose <a href="https://en.wikipedia.org/wiki/Equivalence_class" title="Equivalence class">equivalence classes</a> may be used to define <a href="https://en.wikipedia.org/wiki/Turing_degree" title="Turing degree">degrees of unsolvability</a> and <a href="https://en.wikipedia.org/wiki/Complexity_class" title="Complexity class">complexity classes</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Properties"><span class="tocnumber">2</span> <span class="toctext">Properties</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Types_and_applications_of_reductions"><span class="tocnumber">3</span> <span class="toctext">Types and applications of reductions</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Examples"><span class="tocnumber">4</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Detailed_example"><span class="tocnumber">4.1</span> <span class="toctext">Detailed example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Introduction">Introduction</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Reduction_(complexity)&amp;action=edit&amp;section=1" title="Edit section: Introduction">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>There are two main situations where we need to use reductions:
+</p>
+<ul><li>First, we find ourselves trying to solve a problem that is similar to a problem we've already solved. In these cases, often a quick way of solving the new problem is to transform each instance of the new problem into instances of the old problem, solve these using our existing solution, and then use these to obtain our final solution. This is perhaps the most obvious use of reductions.</li>
+<li>Second: suppose we have a problem that we've proven is hard to solve, and we have a similar new problem. We might suspect that it is also hard to solve. We argue by contradiction: suppose the new problem is easy to solve. Then, if we can show that <i>every</i> instance of the old problem can be solved easily by transforming it into instances of the new problem and solving those, we have a contradiction. This establishes that the new problem is also hard.</li></ul>
+<p>A very simple example of a reduction is from <i>multiplication</i> to <i>squaring</i>. Suppose all we know how to do is to add, subtract, take squares, and divide by two. We can use this knowledge, combined with the following formula, to obtain the product of any two numbers:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle a\times b={\frac {\left(\left(a+b\right)^{2}-a^{2}-b^{2}\right)}{2}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>a</mi>
+        <mo>&#x00D7;<!-- × --></mo>
+        <mi>b</mi>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mo>(</mo>
+              <mrow>
+                <msup>
+                  <mrow>
+                    <mo>(</mo>
+                    <mrow>
+                      <mi>a</mi>
+                      <mo>+</mo>
+                      <mi>b</mi>
+                    </mrow>
+                    <mo>)</mo>
+                  </mrow>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>2</mn>
+                  </mrow>
+                </msup>
+                <mo>&#x2212;<!-- − --></mo>
+                <msup>
+                  <mi>a</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>2</mn>
+                  </mrow>
+                </msup>
+                <mo>&#x2212;<!-- − --></mo>
+                <msup>
+                  <mi>b</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>2</mn>
+                  </mrow>
+                </msup>
+              </mrow>
+              <mo>)</mo>
+            </mrow>
+            <mn>2</mn>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a\times b={\frac {\left(\left(a+b\right)^{2}-a^{2}-b^{2}\right)}{2}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/20735fddbe2939ab9af65c6f94e8d0760e7d40b7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:29.726ex; height:7.509ex;" alt="a\times b={\frac  {\left(\left(a+b\right)^{{2}}-a^{{2}}-b^{{2}}\right)}{2}}"/></span></dd></dl>
+<p>We also have a reduction in the other direction; obviously, if we can multiply two numbers, we can square a number. This seems to imply that these two problems are equally hard. This kind of reduction corresponds to <a href="https://en.wikipedia.org/wiki/Turing_reduction" title="Turing reduction">Turing reduction</a>.
+</p><p>However, the reduction becomes much harder if we add the restriction that we can only use the squaring function one time, and only at the end. In this case, even if we're allowed to use all the basic arithmetic operations, including multiplication, no reduction exists in general, because in order to get the desired result as a square we have to compute its square root first, and this square root could be an <a href="https://en.wikipedia.org/wiki/Irrational_number" title="Irrational number">irrational number</a> like <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\sqrt {2}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <msqrt>
+            <mn>2</mn>
+          </msqrt>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\sqrt {2}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b4afc1e27d418021bf10898eb44a7f5f315735ff" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:3.098ex; height:3.009ex;" alt="{\sqrt {2}}"/></span> that cannot be constructed by arithmetic operations on rational numbers. Going in the other direction, however, we can certainly square a number with just one multiplication, only at the end. Using this limited form of reduction, we have shown the unsurprising result that multiplication is harder in general than squaring. This corresponds to <a href="https://en.wikipedia.org/wiki/Many-one_reduction" title="Many-one reduction">many-one reduction</a>.
+</p>
+<h2><span class="mw-headline" id="Properties">Properties</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Reduction_(complexity)&amp;action=edit&amp;section=2" title="Edit section: Properties">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A reduction is a <a href="https://en.wikipedia.org/wiki/Preorder" title="Preorder">preordering</a>, that is a <a href="https://en.wikipedia.org/wiki/Reflexive_relation" title="Reflexive relation">reflexive</a> and <a href="https://en.wikipedia.org/wiki/Transitive_relation" title="Transitive relation">transitive relation</a>, on <b>P</b>(<b>N</b>)&#215;<b>P</b>(<b>N</b>), where <b>P</b>(<b>N</b>) is the <a href="https://en.wikipedia.org/wiki/Power_set" title="Power set">power set</a> of the <a href="https://en.wikipedia.org/wiki/Natural_number" title="Natural number">natural numbers</a>.
+</p>
+<h2><span class="mw-headline" id="Types_and_applications_of_reductions">Types and applications of reductions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Reduction_(complexity)&amp;action=edit&amp;section=3" title="Edit section: Types and applications of reductions">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>As described in the example above, there are two main types of reductions used in computational complexity, the <a href="https://en.wikipedia.org/wiki/Many-one_reduction" title="Many-one reduction">many-one reduction</a> and the <a href="https://en.wikipedia.org/wiki/Turing_reduction" title="Turing reduction">Turing reduction</a>. Many-one reductions map <i>instances</i> of one problem to <i>instances</i> of another; Turing reductions <i>compute</i> the solution to one problem, assuming the other problem is easy to solve. The many-one reduction is a stronger type of Turing reduction, and is more effective at separating problems into distinct complexity classes. However, the increased restrictions on many-one reductions make them more difficult to find.
+</p><p>A problem is <a href="https://en.wikipedia.org/wiki/Complete_(complexity)" title="Complete (complexity)">complete</a> for a complexity class if every problem in the class reduces to that problem, and it is also in the class itself. In this sense the problem represents the class, since any solution to it can, in combination with the reductions, be used to solve every problem in the class.
+</p><p>However, in order to be useful, reductions must be <i>easy</i>. For example, it's quite possible to reduce a difficult-to-solve <a href="https://en.wikipedia.org/wiki/NP-complete" class="mw-redirect" title="NP-complete">NP-complete</a> problem like the <a href="https://en.wikipedia.org/wiki/Boolean_satisfiability_problem" title="Boolean satisfiability problem">boolean satisfiability problem</a> to a trivial problem, like determining if a number equals zero, by having the reduction machine solve the problem in exponential time and output zero only if there is a solution. However, this does not achieve much, because even though we can solve the new problem, performing the reduction is just as hard as solving the old problem. Likewise, a reduction computing a <a href="https://en.wikipedia.org/wiki/Computable_function" title="Computable function">noncomputable function</a> can reduce an <a href="https://en.wikipedia.org/wiki/Undecidable_problem" title="Undecidable problem">undecidable problem</a> to a decidable one. As Michael Sipser points out in <i>Introduction to the Theory of Computation</i>: "The reduction must be easy, relative to the complexity of typical problems in the class [...] If the reduction itself were difficult to compute, an easy solution to the complete problem wouldn't necessarily yield an easy solution to the problems reducing to it."
+</p><p>Therefore, the appropriate notion of reduction depends on the complexity class being studied. When studying the complexity class <a href="https://en.wikipedia.org/wiki/NP_(complexity)" title="NP (complexity)">NP</a> and harder classes such as the <a href="https://en.wikipedia.org/wiki/Polynomial_hierarchy" title="Polynomial hierarchy">polynomial hierarchy</a>, <a href="https://en.wikipedia.org/wiki/Polynomial-time_reduction" title="Polynomial-time reduction">polynomial-time reductions</a> are used. When studying classes within P such as <a href="https://en.wikipedia.org/wiki/NC_(complexity)" title="NC (complexity)">NC</a> and <a href="https://en.wikipedia.org/wiki/NL_(complexity)" title="NL (complexity)">NL</a>, <a href="https://en.wikipedia.org/wiki/Log-space_reduction" title="Log-space reduction">log-space reductions</a> are used. Reductions are also used in <a href="https://en.wikipedia.org/wiki/Computability_theory" title="Computability theory">computability theory</a> to show whether problems are or are not solvable by machines at all; in this case, reductions are restricted only to <a href="https://en.wikipedia.org/wiki/Computable_function" title="Computable function">computable functions</a>.
+</p><p>In case of optimization (maximization or minimization) problems, we often think in terms of <a href="https://en.wikipedia.org/wiki/Approximation-preserving_reduction" title="Approximation-preserving reduction">approximation-preserving reduction</a>. Suppose we have two optimization problems such that instances of one problem can be mapped onto instances of the other, in a way that nearly optimal solutions to instances of the latter problem can be transformed back to yield nearly optimal solutions to the former. This way, if we have an optimization algorithm (or <a href="https://en.wikipedia.org/wiki/Approximation_algorithm" title="Approximation algorithm">approximation algorithm</a>) that finds near-optimal (or optimal) solutions to instances of problem B, and an efficient approximation-preserving reduction from problem A to problem B, by composition we obtain an optimization algorithm that yields near-optimal solutions to instances of problem A. Approximation-preserving reductions are often used to prove <a href="https://en.wikipedia.org/wiki/Hardness_of_approximation" title="Hardness of approximation">hardness of approximation</a> results: if some optimization problem A is hard to approximate (under some complexity assumption) within a factor better than α for some α, and there is a β-approximation-preserving reduction from problem A to problem B, we can conclude that problem B is hard to approximate within factor α/β.
+</p>
+<h2><span class="mw-headline" id="Examples">Examples</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Reduction_(complexity)&amp;action=edit&amp;section=4" title="Edit section: Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>To show that a <a href="https://en.wikipedia.org/wiki/Decision_problem" title="Decision problem">decision problem</a> P is <a href="https://en.wikipedia.org/wiki/Undecidable_problem" title="Undecidable problem">undecidable</a> we must find a reduction from a decision problem which is already known to be undecidable to P. That reduction function must be a <a href="https://en.wikipedia.org/wiki/Computable_function" title="Computable function">computable function</a>. In particular, we often show that a problem P is undecidable by showing that the <a href="https://en.wikipedia.org/wiki/Halting_problem" title="Halting problem">halting problem</a> reduces to P.</li>
+<li>The complexity classes <a href="https://en.wikipedia.org/wiki/P_(complexity)" title="P (complexity)">P</a>, <a href="https://en.wikipedia.org/wiki/NP_(complexity)" title="NP (complexity)">NP</a> and <a href="https://en.wikipedia.org/wiki/PSPACE" title="PSPACE">PSPACE</a> are closed under (many-one, "Karp") <a href="https://en.wikipedia.org/wiki/Polynomial-time_reduction" title="Polynomial-time reduction">polynomial-time reductions</a>.</li>
+<li>The complexity classes <a href="https://en.wikipedia.org/wiki/L_(complexity)" title="L (complexity)">L</a>, <a href="https://en.wikipedia.org/wiki/NL_(complexity)" title="NL (complexity)">NL</a>, <a href="https://en.wikipedia.org/wiki/P_(complexity)" title="P (complexity)">P</a>, <a href="https://en.wikipedia.org/wiki/NP_(complexity)" title="NP (complexity)">NP</a> and <a href="https://en.wikipedia.org/wiki/PSPACE" title="PSPACE">PSPACE</a> are closed under <a href="https://en.wikipedia.org/wiki/Log-space_reduction" title="Log-space reduction">log-space reduction</a>.</li></ul>
+<h3><span class="mw-headline" id="Detailed_example">Detailed example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Reduction_(complexity)&amp;action=edit&amp;section=5" title="Edit section: Detailed example">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The following example shows how to use reduction from the halting problem to prove that a language is undecidable. Suppose <i>H</i>(<i>M</i>, <i>w</i>) is the problem of determining whether a given <a href="https://en.wikipedia.org/wiki/Turing_machine" title="Turing machine">Turing machine</a> <i>M</i> halts (by accepting or rejecting) on input string <i>w</i>. This language is known to be undecidable. Suppose <i>E</i>(<i>M</i>) is the problem of determining whether the language a given Turing machine <i>M</i> accepts is empty (in other words, whether <i>M</i> accepts any strings at all). We show that <i>E</i> is undecidable by a reduction from <i>H</i>.
+</p><p>To obtain a contradiction, suppose <i>R</i> is a decider for <i>E</i>. We will use this to produce a decider <i>S</i> for <i>H</i> (which we know does not exist). Given input <i>M</i> and <i>w</i> (a Turing machine and some input string), define <i>S</i>(<i>M</i>, <i>w</i>) with the following behavior: <i>S</i> creates a Turing machine <i>N</i> that accepts only if the input string to <i>N</i> is <i>w</i> and <i>M</i> halts on input <i>w</i>, and does not halt otherwise. The decider <i>S</i> can now evaluate <i>R</i>(<i>N</i>) to check whether the language accepted by <i>N</i> is empty. If <i>R</i> accepts <i>N</i>, then the language accepted by <i>N</i> is empty, so in particular <i>M</i> does not halt on input <i>w</i>, so <i>S</i> can reject. If <i>R</i> rejects <i>N</i>, then the language accepted by <i>N</i> is nonempty, so <i>M</i> does halt on input <i>w</i>, so <i>S</i> can accept. Thus, if we had a decider <i>R</i> for <i>E</i>, we would be able to produce a decider <i>S</i> for the halting problem <i>H</i>(<i>M</i>, <i>w</i>) for any machine <i>M</i> and input <i>w</i>. Since we know that such an <i>S</i> cannot exist, it follows that the language <i>E</i> is also undecidable.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Reduction_(complexity)&amp;action=edit&amp;section=6" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Gadget_(computer_science)" title="Gadget (computer science)">Gadget (computer science)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Many-one_reduction" title="Many-one reduction">Many-one reduction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Parsimonious_reduction" title="Parsimonious reduction">Parsimonious reduction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Reduction_(recursion_theory)" title="Reduction (recursion theory)">Reduction (recursion theory)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Truth_table_reduction" class="mw-redirect" title="Truth table reduction">Truth table reduction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Turing_reduction" title="Turing reduction">Turing reduction</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Reduction_(complexity)&amp;action=edit&amp;section=7" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest and Clifford Stein, Introduction to Algorithms, MIT Press, 2001, <style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-262-03293-3" title="Special:BookSources/978-0-262-03293-3">978-0-262-03293-3</a></li>
+<li>Hartley Rogers, Jr.: Theory of Recursive Functions and Effective Computability, McGraw-Hill, 1967, <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-262-68052-3" title="Special:BookSources/978-0-262-68052-3">978-0-262-68052-3</a>.</li>
+<li>Peter Bürgisser: Completeness and Reduction in Algebraic Complexity Theory, Springer, 2000, <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-3-540-66752-0" title="Special:BookSources/978-3-540-66752-0">978-3-540-66752-0</a>.</li>
+<li>E.R. Griffor: Handbook of Computability Theory, North Holland, 1999, <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-444-89882-1" title="Special:BookSources/978-0-444-89882-1">978-0-444-89882-1</a>.</li></ul>
+<!-- 
+NewPP limit report
+Parsed by mw1415
+Cached time: 20220429012015
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: []
+CPU time usage: 0.179 seconds
+Real time usage: 0.231 seconds
+Preprocessor visited node count: 1118/1000000
+Post‐expand include size: 5420/2097152 bytes
+Template argument size: 2212/2097152 bytes
+Highest expansion depth: 14/100
+Expensive parser function count: 0/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 7244/5000000 bytes
+Lua time usage: 0.025/10.000 seconds
+Lua memory usage: 1324014/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  145.425      1 -total
+ 99.65%  144.912      4 Template:Isbn
+ 56.53%   82.209      4 Template:Catalog_lookup_link
+ 12.40%   18.037      4 Template:Error-small
+ 10.83%   15.748      4 Template:Small
+  7.63%   11.093     12 Template:Yesno-no
+  5.57%    8.100     16 Template:Yesno
+  3.81%    5.536      8 Template:Main_other
+  3.26%    4.744      4 Template:Tl
+  2.59%    3.765      4 Template:Yesno-yes
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:848067-0!canonical and timestamp 20220429012015 and revision id 1047773420. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Reduction_(complexity)&amp;oldid=1047773420">https://en.wikipedia.org/w/index.php?title=Reduction_(complexity)&amp;oldid=1047773420</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Reduction_(complexity)" title="Category:Reduction (complexity)">Reduction (complexity)</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Reduction+%28complexity%29" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Reduction+%28complexity%29" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Reduction_(complexity)" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Reduction_(complexity)" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Reduction_(complexity)"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Reduction_(complexity)&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Reduction_(complexity)&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Reduction_(complexity)" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Reduction_(complexity)" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Reduction_(complexity)&amp;oldid=1047773420" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Reduction_(complexity)&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Reduction_%28complexity%29&amp;id=1047773420&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q1197709" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Reduction_%28complexity%29&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Reduction_(complexity)&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-ca mw-list-item"><a href="https://ca.wikipedia.org/wiki/Reducció_(complexitat)" title="Reducció (complexitat) – Catalan" lang="ca" hreflang="ca" class="interlanguage-link-target"><span>Català</span></a></li><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Reduktion_(theoretische_Informatik)" title="Reduktion (theoretische Informatik) – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Reducción_(complejidad)" title="Reducción (complejidad) – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/کاهش_(پیچیدگی)" title="کاهش (پیچیدگی) – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Réduction_(complexité)" title="Réduction (complexité) – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-ko mw-list-item"><a href="https://ko.wikipedia.org/wiki/환산_(복잡도)" title="환산 (복잡도) – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target"><span>한국어</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/רדוקציה_חישובית" title="רדוקציה חישובית – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/還元_(計算複雑性理論)" title="還元 (計算複雑性理論) – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Redukcja_(teoria_złożoności)" title="Redukcja (teoria złożoności) – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/Redução_(complexidade)" title="Redução (complexidade) – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Сведение_(теория_сложности_вычислений)" title="Сведение (теория сложности вычислений) – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-sk mw-list-item"><a href="https://sk.wikipedia.org/wiki/Redukcia_(teoretická_informatika)" title="Redukcia (teoretická informatika) – Slovak" lang="sk" hreflang="sk" class="interlanguage-link-target"><span>Slovenčina</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/Свођење_(теорија_рачунске_сложености)" title="Свођење (теорија рачунске сложености) – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-sv mw-list-item"><a href="https://sv.wikipedia.org/wiki/Reduktion_(datalogi)" title="Reduktion (datalogi) – Swedish" lang="sv" hreflang="sv" class="interlanguage-link-target"><span>Svenska</span></a></li><li class="interlanguage-link interwiki-th mw-list-item"><a href="https://th.wikipedia.org/wiki/การลดรูป_(ความซับซ้อน)" title="การลดรูป (ความซับซ้อน) – Thai" lang="th" hreflang="th" class="interlanguage-link-target"><span>ไทย</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Зведення_(теорія_складності_обчислень)" title="Зведення (теорія складності обчислень) – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-zh-yue mw-list-item"><a href="https://zh-yue.wikipedia.org/wiki/歸約" title="歸約 – Cantonese" lang="yue" hreflang="yue" class="interlanguage-link-target"><span>粵語</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/歸約" title="歸約 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q1197709#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 2 October 2021, at 13:51<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Reduction_(complexity)&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.179","walltime":"0.231","ppvisitednodes":{"value":1118,"limit":1000000},"postexpandincludesize":{"value":5420,"limit":2097152},"templateargumentsize":{"value":2212,"limit":2097152},"expansiondepth":{"value":14,"limit":100},"expensivefunctioncount":{"value":0,"limit":500},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":7244,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  145.425      1 -total"," 99.65%  144.912      4 Template:Isbn"," 56.53%   82.209      4 Template:Catalog_lookup_link"," 12.40%   18.037      4 Template:Error-small"," 10.83%   15.748      4 Template:Small","  7.63%   11.093     12 Template:Yesno-no","  5.57%    8.100     16 Template:Yesno","  3.81%    5.536      8 Template:Main_other","  3.26%    4.744      4 Template:Tl","  2.59%    3.765      4 Template:Yesno-yes"]},"scribunto":{"limitreport-timeusage":{"value":"0.025","limit":"10.000"},"limitreport-memusage":{"value":1324014,"limit":52428800}},"cachereport":{"origin":"mw1415","timestamp":"20220429012015","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Reduction (complexity)","url":"https:\/\/en.wikipedia.org\/wiki\/Reduction_(complexity)","sameAs":"http:\/\/www.wikidata.org\/entity\/Q1197709","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q1197709","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-07-21T20:01:21Z","dateModified":"2021-10-02T13:51:51Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/0\/02\/3SAT_reduced_too_VC.svg","headline":"transformation of one computational problem to another, used to show that the second problem is as difficult as the first"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Reduction (complexity)","url":"https:\/\/en.wikipedia.org\/wiki\/Reduction_(complexity)","sameAs":"http:\/\/www.wikidata.org\/entity\/Q1197709","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q1197709","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-07-21T20:01:21Z","dateModified":"2021-10-02T13:51:51Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/0\/02\/3SAT_reduced_too_VC.svg","headline":"transformation of one computational problem to another, used to show that the second problem is as difficult as the first"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":136,"wgHostname":"mw1453"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Reduction_(complexity) by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:52 GMT -->
+</html>

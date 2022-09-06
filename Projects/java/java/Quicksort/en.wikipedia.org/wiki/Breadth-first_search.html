@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Breadth-first_search by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Breadth-first search - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"408cd128-8b78-4520-abc3-cfb845f56b1c","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Breadth-first_search","wgTitle":"Breadth-first search","wgCurRevisionId":1084419557,"wgRevisionId":1084419557,"wgArticleId":97026,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CS1 German-language sources (de)","Articles with short description","Short description matches Wikidata","Articles needing additional references from April 2012","All articles needing additional references","Commons category link is on Wikidata","Graph algorithms","Search algorithms"
+],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Breadth-first_search","wgRelevantArticleId":97026,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":10000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q325904","wgGENewcomerTasksGuidanceEnabled":true,"wgGEAskQuestionEnabled":false,"wgGELinkRecommendationsFrontendEnabled":false};
+RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.math.styles":"ready","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.math.scripts","ext.cite.ux-enhancements","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher",
+"ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.9"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Breadth-first-tree.svg/1200px-Breadth-first-tree.svg.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="769"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Breadth-first-tree.svg/800px-Breadth-first-tree.svg.png"/>
+<meta property="og:image:width" content="800"/>
+<meta property="og:image:height" content="513"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Breadth-first-tree.svg/640px-Breadth-first-tree.svg.png"/>
+<meta property="og:image:width" content="640"/>
+<meta property="og:image:height" content="410"/>
+<meta property="og:title" content="Breadth-first search - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Breadth-first_search"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Breadth-first_search"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Breadth-first_search rootpage-Breadth-first_search skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Breadth-first search</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Algorithm for searching the nodes of a graph in order by their hop count from a starting node</div>
+<table class="box-More_citations_needed plainlinks metadata ambox ambox-content ambox-Refimprove" role="presentation"><tbody><tr><td class="mbox-image"><div style="width:52px"><a href="https://en.wikipedia.org/wiki/File:Question_book-new.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/50px-Question_book-new.svg.png" decoding="async" width="50" height="39" srcset="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/75px-Question_book-new.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/100px-Question_book-new.svg.png 2x" data-file-width="512" data-file-height="399" /></a></div></td><td class="mbox-text"><div class="mbox-text-span">This article <b>needs additional citations for <a href="https://en.wikipedia.org/wiki/Wikipedia:Verifiability" title="Wikipedia:Verifiability">verification</a></b>.<span class="hide-when-compact"> Please help <a class="external text" href="https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;action=edit">improve this article</a> by <a href="https://en.wikipedia.org/wiki/Help:Referencing_for_beginners" title="Help:Referencing for beginners">adding citations to reliable sources</a>. Unsourced material may be challenged and removed.<br /><small><span class="plainlinks"><i>Find sources:</i>&#160;<a rel="nofollow" class="external text" href="http://www.google.com/search?as_eq=wikipedia&amp;q=%22Breadth-first+search%22">"Breadth-first search"</a>&#160;–&#160;<a rel="nofollow" class="external text" href="http://www.google.com/search?tbm=nws&amp;q=%22Breadth-first+search%22+-wikipedia&amp;tbs=ar:1">news</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="http://www.google.com/search?&amp;q=%22Breadth-first+search%22&amp;tbs=bkt:s&amp;tbm=bks">newspapers</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="http://www.google.com/search?tbs=bks:1&amp;q=%22Breadth-first+search%22+-wikipedia">books</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="http://scholar.google.com/scholar?q=%22Breadth-first+search%22">scholar</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="https://www.jstor.org/action/doBasicSearch?Query=%22Breadth-first+search%22&amp;acc=on&amp;wc=on">JSTOR</a></span></small></span>  <span class="date-container"><i>(<span class="date">April 2012</span>)</i></span><span class="hide-when-compact"><i> (<small><a href="https://en.wikipedia.org/wiki/Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this template message</a></small>)</i></span></div></td></tr></tbody></table>
+<style data-mw-deduplicate="TemplateStyles:r1066479718">.mw-parser-output .infobox-subbox{padding:0;border:none;margin:-3px;width:auto;min-width:100%;font-size:100%;clear:none;float:none;background-color:transparent}.mw-parser-output .infobox-3cols-child{margin:auto}.mw-parser-output .infobox .navbar{font-size:100%}body.skin-minerva .mw-parser-output .infobox-header,body.skin-minerva .mw-parser-output .infobox-subheader,body.skin-minerva .mw-parser-output .infobox-above,body.skin-minerva .mw-parser-output .infobox-title,body.skin-minerva .mw-parser-output .infobox-image,body.skin-minerva .mw-parser-output .infobox-full-data,body.skin-minerva .mw-parser-output .infobox-below{text-align:center}</style><table class="infobox"><caption class="infobox-title">Breadth-first search</caption><tbody><tr><td colspan="2" class="infobox-image"><div class="floatnone"><a href="https://en.wikipedia.org/wiki/File:Breadth-first-tree.svg" class="image" title="Order in which the nodes get expanded"><img alt="Order in which the nodes get expanded" src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Breadth-first-tree.svg/300px-Breadth-first-tree.svg.png" decoding="async" width="300" height="192" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/33/Breadth-first-tree.svg/450px-Breadth-first-tree.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/33/Breadth-first-tree.svg/600px-Breadth-first-tree.svg.png 2x" data-file-width="390" data-file-height="250" /></a></div><div class="infobox-caption">Order in which the nodes are expanded</div></td></tr><tr><th scope="row" class="infobox-label">Class</th><td class="infobox-data"><a href="https://en.wikipedia.org/wiki/Search_algorithm" title="Search algorithm">Search algorithm</a></td></tr><tr><th scope="row" class="infobox-label">Data structure</th><td class="infobox-data"><a href="https://en.wikipedia.org/wiki/Graph_(data_structure)" class="mw-redirect" title="Graph (data structure)">Graph</a></td></tr><tr><th scope="row" class="infobox-label"><a href="https://en.wikipedia.org/wiki/Best,_worst_and_average_case" title="Best, worst and average case">Worst-case</a> <a href="https://en.wikipedia.org/wiki/Time_complexity" title="Time complexity">performance</a></th><td class="infobox-data"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(|V|+|E|)=O(b^{d})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>V</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo>+</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>E</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>b</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>d</mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(|V|+|E|)=O(b^{d})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3723b61a52380fbdf4c6892af96ebbfe8fb76a22" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:21.344ex; height:3.176ex;" alt="O(|V|+|E|)=O(b^{d})"/></span></td></tr><tr><th scope="row" class="infobox-label"><a href="https://en.wikipedia.org/wiki/Best,_worst_and_average_case" title="Best, worst and average case">Worst-case</a> <a href="https://en.wikipedia.org/wiki/Space_complexity" title="Space complexity">space complexity</a></th><td class="infobox-data"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(|V|)=O(b^{d})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>V</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>b</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>d</mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(|V|)=O(b^{d})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/723ebf4d51e5b6b919d1fe6ce96e7e0136db6e94" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:15.434ex; height:3.176ex;" alt="O(|V|)=O(b^{d})"/></span></td></tr></tbody></table>
+<style data-mw-deduplicate="TemplateStyles:r1045330069">.mw-parser-output .sidebar{width:22em;float:right;clear:right;margin:0.5em 0 1em 1em;background:#f8f9fa;border:1px solid #aaa;padding:0.2em;text-align:center;line-height:1.4em;font-size:88%;border-collapse:collapse;display:table}body.skin-minerva .mw-parser-output .sidebar{display:table!important;float:right!important;margin:0.5em 0 1em 1em!important}.mw-parser-output .sidebar-subgroup{width:100%;margin:0;border-spacing:0}.mw-parser-output .sidebar-left{float:left;clear:left;margin:0.5em 1em 1em 0}.mw-parser-output .sidebar-none{float:none;clear:both;margin:0.5em 1em 1em 0}.mw-parser-output .sidebar-outer-title{padding:0 0.4em 0.2em;font-size:125%;line-height:1.2em;font-weight:bold}.mw-parser-output .sidebar-top-image{padding:0.4em}.mw-parser-output .sidebar-top-caption,.mw-parser-output .sidebar-pretitle-with-top-image,.mw-parser-output .sidebar-caption{padding:0.2em 0.4em 0;line-height:1.2em}.mw-parser-output .sidebar-pretitle{padding:0.4em 0.4em 0;line-height:1.2em}.mw-parser-output .sidebar-title,.mw-parser-output .sidebar-title-with-pretitle{padding:0.2em 0.8em;font-size:145%;line-height:1.2em}.mw-parser-output .sidebar-title-with-pretitle{padding:0.1em 0.4em}.mw-parser-output .sidebar-image{padding:0.2em 0.4em 0.4em}.mw-parser-output .sidebar-heading{padding:0.1em 0.4em}.mw-parser-output .sidebar-content{padding:0 0.5em 0.4em}.mw-parser-output .sidebar-content-with-subgroup{padding:0.1em 0.4em 0.2em}.mw-parser-output .sidebar-above,.mw-parser-output .sidebar-below{padding:0.3em 0.8em;font-weight:bold}.mw-parser-output .sidebar-collapse .sidebar-above,.mw-parser-output .sidebar-collapse .sidebar-below{border-top:1px solid #aaa;border-bottom:1px solid #aaa}.mw-parser-output .sidebar-navbar{text-align:right;font-size:115%;padding:0 0.4em 0.4em}.mw-parser-output .sidebar-list-title{padding:0 0.4em;text-align:left;font-weight:bold;line-height:1.6em;font-size:105%}.mw-parser-output .sidebar-list-title-c{padding:0 0.4em;text-align:center;margin:0 3.3em}@media(max-width:720px){body.mediawiki .mw-parser-output .sidebar{width:100%!important;clear:both;float:none!important;margin-left:0!important;margin-right:0!important}}</style><table class="sidebar nomobile nowraplinks hlist"><tbody><tr><th class="sidebar-title"><a href="https://en.wikipedia.org/wiki/Graph_traversal" title="Graph traversal">Graph</a> and <a href="https://en.wikipedia.org/wiki/Tree_traversal" title="Tree traversal">tree</a><br /><a href="https://en.wikipedia.org/wiki/Search_algorithm" title="Search algorithm">search algorithms</a></th></tr><tr><td class="sidebar-content">
+<ul><li><a href="https://en.wikipedia.org/wiki/Alpha–beta_pruning" title="Alpha–beta pruning">α–β pruning</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Backtracking" title="Backtracking">Backtracking</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Beam_search" title="Beam search">Beam search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Best-first_search" title="Best-first search">Best-first search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Branch_and_bound" title="Branch and bound">Branch &amp; bound</a></li>
+<li><a class="mw-selflink selflink">Breadth-First Search (<b>BFS</b>)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/British_Museum_algorithm" title="British Museum algorithm">British Museum</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Depth-first_search" title="Depth-first search">Depth-First Search (<b>DFS</b>)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hill_climbing" title="Hill climbing">Hill climbing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search" title="Iterative deepening depth-first search">Iterative Deepening DFS (IDDFS)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lexicographic_breadth-first_search" title="Lexicographic breadth-first search">Lexicographic BFS</a></li></ul></td>
+</tr><tr><th class="sidebar-heading">
+<a href="https://en.wikipedia.org/wiki/Shortest_path_problem" title="Shortest path problem">Shortest path</a></th></tr><tr><td class="sidebar-content">
+<ul><li><a href="https://en.wikipedia.org/wiki/A*_search_algorithm" title="A* search algorithm"><b>A*</b></a></li>
+<li><a href="https://en.wikipedia.org/wiki/B*" title="B*">B*</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bellman–Ford_algorithm" title="Bellman–Ford algorithm">Bellman–Ford</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bidirectional_search" title="Bidirectional search">Bidirectional search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/D*" title="D*">D*</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm" title="Dijkstra&#39;s algorithm"><b>Dijkstra's</b></a></li>
+<li><a href="https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm" title="Floyd–Warshall algorithm">Floyd–Warshall</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fringe_search" title="Fringe search">Fringe search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Iterative_deepening_A*" title="Iterative deepening A*">Iterative Deepening (IDA*)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Johnson%27s_algorithm" title="Johnson&#39;s algorithm">Johnson's</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Jump_point_search" title="Jump point search">Jump point search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kruskal%27s_algorithm" title="Kruskal&#39;s algorithm">Kruskal's</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lifelong_Planning_A*" title="Lifelong Planning A*">Lifelong Planning A* (LPA*)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pathfinding" title="Pathfinding">Pathfinding</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SMA*" title="SMA*">SMA*</a></li></ul></td>
+</tr><tr><th class="sidebar-heading">
+Lists</th></tr><tr><td class="sidebar-content">
+<ul><li><i><a href="https://en.wikipedia.org/wiki/Category:Graph_algorithms" title="Category:Graph algorithms">Graph algorithms</a></i></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Category:Search_algorithms" title="Category:Search algorithms">Search algorithms</a></i></li>
+<li><i><a href="https://en.wikipedia.org/wiki/List_of_algorithms#Graph_algorithms" title="List of algorithms">List of graph algorithms</a></i></li></ul></td>
+</tr><tr><th class="sidebar-heading">
+Related topics</th></tr><tr><td class="sidebar-content">
+<ul><li><a href="https://en.wikipedia.org/wiki/Dynamic_programming" title="Dynamic programming">Dynamic programming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Graph_coloring" title="Graph coloring">Graph coloring</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Graph_traversal" title="Graph traversal">Graph traversal</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Minimum_spanning_tree" title="Minimum spanning tree">Minimum spanning tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Search_game" title="Search game">Search games</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Threaded_binary_tree" title="Threaded binary tree">Threaded binary tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tree_traversal" title="Tree traversal">Tree traversal</a></li></ul></td>
+</tr><tr><td class="sidebar-navbar"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Graph_search_algorithm" title="Template:Graph search algorithm"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Graph_search_algorithm" title="Template talk:Graph search algorithm"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Graph_search_algorithm&amp;action=edit"><abbr title="Edit this template">e</abbr></a></li></ul></div></td></tr></tbody></table>
+<div class="thumb tright"><div class="thumbinner" style="width:189px;"><a href="https://en.wikipedia.org/wiki/File:Animated_BFS.gif" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/4/46/Animated_BFS.gif" decoding="async" width="187" height="175" class="thumbimage" data-file-width="187" data-file-height="175" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Animated_BFS.gif" class="internal" title="Enlarge"></a></div>Animated example of a breadth-first search. Black: explored, grey: queued to be explored later on</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:BFS-Algorithm_Search_Way.gif" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/BFS-Algorithm_Search_Way.gif/220px-BFS-Algorithm_Search_Way.gif" decoding="async" width="220" height="165" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f5/BFS-Algorithm_Search_Way.gif/330px-BFS-Algorithm_Search_Way.gif 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f5/BFS-Algorithm_Search_Way.gif/440px-BFS-Algorithm_Search_Way.gif 2x" data-file-width="480" data-file-height="360" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:BFS-Algorithm_Search_Way.gif" class="internal" title="Enlarge"></a></div>BFS on <a href="https://en.wikipedia.org/wiki/Maze-solving_algorithm" title="Maze-solving algorithm">Maze-solving algorithm</a></div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:189px;"><a href="https://en.wikipedia.org/wiki/File:Tic-tac-toe-game-tree.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Tic-tac-toe-game-tree.svg/187px-Tic-tac-toe-game-tree.svg.png" decoding="async" width="187" height="125" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/da/Tic-tac-toe-game-tree.svg/281px-Tic-tac-toe-game-tree.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/da/Tic-tac-toe-game-tree.svg/374px-Tic-tac-toe-game-tree.svg.png 2x" data-file-width="545" data-file-height="363" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Tic-tac-toe-game-tree.svg" class="internal" title="Enlarge"></a></div>Top part of <a href="https://en.wikipedia.org/wiki/Tic-tac-toe" title="Tic-tac-toe">Tic-tac-toe</a> game tree</div></div></div>
+<p><b>Breadth-first search</b> (<b>BFS</b>) is an <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithm</a> for searching a <a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" title="Tree (data structure)">tree</a> data structure for a node that satisfies a given property. It starts at the <a href="https://en.wikipedia.org/wiki/Tree_(data_structure)#Terminology" title="Tree (data structure)">tree root</a> and explores all nodes at the present <a href="https://en.wikipedia.org/wiki/Tree_(data_structure)#Terminology" title="Tree (data structure)">depth</a> prior to moving on to the nodes at the next depth level. Extra memory, usually a <a href="https://en.wikipedia.org/wiki/Queue_(data_structure)" class="mw-redirect" title="Queue (data structure)">queue</a>, is needed to keep track of the child nodes that were encountered but not yet explored. 
+</p><p>For example, in a <a href="https://en.wikipedia.org/wiki/Chess_endgame" title="Chess endgame">chess endgame</a> a <a href="https://en.wikipedia.org/wiki/Chess_engine" title="Chess engine">chess engine</a> may build the <a href="https://en.wikipedia.org/wiki/Game_tree" title="Game tree">game tree</a> from the current position by applying all possible moves, and use breadth-first search to find a win position for white. Implicit trees (such as game trees or other problem-solving trees) may be of infinite size; breadth-first search is guaranteed to find a solution node<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup> if one exists.
+</p><p>In contrast, (plain) <a href="https://en.wikipedia.org/wiki/Depth-first_search" title="Depth-first search">depth-first search</a>, which explores the node branch as far as possible before backtracking and expanding other nodes,<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup> may get lost in an infinite branch and never make it to the solution node. <a href="https://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search" title="Iterative deepening depth-first search">Iterative deepening depth-first search</a> avoids the latter drawback at the price of exploring the tree's top parts over and over again. On the other hand, both depth-first algorithms get along without extra memory.
+</p><p>Breadth-first search can be generalized to <a href="https://en.wikipedia.org/wiki/Graph_(data_structure)" class="mw-redirect" title="Graph (data structure)">graphs</a>, when the start node (sometimes referred to as a 'search key')<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup> is explicitly given, and precautions are taken against following a vertex twice.
+</p><p>BFS and its application in finding <a href="https://en.wikipedia.org/wiki/Connected_component_(graph_theory)" class="mw-redirect" title="Connected component (graph theory)">connected components</a> of graphs were invented in 1945 by <a href="https://en.wikipedia.org/wiki/Konrad_Zuse" title="Konrad Zuse">Konrad Zuse</a>, in his (rejected) Ph.D. thesis on the <a href="https://en.wikipedia.org/wiki/Plankalkül" title="Plankalkül">Plankalkül</a> programming language, but this was not published until 1972.<sup id="cite_ref-:0_4-0" class="reference"><a href="#cite_note-:0-4">&#91;4&#93;</a></sup> It was reinvented in 1959 by <a href="https://en.wikipedia.org/wiki/Edward_F._Moore" title="Edward F. Moore">Edward F. Moore</a>, who used it to find the shortest path out of a maze,<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup><sup id="cite_ref-skiena_6-0" class="reference"><a href="#cite_note-skiena-6">&#91;6&#93;</a></sup> and later developed by C. Y. Lee into a <a href="https://en.wikipedia.org/wiki/Routing_(electronic_design_automation)" title="Routing (electronic design automation)">wire routing</a> algorithm (published 1961).<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup>
+</p><p><br />
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Pseudocode"><span class="tocnumber">1</span> <span class="toctext">Pseudocode</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#More_details"><span class="tocnumber">1.1</span> <span class="toctext">More details</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Example"><span class="tocnumber">1.2</span> <span class="toctext">Example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Analysis"><span class="tocnumber">2</span> <span class="toctext">Analysis</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Time_and_space_complexity"><span class="tocnumber">2.1</span> <span class="toctext">Time and space complexity</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Completeness"><span class="tocnumber">2.2</span> <span class="toctext">Completeness</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#BFS_ordering"><span class="tocnumber">3</span> <span class="toctext">BFS ordering</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Applications"><span class="tocnumber">4</span> <span class="toctext">Applications</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#External_links"><span class="tocnumber">7</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Pseudocode">Pseudocode</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=1" title="Edit section: Pseudocode">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><b>Input</b>: A graph <span class="texhtml mvar" style="font-style:italic;">G</span> and a <i>starting vertex</i> <span class="texhtml mvar" style="font-style:italic;">root</span> of <span class="texhtml mvar" style="font-style:italic;">G</span>
+</p><p><b>Output</b>: Goal state. The <i>parent</i> links trace the shortest path back to <span class="texhtml mvar" style="font-style:italic;">root</span><sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup>
+</p>
+<pre> 1  <b>procedure</b> BFS(<i>G</i>, <i>root</i>) <b>is</b>
+ 2      let <i>Q</i> be a queue
+ 3      label <i>root</i> as explored
+ 4      <i>Q</i>.enqueue(<i>root</i>)
+ 5      <b>while</b> <i>Q</i> is not empty <b>do</b>
+ 6          <i>v</i>&#160;:= <i>Q</i>.dequeue()
+ 7          <b>if</b> <i>v</i> is the goal <b>then</b>
+ 8              <b>return</b> <i>v</i>
+ 9          <b>for all</b> edges from <i>v</i> to <i>w</i> <b>in</b> <i>G</i>.adjacentEdges(<i>v</i>) <b>do</b>
+10              <b>if</b> <i>w</i> is not labeled as explored <b>then</b>
+11                  label <i>w</i> as explored
+12                  <i>Q</i>.enqueue(<i>w</i>)
+</pre>
+<h3><span class="mw-headline" id="More_details">More details</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=2" title="Edit section: More details">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>This non-recursive implementation is similar to the non-recursive implementation of <a href="https://en.wikipedia.org/wiki/Depth-first_search" title="Depth-first search">depth-first search</a>, but differs from it in two ways:
+</p>
+<ol><li>it uses a <a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)" title="Queue (abstract data type)">queue</a> (First In First Out) instead of a <a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)" title="Stack (abstract data type)">stack</a> and</li>
+<li>it checks whether a vertex has been explored before enqueueing the vertex rather than delaying this check until the vertex is dequeued from the queue.</li></ol>
+<p>If <span class="texhtml mvar" style="font-style:italic;">G</span> is a <a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" title="Tree (data structure)">tree</a>, replacing the queue of this breadth-first search algorithm with a stack will yield a depth-first search algorithm. For general graphs, replacing the stack of the iterative depth-first search implementation with a queue would also produce a breadth-first search algorithm, although a somewhat nonstandard one.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">&#91;9&#93;</a></sup>
+</p><p>The <i>Q</i> queue contains the frontier along which the algorithm is currently searching.
+</p><p>Nodes can be labelled as explored by storing them in a set, or by an attribute on each node, depending on the implementation.
+</p><p>Note that the word <i>node</i> is usually interchangeable with the word <i>vertex</i>.
+</p><p>The <i>parent</i> attribute of each node is useful for accessing the nodes in a shortest path, for example by backtracking from the destination node up to the starting node, once the BFS has been run, and the predecessors nodes have been set.
+</p><p>Breadth-first search produces a so-called <i>breadth first tree</i>. You can see how a <i>breadth first tree</i> looks in the following example.
+</p>
+<h3><span class="mw-headline" id="Example">Example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=3" title="Edit section: Example">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The following is an example of the breadth-first tree obtained by running a BFS on <a href="https://en.wikipedia.org/wiki/Germany" title="Germany">German</a> cities starting from <i>Frankfurt</i>:
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:252px;"><a href="https://en.wikipedia.org/wiki/File:MapGermanyGraph.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/MapGermanyGraph.svg/250px-MapGermanyGraph.svg.png" decoding="async" width="250" height="252" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/ad/MapGermanyGraph.svg/375px-MapGermanyGraph.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/ad/MapGermanyGraph.svg/500px-MapGermanyGraph.svg.png 2x" data-file-width="460" data-file-height="464" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:MapGermanyGraph.svg" class="internal" title="Enlarge"></a></div>An example map of <a href="https://en.wikipedia.org/wiki/Southern_Germany" title="Southern Germany">Southern Germany</a> with some connections between cities</div></div></div></div>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:252px;"><a href="https://en.wikipedia.org/wiki/File:GermanyBFS.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/63/GermanyBFS.svg/250px-GermanyBFS.svg.png" decoding="async" width="250" height="179" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/63/GermanyBFS.svg/375px-GermanyBFS.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/63/GermanyBFS.svg/500px-GermanyBFS.svg.png 2x" data-file-width="460" data-file-height="330" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:GermanyBFS.svg" class="internal" title="Enlarge"></a></div>The breadth-first tree obtained when running BFS on the given map and starting in <a href="https://en.wikipedia.org/wiki/Frankfurt" title="Frankfurt">Frankfurt</a></div></div></div></div>
+<h2><span class="mw-headline" id="Analysis">Analysis</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=4" title="Edit section: Analysis">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Time_and_space_complexity">Time and space complexity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=5" title="Edit section: Time and space complexity">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Time_complexity" title="Time complexity">time complexity</a> can be expressed as <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(|V|+|E|)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>V</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo>+</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>E</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(|V|+|E|)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a7cf317fbe3965ae3164f28c1f6858696adb23f4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:12.573ex; height:2.843ex;" alt="O(|V|+|E|)"/></span>, since every vertex and every edge will be explored in the worst case. <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle |V|}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>V</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle |V|}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9ddcffc28643ac01a14dd0fb32c3157859e365a7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:3.081ex; height:2.843ex;" alt="|V|"/></span> is the number of vertices and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle |E|}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>E</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle |E|}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d8c2b9637808cf805d411190b4ae017dbd4ef8d8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:3.069ex; height:2.843ex;" alt="|E|"/></span> is the number of edges in the graph.
+Note that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(|E|)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>E</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(|E|)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/976fe7f1e011d0dcdb3d6163754c877aaad5187f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.652ex; height:2.843ex;" alt="O(|E|)"/></span> may vary between <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(1)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(1)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e66384bc40452c5452f33563fe0e27e803b0cc21" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.745ex; height:2.843ex;" alt="O(1)"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(|V|^{2})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>V</mi>
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">|</mo>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(|V|^{2})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e1e99764e23be92b694aef042c6460ff921357e3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.718ex; height:3.343ex;" alt="O(|V|^{2})"/></span>, depending on how sparse the input graph is.<sup id="cite_ref-clrs_10-0" class="reference"><a href="#cite_note-clrs-10">&#91;10&#93;</a></sup>
+</p><p>When the number of vertices in the graph is known ahead of time, and additional data structures are used to determine which vertices have already been added to the queue, the <a href="https://en.wikipedia.org/wiki/Space_complexity" title="Space complexity">space complexity</a> can be expressed as <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(|V|)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>V</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(|V|)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3486d00c2ed0f7eb1db550af8f239ad68241a6c5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.664ex; height:2.843ex;" alt="O(|V|)"/></span>, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle |V|}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>V</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle |V|}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9ddcffc28643ac01a14dd0fb32c3157859e365a7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:3.081ex; height:2.843ex;" alt="|V|"/></span> is the number of vertices. This is in addition to the space
+required for the graph itself, which may vary depending on the <a href="https://en.wikipedia.org/wiki/Graph_(abstract_data_type)" title="Graph (abstract data type)">graph representation</a> used by an implementation of the algorithm.
+</p><p>When working with graphs that are too large to store explicitly (or infinite), it is more practical to describe the complexity of breadth-first search in different terms: to find the nodes that are at distance <span class="texhtml mvar" style="font-style:italic;">d</span> from the start node (measured in number of edge traversals), BFS takes <span class="texhtml"><i>O</i>(<i>b</i><sup><i>d</i> + 1</sup>)</span> time and memory, where <span class="texhtml mvar" style="font-style:italic;">b</span> is the "<a href="https://en.wikipedia.org/wiki/Branching_factor" title="Branching factor">branching factor</a>" of the graph (the average out-degree).<sup id="cite_ref-11" class="reference"><a href="#cite_note-11">&#91;11&#93;</a></sup><sup class="reference nowrap"><span title="Page / location: 81">&#58;&#8202;81&#8202;</span></sup>
+</p>
+<h3><span class="mw-headline" id="Completeness">Completeness</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=6" title="Edit section: Completeness">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In the analysis of algorithms, the input to breadth-first search is assumed to be a finite graph, represented as an <a href="https://en.wikipedia.org/wiki/Adjacency_list" title="Adjacency list">adjacency list</a>, <a href="https://en.wikipedia.org/wiki/Adjacency_matrix" title="Adjacency matrix">adjacency matrix</a>, or similar representation. However, in the application of graph traversal methods in <a href="https://en.wikipedia.org/wiki/Artificial_intelligence" title="Artificial intelligence">artificial intelligence</a> the input may be an <a href="https://en.wikipedia.org/wiki/Implicit_graph" title="Implicit graph">implicit representation</a> of an infinite graph. In this context, a search method is described as being complete if it is guaranteed to find a goal state if one exists. Breadth-first search is complete, but depth-first search is not. When applied to infinite graphs represented implicitly, breadth-first search will eventually find the goal state, but depth first search may get lost in parts of the graph that have no goal state and never return.<sup id="cite_ref-coppin_12-0" class="reference"><a href="#cite_note-coppin-12">&#91;12&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="BFS_ordering">BFS ordering</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=7" title="Edit section: BFS ordering">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>An enumeration of the vertices of a graph is said to be a BFS ordering if it is the possible output of the application of BFS to this graph.
+</p><p>Let <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle G=(V,E)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>G</mi>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <mi>V</mi>
+        <mo>,</mo>
+        <mi>E</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle G=(V,E)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/644a8d85ee410b6159ca2bdb5dcb9097e2c8f182" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:11.331ex; height:2.843ex;" alt="G=(V,E)"/></span> be a graph  with <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> vertices.  Recall that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle N(v)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>N</mi>
+        <mo stretchy="false">(</mo>
+        <mi>v</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle N(v)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2846ab53c26104918af619f1d0b77e8f563b77d6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.001ex; height:2.843ex;" alt="N(v)"/></span> is the set of neighbors of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle v}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>v</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e07b00e7fc0847fbd16391c778d65bc25c452597" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.128ex; height:1.676ex;" alt="v"/></span>.
+Let <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \sigma =(v_{1},\dots ,v_{m})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03C3;<!-- σ --></mi>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>m</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \sigma =(v_{1},\dots ,v_{m})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9b13202503c7a6dd9f8365417bb508f5311127a0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:16.4ex; height:2.843ex;" alt="{\displaystyle \sigma =(v_{1},\dots ,v_{m})}"/></span> be a list of distinct elements of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>V</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.787ex; height:2.176ex;" alt="V"/></span>, for <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle v\in V\setminus \{v_{1},\dots ,v_{m}\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>v</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mi>V</mi>
+        <mo class="MJX-variant">&#x2216;<!-- ∖ --></mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>m</mi>
+          </mrow>
+        </msub>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v\in V\setminus \{v_{1},\dots ,v_{m}\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/05e8658d9f01aa5d7e04d3e58510340c64199076" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:20.438ex; height:2.843ex;" alt="{\displaystyle v\in V\setminus \{v_{1},\dots ,v_{m}\}}"/></span>, let <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \nu _{\sigma }(v)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>&#x03BD;<!-- ν --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03C3;<!-- σ --></mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>v</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \nu _{\sigma }(v)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/467fa0c6c855395761965007256ad810ed2c9748" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.258ex; height:2.843ex;" alt="{\displaystyle \nu _{\sigma }(v)}"/></span> be the least <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle i}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>i</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle i}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/add78d8608ad86e54951b8c8bd6c8d8416533d20" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:0.802ex; height:2.176ex;" alt="i"/></span> such that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle v_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7dffe5726650f6daac54829972a94f38eb8ec127" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.927ex; height:2.009ex;" alt="v_{i}"/></span> is a neighbor of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle v}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>v</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e07b00e7fc0847fbd16391c778d65bc25c452597" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.128ex; height:1.676ex;" alt="v"/></span>, if such a <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle i}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>i</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle i}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/add78d8608ad86e54951b8c8bd6c8d8416533d20" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:0.802ex; height:2.176ex;" alt="i"/></span> exists, and be <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \infty }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x221E;<!-- ∞ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \infty }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c26c105004f30c27aa7c2a9c601550a4183b1f21" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.324ex; height:1.676ex;" alt="\infty "/></span> otherwise.
+</p><p>Let <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \sigma =(v_{1},\dots ,v_{n})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03C3;<!-- σ --></mi>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \sigma =(v_{1},\dots ,v_{n})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5fb622aaee5ddab5f4de64b3fc1f39fed8cfcd15" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:15.944ex; height:2.843ex;" alt="{\displaystyle \sigma =(v_{1},\dots ,v_{n})}"/></span> be an enumeration of the vertices of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>V</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/af0f6064540e84211d0ffe4dac72098adfa52845" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.787ex; height:2.176ex;" alt="V"/></span>.
+The enumeration <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \sigma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03C3;<!-- σ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \sigma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/59f59b7c3e6fdb1d0365a494b81fb9a696138c36" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.33ex; height:1.676ex;" alt="\sigma "/></span> is said to be a BFS ordering (with source <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle v_{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/98d33f5d498d528bd8c10edc8ac8c34347f32b3a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.182ex; height:2.009ex;" alt="v_{1}"/></span>) if, for all <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 1&lt;i\leq n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>1</mn>
+        <mo>&lt;</mo>
+        <mi>i</mi>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 1&lt;i\leq n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7118998ccad2d63c18f98d150ab2bdccdb3cec63" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:9.557ex; height:2.343ex;" alt="{\displaystyle 1&lt;i\leq n}"/></span>, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle v_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7dffe5726650f6daac54829972a94f38eb8ec127" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.927ex; height:2.009ex;" alt="v_{i}"/></span> is the vertex <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle w\in V\setminus \{v_{1},\dots ,v_{i-1}\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>w</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mi>V</mi>
+        <mo class="MJX-variant">&#x2216;<!-- ∖ --></mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w\in V\setminus \{v_{1},\dots ,v_{i-1}\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4de4f6f20401fc17db343455a85bf1907df3afa6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:22.2ex; height:2.843ex;" alt="{\displaystyle w\in V\setminus \{v_{1},\dots ,v_{i-1}\}}"/></span> such that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \nu _{(v_{1},\dots ,v_{i-1})}(w)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>&#x03BD;<!-- ν --></mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">(</mo>
+            <msub>
+              <mi>v</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>1</mn>
+              </mrow>
+            </msub>
+            <mo>,</mo>
+            <mo>&#x2026;<!-- … --></mo>
+            <mo>,</mo>
+            <msub>
+              <mi>v</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+                <mo>&#x2212;<!-- − --></mo>
+                <mn>1</mn>
+              </mrow>
+            </msub>
+            <mo stretchy="false">)</mo>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>w</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \nu _{(v_{1},\dots ,v_{i-1})}(w)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8a0482d61c01179c94158fd6cfa9ab0ce52a4098" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.171ex; width:13.73ex; height:3.176ex;" alt="{\displaystyle \nu _{(v_{1},\dots ,v_{i-1})}(w)}"/></span> is minimal. Equivalently, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \sigma }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03C3;<!-- σ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \sigma }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/59f59b7c3e6fdb1d0365a494b81fb9a696138c36" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.33ex; height:1.676ex;" alt="\sigma "/></span> is a BFS ordering if, for all <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 1\leq i&lt;j&lt;k\leq n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>1</mn>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mi>i</mi>
+        <mo>&lt;</mo>
+        <mi>j</mi>
+        <mo>&lt;</mo>
+        <mi>k</mi>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 1\leq i&lt;j&lt;k\leq n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a03b36f28b8d63a8fcb381ccb9fa1ac06d1a4c9d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:17.923ex; height:2.509ex;" alt="{\displaystyle 1\leq i&lt;j&lt;k\leq n}"/></span> with <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle v_{i}\in N(v_{k})\setminus N(v_{j})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mi>N</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo class="MJX-variant">&#x2216;<!-- ∖ --></mo>
+        <mi>N</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{i}\in N(v_{k})\setminus N(v_{j})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2f8faaf5c978027fc2702390643f88d5b465e220" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:18.962ex; height:3.009ex;" alt="{\displaystyle v_{i}\in N(v_{k})\setminus N(v_{j})}"/></span>, there exists a neighbor  <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle v_{m}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>m</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{m}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e39c47348c7acfafbf415f12afaaff6e0a0900ca" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.803ex; height:2.009ex;" alt="v_{m}"/></span> of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle v_{j}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{j}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/73fffa4919c0d6268f6a8d9f38c04dd3296fd0a5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:2.037ex; height:2.343ex;" alt="v_{j}"/></span> such that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle m&lt;i}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>m</mi>
+        <mo>&lt;</mo>
+        <mi>i</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle m&lt;i}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a1277d6f707546d4f9407c6049004c5cb08d980e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.941ex; height:2.176ex;" alt="{\displaystyle m&lt;i}"/></span>.
+</p>
+<h2><span class="mw-headline" id="Applications">Applications</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=8" title="Edit section: Applications">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Breadth-first search can be used to solve many problems in graph theory, for example:
+</p>
+<ul><li>Copying <a href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)" title="Garbage collection (computer science)">garbage collection</a>, <a href="https://en.wikipedia.org/wiki/Cheney%27s_algorithm" title="Cheney&#39;s algorithm">Cheney's algorithm</a></li>
+<li>Finding the <a href="https://en.wikipedia.org/wiki/Shortest_path" class="mw-redirect" title="Shortest path">shortest path</a> between two nodes <i>u</i> and <i>v</i>, with path length measured by number of edges (an advantage over <a href="https://en.wikipedia.org/wiki/Depth-first_search" title="Depth-first search">depth-first search</a>)<sup id="cite_ref-13" class="reference"><a href="#cite_note-13">&#91;13&#93;</a></sup></li>
+<li><a href="https://en.wikipedia.org/wiki/Cuthill–McKee_algorithm" title="Cuthill–McKee algorithm">(Reverse) Cuthill–McKee</a> mesh numbering</li>
+<li><a href="https://en.wikipedia.org/wiki/Ford–Fulkerson_algorithm" title="Ford–Fulkerson algorithm">Ford–Fulkerson method</a> for computing the <a href="https://en.wikipedia.org/wiki/Maximum_flow_problem" title="Maximum flow problem">maximum flow</a> in a <a href="https://en.wikipedia.org/wiki/Flow_network" title="Flow network">flow network</a></li>
+<li>Serialization/Deserialization of a binary tree vs serialization in sorted order, allows the tree to be re-constructed in an efficient manner.</li>
+<li>Construction of the <i>failure function</i> of the <a href="https://en.wikipedia.org/wiki/Aho-Corasick" class="mw-redirect" title="Aho-Corasick">Aho-Corasick</a> pattern matcher.</li>
+<li>Testing <a href="https://en.wikipedia.org/wiki/Bipartite_graph#Testing_bipartiteness" title="Bipartite graph">bipartiteness of a graph</a>.</li>
+<li>Implementing parallel algorithms for computing a graph's transitive closure. <sup id="cite_ref-14" class="reference"><a href="#cite_note-14">&#91;14&#93;</a></sup></li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=9" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Depth-first_search" title="Depth-first search">Depth-first search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search" title="Iterative deepening depth-first search">Iterative deepening depth-first search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Level_structure" title="Level structure">Level structure</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lexicographic_breadth-first_search" title="Lexicographic breadth-first search">Lexicographic breadth-first search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Parallel_breadth-first_search" title="Parallel breadth-first search">Parallel breadth-first search</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=10" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text">that is, a node satisfying the specified property</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFCormen_Thomas_H.2009" class="citation book cs1">Cormen Thomas H.;  et&#160;al. (2009). "22.3". <i>Introduction to Algorithms</i>. MIT Press.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=22.3&amp;rft.btitle=Introduction+to+Algorithms&amp;rft.pub=MIT+Press&amp;rft.date=2009&amp;rft.au=Cormen+Thomas+H.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABreadth-first+search" class="Z3988"></span></span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20150326055019/http://www.graph500.org/specifications#sec-5#sec-5">"Graph500 benchmark specification (supercomputer performance evaluation)"</a>. Graph500.org, 2010. Archived from <a rel="nofollow" class="external text" href="http://www.graph500.org/specifications#sec-5">the original</a> on 2015-03-26<span class="reference-accessdate">. Retrieved <span class="nowrap">2015-03-15</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Graph500+benchmark+specification+%28supercomputer+performance+evaluation%29&amp;rft.pub=Graph500.org%2C+2010&amp;rft_id=http%3A%2F%2Fwww.graph500.org%2Fspecifications%23sec-5&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABreadth-first+search" class="Z3988"></span></span>
+</li>
+<li id="cite_note-:0-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-:0_4-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFZuse1972" class="citation cs2 cs1-prop-foreign-lang-source"><a href="https://en.wikipedia.org/wiki/Konrad_Zuse" title="Konrad Zuse">Zuse, Konrad</a> (1972), <a rel="nofollow" class="external text" href="http://zuse.zib.de/item/gHI1cNsUuQweHB6"><i>Der Plankalkül</i></a> (in German), Konrad Zuse Internet Archive</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Der+Plankalk%C3%BCl&amp;rft.pub=Konrad+Zuse+Internet+Archive&amp;rft.date=1972&amp;rft.aulast=Zuse&amp;rft.aufirst=Konrad&amp;rft_id=http%3A%2F%2Fzuse.zib.de%2Fitem%2FgHI1cNsUuQweHB6&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABreadth-first+search" class="Z3988"></span>. See pp. 96–105 of the linked pdf file (internal numbering 2.47–2.56).</span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFMoore1959" class="citation conference cs1"><a href="https://en.wikipedia.org/wiki/Edward_F._Moore" title="Edward F. Moore">Moore, Edward F.</a> (1959). "The shortest path through a maze". <i>Proceedings of the International Symposium on the Theory of Switching</i>. Harvard University Press. pp.&#160;285–292.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.atitle=The+shortest+path+through+a+maze&amp;rft.btitle=Proceedings+of+the+International+Symposium+on+the+Theory+of+Switching&amp;rft.pages=285-292&amp;rft.pub=Harvard+University+Press&amp;rft.date=1959&amp;rft.aulast=Moore&amp;rft.aufirst=Edward+F.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABreadth-first+search" class="Z3988"></span> As cited by Cormen, Leiserson, Rivest, and Stein.</span>
+</li>
+<li id="cite_note-skiena-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-skiena_6-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSkiena2008" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Steven_Skiena" title="Steven Skiena">Skiena, Steven</a> (2008). "Sorting and Searching". <i>The Algorithm Design Manual</i>. Springer. p.&#160;480. <a href="https://en.wikipedia.org/wiki/Bibcode_(identifier)" class="mw-redirect" title="Bibcode (identifier)">Bibcode</a>:<a rel="nofollow" class="external text" href="https://ui.adsabs.harvard.edu/abs/2008adm..book.....S">2008adm..book.....S</a>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-1-84800-070-4_4">10.1007/978-1-84800-070-4_4</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-1-84800-069-8" title="Special:BookSources/978-1-84800-069-8"><bdi>978-1-84800-069-8</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Sorting+and+Searching&amp;rft.btitle=The+Algorithm+Design+Manual&amp;rft.pages=480&amp;rft.pub=Springer&amp;rft.date=2008&amp;rft_id=info%3Adoi%2F10.1007%2F978-1-84800-070-4_4&amp;rft_id=info%3Abibcode%2F2008adm..book.....S&amp;rft.isbn=978-1-84800-069-8&amp;rft.aulast=Skiena&amp;rft.aufirst=Steven&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABreadth-first+search" class="Z3988"></span></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFLee1961" class="citation news cs1">Lee, C. Y. (1961). "An Algorithm for Path Connections and Its Applications". <i>IRE Transactions on Electronic Computers</i>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FTEC.1961.5219222">10.1109/TEC.1961.5219222</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=IRE+Transactions+on+Electronic+Computers&amp;rft.atitle=An+Algorithm+for+Path+Connections+and+Its+Applications&amp;rft.date=1961&amp;rft_id=info%3Adoi%2F10.1109%2FTEC.1961.5219222&amp;rft.aulast=Lee&amp;rft.aufirst=C.+Y.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABreadth-first+search" class="Z3988"></span></span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCormen,_Thomas_H." class="citation book cs1">Cormen, Thomas H. "22.2 Breadth-first search". <a rel="nofollow" class="external text" href="http://worldcat.org/oclc/1006880283"><i>Introduction to algorithms</i></a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-81-203-4007-7" title="Special:BookSources/978-81-203-4007-7"><bdi>978-81-203-4007-7</bdi></a>. <a href="https://en.wikipedia.org/wiki/OCLC_(identifier)" class="mw-redirect" title="OCLC (identifier)">OCLC</a>&#160;<a rel="nofollow" class="external text" href="http://www.worldcat.org/oclc/1006880283">1006880283</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=22.2+Breadth-first+search&amp;rft.btitle=Introduction+to+algorithms&amp;rft_id=info%3Aoclcnum%2F1006880283&amp;rft.isbn=978-81-203-4007-7&amp;rft.au=Cormen%2C+Thomas+H.&amp;rft_id=http%3A%2F%2Fworldcat.org%2Foclc%2F1006880283&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABreadth-first+search" class="Z3988"></span></span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://11011110.github.io/blog/2013/12/17/stack-based-graph-traversal.html">"Stack-based graph traversal ≠ depth first search"</a>. <i>11011110.github.io</i><span class="reference-accessdate">. Retrieved <span class="nowrap">2020-06-10</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=11011110.github.io&amp;rft.atitle=Stack-based+graph+traversal+%E2%89%A0+depth+first+search&amp;rft_id=https%3A%2F%2F11011110.github.io%2Fblog%2F2013%2F12%2F17%2Fstack-based-graph-traversal.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABreadth-first+search" class="Z3988"></span></span>
+</li>
+<li id="cite_note-clrs-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-clrs_10-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCormenLeisersonRivestStein2001" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Cormen, Thomas H.</a>; <a href="https://en.wikipedia.org/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Leiserson, Charles E.</a>; <a href="https://en.wikipedia.org/wiki/Ron_Rivest" title="Ron Rivest">Rivest, Ronald L.</a>; <a href="https://en.wikipedia.org/wiki/Clifford_Stein" title="Clifford Stein">Stein, Clifford</a> (2001) [1990]. "22.2 Breadth-first search". <a href="https://en.wikipedia.org/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms"><i>Introduction to Algorithms</i></a> (2nd&#160;ed.). MIT Press and McGraw-Hill. pp.&#160;531–539. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-262-03293-7" title="Special:BookSources/0-262-03293-7"><bdi>0-262-03293-7</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=22.2+Breadth-first+search&amp;rft.btitle=Introduction+to+Algorithms&amp;rft.pages=531-539&amp;rft.edition=2nd&amp;rft.pub=MIT+Press+and+McGraw-Hill&amp;rft.date=2001&amp;rft.isbn=0-262-03293-7&amp;rft.aulast=Cormen&amp;rft.aufirst=Thomas+H.&amp;rft.au=Leiserson%2C+Charles+E.&amp;rft.au=Rivest%2C+Ronald+L.&amp;rft.au=Stein%2C+Clifford&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABreadth-first+search" class="Z3988"></span></span>
+</li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-11">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFRussellNorvig2003" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Stuart_J._Russell" title="Stuart J. Russell">Russell, Stuart</a>; <a href="https://en.wikipedia.org/wiki/Peter_Norvig" title="Peter Norvig">Norvig, Peter</a> (2003) [1995]. <i><a href="https://en.wikipedia.org/wiki/Artificial_Intelligence:_A_Modern_Approach" title="Artificial Intelligence: A Modern Approach">Artificial Intelligence: A Modern Approach</a></i> (2nd&#160;ed.). Prentice Hall. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0137903955" title="Special:BookSources/978-0137903955"><bdi>978-0137903955</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Artificial+Intelligence%3A+A+Modern+Approach&amp;rft.edition=2nd&amp;rft.pub=Prentice+Hall&amp;rft.date=2003&amp;rft.isbn=978-0137903955&amp;rft.aulast=Russell&amp;rft.aufirst=Stuart&amp;rft.au=Norvig%2C+Peter&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABreadth-first+search" class="Z3988"></span></span>
+</li>
+<li id="cite_note-coppin-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-coppin_12-0">^</a></b></span> <span class="reference-text">Coppin, B. (2004). Artificial intelligence illuminated. Jones &amp; Bartlett Learning. pp.&#160;79–80.</span>
+</li>
+<li id="cite_note-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-13">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFAzizPrakash2010" class="citation book cs1">Aziz, Adnan; Prakash, Amit (2010). "4. Algorithms on Graphs". <i>Algorithms for Interviews</i>. p.&#160;144. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-1453792995" title="Special:BookSources/978-1453792995"><bdi>978-1453792995</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=4.+Algorithms+on+Graphs&amp;rft.btitle=Algorithms+for+Interviews&amp;rft.pages=144&amp;rft.date=2010&amp;rft.isbn=978-1453792995&amp;rft.aulast=Aziz&amp;rft.aufirst=Adnan&amp;rft.au=Prakash%2C+Amit&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABreadth-first+search" class="Z3988"></span></span>
+</li>
+<li id="cite_note-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-14">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFDhulipalaBlellochShun2019" class="citation book cs1">Dhulipala, Laxman; Blelloch, Guy E.; Shun, Julian (August 21, 2019). <i>Theoretically Efficient Parallel Graph Algorithms Can Be Fast and Scalable</i>. p.&#160;17. <a href="https://en.wikipedia.org/wiki/ArXiv_(identifier)" class="mw-redirect" title="ArXiv (identifier)">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://arxiv.org/abs/1805.05208">1805.05208</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F3210377.3210414">10.1145/3210377.3210414</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/9781450357999" title="Special:BookSources/9781450357999"><bdi>9781450357999</bdi></a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:44126609">44126609</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Theoretically+Efficient+Parallel+Graph+Algorithms+Can+Be+Fast+and+Scalable&amp;rft.pages=17&amp;rft.date=2019-08-21&amp;rft_id=info%3Aarxiv%2F1805.05208&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A44126609%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1145%2F3210377.3210414&amp;rft.isbn=9781450357999&amp;rft.aulast=Dhulipala&amp;rft.aufirst=Laxman&amp;rft.au=Blelloch%2C+Guy+E.&amp;rft.au=Shun%2C+Julian&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABreadth-first+search" class="Z3988"></span></span>
+</li>
+</ol></div></div>
+<style data-mw-deduplicate="TemplateStyles:r1054258005">.mw-parser-output .refbegin{font-size:90%;margin-bottom:0.5em}.mw-parser-output .refbegin-hanging-indents>ul{margin-left:0}.mw-parser-output .refbegin-hanging-indents>ul>li{margin-left:0;padding-left:3.2em;text-indent:-3.2em}.mw-parser-output .refbegin-hanging-indents ul,.mw-parser-output .refbegin-hanging-indents ul li{list-style:none}@media(max-width:720px){.mw-parser-output .refbegin-hanging-indents>ul>li{padding-left:1.6em;text-indent:-1.6em}}.mw-parser-output .refbegin-columns{margin-top:0.3em}.mw-parser-output .refbegin-columns ul{margin-top:0}.mw-parser-output .refbegin-columns li{page-break-inside:avoid;break-inside:avoid-column}</style><div class="refbegin" style="">
+<ul><li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKnuth1997" class="citation cs2">Knuth, Donald E. (1997), <a rel="nofollow" class="external text" href="http://www-cs-faculty.stanford.edu/~knuth/taocp.html"><i>The Art of Computer Programming Vol 1. 3rd ed.</i></a>, Boston: Addison-Wesley, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-201-89683-1" title="Special:BookSources/978-0-201-89683-1"><bdi>978-0-201-89683-1</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Art+of+Computer+Programming+Vol+1.+3rd+ed.&amp;rft.place=Boston&amp;rft.pub=Addison-Wesley&amp;rft.date=1997&amp;rft.isbn=978-0-201-89683-1&amp;rft.aulast=Knuth&amp;rft.aufirst=Donald+E.&amp;rft_id=http%3A%2F%2Fwww-cs-faculty.stanford.edu%2F~knuth%2Ftaocp.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABreadth-first+search" class="Z3988"></span></li></ul>
+</div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;action=edit&amp;section=11" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table role="presentation" class="mbox-small plainlinks sistersitebox" style="background-color:#f9f9f9;border:1px solid #aaa;color:#000">
+<tbody><tr>
+<td class="mbox-image"><img alt="" src="http://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/30px-Commons-logo.svg.png" decoding="async" width="30" height="40" class="noviewer" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/45px-Commons-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/59px-Commons-logo.svg.png 2x" data-file-width="1024" data-file-height="1376" /></td>
+<td class="mbox-text plainlist">Wikimedia Commons has media related to <span style="font-weight: bold; font-style: italic;"><a href="https://commons.wikimedia.org/wiki/Category:Breadth-first_search" class="extiw" title="commons:Category:Breadth-first search">Breadth-first search</a></span>.</td></tr>
+</tbody></table>
+<ul><li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20141029100806/http://opendatastructures.org/versions/edition-0.1e/ods-java/12_3_Graph_Traversal.html#SECTION001531000000000000000">Open Data Structures - Section 12.3.1 - Breadth-First Search</a>, <a href="https://en.wikipedia.org/wiki/Pat_Morin" title="Pat Morin">Pat Morin</a></li></ul>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Data_structures_and_algorithms" style="padding:3px"><table class="nowraplinks hlist mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1063604349"/><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Data_structures_and_algorithms" title="Template:Data structures and algorithms"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Data_structures_and_algorithms" title="Template talk:Data structures and algorithms"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Data_structures_and_algorithms&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Data_structures_and_algorithms" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Data_structure" title="Data structure">Data structures</a> and <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithms</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Data structures</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Array_data_structure" title="Array data structure">Array</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Associative_array" title="Associative array">Associative array</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binary_search_tree" title="Binary search tree">Binary search tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fenwick_tree" title="Fenwick tree">Fenwick tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Graph_(abstract_data_type)" title="Graph (abstract data type)">Graph</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hash_table" title="Hash table">Hash table</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" title="Heap (data structure)">Heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Linked_list" title="Linked list">Linked list</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)" title="Queue (abstract data type)">Queue</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Segment_tree" title="Segment tree">Segment tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)" title="Stack (abstract data type)">Stack</a></li>
+<li><a href="https://en.wikipedia.org/wiki/String_(computer_science)" title="String (computer science)">String</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" title="Tree (data structure)">Tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Trie" title="Trie">Trie</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Algorithms</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Backtracking" title="Backtracking">Backtracking</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binary_search" class="mw-redirect" title="Binary search">Binary search</a></li>
+<li><a class="mw-selflink selflink">Breadth-first search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Depth-first_search" title="Depth-first search">Depth-first search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm" title="Divide-and-conquer algorithm">Divide and conquer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dynamic_programming" title="Dynamic programming">Dynamic programming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fold_(higher-order_function)" title="Fold (higher-order function)">Fold</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Greedy_algorithm" title="Greedy algorithm">Greedy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Minimax" title="Minimax">Minimax</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)" title="Recursion (computer science)">Recursion</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">Sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Streaming_algorithm" title="Streaming algorithm">Streaming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sweep_line_algorithm" title="Sweep line algorithm">Sweep line</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Topological_sorting" title="Topological sorting">Topological sorting</a></li></ul>
+</div></td></tr><tr><td class="navbox-abovebelow" colspan="2"><div>
+<ul><li><a href="https://en.wikipedia.org/wiki/List_of_data_structures" title="List of data structures">List of data structures</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_algorithms" title="List of algorithms">List of algorithms</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1340
+Cached time: 20220504091935
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.734 seconds
+Real time usage: 0.900 seconds
+Preprocessor visited node count: 1866/1000000
+Post‐expand include size: 54990/2097152 bytes
+Template argument size: 1696/2097152 bytes
+Highest expansion depth: 16/100
+Expensive parser function count: 1/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 47433/5000000 bytes
+Lua time usage: 0.372/10.000 seconds
+Lua memory usage: 8151828/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  684.022      1 -total
+ 33.95%  232.196      1 Template:Reflist
+ 21.15%  144.644      7 Template:Cite_book
+ 11.78%   80.545      1 Template:Short_description
+ 10.98%   75.079      1 Template:Tree_search_algorithm
+ 10.14%   69.329      1 Template:Sidebar
+ 10.07%   68.902      1 Template:More_citations_needed
+  9.03%   61.762      1 Template:Ambox
+  8.76%   59.915      1 Template:Infobox_Algorithm
+  7.64%   52.284      1 Template:Infobox
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:97026-0!canonical and timestamp 20220504091934 and revision id 1084419557. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;oldid=1084419557">https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;oldid=1084419557</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Graph_algorithms" title="Category:Graph algorithms">Graph algorithms</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Search_algorithms" title="Category:Search algorithms">Search algorithms</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:CS1_German-language_sources_(de)" title="Category:CS1 German-language sources (de)">CS1 German-language sources (de)</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_matches_Wikidata" title="Category:Short description matches Wikidata">Short description matches Wikidata</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_needing_additional_references_from_April_2012" title="Category:Articles needing additional references from April 2012">Articles needing additional references from April 2012</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_needing_additional_references" title="Category:All articles needing additional references">All articles needing additional references</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Commons_category_link_is_on_Wikidata" title="Category:Commons category link is on Wikidata">Commons category link is on Wikidata</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Breadth-first+search" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Breadth-first+search" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Breadth-first_search" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Breadth-first_search" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Breadth-first_search"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Breadth-first_search" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Breadth-first_search" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;oldid=1084419557" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Breadth-first_search&amp;id=1084419557&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q325904" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Breadth-first_search&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Breadth-first_search&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-wikibase-otherprojects" class="mw-portlet mw-portlet-wikibase-otherprojects vector-menu vector-menu-portal portal" aria-labelledby="p-wikibase-otherprojects-label" role="navigation" 
+	 >
+	<label id="p-wikibase-otherprojects-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">In other projects</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="wb-otherproject-link wb-otherproject-commons mw-list-item"><a href="https://commons.wikimedia.org/wiki/Category:Breadth-first_search" hreflang="en"><span>Wikimedia Commons</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-ar mw-list-item"><a href="https://ar.wikipedia.org/wiki/البحث_المتسع_الاول" title="البحث المتسع الاول – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target"><span>العربية</span></a></li><li class="interlanguage-link interwiki-az mw-list-item"><a href="https://az.wikipedia.org/wiki/Eninə_axtarış_alqoritmi" title="Eninə axtarış alqoritmi – Azerbaijani" lang="az" hreflang="az" class="interlanguage-link-target"><span>Azərbaycanca</span></a></li><li class="interlanguage-link interwiki-bg mw-list-item"><a href="https://bg.wikipedia.org/wiki/Обхождане_в_ширина" title="Обхождане в ширина – Bulgarian" lang="bg" hreflang="bg" class="interlanguage-link-target"><span>Български</span></a></li><li class="interlanguage-link interwiki-ca mw-list-item"><a href="https://ca.wikipedia.org/wiki/Cerca_en_amplada" title="Cerca en amplada – Catalan" lang="ca" hreflang="ca" class="interlanguage-link-target"><span>Català</span></a></li><li class="interlanguage-link interwiki-cs mw-list-item"><a href="https://cs.wikipedia.org/wiki/Prohledávání_do_šířky" title="Prohledávání do šířky – Czech" lang="cs" hreflang="cs" class="interlanguage-link-target"><span>Čeština</span></a></li><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Breitensuche" title="Breitensuche – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-et mw-list-item"><a href="https://et.wikipedia.org/wiki/Laiuti_otsing" title="Laiuti otsing – Estonian" lang="et" hreflang="et" class="interlanguage-link-target"><span>Eesti</span></a></li><li class="interlanguage-link interwiki-el mw-list-item"><a href="https://el.wikipedia.org/wiki/Αναζήτηση_κατά_πλάτος" title="Αναζήτηση κατά πλάτος – Greek" lang="el" hreflang="el" class="interlanguage-link-target"><span>Ελληνικά</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Búsqueda_en_anchura" title="Búsqueda en anchura – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-eu mw-list-item"><a href="https://eu.wikipedia.org/wiki/Zabalera_bilaketa" title="Zabalera bilaketa – Basque" lang="eu" hreflang="eu" class="interlanguage-link-target"><span>Euskara</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/الگوریتم_جستجوی_سطح_اول" title="الگوریتم جستجوی سطح اول – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_largeur" title="Algorithme de parcours en largeur – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-ko mw-list-item"><a href="https://ko.wikipedia.org/wiki/너비_우선_탐색" title="너비 우선 탐색 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target"><span>한국어</span></a></li><li class="interlanguage-link interwiki-hy mw-list-item"><a href="https://hy.wikipedia.org/wiki/Փնտրում_դեպի_լայնություն" title="Փնտրում դեպի լայնություն – Armenian" lang="hy" hreflang="hy" class="interlanguage-link-target"><span>Հայերեն</span></a></li><li class="interlanguage-link interwiki-hi mw-list-item"><a href="https://hi.wikipedia.org/wiki/विस्तार-प्रधान_खोज" title="विस्तार-प्रधान खोज – Hindi" lang="hi" hreflang="hi" class="interlanguage-link-target"><span>हिन्दी</span></a></li><li class="interlanguage-link interwiki-it mw-list-item"><a href="https://it.wikipedia.org/wiki/Ricerca_in_ampiezza" title="Ricerca in ampiezza – Italian" lang="it" hreflang="it" class="interlanguage-link-target"><span>Italiano</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/אלגוריתם_חיפוש_לרוחב" title="אלגוריתם חיפוש לרוחב – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-lv mw-list-item"><a href="https://lv.wikipedia.org/wiki/Meklēšana_plašumā" title="Meklēšana plašumā – Latvian" lang="lv" hreflang="lv" class="interlanguage-link-target"><span>Latviešu</span></a></li><li class="interlanguage-link interwiki-lt mw-list-item"><a href="https://lt.wikipedia.org/wiki/Paieška_į_plotį" title="Paieška į plotį – Lithuanian" lang="lt" hreflang="lt" class="interlanguage-link-target"><span>Lietuvių</span></a></li><li class="interlanguage-link interwiki-hu mw-list-item"><a href="https://hu.wikipedia.org/wiki/Szélességi_bejárás" title="Szélességi bejárás – Hungarian" lang="hu" hreflang="hu" class="interlanguage-link-target"><span>Magyar</span></a></li><li class="interlanguage-link interwiki-mk mw-list-item"><a href="https://mk.wikipedia.org/wiki/BFS" title="BFS – Macedonian" lang="mk" hreflang="mk" class="interlanguage-link-target"><span>Македонски</span></a></li><li class="interlanguage-link interwiki-nl mw-list-item"><a href="https://nl.wikipedia.org/wiki/Breadth-first_search" title="Breadth-first search – Dutch" lang="nl" hreflang="nl" class="interlanguage-link-target"><span>Nederlands</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/幅優先探索" title="幅優先探索 – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-no mw-list-item"><a href="https://no.wikipedia.org/wiki/Bredde-først-søk" title="Bredde-først-søk – Norwegian Bokmål" lang="nb" hreflang="nb" class="interlanguage-link-target"><span>Norsk bokmål</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Przeszukiwanie_wszerz" title="Przeszukiwanie wszerz – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/Busca_em_largura" title="Busca em largura – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-ro mw-list-item"><a href="https://ro.wikipedia.org/wiki/Căutare_în_lățime" title="Căutare în lățime – Romanian" lang="ro" hreflang="ro" class="interlanguage-link-target"><span>Română</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Поиск_в_ширину" title="Поиск в ширину – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-simple mw-list-item"><a href="https://simple.wikipedia.org/wiki/Breadth-first_search" title="Breadth-first search – Simple English" lang="en-simple" hreflang="en-simple" class="interlanguage-link-target"><span>Simple English</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/Претрага_у_ширину" title="Претрага у ширину – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-fi mw-list-item"><a href="https://fi.wikipedia.org/wiki/Leveyssuuntainen_läpikäynti" title="Leveyssuuntainen läpikäynti – Finnish" lang="fi" hreflang="fi" class="interlanguage-link-target"><span>Suomi</span></a></li><li class="interlanguage-link interwiki-sv mw-list-item"><a href="https://sv.wikipedia.org/wiki/Bredd-först-sökning" title="Bredd-först-sökning – Swedish" lang="sv" hreflang="sv" class="interlanguage-link-target"><span>Svenska</span></a></li><li class="interlanguage-link interwiki-tl mw-list-item"><a href="https://tl.wikipedia.org/wiki/Paghahanap_na_luwang-muna" title="Paghahanap na luwang-muna – Tagalog" lang="tl" hreflang="tl" class="interlanguage-link-target"><span>Tagalog</span></a></li><li class="interlanguage-link interwiki-th mw-list-item"><a href="https://th.wikipedia.org/wiki/การค้นหาในแนวกว้าง" title="การค้นหาในแนวกว้าง – Thai" lang="th" hreflang="th" class="interlanguage-link-target"><span>ไทย</span></a></li><li class="interlanguage-link interwiki-tr mw-list-item"><a href="https://tr.wikipedia.org/wiki/Sığ_öncelikli_arama" title="Sığ öncelikli arama – Turkish" lang="tr" hreflang="tr" class="interlanguage-link-target"><span>Türkçe</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Пошук_у_ширину" title="Пошук у ширину – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-vi mw-list-item"><a href="https://vi.wikipedia.org/wiki/Tìm_kiếm_theo_chiều_rộng" title="Tìm kiếm theo chiều rộng – Vietnamese" lang="vi" hreflang="vi" class="interlanguage-link-target"><span>Tiếng Việt</span></a></li><li class="interlanguage-link interwiki-zh-yue mw-list-item"><a href="https://zh-yue.wikipedia.org/wiki/幅度優先搜尋" title="幅度優先搜尋 – Cantonese" lang="yue" hreflang="yue" class="interlanguage-link-target"><span>粵語</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/广度优先搜索" title="广度优先搜索 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q325904#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 24 April 2022, at 10:55<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Breadth-first_search&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.734","walltime":"0.900","ppvisitednodes":{"value":1866,"limit":1000000},"postexpandincludesize":{"value":54990,"limit":2097152},"templateargumentsize":{"value":1696,"limit":2097152},"expansiondepth":{"value":16,"limit":100},"expensivefunctioncount":{"value":1,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":47433,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  684.022      1 -total"," 33.95%  232.196      1 Template:Reflist"," 21.15%  144.644      7 Template:Cite_book"," 11.78%   80.545      1 Template:Short_description"," 10.98%   75.079      1 Template:Tree_search_algorithm"," 10.14%   69.329      1 Template:Sidebar"," 10.07%   68.902      1 Template:More_citations_needed","  9.03%   61.762      1 Template:Ambox","  8.76%   59.915      1 Template:Infobox_Algorithm","  7.64%   52.284      1 Template:Infobox"]},"scribunto":{"limitreport-timeusage":{"value":"0.372","limit":"10.000"},"limitreport-memusage":{"value":8151828,"limit":52428800}},"cachereport":{"origin":"mw1340","timestamp":"20220504091935","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Breadth-first search","url":"https:\/\/en.wikipedia.org\/wiki\/Breadth-first_search","sameAs":"http:\/\/www.wikidata.org\/entity\/Q325904","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q325904","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2002-09-30T19:31:03Z","dateModified":"2022-04-24T10:55:42Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/3\/33\/Breadth-first-tree.svg","headline":"algorithm for searching the nodes of a graph in order by their hop count from a starting node"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Breadth-first search","url":"https:\/\/en.wikipedia.org\/wiki\/Breadth-first_search","sameAs":"http:\/\/www.wikidata.org\/entity\/Q325904","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q325904","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2002-09-30T19:31:03Z","dateModified":"2022-04-24T10:55:42Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/3\/33\/Breadth-first-tree.svg","headline":"algorithm for searching the nodes of a graph in order by their hop count from a starting node"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":135,"wgHostname":"mw1320"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Breadth-first_search by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:48 GMT -->
+</html>

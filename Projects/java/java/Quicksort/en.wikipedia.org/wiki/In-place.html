@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/In-place by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:47 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>In-place algorithm - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"c7671ad4-6425-4dc1-8c5d-8d5b109f0c0e","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"In-place_algorithm","wgTitle":"In-place algorithm","wgCurRevisionId":1065363737,"wgRevisionId":1065363737,"wgArticleId":219861,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles needing additional references from January 2015","All articles needing additional references","Algorithms"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"In-place_algorithm","wgRelevantArticleId":219861,"wgIsProbablyEditable":true,
+"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"In-place","wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":9000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgInternalRedirectTargetUrl":"/wiki/In-place_algorithm","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q657037"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.pygments":"ready",
+"ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["mediawiki.action.view.redirect","ext.cite.ux-enhancements","site","mediawiki.page.ready","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.pygments%2CwikimediaBadges%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="In-place algorithm - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/In-place_algorithm"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=In-place_algorithm&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/In-place_algorithm"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-In-place_algorithm rootpage-In-place_algorithm skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">In-place algorithm</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"><span class="mw-redirectedfrom">&#160;&#160;(Redirected from <a href="https://en.wikipedia.org/w/index.php?title=In-place&amp;redirect=no" class="mw-redirect" title="In-place">In-place</a>)</span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">"In-place" redirects here. For execute in place file systems, see <a href="https://en.wikipedia.org/wiki/Execute_in_place" title="Execute in place">Execute in place</a>.</div>
+<table class="box-More_citations_needed plainlinks metadata ambox ambox-content ambox-Refimprove" role="presentation"><tbody><tr><td class="mbox-image"><div style="width:52px"><a href="https://en.wikipedia.org/wiki/File:Question_book-new.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/50px-Question_book-new.svg.png" decoding="async" width="50" height="39" srcset="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/75px-Question_book-new.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/100px-Question_book-new.svg.png 2x" data-file-width="512" data-file-height="399" /></a></div></td><td class="mbox-text"><div class="mbox-text-span">This article <b>needs additional citations for <a href="https://en.wikipedia.org/wiki/Wikipedia:Verifiability" title="Wikipedia:Verifiability">verification</a></b>.<span class="hide-when-compact"> Please help <a class="external text" href="https://en.wikipedia.org/w/index.php?title=In-place_algorithm&amp;action=edit">improve this article</a> by <a href="https://en.wikipedia.org/wiki/Help:Referencing_for_beginners" title="Help:Referencing for beginners">adding citations to reliable sources</a>. Unsourced material may be challenged and removed.<br /><small><span class="plainlinks"><i>Find sources:</i>&#160;<a rel="nofollow" class="external text" href="http://www.google.com/search?as_eq=wikipedia&amp;q=%22In-place+algorithm%22">"In-place algorithm"</a>&#160;–&#160;<a rel="nofollow" class="external text" href="http://www.google.com/search?tbm=nws&amp;q=%22In-place+algorithm%22+-wikipedia&amp;tbs=ar:1">news</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="http://www.google.com/search?&amp;q=%22In-place+algorithm%22&amp;tbs=bkt:s&amp;tbm=bks">newspapers</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="http://www.google.com/search?tbs=bks:1&amp;q=%22In-place+algorithm%22+-wikipedia">books</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="http://scholar.google.com/scholar?q=%22In-place+algorithm%22">scholar</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="https://www.jstor.org/action/doBasicSearch?Query=%22In-place+algorithm%22&amp;acc=on&amp;wc=on">JSTOR</a></span></small></span>  <span class="date-container"><i>(<span class="date">January 2015</span>)</i></span><span class="hide-when-compact"><i> (<small><a href="https://en.wikipedia.org/wiki/Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this template message</a></small>)</i></span></div></td></tr></tbody></table>
+<p>In <a href="https://en.wikipedia.org/wiki/Computer_science" title="Computer science">computer science</a>, an <b>in-place algorithm</b> is an <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithm</a> which transforms input using no auxiliary <a href="https://en.wikipedia.org/wiki/Data_structure" title="Data structure">data structure</a>. However, a small amount of extra storage space is allowed for auxiliary variables. The input is usually overwritten by the output as the algorithm executes. An in-place algorithm updates its input sequence only through replacement or swapping of elements. An algorithm which is not in-place is sometimes called <b>not-in-place</b> or <b>out-of-place</b>.
+</p><p>In-place can have slightly different meanings. In its strictest form, the algorithm can only have a <a href="https://en.wikipedia.org/wiki/Space_complexity" title="Space complexity">constant amount of extra space</a>, counting everything including <a href="https://en.wikipedia.org/wiki/Subroutine" title="Subroutine">function</a> calls and <a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)" title="Pointer (computer programming)">pointers</a>. However, this form is very limited as simply having an index to a length <span class="texhtml"><i>n</i></span> array requires <span class="texhtml"><i>O</i>(log <i>n</i>)</span> bits. More broadly, in-place means that the algorithm does not use extra space for manipulating the input but may require a small though nonconstant extra space for its operation. Usually, this space is <span class="texhtml"><i>O</i>(log <i>n</i>)</span>, though sometimes anything in <span class="texhtml"><i>O</i>(<i>n</i>)</span> is allowed. Note that space complexity also has varied choices in whether or not to count the index lengths as part of the space used. Often, the space complexity is given in terms of the number of indices or pointers needed, ignoring their length. In this article, we refer to total space complexity (<a href="https://en.wikipedia.org/wiki/Deterministic_space" class="mw-redirect" title="Deterministic space">DSPACE</a>), counting pointer lengths. Therefore, the space requirements here have an extra <span class="texhtml">log <i>n</i></span> factor compared to an analysis that ignores the length of indices and pointers.  
+</p><p>An algorithm may or may not count the output as part of its space usage. Since in-place algorithms usually overwrite their input with output, no additional space is needed. When writing the output to write-only memory or a stream, it may be more appropriate to only consider the working space of the algorithm. In theoretical applications such as <a href="https://en.wikipedia.org/wiki/Log-space_reduction" title="Log-space reduction">log-space reductions</a>, it is more typical to always ignore output space (in these cases it is more essential that the output is <i>write-only</i>).
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Examples"><span class="tocnumber">1</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#In_computational_complexity"><span class="tocnumber">2</span> <span class="toctext">In computational complexity</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Role_of_randomness"><span class="tocnumber">3</span> <span class="toctext">Role of randomness</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#In_functional_programming"><span class="tocnumber">4</span> <span class="toctext">In functional programming</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Examples">Examples</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=In-place_algorithm&amp;action=edit&amp;section=1" title="Edit section: Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Given an <a href="https://en.wikipedia.org/wiki/Array_data_structure" title="Array data structure">array</a> <code class="mw-highlight mw-highlight-lang-text mw-content-ltr" id="" style="" dir="ltr">a</code> of <span class="texhtml"><i>n</i></span> items, suppose we want an array that holds the same elements in reversed order and to dispose of the original. One seemingly simple way to do this is to create a new array of equal size, fill it with copies from <code class="mw-highlight mw-highlight-lang-text mw-content-ltr" id="" style="" dir="ltr">a</code> in the appropriate order and then delete <code class="mw-highlight mw-highlight-lang-text mw-content-ltr" id="" style="" dir="ltr">a</code>.
+</p>
+<pre> <b>function</b> reverse(a[0..n - 1])
+     allocate b[0..n - 1]
+     <b>for</b> i <b>from</b> 0 <b>to</b> n - 1
+         b[n − 1 − i]&#160;:= a[i]
+     <b>return</b> b
+</pre>
+<p>Unfortunately, this requires <span class="texhtml"><i>O</i>(<i>n</i>)</span> extra space for having the arrays <code class="mw-highlight mw-highlight-lang-text mw-content-ltr" id="" style="" dir="ltr">a</code> and <code class="mw-highlight mw-highlight-lang-text mw-content-ltr" id="" style="" dir="ltr">b</code> available simultaneously. Also, <a href="https://en.wikipedia.org/wiki/Memory_management#ALLOCATION" title="Memory management">allocation</a> and deallocation are often slow operations. Since we no longer need <code class="mw-highlight mw-highlight-lang-text mw-content-ltr" id="" style="" dir="ltr">a</code>, we can instead overwrite it with its own reversal using this in-place algorithm which will only need constant number (2) of integers for the auxiliary variables <code class="mw-highlight mw-highlight-lang-text mw-content-ltr" id="" style="" dir="ltr">i</code> and <code class="mw-highlight mw-highlight-lang-text mw-content-ltr" id="" style="" dir="ltr">tmp</code>, no matter how large the array is.
+</p>
+<pre> <b>function</b> reverse_in_place(a[0..n-1])
+     <b>for</b> i <b>from</b> 0 <b>to</b> floor((n-2)/2)
+         tmp&#160;:= a[i]
+         a[i]&#160;:= a[n − 1 − i]
+         a[n − 1 − i]&#160;:= tmp
+</pre>
+<p>As another example, many <a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">sorting algorithms</a> rearrange arrays into sorted order in-place, including: <a href="https://en.wikipedia.org/wiki/Bubble_sort" title="Bubble sort">bubble sort</a>, <a href="https://en.wikipedia.org/wiki/Comb_sort" title="Comb sort">comb sort</a>, <a href="https://en.wikipedia.org/wiki/Selection_sort" title="Selection sort">selection sort</a>, <a href="https://en.wikipedia.org/wiki/Insertion_sort" title="Insertion sort">insertion sort</a>, <a href="https://en.wikipedia.org/wiki/Heapsort" title="Heapsort">heapsort</a>, and <a href="https://en.wikipedia.org/wiki/Shell_sort" class="mw-redirect" title="Shell sort">Shell sort</a>. These algorithms require only a few pointers, so their space complexity is <span class="texhtml"><i>O</i>(log <i>n</i>)</span>.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
+</p><p><a href="https://en.wikipedia.org/wiki/Quicksort" title="Quicksort">Quicksort</a> operates in-place on the data to be sorted. However, quicksort requires <span class="texhtml"><i>O</i>(log <i>n</i>)</span> stack space pointers to keep track of the subarrays in its <a href="https://en.wikipedia.org/wiki/Divide_and_conquer_algorithm" class="mw-redirect" title="Divide and conquer algorithm">divide and conquer</a> strategy. Consequently, quicksort needs <span class="texhtml"><i>O</i>(log<sup>2</sup> <i>n</i>)</span> additional space. Although this non-constant space technically takes quicksort out of the in-place category, quicksort and other algorithms needing only <span class="texhtml"><i>O</i>(log <i>n</i>)</span> additional pointers are usually considered in-place algorithms.
+</p><p>Most <a href="https://en.wikipedia.org/wiki/Selection_algorithm" title="Selection algorithm">selection algorithms</a> are also in-place, although some considerably rearrange the input array in the process of finding the final, constant-sized result.
+</p><p>Some text manipulation algorithms such as <a href="https://en.wikipedia.org/wiki/Trim_(programming)" class="mw-redirect" title="Trim (programming)">trim</a> and reverse may be done in-place.
+</p>
+<h2><span class="mw-headline" id="In_computational_complexity">In computational complexity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=In-place_algorithm&amp;action=edit&amp;section=2" title="Edit section: In computational complexity">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In <a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" title="Computational complexity theory">computational complexity theory</a>, the strict definition of in-place algorithms includes all algorithms with <span class="texhtml"><i>O</i>(1)</span> space complexity, the class <b><a href="https://en.wikipedia.org/wiki/Deterministic_space" class="mw-redirect" title="Deterministic space">DSPACE</a></b>(1). This class is very limited; it equals the <a href="https://en.wikipedia.org/wiki/Regular_language" title="Regular language">regular languages</a>.<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup> In fact, it does not even include any of the examples listed above.
+</p><p>We usually consider algorithms in <a href="https://en.wikipedia.org/wiki/L_(complexity)" title="L (complexity)">L</a>, the class of problems requiring <span class="texhtml"><i>O</i>(log <i>n</i>)</span> additional space, to be in-place. This class is more in line with the practical definition, as it allows numbers of size <span class="texhtml"><i>n</i></span> as pointers or indices. This expanded definition still excludes quicksort, however, because of its recursive calls.  
+</p><p>Identifying the in-place algorithms with L has some interesting implications; for example, it means that there is a (rather complex) in-place algorithm to determine whether a path exists between two nodes in an <a href="https://en.wikipedia.org/wiki/Undirected_graph" class="mw-redirect" title="Undirected graph">undirected graph</a>,<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup> a problem that requires <span class="texhtml"><i>O</i>(<i>n</i>)</span> extra space using typical algorithms such as <a href="https://en.wikipedia.org/wiki/Depth-first_search" title="Depth-first search">depth-first search</a> (a visited bit for each node). This in turn yields in-place algorithms for problems such as determining if a graph is <a href="https://en.wikipedia.org/wiki/Bipartite_graph" title="Bipartite graph">bipartite</a> or testing whether two graphs have the same number of <a href="https://en.wikipedia.org/wiki/Connected_component_(graph_theory)" class="mw-redirect" title="Connected component (graph theory)">connected components</a>. See <a href="https://en.wikipedia.org/wiki/SL_(complexity)" title="SL (complexity)">SL</a> for more information.
+</p>
+<h2><span class="mw-headline" id="Role_of_randomness">Role of randomness</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=In-place_algorithm&amp;action=edit&amp;section=3" title="Edit section: Role of randomness">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In many cases, the space requirements of an algorithm can be drastically cut by using a <a href="https://en.wikipedia.org/wiki/Randomized_algorithm" title="Randomized algorithm">randomized algorithm</a>. For example, say we wish to know if two vertices in a graph of <span class="texhtml"><i>n</i></span> vertices are in the same <a href="https://en.wikipedia.org/wiki/Connected_component_(graph_theory)" class="mw-redirect" title="Connected component (graph theory)">connected component</a> of the graph. There is no known simple, deterministic, in-place algorithm to determine this, but if we simply start at one vertex and perform a <a href="https://en.wikipedia.org/wiki/Random_walk" title="Random walk">random walk</a> of about <span class="texhtml">20<i>n</i><sup>3</sup></span> steps, the chance that we will stumble across the other vertex provided that it is in the same component is very high. Similarly, there are simple randomized in-place algorithms for primality testing such as the <a href="https://en.wikipedia.org/wiki/Miller–Rabin_primality_test" title="Miller–Rabin primality test">Miller–Rabin primality test</a>, and there are also simple in-place randomized factoring algorithms such as <a href="https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm" title="Pollard&#39;s rho algorithm">Pollard's rho algorithm</a>. See <a href="https://en.wikipedia.org/wiki/RL_(complexity)" title="RL (complexity)">RL</a> and <a href="https://en.wikipedia.org/wiki/BPL_(complexity)" title="BPL (complexity)">BPL</a> for more discussion of this phenomenon.
+</p>
+<h2><span class="mw-headline" id="In_functional_programming">In functional programming</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=In-place_algorithm&amp;action=edit&amp;section=4" title="Edit section: In functional programming">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><a href="https://en.wikipedia.org/wiki/Functional_programming" title="Functional programming">Functional programming</a> languages often discourage or don't support explicit in-place algorithms that overwrite data, since this is a type of <a href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)" title="Side effect (computer science)">side effect</a>; instead, they only allow new data to be constructed. However, good functional language compilers will often recognize when an object very similar to an existing one is created and then the old one is thrown away and will optimize this into a simple mutation "under the hood".
+</p><p>Note that it is possible in principle to carefully construct in-place algorithms that don't modify data (unless the data is no longer being used), but this is rarely done in practice. See <a href="https://en.wikipedia.org/wiki/Purely_functional_data_structure" title="Purely functional data structure">purely functional data structures</a>.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=In-place_algorithm&amp;action=edit&amp;section=5" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Sorting_algorithm#Comparison_of_algorithms" title="Sorting algorithm">Table of in-place and not-in-place sorting algorithms</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=In-place_algorithm&amp;action=edit&amp;section=6" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text">The bit space requirement of a pointer is <span class="texhtml"><i>O</i>(log <i>n</i>)</span>, but pointer size can be considered a constant in most sorting applications.</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text">Maciej Liśkiewicz and Rüdiger Reischuk. <a rel="nofollow" class="external text" href="http://citeseer.ist.psu.edu/34203.html">The Complexity World below Logarithmic Space</a>. <i>Structure in Complexity Theory Conference</i>, pp. 64-78. 1994. Online: p. 3, Theorem 2.</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFReingold2008" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Omer_Reingold" title="Omer Reingold">Reingold, Omer</a> (2008), "Undirected connectivity in log-space", <i><a href="https://en.wikipedia.org/wiki/Journal_of_the_ACM" title="Journal of the ACM">Journal of the ACM</a></i>, <b>55</b> (4): 1–24, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F1391289.1391291">10.1145/1391289.1391291</a>, <a href="https://en.wikipedia.org/wiki/MR_(identifier)" class="mw-redirect" title="MR (identifier)">MR</a>&#160;<a rel="nofollow" class="external text" href="http://www.ams.org/mathscinet-getitem?mr=2445014">2445014</a>, <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:207168478">207168478</a>, <a href="https://en.wikipedia.org/wiki/Electronic_Colloquium_on_Computational_Complexity" title="Electronic Colloquium on Computational Complexity">ECCC</a>&#160;<a rel="nofollow" class="external text" href="https://eccc.weizmann.ac.il/report/2004/094/">TR04-094</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+the+ACM&amp;rft.atitle=Undirected+connectivity+in+log-space&amp;rft.volume=55&amp;rft.issue=4&amp;rft.pages=1-24&amp;rft.date=2008&amp;rft_id=%2F%2Fwww.ams.org%2Fmathscinet-getitem%3Fmr%3D2445014%23id-name%3DMR&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A207168478%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1145%2F1391289.1391291&amp;rft.aulast=Reingold&amp;rft.aufirst=Omer&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AIn-place+algorithm" class="Z3988"></span></span>
+</li>
+</ol></div>
+<!-- 
+NewPP limit report
+Parsed by mw1393
+Cached time: 20220505142106
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.204 seconds
+Real time usage: 0.266 seconds
+Preprocessor visited node count: 1257/1000000
+Post‐expand include size: 15903/2097152 bytes
+Template argument size: 1366/2097152 bytes
+Highest expansion depth: 9/100
+Expensive parser function count: 3/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 5429/5000000 bytes
+Lua time usage: 0.114/10.000 seconds
+Lua memory usage: 2895782/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  225.589      1 -total
+ 31.98%   72.141      1 Template:Citation
+ 27.09%   61.101      1 Template:Redirect
+ 23.56%   53.156      1 Template:Ref_improve
+ 20.98%   47.321      1 Template:Ambox
+ 12.29%   27.736     18 Template:Math
+  6.38%   14.383      1 Template:Find_sources_mainspace
+  2.57%    5.803      8 Template:Code
+  2.17%    4.890     18 Template:Main_other
+  0.74%    1.680      1 Template:ECCC
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:219861-0!canonical and timestamp 20220505142106 and revision id 1065363737. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=In-place_algorithm&amp;oldid=1065363737">https://en.wikipedia.org/w/index.php?title=In-place_algorithm&amp;oldid=1065363737</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Algorithms" title="Category:Algorithms">Algorithms</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Articles_needing_additional_references_from_January_2015" title="Category:Articles needing additional references from January 2015">Articles needing additional references from January 2015</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_needing_additional_references" title="Category:All articles needing additional references">All articles needing additional references</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=In-place+algorithm" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=In-place+algorithm" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/In-place_algorithm" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:In-place_algorithm" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/In-place_algorithm"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=In-place_algorithm&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=In-place_algorithm&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/In-place_algorithm" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/In-place_algorithm" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=In-place_algorithm&amp;oldid=1065363737" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=In-place_algorithm&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=In-place_algorithm&amp;id=1065363737&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q657037" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=In-place_algorithm&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=In-place_algorithm&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-cs mw-list-item"><a href="https://cs.wikipedia.org/wiki/In-place_algoritmus" title="In-place algoritmus – Czech" lang="cs" hreflang="cs" class="interlanguage-link-target"><span>Čeština</span></a></li><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/In-Place-Algorithmus" title="In-Place-Algorithmus – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/الگوریتم_درجا" title="الگوریتم درجا – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-it mw-list-item"><a href="https://it.wikipedia.org/wiki/Algoritmo_in_loco" title="Algoritmo in loco – Italian" lang="it" hreflang="it" class="interlanguage-link-target"><span>Italiano</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/אלגוריתם_תוך-מקומי" title="אלגוריתם תוך-מקומי – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/In-placeアルゴリズム" title="In-placeアルゴリズム – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-no mw-list-item"><a href="https://no.wikipedia.org/wiki/På_stedet-algoritme" title="På stedet-algoritme – Norwegian Bokmål" lang="nb" hreflang="nb" class="interlanguage-link-target"><span>Norsk bokmål</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Algorytm_in_situ" title="Algorytm in situ – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/Algoritam_za_sortiranje_u_mestu" title="Algoritam za sortiranje u mestu – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/原地算法" title="原地算法 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q657037#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 13 January 2022, at 04:52<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=In-place_algorithm&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.204","walltime":"0.266","ppvisitednodes":{"value":1257,"limit":1000000},"postexpandincludesize":{"value":15903,"limit":2097152},"templateargumentsize":{"value":1366,"limit":2097152},"expansiondepth":{"value":9,"limit":100},"expensivefunctioncount":{"value":3,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":5429,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  225.589      1 -total"," 31.98%   72.141      1 Template:Citation"," 27.09%   61.101      1 Template:Redirect"," 23.56%   53.156      1 Template:Ref_improve"," 20.98%   47.321      1 Template:Ambox"," 12.29%   27.736     18 Template:Math","  6.38%   14.383      1 Template:Find_sources_mainspace","  2.57%    5.803      8 Template:Code","  2.17%    4.890     18 Template:Main_other","  0.74%    1.680      1 Template:ECCC"]},"scribunto":{"limitreport-timeusage":{"value":"0.114","limit":"10.000"},"limitreport-memusage":{"value":2895782,"limit":52428800}},"cachereport":{"origin":"mw1393","timestamp":"20220505142106","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"In-place algorithm","url":"https:\/\/en.wikipedia.org\/wiki\/In-place_algorithm","sameAs":"http:\/\/www.wikidata.org\/entity\/Q657037","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q657037","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2003-05-02T00:33:35Z","dateModified":"2022-01-13T04:52:51Z"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"In-place algorithm","url":"https:\/\/en.wikipedia.org\/wiki\/In-place_algorithm","sameAs":"http:\/\/www.wikidata.org\/entity\/Q657037","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q657037","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2003-05-02T00:33:35Z","dateModified":"2022-01-13T04:52:51Z"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":157,"wgHostname":"mw1368"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/In-place by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:47 GMT -->
+</html>

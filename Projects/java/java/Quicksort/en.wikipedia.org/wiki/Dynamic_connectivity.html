@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Dynamic_connectivity by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Dynamic connectivity - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"557e4573-20fa-49c5-99bc-bfd895ba5b59","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Dynamic_connectivity","wgTitle":"Dynamic connectivity","wgCurRevisionId":1075291288,"wgRevisionId":1075291288,"wgArticleId":45284474,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Graph data structures","Graph algorithms"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Dynamic_connectivity","wgRelevantArticleId":45284474,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],
+"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":20000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q20018775"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.math.styles":"ready","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready",
+"ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.math.scripts","ext.cite.ux-enhancements","site","mediawiki.page.ready","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="Dynamic connectivity - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Dynamic_connectivity"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Dynamic_connectivity"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Dynamic_connectivity rootpage-Dynamic_connectivity skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Dynamic connectivity</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><p>In <a href="https://en.wikipedia.org/wiki/Computing" title="Computing">computing</a> and <a href="https://en.wikipedia.org/wiki/Graph_theory" title="Graph theory">graph theory</a>, a <b>dynamic connectivity</b> structure is a data structure that dynamically maintains information about the connected components of a graph.
+</p><p>The set <i>V</i> of vertices of the graph is fixed, but the set <i>E</i> of edges can change. The three cases, in order of difficulty, are:
+</p>
+<ul><li>Edges are only added to the graph (this can be called <i>incremental connectivity</i>);</li>
+<li>Edges are only deleted from the graph (this can be called <i>decremental connectivity</i>);</li>
+<li>Edges can be either added or deleted (this can be called <i>fully dynamic connectivity</i>).</li></ul>
+<p>After each addition/deletion of an edge, the dynamic connectivity structure should adapt itself such that it can give quick answers to queries of the form "is there a path between <i>x</i> and <i>y</i>?" (equivalently: "do vertices <i>x</i> and <i>y</i> belong to the same connected component?").
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Incremental_connectivity"><span class="tocnumber">1</span> <span class="toctext">Incremental connectivity</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Decremental_connectivity"><span class="tocnumber">2</span> <span class="toctext">Decremental connectivity</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Acyclic_graphs_(forests)"><span class="tocnumber">2.1</span> <span class="toctext">Acyclic graphs (forests)</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#General_graphs"><span class="tocnumber">2.2</span> <span class="toctext">General graphs</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Fully_dynamic_connectivity"><span class="tocnumber">3</span> <span class="toctext">Fully dynamic connectivity</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#Acyclic_graphs_(forests)_2"><span class="tocnumber">3.1</span> <span class="toctext">Acyclic graphs (forests)</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#General_graphs_2"><span class="tocnumber">3.2</span> <span class="toctext">General graphs</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="#The_Level_structure"><span class="tocnumber">3.2.1</span> <span class="toctext">The Level structure</span></a>
+<ul>
+<li class="toclevel-4 tocsection-9"><a href="#Operations"><span class="tocnumber">3.2.1.1</span> <span class="toctext">Operations</span></a></li>
+<li class="toclevel-4 tocsection-10"><a href="#Analysis"><span class="tocnumber">3.2.1.2</span> <span class="toctext">Analysis</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-11"><a href="#The_Cutset_structure"><span class="tocnumber">3.2.2</span> <span class="toctext">The Cutset structure</span></a>
+<ul>
+<li class="toclevel-4 tocsection-12"><a href="#Operations_2"><span class="tocnumber">3.2.2.1</span> <span class="toctext">Operations</span></a></li>
+<li class="toclevel-4 tocsection-13"><a href="#Analysis_2"><span class="tocnumber">3.2.2.2</span> <span class="toctext">Analysis</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-14"><a href="#Offline_Dynamic_Connectivity"><span class="tocnumber">3.3</span> <span class="toctext">Offline Dynamic Connectivity</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Incremental_connectivity">Incremental connectivity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=edit&amp;section=1" title="Edit section: Incremental connectivity">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>If edges can only be added, then the dynamic connectivity problem can be solved by a <a href="https://en.wikipedia.org/wiki/Disjoint-set_data_structure" title="Disjoint-set data structure">Disjoint-set data structure</a>. Each set represents a connected component; there is a path between <i>x</i> and <i>y</i> if and only if they belong to the same set.  The amortized time per operation is <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \Theta (\alpha (n))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x0398;<!-- Θ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>&#x03B1;<!-- α --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Theta (\alpha (n))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/dc86ca978bb6d4e7a6c466ec8829a0010c968982" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.309ex; height:2.843ex;" alt="{\displaystyle \Theta (\alpha (n))}"/></span>, where <i>n</i> is the number of vertices and α is the <a href="https://en.wikipedia.org/wiki/Ackermann_function#Inverse" title="Ackermann function">inverse Ackermann function</a>.<sup id="cite_ref-tarjan1975_1-0" class="reference"><a href="#cite_note-tarjan1975-1">&#91;1&#93;</a></sup><sup id="cite_ref-Tarjan1979_2-0" class="reference"><a href="#cite_note-Tarjan1979-2">&#91;2&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Decremental_connectivity">Decremental connectivity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=edit&amp;section=2" title="Edit section: Decremental connectivity">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The case in which edges can only be deleted was solved by <a href="https://en.wikipedia.org/wiki/Shimon_Even" title="Shimon Even">Shimon Even</a> and <a href="https://en.wikipedia.org/w/index.php?title=Yossi_Shiloach&amp;action=edit&amp;redlink=1" class="new" title="Yossi Shiloach (page does not exist)">Yossi Shiloach</a>.<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup> 
+</p><p>The structure uses a <i>table</i> that specifies, for each vertex, the name of the component to which it belongs. Thus a connectivity query takes constant time. The challenge is to update the table when an edge is deleted.
+</p>
+<h3><span id="Acyclic_graphs_.28forests.29"></span><span class="mw-headline" id="Acyclic_graphs_(forests)">Acyclic graphs (forests)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=edit&amp;section=3" title="Edit section: Acyclic graphs (forests)">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>When edge <i>u</i>-<i>v</i> is deleted in <a href="https://en.wikipedia.org/wiki/Tree_(graph_theory)#Forest" title="Tree (graph theory)">a forest</a>, the tree containing that edge is broken to two trees: one of them contains <i>u</i> and the other contains <i>v</i>. The table is updated in the following way.
+</p>
+<ul><li>Scan the tree starting from <i>u</i> (using any tree scan algorithm, such as <a href="https://en.wikipedia.org/wiki/Depth-first_search" title="Depth-first search">DFS</a>).</li>
+<li>Scan the tree starting from <i>v</i>.</li>
+<li>Do the above two procedures in parallel, i.e., either using two parallel processes, or by interleaving their steps (make a step of first scan, then a step of the second scan, then a step of the first scan, etc.).</li>
+<li>Suppose the first scan that terminates is the scan from <i>u</i> (so we know that the tree containing <i>u</i> is the smaller one). Assign a new component name to every node in the subtree of <i>u</i>.</li></ul>
+<p>Since we always rename the smaller sub-component, the amortized time for a delete operation is <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(\log(n))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(\log(n))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7d3f404959a75e486669fd7618e00046eb00bb24" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.758ex; height:2.843ex;" alt="O(\log(n))"/></span>.
+</p>
+<h3><span class="mw-headline" id="General_graphs">General graphs</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=edit&amp;section=4" title="Edit section: General graphs">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>When an edge is deleted in a general graph, we don't know whether its component remains a single component (connected by other edges) or broken to two components. So we use two processes which run in parallel (or in an interleaved way). Process A checks whether the edge deletion breaks a component, and if it does, both processes halt. Process B checks whether the edge deletion does not break the component to which it belongs, and if it does not, again both processes halt. 
+</p>
+<dl><dt>Process A</dt>
+<dd>is similar to the acyclic-graph case: there are two sub-processes who scan from both ends of the deleted edge. If one of the sub-processes finishes before reaching the other end, this means that the component is broken into two sub-components, and the name of the smaller sub-component is updated, as before. Thus the amortized time for a delete operation is again <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(\log(n))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(\log(n))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7d3f404959a75e486669fd7618e00046eb00bb24" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.758ex; height:2.843ex;" alt="O(\log(n))"/></span>.</dd></dl>
+<dl><dt>Process B</dt>
+<dd>uses a breadth-first structure (BFS), which is initialized as follows. A vertex <i>r</i> is chosen and the BFS starts from it. The only vertex in level 0 is <i>r</i>. All the vertices of distance <i>i</i> from the root are in level <i>i</i>. If G is not connected, a new scan is started at some unscanned vertex <i>v</i>, <i>v</i> is put in level 1, and an artificial edge connects <i>v</i> to the root <i>r</i>; all vertices of distance <i>i</i> from <i>v</i> are now in level <i>i</i>+1, etc. Artificial edges are introduced in order to keep all the connected components in one BFS structure and are used only for this purpose. Clearly, the artificial edges are used only in process B.</dd></dl>
+<p>The structure has the following properties. A vertex <i>v</i> in level <i>i</i>, <i>i</i>&gt;0, has only three types of edges: <i>backward edges</i> which connect it to level <i>i</i>&#8722;1 (there is at least one such edge, which may be artificial), <i>local edges</i> which connect it to other edges in level <i>i</i> (there are zero or more such edges), or <i>forward edges</i> which connect it to edges in level <i>i</i>+1 (there are zero or more such edges). So for each vertex <i>v</i>, we maintain three sets of edges (backward, local and forward).
+</p><p>When an edge <i>u</i>-<i>v</i> is deleted, there are two options: either <i>u</i> and <i>v</i> are in the same level, or they are in levels whose number differs by 1. 
+</p>
+<dl><dt><i>Case 1</i></dt>
+<dd>both <i>u</i> and <i>v</i> are on the same level. In this case, the edge deletion cannot change the components. The edge is simply deleted from the sets of local edges of <i>u</i> and <i>v</i>, and process B halts (and therefore process A is halted too). Our BFS structure is still valid.</dd></dl>
+<dl><dt><i>Case 2</i></dt>
+<dd><i>u</i> and <i>v</i> are on different levels. Without loss of generality, assume <i>u</i> is in level <i>i</i>&#8722;1 and <i>v</i> is in level <i>i</i>; hence the edge should be removed from forward(<i>u</i>) and from backward(<i>v</i>).
+<dl><dt><i>Case 2.1</i></dt>
+<dd>If the new backward(<i>v</i>) is not empty, then the components have not changed: there are other edges which connect <i>v</i> backwards. Process B halts (and process A is halted too).</dd>
+<dt><i>Case 2.2</i></dt>
+<dd>If the new backward(<i>v</i>) is empty, then <i>v</i> is no longer connected to level <i>i</i>&#8722;1, and so its distance from the root is no longer <i>i</i>; it must be at least <i>i</i>+1. Additionally, there may be other vertices, connected to <i>v</i>, whose distance from the root increases as a result of the deletion. To calculate the updated distances, we use a queue Q, which initially contains only the vertex <i>v</i>.</dd></dl></dd></dl>
+<p>While Q is not empty:
+</p>
+<ol><li><i>w</i>&#160;:= dequeue(Q)</li>
+<li>Remove <i>w</i> from its level (say, <i>j</i>), and put it in the next level (<i>j</i>+1).</li>
+<li>Update local neighbours:
+<ul><li>For each edge <i>w</i>&#8722;<i>x</i> in local(<i>w</i>), remove it from local(<i>x</i>) and put it in forward(<i>x</i>).</li>
+<li>backward(<i>w</i>)&#160;:= local(<i>w</i>)</li></ul></li>
+<li>Update forward neighbours:
+<ul><li>For each edge <i>w</i>-<i>x</i> in forward(<i>w</i>), remove it from backward(<i>x</i>) and put it in local(<i>x</i>); if the new backward(<i>x</i>) is empty, enqueue <i>x</i> on Q.</li>
+<li>local(<i>w</i>)&#160;:= forward(<i>w</i>)</li>
+<li>forward(<i>w</i>)&#160;:= empty set</li></ul></li>
+<li>If the new backward(<i>w</i>) is empty, enqueue <i>w</i> again on Q.</li></ol>
+<p>If the edge deletion does not break any component and we are in case 2.2, then eventually the procedure will halt. In this case it is easy to see that the BFS structure is maintained correctly. If its deletion does break a component, then the procedure will not halt by itself. However, process A, recognizing the break, will halt, and both processes will halt. In this case all the changes made in the BFS structure are ignored, and we go back to the BFS structure we had just before the deletion, except that the deleted edge is now replaced by an artificial edge. Clearly, in this case <i>v</i> is now the root of a tree which includes the new component, and perhaps additional components, through some other artificial edges. Also, there are no edges connecting the descendants of <span class="texhtml mvar" style="font-style:italic;">v</span>
+with any vertices which are not <span class="texhtml mvar" style="font-style:italic;">v</span>'s descendants, except the artificial edge <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle u-v}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>u</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>v</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle u-v}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/db50e25e9ec8e7de19d2654a4e3d9adec16d6cb4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:5.298ex; height:2.176ex;" alt="{\displaystyle u-v}"/></span>.<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup>
+</p><p>whenever an edge is processed in the procedure, one of its endpoints drops by one level. Since the lowest level a vertex can reach in runs which are terminated by process B is <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle |V|-1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>V</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle |V|-1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6407482f919e956e1d22eb304c73a841e395e436" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.084ex; height:2.843ex;" alt="|V|-1"/></span>, the cost per edge is bounded by <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 2|V|}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>2</mn>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mi>V</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 2|V|}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9d6570a42ea607320c0992a655caa6d843b5b662" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.243ex; height:2.843ex;" alt="{\displaystyle 2|V|}"/></span>. Hence the amortized time per deletion operation is <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/34109fe397fdcff370079185bfdb65826cb5565a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.977ex; height:2.843ex;" alt="O(n)"/></span>.
+</p>
+<h2><span class="mw-headline" id="Fully_dynamic_connectivity">Fully dynamic connectivity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=edit&amp;section=5" title="Edit section: Fully dynamic connectivity">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span id="Acyclic_graphs_.28forests.29_2"></span><span class="mw-headline" id="Acyclic_graphs_(forests)_2">Acyclic graphs (forests)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=edit&amp;section=6" title="Edit section: Acyclic graphs (forests)">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>A forest can be represented using a collection of either <a href="https://en.wikipedia.org/wiki/Link-cut_tree" class="mw-redirect" title="Link-cut tree">Link-cut trees</a> or <a href="https://en.wikipedia.org/wiki/Euler_tour_tree" class="mw-redirect" title="Euler tour tree">Euler tour trees</a>. Then the dynamic connectivity problem can be solved easily, as for every two nodes x,y, x is connected to y if and only if FindRoot(x)=FindRoot(y). The amortized update time and query time are both O(log(<i>n</i>)).
+</p>
+<h3><span class="mw-headline" id="General_graphs_2">General graphs</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=edit&amp;section=7" title="Edit section: General graphs">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>A general graph can be represented by its <a href="https://en.wikipedia.org/wiki/Spanning_forest" class="mw-redirect" title="Spanning forest">spanning forest</a> - a forest which contains a tree for every connected component of the graph. We call this spanning forest <i>F</i>. <i>F</i> itself can be represented by a forest of <a href="https://en.wikipedia.org/wiki/Euler_tour_tree" class="mw-redirect" title="Euler tour tree">Euler tour trees</a>.
+</p><p>The Query and Insert operations are implemented using the corresponding operations on the ET trees representing <i>F</i>. The challenging operation is Delete, and in particular, deleting an edge which is contained in one of the spanning trees of <i>F</i>. This breaks the spanning tree into two trees, but, it is possible that there is another edge which connects them. The challenge is to quickly find such a replacement edge, if it exists. This requires a more complex data structure. Several such structures are described below.
+</p>
+<h4><span class="mw-headline" id="The_Level_structure">The Level structure</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=edit&amp;section=8" title="Edit section: The Level structure">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Each edge in the graph is assigned a <i>level</i>. Let <i>L</i>=lg <i>n</i>. The level of each edge inserted to the graph is initialized to <i>L</i>, and may decrease towards 0 during delete operations. 
+</p><p>For each <i>i</i> between 0 and <i>L</i>, define <i>Gi</i> as the subgraph consisting of edges that are at level <i>i</i> or less, and <i>Fi</i> a spanning forest of <i>Gi</i>. Our forest <i>F</i> from before is now called <i>FL</i>. We will keep a decreasing sequence of forests <i>FL</i> ⊇ ... ⊇ <i>F</i>0. <sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup><sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup>
+</p>
+<h5><span class="mw-headline" id="Operations">Operations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=edit&amp;section=9" title="Edit section: Operations">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<p>The Query and Insert operations use only the largest forest <i>FL</i>. The smaller subgraphs are consulted only during a Delete operation, and in particular, deleting an edge which is contained in one of the spanning trees of <i>FL</i>.
+</p><p>When such an edge <i>e</i> = <i>x</i>&#8722;<i>y</i> is deleted, it is first removed from <i>FL</i> and from all smaller spanning forests to which it belongs, i.e. from every <i>Fi</i> with <i>i</i> ≥ level(<i>e</i>). Then we look for a replacement edge.
+</p><p>Start with the smallest spanning forest which contained <i>e</i>, namely, <i>Fi</i> with <i>i</i> = level(<i>e</i>). The edge <i>e</i> belongs to a certain tree <i>T</i>⊆<i>Fi</i>. After the deletion of <i>e</i>, the tree <i>T</i> is broken to two smaller trees: <i>Tx</i> which contains the node <i>x</i> and <i>Ty</i> which contains the node <i>y</i>. An edge of <i>Gi</i> is a replacement edge, if and only if it connects a node in <i>Tx</i> with a node in <i>Ty</i>. Suppose wlog that <i>Tx</i> is the smaller tree (i.e. contains at most half the nodes of <i>T</i>; we can tell the size of each subtree by an annotation added to the Euler trees). 
+</p><p>We loop over all the edges <i>ε</i> with level <i>i</i> and at least one node in <i>Tx</i>: 
+</p>
+<ul><li>If the other node of <i>ε</i> is in <i>Ty</i>, then a replacement edge is found! Add this edge to <i>Fi</i> and to all containing forests up to <i>FL</i>, and finish. The spanning forests are fixed. Notice that in order to pay for this search, we decrease the level of the edges visited during the search.</li>
+<li>If the other node of <i>ε</i> is in <i>Tx</i>, then this is not a replacement edge, and to 'penalize' it for wasting our time, we decrease its level by 1.</li></ul>
+<h5><span class="mw-headline" id="Analysis">Analysis</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=edit&amp;section=10" title="Edit section: Analysis">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<p>The level of each edge will be decreased at most lg <i>n</i> times. Why? Because with each decrease, it falls into a tree whose size is at most half the size of its tree in the previous level. So in each level <i>i</i>, the number of nodes in each connected component is at most 2<i><sup>i</sup></i>. Hence the level of an edge is always at least 0.
+</p><p>Each edge whose level is decreased, takes <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(\lg n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>lg</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(\lg n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/360147da5c0229b8b7fa2795ca33790c0d4b8003" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.174ex; height:2.843ex;" alt="O(\lg n)"/></span> time to find (using the ET tree operations). In total, each inserted edge takes <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(\lg ^{2}n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>lg</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(\lg ^{2}n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1bf27dfef0713bbdb33facb1b2f633549b7ca606" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.228ex; height:3.176ex;" alt="{\displaystyle O(\lg ^{2}n)}"/></span> time until it is deleted, so the amortized time for deletion is  <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(\lg ^{2}n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>lg</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(\lg ^{2}n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1bf27dfef0713bbdb33facb1b2f633549b7ca606" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.228ex; height:3.176ex;" alt="{\displaystyle O(\lg ^{2}n)}"/></span>. The remaining part of delete also takes <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(\lg ^{2}n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>lg</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(\lg ^{2}n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1bf27dfef0713bbdb33facb1b2f633549b7ca606" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.228ex; height:3.176ex;" alt="{\displaystyle O(\lg ^{2}n)}"/></span> time, since we have to delete the edge from at most <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(\lg n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>lg</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(\lg n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/360147da5c0229b8b7fa2795ca33790c0d4b8003" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.174ex; height:2.843ex;" alt="O(\lg n)"/></span> levels, and deleting from each level takes <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(\lg n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>lg</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(\lg n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/360147da5c0229b8b7fa2795ca33790c0d4b8003" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.174ex; height:2.843ex;" alt="O(\lg n)"/></span> (again using the ET operations). 
+</p><p>In total, the amortized time per update is <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(\lg ^{2}n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>lg</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(\lg ^{2}n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1bf27dfef0713bbdb33facb1b2f633549b7ca606" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.228ex; height:3.176ex;" alt="{\displaystyle O(\lg ^{2}n)}"/></span>. The time per query can be improved to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(\lg n/\lg \lg n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>lg</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mi>lg</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>lg</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(\lg n/\lg \lg n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1ecceb41a14416d878d98ab83282ad14da6191ce" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:14.511ex; height:2.843ex;" alt="{\displaystyle O(\lg n/\lg \lg n)}"/></span>. 
+</p><p>However, the worst-case time per update might be <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/34109fe397fdcff370079185bfdb65826cb5565a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.977ex; height:2.843ex;" alt="O(n)"/></span>. The question of whether the worst-case time can be improved had been an open question, until it was solved in the affirmative by the Cutset structure.
+</p>
+<h4><span class="mw-headline" id="The_Cutset_structure">The Cutset structure</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=edit&amp;section=11" title="Edit section: The Cutset structure">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Given a graph G(V,E) and a subset T⊆V, define <b>cutset(T)</b> as the set of edges that connect T with V\T.   The <i>cutset structure</i> is a data structure that, without keeping the entire graph in memory, can quickly find an edge in the cutset, if such an edge exists. <sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup>
+</p><p>Start by giving a number to each vertex. Suppose there are <i>n</i> vertices; then each vertex can be represented by a number with lg(<i>n</i>) bits. Next, give a number to each edge, which is a concatenation of the numbers of its vertices - a number with 2&#8201;lg(<i>n</i>) bits.
+</p><p>For each vertex <i>v</i>, calculate and keep xor(<i>v</i>), which is the <a href="https://en.wikipedia.org/wiki/Xor" class="mw-redirect" title="Xor">xor</a> of the numbers of all edges adjacent to it.
+</p><p>Now for each subset T⊆V, it is possible to calculate <b>xor(T)</b> = the xor of the values of all vertices in T. Consider an edge <i>e</i> = <i>u</i>&#8722;<i>v</i> which is an internal edge of T (i.e. both <i>u</i> and <i>v</i> are in T). The number of <i>e</i> is included twice in xor(T) - once for <i>u</i> and once for <i>v</i>. Since the xor of every number with itself is 0, <i>e</i> vanishes and does not affect xor(T). Thus, xor(T) is actually the xor of all edges in cutset(T). There are several options:
+</p>
+<ul><li>If xor(T)=0, then we can confidently reply that cutset(T) is empty.</li>
+<li>If xor(T) is the number of a real edge <i>e</i>, then probably <i>e</i> is the only edge in cutset(T), and we can return <i>e</i>. We can also read the endpoints of <i>e</i> from the number of <i>e</i> by splitting it to the lg(<i>n</i>) leftmost bits and the lg(<i>n</i>) rightmost bits.</li>
+<li>The third option is that xor(T) is a nonzero number which does not represent a real edge. This can only happen if there are two or more edges in cutset(T), since in that case xor(T) is the xor of several numbers of edges. In this case, we report "failure", since we know that there are edges in the cutset but cannot identify any single edge. <sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup></li></ul>
+<p>Our goal now is to handle this third option.
+</p><p>First, create a sequence of lg(<i>n</i>) <i>levels</i> of the cutset structures, each of which contains about half the edges from the upper level (i.e., for each level, pick each edge from the upper level with probability 1/2). If in the first level xor(T) returns an illegal value, meaning that cutset(T) has two or more edges, then there is a chance that in the next level, which contains fewer edges, xor(T) will return a legal value since cutset(T) will contain a single edge. If xor(T) still returns an illegal value, continue to the next level, etc. Since the number of edges is decreasing, there are two cases: 
+</p>
+<ul><li>The good case is that we eventually find a level in which cutset(T) contains a single edge; then we return that edge and finish.</li>
+<li>The bad case is that we eventually find a level in which cutset(T) contains no edges; then we report "failure", since we know that there are edges in the cutset but cannot identify any single edge.</li></ul>
+<p>It is possible to prove that the probability of success is at least 1/9.
+</p><p>Next, create a collection of <i>C</i>&#8201;lg(<i>n</i>) independent versions of the level structure, where <i>C</i> is a constant. In each versions, do an independent random reduction of edges from level to level. Try each query on each of the versions until one of them succeeds. The probability that all versions fail is at most:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (1-1/9)^{C\lg {n}}=2^{-0.17C\lg {n}}=n^{-0.17C}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mn>9</mn>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>C</mi>
+            <mi>lg</mi>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>n</mi>
+            </mrow>
+          </mrow>
+        </msup>
+        <mo>=</mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>0.17</mn>
+            <mi>C</mi>
+            <mi>lg</mi>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>n</mi>
+            </mrow>
+          </mrow>
+        </msup>
+        <mo>=</mo>
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>0.17</mn>
+            <mi>C</mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (1-1/9)^{C\lg {n}}=2^{-0.17C\lg {n}}=n^{-0.17C}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/55dfb9044cfa9f9cc56472c72a163a128002d14c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:36.981ex; height:3.176ex;" alt="(1-1/9)^{{C\lg {n}}}=2^{{-0.17C\lg {n}}}=n^{{-0.17C}}"/></span></dd></dl>
+<p>By proper selection of <i>C</i> we can make the probability of failure arbitrarily close to 0.
+</p>
+<h5><span class="mw-headline" id="Operations_2">Operations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=edit&amp;section=12" title="Edit section: Operations">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<p>We can add a cutset structure to a dynamic connectivity structure.
+</p><p>The Insert and Delete operations on the cutset structure are done in exactly the same way: the edge inserted/deleted is XORed into both its endpoints.
+</p><p>When an edge is deleted from the spanning forest used for the dynamic connectivity structure, the cutset structure is used to find a replacement edge.
+</p>
+<h5><span class="mw-headline" id="Analysis_2">Analysis</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=edit&amp;section=13" title="Edit section: Analysis">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<p>A single cutset structure requires only <i>O</i>(<i>n</i> lg <i>n</i>) memory - only a single number, with 2 lg <i>n</i> bits, for each of the <i>n</i> vertices. We don't have to keep the edges themselves. For dense graphs, this is much cheaper than keeping the entire graph in memory.
+</p><p>We have to keep lg(<i>n</i>) versions, each of which contains lg(<i>n</i>) levels. Hence, the total memory requirement is <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n\lg ^{3}n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <msup>
+          <mi>lg</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msup>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n\lg ^{3}n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2f8c1e38786a10e932444d97d6a545719992b4bc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.01ex; height:3.176ex;" alt="{\displaystyle O(n\lg ^{3}n)}"/></span>.
+</p><p>The query time is <i>O</i>(polylog(<i>n</i>)) in the worst case. This is in contrast to <a href="https://en.wikipedia.org/wiki/Dynamic_connectivity#The_Level_structure" title="Dynamic connectivity">The Level structure</a>, in which the query time is <i>O</i>(polylog(<i>n</i>)) amortized, but the worst-case time is <i>O</i>(<i>n</i>).
+</p>
+<h3><span class="mw-headline" id="Offline_Dynamic_Connectivity">Offline Dynamic Connectivity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=edit&amp;section=14" title="Edit section: Offline Dynamic Connectivity">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>If the order in which edges will be deleted is known ahead of time, then we can solve the dynamic connectivity problem in log(n) per query. If we can maintain a Maximum Spanning Forest where edges are ordered by their deletion time, we know that when we delete some edge that is in the forest, there is no possible edge that can replace it. If there were some edge that connects the same two components the deleted edge does, then this other edge would have been part of the maximum spanning forest instead of the edge we deleted. This makes the delete operation trivial: we simply need to split the tree into its two parts if the edge to delete is part of our forest, or ignore the operation otherwise.
+</p><p>Adding an edge is slightly more complicated. If we add an edge edge e from u to v, then if u and v are not connected, then this edge will be part of the Maximum Spanning Forest. If they are connected, we want to add u-&gt;v to our forest if it can improve our Maximum Spanning Forest. To do this, we need to quickly check what edge has the smallest removal time on the path from u to v. If this edge's removal time comes after e's removal time, then e cannot improve our minimum spanning forest. Otherwise, the other edge should be deleted and replaced with e.
+</p><p>This requires us to do the following operations: add an edge, cut an edge, and query the minimum edge on a path which can be done rather easily with a link-cut tree in log(n) per operation.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=edit&amp;section=15" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Dynamic_problem_(algorithms)" title="Dynamic problem (algorithms)">Dynamic problem (algorithms)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Partition_refinement" title="Partition refinement">Partition refinement</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=edit&amp;section=16" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-tarjan1975-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-tarjan1975_1-0">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFTarjan1975" class="citation journal cs1"><a href="https://en.wikipedia.org/wiki/Robert_E._Tarjan" class="mw-redirect" title="Robert E. Tarjan">Tarjan, Robert Endre</a> (1975). "Efficiency of a Good But Not Linear Set Union Algorithm". <i>Journal of the ACM</i>. <b>22</b> (2): 215–225. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.399.6704">10.1.1.399.6704</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F321879.321884">10.1145/321879.321884</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+the+ACM&amp;rft.atitle=Efficiency+of+a+Good+But+Not+Linear+Set+Union+Algorithm&amp;rft.volume=22&amp;rft.issue=2&amp;rft.pages=215-225&amp;rft.date=1975&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.399.6704%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1145%2F321879.321884&amp;rft.aulast=Tarjan&amp;rft.aufirst=Robert+Endre&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ADynamic+connectivity" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Tarjan1979-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-Tarjan1979_2-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFTarjan1979" class="citation journal cs1"><a href="https://en.wikipedia.org/wiki/Robert_E._Tarjan" class="mw-redirect" title="Robert E. Tarjan">Tarjan, Robert Endre</a> (1979). <a rel="nofollow" class="external text" href="https://doi.org/10.1016%2F0022-0000(79)90042-4">"A class of algorithms which require non-linear time to maintain disjoint sets"</a>. <i>Journal of Computer and System Sciences</i>. <b>18</b> (2): 110–127. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1016%2F0022-0000(79)90042-4">10.1016/0022-0000(79)90042-4</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Computer+and+System+Sciences&amp;rft.atitle=A+class+of+algorithms+which+require+non-linear+time+to+maintain+disjoint+sets&amp;rft.volume=18&amp;rft.issue=2&amp;rft.pages=110-127&amp;rft.date=1979&amp;rft_id=info%3Adoi%2F10.1016%2F0022-0000%2879%2990042-4&amp;rft.aulast=Tarjan&amp;rft.aufirst=Robert+Endre&amp;rft_id=%2F%2Fdoi.org%2F10.1016%252F0022-0000%252879%252990042-4&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ADynamic+connectivity" class="Z3988"></span></span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFShiloachEven1981" class="citation journal cs1">Shiloach, Y.; Even, S. (1981). "An On-Line Edge-Deletion Problem". <i>Journal of the ACM</i>. <b>28</b>: 1–4. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F322234.322235">10.1145/322234.322235</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+the+ACM&amp;rft.atitle=An+On-Line+Edge-Deletion+Problem&amp;rft.volume=28&amp;rft.pages=1-4&amp;rft.date=1981&amp;rft_id=info%3Adoi%2F10.1145%2F322234.322235&amp;rft.aulast=Shiloach&amp;rft.aufirst=Y.&amp;rft.au=Even%2C+S.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ADynamic+connectivity" class="Z3988"></span></span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text">One way to realize the return to the structure preceding the deletion of e without having to copy the whole structure is to keep on a stack all the changes that took place in the BFS structure since the deletion of e and undo them one by one. This way the processing time is only multiplied by a constant.</span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHolmDe_LichtenbergThorup2001" class="citation journal cs1">Holm, J.; De Lichtenberg, K.; Thorup, M. (2001). "Poly-logarithmic deterministic fully-dynamic algorithms for connectivity, minimum spanning tree, 2-edge, and biconnectivity". <i>Journal of the ACM</i>. <b>48</b> (4): 723. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F502090.502095">10.1145/502090.502095</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+the+ACM&amp;rft.atitle=Poly-logarithmic+deterministic+fully-dynamic+algorithms+for+connectivity%2C+minimum+spanning+tree%2C+2-edge%2C+and+biconnectivity&amp;rft.volume=48&amp;rft.issue=4&amp;rft.pages=723&amp;rft.date=2001&amp;rft_id=info%3Adoi%2F10.1145%2F502090.502095&amp;rft.aulast=Holm&amp;rft.aufirst=J.&amp;rft.au=De+Lichtenberg%2C+K.&amp;rft.au=Thorup%2C+M.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ADynamic+connectivity" class="Z3988"></span></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://courses.csail.mit.edu/6.851/spring07/scribe/lec05.pdf">Dynamic Graph Problems</a> - in Lecture Notes in Advanced Data Structures. Prof. Erik Demaine; Scribe: Katherine Lai.</span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKapronKingMountjoy2013" class="citation conference cs1">Kapron, B. M.; King, V.; Mountjoy, B. (2013). <i>Dynamic graph connectivity in polylogarithmic worst case time</i>. Proceedings of the Twenty-Fourth Annual ACM-SIAM Symposium on Discrete Algorithms. p.&#160;1131. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1137%2F1.9781611973105.81">10.1137/1.9781611973105.81</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-1-61197-251-1" title="Special:BookSources/978-1-61197-251-1"><bdi>978-1-61197-251-1</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Dynamic+graph+connectivity+in+polylogarithmic+worst+case+time&amp;rft.pages=1131&amp;rft.date=2013&amp;rft_id=info%3Adoi%2F10.1137%2F1.9781611973105.81&amp;rft.isbn=978-1-61197-251-1&amp;rft.aulast=Kapron&amp;rft.aufirst=B.+M.&amp;rft.au=King%2C+V.&amp;rft.au=Mountjoy%2C+B.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ADynamic+connectivity" class="Z3988"></span></span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text">There is a small probability that the xor of several different edges will result in a number which happens to be the number of another edge. This might lead to a false positive. In order to reduce the probability of this event, we can enlarge the domain of the numbers of vertices to, say, <i>n</i><sup>3</sup> instead of <i>n</i>. Then, if there is more than one edge in cutset(T), xor(T) will almost certainly be a meaningless value, as stated above.</span>
+</li>
+</ol></div></div>
+<ul><li>See also: <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFThorup2000" class="citation conference cs1">Thorup, M. (2000). <i>Near-optimal fully-dynamic graph connectivity</i>. Proceedings of the thirty-second annual ACM symposium on Theory of computing - STOC '00. p.&#160;343. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F335305.335345">10.1145/335305.335345</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/1581131844" title="Special:BookSources/1581131844"><bdi>1581131844</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Near-optimal+fully-dynamic+graph+connectivity&amp;rft.pages=343&amp;rft.date=2000&amp;rft_id=info%3Adoi%2F10.1145%2F335305.335345&amp;rft.isbn=1581131844&amp;rft.aulast=Thorup&amp;rft.aufirst=M.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ADynamic+connectivity" class="Z3988"></span></li></ul>
+<!-- 
+NewPP limit report
+Parsed by mw1375
+Cached time: 20220415013654
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.330 seconds
+Real time usage: 0.437 seconds
+Preprocessor visited node count: 526/1000000
+Post‐expand include size: 11745/2097152 bytes
+Template argument size: 101/2097152 bytes
+Highest expansion depth: 8/100
+Expensive parser function count: 0/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 20582/5000000 bytes
+Lua time usage: 0.135/10.000 seconds
+Lua memory usage: 3320656/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  312.813      1 -total
+ 89.51%  280.004      1 Template:Reflist
+ 58.32%  182.430      4 Template:Cite_journal
+  7.64%   23.909      2 Template:Cite_conference
+  3.60%   11.251      2 Template:Tmath
+  1.52%    4.770      2 Template:Mvar
+  1.05%    3.273      1 Template:Main_other
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:45284474-0!canonical and timestamp 20220415013653 and revision id 1075291288. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;oldid=1075291288">https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;oldid=1075291288</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Graph_data_structures" title="Category:Graph data structures">Graph data structures</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Graph_algorithms" title="Category:Graph algorithms">Graph algorithms</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Dynamic+connectivity" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Dynamic+connectivity" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Dynamic_connectivity" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Dynamic_connectivity" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Dynamic_connectivity"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Dynamic_connectivity" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Dynamic_connectivity" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;oldid=1075291288" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Dynamic_connectivity&amp;id=1075291288&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q20018775" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Dynamic_connectivity&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Conectividad_dinámica" title="Conectividad dinámica – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-ml mw-list-item"><a href="https://ml.wikipedia.org/wiki/ഡൈനാമിക്_കണക്റ്റിവിറ്റി_പ്രശ്നം" title="ഡൈനാമിക് കണക്റ്റിവിറ്റി പ്രശ്നം – Malayalam" lang="ml" hreflang="ml" class="interlanguage-link-target"><span>മലയാളം</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/Dinamičko_povezivanje" title="Dinamičko povezivanje – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q20018775#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 4 March 2022, at 23:13<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Dynamic_connectivity&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.330","walltime":"0.437","ppvisitednodes":{"value":526,"limit":1000000},"postexpandincludesize":{"value":11745,"limit":2097152},"templateargumentsize":{"value":101,"limit":2097152},"expansiondepth":{"value":8,"limit":100},"expensivefunctioncount":{"value":0,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":20582,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  312.813      1 -total"," 89.51%  280.004      1 Template:Reflist"," 58.32%  182.430      4 Template:Cite_journal","  7.64%   23.909      2 Template:Cite_conference","  3.60%   11.251      2 Template:Tmath","  1.52%    4.770      2 Template:Mvar","  1.05%    3.273      1 Template:Main_other"]},"scribunto":{"limitreport-timeusage":{"value":"0.135","limit":"10.000"},"limitreport-memusage":{"value":3320656,"limit":52428800}},"cachereport":{"origin":"mw1375","timestamp":"20220415013654","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Dynamic connectivity","url":"https:\/\/en.wikipedia.org\/wiki\/Dynamic_connectivity","sameAs":"http:\/\/www.wikidata.org\/entity\/Q20018775","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q20018775","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2015-02-02T17:27:09Z","dateModified":"2022-03-04T23:13:56Z"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Dynamic connectivity","url":"https:\/\/en.wikipedia.org\/wiki\/Dynamic_connectivity","sameAs":"http:\/\/www.wikidata.org\/entity\/Q20018775","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q20018775","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2015-02-02T17:27:09Z","dateModified":"2022-03-04T23:13:56Z"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":168,"wgHostname":"mw1368"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Dynamic_connectivity by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:51 GMT -->
+</html>

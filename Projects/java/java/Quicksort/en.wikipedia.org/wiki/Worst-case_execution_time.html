@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Worst-case_execution_time by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Worst-case execution time - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"f003c74a-750e-4a0f-897d-49dd239bf324","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Worst-case_execution_time","wgTitle":"Worst-case execution time","wgCurRevisionId":1081022051,"wgRevisionId":1081022051,"wgArticleId":1029051,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CS1 maint: archived copy as title","All articles with unsourced statements","Articles with unsourced statements from September 2012","All articles with dead external links","Articles with dead external links from February 2020",
+"Articles with permanently dead external links","Real-time computing"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Worst-case_execution_time","wgRelevantArticleId":1029051,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":10000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q362858"};RLSTATE={"ext.globalCssJs.user.styles":
+"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","site","mediawiki.page.ready","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="Worst-case execution time - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Worst-case_execution_time"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Worst-case_execution_time"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Worst-case_execution_time rootpage-Worst-case_execution_time skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Worst-case execution time</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><p>The <b>worst-case execution time</b> (<b>WCET</b>) of a <a href="https://en.wikipedia.org/wiki/Computation" title="Computation">computational</a> task is the maximum length of time the task could take to execute on a specific <a href="https://en.wikipedia.org/wiki/Computer_hardware" title="Computer hardware">hardware</a> platform.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#What_it_is_used_for"><span class="tocnumber">1</span> <span class="toctext">What it is used for</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Calculation"><span class="tocnumber">2</span> <span class="toctext">Calculation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Considerations"><span class="tocnumber">2.1</span> <span class="toctext">Considerations</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Automated_approaches"><span class="tocnumber">2.2</span> <span class="toctext">Automated approaches</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#Static_analysis_techniques"><span class="tocnumber">2.2.1</span> <span class="toctext">Static analysis techniques</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Measurement_and_hybrid_techniques"><span class="tocnumber">2.2.2</span> <span class="toctext">Measurement and hybrid techniques</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Research"><span class="tocnumber">3</span> <span class="toctext">Research</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#WCET_Tool_Challenge"><span class="tocnumber">3.1</span> <span class="toctext">WCET Tool Challenge</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#Articles_and_white_papers"><span class="tocnumber">5.1</span> <span class="toctext">Articles and white papers</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="What_it_is_used_for">What it is used for</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;action=edit&amp;section=1" title="Edit section: What it is used for">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Worst case execution time is typically used in reliable <a href="https://en.wikipedia.org/wiki/Real-time_systems" class="mw-redirect" title="Real-time systems">real-time systems</a>, where understanding the worst case timing behaviour of software is important for reliability or correct functional behaviour. 
+</p><p>As an example, a computer system that controls the behaviour of an engine in a vehicle might need to respond to inputs within a specific amount of time. One component that makes up the response time is the time spent executing the software – hence if the software worst case execution time can be determined, then the designer of the system can use this with other techniques such as <a href="https://en.wikipedia.org/wiki/Sheduling_analysis_real-time_systems" class="mw-redirect" title="Sheduling analysis real-time systems">schedulability analysis</a> to ensure that the system responds fast enough.
+</p><p>While WCET is potentially applicable to many real-time systems, in practice an assurance of WCET is mainly used by real-time systems that are related to high reliability or safety. For example, in airborne software some attention to software is required by <a href="https://en.wikipedia.org/wiki/DO178C" class="mw-redirect" title="DO178C">DO178C</a> section 6.3.4. The increasing use of software in automotive systems is also driving the need to use WCET analysis of software.
+</p><p>In the design of some systems, WCET is often used as an input to <a href="https://en.wikipedia.org/wiki/Scheduling_analysis_real-time_systems" title="Scheduling analysis real-time systems">schedulability analysis</a>, although a much more common use of WCET in critical systems is to ensure that the pre-allocated timing budgets in a partition-scheduled system such as <a href="https://en.wikipedia.org/wiki/ARINC_653" title="ARINC 653">ARINC 653</a> are not violated.
+</p>
+<h2><span class="mw-headline" id="Calculation">Calculation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;action=edit&amp;section=2" title="Edit section: Calculation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Since the early days of embedded computing, embedded software developers have either used:
+</p>
+<ul><li>end-to-end measurements of code, for example performed by setting an I/O pin on the device to high at the start of the task, and to low at the end of the task and using a logic analyzer to measure the longest pulse width, or by measuring within the software itself using the processor clock or instruction count.</li>
+<li>manual static analysis techniques such as counting assembler instructions for each function, loop etc. and then combining them.</li></ul>
+<p>Both of these techniques have limitations. End to end measurements place a high burden on software testing to achieve the longest path; counting instructions is only applicable to simple software and hardware. In both cases, a margin for error is often used to account for untested code, hardware performance approximations or mistakes. A margin of 20% is often used, although there is very little justification used for this figure, save for historical confidence ("it worked last time"). 
+</p><p>As software and hardware have increased in complexity, they have driven the need for tool support.  Complexity is increasingly becoming an issue in both static analysis and measurements. It is difficult to judge how wide the error margin should be and how well tested the software system is. System safety arguments based on a high-water mark achieved during testing are widely used, but become harder to justify as the software and hardware become less predictable.
+</p><p>In the future, it is likely that a requirement for safety critical systems is that they are analyzed using both static and measurement-based approaches.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (September 2012)">citation needed</span></a></i>&#93;</sup>
+</p>
+<h3><span class="mw-headline" id="Considerations">Considerations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;action=edit&amp;section=3" title="Edit section: Considerations">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The problem of finding WCET by analysis is equivalent to the <a href="https://en.wikipedia.org/wiki/Halting_problem" title="Halting problem">halting problem</a> and is therefore not solvable in the general. Fortunately, for the kind of systems that engineers typically want to find WCET for, the software is typically well structured, will always terminate and is analyzable.
+</p><p>Most methods for finding a WCET involve approximations (usually a rounding upwards when there are uncertainties) and hence in practice the exact WCET itself is often regarded as unobtainable. Instead, different techniques for finding the WCET produce estimates for the WCET.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup> Those estimates are typically pessimistic, meaning that the estimated WCET is known to be higher than the real WCET (which is usually what is desired). Much work on WCET analysis is on reducing the pessimism in analysis so that the estimated value is low enough to be valuable to the system designer.
+</p><p>WCET analysis usually refers to the execution time of single thread, task or process.  However, on modern hardware, especially multi-core, other tasks in the system will impact the WCET of a given task if they share cache, memory lines and other hardware features.  Further, task scheduling events such as <a href="https://en.wikipedia.org/wiki/Blocking_(scheduling)" class="mw-redirect" title="Blocking (scheduling)">blocking</a> or to be <a href="https://en.wikipedia.org/wiki/Interrupt" title="Interrupt">interruptions</a> should be considered in WCET analysis if they can occur in a particular system.  Therefore, it is important to consider the context in which WCET analysis is applied.
+</p>
+<h3><span class="mw-headline" id="Automated_approaches">Automated approaches</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;action=edit&amp;section=4" title="Edit section: Automated approaches">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>There are many automated approaches to calculating WCET beyond the manual techniques above. These include:
+</p>
+<ul><li>analytical techniques to improve test cases to increase confidence in end to end measurements</li>
+<li>static analysis of the software (“static” meaning without executing the software).</li>
+<li>combined approaches, often referred to as “hybrid” analysis, being a combination of measurements and structural analysis</li></ul>
+<h4><span class="mw-headline" id="Static_analysis_techniques">Static analysis techniques</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;action=edit&amp;section=5" title="Edit section: Static analysis techniques">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>A static WCET tool attempts to estimate WCET by examining the computer software without executing it directly on the hardware.  Static analysis techniques have dominated research in the area since the late 1980s, although in an industrial setting, end-to-end measurements approaches were the standard practice.
+</p><p>Static analysis tools work at a high-level to determine the structure of a <a href="https://en.wikipedia.org/wiki/Computer_program" title="Computer program">program</a>'s task, working either on a piece of <a href="https://en.wikipedia.org/wiki/Source_code" title="Source code">source code</a> or disassembled binary <a href="https://en.wikipedia.org/wiki/Executable" title="Executable">executable</a>. They also work at a low-level, using timing information about the real hardware that the task will execute on, with all its specific features. By combining those two kinds of analysis, the tool attempts to give an upper bound on the time required to execute a given task on a given hardware platform.
+</p><p>At the low-level, static WCET analysis is complicated by the presence of architectural features that improve the average-case performance of the <a href="https://en.wikipedia.org/wiki/Central_processing_unit" title="Central processing unit">processor</a>: instruction/data <a href="https://en.wikipedia.org/wiki/CPU_cache" title="CPU cache">caches</a>, <a href="https://en.wikipedia.org/wiki/Branch_predictor" title="Branch predictor">branch prediction</a> and <a href="https://en.wikipedia.org/wiki/Pipeline_(computing)" title="Pipeline (computing)">instruction pipelines</a>, for example. It is possible, but increasingly difficult, to determine tight WCET bounds if these modern architectural features are taken into account in the timing model used by the analysis.
+</p><p>Certification authorities such as the <a href="https://en.wikipedia.org/wiki/European_Aviation_Safety_Agency" class="mw-redirect" title="European Aviation Safety Agency">European Aviation Safety Agency</a>, therefore, rely on model validation suites.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (September 2012)">citation needed</span></a></i>&#93;</sup>
+</p><p>Static analysis has resulted in good results for simpler hardware, however a possible limitation of static analysis is that the hardware (the CPU in particular) has reached a complexity which is extremely hard to model. In particular, the modelling process can introduce errors from several sources: errors in chip design, lack of documentation, errors in documentation, errors in model creation; all leading to cases where the model predicts a different behavior to that observed on real hardware. Typically, where it is not possible to accurately predict a behavior, a pessimistic result is used, which can lead to the WCET estimate being much larger than anything achieved at run-time. 
+</p><p>Obtaining tight static WCET estimation is particularly difficult on multi-core processors. 
+</p><p>There are a number of commercial and academic tools that implement various forms of static analysis.
+</p>
+<h4><span class="mw-headline" id="Measurement_and_hybrid_techniques">Measurement and hybrid techniques</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;action=edit&amp;section=6" title="Edit section: Measurement and hybrid techniques">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>Measurement-based and hybrid approaches usually try to measure the execution times of short code segments on the real hardware, which are then combined in a higher level analysis. Tools take into account the structure of the software (e.g. loops, branches), to produce an estimate of the WCET of the larger program. The rationale is that it's hard to test the longest path in complex software, but it is easier to test the longest path in many smaller components of it. A worst case effect needs only to be seen once during testing for the analysis to be able to combine it with other worst case events in its analysis.
+</p><p>Typically, the small sections of software can be measured automatically using techniques such as instrumentation (adding markers to the software) or with hardware support such as debuggers, and CPU hardware tracing modules. These markers result in a trace of execution, which includes both the path taken through the program and the time at which different points were executed. The trace is then analyzed to determine the maximum time that each part of the program has ever taken to execute, what the maximum observed iteration time of each loop is and whether there are any parts of the software that are untested (<a href="https://en.wikipedia.org/wiki/Code_coverage" title="Code coverage">Code coverage</a>).
+</p><p>Measurement-based WCET analysis has resulted in good results for both simple and complex hardware, although like static analysis it can suffer excessive pessimism in multi-core situations, where the impact of one core on another is hard to define. A limitation of measurement is that it relies on observing the worst-case effects during testing (although not necessarily at the same time). It can be hard to determine if the worst case effects have necessarily been tested.
+</p><p>There are a number of commercial and academic tools that implement various forms of measurement-based analysis.
+</p>
+<h2><span class="mw-headline" id="Research">Research</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;action=edit&amp;section=7" title="Edit section: Research">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The most active research groups are in Sweden (Mälardalen, Linköping), Germany (Saarbrücken, Dortmund, Braunschweig), France (Toulouse, Saclay, Rennes), Austria (Vienna), UK (University of York and Rapita Systems Ltd), Italy (Bologna), Spain (Cantabria, Valencia), and Switzerland (Zurich).  Recently, the topic of code-level timing analysis has found more attention outside of Europe by research groups in the US (North Carolina, Florida), Canada, Australia, Bangladesh(MBI LAB and RDS), Kingdom of Saudi Arabia-UQU(HISE LAB) and Singapore.
+</p>
+<h3><span class="mw-headline" id="WCET_Tool_Challenge">WCET Tool Challenge</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;action=edit&amp;section=8" title="Edit section: WCET Tool Challenge">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The first international WCET Tool Challenge took place during the autumn of 2006. It was organized by the <a href="https://en.wikipedia.org/wiki/Mälardalen_University" class="mw-redirect" title="Mälardalen University">University of Mälardalen</a> and sponsored by the ARTIST2 Network of Excellence on Embedded Systems Design. The aim of the Challenge was to inspect and to compare different approaches in analyzing the worst-case execution time. All available tools and prototypes able to determine safe upper bounds for the WCET of tasks have participated. The final results<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup> were presented in November 2006 at the <a href="https://en.wikipedia.org/w/index.php?title=International_Symposium_On_Leveraging_Applications_of_Formal_Methods,_Verification_and_Validation&amp;action=edit&amp;redlink=1" class="new" title="International Symposium On Leveraging Applications of Formal Methods, Verification and Validation (page does not exist)">ISoLA 2006</a> International Symposium in <a href="https://en.wikipedia.org/wiki/Paphos" title="Paphos">Paphos</a>, Cyprus.
+</p><p>A second Challenge took place in 2008.<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;action=edit&amp;section=9" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Best_and_worst_cases" class="mw-redirect" title="Best and worst cases">Best and worst cases</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Amortized_analysis" title="Amortized analysis">Amortized analysis</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">Big O notation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Optimization_(computer_science)" class="mw-redirect" title="Optimization (computer science)">Optimization (computer science)</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;action=edit&amp;section=10" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text">"<a rel="nofollow" class="external text" href="http://moss.csc.ncsu.edu/~mueller/ftp/pub/mueller/papers/1257.pdf">The worst-case execution-time problem—overview of methods and survey of tools</a>", Wilhelm, Reinhard, et al., ACM Transactions on Embedded Computing Systems (TECS), Vol. 7, No. 3, 2008.</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20111001132946/http://rw4.cs.uni-sb.de/~lili/papers/WCETToolChallengep_Extl.pdf">"Archived copy"</a> <span class="cs1-format">(PDF)</span>. Archived from <a rel="nofollow" class="external text" href="http://rw4.cs.uni-sb.de/~lili/papers/WCETToolChallengep_Extl.pdf">the original</a> <span class="cs1-format">(PDF)</span> on 2011-10-01<span class="reference-accessdate">. Retrieved <span class="nowrap">2010-08-15</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Archived+copy&amp;rft_id=http%3A%2F%2Frw4.cs.uni-sb.de%2F~lili%2Fpapers%2FWCETToolChallengep_Extl.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AWorst-case+execution+time" class="Z3988"></span><span class="cs1-maint citation-comment"><code class="cs1-code">{{<a href="https://en.wikipedia.org/wiki/Template:Cite_web" title="Template:Cite web">cite web</a>}}</code>:  CS1 maint: archived copy as title (<a href="https://en.wikipedia.org/wiki/Category:CS1_maint:_archived_copy_as_title" title="Category:CS1 maint: archived copy as title">link</a>)</span></span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20120216074808/http://www.mrtc.mdh.se/projects/WCC08/">"Archived copy"</a>. Archived from <a rel="nofollow" class="external text" href="http://www.mrtc.mdh.se/projects/WCC08/">the original</a> on 2012-02-16<span class="reference-accessdate">. Retrieved <span class="nowrap">2008-08-16</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Archived+copy&amp;rft_id=http%3A%2F%2Fwww.mrtc.mdh.se%2Fprojects%2FWCC08%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AWorst-case+execution+time" class="Z3988"></span><span class="cs1-maint citation-comment"><code class="cs1-code">{{<a href="https://en.wikipedia.org/wiki/Template:Cite_web" title="Template:Cite web">cite web</a>}}</code>:  CS1 maint: archived copy as title (<a href="https://en.wikipedia.org/wiki/Category:CS1_maint:_archived_copy_as_title" title="Category:CS1 maint: archived copy as title">link</a>)</span></span>
+</li>
+</ol></div>
+<h3><span class="mw-headline" id="Articles_and_white_papers">Articles and white papers</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;action=edit&amp;section=11" title="Edit section: Articles and white papers">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li><a rel="nofollow" class="external text" href="http://www.absint.com/aiT_WCET.pdf">Worst-Case Execution Time Prediction by Static Program Analysis (PDF)</a></li>
+<li><a rel="nofollow" class="external text" href="ftp://ftp.irit.fr/IRIT/TRACES/6278_ERTS06.pdf">OTAWA, a Framework for Experimenting WCET Computations (PDF)</a></li>
+<li><a rel="nofollow" class="external text" href="https://archive.today/20130203011833/http://www.springerlink.com/content/b006817qk45791u5/?p=b6996092be0a4fcebe9b4fed4bb8cb9b&amp;pi=0">WCET Tool Challenge 2006 extended test results analysis of final report (Journal article in Springer)</a></li>
+<li><a rel="nofollow" class="external text" href="http://home.versanet.de/~lt-422029/WCETToolChallengep_Extl.pdf">WCET Tool Challenge 2006 final report (PDF)</a><sup class="noprint Inline-Template"><span style="white-space: nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Link_rot" title="Wikipedia:Link rot"><span title="&#160;Dead link tagged February 2020">permanent dead link</span></a></i>&#93;</span></sup></li>
+<li><a rel="nofollow" class="external text" href="http://ls12-www.cs.tu-dortmund.de/daes/media/documents/publications/downloads/2010-rts.pdf">A compiler framework for the reduction of worst-case execution times (PDF)</a></li></ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;action=edit&amp;section=12" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://cerco.cs.unibo.it/">CerCo ("Certified Complexity")</a></li>
+<li><a rel="nofollow" class="external text" href="http://ls12-www.cs.tu-dortmund.de/research/activities/wcc">WCET-aware Compilation / The WCET-aware C Compiler WCC</a></li></ul>
+<!-- 
+NewPP limit report
+Parsed by mw1399
+Cached time: 20220505152701
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.163 seconds
+Real time usage: 0.206 seconds
+Preprocessor visited node count: 629/1000000
+Post‐expand include size: 10708/2097152 bytes
+Template argument size: 2096/2097152 bytes
+Highest expansion depth: 15/100
+Expensive parser function count: 2/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 6567/5000000 bytes
+Lua time usage: 0.091/10.000 seconds
+Lua memory usage: 2719308/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  181.348      1 -total
+ 47.82%   86.724      2 Template:Citation_needed
+ 45.14%   81.867      2 Template:Cite_web
+ 34.87%   63.245      3 Template:Fix
+ 19.24%   34.891      6 Template:Category_handler
+  8.86%   16.062      2 Template:Delink
+  3.28%    5.957      1 Template:Dead_link
+  2.66%    4.830      3 Template:Fix/category
+  1.63%    2.947      4 Template:Main_other
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:1029051-0!canonical and timestamp 20220505152701 and revision id 1081022051. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;oldid=1081022051">https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;oldid=1081022051</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Real-time_computing" title="Category:Real-time computing">Real-time computing</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:CS1_maint:_archived_copy_as_title" title="Category:CS1 maint: archived copy as title">CS1 maint: archived copy as title</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_unsourced_statements_from_September_2012" title="Category:Articles with unsourced statements from September 2012">Articles with unsourced statements from September 2012</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_with_dead_external_links" title="Category:All articles with dead external links">All articles with dead external links</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_dead_external_links_from_February_2020" title="Category:Articles with dead external links from February 2020">Articles with dead external links from February 2020</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_permanently_dead_external_links" title="Category:Articles with permanently dead external links">Articles with permanently dead external links</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Worst-case+execution+time" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Worst-case+execution+time" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Worst-case_execution_time" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Worst-case_execution_time" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Worst-case_execution_time"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Worst-case_execution_time" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Worst-case_execution_time" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;oldid=1081022051" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Worst-case_execution_time&amp;id=1081022051&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q362858" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Worst-case_execution_time&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Maximale_Laufzeit" title="Maximale Laufzeit – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/بدترین_زمان_اجرا" title="بدترین زمان اجرا – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Worst_Case_Execution_Time" title="Worst Case Execution Time – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-it mw-list-item"><a href="https://it.wikipedia.org/wiki/Worst-case_execution_time" title="Worst-case execution time – Italian" lang="it" hreflang="it" class="interlanguage-link-target"><span>Italiano</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/最悪実行時間" title="最悪実行時間 – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q362858#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 4 April 2022, at 20:42<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Worst-case_execution_time&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.163","walltime":"0.206","ppvisitednodes":{"value":629,"limit":1000000},"postexpandincludesize":{"value":10708,"limit":2097152},"templateargumentsize":{"value":2096,"limit":2097152},"expansiondepth":{"value":15,"limit":100},"expensivefunctioncount":{"value":2,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":6567,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  181.348      1 -total"," 47.82%   86.724      2 Template:Citation_needed"," 45.14%   81.867      2 Template:Cite_web"," 34.87%   63.245      3 Template:Fix"," 19.24%   34.891      6 Template:Category_handler","  8.86%   16.062      2 Template:Delink","  3.28%    5.957      1 Template:Dead_link","  2.66%    4.830      3 Template:Fix/category","  1.63%    2.947      4 Template:Main_other"]},"scribunto":{"limitreport-timeusage":{"value":"0.091","limit":"10.000"},"limitreport-memusage":{"value":2719308,"limit":52428800}},"cachereport":{"origin":"mw1399","timestamp":"20220505152701","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Worst-case execution time","url":"https:\/\/en.wikipedia.org\/wiki\/Worst-case_execution_time","sameAs":"http:\/\/www.wikidata.org\/entity\/Q362858","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q362858","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-09-30T07:52:02Z","dateModified":"2022-04-04T20:42:35Z","headline":"maximum length of time a computed task could take to execute"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Worst-case execution time","url":"https:\/\/en.wikipedia.org\/wiki\/Worst-case_execution_time","sameAs":"http:\/\/www.wikidata.org\/entity\/Q362858","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q362858","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-09-30T07:52:02Z","dateModified":"2022-04-04T20:42:35Z","headline":"maximum length of time a computed task could take to execute"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":144,"wgHostname":"mw1411"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Worst-case_execution_time by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:48 GMT -->
+</html>

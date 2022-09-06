@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Karmarkar%27s_algorithm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Karmarkar's algorithm - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"19aaa714-afdc-45c7-abce-3bc09655499c","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Karmarkar's_algorithm","wgTitle":"Karmarkar's algorithm","wgCurRevisionId":1068118862,"wgRevisionId":1068118862,"wgArticleId":3736667,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["All articles with unsourced statements","Articles with unsourced statements from February 2016","Articles with unsourced statements from September 2020","Articles with example pseudocode","Optimization algorithms and methods","Software patent law","Linear programming"],
+"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Karmarkar's_algorithm","wgRelevantArticleId":3736667,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":20000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q2246305"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":
+"ready","user":"ready","user.options":"loading","ext.math.styles":"ready","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.math.scripts","ext.cite.ux-enhancements","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface",
+"ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="Karmarkar&#039;s algorithm - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Karmarkar%27s_algorithm"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Karmarkar%27s_algorithm&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Karmarkar%27s_algorithm"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Karmarkar_s_algorithm rootpage-Karmarkar_s_algorithm skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Karmarkar's algorithm</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><p><b>Karmarkar's algorithm</b> is an <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithm</a> introduced by <a href="https://en.wikipedia.org/wiki/Narendra_Karmarkar" title="Narendra Karmarkar">Narendra Karmarkar</a> in 1984 for solving <a href="https://en.wikipedia.org/wiki/Linear_programming" title="Linear programming">linear programming</a> problems. It was the first reasonably efficient algorithm that solves these problems in <a href="https://en.wikipedia.org/wiki/Polynomial_time" class="mw-redirect" title="Polynomial time">polynomial time</a>. The <a href="https://en.wikipedia.org/wiki/Ellipsoid_method" title="Ellipsoid method">ellipsoid method</a> is also polynomial time but proved to be inefficient in practice.
+</p><p>Denoting <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> as the number of variables and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle L}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>L</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle L}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/103168b86f781fe6e9a4a87b8ea1cebe0ad4ede8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.583ex; height:2.176ex;" alt="L"/></span> as the number of bits of input to the algorithm, Karmarkar's algorithm requires <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n^{3.5}L)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3.5</mn>
+          </mrow>
+        </msup>
+        <mi>L</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n^{3.5}L)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/75bfa3b481f545e25ae3d8d60ef6ca14d51050ef" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.894ex; height:3.176ex;" alt="O(n^{{3.5}}L)"/></span> operations on <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(L)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>L</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(L)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2686f0d98bdf16092324c5519a1497c1f7a3e2fc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.165ex; height:2.843ex;" alt="O(L)"/></span> digit numbers, as compared to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n^{6}L)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>6</mn>
+          </mrow>
+        </msup>
+        <mi>L</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n^{6}L)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8b415f36ac1c25ad1609e767279717826fc236fa" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.614ex; height:3.176ex;" alt="O(n^{6}L)"/></span> such operations for the ellipsoid algorithm. The runtime of Karmarkar's algorithm is thus 
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n^{3.5}L^{2}\cdot \log L\cdot \log \log L)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3.5</mn>
+          </mrow>
+        </msup>
+        <msup>
+          <mi>L</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>L</mi>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>L</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n^{3.5}L^{2}\cdot \log L\cdot \log \log L)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/54eb1454236e7cb0c252068d56917c419304abea" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:26.548ex; height:3.176ex;" alt="O(n^{{3.5}}L^{2}\cdot \log L\cdot \log \log L)"/></span></dd></dl>
+<p>using <a href="https://en.wikipedia.org/wiki/Schönhage–Strassen_algorithm" title="Schönhage–Strassen algorithm">FFT-based multiplication</a> (see <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">Big O notation</a>).
+</p><p>Karmarkar's algorithm falls within the class of <a href="https://en.wikipedia.org/wiki/Interior_point_method" class="mw-redirect" title="Interior point method">interior point methods</a>: the current guess for the solution does not follow the boundary of the <a href="https://en.wikipedia.org/wiki/Feasible_set" class="mw-redirect" title="Feasible set">feasible set</a> as in the <a href="https://en.wikipedia.org/wiki/Simplex_method" class="mw-redirect" title="Simplex method">simplex method</a>, but it moves through the interior of the feasible region, improving the approximation of the optimal solution by a definite fraction with every iteration, and converging to an optimal solution with rational data.<sup id="cite_ref-Strang_1-0" class="reference"><a href="#cite_note-Strang-1">&#91;1&#93;</a></sup>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#The_algorithm"><span class="tocnumber">1</span> <span class="toctext">The algorithm</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Example"><span class="tocnumber">2</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Patent_controversy_–_can_mathematics_be_patented?"><span class="tocnumber">3</span> <span class="toctext">Patent controversy – can mathematics be patented?</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="The_algorithm">The algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Karmarkar%27s_algorithm&amp;action=edit&amp;section=1" title="Edit section: The algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Consider a linear programming problem in matrix form:
+</p>
+<table>
+<tbody><tr>
+<td colspan="2">maximize <span class="texhtml"><i>c</i><sup>T</sup><i>x</i></span>
+</td></tr>
+<tr>
+<td>subject to
+</td>
+<td><span class="texhtml"><i>Ax</i> ≤ <i>b</i></span>.
+</td></tr>
+</tbody></table>
+<p>Karmarkar's algorithm determines the next feasible direction toward optimality and scales back by a factor <span class="texhtml">0 &lt; γ ≤ 1</span>. It is described in a number of sources.<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup><sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup><sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup><sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup><sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup><sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup> Karmarkar also has extended the method<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup><sup id="cite_ref-9" class="reference"><a href="#cite_note-9">&#91;9&#93;</a></sup><sup id="cite_ref-10" class="reference"><a href="#cite_note-10">&#91;10&#93;</a></sup><sup id="cite_ref-11" class="reference"><a href="#cite_note-11">&#91;11&#93;</a></sup> to solve problems with integer constraints and non-convex problems.<sup id="cite_ref-12" class="reference"><a href="#cite_note-12">&#91;12&#93;</a></sup>
+</p>
+<div style="border:1px solid #cccccc; background-color:#f8f8f8; padding:4px;">
+<pre><b>Algorithm</b> Affine-Scaling
+</pre>
+<p>Since the actual algorithm is rather complicated, researchers looked for a more intuitive version of it, and in 1985 developed <a href="https://en.wikipedia.org/wiki/Affine_scaling" title="Affine scaling">affine scaling</a>, a version of Karmarkar's algorithm that uses <a href="https://en.wikipedia.org/wiki/Affine_transformation" title="Affine transformation">affine transformations</a> where Karmarkar used <a href="https://en.wikipedia.org/wiki/Projective_geometry" title="Projective geometry">projective</a> ones, only to realize four years later that they had rediscovered an algorithm published by <a href="https://en.wikipedia.org/wiki/Soviet_Union" title="Soviet Union">Soviet</a> mathematician I. I. Dikin in 1967.<sup id="cite_ref-13" class="reference"><a href="#cite_note-13">&#91;13&#93;</a></sup> The affine-scaling method can be described succinctly as follows.<sup id="cite_ref-14" class="reference"><a href="#cite_note-14">&#91;14&#93;</a></sup> The affine-scaling algorithm, while applicable to small scale problems, is not a polynomial time algorithm.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (February 2016)">citation needed</span></a></i>&#93;</sup> 
+</p>
+<pre><span class="nowrap">Input:  A, b, c, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{0}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{0}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1871ffeb57c11624b375dbb7157d5887c706eb87" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.384ex; height:2.676ex;" alt="x^{0}"/></span>,</span> <i>stopping criterion</i>, <span class="texhtml mvar" style="font-style:italic;">&#947;</span>.
+</pre>
+<pre><span class="nowrap"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k\leftarrow 0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+        <mo stretchy="false">&#x2190;<!-- ← --></mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k\leftarrow 0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/eba4e1dbc3c8f3ccb6b0f50e5791996d25a9855b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.988ex; height:2.176ex;" alt="k\leftarrow 0"/></span></span>
+<span class="nowrap"><b>do while</b> <i>stopping criterion</i> <b>not satisfied</b></span>
+    <span class="nowrap"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle v^{k}\leftarrow b-Ax^{k}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">&#x2190;<!-- ← --></mo>
+        <mi>b</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>A</mi>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v^{k}\leftarrow b-Ax^{k}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/10ba8fe33ff64b715b43bac084a1fcc4bdbab1f5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:13.83ex; height:2.843ex;" alt="v^{k}\leftarrow b-Ax^{k}"/></span></span>
+    <span class="nowrap"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle D_{v}\leftarrow \operatorname {diag} (v_{1}^{k},\ldots ,v_{m}^{k})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>D</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>v</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">&#x2190;<!-- ← --></mo>
+        <mi>diag</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <msubsup>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msubsup>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msubsup>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>m</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msubsup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle D_{v}\leftarrow \operatorname {diag} (v_{1}^{k},\ldots ,v_{m}^{k})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aab56e61ba7784fa937b286dee575f8adc50030a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:22.839ex; height:3.176ex;" alt="D_{v}\leftarrow \operatorname {diag}(v_{1}^{k},\ldots ,v_{m}^{k})"/></span></span>
+    <span class="nowrap"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle h_{x}\leftarrow (A^{T}D_{v}^{-2}A)^{-1}c}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>h</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>x</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">&#x2190;<!-- ← --></mo>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>T</mi>
+          </mrow>
+        </msup>
+        <msubsup>
+          <mi>D</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>v</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>2</mn>
+          </mrow>
+        </msubsup>
+        <mi>A</mi>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msup>
+        <mi>c</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle h_{x}\leftarrow (A^{T}D_{v}^{-2}A)^{-1}c}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3aaa121fe5b2a9146eb2fb861be92aa80ec2f1f2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:20.407ex; height:3.176ex;" alt="h_{x}\leftarrow (A^{T}D_{v}^{{-2}}A)^{{-1}}c"/></span></span>
+    <span class="nowrap"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle h_{v}\leftarrow -Ah_{x}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>h</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>v</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">&#x2190;<!-- ← --></mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>A</mi>
+        <msub>
+          <mi>h</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>x</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle h_{v}\leftarrow -Ah_{x}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/46cc79b57ecfae16d7de71282b170eb19c23b267" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:12.045ex; height:2.509ex;" alt="h_{v}\leftarrow -Ah_{x}"/></span></span>
+    <span class="nowrap"><b>if</b> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle h_{v}\geq 0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>h</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>v</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2265;<!-- ≥ --></mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle h_{v}\geq 0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/514baf22b7cb690c7c55da4b11130de991bde0c3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:6.629ex; height:2.509ex;" alt="h_{v}\geq 0"/></span> <b>then</b></span>
+        <b>return</b> unbounded
+    <b>end if</b>
+    <span class="nowrap"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \alpha \leftarrow \gamma \cdot \min\{-v_{i}^{k}/(h_{v})_{i}\,\,|\,\,(h_{v})_{i}&lt;0,\,i=1,\ldots ,m\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03B1;<!-- α --></mi>
+        <mo stretchy="false">&#x2190;<!-- ← --></mo>
+        <mi>&#x03B3;<!-- γ --></mi>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mo movablelimits="true" form="prefix">min</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <msubsup>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msubsup>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>h</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>v</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mspace width="thinmathspace" />
+        <mspace width="thinmathspace" />
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mspace width="thinmathspace" />
+        <mspace width="thinmathspace" />
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>h</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>v</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>&lt;</mo>
+        <mn>0</mn>
+        <mo>,</mo>
+        <mspace width="thinmathspace" />
+        <mi>i</mi>
+        <mo>=</mo>
+        <mn>1</mn>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <mi>m</mi>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \alpha \leftarrow \gamma \cdot \min\{-v_{i}^{k}/(h_{v})_{i}\,\,|\,\,(h_{v})_{i}&lt;0,\,i=1,\ldots ,m\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bba78f59a254088ad30ac029c0739c3de58845be" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:49.544ex; height:3.176ex;" alt="\alpha \leftarrow \gamma \cdot \min\{-v_{i}^{k}/(h_{v})_{i}\,\,|\,\,(h_{v})_{i}&lt;0,\,i=1,\ldots ,m\}"/></span></span>
+    <span class="nowrap"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x^{k+1}\leftarrow x^{k}+\alpha h_{x}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msup>
+        <mo stretchy="false">&#x2190;<!-- ← --></mo>
+        <msup>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mi>&#x03B1;<!-- α --></mi>
+        <msub>
+          <mi>h</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>x</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x^{k+1}\leftarrow x^{k}+\alpha h_{x}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9cb8f01ae16d1436dd625d16c1c38ca600066dc7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:17.391ex; height:3.009ex;" alt="x^{{k+1}}\leftarrow x^{k}+\alpha h_{x}"/></span></span>
+    <span class="nowrap"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k\leftarrow k+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+        <mo stretchy="false">&#x2190;<!-- ← --></mo>
+        <mi>k</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k\leftarrow k+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/469b0d14d5eff3c19bde9957713c939411776b66" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:10.039ex; height:2.343ex;" alt="k\leftarrow k+1"/></span></span>
+<b>end do</b>
+</pre>
+<ul><li><small>"&#8592;" denotes <a href="https://en.wikipedia.org/wiki/Assignment_(computer_science)" title="Assignment (computer science)">assignment</a>.  For instance, "<i>largest</i> &#8592; <i>item</i>" means that the value of <i>largest</i> changes to the value of <i>item</i>.</small></li>
+<li><small>"<b>return</b>" terminates the algorithm and outputs the following value.</small></li></ul>
+</div>
+<h2><span class="mw-headline" id="Example">Example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Karmarkar%27s_algorithm&amp;action=edit&amp;section=2" title="Edit section: Example">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:202px;"><a href="https://en.wikipedia.org/wiki/File:Karmarkar.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Karmarkar.svg/200px-Karmarkar.svg.png" decoding="async" width="200" height="150" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Karmarkar.svg/300px-Karmarkar.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Karmarkar.svg/400px-Karmarkar.svg.png 2x" data-file-width="720" data-file-height="540" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Karmarkar.svg" class="internal" title="Enlarge"></a></div>Example solution</div></div></div>
+<p>Consider the linear program
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\begin{array}{lrclr}{\text{maximize}}&amp;x_{1}+x_{2}\\{\text{subject to}}&amp;2px_{1}+x_{2}&amp;\leq &amp;p^{2}+1,&amp;p=0.0,0.1,0.2,\ldots ,0.9,1.0.\end{array}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable columnalign="left right center left right" rowspacing="4pt" columnspacing="1em">
+            <mtr>
+              <mtd>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext>maximize</mtext>
+                </mrow>
+              </mtd>
+              <mtd>
+                <msub>
+                  <mi>x</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo>+</mo>
+                <msub>
+                  <mi>x</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>2</mn>
+                  </mrow>
+                </msub>
+              </mtd>
+            </mtr>
+            <mtr>
+              <mtd>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mtext>subject to</mtext>
+                </mrow>
+              </mtd>
+              <mtd>
+                <mn>2</mn>
+                <mi>p</mi>
+                <msub>
+                  <mi>x</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mo>+</mo>
+                <msub>
+                  <mi>x</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>2</mn>
+                  </mrow>
+                </msub>
+              </mtd>
+              <mtd>
+                <mo>&#x2264;<!-- ≤ --></mo>
+              </mtd>
+              <mtd>
+                <msup>
+                  <mi>p</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>2</mn>
+                  </mrow>
+                </msup>
+                <mo>+</mo>
+                <mn>1</mn>
+                <mo>,</mo>
+              </mtd>
+              <mtd>
+                <mi>p</mi>
+                <mo>=</mo>
+                <mn>0.0</mn>
+                <mo>,</mo>
+                <mn>0.1</mn>
+                <mo>,</mo>
+                <mn>0.2</mn>
+                <mo>,</mo>
+                <mo>&#x2026;<!-- … --></mo>
+                <mo>,</mo>
+                <mn>0.9</mn>
+                <mo>,</mo>
+                <mn>1.0.</mn>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{array}{lrclr}{\text{maximize}}&amp;x_{1}+x_{2}\\{\text{subject to}}&amp;2px_{1}+x_{2}&amp;\leq &amp;p^{2}+1,&amp;p=0.0,0.1,0.2,\ldots ,0.9,1.0.\end{array}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e4cbde9d0991b0c33c6205d2cd8751b152ca612f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:66.547ex; height:6.176ex;" alt="{\displaystyle {\begin{array}{lrclr}{\text{maximize}}&amp;x_{1}+x_{2}\\{\text{subject to}}&amp;2px_{1}+x_{2}&amp;\leq &amp;p^{2}+1,&amp;p=0.0,0.1,0.2,\ldots ,0.9,1.0.\end{array}}}"/></span></dd></dl>
+<p>That is, there are 2 variables <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{1},x_{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{1},x_{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/188263943645114e27e316cc1be787861e5b67be" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:5.802ex; height:2.009ex;" alt="x_{1},x_{2}"/></span> and 11 constraints associated with varying values of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/81eac1e205430d1f40810df36a0edffdc367af36" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:1.259ex; height:2.009ex;" alt="p"/></span>. This figure shows each iteration of the algorithm as red circle points. The constraints are shown as blue lines.
+</p>
+<h2><span id="Patent_controversy_.E2.80.93_can_mathematics_be_patented.3F"></span><span class="mw-headline" id="Patent_controversy_–_can_mathematics_be_patented?">Patent controversy – can mathematics be patented?</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Karmarkar%27s_algorithm&amp;action=edit&amp;section=3" title="Edit section: Patent controversy – can mathematics be patented?">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>At the time he invented the algorithm, Karmarkar was employed by <a href="https://en.wikipedia.org/wiki/IBM" title="IBM">IBM</a> as a postdoctoral fellow in the <a href="https://en.wikipedia.org/wiki/IBM_San_Jose_Research_Laboratory" class="mw-redirect" title="IBM San Jose Research Laboratory">IBM San Jose Research Laboratory</a> in California. On August 11, 1983 he gave a seminar at <a href="https://en.wikipedia.org/wiki/Stanford_University" title="Stanford University">Stanford University</a> explaining the algorithm, with his affiliation still listed as IBM. By the fall of 1983 Karmarkar started to work at <a href="https://en.wikipedia.org/wiki/AT%26T" title="AT&amp;T">AT&amp;T</a> and submitted his paper to the 1984 ACM <a href="https://en.wikipedia.org/wiki/Symposium_on_Theory_of_Computing" title="Symposium on Theory of Computing">Symposium on Theory of Computing</a> (STOC, held April 30 - May 2, 1984) stating <a href="https://en.wikipedia.org/wiki/AT%26T_Bell_Laboratories" class="mw-redirect" title="AT&amp;T Bell Laboratories">AT&amp;T Bell Laboratories</a> as his affiliation.<sup id="cite_ref-15" class="reference"><a href="#cite_note-15">&#91;15&#93;</a></sup> After applying the algorithm to optimizing AT&amp;T's telephone network,<sup id="cite_ref-16" class="reference"><a href="#cite_note-16">&#91;16&#93;</a></sup> they realized that his invention could be of practical importance.  In April 1985, AT&amp;T promptly applied for a patent on his algorithm.
+</p><p>The patent became more fuel for the ongoing controversy over the issue of <a href="https://en.wikipedia.org/wiki/Software_patent" title="Software patent">software patents</a>.<sup id="cite_ref-kolata_17-0" class="reference"><a href="#cite_note-kolata-17">&#91;17&#93;</a></sup>  This left many mathematicians uneasy, such as <a href="https://en.wikipedia.org/wiki/Ronald_Rivest" class="mw-redirect" title="Ronald Rivest">Ronald Rivest</a> (himself one of the holders of the patent on the <a href="https://en.wikipedia.org/wiki/RSA_(algorithm)" class="mw-redirect" title="RSA (algorithm)">RSA</a> algorithm), who expressed the opinion that research proceeded on the basis that algorithms should be free. Even before the patent was actually granted, it was argued that there might have been <a href="https://en.wikipedia.org/wiki/Prior_art" title="Prior art">prior art</a> that was applicable.<sup id="cite_ref-saltzman_18-0" class="reference"><a href="#cite_note-saltzman-18">&#91;18&#93;</a></sup> Mathematicians who specialized in <a href="https://en.wikipedia.org/wiki/Numerical_analysis" title="Numerical analysis">numerical analysis</a>, including <a href="https://en.wikipedia.org/w/index.php?title=Philip_Gill&amp;action=edit&amp;redlink=1" class="new" title="Philip Gill (page does not exist)">Philip Gill</a> and others, claimed that Karmarkar's algorithm is equivalent to a <a href="https://en.wikipedia.org/w/index.php?title=Projected_Newton_barrier_method&amp;action=edit&amp;redlink=1" class="new" title="Projected Newton barrier method (page does not exist)">projected Newton barrier method</a> with a logarithmic <a href="https://en.wikipedia.org/wiki/Barrier_function" title="Barrier function">barrier function</a>, if the parameters are chosen suitably.<sup id="cite_ref-19" class="reference"><a href="#cite_note-19">&#91;19&#93;</a></sup>  Legal scholar Andrew Chin opines that Gill's argument was flawed, insofar as the method they describe does not constitute an "algorithm", since it requires choices of parameters that don't follow from the internal logic of the method, but rely on external guidance, essentially from Karmarkar's algorithm.<sup id="cite_ref-chin_20-0" class="reference"><a href="#cite_note-chin-20">&#91;20&#93;</a></sup> Furthermore, Karmarkar's contributions are considered far from obvious in light of all prior work, including Fiacco-McCormick, Gill and others cited by Saltzman.<sup id="cite_ref-chin_20-1" class="reference"><a href="#cite_note-chin-20">&#91;20&#93;</a></sup><sup id="cite_ref-paley_21-0" class="reference"><a href="#cite_note-paley-21">&#91;21&#93;</a></sup><sup id="cite_ref-wright_22-0" class="reference"><a href="#cite_note-wright-22">&#91;22&#93;</a></sup>  The patent was debated in the U.S. Senate<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (September 2020)">citation needed</span></a></i>&#93;</sup> and granted in recognition of the essential originality of Karmarkar's work, as <span><a rel="nofollow" class="external text" href="https://patents.google.com/patent/US4744028">U.S. Patent 4,744,028</a></span>: "Methods and apparatus for efficient resource allocation" in May 1988.
+</p><p>AT&amp;T designed a <a href="https://en.wikipedia.org/wiki/Vector_processor" title="Vector processor">vector</a> <a href="https://en.wikipedia.org/wiki/Multi-processor" class="mw-redirect" title="Multi-processor">multi-processor</a> computer system specifically to run Karmarkar's algorithm, calling the resulting combination of hardware and software KORBX,<sup id="cite_ref-23" class="reference"><a href="#cite_note-23">&#91;23&#93;</a></sup> and marketed this system at a price of US$8.9 million.<sup id="cite_ref-24" class="reference"><a href="#cite_note-24">&#91;24&#93;</a></sup><sup id="cite_ref-25" class="reference"><a href="#cite_note-25">&#91;25&#93;</a></sup> Its first customer was the <a href="https://en.wikipedia.org/wiki/United_States_Department_of_Defense" title="United States Department of Defense">Pentagon</a>.<sup id="cite_ref-26" class="reference"><a href="#cite_note-26">&#91;26&#93;</a></sup><sup id="cite_ref-27" class="reference"><a href="#cite_note-27">&#91;27&#93;</a></sup>
+</p><p>Opponents of software patents have further argued that the patents ruined the positive interaction cycles that previously characterized the relationship between researchers in linear programming and industry, and specifically it isolated Karmarkar himself from the network of mathematical researchers in his field.<sup id="cite_ref-28" class="reference"><a href="#cite_note-28">&#91;28&#93;</a></sup>
+</p><p>The patent itself expired in April 2006, and the algorithm is presently in the <a href="https://en.wikipedia.org/wiki/Public_domain" title="Public domain">public domain</a>.
+</p><p>The <a href="https://en.wikipedia.org/wiki/United_States_Supreme_Court" class="mw-redirect" title="United States Supreme Court">United States Supreme Court</a> has held that mathematics cannot be patented in <i><a href="https://en.wikipedia.org/wiki/Gottschalk_v._Benson" title="Gottschalk v. Benson">Gottschalk v. Benson</a></i>,<sup id="cite_ref-29" class="reference"><a href="#cite_note-29">&#91;29&#93;</a></sup> In that case, the Court first addressed whether computer algorithms could be patented and it held that they could not because the patent system does not protect ideas and similar abstractions. In <i><a href="https://en.wikipedia.org/wiki/Diamond_v._Diehr" title="Diamond v. Diehr">Diamond v. Diehr</a></i>,<sup id="cite_ref-30" class="reference"><a href="#cite_note-30">&#91;30&#93;</a></sup> the Supreme Court stated, "A mathematical formula as such is not accorded the protection of our patent laws, and this principle cannot be circumvented by attempting to limit the use of the formula to a particular technological environment.<sup id="cite_ref-31" class="reference"><a href="#cite_note-31">&#91;31&#93;</a></sup> In <i><a href="https://en.wikipedia.org/wiki/Mayo_Collaborative_Services_v._Prometheus_Labs.,_Inc." class="mw-redirect" title="Mayo Collaborative Services v. Prometheus Labs., Inc.">Mayo Collaborative Services v. Prometheus Labs., Inc.</a></i>,<sup id="cite_ref-32" class="reference"><a href="#cite_note-32">&#91;32&#93;</a></sup> the Supreme Court explained further that "simply implementing a mathematical principle on a physical machine, namely a computer, [i]s not a patentable application of that principle."<sup id="cite_ref-33" class="reference"><a href="#cite_note-33">&#91;33&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Karmarkar%27s_algorithm&amp;action=edit&amp;section=4" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFAdlerKarmarkarResendeVeiga1989" class="citation journal cs1">Adler, Ilan; Karmarkar, Narendra; Resende, Mauricio G.C.; Veiga, Geraldo (1989). "An Implementation of Karmarkar's Algorithm for Linear Programming". <i>Mathematical Programming</i>. <b>44</b> (1–3): 297–335. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2Fbf01587095">10.1007/bf01587095</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:12851754">12851754</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Mathematical+Programming&amp;rft.atitle=An+Implementation+of+Karmarkar%27s+Algorithm+for+Linear+Programming&amp;rft.volume=44&amp;rft.issue=1%E2%80%933&amp;rft.pages=297-335&amp;rft.date=1989&amp;rft_id=info%3Adoi%2F10.1007%2Fbf01587095&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A12851754%23id-name%3DS2CID&amp;rft.aulast=Adler&amp;rft.aufirst=Ilan&amp;rft.au=Karmarkar%2C+Narendra&amp;rft.au=Resende%2C+Mauricio+G.C.&amp;rft.au=Veiga%2C+Geraldo&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></li>
+<li>Narendra Karmarkar (1984). "<a rel="nofollow" class="external text" href="https://web.archive.org/web/20131228145520/http://retis.sssup.it/~bini/teaching/optim2010/karmarkar.pdf">A New Polynomial Time Algorithm for Linear Programming</a>", <i><a href="https://en.wikipedia.org/wiki/Combinatorica" title="Combinatorica">Combinatorica</a></i>, Vol <b>4</b>, nr. 4, p.&#160;373&#8211;395.</li></ul>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist reflist-columns references-column-width" style="column-width: 30em;">
+<ol class="references">
+<li id="cite_note-Strang-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-Strang_1-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFStrang1987" class="citation journal cs1"><a href="https://en.wikipedia.org/wiki/Gilbert_Strang" title="Gilbert Strang">Strang, Gilbert</a> (1 June 1987). "Karmarkar's algorithm and its place in applied mathematics". <i><a href="https://en.wikipedia.org/wiki/The_Mathematical_Intelligencer" title="The Mathematical Intelligencer">The Mathematical Intelligencer</a></i>. <b>9</b> (2): 4–10. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2FBF03025891">10.1007/BF03025891</a>. <a href="https://en.wikipedia.org/wiki/ISSN_(identifier)" class="mw-redirect" title="ISSN (identifier)">ISSN</a>&#160;<a rel="nofollow" class="external text" href="http://www.worldcat.org/issn/0343-6993">0343-6993</a>. <a href="https://en.wikipedia.org/wiki/MR_(identifier)" class="mw-redirect" title="MR (identifier)">MR</a>&#160;<a rel="nofollow" class="external text" href="http://www.ams.org/mathscinet-getitem?mr=0883185">0883185</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:123541868">123541868</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=The+Mathematical+Intelligencer&amp;rft.atitle=Karmarkar%27s+algorithm+and+its+place+in+applied+mathematics&amp;rft.volume=9&amp;rft.issue=2&amp;rft.pages=4-10&amp;rft.date=1987-06-01&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A123541868%23id-name%3DS2CID&amp;rft_id=%2F%2Fwww.ams.org%2Fmathscinet-getitem%3Fmr%3D883185%23id-name%3DMR&amp;rft.issn=0343-6993&amp;rft_id=info%3Adoi%2F10.1007%2FBF03025891&amp;rft.aulast=Strang&amp;rft.aufirst=Gilbert&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKarmarkar1984" class="citation book cs1">Karmarkar, N. (1984). <a rel="nofollow" class="external text" href="http://dl.acm.org/citation.cfm?id=808695">"A new polynomial-time algorithm for linear programming"</a>. <i>Proceedings of the sixteenth annual ACM symposium on Theory of computing - STOC '84</i>. pp.&#160;302–311. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F800057.808695">10.1145/800057.808695</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0897911334" title="Special:BookSources/0897911334"><bdi>0897911334</bdi></a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:13101261">13101261</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=A+new+polynomial-time+algorithm+for+linear+programming&amp;rft.btitle=Proceedings+of+the+sixteenth+annual+ACM+symposium+on+Theory+of+computing+-+STOC+%2784&amp;rft.pages=302-311&amp;rft.date=1984&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A13101261%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1145%2F800057.808695&amp;rft.isbn=0897911334&amp;rft.aulast=Karmarkar&amp;rft.aufirst=N.&amp;rft_id=http%3A%2F%2Fdl.acm.org%2Fcitation.cfm%3Fid%3D808695&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKarmarkar1984" class="citation journal cs1">Karmarkar, N. (1984). "A new polynomial-time algorithm for linear programming". <i>Combinatorica</i>. <b>4</b> (4): 373–395. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2FBF02579150">10.1007/BF02579150</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:7257867">7257867</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Combinatorica&amp;rft.atitle=A+new+polynomial-time+algorithm+for+linear+programming&amp;rft.volume=4&amp;rft.issue=4&amp;rft.pages=373-395&amp;rft.date=1984&amp;rft_id=info%3Adoi%2F10.1007%2FBF02579150&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A7257867%23id-name%3DS2CID&amp;rft.aulast=Karmarkar&amp;rft.aufirst=N.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKarmarkar1989" class="citation journal cs1">Karmarkar, Narendra K. (1989). "Power Series Variants of Karmarkar-Type Algorithms". <i>AT&amp;T Technical Journal</i>. <b>68</b> (3): 20–36. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1002%2Fj.1538-7305.1989.tb00316.x">10.1002/j.1538-7305.1989.tb00316.x</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:42071587">42071587</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=AT%26T+Technical+Journal&amp;rft.atitle=Power+Series+Variants+of+Karmarkar-Type+Algorithms&amp;rft.volume=68&amp;rft.issue=3&amp;rft.pages=20-36&amp;rft.date=1989&amp;rft_id=info%3Adoi%2F10.1002%2Fj.1538-7305.1989.tb00316.x&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A42071587%23id-name%3DS2CID&amp;rft.aulast=Karmarkar&amp;rft.aufirst=Narendra+K.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKarmarkar1990" class="citation conference cs1">Karmarkar, Narendra (1990). "An interior-point approach to NP-complete problems. I". <i>Mathematical developments arising from linear programming (Brunswick, ME, 1988)</i>. Contemporary Mathematics. Vol.&#160;114. Providence, RI: American Mathematical Society. pp.&#160;297–308. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1090%2Fconm%2F114%2F1097880">10.1090/conm/114/1097880</a>. <a href="https://en.wikipedia.org/wiki/MR_(identifier)" class="mw-redirect" title="MR (identifier)">MR</a>&#160;<a rel="nofollow" class="external text" href="http://www.ams.org/mathscinet-getitem?mr=1097880">1097880</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.atitle=An+interior-point+approach+to+NP-complete+problems.+I&amp;rft.btitle=Mathematical+developments+arising+from+linear+programming+%28Brunswick%2C+ME%2C+1988%29&amp;rft.place=Providence%2C+RI&amp;rft.series=Contemporary+Mathematics&amp;rft.pages=297-308&amp;rft.pub=American+Mathematical+Society&amp;rft.date=1990&amp;rft_id=info%3Adoi%2F10.1090%2Fconm%2F114%2F1097880&amp;rft_id=%2F%2Fwww.ams.org%2Fmathscinet-getitem%3Fmr%3D1097880%23id-name%3DMR&amp;rft.aulast=Karmarkar&amp;rft.aufirst=Narendra&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKarmarkar1990" class="citation conference cs1">Karmarkar, Narendra (1990). "Riemannian geometry underlying interior-point methods for linear programming". <i>Mathematical developments arising from linear programming (Brunswick, ME, 1988)</i>. Contemporary Mathematics. Vol.&#160;114. Providence, RI: American Mathematical Society. pp.&#160;51–75. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1090%2Fconm%2F114%2F1097865">10.1090/conm/114/1097865</a>. <a href="https://en.wikipedia.org/wiki/MR_(identifier)" class="mw-redirect" title="MR (identifier)">MR</a>&#160;<a rel="nofollow" class="external text" href="http://www.ams.org/mathscinet-getitem?mr=1097865">1097865</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.atitle=Riemannian+geometry+underlying+interior-point+methods+for+linear+programming&amp;rft.btitle=Mathematical+developments+arising+from+linear+programming+%28Brunswick%2C+ME%2C+1988%29&amp;rft.place=Providence%2C+RI&amp;rft.series=Contemporary+Mathematics&amp;rft.pages=51-75&amp;rft.pub=American+Mathematical+Society&amp;rft.date=1990&amp;rft_id=info%3Adoi%2F10.1090%2Fconm%2F114%2F1097865&amp;rft_id=%2F%2Fwww.ams.org%2Fmathscinet-getitem%3Fmr%3D1097865%23id-name%3DMR&amp;rft.aulast=Karmarkar&amp;rft.aufirst=Narendra&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text">Karmarkar N. K., Lagarias, J.C., Slutsman, L., and Wang, P., Power Series Variants of KarmarkarType Algorithm, AT &amp; T technical Journal 68, No. 3, May/June (1989).</span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text">Karmarkar, N.K., Interior Point Methods in Optimization, Proceedings of the Second International Conference on Industrial and Applied Mathematics, SIAM, pp. 160181 (1991)</span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text">Karmarkar, N. K. and Kamath, A. P., A continuous Approach to Deriving Upper Bounds in Quadratic Maximization Problems with Integer Constraints, Recent Advances in Global Optimization, pp. 125140, Princeton University Press (1992).</span>
+</li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text">26.	Karmarkar, N. K., Thakur, S. A., An Interior Point Approach to a Tensor Optimisation Problem with Application to Upper Bounds in Integer Quadratic Optimization Problems, Proceedings of Second Conference on Integer Programming and Combinatorial Optimisation, (May 1992).</span>
+</li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-11">^</a></b></span> <span class="reference-text">27.	Kamath, A., Karmarkar, N. K., A Continuous Method for Computing Bounds in Integer Quadratic Optimisation Problems, Journal of Global Optimization (1992).</span>
+</li>
+<li id="cite_note-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-12">^</a></b></span> <span class="reference-text">Karmarkar, N. K., Beyond Convexity: New Perspectives in Computational Optimization. Springer Lecture Notes in Computer Science LNCS 6457, Dec 2010</span>
+</li>
+<li id="cite_note-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-13">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFVanderbeiLagarias1990" class="citation conference cs1">Vanderbei, R. J.; Lagarias, J. C. (1990). "I. I. Dikin's convergence result for the affine-scaling algorithm". <i>Mathematical developments arising from linear programming (Brunswick, ME, 1988)</i>. Contemporary Mathematics. Vol.&#160;114. Providence, RI: American Mathematical Society. pp.&#160;109–119. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1090%2Fconm%2F114%2F1097868">10.1090/conm/114/1097868</a>. <a href="https://en.wikipedia.org/wiki/MR_(identifier)" class="mw-redirect" title="MR (identifier)">MR</a>&#160;<a rel="nofollow" class="external text" href="http://www.ams.org/mathscinet-getitem?mr=1097868">1097868</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.atitle=I.+I.+Dikin%27s+convergence+result+for+the+affine-scaling+algorithm&amp;rft.btitle=Mathematical+developments+arising+from+linear+programming+%28Brunswick%2C+ME%2C+1988%29&amp;rft.place=Providence%2C+RI&amp;rft.series=Contemporary+Mathematics&amp;rft.pages=109-119&amp;rft.pub=American+Mathematical+Society&amp;rft.date=1990&amp;rft_id=info%3Adoi%2F10.1090%2Fconm%2F114%2F1097868&amp;rft_id=%2F%2Fwww.ams.org%2Fmathscinet-getitem%3Fmr%3D1097868%23id-name%3DMR&amp;rft.aulast=Vanderbei&amp;rft.aufirst=R.+J.&amp;rft.au=Lagarias%2C+J.+C.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-14">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFRobert_J._VanderbeiMeketon,_MarcFreedman,_Barry1986" class="citation journal cs1"><a href="https://en.wikipedia.org/wiki/Robert_J._Vanderbei" title="Robert J. Vanderbei">Robert J. Vanderbei</a>; Meketon, Marc; Freedman, Barry (1986). <a rel="nofollow" class="external text" href="https://www.princeton.edu/~rvdb/tex/myPapers/VanderbeiMeketonFreedman.pdf">"A Modification of Karmarkar's Linear Programming Algorithm"</a> <span class="cs1-format">(PDF)</span>. <i>Algorithmica</i>. <b>1</b> (1–4): 395–407. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2FBF01840454">10.1007/BF01840454</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:779577">779577</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Algorithmica&amp;rft.atitle=A+Modification+of+Karmarkar%27s+Linear+Programming+Algorithm&amp;rft.volume=1&amp;rft.issue=1%E2%80%934&amp;rft.pages=395-407&amp;rft.date=1986&amp;rft_id=info%3Adoi%2F10.1007%2FBF01840454&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A779577%23id-name%3DS2CID&amp;rft.au=Robert+J.+Vanderbei&amp;rft.au=Meketon%2C+Marc&amp;rft.au=Freedman%2C+Barry&amp;rft_id=https%3A%2F%2Fwww.princeton.edu%2F~rvdb%2Ftex%2FmyPapers%2FVanderbeiMeketonFreedman.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-15"><span class="mw-cite-backlink"><b><a href="#cite_ref-15">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation cs2"><a rel="nofollow" class="external text" href="http://researcher.watson.ibm.com/researcher/view_page.php?id=6900"><i>Karmarkar Algorithm</i></a>, IBM Research<span class="reference-accessdate">, retrieved <span class="nowrap">2016-06-01</span></span></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Karmarkar+Algorithm&amp;rft.pub=IBM+Research&amp;rft_id=http%3A%2F%2Fresearcher.watson.ibm.com%2Fresearcher%2Fview_page.php%3Fid%3D6900&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-16"><span class="mw-cite-backlink"><b><a href="#cite_ref-16">^</a></b></span> <span class="reference-text">Sinha L.P., Freedman, B. A., Karmarkar, N. K., Putcha, A., and Ramakrishnan K.G., Overseas Network Planning, Proceedings of the Third International Network Planning Symposium, NETWORKS' 86, Tarpon Springs, Florida (June 1986).</span>
+</li>
+<li id="cite_note-kolata-17"><span class="mw-cite-backlink"><b><a href="#cite_ref-kolata_17-0">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKolata1989" class="citation news cs1">Kolata, Gina (1989-03-12). <a rel="nofollow" class="external text" href="https://query.nytimes.com/gst/fullpage.html?res=950DEFD61038F931A25750C0A96F948260">"IDEAS &amp; TRENDS; Mathematicians Are Troubled by Claims on Their Recipes"</a>. <i><a href="https://en.wikipedia.org/wiki/The_New_York_Times" title="The New York Times">The New York Times</a></i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=The+New+York+Times&amp;rft.atitle=IDEAS+%26+TRENDS%3B+Mathematicians+Are+Troubled+by+Claims+on+Their+Recipes&amp;rft.date=1989-03-12&amp;rft.aulast=Kolata&amp;rft.aufirst=Gina&amp;rft_id=https%3A%2F%2Fquery.nytimes.com%2Fgst%2Ffullpage.html%3Fres%3D950DEFD61038F931A25750C0A96F948260&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-saltzman-18"><span class="mw-cite-backlink"><b><a href="#cite_ref-saltzman_18-0">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="https://www.cs.cmu.edu/afs/cs.cmu.edu/academic/class/15850c-s96/www/interiorpoint.txt">Various posts by Matthew Saltzman, Clemson University</a></span>
+</li>
+<li id="cite_note-19"><span class="mw-cite-backlink"><b><a href="#cite_ref-19">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGillMurraySaundersTomlin1986" class="citation journal cs1">Gill, Philip E.; Murray, Walter; Saunders, Michael A.; Tomlin, J. A.; Wright, Margaret H. (1986). "On projected Newton barrier methods for linear programming and an equivalence to Karmarkar's projective method". <i>Mathematical Programming</i>. <b>36</b> (2): 183–209. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2FBF02592025">10.1007/BF02592025</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:18899771">18899771</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Mathematical+Programming&amp;rft.atitle=On+projected+Newton+barrier+methods+for+linear+programming+and+an+equivalence+to+Karmarkar%27s+projective+method&amp;rft.volume=36&amp;rft.issue=2&amp;rft.pages=183-209&amp;rft.date=1986&amp;rft_id=info%3Adoi%2F10.1007%2FBF02592025&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A18899771%23id-name%3DS2CID&amp;rft.aulast=Gill&amp;rft.aufirst=Philip+E.&amp;rft.au=Murray%2C+Walter&amp;rft.au=Saunders%2C+Michael+A.&amp;rft.au=Tomlin%2C+J.+A.&amp;rft.au=Wright%2C+Margaret+H.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-chin-20"><span class="mw-cite-backlink">^ <a href="#cite_ref-chin_20-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-chin_20-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFAndrew_Chin2009" class="citation journal cs1">Andrew Chin (2009). <a rel="nofollow" class="external text" href="http://andrewchin.com/chin/scholarship/abstraction-equivalence.pdf">"On Abstraction and Equivalence in Software Patent Doctrine: A Response to Bessen, Meurer and Klemens"</a> <span class="cs1-format">(PDF)</span>. <i>Journal of Intellectual Property Law</i>. <b>16</b>: 214–223.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Intellectual+Property+Law&amp;rft.atitle=On+Abstraction+and+Equivalence+in+Software+Patent+Doctrine%3A+A+Response+to+Bessen%2C+Meurer+and+Klemens&amp;rft.volume=16&amp;rft.pages=214-223&amp;rft.date=2009&amp;rft.au=Andrew+Chin&amp;rft_id=http%3A%2F%2Fandrewchin.com%2Fchin%2Fscholarship%2Fabstraction-equivalence.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-paley-21"><span class="mw-cite-backlink"><b><a href="#cite_ref-paley_21-0">^</a></b></span> <span class="reference-text">Mark A. Paley  (1995). "The Karmarkar Patent:  Why Congress Should "Open the Door" to Algorithms as Patentable Subject Matter". 22 Computer  L. Rep. 7</span>
+</li>
+<li id="cite_note-wright-22"><span class="mw-cite-backlink"><b><a href="#cite_ref-wright_22-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFMargaret_H._Wright2004" class="citation journal cs1">Margaret H. Wright (2004). <a rel="nofollow" class="external text" href="https://www.ams.org/journals/bull/2005-42-01/S0273-0979-04-01040-7/S0273-0979-04-01040-7.pdf">"The Interior-Point Revolution in Optimization: History, Recent Developments, and Lasting Consequences"</a> <span class="cs1-format">(PDF)</span>. <i>Bulletin of the American Mathematical Society</i>. <b>42</b>: 39–56. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1090%2FS0273-0979-04-01040-7">10.1090/S0273-0979-04-01040-7</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Bulletin+of+the+American+Mathematical+Society&amp;rft.atitle=The+Interior-Point+Revolution+in+Optimization%3A+History%2C+Recent+Developments%2C+and+Lasting+Consequences&amp;rft.volume=42&amp;rft.pages=39-56&amp;rft.date=2004&amp;rft_id=info%3Adoi%2F10.1090%2FS0273-0979-04-01040-7&amp;rft.au=Margaret+H.+Wright&amp;rft_id=https%3A%2F%2Fwww.ams.org%2Fjournals%2Fbull%2F2005-42-01%2FS0273-0979-04-01040-7%2FS0273-0979-04-01040-7.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-23"><span class="mw-cite-backlink"><b><a href="#cite_ref-23">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFMarc_S._MeketonY.C._ChengD.J._HouckJ.M.Liu1989" class="citation journal cs1">Marc S. Meketon; Y.C. Cheng; D.J. Houck; J.M.Liu; L. Slutsman; <a href="https://en.wikipedia.org/wiki/Robert_J._Vanderbei" title="Robert J. Vanderbei">Robert J. Vanderbei</a>; P. Wang (1989). "The AT&amp;T KORBX System". <i>AT&amp;T Technical Journal</i>. <b>68</b> (3): 7–19. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1002%2Fj.1538-7305.1989.tb00315.x">10.1002/j.1538-7305.1989.tb00315.x</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:18548851">18548851</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=AT%26T+Technical+Journal&amp;rft.atitle=The+AT%26T+KORBX+System&amp;rft.volume=68&amp;rft.issue=3&amp;rft.pages=7-19&amp;rft.date=1989&amp;rft_id=info%3Adoi%2F10.1002%2Fj.1538-7305.1989.tb00315.x&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A18548851%23id-name%3DS2CID&amp;rft.au=Marc+S.+Meketon&amp;rft.au=Y.C.+Cheng&amp;rft.au=D.J.+Houck&amp;rft.au=J.M.Liu&amp;rft.au=L.+Slutsman&amp;rft.au=Robert+J.+Vanderbei&amp;rft.au=P.+Wang&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-24"><span class="mw-cite-backlink"><b><a href="#cite_ref-24">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFLowenstein1988" class="citation news cs1">Lowenstein, Roger (15 August 1988). <a rel="nofollow" class="external text" href="http://orfe.princeton.edu/~rvdb/307/lectures/lec19.pdf">"AT&amp;T markets problem solver, based on math whiz's find, for $8.9 million"</a> <span class="cs1-format">(PDF)</span>. <i>Wall Street Journal</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Wall+Street+Journal&amp;rft.atitle=AT%26T+markets+problem+solver%2C+based+on+math+whiz%27s+find%2C+for+%248.9+million&amp;rft.date=1988-08-15&amp;rft.aulast=Lowenstein&amp;rft.aufirst=Roger&amp;rft_id=http%3A%2F%2Forfe.princeton.edu%2F~rvdb%2F307%2Flectures%2Flec19.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-25"><span class="mw-cite-backlink"><b><a href="#cite_ref-25">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFMarkoff1988" class="citation news cs1">Markoff, John (13 August 1988). <a rel="nofollow" class="external text" href="https://www.nytimes.com/1988/08/13/business/big-at-t-computer-for-complexities.html">"Big A.T.&amp;T. Computer for Complexities"</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Big+A.T.%26T.+Computer+for+Complexities&amp;rft.date=1988-08-13&amp;rft.aulast=Markoff&amp;rft.aufirst=John&amp;rft_id=https%3A%2F%2Fwww.nytimes.com%2F1988%2F08%2F13%2Fbusiness%2Fbig-at-t-computer-for-complexities.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-26"><span class="mw-cite-backlink"><b><a href="#cite_ref-26">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://apnews.com/8a376783cd62cdf141de700a7c948f61">"Military Is First Announced Customer Of AT&amp;T Software"</a>. <i><a href="https://en.wikipedia.org/wiki/Associated_Press" title="Associated Press">Associated Press</a></i>. AP News<span class="reference-accessdate">. Retrieved <span class="nowrap">2019-06-11</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Associated+Press&amp;rft.atitle=Military+Is+First+Announced+Customer+Of+AT%26T+Software&amp;rft_id=https%3A%2F%2Fapnews.com%2F8a376783cd62cdf141de700a7c948f61&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-27"><span class="mw-cite-backlink"><b><a href="#cite_ref-27">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKennington1989" class="citation book cs1">Kennington, J.L. (1989). "Using KORBX for military airlift applications". <i>Proceedings of the 28th IEEE Conference on Decision and Control</i>. pp.&#160;1603–1605. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FCDC.1989.70419">10.1109/CDC.1989.70419</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:60450719">60450719</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Using+KORBX+for+military+airlift+applications&amp;rft.btitle=Proceedings+of+the+28th+IEEE+Conference+on+Decision+and+Control&amp;rft.pages=1603-1605&amp;rft.date=1989&amp;rft_id=info%3Adoi%2F10.1109%2FCDC.1989.70419&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A60450719%23id-name%3DS2CID&amp;rft.aulast=Kennington&amp;rft.aufirst=J.L.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-28"><span class="mw-cite-backlink"><b><a href="#cite_ref-28">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20080627203001/http://eupat.ffii.org/papers/konno95/index.ja.html">"今野浩: カーマーカー特許とソフトウェア – 数学は 特許に なるか (Konno Hiroshi: The Kamarkar Patent and Software – Has Mathematics Become Patentable?)"</a>. <a href="https://en.wikipedia.org/wiki/Foundation_for_a_Free_Information_Infrastructure" title="Foundation for a Free Information Infrastructure">FFII</a>. Archived from <a rel="nofollow" class="external text" href="http://eupat.ffii.org/papers/konno95/index.ja.html">the original</a> on 2008-06-27<span class="reference-accessdate">. Retrieved <span class="nowrap">2008-06-27</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=%E4%BB%8A%E9%87%8E%E6%B5%A9%3A+%E3%82%AB%E3%83%BC%E3%83%9E%E3%83%BC%E3%82%AB%E3%83%BC%E7%89%B9%E8%A8%B1%E3%81%A8%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2+%E2%80%93+%E6%95%B0%E5%AD%A6%E3%81%AF+%E7%89%B9%E8%A8%B1%E3%81%AB+%E3%81%AA%E3%82%8B%E3%81%8B+%28Konno+Hiroshi%3A+The+Kamarkar+Patent+and+Software+%E2%80%93+Has+Mathematics+Become+Patentable%3F%29&amp;rft.pub=FFII&amp;rft_id=http%3A%2F%2Feupat.ffii.org%2Fpapers%2Fkonno95%2Findex.ja.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKarmarkar%27s+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-29"><span class="mw-cite-backlink"><b><a href="#cite_ref-29">^</a></b></span> <span class="reference-text">409 U.S. 63 (1972). The case concerned an algorithm for converting binary-coded decimal numerals to pure binary.</span>
+</li>
+<li id="cite_note-30"><span class="mw-cite-backlink"><b><a href="#cite_ref-30">^</a></b></span> <span class="reference-text">450 U.S. 175 (1981).</span>
+</li>
+<li id="cite_note-31"><span class="mw-cite-backlink"><b><a href="#cite_ref-31">^</a></b></span> <span class="reference-text">450 U.S. at 191. See also <i><a href="https://en.wikipedia.org/wiki/Parker_v._Flook" title="Parker v. Flook">Parker v. Flook</a></i>, 437 U.S. 584, 585 (1978) ("the discovery of a novel and useful mathematical formula may not be patented").</span>
+</li>
+<li id="cite_note-32"><span class="mw-cite-backlink"><b><a href="#cite_ref-32">^</a></b></span> <span class="reference-text">566 U.S. __, 132 S. Ct. 1289 (2012).</span>
+</li>
+<li id="cite_note-33"><span class="mw-cite-backlink"><b><a href="#cite_ref-33">^</a></b></span> <span class="reference-text">Accord <i><a href="https://en.wikipedia.org/wiki/Alice_Corp._v._CLS_Bank_Int’l" class="mw-redirect" title="Alice Corp. v. CLS Bank Int’l">Alice Corp. v. CLS Bank Int’l</a></i>,  573 U.S. __, 134 S. Ct. 2347  (2014).</span>
+</li>
+</ol></div>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Optimization:_Algorithms,_methods,_and_heuristics" style="padding:3px"><table class="nowraplinks hlist mw-collapsible uncollapsed navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="3"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Optimization_algorithms" title="Template:Optimization algorithms"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Optimization_algorithms" title="Template talk:Optimization algorithms"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Optimization_algorithms&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Optimization:_Algorithms,_methods,_and_heuristics" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Mathematical_optimization" title="Mathematical optimization">Optimization</a>: <a href="https://en.wikipedia.org/wiki/Optimization_algorithm" class="mw-redirect" title="Optimization algorithm">Algorithms</a>, <a href="https://en.wikipedia.org/wiki/Iterative_method" title="Iterative method">methods</a>, and <a href="https://en.wikipedia.org/wiki/Heuristic_algorithm" class="mw-redirect" title="Heuristic algorithm">heuristics</a></div></th></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks mw-collapsible mw-collapsed navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><div id="Unconstrained_nonlinear" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Nonlinear_programming" title="Nonlinear programming">Unconstrained nonlinear</a></div></th></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Function_(mathematics)" title="Function (mathematics)">Functions</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Golden-section_search" title="Golden-section search">Golden-section search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Powell%27s_method" title="Powell&#39;s method">Interpolation methods</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Line_search" title="Line search">Line search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Nelder–Mead_method" title="Nelder–Mead method">Nelder–Mead method</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Successive_parabolic_interpolation" title="Successive parabolic interpolation">Successive parabolic interpolation</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Gradient" title="Gradient">Gradients</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Local_convergence" title="Local convergence">Convergence</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Trust_region" title="Trust region">Trust region</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Wolfe_conditions" title="Wolfe conditions">Wolfe conditions</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Quasi-Newton_method" title="Quasi-Newton method">Quasi–Newton</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Berndt–Hall–Hall–Hausman_algorithm" title="Berndt–Hall–Hall–Hausman algorithm">Berndt–Hall–Hall–Hausman</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Broyden–Fletcher–Goldfarb–Shanno_algorithm" title="Broyden–Fletcher–Goldfarb–Shanno algorithm">Broyden–Fletcher–Goldfarb–Shanno</a> and <a href="https://en.wikipedia.org/wiki/Limited-memory_BFGS" title="Limited-memory BFGS">L-BFGS</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Davidon–Fletcher–Powell_formula" title="Davidon–Fletcher–Powell formula">Davidon–Fletcher–Powell</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Symmetric_rank-one" title="Symmetric rank-one">Symmetric rank-one (SR1)</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Iterative_method" title="Iterative method">Other methods</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Nonlinear_conjugate_gradient_method" title="Nonlinear conjugate gradient method">Conjugate gradient</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gauss–Newton_algorithm" title="Gauss–Newton algorithm">Gauss–Newton</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gradient_descent" title="Gradient descent">Gradient</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Mirror_descent" title="Mirror descent">Mirror</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Levenberg–Marquardt_algorithm" title="Levenberg–Marquardt algorithm">Levenberg–Marquardt</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Powell%27s_dog_leg_method" title="Powell&#39;s dog leg method">Powell's dog leg method</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Truncated_Newton_method" title="Truncated Newton method">Truncated Newton</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Hessian_matrix" title="Hessian matrix">Hessians</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Newton%27s_method_in_optimization" title="Newton&#39;s method in optimization">Newton's method</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr></tbody></table><div></div></td><td class="noviewer navbox-image" rowspan="5" style="width:1px;padding:0 0 0 2px"><div><div class="floatright"><a href="https://en.wikipedia.org/wiki/File:Max_paraboloid.svg" class="image" title="Optimization computes maxima and minima."><img alt="Graph of a strictly concave quadratic function with unique maximum." src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Max_paraboloid.svg/150px-Max_paraboloid.svg.png" decoding="async" width="150" height="120" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/72/Max_paraboloid.svg/225px-Max_paraboloid.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/72/Max_paraboloid.svg/300px-Max_paraboloid.svg.png 2x" data-file-width="700" data-file-height="560" /></a></div></div></td></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks mw-collapsible mw-collapsed navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><div id="Constrained_nonlinear" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Nonlinear_programming" title="Nonlinear programming">Constrained nonlinear</a></div></th></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%">General</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Barrier_function" title="Barrier function">Barrier methods</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Penalty_method" title="Penalty method">Penalty methods</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Differentiable</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Augmented_Lagrangian_method" title="Augmented Lagrangian method">Augmented Lagrangian methods</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sequential_quadratic_programming" title="Sequential quadratic programming">Sequential quadratic programming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Successive_linear_programming" title="Successive linear programming">Successive linear programming</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr></tbody></table><div></div></td></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks mw-collapsible uncollapsed navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><div id="Convex_optimization" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Convex_optimization" title="Convex optimization">Convex optimization</a></div></th></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Convex_minimization" class="mw-redirect" title="Convex minimization">Convex<br /> minimization</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Cutting-plane_method" title="Cutting-plane method">Cutting-plane method</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Frank–Wolfe_algorithm" title="Frank–Wolfe algorithm">Reduced gradient (Frank–Wolfe)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Subgradient_method" title="Subgradient method">Subgradient method</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Linear_programming" title="Linear programming">Linear</a> and<br /><a href="https://en.wikipedia.org/wiki/Quadratic_programming" title="Quadratic programming">quadratic</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Linear_programming#Interior_point" title="Linear programming">Interior point</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Affine_scaling" title="Affine scaling">Affine scaling</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ellipsoid_method" title="Ellipsoid method">Ellipsoid algorithm of Khachiyan</a></li>
+<li><a class="mw-selflink selflink">Projective algorithm of Karmarkar</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Matroid" title="Matroid">Basis-</a><a href="https://en.wikipedia.org/wiki/Exchange_algorithm" class="mw-redirect" title="Exchange algorithm">exchange</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Simplex_algorithm" title="Simplex algorithm">Simplex algorithm of Dantzig</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Revised_simplex_method" title="Revised simplex method">Revised simplex algorithm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Criss-cross_algorithm" title="Criss-cross algorithm">Criss-cross algorithm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lemke%27s_algorithm" title="Lemke&#39;s algorithm">Principal pivoting algorithm of Lemke</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr></tbody></table><div></div></td></tr></tbody></table><div></div></td></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks mw-collapsible mw-collapsed navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><div id="Combinatorial" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Combinatorial_optimization" title="Combinatorial optimization">Combinatorial</a></div></th></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%">Paradigms</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Approximation_algorithm" title="Approximation algorithm">Approximation algorithm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dynamic_programming" title="Dynamic programming">Dynamic programming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Greedy_algorithm" title="Greedy algorithm">Greedy algorithm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Integer_programming" title="Integer programming">Integer programming</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Branch_and_bound" title="Branch and bound">Branch and bound</a>/<a href="https://en.wikipedia.org/wiki/Branch_and_cut" title="Branch and cut">cut</a></li></ul></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Graph_algorithm" class="mw-redirect" title="Graph algorithm">Graph<br /> algorithms</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th id="Minimum_spanning_tree" scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Minimum_spanning_tree" title="Minimum spanning tree">Minimum<br /> spanning tree</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Borůvka%27s_algorithm" title="Borůvka&#39;s algorithm">Borůvka</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Prim%27s_algorithm" title="Prim&#39;s algorithm">Prim</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kruskal%27s_algorithm" title="Kruskal&#39;s algorithm">Kruskal</a></li></ul>
+</div></td></tr></tbody></table><div>
+    </div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th id="Shortest_path" scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Shortest_path_problem" title="Shortest path problem">Shortest path</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Bellman–Ford_algorithm" title="Bellman–Ford algorithm">Bellman–Ford</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Shortest_Path_Faster_Algorithm" title="Shortest Path Faster Algorithm">SPFA</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm" title="Dijkstra&#39;s algorithm">Dijkstra</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm" title="Floyd–Warshall algorithm">Floyd–Warshall</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Flow_network" title="Flow network">Network flows</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Dinic%27s_algorithm" title="Dinic&#39;s algorithm">Dinic</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Edmonds–Karp_algorithm" title="Edmonds–Karp algorithm">Edmonds–Karp</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ford–Fulkerson_algorithm" title="Ford–Fulkerson algorithm">Ford–Fulkerson</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Push–relabel_maximum_flow_algorithm" title="Push–relabel maximum flow algorithm">Push–relabel maximum flow</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr></tbody></table><div></div></td></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks mw-collapsible mw-collapsed navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><div id="Metaheuristics" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Metaheuristic" title="Metaheuristic">Metaheuristics</a></div></th></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Evolutionary_algorithm" title="Evolutionary algorithm">Evolutionary algorithm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hill_climbing" title="Hill climbing">Hill climbing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Local_search_(optimization)" title="Local search (optimization)">Local search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Simulated_annealing" title="Simulated annealing">Simulated annealing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tabu_search" title="Tabu search">Tabu search</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr><tr><td class="navbox-abovebelow" colspan="3"><div>
+<ul><li><a href="https://en.wikipedia.org/wiki/Comparison_of_optimization_software" title="Comparison of optimization software">Software</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1329
+Cached time: 20220505164628
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.668 seconds
+Real time usage: 0.795 seconds
+Preprocessor visited node count: 2122/1000000
+Post‐expand include size: 103815/2097152 bytes
+Template argument size: 2080/2097152 bytes
+Highest expansion depth: 12/100
+Expensive parser function count: 2/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 72371/5000000 bytes
+Lua time usage: 0.333/10.000 seconds
+Lua memory usage: 5860462/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  580.102      1 -total
+ 32.46%  188.292      9 Template:Cite_journal
+ 31.84%  184.728      1 Template:Reflist
+ 16.48%   95.587      1 Template:Optimization_algorithms
+ 15.93%   92.382      1 Template:Navbox_with_collapsible_groups
+ 12.01%   69.692      2 Template:Fix
+ 11.47%   66.540      1 Template:Citation_needed
+  6.90%   40.036      4 Template:Category_handler
+  6.03%   35.003      3 Template:Math
+  3.85%   22.322      8 Template:Navbox
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:3736667-0!canonical and timestamp 20220505164627 and revision id 1068118862. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Karmarkar%27s_algorithm&amp;oldid=1068118862">https://en.wikipedia.org/w/index.php?title=Karmarkar%27s_algorithm&amp;oldid=1068118862</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Optimization_algorithms_and_methods" title="Category:Optimization algorithms and methods">Optimization algorithms and methods</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Software_patent_law" title="Category:Software patent law">Software patent law</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Linear_programming" title="Category:Linear programming">Linear programming</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_unsourced_statements_from_February_2016" title="Category:Articles with unsourced statements from February 2016">Articles with unsourced statements from February 2016</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_unsourced_statements_from_September_2020" title="Category:Articles with unsourced statements from September 2020">Articles with unsourced statements from September 2020</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_example_pseudocode" title="Category:Articles with example pseudocode">Articles with example pseudocode</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Karmarkar%27s+algorithm" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Karmarkar%27s+algorithm" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Karmarkar%27s_algorithm" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Karmarkar%27s_algorithm" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Karmarkar%27s_algorithm"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Karmarkar%27s_algorithm&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Karmarkar%27s_algorithm&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Karmarkar%27s_algorithm" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Karmarkar%27s_algorithm" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Karmarkar%27s_algorithm&amp;oldid=1068118862" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Karmarkar%27s_algorithm&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Karmarkar%27s_algorithm&amp;id=1068118862&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q2246305" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Karmarkar%27s_algorithm&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Karmarkar%27s_algorithm&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-ar mw-list-item"><a href="https://ar.wikipedia.org/wiki/خوارزمية_كارماركر" title="خوارزمية كارماركر – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target"><span>العربية</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/الگوریتم_کارمارکار" title="الگوریتم کارمارکار – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Algorithme_de_Karmarkar" title="Algorithme de Karmarkar – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-it mw-list-item"><a href="https://it.wikipedia.org/wiki/Algoritmo_di_Karmarkar" title="Algoritmo di Karmarkar – Italian" lang="it" hreflang="it" class="interlanguage-link-target"><span>Italiano</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/カーマーカーのアルゴリズム" title="カーマーカーのアルゴリズム – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/Algoritmo_de_Karmarkar" title="Algoritmo de Karmarkar – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Алгоритм_Кармаркара" title="Алгоритм Кармаркара – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q2246305#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 26 January 2022, at 18:54<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Karmarkar%27s_algorithm&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.668","walltime":"0.795","ppvisitednodes":{"value":2122,"limit":1000000},"postexpandincludesize":{"value":103815,"limit":2097152},"templateargumentsize":{"value":2080,"limit":2097152},"expansiondepth":{"value":12,"limit":100},"expensivefunctioncount":{"value":2,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":72371,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  580.102      1 -total"," 32.46%  188.292      9 Template:Cite_journal"," 31.84%  184.728      1 Template:Reflist"," 16.48%   95.587      1 Template:Optimization_algorithms"," 15.93%   92.382      1 Template:Navbox_with_collapsible_groups"," 12.01%   69.692      2 Template:Fix"," 11.47%   66.540      1 Template:Citation_needed","  6.90%   40.036      4 Template:Category_handler","  6.03%   35.003      3 Template:Math","  3.85%   22.322      8 Template:Navbox"]},"scribunto":{"limitreport-timeusage":{"value":"0.333","limit":"10.000"},"limitreport-memusage":{"value":5860462,"limit":52428800}},"cachereport":{"origin":"mw1329","timestamp":"20220505164628","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Karmarkar's algorithm","url":"https:\/\/en.wikipedia.org\/wiki\/Karmarkar%27s_algorithm","sameAs":"http:\/\/www.wikidata.org\/entity\/Q2246305","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q2246305","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2006-01-16T05:16:55Z","dateModified":"2022-01-26T18:54:09Z","headline":"linear programing method"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Karmarkar's algorithm","url":"https:\/\/en.wikipedia.org\/wiki\/Karmarkar%27s_algorithm","sameAs":"http:\/\/www.wikidata.org\/entity\/Q2246305","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q2246305","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2006-01-16T05:16:55Z","dateModified":"2022-01-26T18:54:09Z","headline":"linear programing method"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":147,"wgHostname":"mw1451"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Karmarkar%27s_algorithm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:50 GMT -->
+</html>

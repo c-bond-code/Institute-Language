@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Heapsort by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:29:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Heapsort - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"49ae879f-8b2a-44d7-a0f6-8f90996795e5","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Heapsort","wgTitle":"Heapsort","wgCurRevisionId":1083976512,"wgRevisionId":1083976512,"wgArticleId":13995,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles with short description","Short description is different from Wikidata","Use dmy dates from March 2022","All articles with unsourced statements","Articles with unsourced statements from September 2014","Articles with unsourced statements from November 2016","Webarchive template wayback links",
+"Articles with example pseudocode","Sorting algorithms","Comparison sorts","Heaps (data structures)"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Heapsort","wgRelevantArticleId":13995,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":40000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q474095","wgGENewcomerTasksGuidanceEnabled"
+:true,"wgGEAskQuestionEnabled":false,"wgGELinkRecommendationsFrontendEnabled":false};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.math.styles":"ready","ext.cite.styles":"ready","ext.pygments":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.math.scripts","ext.cite.ux-enhancements","ext.scribunto.logs","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","Skins.vector.legacy.html","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp",
+"ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.pygments%2CwikimediaBadges%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.9"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/1/1b/Sorting_heapsort_anim.gif"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="917"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/1/1b/Sorting_heapsort_anim.gif"/>
+<meta property="og:image:width" content="800"/>
+<meta property="og:image:height" content="611"/>
+<meta property="og:image:width" content="640"/>
+<meta property="og:image:height" content="489"/>
+<meta property="og:title" content="Heapsort - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Heapsort"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="Heapsort.html"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Heapsort rootpage-Heapsort skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Heapsort</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">A sorting algorithm which uses the heap data structure</div>
+<p class="mw-empty-elt">
+</p>
+<style data-mw-deduplicate="TemplateStyles:r1066479718">.mw-parser-output .infobox-subbox{padding:0;border:none;margin:-3px;width:auto;min-width:100%;font-size:100%;clear:none;float:none;background-color:transparent}.mw-parser-output .infobox-3cols-child{margin:auto}.mw-parser-output .infobox .navbar{font-size:100%}body.skin-minerva .mw-parser-output .infobox-header,body.skin-minerva .mw-parser-output .infobox-subheader,body.skin-minerva .mw-parser-output .infobox-above,body.skin-minerva .mw-parser-output .infobox-title,body.skin-minerva .mw-parser-output .infobox-image,body.skin-minerva .mw-parser-output .infobox-full-data,body.skin-minerva .mw-parser-output .infobox-below{text-align:center}</style><table class="infobox"><caption class="infobox-title">Heapsort</caption><tbody><tr><td colspan="2" class="infobox-image"><a href="File_Sorting_heapsort_anim.html" class="image"><img alt="Sorting heapsort anim.gif" src="http://upload.wikimedia.org/wikipedia/commons/1/1b/Sorting_heapsort_anim.gif" decoding="async" width="280" height="214" data-file-width="280" data-file-height="214" /></a><div class="infobox-caption">A run of heapsort sorting an array of randomly permuted values. In the first stage of the algorithm the array elements are reordered to satisfy the <a href="Heap_(data_structure).html" title="Heap (data structure)">heap property</a>. Before the actual sorting takes place, the heap tree structure is shown briefly for illustration.</div></td></tr><tr><th scope="row" class="infobox-label">Class</th><td class="infobox-data"><a href="Sorting_algorithm.html" title="Sorting algorithm">Sorting algorithm</a></td></tr><tr><th scope="row" class="infobox-label">Data structure</th><td class="infobox-data"><a href="Array_data_structure.html" title="Array data structure">Array</a></td></tr><tr><th scope="row" class="infobox-label"><a href="Best%2c_worst_and_average_case.html" title="Best, worst and average case">Worst-case</a> <a href="Time_complexity.html" title="Time complexity">performance</a></th><td class="infobox-data"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n\log n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n\log n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9d2320768fb54880ca4356e61f60eb02a3f9d9f1" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.118ex; height:2.843ex;" alt="O(n\log n)"/></span></td></tr><tr><th scope="row" class="infobox-label"><a href="Best%2c_worst_and_average_case.html" title="Best, worst and average case">Best-case</a> <a href="Time_complexity.html" title="Time complexity">performance</a></th><td class="infobox-data"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n\log n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n\log n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9d2320768fb54880ca4356e61f60eb02a3f9d9f1" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.118ex; height:2.843ex;" alt="O(n\log n)"/></span> (distinct keys)<br />or <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/34109fe397fdcff370079185bfdb65826cb5565a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.977ex; height:2.843ex;" alt="O(n)"/></span> (equal keys)</td></tr><tr><th scope="row" class="infobox-label"><a href="Best%2c_worst_and_average_case.html" title="Best, worst and average case">Average</a> <a href="Time_complexity.html" title="Time complexity">performance</a></th><td class="infobox-data"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n\log n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n\log n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9d2320768fb54880ca4356e61f60eb02a3f9d9f1" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.118ex; height:2.843ex;" alt="O(n\log n)"/></span></td></tr><tr><th scope="row" class="infobox-label"><a href="Best%2c_worst_and_average_case.html" title="Best, worst and average case">Worst-case</a> <a href="Space_complexity.html" title="Space complexity">space complexity</a></th><td class="infobox-data"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/34109fe397fdcff370079185bfdb65826cb5565a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.977ex; height:2.843ex;" alt="O(n)"/></span> total <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(1)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(1)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e66384bc40452c5452f33563fe0e27e803b0cc21" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.745ex; height:2.843ex;" alt="O(1)"/></span> auxiliary</td></tr></tbody></table>
+<p>In <a href="Computer_science.html" title="Computer science">computer science</a>, <b>heapsort</b> is a <a href="Comparison_sort.html" title="Comparison sort">comparison-based</a> <a href="Sorting_algorithm.html" title="Sorting algorithm">sorting algorithm</a>. Heapsort can be thought of as an improved <a href="Selection_sort.html" title="Selection sort">selection sort</a>: like selection sort, heapsort divides its input into a sorted and an unsorted region, and it iteratively shrinks the unsorted region by extracting the largest element from it and inserting it into the sorted region. Unlike selection sort, heapsort does not waste time with a linear-time scan of the unsorted region; rather, heap sort maintains the unsorted region in a <a href="Heap_(data_structure).html" title="Heap (data structure)">heap</a> data structure to more quickly find the largest element in each step.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
+</p><p>Although somewhat slower in practice on most machines than a well-implemented <a href="Quicksort.html" title="Quicksort">quicksort</a>, it has the advantage of a more favorable worst-case <span class="texhtml"><a href="Big_O_notation.html" title="Big O notation">O(<i>n</i> log <i>n</i>)</a></span> runtime.  Heapsort is an <a href="In-place_algorithm.html" title="In-place algorithm">in-place algorithm</a>, but it is not a <a href="Stable_sort.html" class="mw-redirect" title="Stable sort">stable sort</a>.
+</p><p>Heapsort was invented by <a href="J._W._J.html" title="J. W. J. Williams">J. W. J. Williams</a> in 1964.<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup> This was also the birth of the heap, presented already by Williams as a useful data structure in its own right.<sup id="cite_ref-brass_3-0" class="reference"><a href="#cite_note-brass-3">&#91;3&#93;</a></sup> In the same year, <a href="Robert_Floyd.html" class="mw-redirect" title="Robert Floyd">R. W. Floyd</a> published an improved version that could sort an array in-place, continuing his earlier research into the <a href="Treesort.html" class="mw-redirect" title="Treesort">treesort</a> algorithm.<sup id="cite_ref-brass_3-1" class="reference"><a href="#cite_note-brass-3">&#91;3&#93;</a></sup>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Algorithm"><span class="tocnumber">2</span> <span class="toctext">Algorithm</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Pseudocode"><span class="tocnumber">2.1</span> <span class="toctext">Pseudocode</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Variations"><span class="tocnumber">3</span> <span class="toctext">Variations</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Floyd&#39;s_heap_construction"><span class="tocnumber">3.1</span> <span class="toctext">Floyd's heap construction</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Bottom-up_heapsort"><span class="tocnumber">3.2</span> <span class="toctext">Bottom-up heapsort</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Other_variations"><span class="tocnumber">3.3</span> <span class="toctext">Other variations</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Comparison_with_other_sorts"><span class="tocnumber">4</span> <span class="toctext">Comparison with other sorts</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Example"><span class="tocnumber">5</span> <span class="toctext">Example</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="#Build_the_heap"><span class="tocnumber">5.1</span> <span class="toctext">Build the heap</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Sorting"><span class="tocnumber">5.2</span> <span class="toctext">Sorting</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#Notes"><span class="tocnumber">6</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#External_links"><span class="tocnumber">8</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;action=edit&amp;section=1" title="Edit section: Overview">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The heapsort algorithm can be divided into two parts.
+</p><p>In the first step, a <a href="Heap_(data_structure).html" title="Heap (data structure)">heap</a> is built out of the data (see <a href="Binary_heap.html#Building_a_heap" title="Binary heap">Binary heap §&#160;Building a heap</a>). The heap is often placed in an array with the layout of a complete <a href="Binary_tree.html#Types_of_binary_trees" title="Binary tree">binary tree</a>. The complete binary tree maps the binary tree structure into the array indices; each array index represents a node; the index of the node's parent, left child branch, or right child branch are simple expressions.  For a zero-based array, the root node is stored at index 0; if <code>i</code> is the index of the current node, then
+</p>
+<pre>  iParent(i)     = floor((i-1) / 2) where floor functions map a real number to the largest leading integer.
+  iLeftChild(i)  = 2*i + 1
+  iRightChild(i) = 2*i + 2
+</pre>
+<p>In the second step, a sorted array is created by repeatedly removing the largest element from the heap (the root of the heap), and inserting it into the array. The heap is updated after each removal to maintain the heap property. Once all objects have been removed from the heap, the result is a sorted array.
+</p><p>Heapsort can be performed in place. The array can be split into two parts, the sorted array and the heap. The storage of heaps as arrays is diagrammed <a href="Binary_heap.html#Heap_implementation" title="Binary heap">here</a>.  The heap's invariant is preserved after each extraction, so the only cost is that of extraction.
+</p>
+<h2><span class="mw-headline" id="Algorithm">Algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;action=edit&amp;section=2" title="Edit section: Algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The Heapsort algorithm involves preparing the list by first turning it into a <a href="Binary_heap.html" title="Binary heap">max heap</a>. The algorithm then repeatedly swaps the first value of the list with the last value, decreasing the range of values considered in the heap operation by one, and sifting the new first value into its position in the heap. This repeats until the range of considered values is one value in length.
+</p><p>The steps are:
+</p>
+<ol><li>Call the <code class="mw-highlight mw-highlight-lang-text mw-content-ltr" id="" style="" dir="ltr">buildMaxHeap()</code> function on the list. Also referred to as <code class="mw-highlight mw-highlight-lang-text mw-content-ltr" id="" style="" dir="ltr">heapify()</code>, this builds a heap from a list in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/34109fe397fdcff370079185bfdb65826cb5565a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.977ex; height:2.843ex;" alt="O(n)"/></span> operations.</li>
+<li>Swap the first element of the list with the final element. Decrease the considered range of the list by one.</li>
+<li>Call the <code class="mw-highlight mw-highlight-lang-text mw-content-ltr" id="" style="" dir="ltr">siftDown()</code> function on the list to sift the new first element to its appropriate index in the heap.</li>
+<li>Go to step (2) unless the considered range of the list is one element.</li></ol>
+<p>The <code class="mw-highlight mw-highlight-lang-text mw-content-ltr" id="" style="" dir="ltr">buildMaxHeap()</code> operation is run once, and is <span class="texhtml">O(<i>n</i>)</span> in performance. The <code class="mw-highlight mw-highlight-lang-text mw-content-ltr" id="" style="" dir="ltr">siftDown()</code> function is <span class="texhtml">O(log <i>n</i>)</span>, and is called <span class="texhtml mvar" style="font-style:italic;">n</span> times. Therefore, the performance of this algorithm is <span class="texhtml">O(<i>n</i> + <i>n</i> log <i>n</i>) = O(<i>n</i> log <i>n</i>)</span>.
+</p>
+<h3><span class="mw-headline" id="Pseudocode">Pseudocode</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;action=edit&amp;section=3" title="Edit section: Pseudocode">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The following is a simple way to implement the algorithm in <a href="Pseudocode.html" title="Pseudocode">pseudocode</a>. Arrays are <a href="Comparison_of_programming_languages_(array).html" title="Comparison of programming languages (array)">zero-based</a> and <code>swap</code> is used to exchange two elements of the array. Movement 'down' means from the root towards the leaves, or from lower indices to higher. Note that during the sort, the largest element is at the root of the heap at <code>a[0]</code>, while at the end of the sort, the largest element is in <code>a[end]</code>.
+</p>
+<pre><b>procedure</b> heapsort(a, count) <b>is</b>
+    <b>input:</b> an unordered array <i>a</i> of length <i>count</i>
+ 
+    <i>(Build the heap in array a so that largest value is at the root)</i>
+    heapify(a, count)
+
+    <i>(The following loop maintains the <a href="Loop_invariant.html" title="Loop invariant">invariants</a> that a[0:end] is a heap and every element</i>
+     <i>beyond end is greater than everything before it (so a[end:count] is in sorted order))</i>
+    end ← count - 1
+    <b>while</b> end &gt; 0 <b>do</b>
+        <i>(a[0] is the root and largest value. The swap moves it in front of the sorted elements.)</i>
+        swap(a[end], a[0])
+        <i>(the heap size is reduced by one)</i>
+        end ← end - 1
+        <i>(the swap ruined the heap property, so restore it)</i>
+        siftDown(a, 0, end)
+</pre>
+<p>The sorting routine uses two subroutines, <code>heapify</code> and <code>siftDown</code>. The former is the common in-place heap construction routine, while the latter is a common subroutine for implementing <code>heapify</code>.
+</p>
+<pre><i>(Put elements of 'a' in heap order, in-place)</i>
+<b>procedure</b> heapify(a, count) <b>is</b>
+    <i>(start is assigned the index in 'a' of the last parent node)</i>
+    <i>(the last element in a 0-based array is at index count-1; find the parent of that element)</i>
+    start ← iParent(count-1)
+    
+    <b>while</b> start ≥ 0 <b>do</b>
+        <i>(sift down the node at index 'start' to the proper place such that all nodes below</i>
+        <i> the start index are in heap order)</i>
+        siftDown(a, start, count - 1)
+        <i>(go to the next parent node)</i>
+        start ← start - 1
+    <i>(after sifting down the root all nodes/elements are in heap order)</i>
+
+<i>(Repair the heap whose root element is at index 'start', assuming the heaps rooted at its children are valid)</i>
+<b>procedure</b> siftDown(a, start, end) <b>is</b>
+    root ← start
+
+    <b>while</b> iLeftChild(root) ≤ end <b>do</b>    <i>(While the root has at least one child)</i>
+        child ← iLeftChild(root)   <i>(Left child of root)</i>
+        swap ← root                <i>(Keeps track of child to swap with)</i>
+
+        <b>if</b> a[swap] &lt; a[child] <b>then</b>
+            swap ← child
+        <i>(If there is a right child and that child is greater)</i>
+        <b>if</b> child+1 ≤ end <b>and</b> a[swap] &lt; a[child+1] <b>then</b>
+            swap ← child + 1
+        <b>if</b> swap = root <b>then</b>
+            <i>(The root holds the largest element. Since we assume the heaps rooted at the</i>
+            <i> children are valid, this means that we are done.)</i>
+            <b>return</b>
+        <b>else</b>
+            swap(a[root], a[swap])
+            root ← swap          <i>(repeat to continue sifting down the child now)</i>
+</pre>
+<p>The <code>heapify</code> procedure can be thought of as building a heap from the bottom up by successively sifting downward to establish the <a href="Heap_(data_structure).html" title="Heap (data structure)">heap property</a>. An alternative version (shown below) that builds the heap top-down and sifts upward may be simpler to understand. This <code>siftUp</code> version can be visualized as starting with an empty heap and successively inserting elements, whereas the <code>siftDown</code> version given above treats the entire input array as a full but "broken" heap and "repairs" it starting from the last non-trivial sub-heap (that is, the last parent node).
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="File_Binary_heap_bottomup_vs_topdown.html" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Binary_heap_bottomup_vs_topdown.svg/220px-Binary_heap_bottomup_vs_topdown.svg.png" decoding="async" width="220" height="79" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Binary_heap_bottomup_vs_topdown.svg/330px-Binary_heap_bottomup_vs_topdown.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Binary_heap_bottomup_vs_topdown.svg/440px-Binary_heap_bottomup_vs_topdown.svg.png 2x" data-file-width="1687" data-file-height="609" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File_Binary_heap_bottomup_vs_topdown.html" class="internal" title="Enlarge"></a></div>Difference in time complexity between the "siftDown" version and the "siftUp" version.</div></div></div>
+<p>Also, the <code>siftDown</code> version of heapify <a href="Binary_heap.html#Building_a_heap" title="Binary heap">has <span class="texhtml"><i>O</i>(<i>n</i>)</span> time complexity</a>, while the <code>siftUp</code> version given below has <span class="texhtml"><i>O</i>(<i>n</i> log <i>n</i>)</span> time complexity due to its equivalence with inserting each element, one at a time, into an empty heap.<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup>
+This may seem counter-intuitive since, at a glance, it is apparent that the former only makes half as many calls to its logarithmic-time sifting function as the latter; i.e., they seem to differ only by a constant factor, which never affects asymptotic analysis.
+</p><p>To grasp the intuition behind this difference in complexity, note that the number of swaps that may occur during any one <code class="mw-highlight mw-highlight-lang-text mw-content-ltr" id="" style="" dir="ltr">siftUp</code> call <i>increases</i> with the depth of the node on which the call is made. The crux is that there are many (exponentially many) more "deep" nodes than there are "shallow" nodes in a heap, so that siftUp may have its full logarithmic running-time on the approximately linear number of calls made on the nodes at or near the "bottom" of the heap. On the other hand, the number of swaps that may occur during any one siftDown call <i>decreases</i> as the depth of the node on which the call is made increases. Thus, when the <code>siftDown</code> <code>heapify</code> begins and is calling <code>siftDown</code> on the bottom and most numerous node-layers, each sifting call will incur, at most, a number of swaps equal to the "height" (from the bottom of the heap) of the node on which the sifting call is made. In other words, about half the calls to <code class="mw-highlight mw-highlight-lang-text mw-content-ltr" id="" style="" dir="ltr">siftDown</code> will have at most only one swap, then about a quarter of the calls will have at most two swaps, etc.
+</p><p>The heapsort algorithm itself has <span class="texhtml"><i>O</i>(<i>n</i> log <i>n</i>)</span> time complexity using either version of heapify.
+</p>
+<pre> <b>procedure</b> heapify(a,count) is
+     <i>(end is assigned the index of the first (left) child of the root)</i>
+     end&#160;:= 1
+     
+     <b>while</b> end &lt; count
+         <i>(sift up the node at index end to the proper place such that all nodes above</i>
+         <i> the end index are in heap order)</i>
+         siftUp(a, 0, end)
+         end&#160;:= end + 1
+     <i>(after sifting up the last node all nodes are in heap order)</i>
+ 
+ <b>procedure</b> siftUp(a, start, end) <b>is</b>
+     <b>input: </b> <i>start represents the limit of how far up the heap to sift.</i>
+                   <i>end is the node to sift up.</i>
+     child&#160;:= end 
+     <b>while</b> child &gt; start
+         parent&#160;:= iParent(child)
+         <b>if</b> a[parent] &lt; a[child] <b>then</b> <i>(out of max-heap order)</i>
+             swap(a[parent], a[child])
+             child&#160;:= parent <i>(repeat to continue sifting up the parent now)</i>
+         <b>else</b>
+             <b>return</b>
+</pre>
+<p>Note that unlike <code>siftDown</code> approach where, after each swap, you need to call only the <code>siftDown</code> subroutine to fix the broken heap; the <code>siftUp</code> subroutine alone cannot fix the broken heap. The heap needs to be built every time after a swap by calling the <code>heapify</code> procedure since "siftUp" assumes that the element getting swapped ends up in its final place, as opposed to "siftDown" allows for continuous adjustments of items lower in the heap until the invariant is satisfied. The adjusted pseudocode for using <code>siftUp</code> approach is given below.
+</p>
+<pre> <b>procedure</b> heapsort(a, count) <b>is</b>
+    <b>input:</b> an unordered array <i>a</i> of length <i>count</i>
+ 
+    <i>(Build the heap in array a so that largest value is at the root)</i>
+    heapify(a, count)
+
+    <i>(The following loop maintains the <a href="Loop_invariant.html" title="Loop invariant">invariants</a> that a[0:end] is a heap and every element</i>
+     <i>beyond end is greater than everything before it (so a[end:count] is in sorted order))</i>
+    end ← count - 1
+    <b>while</b> end &gt; 0 <b>do</b>
+        <i>(a[0] is the root and largest value. The swap moves it in front of the sorted elements.)</i>
+        swap(a[end], a[0])
+        <i>(rebuild the heap using siftUp after the swap ruins the heap property)</i>
+        heapify(a, end)
+        <i>(reduce the heap size by one)</i>
+        end ← end - 1
+</pre>
+<h2><span class="mw-headline" id="Variations">Variations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;action=edit&amp;section=4" title="Edit section: Variations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span id="Floyd.27s_heap_construction"></span><span class="mw-headline" id="Floyd's_heap_construction">Floyd's heap construction</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;action=edit&amp;section=5" title="Edit section: Floyd&#039;s heap construction">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The most important variation to the basic algorithm, which is included in all practical implementations, is a heap-construction algorithm by Floyd which runs in <span class="texhtml"><i>O</i>(<i>n</i>)</span> time and uses <a href="Binary_heap.html#Extract" title="Binary heap">siftdown</a> rather than <a href="Binary_heap.html#Insert" title="Binary heap">siftup</a>, avoiding the need to implement siftup at all.
+</p><p>Rather than starting with a trivial heap and repeatedly adding leaves, Floyd's algorithm starts with the leaves, observing that they are trivial but valid heaps by themselves, and then adds parents.  Starting with element <span class="texhtml"><i>n</i>/2</span> and working backwards, each internal node is made the root of a valid heap by sifting down.  The last step is sifting down the first element, after which the entire array obeys the heap property.
+</p><p>The worst-case number of comparisons during the Floyd's heap-construction phase of Heapsort is known to be equal to <span class="texhtml">2<i>n</i> − 2<i>s</i><sub>2</sub>(<i>n</i>) − <i>e</i><sub>2</sub>(<i>n</i>)</span>, where <span class="texhtml"><i>s</i><sub>2</sub>(<i>n</i>)</span> is the number of 1 bits in the binary representation of <span class="texhtml mvar" style="font-style:italic;">n</span> and <span class="texhtml"><i>e</i><sub>2</sub>(<i>n</i>)</span> is number of trailing 0 bits.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup>
+</p><p>The standard implementation of Floyd's heap-construction algorithm causes a large number of <a href="Cache_miss.html" class="mw-redirect" title="Cache miss">cache misses</a> once the size of the data exceeds that of the <a href="CPU_cache.html" title="CPU cache">CPU cache</a>.<sup id="cite_ref-LaMarca99_6-0" class="reference"><a href="#cite_note-LaMarca99-6">&#91;6&#93;</a></sup><sup class="reference nowrap"><span title="Page: 87">&#58;&#8202;87&#8202;</span></sup>  Much better performance on large data sets can be obtained by merging in <a href="Depth-first.html" class="mw-redirect" title="Depth-first">depth-first</a> order, combining subheaps as soon as possible, rather than combining all subheaps on one level before proceeding to the one above.<sup id="cite_ref-Bojesen00_7-0" class="reference"><a href="#cite_note-Bojesen00-7">&#91;7&#93;</a></sup><sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Bottom-up_heapsort">Bottom-up heapsort</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;action=edit&amp;section=6" title="Edit section: Bottom-up heapsort">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Bottom-up heapsort is a variant which reduces the number of comparisons required by a significant factor.  While ordinary heapsort requires <span class="texhtml">2<i>n</i> log<sub>2</sub> <i>n</i> + <i>O</i>(<i>n</i>)</span> comparisons worst-case and on average,<sup id="cite_ref-Wegener_9-0" class="reference"><a href="#cite_note-Wegener-9">&#91;9&#93;</a></sup> the bottom-up variant requires <span class="texhtml"><i>n</i> log<sub>2</sub><i>n</i> + <i>O</i>(1)</span> comparisons on average,<sup id="cite_ref-Wegener_9-1" class="reference"><a href="#cite_note-Wegener-9">&#91;9&#93;</a></sup> and <span class="texhtml">1.5<i>n</i> log<sub>2</sub><i>n</i> + <i>O</i>(<i>n</i>)</span> in the worst case.<sup id="cite_ref-fleischer_10-0" class="reference"><a href="#cite_note-fleischer-10">&#91;10&#93;</a></sup>
+</p><p>If comparisons are cheap (e.g. integer keys) then the difference is unimportant,<sup id="cite_ref-Melhorn_11-0" class="reference"><a href="#cite_note-Melhorn-11">&#91;11&#93;</a></sup> as top-down heapsort compares values that have already been loaded from memory.  If, however, comparisons require a <a href="Function_call.html" class="mw-redirect" title="Function call">function call</a> or other complex logic, then bottom-up heapsort is advantageous.
+</p><p>This is accomplished by improving the <code>siftDown</code> procedure.  The change improves the linear-time heap-building phase somewhat,<sup id="cite_ref-McDiarmid_12-0" class="reference"><a href="#cite_note-McDiarmid-12">&#91;12&#93;</a></sup> but is more significant in the second phase.  Like ordinary heapsort, each iteration of the second phase extracts the top of the heap, <span class="texhtml"><i>a</i>[0]</span>, and fills the gap it leaves with <span class="texhtml"><i>a</i>[<i>end</i>]</span>, then sifts this latter element down the heap.  But this element comes from the lowest level of the heap, meaning it is one of the smallest elements in the heap, so the sift-down will likely take many steps to move it back down.<sup id="cite_ref-MacKay05_13-0" class="reference"><a href="#cite_note-MacKay05-13">&#91;13&#93;</a></sup> In ordinary heapsort, each step of the sift-down requires two comparisons, to find the minimum of three elements: the new node and its two children.
+</p><p>Bottom-up heapsort instead finds the path of largest children to the leaf level of the tree (as if it were inserting −∞) using only one comparison per level.  Put another way, it finds a leaf which has the property that it and all of its ancestors are greater than or equal to their siblings.  (In the absence of equal keys, this leaf is unique.) Then, from this leaf, it searches <i>upward</i> (using one comparison per level) for the correct position in that path to insert <span class="texhtml"><i>a</i>[<i>end</i>]</span>.  This is the same location as ordinary heapsort finds, and requires the same number of exchanges to perform the insert, but fewer comparisons are required to find that location.<sup id="cite_ref-fleischer_10-1" class="reference"><a href="#cite_note-fleischer-10">&#91;10&#93;</a></sup>
+</p><p>Because it goes all the way to the bottom and then comes back up, it is called <b>heapsort with bounce</b> by some authors.<sup id="cite_ref-14" class="reference"><a href="#cite_note-14">&#91;14&#93;</a></sup>
+</p>
+<pre><b>function</b> leafSearch(a, i, end) <b>is</b>
+    j ← i
+    <b>while</b> iRightChild(j) ≤ end <b>do</b>
+        <i>(Determine which of j's two children is the greater)</i>
+        <b>if</b> a[iRightChild(j)] &gt; a[iLeftChild(j)] <b>then</b>
+            j ← iRightChild(j)
+        <b>else</b>
+            j ← iLeftChild(j)
+    <i>(At the last level, there might be only one child)</i>
+    <b>if</b> iLeftChild(j) ≤ end <b>then</b>
+        j ← iLeftChild(j)
+    <b>return</b> j
+</pre>
+<p>The return value of the <code>leafSearch</code> is used in the modified <code>siftDown</code> routine:<sup id="cite_ref-fleischer_10-2" class="reference"><a href="#cite_note-fleischer-10">&#91;10&#93;</a></sup>
+</p>
+<pre><b>procedure</b> siftDown(a, i, end) <b>is</b>
+    j ← leafSearch(a, i, end)
+    <b>while</b> a[i] &gt; a[j] <b>do</b>
+        j ← iParent(j)
+    x ← a[j]
+    a[j] ← a[i]
+    <b>while</b> j &gt; i <b>do</b>
+        swap x, a[iParent(j)]
+        j ← iParent(j)
+</pre>
+<p>Bottom-up heapsort was announced as beating quicksort (with median-of-three pivot selection) on arrays of size ≥16000.<sup id="cite_ref-Wegener_9-2" class="reference"><a href="#cite_note-Wegener-9">&#91;9&#93;</a></sup>
+</p><p>A 2008 re-evaluation of this algorithm showed it to be no faster than ordinary heapsort for integer keys, presumably because modern <a href="Branch_prediction.html" class="mw-redirect" title="Branch prediction">branch prediction</a> nullifies the cost of the predictable comparisons which bottom-up heapsort manages to avoid.<sup id="cite_ref-Melhorn_11-1" class="reference"><a href="#cite_note-Melhorn-11">&#91;11&#93;</a></sup>
+</p><p>A further refinement does a binary search in the path to the selected leaf, and sorts in a worst case of <span class="texhtml">(<i>n</i>+1)(log<sub>2</sub>(<i>n</i>+1) + log<sub>2</sub> log<sub>2</sub>(<i>n</i>+1) + 1.82) + <i>O</i>(log<sub>2</sub><i>n</i>)</span> comparisons, approaching <a href="Comparison_sort.html#Number_of_comparisons_required_to_sort_a_list" title="Comparison sort">the information-theoretic lower bound</a> of <span class="texhtml"><i>n</i> log<sub>2</sub><i>n</i> − 1.4427<i>n</i></span> comparisons.<sup id="cite_ref-Carlsson_15-1" class="reference"><a href="#cite_note-Carlsson-15">&#91;15&#93;</a></sup>
+</p><p>A variant which uses two extra bits per internal node (<i>n</i>−1 bits total for an <i>n</i>-element heap) to cache information about which child is greater (two bits are required to store three cases: left, right, and unknown)<sup id="cite_ref-McDiarmid_12-1" class="reference"><a href="#cite_note-McDiarmid-12">&#91;12&#93;</a></sup> uses less than <span class="texhtml"><i>n</i> log<sub>2</sub><i>n</i> + 1.1<i>n</i></span> compares.<sup id="cite_ref-16" class="reference"><a href="#cite_note-16">&#91;16&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Other_variations">Other variations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;action=edit&amp;section=7" title="Edit section: Other variations">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<ul><li>Ternary heapsort uses a <a href="Ternary_heap.html" class="mw-redirect" title="Ternary heap">ternary heap</a> instead of a binary heap; that is, each element in the heap has three children. It is more complicated to program, but does a constant number of times fewer swap and comparison operations.  This is because each sift-down step in a ternary heap requires three comparisons and one swap, whereas in a binary heap two comparisons and one swap are required. Two levels in a ternary heap cover 3<sup>2</sup> = 9 elements, doing more work with the same number of comparisons as three levels in the binary heap, which only cover 2<sup>3</sup> = 8.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="Wikipedia_Citation_needed.html" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (September 2014)">citation needed</span></a></i>&#93;</sup>  This is primarily of academic interest, or as a student exercise,<sup id="cite_ref-17" class="reference"><a href="#cite_note-17">&#91;17&#93;</a></sup> as the additional complexity is not worth the minor savings, and bottom-up heapsort beats both.</li>
+<li>Memory-optimized heapsort<sup id="cite_ref-LaMarca99_6-1" class="reference"><a href="#cite_note-LaMarca99-6">&#91;6&#93;</a></sup><sup class="reference nowrap"><span title="Page: 87">&#58;&#8202;87&#8202;</span></sup> improves heapsort's <a href="Locality_of_reference.html" title="Locality of reference">locality of reference</a> by increasing the number of children even more.  This increases the number of comparisons, but because all children are stored consecutively in memory, reduces the number of <a href="Cache_line.html" class="mw-redirect" title="Cache line">cache lines</a> accessed during heap traversal, a net performance improvement.</li>
+<li>Out-of-place heapsort<sup id="cite_ref-18" class="reference"><a href="#cite_note-18">&#91;18&#93;</a></sup><sup id="cite_ref-19" class="reference"><a href="#cite_note-19">&#91;19&#93;</a></sup><sup id="cite_ref-MacKay05_13-1" class="reference"><a href="#cite_note-MacKay05-13">&#91;13&#93;</a></sup> improves on bottom-up heapsort by eliminating the worst case, guaranteeing <span class="texhtml"><i>n</i> log<sub>2</sub><i>n</i> + <i>O</i>(<i>n</i>)</span> comparisons.  When the maximum is taken, rather than fill the vacated space with an unsorted data value, fill it with a <span class="texhtml">−∞</span> sentinel value, which never "bounces" back up.  It turns out that this can be used as a primitive in an in-place (and non-recursive) "QuickHeapsort" algorithm.<sup id="cite_ref-20" class="reference"><a href="#cite_note-20">&#91;20&#93;</a></sup> First, you perform a quicksort-like partitioning pass, but reversing the order of the partitioned data in the array.  Suppose (<a href="Without_loss_of_generality.html" title="Without loss of generality">without loss of generality</a>) that the smaller partition is the one greater than the pivot, which should go at the end of the array, but our reversed partitioning step places it at the beginning.  Form a heap out of the smaller partition and do out-of-place heapsort on it, exchanging the extracted maxima with values from the end of the array.  These are less than the pivot, meaning less than any value in the heap, so serve as <span class="texhtml">−∞</span> sentinel values.  Once the heapsort is complete (and the pivot moved to just before the now-sorted end of the array), the order of the partitions has been reversed, and the larger partition at the beginning of the array may be sorted in the same way.  (Because there is no non-<a href="Tail_recursion.html" class="mw-redirect" title="Tail recursion">tail recursion</a>, this also eliminates quicksort's <span class="texhtml"><i>O</i>(log <i>n</i>)</span> stack usage.)</li>
+<li>The <a href="Smoothsort.html" title="Smoothsort">smoothsort</a> algorithm<sup id="cite_ref-21" class="reference"><a href="#cite_note-21">&#91;21&#93;</a></sup> is a variation of heapsort developed by <a href="Edsger_W.html" title="Edsger W. Dijkstra">Edsger Dijkstra</a> in 1981. Like heapsort, smoothsort's upper bound is <span class="texhtml"><i>O</i>(<i>n</i> log <i>n</i>)</span>. The advantage of smoothsort is that it comes closer to <span class="texhtml"><i>O</i>(<i>n</i>)</span> time if the <a href="Adaptive_sort.html" title="Adaptive sort">input is already sorted to some degree</a>, whereas heapsort averages <span class="texhtml"><i>O</i>(<i>n</i> log <i>n</i>)</span> regardless of the initial sorted state. Due to its complexity, smoothsort is rarely used.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="Wikipedia_Citation_needed.html" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (November 2016)">citation needed</span></a></i>&#93;</sup></li>
+<li>Levcopoulos and Petersson<sup id="cite_ref-22" class="reference"><a href="#cite_note-22">&#91;22&#93;</a></sup> describe a variation of heapsort based on a heap of <a href="Cartesian_tree.html" title="Cartesian tree">Cartesian trees</a>.  First, a Cartesian tree is built from the input in <span class="texhtml"><i>O</i>(<i>n</i>)</span> time, and its root is placed in a 1-element binary heap.   Then we repeatedly extract the minimum from the binary heap, output the tree's root element, and add its left and right children (if any) which are themselves Cartesian trees, to the binary heap.<sup id="cite_ref-23" class="reference"><a href="#cite_note-23">&#91;23&#93;</a></sup> As they show, if the input is already nearly sorted, the Cartesian trees will be very unbalanced, with few nodes having left and right children, resulting in the binary heap remaining small, and allowing the algorithm to sort more quickly than <span class="texhtml"><i>O</i>(<i>n</i> log <i>n</i>)</span> for inputs that are already nearly sorted.</li>
+<li>Several variants such as <a href="Weak_heap.html#Weak-heap_sort" title="Weak heap">weak heapsort</a> require <span class="texhtml"><i>n</i> log<sub>2</sub> <i>n</i>+<i>O</i>(1)</span> comparisons in the worst case, close to the theoretical minimum, using one extra bit of state per node.  While this extra bit makes the algorithms not truly in-place, if space for it can be found inside the element, these algorithms are simple and efficient,<sup id="cite_ref-Bojesen00_7-1" class="reference"><a href="#cite_note-Bojesen00-7">&#91;7&#93;</a></sup><sup class="reference nowrap"><span title="Page: 40">&#58;&#8202;40&#8202;</span></sup> but still slower than binary heaps if key comparisons are cheap enough (e.g. integer keys) that a constant factor does not matter.<sup id="cite_ref-Kat2014-11-14P_24-0" class="reference"><a href="#cite_note-Kat2014-11-14P-24">&#91;24&#93;</a></sup></li>
+<li>Katajainen's "ultimate heapsort" requires no extra storage, performs <span class="texhtml"><i>n</i> log<sub>2</sub> <i>n</i>+<i>O</i>(1)</span> comparisons, and a similar number of element moves.<sup id="cite_ref-25" class="reference"><a href="#cite_note-25">&#91;25&#93;</a></sup> It is, however, even more complex and not justified unless comparisons are very expensive.</li></ul>
+<h2><span class="mw-headline" id="Comparison_with_other_sorts">Comparison with other sorts</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;action=edit&amp;section=8" title="Edit section: Comparison with other sorts">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Heapsort primarily competes with <a href="Quicksort.html" title="Quicksort">quicksort</a>, another very efficient general purpose in-place comparison-based sort algorithm.
+</p><p>Heapsort's primary advantages are its simple, non-<a href="Recursion_(computer_science).html" title="Recursion (computer science)">recursive</a> code, minimal auxiliary storage requirement, and reliably good performance: its best and worst cases are within a small constant factor of each other, and of the <a href="Comparison_sort.html#Number_of_comparisons_required_to_sort_a_list" title="Comparison sort">theoretical lower bound on comparison sorts</a>.  While it cannot do better than <span class="texhtml"><i>O</i>(<i>n</i> log <i>n</i>)</span> for pre-sorted inputs, it does not suffer from quicksort's <span class="texhtml"><i>O</i>(<i>n</i><sup>2</sup>)</span> worst case, either.  (The latter can be avoided with careful implementation, but that makes quicksort far more complex, and one of the most popular solutions, <a href="Introsort.html" title="Introsort">introsort</a>, uses heapsort for the purpose.)
+</p><p>Its primary disadvantages are its poor <a href="Locality_of_reference.html" title="Locality of reference">locality of reference</a> and its inherently serial nature; the accesses to the implicit tree are widely scattered and mostly random, and there is no straightforward way to convert it to a <a href="Parallel_algorithm.html" title="Parallel algorithm">parallel algorithm</a>.
+</p><p>This makes it popular in <a href="Embedded_system.html" title="Embedded system">embedded systems</a>, <a href="Real-time_computing.html" title="Real-time computing">real-time computing</a>, and systems concerned with maliciously chosen inputs,<sup id="cite_ref-26" class="reference"><a href="#cite_note-26">&#91;26&#93;</a></sup> such as the Linux kernel.<sup id="cite_ref-27" class="reference"><a href="#cite_note-27">&#91;27&#93;</a></sup> It is also a good choice for any application which does not expect to be <a href="Bottleneck_(computing).html" class="mw-redirect" title="Bottleneck (computing)">bottlenecked</a> on sorting.
+</p><p>A well-implemented quicksort is usually 2–3 times faster than heapsort.<sup id="cite_ref-LaMarca99_6-2" class="reference"><a href="#cite_note-LaMarca99-6">&#91;6&#93;</a></sup><sup id="cite_ref-28" class="reference"><a href="#cite_note-28">&#91;28&#93;</a></sup> Although quicksort requires fewer comparisons, this is a minor factor.  (Results claiming twice as many comparisons are measuring the top-down version; see <a href="Heapsort.html#Bottom-up_heapsort" title="Heapsort">§&#160;Bottom-up heapsort</a>.) The main advantage of quicksort is its much better locality of reference: partitioning is a linear scan with good spatial locality, and the recursive subdivision has good temporal locality.  With additional effort, quicksort can also be implemented in mostly <a href="Branch-free_code.html" class="mw-redirect" title="Branch-free code">branch-free code</a>, and multiple CPUs can be used to sort subpartitions in parallel.  Thus, quicksort is preferred when the additional performance justifies the implementation effort.
+</p><p>The other major <span class="texhtml"><i>O</i>(<i>n</i> log <i>n</i>)</span> sorting algorithm is <a href="Merge_sort.html" title="Merge sort">merge sort</a>, but that rarely competes directly with heapsort because it is not in-place.  Merge sort's requirement for <span class="texhtml">Ω(<i>n</i>)</span> extra space (roughly half the size of the input) is usually prohibitive except in the situations where merge sort has a clear advantage:
+</p>
+<ul><li>When a <a href="Stable_sort.html" class="mw-redirect" title="Stable sort">stable sort</a> is required</li>
+<li>When taking advantage of (partially) pre-sorted input</li>
+<li>Sorting <a href="Linked_list.html" title="Linked list">linked lists</a> (in which case merge sort requires minimal extra space)</li>
+<li>Parallel sorting; merge sort parallelizes even better than quicksort and can easily achieve close to <a href="Linear_speedup.html" class="mw-redirect" title="Linear speedup">linear speedup</a></li>
+<li><a href="External_sorting.html" title="External sorting">External sorting</a>; merge sort has excellent locality of reference</li></ul>
+<h2><span class="mw-headline" id="Example">Example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;action=edit&amp;section=9" title="Edit section: Example">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Let { 6, 5, 3, 1, 8, 7, 2, 4 } be the list that we want to sort from the smallest to the largest. (NOTE, for 'Building the Heap' step: Larger nodes don't stay below smaller node parents. They are swapped with parents, and then recursively checked if another swap is needed, to keep larger numbers above smaller numbers on the heap binary tree.)
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:352px;"><a href="File_Heapsort-example.html" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/4/4d/Heapsort-example.gif" decoding="async" width="350" height="280" class="thumbimage" data-file-width="350" data-file-height="280" /></a>  <div class="thumbcaption"><div class="magnify"><a href="File_Heapsort-example.html" class="internal" title="Enlarge"></a></div>An example on heapsort.</div></div></div>
+<h3><span class="mw-headline" id="Build_the_heap">Build the heap</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;action=edit&amp;section=10" title="Edit section: Build the heap">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Heap</th>
+<th>newly added element</th>
+<th>swap elements
+</th></tr>
+<tr>
+<td><code style="color: white; background-color: gray; padding: 2px 4px; font-size: smaller;">NULL</code></td>
+<td>6</td>
+<td>
+</td></tr>
+<tr>
+<td>6</td>
+<td>5</td>
+<td>
+</td></tr>
+<tr>
+<td>6, 5</td>
+<td>3</td>
+<td>
+</td></tr>
+<tr>
+<td>6, 5, 3</td>
+<td>1</td>
+<td>
+</td></tr>
+<tr>
+<td>6, 5, 3, 1</td>
+<td>8</td>
+<td>
+</td></tr>
+<tr>
+<td>6, <b>5</b>, 3, 1, <b>8 </b></td>
+<td></td>
+<td>5, 8
+</td></tr>
+<tr>
+<td><b>6</b>, <b>8</b>, 3, 1, 5</td>
+<td></td>
+<td>6, 8
+</td></tr>
+<tr>
+<td>8, 6, 3, 1, 5</td>
+<td>7</td>
+<td>
+</td></tr>
+<tr>
+<td>8, 6, <b>3</b>, 1, 5, <b>7</b></td>
+<td></td>
+<td>3, 7
+</td></tr>
+<tr>
+<td>8, 6, 7, 1, 5, 3</td>
+<td>2</td>
+<td>
+</td></tr>
+<tr>
+<td>8, 6, 7, 1, 5, 3, 2</td>
+<td>4</td>
+<td>
+</td></tr>
+<tr>
+<td>8, 6, 7, <b>1</b>, 5, 3, 2, <b>4</b></td>
+<td></td>
+<td>1, 4
+</td></tr>
+<tr>
+<td>8, 6, 7, 4, 5, 3, 2, 1</td>
+<td></td>
+<td>
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Sorting">Sorting</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;action=edit&amp;section=11" title="Edit section: Sorting">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Heap</th>
+<th>swap elements</th>
+<th>delete element</th>
+<th>sorted array</th>
+<th>details
+</th></tr>
+<tr>
+<td><b>8</b>, 6, 7, 4, 5, 3, 2, <b>1</b></td>
+<td>8, 1</td>
+<td></td>
+<td></td>
+<td>swap 8 and 1 in order to delete 8 from heap
+</td></tr>
+<tr>
+<td>1, 6, 7, 4, 5, 3, 2, <b>8</b></td>
+<td></td>
+<td>8</td>
+<td></td>
+<td>delete 8 from heap and add to sorted array
+</td></tr>
+<tr>
+<td><b>1</b>, 6, <b>7</b>, 4, 5, 3, 2</td>
+<td>1, 7</td>
+<td></td>
+<td style="text-align: right;">8</td>
+<td>swap 1 and 7 as they are not in order in the heap
+</td></tr>
+<tr>
+<td>7, 6, <b>1</b>, 4, 5, <b>3</b>, 2</td>
+<td>1, 3</td>
+<td></td>
+<td style="text-align: right;">8</td>
+<td>swap 1 and 3 as they are not in order in the heap
+</td></tr>
+<tr>
+<td><b>7</b>, 6, 3, 4, 5, 1, <b>2</b></td>
+<td>7, 2</td>
+<td></td>
+<td style="text-align: right;">8</td>
+<td>swap 7 and 2 in order to delete 7 from heap
+</td></tr>
+<tr>
+<td>2, 6, 3, 4, 5, 1, <b>7</b></td>
+<td></td>
+<td>7</td>
+<td style="text-align: right;">8</td>
+<td>delete 7 from heap and add to sorted array
+</td></tr>
+<tr>
+<td><b>2</b>, <b>6</b>, 3, 4, 5, 1</td>
+<td>2, 6</td>
+<td></td>
+<td style="text-align: right;">7, 8</td>
+<td>swap 2 and 6 as they are not in order in the heap
+</td></tr>
+<tr>
+<td>6, <b>2</b>, 3, 4, <b>5</b>, 1</td>
+<td>2, 5</td>
+<td></td>
+<td style="text-align: right;">7, 8</td>
+<td>swap 2 and 5 as they are not in order in the heap
+</td></tr>
+<tr>
+<td><b>6</b>, 5, 3, 4, 2, <b>1</b></td>
+<td>6, 1</td>
+<td></td>
+<td style="text-align: right;">7, 8</td>
+<td>swap 6 and 1 in order to delete 6 from heap
+</td></tr>
+<tr>
+<td>1, 5, 3, 4, 2, <b>6</b></td>
+<td></td>
+<td>6</td>
+<td style="text-align: right;">7, 8</td>
+<td>delete 6 from heap and add to sorted array
+</td></tr>
+<tr>
+<td><b>1</b>, <b>5</b>, 3, 4, 2</td>
+<td>1, 5</td>
+<td></td>
+<td style="text-align: right;">6, 7, 8</td>
+<td>swap 1 and 5 as they are not in order in the heap
+</td></tr>
+<tr>
+<td>5, <b>1</b>, 3, <b>4</b>, 2</td>
+<td>1, 4</td>
+<td></td>
+<td style="text-align: right;">6, 7, 8</td>
+<td>swap 1 and 4 as they are not in order in the heap
+</td></tr>
+<tr>
+<td><b>5</b>, 4, 3, 1, <b>2</b></td>
+<td>5, 2</td>
+<td></td>
+<td style="text-align: right;">6, 7, 8</td>
+<td>swap 5 and 2 in order to delete 5 from heap
+</td></tr>
+<tr>
+<td>2, 4, 3, 1, <b>5</b></td>
+<td></td>
+<td>5</td>
+<td style="text-align: right;">6, 7, 8</td>
+<td>delete 5 from heap and add to sorted array
+</td></tr>
+<tr>
+<td><b>2</b>, <b>4</b>, 3, 1</td>
+<td>2, 4</td>
+<td></td>
+<td style="text-align: right;">5, 6, 7, 8</td>
+<td>swap 2 and 4 as they are not in order in the heap
+</td></tr>
+<tr>
+<td><b>4</b>, 2, 3, <b>1</b></td>
+<td>4, 1</td>
+<td></td>
+<td style="text-align: right;">5, 6, 7, 8</td>
+<td>swap 4 and 1 in order to delete 4 from heap
+</td></tr>
+<tr>
+<td>1, 2, 3, <b>4</b></td>
+<td></td>
+<td>4</td>
+<td style="text-align: right;">5, 6, 7, 8</td>
+<td>delete 4 from heap and add to sorted array
+</td></tr>
+<tr>
+<td><b>1</b>, 2, <b>3</b></td>
+<td>1, 3</td>
+<td></td>
+<td style="text-align: right;">4, 5, 6, 7, 8</td>
+<td>swap 1 and 3 as they are not in order in the heap
+</td></tr>
+<tr>
+<td><b>3</b>, 2, <b>1</b></td>
+<td>3, 1</td>
+<td></td>
+<td style="text-align: right;">4, 5, 6, 7, 8</td>
+<td>swap 3 and 1 in order to delete 3 from heap
+</td></tr>
+<tr>
+<td>1, 2, <b>3</b></td>
+<td></td>
+<td>3</td>
+<td style="text-align: right;">4, 5, 6, 7, 8</td>
+<td>delete 3 from heap and add to sorted array
+</td></tr>
+<tr>
+<td><b>1</b>, <b>2</b></td>
+<td>1, 2</td>
+<td></td>
+<td style="text-align: right;">3, 4, 5, 6, 7, 8</td>
+<td>swap 1 and 2 as they are not in order in the heap
+</td></tr>
+<tr>
+<td><b>2</b>, <b>1</b></td>
+<td>2, 1</td>
+<td></td>
+<td style="text-align: right;">3, 4, 5, 6, 7, 8</td>
+<td>swap 2 and 1 in order to delete 2 from heap
+</td></tr>
+<tr>
+<td>1, <b>2</b></td>
+<td></td>
+<td>2</td>
+<td style="text-align: right;">3, 4, 5, 6, 7, 8</td>
+<td>delete 2 from heap and add to sorted array
+</td></tr>
+<tr>
+<td><b>1</b></td>
+<td></td>
+<td>1</td>
+<td style="text-align: right;">2, 3, 4, 5, 6, 7, 8</td>
+<td>delete 1 from heap and add to sorted array
+</td></tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td style="text-align: right;">1, 2, 3, 4, 5, 6, 7, 8</td>
+<td style="background: #9EFF9E; vertical-align: middle; text-align: center;" class="table-success">completed
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;action=edit&amp;section=12" title="Edit section: Notes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFSkiena2008" class="citation book cs1"><a href="Steven_Skiena.html" title="Steven Skiena">Skiena, Steven</a> (2008). "Searching and Sorting". <i>The Algorithm Design Manual</i>. Springer. p.&#160;109. <a href="Doi_(identifier).html" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-1-84800-070-4_4">10.1007/978-1-84800-070-4_4</a>. <a href="ISBN_(identifier).html" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special_BookSources/978-1-84800-069-8.html" title="Special:BookSources/978-1-84800-069-8"><bdi>978-1-84800-069-8</bdi></a>. <q>[H]eapsort is nothing but an implementation of selection sort using the right data structure.</q></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Searching+and+Sorting&amp;rft.btitle=The+Algorithm+Design+Manual&amp;rft.pages=109&amp;rft.pub=Springer&amp;rft.date=2008&amp;rft_id=info%3Adoi%2F10.1007%2F978-1-84800-070-4_4&amp;rft.isbn=978-1-84800-069-8&amp;rft.aulast=Skiena&amp;rft.aufirst=Steven&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><a href="#CITEREFWilliams1964">Williams 1964</a></span>
+</li>
+<li id="cite_note-brass-3"><span class="mw-cite-backlink">^ <a href="#cite_ref-brass_3-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-brass_3-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFBrass2008" class="citation book cs1">Brass, Peter (2008). <i>Advanced Data Structures</i>. Cambridge University Press. p.&#160;209. <a href="ISBN_(identifier).html" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special_BookSources/978-0-521-88037-4.html" title="Special:BookSources/978-0-521-88037-4"><bdi>978-0-521-88037-4</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Advanced+Data+Structures&amp;rft.pages=209&amp;rft.pub=Cambridge+University+Press&amp;rft.date=2008&amp;rft.isbn=978-0-521-88037-4&amp;rft.aulast=Brass&amp;rft.aufirst=Peter&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20200909183303/http://www.equestionanswers.com/c/c-queue.php">"Priority Queues"</a>. Archived from <a rel="nofollow" class="external text" href="http://www.equestionanswers.com/c/c-queue.php">the original</a> on 9 September 2020<span class="reference-accessdate">. Retrieved <span class="nowrap">10 September</span> 2020</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Priority+Queues&amp;rft_id=http%3A%2F%2Fwww.equestionanswers.com%2Fc%2Fc-queue.php&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFSuchenek2012" class="citation cs2">Suchenek, Marek A. (2012), "Elementary Yet Precise Worst-Case Analysis of Floyd's Heap-Construction Program", <i><a href="Fundamenta_Informaticae.html" title="Fundamenta Informaticae">Fundamenta Informaticae</a></i>, <b>120</b> (1): 75–92, <a href="Doi_(identifier).html" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.3233%2FFI-2012-751">10.3233/FI-2012-751</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Fundamenta+Informaticae&amp;rft.atitle=Elementary+Yet+Precise+Worst-Case+Analysis+of+Floyd%27s+Heap-Construction+Program&amp;rft.volume=120&amp;rft.issue=1&amp;rft.pages=75-92&amp;rft.date=2012&amp;rft_id=info%3Adoi%2F10.3233%2FFI-2012-751&amp;rft.aulast=Suchenek&amp;rft.aufirst=Marek+A.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-LaMarca99-6"><span class="mw-cite-backlink">^ <a href="#cite_ref-LaMarca99_6-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-LaMarca99_6-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-LaMarca99_6-2"><sup><i><b>c</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFLaMarcaLadner1999" class="citation journal cs1">LaMarca, Anthony; Ladner, Richard E. (April 1999). <a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.456.3616&amp;rep=rep1&amp;type=pdf">"The Influence of Caches on the Performance of Sorting"</a>. <i>Journal of Algorithms</i>. <b>31</b> (1): 66–104. <a href="CiteSeerX_(identifier).html" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.456.3616">10.1.1.456.3616</a></span>. <a href="Doi_(identifier).html" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1006%2Fjagm.1998.0985">10.1006/jagm.1998.0985</a>. <a href="S2CID_(identifier).html" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:206567217">206567217</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Algorithms&amp;rft.atitle=The+Influence+of+Caches+on+the+Performance+of+Sorting&amp;rft.volume=31&amp;rft.issue=1&amp;rft.pages=66-104&amp;rft.date=1999-04&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.456.3616%23id-name%3DCiteSeerX&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A206567217%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1006%2Fjagm.1998.0985&amp;rft.aulast=LaMarca&amp;rft.aufirst=Anthony&amp;rft.au=Ladner%2C+Richard+E.&amp;rft_id=http%3A%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fdownload%3Fdoi%3D10.1.1.456.3616%26rep%3Drep1%26type%3Dpdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span>  See particularly figure 9c on p. 98.</span>
+</li>
+<li id="cite_note-Bojesen00-7"><span class="mw-cite-backlink">^ <a href="#cite_ref-Bojesen00_7-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Bojesen00_7-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFBojesenKatajainenSpork2000" class="citation journal cs1">Bojesen, Jesper; Katajainen, Jyrki; Spork, Maz (2000). <a rel="nofollow" class="external text" href="http://hjemmesider.diku.dk/~jyrki/Paper/katajain.ps">"Performance Engineering Case Study: Heap Construction"</a> <span class="cs1-format">(PostScript)</span>. <i>ACM Journal of Experimental Algorithmics</i>. <b>5</b> (15): 15–es. <a href="CiteSeerX_(identifier).html" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.35.3248">10.1.1.35.3248</a></span>. <a href="Doi_(identifier).html" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F351827.384257">10.1145/351827.384257</a>. <a href="S2CID_(identifier).html" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:30995934">30995934</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=ACM+Journal+of+Experimental+Algorithmics&amp;rft.atitle=Performance+Engineering+Case+Study%3A+Heap+Construction&amp;rft.volume=5&amp;rft.issue=15&amp;rft.pages=15-es&amp;rft.date=2000&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.35.3248%23id-name%3DCiteSeerX&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A30995934%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1145%2F351827.384257&amp;rft.aulast=Bojesen&amp;rft.aufirst=Jesper&amp;rft.au=Katajainen%2C+Jyrki&amp;rft.au=Spork%2C+Maz&amp;rft_id=http%3A%2F%2Fhjemmesider.diku.dk%2F~jyrki%2FPaper%2Fkatajain.ps&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span> <a rel="nofollow" class="external text" href="https://www.semanticscholar.org/paper/Performance-Engineering-Case-Study-Heap-Bojesen-Katajainen/6f4ada5912c1da64e16453d67ec99c970173fb5b">Alternate PDF source</a>.</span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFChenEdelkampElmasryKatajainen2012" class="citation conference cs1">Chen, Jingsen; Edelkamp, Stefan; Elmasry, Amr; Katajainen, Jyrki (27–31 August 2012). <a rel="nofollow" class="external text" href="https://web.archive.org/web/20161229031307/https://pdfs.semanticscholar.org/9cc6/36d7998d58b3937ba0098e971710ff039612.pdf"><i>In-place Heap Construction with Optimized Comparisons, Moves, and Cache Misses</i></a> <span class="cs1-format">(PDF)</span>. 37th international conference on Mathematical Foundations of Computer Science. Bratislava, Slovakia. pp.&#160;259–270. <a href="Doi_(identifier).html" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-3-642-32589-2_25">10.1007/978-3-642-32589-2_25</a>. <a href="ISBN_(identifier).html" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special_BookSources/978-3-642-32588-5.html" title="Special:BookSources/978-3-642-32588-5"><bdi>978-3-642-32588-5</bdi></a>. <a href="S2CID_(identifier).html" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:1462216">1462216</a>. Archived from <a rel="nofollow" class="external text" href="https://pdfs.semanticscholar.org/9cc6/36d7998d58b3937ba0098e971710ff039612.pdf">the original</a> <span class="cs1-format">(PDF)</span> on 29 December 2016.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=In-place+Heap+Construction+with+Optimized+Comparisons%2C+Moves%2C+and+Cache+Misses&amp;rft.place=Bratislava%2C+Slovakia&amp;rft.pages=259-270&amp;rft.date=2012-08-27%2F2012-08-31&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A1462216%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-642-32589-2_25&amp;rft.isbn=978-3-642-32588-5&amp;rft.aulast=Chen&amp;rft.aufirst=Jingsen&amp;rft.au=Edelkamp%2C+Stefan&amp;rft.au=Elmasry%2C+Amr&amp;rft.au=Katajainen%2C+Jyrki&amp;rft_id=https%3A%2F%2Fpdfs.semanticscholar.org%2F9cc6%2F36d7998d58b3937ba0098e971710ff039612.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span>  See particularly Fig. 3.</span>
+</li>
+<li id="cite_note-Wegener-9"><span class="mw-cite-backlink">^ <a href="#cite_ref-Wegener_9-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Wegener_9-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-Wegener_9-2"><sup><i><b>c</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFWegener1993" class="citation journal cs1"><a href="Ingo_Wegener.html" title="Ingo Wegener">Wegener, Ingo</a> (13 September 1993). <a rel="nofollow" class="external text" href="https://core.ac.uk/download/pdf/82350265.pdf">"<span class="smallcaps"><span style="font-variant: small-caps; text-transform: lowercase;">BOTTOM-UP HEAPSORT</span></span>, a new variant of <span class="smallcaps"><span style="font-variant: small-caps; text-transform: lowercase;">HEAPSORT</span></span> beating, on an average, <span class="smallcaps"><span style="font-variant: small-caps; text-transform: lowercase;">QUICKSORT</span></span> (if <span class="texhtml mvar" style="font-style:italic;">n</span> is not very small)"</a> <span class="cs1-format">(PDF)</span>. <i>Theoretical Computer Science</i>. <b>118</b> (1): 81–98. <a href="Doi_(identifier).html" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1016%2F0304-3975(93)90364-y">10.1016/0304-3975(93)90364-y</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Theoretical+Computer+Science&amp;rft.atitle=%3Cspan+class%3D%22smallcaps%22%3E%3Cspan+style%3D%22font-variant%3A+small-caps%3B+text-transform%3A+lowercase%3B%22%3EBOTTOM-UP+HEAPSORT%3C%2Fspan%3E%3C%2Fspan%3E%2C+a+new+variant+of+%3Cspan+class%3D%22smallcaps%22%3E%3Cspan+style%3D%22font-variant%3A+small-caps%3B+text-transform%3A+lowercase%3B%22%3EHEAPSORT%3C%2Fspan%3E%3C%2Fspan%3E+beating%2C+on+an+average%2C+%3Cspan+class%3D%22smallcaps%22%3E%3Cspan+style%3D%22font-variant%3A+small-caps%3B+text-transform%3A+lowercase%3B%22%3EQUICKSORT%3C%2Fspan%3E%3C%2Fspan%3E+%28if+%3Cspan+class%3D%22texhtml+mvar%22+style%3D%22font-style%3Aitalic%3B%22%3En%3C%2Fspan%3E+is+not+very+small%29&amp;rft.volume=118&amp;rft.issue=1&amp;rft.pages=81-98&amp;rft.date=1993-09-13&amp;rft_id=info%3Adoi%2F10.1016%2F0304-3975%2893%2990364-y&amp;rft.aulast=Wegener&amp;rft.aufirst=Ingo&amp;rft_id=https%3A%2F%2Fcore.ac.uk%2Fdownload%2Fpdf%2F82350265.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span>  Although this is a reprint of work first published in 1990 (at the Mathematical Foundations of Computer Science conference), the technique was published by Carlsson in 1987.<sup id="cite_ref-Carlsson_15-0" class="reference"><a href="#cite_note-Carlsson-15">&#91;15&#93;</a></sup></span>
+</li>
+<li id="cite_note-fleischer-10"><span class="mw-cite-backlink">^ <a href="#cite_ref-fleischer_10-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-fleischer_10-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-fleischer_10-2"><sup><i><b>c</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFFleischer1994" class="citation journal cs1">Fleischer, Rudolf (February 1994). <a rel="nofollow" class="external text" href="http://staff.gutech.edu.om/~rudolf/Paper/buh_algorithmica94.pdf">"A tight lower bound for the worst case of Bottom-Up-Heapsort"</a> <span class="cs1-format">(PDF)</span>. <i>Algorithmica</i>. <b>11</b> (2): 104–115. <a href="Doi_(identifier).html" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2Fbf01182770">10.1007/bf01182770</a>. <a href="Hdl_(identifier).html" class="mw-redirect" title="Hdl (identifier)">hdl</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://hdl.handle.net/11858%2F00-001M-0000-0014-7B02-C">11858/00-001M-0000-0014-7B02-C</a></span>. <a href="S2CID_(identifier).html" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:21075180">21075180</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Algorithmica&amp;rft.atitle=A+tight+lower+bound+for+the+worst+case+of+Bottom-Up-Heapsort&amp;rft.volume=11&amp;rft.issue=2&amp;rft.pages=104-115&amp;rft.date=1994-02&amp;rft_id=info%3Ahdl%2F11858%2F00-001M-0000-0014-7B02-C&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A21075180%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1007%2Fbf01182770&amp;rft.aulast=Fleischer&amp;rft.aufirst=Rudolf&amp;rft_id=http%3A%2F%2Fstaff.gutech.edu.om%2F~rudolf%2FPaper%2Fbuh_algorithmica94.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span>  Also available as <link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFFleischer1991" class="citation techreport cs1">Fleischer, Rudolf (April 1991). <a rel="nofollow" class="external text" href="http://pubman.mpdl.mpg.de/pubman/item/escidoc:1834997:3/component/escidoc:2463941/MPI-I-94-104.pdf"><i>A tight lower bound for the worst case of Bottom-Up-Heapsort</i></a> <span class="cs1-format">(PDF)</span> (Technical report). <a href="Max_Planck_Institute_for_Informatics.html" title="Max Planck Institute for Informatics">MPI-INF</a>. MPI-I-91-104.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=report&amp;rft.btitle=A+tight+lower+bound+for+the+worst+case+of+Bottom-Up-Heapsort&amp;rft.pub=MPI-INF&amp;rft.date=1991-04&amp;rft.aulast=Fleischer&amp;rft.aufirst=Rudolf&amp;rft_id=http%3A%2F%2Fpubman.mpdl.mpg.de%2Fpubman%2Fitem%2Fescidoc%3A1834997%3A3%2Fcomponent%2Fescidoc%3A2463941%2FMPI-I-94-104.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Melhorn-11"><span class="mw-cite-backlink">^ <a href="#cite_ref-Melhorn_11-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Melhorn_11-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFMehlhornSanders2008" class="citation book cs1"><a href="Kurt_Mehlhorn.html" title="Kurt Mehlhorn">Mehlhorn, Kurt</a>; <a href="Peter_Sanders_(computer_scientist).html" title="Peter Sanders (computer scientist)">Sanders, Peter</a> (2008). <a rel="nofollow" class="external text" href="http://people.mpi-inf.mpg.de/~mehlhorn/ftp/Toolbox/PriorityQueues.pdf#page=16">"Priority Queues"</a> <span class="cs1-format">(PDF)</span>. <a rel="nofollow" class="external text" href="http://people.mpi-inf.mpg.de/~mehlhorn/Toolbox.html"><i>Algorithms and Data Structures: The Basic Toolbox</i></a>. Springer. p.&#160;142. <a href="ISBN_(identifier).html" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special_BookSources/978-3-540-77977-3.html" title="Special:BookSources/978-3-540-77977-3"><bdi>978-3-540-77977-3</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Priority+Queues&amp;rft.btitle=Algorithms+and+Data+Structures%3A+The+Basic+Toolbox&amp;rft.pages=142&amp;rft.pub=Springer&amp;rft.date=2008&amp;rft.isbn=978-3-540-77977-3&amp;rft.aulast=Mehlhorn&amp;rft.aufirst=Kurt&amp;rft.au=Sanders%2C+Peter&amp;rft_id=http%3A%2F%2Fpeople.mpi-inf.mpg.de%2F~mehlhorn%2Fftp%2FToolbox%2FPriorityQueues.pdf%23page%3D16&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-McDiarmid-12"><span class="mw-cite-backlink">^ <a href="#cite_ref-McDiarmid_12-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-McDiarmid_12-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFMcDiarmidReed1989" class="citation journal cs1">McDiarmid, C.J.H.; Reed, B.A. (September 1989). <a rel="nofollow" class="external text" href="http://cgm.cs.mcgill.ca/~breed/2016COMP610/BUILDINGHEAPSFAST.pdf">"Building heaps fast"</a> <span class="cs1-format">(PDF)</span>. <i>Journal of Algorithms</i>. <b>10</b> (3): 352–365. <a href="Doi_(identifier).html" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2F0196-6774(89)90033-3">10.1016/0196-6774(89)90033-3</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Algorithms&amp;rft.atitle=Building+heaps+fast&amp;rft.volume=10&amp;rft.issue=3&amp;rft.pages=352-365&amp;rft.date=1989-09&amp;rft_id=info%3Adoi%2F10.1016%2F0196-6774%2889%2990033-3&amp;rft.aulast=McDiarmid&amp;rft.aufirst=C.J.H.&amp;rft.au=Reed%2C+B.A.&amp;rft_id=http%3A%2F%2Fcgm.cs.mcgill.ca%2F~breed%2F2016COMP610%2FBUILDINGHEAPSFAST.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-MacKay05-13"><span class="mw-cite-backlink">^ <a href="#cite_ref-MacKay05_13-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-MacKay05_13-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFMacKay2005" class="citation web cs1"><a href="David_J._C.html" title="David J. C. MacKay">MacKay, David J. C.</a> (December 2005). <a rel="nofollow" class="external text" href="https://inference.org.uk/mackay/sorting/sorting.html">"Heapsort, Quicksort, and Entropy"</a><span class="reference-accessdate">. Retrieved <span class="nowrap">12 February</span> 2021</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Heapsort%2C+Quicksort%2C+and+Entropy&amp;rft.date=2005-12&amp;rft.aulast=MacKay&amp;rft.aufirst=David+J.+C.&amp;rft_id=https%3A%2F%2Finference.org.uk%2Fmackay%2Fsorting%2Fsorting.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-14">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFMoretShapiro1991" class="citation book cs1"><a href="Bernard_Moret.html" title="Bernard Moret">Moret, Bernard</a>; Shapiro, Henry D. (1991). "8.6 Heapsort". <i>Algorithms from P to NP Volume 1: Design and Efficiency</i>. Benjamin/Cummings. p.&#160;528. <a href="ISBN_(identifier).html" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special_BookSources/0-8053-8008-6.html" title="Special:BookSources/0-8053-8008-6"><bdi>0-8053-8008-6</bdi></a>. <q>For lack of a better name we call this enhanced program 'heapsort with bounce.<span style="padding-right:0.15em;">&#39;</span></q></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=8.6+Heapsort&amp;rft.btitle=Algorithms+from+P+to+NP+Volume+1%3A+Design+and+Efficiency&amp;rft.pages=528&amp;rft.pub=Benjamin%2FCummings&amp;rft.date=1991&amp;rft.isbn=0-8053-8008-6&amp;rft.aulast=Moret&amp;rft.aufirst=Bernard&amp;rft.au=Shapiro%2C+Henry+D.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Carlsson-15"><span class="mw-cite-backlink">^ <a href="#cite_ref-Carlsson_15-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Carlsson_15-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFCarlsson1987" class="citation journal cs1">Carlsson, Scante (March 1987). <a rel="nofollow" class="external text" href="https://web.archive.org/web/20161227055904/https://pdfs.semanticscholar.org/caec/6682ffd13c6367a8c51b566e2420246faca2.pdf">"A variant of heapsort with almost optimal number of comparisons"</a> <span class="cs1-format">(PDF)</span>. <i>Information Processing Letters</i>. <b>24</b> (4): 247–250. <a href="Doi_(identifier).html" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2F0020-0190(87)90142-6">10.1016/0020-0190(87)90142-6</a>. <a href="S2CID_(identifier).html" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:28135103">28135103</a>. Archived from <a rel="nofollow" class="external text" href="https://pdfs.semanticscholar.org/caec/6682ffd13c6367a8c51b566e2420246faca2.pdf">the original</a> <span class="cs1-format">(PDF)</span> on 27 December 2016.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Information+Processing+Letters&amp;rft.atitle=A+variant+of+heapsort+with+almost+optimal+number+of+comparisons&amp;rft.volume=24&amp;rft.issue=4&amp;rft.pages=247-250&amp;rft.date=1987-03&amp;rft_id=info%3Adoi%2F10.1016%2F0020-0190%2887%2990142-6&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A28135103%23id-name%3DS2CID&amp;rft.aulast=Carlsson&amp;rft.aufirst=Scante&amp;rft_id=https%3A%2F%2Fpdfs.semanticscholar.org%2Fcaec%2F6682ffd13c6367a8c51b566e2420246faca2.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-16"><span class="mw-cite-backlink"><b><a href="#cite_ref-16">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFWegener1992" class="citation journal cs1"><a href="Ingo_Wegener.html" title="Ingo Wegener">Wegener, Ingo</a> (March 1992). <a rel="nofollow" class="external text" href="https://doi.org/10.1016%2F0890-5401(92)90005-Z">"The worst case complexity of McDiarmid and Reed's variant of <span class="smallcaps"><span style="font-variant: small-caps; text-transform: lowercase;">BOTTOM-UP HEAPSORT</span></span> is less than <i>n</i>&#160;log&#160;<i>n</i> + 1.1<i>n</i>"</a>. <i>Information and Computation</i>. <b>97</b> (1): 86–96. <a href="Doi_(identifier).html" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1016%2F0890-5401(92)90005-Z">10.1016/0890-5401(92)90005-Z</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Information+and+Computation&amp;rft.atitle=The+worst+case+complexity+of+McDiarmid+and+Reed%27s+variant+of+%3Cspan+class%3D%22smallcaps%22%3E%3Cspan+style%3D%22font-variant%3A+small-caps%3B+text-transform%3A+lowercase%3B%22%3EBOTTOM-UP+HEAPSORT%3C%2Fspan%3E%3C%2Fspan%3E+is+less+than+n+log+n+%2B+1.1n&amp;rft.volume=97&amp;rft.issue=1&amp;rft.pages=86-96&amp;rft.date=1992-03&amp;rft_id=info%3Adoi%2F10.1016%2F0890-5401%2892%2990005-Z&amp;rft.aulast=Wegener&amp;rft.aufirst=Ingo&amp;rft_id=%2F%2Fdoi.org%2F10.1016%252F0890-5401%252892%252990005-Z&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-17"><span class="mw-cite-backlink"><b><a href="#cite_ref-17">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFTenenbaumAugenstein1981" class="citation book cs1">Tenenbaum, Aaron M.; Augenstein, Moshe J. (1981). "Chapter 8: Sorting". <i>Data Structures Using Pascal</i>. p.&#160;405. <a href="ISBN_(identifier).html" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special_BookSources/0-13-196501-8.html" title="Special:BookSources/0-13-196501-8"><bdi>0-13-196501-8</bdi></a>. <q>Write a sorting routine similar to the heapsort except that it uses a ternary heap.</q></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Chapter+8%3A+Sorting&amp;rft.btitle=Data+Structures+Using+Pascal&amp;rft.pages=405&amp;rft.date=1981&amp;rft.isbn=0-13-196501-8&amp;rft.aulast=Tenenbaum&amp;rft.aufirst=Aaron+M.&amp;rft.au=Augenstein%2C+Moshe+J.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-18"><span class="mw-cite-backlink"><b><a href="#cite_ref-18">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFCantoneConcotti2000" class="citation conference cs1">Cantone, Domenico; Concotti, Gianluca (1–3 March 2000). <a rel="nofollow" class="external text" href="https://archive.org/details/springer_10.1007-3-540-46521-9"><i>QuickHeapsort, an efficient mix of classical sorting algorithms</i></a>. 4th Italian Conference on Algorithms and Complexity. Lecture Notes in Computer Science. Vol.&#160;1767. Rome. pp.&#160;150–162. <a href="ISBN_(identifier).html" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special_BookSources/3-540-67159-5.html" title="Special:BookSources/3-540-67159-5"><bdi>3-540-67159-5</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=QuickHeapsort%2C+an+efficient+mix+of+classical+sorting+algorithms&amp;rft.place=Rome&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=150-162&amp;rft.date=2000-03-01%2F2000-03-03&amp;rft.isbn=3-540-67159-5&amp;rft.aulast=Cantone&amp;rft.aufirst=Domenico&amp;rft.au=Concotti%2C+Gianluca&amp;rft_id=https%3A%2F%2Farchive.org%2Fdetails%2Fspringer_10.1007-3-540-46521-9&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-19"><span class="mw-cite-backlink"><b><a href="#cite_ref-19">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFCantoneConcotti2002" class="citation journal cs1">Cantone, Domenico; Concotti, Gianluca (August 2002). <a rel="nofollow" class="external text" href="https://core.ac.uk/download/pdf/81957449.pdf">"QuickHeapsort, an efficient mix of classical sorting algorithms"</a> <span class="cs1-format">(PDF)</span>. <i>Theoretical Computer Science</i>. <b>285</b> (1): 25–42. <a href="Doi_(identifier).html" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1016%2FS0304-3975(01)00288-2">10.1016/S0304-3975(01)00288-2</a></span>. <a href="Zbl_(identifier).html" class="mw-redirect" title="Zbl (identifier)">Zbl</a>&#160;<a rel="nofollow" class="external text" href="http://zbmath.org/?format=complete&amp;q=an:1016.68042">1016.68042</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Theoretical+Computer+Science&amp;rft.atitle=QuickHeapsort%2C+an+efficient+mix+of+classical+sorting+algorithms&amp;rft.volume=285&amp;rft.issue=1&amp;rft.pages=25-42&amp;rft.date=2002-08&amp;rft_id=%2F%2Fzbmath.org%2F%3Fformat%3Dcomplete%26q%3Dan%3A1016.68042%23id-name%3DZbl&amp;rft_id=info%3Adoi%2F10.1016%2FS0304-3975%2801%2900288-2&amp;rft.aulast=Cantone&amp;rft.aufirst=Domenico&amp;rft.au=Concotti%2C+Gianluca&amp;rft_id=https%3A%2F%2Fcore.ac.uk%2Fdownload%2Fpdf%2F81957449.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-20"><span class="mw-cite-backlink"><b><a href="#cite_ref-20">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFDiekertWeiß2016" class="citation journal cs1">Diekert, Volker; Weiß, Armin (August 2016). "QuickHeapsort: Modifications and improved analysis". <i>Theory of Computing Systems</i>. <b>59</b> (2): 209–230. <a href="ArXiv_(identifier).html" class="mw-redirect" title="ArXiv (identifier)">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://arxiv.org/abs/1209.4214">1209.4214</a></span>. <a href="Doi_(identifier).html" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2Fs00224-015-9656-y">10.1007/s00224-015-9656-y</a>. <a href="S2CID_(identifier).html" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:792585">792585</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Theory+of+Computing+Systems&amp;rft.atitle=QuickHeapsort%3A+Modifications+and+improved+analysis&amp;rft.volume=59&amp;rft.issue=2&amp;rft.pages=209-230&amp;rft.date=2016-08&amp;rft_id=info%3Aarxiv%2F1209.4214&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A792585%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1007%2Fs00224-015-9656-y&amp;rft.aulast=Diekert&amp;rft.aufirst=Volker&amp;rft.au=Wei%C3%9F%2C+Armin&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-21"><span class="mw-cite-backlink"><b><a href="#cite_ref-21">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFDijkstra" class="citation book cs1"><a href="Edsger_W.html" title="Edsger W. Dijkstra">Dijkstra, Edsger W.</a> <a rel="nofollow" class="external text" href="http://www.cs.utexas.edu/users/EWD/ewd07xx/EWD796a.PDF"><i>Smoothsort – an alternative to sorting in situ (EWD-796a)</i></a> <span class="cs1-format">(PDF)</span>. E.W. Dijkstra Archive. Center for American History, <a href="University_of_Texas_at_Austin.html" title="University of Texas at Austin">University of Texas at Austin</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Smoothsort+%E2%80%93+an+alternative+to+sorting+in+situ+%28EWD-796a%29&amp;rft.series=E.W.+Dijkstra+Archive&amp;rft.pub=Center+for+American+History%2C+University+of+Texas+at+Austin&amp;rft.aulast=Dijkstra&amp;rft.aufirst=Edsger+W.&amp;rft_id=http%3A%2F%2Fwww.cs.utexas.edu%2Fusers%2FEWD%2Fewd07xx%2FEWD796a.PDF&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span> (<a rel="nofollow" class="external text" href="http://www.cs.utexas.edu/users/EWD/transcriptions/EWD07xx/EWD796a.html">transcription</a>)</span>
+</li>
+<li id="cite_note-22"><span class="mw-cite-backlink"><b><a href="#cite_ref-22">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFLevcopoulosPetersson1989" class="citation cs2">Levcopoulos, Christos; Petersson, Ola (1989), "Heapsort—Adapted for Presorted Files", <i>WADS '89: Proceedings of the Workshop on Algorithms and Data Structures</i>, Lecture Notes in Computer Science, vol.&#160;382, London, UK: Springer-Verlag, pp.&#160;499–509, <a href="Doi_(identifier).html" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F3-540-51542-9_41">10.1007/3-540-51542-9_41</a>, <a href="ISBN_(identifier).html" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special_BookSources/978-3-540-51542-5.html" title="Special:BookSources/978-3-540-51542-5"><bdi>978-3-540-51542-5</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Heapsort%E2%80%94Adapted+for+Presorted+Files&amp;rft.btitle=WADS+%2789%3A+Proceedings+of+the+Workshop+on+Algorithms+and+Data+Structures&amp;rft.place=London%2C+UK&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=499-509&amp;rft.pub=Springer-Verlag&amp;rft.date=1989&amp;rft_id=info%3Adoi%2F10.1007%2F3-540-51542-9_41&amp;rft.isbn=978-3-540-51542-5&amp;rft.aulast=Levcopoulos&amp;rft.aufirst=Christos&amp;rft.au=Petersson%2C+Ola&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span> <a href="https://www.wikidata.org/wiki/Special:EntityPage/Q56049336" class="extiw" title="d:Special:EntityPage/Q56049336">Heapsort—Adapted for presorted files <small>(Q56049336)</small></a>.</span>
+</li>
+<li id="cite_note-23"><span class="mw-cite-backlink"><b><a href="#cite_ref-23">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFSchwartz2010" class="citation web cs1">Schwartz, Keith (27 December 2010). <a rel="nofollow" class="external text" href="http://www.keithschwarz.com/interesting/code/?dir=cartesian-tree-sort">"CartesianTreeSort.hh"</a>. <i>Archive of Interesting Code</i><span class="reference-accessdate">. Retrieved <span class="nowrap">5 March</span> 2019</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Archive+of+Interesting+Code&amp;rft.atitle=CartesianTreeSort.hh&amp;rft.date=2010-12-27&amp;rft.aulast=Schwartz&amp;rft.aufirst=Keith&amp;rft_id=http%3A%2F%2Fwww.keithschwarz.com%2Finteresting%2Fcode%2F%3Fdir%3Dcartesian-tree-sort&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Kat2014-11-14P-24"><span class="mw-cite-backlink"><b><a href="#cite_ref-Kat2014-11-14P_24-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFKatajainen2013" class="citation conference cs1">Katajainen, Jyrki (23 September 2013). <a rel="nofollow" class="external text" href="http://hjemmesider.diku.dk/~jyrki/Myris/Kat2013-09-23P.html"><i>Seeking for the best priority queue: Lessons learnt</i></a>. Algorithm Engineering (Seminar 13391). Dagstuhl. pp.&#160;19–20, 24.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Seeking+for+the+best+priority+queue%3A+Lessons+learnt&amp;rft.place=Dagstuhl&amp;rft.pages=19-20%2C+24&amp;rft.date=2013-09-23&amp;rft.aulast=Katajainen&amp;rft.aufirst=Jyrki&amp;rft_id=http%3A%2F%2Fhjemmesider.diku.dk%2F~jyrki%2FMyris%2FKat2013-09-23P.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-25"><span class="mw-cite-backlink"><b><a href="#cite_ref-25">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFKatajainen1998" class="citation conference cs1">Katajainen, Jyrki (2–3 February 1998). <a rel="nofollow" class="external text" href="http://hjemmesider.diku.dk/~jyrki/Myris/Kat1998C.html"><i>The Ultimate Heapsort</i></a>. Computing: the 4th Australasian Theory Symposium. <i>Australian Computer Science Communications</i>. Vol.&#160;20, no.&#160;3. Perth. pp.&#160;87–96.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=conference&amp;rft.jtitle=Australian+Computer+Science+Communications&amp;rft.atitle=The+Ultimate+Heapsort&amp;rft.volume=20&amp;rft.issue=3&amp;rft.pages=87-96&amp;rft.date=1998-02-02%2F1998-02-03&amp;rft.aulast=Katajainen&amp;rft.aufirst=Jyrki&amp;rft_id=http%3A%2F%2Fhjemmesider.diku.dk%2F~jyrki%2FMyris%2FKat1998C.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-26"><span class="mw-cite-backlink"><b><a href="#cite_ref-26">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFMorris1998" class="citation web cs1">Morris, John (1998). <a rel="nofollow" class="external text" href="https://www.cs.auckland.ac.nz/software/AlgAnim/qsort3.html">"Comparing Quick and Heap Sorts"</a>. <i>Data Structures and Algorithms</i> (Lecture notes). University of Western Australia<span class="reference-accessdate">. Retrieved <span class="nowrap">12 February</span> 2021</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Data+Structures+and+Algorithms&amp;rft.atitle=Comparing+Quick+and+Heap+Sorts&amp;rft.date=1998&amp;rft.aulast=Morris&amp;rft.aufirst=John&amp;rft_id=https%3A%2F%2Fwww.cs.auckland.ac.nz%2Fsoftware%2FAlgAnim%2Fqsort3.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-27"><span class="mw-cite-backlink"><b><a href="#cite_ref-27">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external free" href="https://github.com/torvalds/linux/blob/master/lib/sort.c">https://github.com/torvalds/linux/blob/master/lib/sort.c</a> Linux kernel source</span>
+</li>
+<li id="cite_note-28"><span class="mw-cite-backlink"><b><a href="#cite_ref-28">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFMaus2014" class="citation web cs1">Maus, Arne (14 May 2014). <a rel="nofollow" class="external text" href="https://www.researchgate.net/publication/228620592">"Sorting by generating the sorting permutation, and the effect of caching on sorting"</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Sorting+by+generating+the+sorting+permutation%2C+and+the+effect+of+caching+on+sorting&amp;rft.date=2014-05-14&amp;rft.aulast=Maus&amp;rft.aufirst=Arne&amp;rft_id=https%3A%2F%2Fwww.researchgate.net%2Fpublication%2F228620592&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span>  See Fig. 1 on p. 6.</span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;action=edit&amp;section=13" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFWilliams1964" class="citation cs2"><a href="J._W._J.html" title="J. W. J. Williams">Williams, J. W. J.</a> (1964), "Algorithm 232 – Heapsort", <i><a href="Communications_of_the_ACM.html" title="Communications of the ACM">Communications of the ACM</a></i>, <b>7</b> (6): 347–348, <a href="Doi_(identifier).html" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F512274.512284">10.1145/512274.512284</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Communications+of+the+ACM&amp;rft.atitle=Algorithm+232+%E2%80%93+Heapsort&amp;rft.volume=7&amp;rft.issue=6&amp;rft.pages=347-348&amp;rft.date=1964&amp;rft_id=info%3Adoi%2F10.1145%2F512274.512284&amp;rft.aulast=Williams&amp;rft.aufirst=J.+W.+J.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFFloyd1964" class="citation cs2"><a href="Robert_W.html" title="Robert W. Floyd">Floyd, Robert W.</a> (1964), "Algorithm 245 – Treesort 3", <i><a href="Communications_of_the_ACM.html" title="Communications of the ACM">Communications of the ACM</a></i>, <b>7</b> (12): 701, <a href="Doi_(identifier).html" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F355588.365103">10.1145/355588.365103</a>, <a href="S2CID_(identifier).html" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:52864987">52864987</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Communications+of+the+ACM&amp;rft.atitle=Algorithm+245+%E2%80%93+Treesort+3&amp;rft.volume=7&amp;rft.issue=12&amp;rft.pages=701&amp;rft.date=1964&amp;rft_id=info%3Adoi%2F10.1145%2F355588.365103&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A52864987%23id-name%3DS2CID&amp;rft.aulast=Floyd&amp;rft.aufirst=Robert+W.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFCarlsson1987" class="citation cs2"><a href="https://sv.wikipedia.org/wiki/Svante_Carlsson" class="extiw" title="sv:Svante Carlsson">Carlsson, Svante</a> (1987), "Average-case results on heapsort", <i>BIT</i>, <b>27</b> (1): 2–17, <a href="Doi_(identifier).html" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2Fbf01937350">10.1007/bf01937350</a>, <a href="S2CID_(identifier).html" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:31450060">31450060</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=BIT&amp;rft.atitle=Average-case+results+on+heapsort&amp;rft.volume=27&amp;rft.issue=1&amp;rft.pages=2-17&amp;rft.date=1987&amp;rft_id=info%3Adoi%2F10.1007%2Fbf01937350&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A31450060%23id-name%3DS2CID&amp;rft.aulast=Carlsson&amp;rft.aufirst=Svante&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><cite id="CITEREFKnuth1997" class="citation cs2"><a href="Donald_Knuth.html" title="Donald Knuth">Knuth, Donald</a> (1997), "§5.2.3, Sorting by Selection", <i>Sorting and Searching</i>, <a href="The_Art_of_Computer_Programming.html" title="The Art of Computer Programming">The Art of Computer Programming</a>, vol.&#160;3 (third&#160;ed.), Addison-Wesley, pp.&#160;144–155, <a href="ISBN_(identifier).html" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special_BookSources/978-0-201-89685-5.html" title="Special:BookSources/978-0-201-89685-5"><bdi>978-0-201-89685-5</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=%C2%A75.2.3%2C+Sorting+by+Selection&amp;rft.btitle=Sorting+and+Searching&amp;rft.series=The+Art+of+Computer+Programming&amp;rft.pages=144-155&amp;rft.edition=third&amp;rft.pub=Addison-Wesley&amp;rft.date=1997&amp;rft.isbn=978-0-201-89685-5&amp;rft.aulast=Knuth&amp;rft.aufirst=Donald&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeapsort" class="Z3988"></span></li>
+<li><a href="Thomas_H.html" title="Thomas H. Cormen">Thomas H. Cormen</a>, <a href="Charles_E.html" title="Charles E. Leiserson">Charles E. Leiserson</a>, <a href="Ronald_L.html" class="mw-redirect" title="Ronald L. Rivest">Ronald L. Rivest</a>, and <a href="Clifford_Stein.html" title="Clifford Stein">Clifford Stein</a>. <i><a href="Introduction_to_Algorithms.html" title="Introduction to Algorithms">Introduction to Algorithms</a></i>, Second Edition. MIT Press and McGraw-Hill, 2001. <link rel="mw-deduplicated-inline-style" href="Mw-data_TemplateStyles_r1067248974.html"/><a href="ISBN_(identifier).html" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="Special_BookSources/0-262-03293-7.html" title="Special:BookSources/0-262-03293-7">0-262-03293-7</a>. Chapters 6 and 7 Respectively: Heapsort and Priority Queues</li>
+<li><a rel="nofollow" class="external text" href="http://www.cs.utexas.edu/users/EWD/ewd07xx/EWD796a.PDF">A PDF of Dijkstra's original paper on Smoothsort</a></li>
+<li><a rel="nofollow" class="external text" href="http://cis.stvincent.edu/html/tutorials/swd/heaps/heaps.html">Heaps and Heapsort Tutorial</a> by David Carlson, St. Vincent College</li></ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;action=edit&amp;section=14" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table role="presentation" class="mbox-small plainlinks sistersitebox" style="background-color:#f9f9f9;border:1px solid #aaa;color:#000">
+<tbody><tr>
+<td class="mbox-image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Wikibooks-logo-en-noslogan.svg/40px-Wikibooks-logo-en-noslogan.svg.png" decoding="async" width="40" height="40" class="noviewer" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/df/Wikibooks-logo-en-noslogan.svg/60px-Wikibooks-logo-en-noslogan.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/df/Wikibooks-logo-en-noslogan.svg/80px-Wikibooks-logo-en-noslogan.svg.png 2x" data-file-width="400" data-file-height="400" /></td>
+<td class="mbox-text plainlist">The Wikibook <i><a href="https://en.wikibooks.org/wiki/Algorithm_implementation" class="extiw" title="wikibooks:Algorithm implementation">Algorithm implementation</a></i> has a page on the topic of: <i><b><a href="https://en.wikibooks.org/wiki/Algorithm_implementation/Sorting/Heapsort" class="extiw" title="wikibooks:Algorithm implementation/Sorting/Heapsort">Heapsort</a></b></i></td></tr>
+</tbody></table>
+<ul><li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20150306071556/http://www.sorting-algorithms.com/heap-sort">Animated Sorting Algorithms: Heap Sort</a> at the <a href="Wayback_Machine.html" title="Wayback Machine">Wayback Machine</a>&#32;(archived 6 March 2015) – graphical demonstration</li>
+<li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20130326084250/http://olli.informatik.uni-oldenburg.de/heapsort_SALA/english/start.html">Courseware on Heapsort from Univ. Oldenburg</a> – With text, animations and interactive exercises</li>
+<li><a rel="nofollow" class="external text" href="https://xlinux.nist.gov/dads/HTML/heapSort.html">NIST's Dictionary of Algorithms and Data Structures: Heapsort</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.codecodex.com/wiki/Heapsort">Heapsort implemented in 12 languages</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.azillionmonkeys.com/qed/sort.html">Sorting revisited</a> by Paul Hsieh</li>
+<li><a rel="nofollow" class="external text" href="http://employees.oneonta.edu/zhangs/powerPointPlatform/index.php">A PowerPoint presentation demonstrating how Heap sort works</a> that is for educators.</li>
+<li><a rel="nofollow" class="external text" href="http://opendatastructures.org/versions/edition-0.1e/ods-java/11_1_Comparison_Based_Sorti.html#SECTION001413000000000000000">Open Data Structures – Section 11.1.3 – Heap-Sort</a>, <a href="Pat_Morin.html" title="Pat Morin">Pat Morin</a></li></ul>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Sorting_algorithms" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="Template_Sorting.html" title="Template:Sorting"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="Template_talk_Sorting.html" title="Template talk:Sorting"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Sorting&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Sorting_algorithms" style="font-size:114%;margin:0 4em"><a href="Sorting_algorithm.html" title="Sorting algorithm">Sorting algorithms</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Theory</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Computational_complexity_theory.html" title="Computational complexity theory">Computational complexity theory</a></li>
+<li><a href="Big_O_notation.html" title="Big O notation">Big O notation</a></li>
+<li><a href="Total_order.html" title="Total order">Total order</a></li>
+<li><a href="List_(abstract_data_type).html" title="List (abstract data type)">Lists</a></li>
+<li><a href="In-place_algorithm.html" title="In-place algorithm">Inplacement</a></li>
+<li><a href="Sorting_algorithm.html#Stability" title="Sorting algorithm">Stability</a></li>
+<li><a href="Comparison_sort.html" title="Comparison sort">Comparison sort</a></li>
+<li><a href="Adaptive_sort.html" title="Adaptive sort">Adaptive sort</a></li>
+<li><a href="Sorting_network.html" title="Sorting network">Sorting network</a></li>
+<li><a href="Integer_sorting.html" title="Integer sorting">Integer sorting</a></li>
+<li><a href="X_%2b_Y_sorting.html" title="X + Y sorting">X + Y sorting</a></li>
+<li><a href="Transdichotomous_model.html" title="Transdichotomous model">Transdichotomous model</a></li>
+<li><a href="Quantum_sort.html" title="Quantum sort">Quantum sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Exchange sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Bubble_sort.html" title="Bubble sort">Bubble sort</a></li>
+<li><a href="Cocktail_shaker_sort.html" title="Cocktail shaker sort">Cocktail shaker sort</a></li>
+<li><a href="Odd%e2%80%93even_sort.html" title="Odd–even sort">Odd–even sort</a></li>
+<li><a href="Comb_sort.html" title="Comb sort">Comb sort</a></li>
+<li><a href="Gnome_sort.html" title="Gnome sort">Gnome sort</a></li>
+<li><a href="Proportion_extend_sort.html" title="Proportion extend sort">Proportion extend sort</a></li>
+<li><a href="Quicksort.html" title="Quicksort">Quicksort</a></li>
+<li><a href="Slowsort.html" title="Slowsort">Slowsort</a></li>
+<li><a href="Stooge_sort.html" title="Stooge sort">Stooge sort</a></li>
+<li><a href="Bogosort.html" title="Bogosort">Bogosort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Selection_algorithm.html" title="Selection algorithm">Selection sorts</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Selection_sort.html" title="Selection sort">Selection sort</a></li>
+<li><a class="mw-selflink selflink">Heapsort</a></li>
+<li><a href="Smoothsort.html" title="Smoothsort">Smoothsort</a></li>
+<li><a href="Cartesian_tree.html#Application_in_sorting" title="Cartesian tree">Cartesian tree sort</a></li>
+<li><a href="Tournament_sort.html" title="Tournament sort">Tournament sort</a></li>
+<li><a href="Cycle_sort.html" title="Cycle sort">Cycle sort</a></li>
+<li><a href="Weak_heap.html#Weak-heap_sort" title="Weak heap">Weak-heap sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Insertion sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Insertion_sort.html" title="Insertion sort">Insertion sort</a></li>
+<li><a href="Shellsort.html" title="Shellsort">Shellsort</a></li>
+<li><a href="Splaysort.html" title="Splaysort">Splaysort</a></li>
+<li><a href="Tree_sort.html" title="Tree sort">Tree sort</a></li>
+<li><a href="Library_sort.html" title="Library sort">Library sort</a></li>
+<li><a href="Patience_sorting.html" title="Patience sorting">Patience sorting</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Merge sorts</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Merge_sort.html" title="Merge sort">Merge sort</a></li>
+<li><a href="Cascade_merge_sort.html" title="Cascade merge sort">Cascade merge sort</a></li>
+<li><a href="Oscillating_merge_sort.html" title="Oscillating merge sort">Oscillating merge sort</a></li>
+<li><a href="Polyphase_merge_sort.html" title="Polyphase merge sort">Polyphase merge sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Distribution sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="American_flag_sort.html" title="American flag sort">American flag sort</a></li>
+<li><a href="Bead_sort.html" title="Bead sort">Bead sort</a></li>
+<li><a href="Bucket_sort.html" title="Bucket sort">Bucket sort</a></li>
+<li><a href="Burstsort.html" title="Burstsort">Burstsort</a></li>
+<li><a href="Counting_sort.html" title="Counting sort">Counting sort</a></li>
+<li><a href="Interpolation_sort.html" title="Interpolation sort">Interpolation sort</a></li>
+<li><a href="Pigeonhole_sort.html" title="Pigeonhole sort">Pigeonhole sort</a></li>
+<li><a href="Proxmap_sort.html" title="Proxmap sort">Proxmap sort</a></li>
+<li><a href="Radix_sort.html" title="Radix sort">Radix sort</a></li>
+<li><a href="Flashsort.html" title="Flashsort">Flashsort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Concurrent sorts</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Bitonic_sorter.html" title="Bitonic sorter">Bitonic sorter</a></li>
+<li><a href="Batcher_odd%e2%80%93even_mergesort.html" title="Batcher odd–even mergesort">Batcher odd–even mergesort</a></li>
+<li><a href="Pairwise_sorting_network.html" title="Pairwise sorting network">Pairwise sorting network</a></li>
+<li><a href="Samplesort.html" title="Samplesort">Samplesort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="Hybrid_algorithm.html" title="Hybrid algorithm">Hybrid sorts</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Block_sort.html" title="Block sort">Block merge sort</a></li>
+<li><a href="Kirkpatrick-Reisch_sort.html" class="mw-redirect" title="Kirkpatrick-Reisch sort">Kirkpatrick-Reisch sort</a></li>
+<li><a href="Timsort.html" title="Timsort">Timsort</a></li>
+<li><a href="Introsort.html" title="Introsort">Introsort</a></li>
+<li><a href="Spreadsort.html" title="Spreadsort">Spreadsort</a></li>
+<li><a href="Merge-insertion_sort.html" title="Merge-insertion sort">Merge-insertion sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Other</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="Topological_sorting.html" title="Topological sorting">Topological sorting</a>
+<ul><li><a href="Pre-topological_order.html" title="Pre-topological order">Pre-topological order</a></li></ul></li>
+<li><a href="Pancake_sorting.html" title="Pancake sorting">Pancake sorting</a></li>
+<li><a href="Spaghetti_sort.html" title="Spaghetti sort">Spaghetti sort</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1447
+Cached time: 20220421220944
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.977 seconds
+Real time usage: 1.169 seconds
+Preprocessor visited node count: 7376/1000000
+Post‐expand include size: 105338/2097152 bytes
+Template argument size: 9577/2097152 bytes
+Highest expansion depth: 15/100
+Expensive parser function count: 3/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 105246/5000000 bytes
+Lua time usage: 0.473/10.000 seconds
+Lua memory usage: 8963486/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  974.915      1 -total
+ 34.48%  336.144      1 Template:Reflist
+ 13.89%  135.443      9 Template:Cite_journal
+  9.51%   92.738      9 Template:R
+  9.28%   90.473      1 Template:Refn
+  7.82%   76.227      1 Template:Short_description
+  7.48%   72.942      9 Template:R/ref
+  6.58%   64.168      1 Template:Harvnb
+  6.29%   61.280      1 Template:Sorting
+  6.12%   59.662      1 Template:Navbox
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:13995-0!canonical and timestamp 20220421220943 and revision id 1083976512. Serialized with JSON.
+ -->
+</div><noscript><img src="Special_CentralAutoLogin/starte375?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;oldid=1083976512">https://en.wikipedia.org/w/index.php?title=Heapsort&amp;oldid=1083976512</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="Help_Category.html" title="Help:Category">Categories</a>: <ul><li><a href="Category_Sorting_algorithms.html" title="Category:Sorting algorithms">Sorting algorithms</a></li><li><a href="Category_Comparison_sorts.html" title="Category:Comparison sorts">Comparison sorts</a></li><li><a href="Category_Heaps_(data_structures).html" title="Category:Heaps (data structures)">Heaps (data structures)</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="Category_Articles_with_short_description.html" title="Category:Articles with short description">Articles with short description</a></li><li><a href="Category_Short_description_is_different_from_Wikidata.html" title="Category:Short description is different from Wikidata">Short description is different from Wikidata</a></li><li><a href="Category_Use_dmy_dates_from_March_2022.html" title="Category:Use dmy dates from March 2022">Use dmy dates from March 2022</a></li><li><a href="Category_All_articles_with_unsourced_statements.html" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="Category_Articles_with_unsourced_statements_from_September_2014.html" title="Category:Articles with unsourced statements from September 2014">Articles with unsourced statements from September 2014</a></li><li><a href="Category_Articles_with_unsourced_statements_from_November_2016.html" title="Category:Articles with unsourced statements from November 2016">Articles with unsourced statements from November 2016</a></li><li><a href="Category_Webarchive_template_wayback_links.html" title="Category:Webarchive template wayback links">Webarchive template wayback links</a></li><li><a href="Category_Articles_with_example_pseudocode.html" title="Category:Articles with example pseudocode">Articles with example pseudocode</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="Special_MyTalk.html" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="Special_MyContributions.html" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Heapsort" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Heapsort" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="Heapsort.html" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="Talk_Heapsort.html" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="Heapsort.html"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="Main_Page.html"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="Main_Page.html" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="Wikipedia_Contents.html" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="Portal_Current_events.html" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="George_Jacobs_(bridge_player).html" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="Wikipedia_About.html" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="Wikipedia_Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="Help_Contents.html" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="Help_Introduction.html" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="Wikipedia_Community_portal.html" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="Special_RecentChanges.html" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="Wikipedia_File_Upload_Wizard.html" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="Special_WhatLinksHere/Heapsort.html" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="Special_RecentChangesLinked/Heapsort.html" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="Wikipedia_File_Upload_Wizard.html" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="Special_SpecialPages.html" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;oldid=1083976512" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Heapsort&amp;id=1083976512&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q474095" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Heapsort&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Heapsort&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-wikibase-otherprojects" class="mw-portlet mw-portlet-wikibase-otherprojects vector-menu vector-menu-portal portal" aria-labelledby="p-wikibase-otherprojects-label" role="navigation" 
+	 >
+	<label id="p-wikibase-otherprojects-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">In other projects</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="wb-otherproject-link wb-otherproject-commons mw-list-item"><a href="https://commons.wikimedia.org/wiki/Category:Heap_sort" hreflang="en"><span>Wikimedia Commons</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-ar mw-list-item"><a href="https://ar.wikipedia.org/wiki/تصنيف_الكومة" title="تصنيف الكومة – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target"><span>العربية</span></a></li><li class="interlanguage-link interwiki-az mw-list-item"><a href="https://az.wikipedia.org/wiki/Qalaq_sıralaması" title="Qalaq sıralaması – Azerbaijani" lang="az" hreflang="az" class="interlanguage-link-target"><span>Azərbaycanca</span></a></li><li class="interlanguage-link interwiki-bn mw-list-item"><a href="https://bn.wikipedia.org/wiki/হিপ_সর্ট" title="হিপ সর্ট – Bangla" lang="bn" hreflang="bn" class="interlanguage-link-target"><span>বাংলা</span></a></li><li class="interlanguage-link interwiki-bg mw-list-item"><a href="https://bg.wikipedia.org/wiki/Пирамидално_сортиране" title="Пирамидално сортиране – Bulgarian" lang="bg" hreflang="bg" class="interlanguage-link-target"><span>Български</span></a></li><li class="interlanguage-link interwiki-ca mw-list-item"><a href="https://ca.wikipedia.org/wiki/Heapsort" title="Heapsort – Catalan" lang="ca" hreflang="ca" class="interlanguage-link-target"><span>Català</span></a></li><li class="interlanguage-link interwiki-cs mw-list-item"><a href="https://cs.wikipedia.org/wiki/Řazení_haldou" title="Řazení haldou – Czech" lang="cs" hreflang="cs" class="interlanguage-link-target"><span>Čeština</span></a></li><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Heapsort" title="Heapsort – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-et mw-list-item"><a href="https://et.wikipedia.org/wiki/Heapsort" title="Heapsort – Estonian" lang="et" hreflang="et" class="interlanguage-link-target"><span>Eesti</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Heapsort" title="Heapsort – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/مرتب‌سازی_هرمی" title="مرتب‌سازی هرمی – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Tri_par_tas" title="Tri par tas – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-ko mw-list-item"><a href="https://ko.wikipedia.org/wiki/힙_정렬" title="힙 정렬 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target"><span>한국어</span></a></li><li class="interlanguage-link interwiki-hy mw-list-item"><a href="https://hy.wikipedia.org/wiki/Heapsort" title="Heapsort – Armenian" lang="hy" hreflang="hy" class="interlanguage-link-target"><span>Հայերեն</span></a></li><li class="interlanguage-link interwiki-hi mw-list-item"><a href="https://hi.wikipedia.org/wiki/हीप_सॉर्ट" title="हीप सॉर्ट – Hindi" lang="hi" hreflang="hi" class="interlanguage-link-target"><span>हिन्दी</span></a></li><li class="interlanguage-link interwiki-is mw-list-item"><a href="https://is.wikipedia.org/wiki/Hrúguröðun" title="Hrúguröðun – Icelandic" lang="is" hreflang="is" class="interlanguage-link-target"><span>Íslenska</span></a></li><li class="interlanguage-link interwiki-it mw-list-item"><a href="https://it.wikipedia.org/wiki/Heapsort" title="Heapsort – Italian" lang="it" hreflang="it" class="interlanguage-link-target"><span>Italiano</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/מיון_ערימה" title="מיון ערימה – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-lb mw-list-item"><a href="https://lb.wikipedia.org/wiki/Heapsort" title="Heapsort – Luxembourgish" lang="lb" hreflang="lb" class="interlanguage-link-target"><span>Lëtzebuergesch</span></a></li><li class="interlanguage-link interwiki-lt mw-list-item"><a href="https://lt.wikipedia.org/wiki/Krūvos_rikiavimo_algoritmas" title="Krūvos rikiavimo algoritmas – Lithuanian" lang="lt" hreflang="lt" class="interlanguage-link-target"><span>Lietuvių</span></a></li><li class="interlanguage-link interwiki-hu mw-list-item"><a href="https://hu.wikipedia.org/wiki/Kupacrendezés" title="Kupacrendezés – Hungarian" lang="hu" hreflang="hu" class="interlanguage-link-target"><span>Magyar</span></a></li><li class="interlanguage-link interwiki-ml mw-list-item"><a href="https://ml.wikipedia.org/wiki/ഹീപ്_സോർട്ട്" title="ഹീപ് സോർട്ട് – Malayalam" lang="ml" hreflang="ml" class="interlanguage-link-target"><span>മലയാളം</span></a></li><li class="interlanguage-link interwiki-nl mw-list-item"><a href="https://nl.wikipedia.org/wiki/Heapsort" title="Heapsort – Dutch" lang="nl" hreflang="nl" class="interlanguage-link-target"><span>Nederlands</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/ヒープソート" title="ヒープソート – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-no mw-list-item"><a href="https://no.wikipedia.org/wiki/Sorteringsalgoritme#Heap_sort" title="Sorteringsalgoritme – Norwegian Bokmål" lang="nb" hreflang="nb" class="interlanguage-link-target"><span>Norsk bokmål</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Sortowanie_przez_kopcowanie" title="Sortowanie przez kopcowanie – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/Heapsort" title="Heapsort – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Пирамидальная_сортировка" title="Пирамидальная сортировка – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-simple mw-list-item"><a href="https://simple.wikipedia.org/wiki/Heapsort" title="Heapsort – Simple English" lang="en-simple" hreflang="en-simple" class="interlanguage-link-target"><span>Simple English</span></a></li><li class="interlanguage-link interwiki-sl mw-list-item"><a href="https://sl.wikipedia.org/wiki/Urejanje_s_kopico" title="Urejanje s kopico – Slovenian" lang="sl" hreflang="sl" class="interlanguage-link-target"><span>Slovenščina</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/Hipsort" title="Hipsort – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-fi mw-list-item"><a href="https://fi.wikipedia.org/wiki/Kekolajittelu" title="Kekolajittelu – Finnish" lang="fi" hreflang="fi" class="interlanguage-link-target"><span>Suomi</span></a></li><li class="interlanguage-link interwiki-sv mw-list-item"><a href="https://sv.wikipedia.org/wiki/Heapsort" title="Heapsort – Swedish" lang="sv" hreflang="sv" class="interlanguage-link-target"><span>Svenska</span></a></li><li class="interlanguage-link interwiki-th mw-list-item"><a href="https://th.wikipedia.org/wiki/ฮีปซอร์ต" title="ฮีปซอร์ต – Thai" lang="th" hreflang="th" class="interlanguage-link-target"><span>ไทย</span></a></li><li class="interlanguage-link interwiki-tr mw-list-item"><a href="https://tr.wikipedia.org/wiki/Yığın_sıralaması" title="Yığın sıralaması – Turkish" lang="tr" hreflang="tr" class="interlanguage-link-target"><span>Türkçe</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Пірамідальне_сортування" title="Пірамідальне сортування – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-vi mw-list-item"><a href="https://vi.wikipedia.org/wiki/Sắp_xếp_vun_đống" title="Sắp xếp vun đống – Vietnamese" lang="vi" hreflang="vi" class="interlanguage-link-target"><span>Tiếng Việt</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/堆排序" title="堆排序 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q474095#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 21 April 2022, at 22:09<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="Wikipedia_Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="Wikipedia_About.html" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="Wikipedia_General_disclaimer.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="Wikipedia_Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Heapsort&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.977","walltime":"1.169","ppvisitednodes":{"value":7376,"limit":1000000},"postexpandincludesize":{"value":105338,"limit":2097152},"templateargumentsize":{"value":9577,"limit":2097152},"expansiondepth":{"value":15,"limit":100},"expensivefunctioncount":{"value":3,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":105246,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  974.915      1 -total"," 34.48%  336.144      1 Template:Reflist"," 13.89%  135.443      9 Template:Cite_journal","  9.51%   92.738      9 Template:R","  9.28%   90.473      1 Template:Refn","  7.82%   76.227      1 Template:Short_description","  7.48%   72.942      9 Template:R/ref","  6.58%   64.168      1 Template:Harvnb","  6.29%   61.280      1 Template:Sorting","  6.12%   59.662      1 Template:Navbox"]},"scribunto":{"limitreport-timeusage":{"value":"0.473","limit":"10.000"},"limitreport-memusage":{"value":8963486,"limit":52428800},"limitreport-logs":"anchor_id_list = table#1 {\n  [\"CITEREFBojesenKatajainenSpork2000\"] = 1,\n  [\"CITEREFBrass2008\"] = 1,\n  [\"CITEREFCantoneConcotti2000\"] = 1,\n  [\"CITEREFCantoneConcotti2002\"] = 1,\n  [\"CITEREFCarlsson1987\"] = 2,\n  [\"CITEREFChenEdelkampElmasryKatajainen2012\"] = 1,\n  [\"CITEREFDiekertWeiß2016\"] = 1,\n  [\"CITEREFFleischer1991\"] = 1,\n  [\"CITEREFFleischer1994\"] = 1,\n  [\"CITEREFFloyd1964\"] = 1,\n  [\"CITEREFKatajainen1998\"] = 1,\n  [\"CITEREFKatajainen2013\"] = 1,\n  [\"CITEREFKnuth1997\"] = 1,\n  [\"CITEREFLaMarcaLadner1999\"] = 1,\n  [\"CITEREFLevcopoulosPetersson1989\"] = 1,\n  [\"CITEREFMacKay2005\"] = 1,\n  [\"CITEREFMaus2014\"] = 1,\n  [\"CITEREFMcDiarmidReed1989\"] = 1,\n  [\"CITEREFMehlhornSanders2008\"] = 1,\n  [\"CITEREFMoretShapiro1991\"] = 1,\n  [\"CITEREFMorris1998\"] = 1,\n  [\"CITEREFSchwartz2010\"] = 1,\n  [\"CITEREFSkiena2008\"] = 1,\n  [\"CITEREFSuchenek2012\"] = 1,\n  [\"CITEREFTenenbaumAugenstein1981\"] = 1,\n  [\"CITEREFWegener1992\"] = 1,\n  [\"CITEREFWegener1993\"] = 1,\n  [\"CITEREFWilliams1964\"] = 1,\n}\ntemplate_list = table#1 {\n  [\"'-\"] = 1,\n  [\"Alink\"] = 1,\n  [\"Citation\"] = 6,\n  [\"Citation needed\"] = 2,\n  [\"Cite EWD\"] = 1,\n  [\"Cite book\"] = 5,\n  [\"Cite conference\"] = 4,\n  [\"Cite journal\"] = 9,\n  [\"Cite techreport\"] = 1,\n  [\"Cite web\"] = 5,\n  [\"Code\"] = 7,\n  [\"Harvnb\"] = 1,\n  [\"ISBN\"] = 1,\n  [\"Infobox Algorithm\"] = 1,\n  [\"Math\"] = 36,\n  [\"Mvar\"] = 3,\n  [\"NULL\"] = 1,\n  [\"Q\"] = 1,\n  [\"R\"] = 9,\n  [\"Reflist\"] = 1,\n  [\"Refn\"] = 1,\n  [\"Sc\"] = 4,\n  [\"Section link\"] = 1,\n  [\"Short description\"] = 1,\n  [\"Sorting\"] = 1,\n  [\"Success\"] = 1,\n  [\"Tmath\"] = 1,\n  [\"Use dmy dates\"] = 1,\n  [\"Webarchive\"] = 1,\n  [\"Wikibooks\"] = 1,\n}\narticle_whitelist = table#1 {\n}\n"},"cachereport":{"origin":"mw1447","timestamp":"20220421220944","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Heapsort","url":"https:\/\/en.wikipedia.org\/wiki\/Heapsort","sameAs":"http:\/\/www.wikidata.org\/entity\/Q474095","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q474095","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2001-11-08T22:20:51Z","dateModified":"2022-04-21T22:09:37Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/1\/1b\/Sorting_heapsort_anim.gif","headline":"worst-case optimal in-place comparison sorting algorithm based on the heap data structure"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Heapsort","url":"https:\/\/en.wikipedia.org\/wiki\/Heapsort","sameAs":"http:\/\/www.wikidata.org\/entity\/Q474095","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q474095","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2001-11-08T22:20:51Z","dateModified":"2022-04-21T22:09:37Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/1\/1b\/Sorting_heapsort_anim.gif","headline":"worst-case optimal in-place comparison sorting algorithm based on the heap data structure"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":208,"wgHostname":"mw1384"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Heapsort by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:30:10 GMT -->
+</html>

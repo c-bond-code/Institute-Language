@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Average-case_complexity by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Average-case complexity - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"8330b3cd-4863-4711-8237-ed619fd65d21","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Average-case_complexity","wgTitle":"Average-case complexity","wgCurRevisionId":1073706948,"wgRevisionId":1073706948,"wgArticleId":15383952,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Randomized algorithms"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Average-case_complexity","wgRelevantArticleId":15383952,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[
+],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":20000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q4828244"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","skins.vector.styles.legacy":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":
+"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.ready","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="Average-case complexity - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Average-case_complexity"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Average-case_complexity"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Average-case_complexity rootpage-Average-case_complexity skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Average-case complexity</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">"AvgP" redirects here. For other uses, see <a href="https://en.wikipedia.org/wiki/Avgp_(disambiguation)" class="mw-redirect mw-disambig" title="Avgp (disambiguation)">avgp (disambiguation)</a>.</div>
+<p>In <a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" title="Computational complexity theory">computational complexity theory</a>, the <b>average-case complexity</b> of an <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithm</a> is the amount of some computational resource (typically time) used by the algorithm, averaged over all possible inputs. It is frequently contrasted with <a href="https://en.wikipedia.org/wiki/Worst-case_complexity" title="Worst-case complexity">worst-case complexity</a> which considers the maximal complexity of the algorithm over all possible inputs.
+</p><p>There are three primary motivations for studying average-case complexity.<sup id="cite_ref-gol07_1-0" class="reference"><a href="#cite_note-gol07-1">&#91;1&#93;</a></sup> First, although some problems may be intractable in the worst-case, the inputs which elicit this behavior may rarely occur in practice, so the average-case complexity may be a more accurate measure of an algorithm's performance. Second, average-case complexity analysis provides tools and techniques to generate hard instances of problems which can be utilized in areas such as <a href="https://en.wikipedia.org/wiki/Cryptography" title="Cryptography">cryptography</a> and <a href="https://en.wikipedia.org/wiki/Derandomization" class="mw-redirect" title="Derandomization">derandomization</a>.  Third, average-case complexity allows discriminating the most efficient algorithm in practice among algorithms of equivalent best case complexity (for instance <a href="https://en.wikipedia.org/wiki/Quicksort#Formal_analysis" title="Quicksort">Quicksort</a>).
+</p><p>Average-case analysis requires a notion of an "average" input to an algorithm, which leads to the problem of devising a <a href="https://en.wikipedia.org/wiki/Probability_distribution" title="Probability distribution">probability distribution</a> over inputs. Alternatively, a <a href="https://en.wikipedia.org/wiki/Randomized_algorithm" title="Randomized algorithm">randomized algorithm</a> can be used. The analysis of such algorithms leads to the related notion of an <b>expected complexity</b>.<sup id="cite_ref-clrs_2-0" class="reference"><a href="#cite_note-clrs-2">&#91;2&#93;</a></sup><sup class="reference nowrap"><span title="Page / location: 28">&#58;&#8202;28&#8202;</span></sup>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#History_and_background"><span class="tocnumber">1</span> <span class="toctext">History and background</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Definitions"><span class="tocnumber">2</span> <span class="toctext">Definitions</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Efficient_average-case_complexity"><span class="tocnumber">2.1</span> <span class="toctext">Efficient average-case complexity</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Distributional_problem"><span class="tocnumber">2.2</span> <span class="toctext">Distributional problem</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#AvgP_and_distNP"><span class="tocnumber">2.3</span> <span class="toctext">AvgP and distNP</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Reductions_between_distributional_problems"><span class="tocnumber">3</span> <span class="toctext">Reductions between distributional problems</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#DistNP-complete_problems"><span class="tocnumber">3.1</span> <span class="toctext">DistNP-complete problems</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Applications"><span class="tocnumber">4</span> <span class="toctext">Applications</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#Sorting_algorithms"><span class="tocnumber">4.1</span> <span class="toctext">Sorting algorithms</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Cryptography"><span class="tocnumber">4.2</span> <span class="toctext">Cryptography</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#Other_results"><span class="tocnumber">5</span> <span class="toctext">Other results</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#Further_reading"><span class="tocnumber">8</span> <span class="toctext">Further reading</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="History_and_background">History and background</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;action=edit&amp;section=1" title="Edit section: History and background">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The average-case performance of algorithms has been studied since modern notions of computational efficiency were developed in the 1950s. Much of this initial work focused on problems for which worst-case polynomial time algorithms were already known.<sup id="cite_ref-bog06_3-0" class="reference"><a href="#cite_note-bog06-3">&#91;3&#93;</a></sup> In 1973, <a href="https://en.wikipedia.org/wiki/Donald_Knuth" title="Donald Knuth">Donald Knuth</a><sup id="cite_ref-knu73_4-0" class="reference"><a href="#cite_note-knu73-4">&#91;4&#93;</a></sup> published Volume 3 of the <a href="https://en.wikipedia.org/wiki/Art_of_Computer_Programming" class="mw-redirect" title="Art of Computer Programming">Art of Computer Programming</a> which extensively surveys average-case performance of algorithms for problems solvable in worst-case polynomial time, such as sorting and median-finding.
+</p><p>An efficient algorithm for <a href="https://en.wikipedia.org/wiki/NP-complete" class="mw-redirect" title="NP-complete">NP-complete</a> problems is generally characterized as one which runs in polynomial time for all inputs; this is equivalent to requiring efficient worst-case complexity. However, an algorithm which is inefficient on a "small" number of inputs may still be efficient for "most" inputs that occur in practice. Thus, it is desirable to study the properties of these algorithms where the average-case complexity may differ from the worst-case complexity and find methods to relate the two.
+</p><p>The fundamental notions of average-case complexity were developed by <a href="https://en.wikipedia.org/wiki/Leonid_Levin" title="Leonid Levin">Leonid Levin</a> in 1986 when he published a one-page paper<sup id="cite_ref-levin86_5-0" class="reference"><a href="#cite_note-levin86-5">&#91;5&#93;</a></sup> defining average-case complexity and completeness while giving an example of a complete problem for distNP, the average-case analogue of <a href="https://en.wikipedia.org/wiki/NP_(complexity)" title="NP (complexity)">NP</a>.
+</p>
+<h2><span class="mw-headline" id="Definitions">Definitions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;action=edit&amp;section=2" title="Edit section: Definitions">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Efficient_average-case_complexity">Efficient average-case complexity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;action=edit&amp;section=3" title="Edit section: Efficient average-case complexity">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The first task is to precisely define what is meant by an algorithm which is efficient "on average". An initial attempt might define an efficient average-case algorithm as one which runs in expected polynomial time over all possible inputs. Such a definition has various shortcomings; in particular, it is not robust to changes in the computational model. For example, suppose algorithm A runs in time t<sub>A</sub>(x) on input x and algorithm B runs in time t<sub>A</sub>(x)<sup>2</sup> on input x; that is, B is quadratically slower than A. Intuitively, any definition of average-case efficiency should capture the idea that A is efficient-on-average if and only if B is efficient on-average. Suppose, however, that the inputs are drawn randomly from the uniform distribution of strings with length <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span>, and that A runs in time n<sup>2</sup> on all inputs except the string 1<sup>n</sup> for which A takes time 2<sup>n</sup>. Then it can be easily checked that the expected running time of A is polynomial but the expected running time of B is exponential.<sup id="cite_ref-bog06_3-1" class="reference"><a href="#cite_note-bog06-3">&#91;3&#93;</a></sup>
+</p><p>To create a more robust definition of average-case efficiency, it makes sense to allow an algorithm A to run longer than polynomial time on some inputs but the fraction of inputs on which A requires larger and larger running time becomes smaller and smaller. This intuition is captured in the following formula for average polynomial running time, which balances the polynomial trade-off between running time and fraction of inputs:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \Pr _{x\in _{R}D_{n}}\left[t_{A}(x)\geq t\right]\leq {\frac {p(n)}{t^{\epsilon }}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <munder>
+          <mo movablelimits="true" form="prefix">Pr</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>x</mi>
+            <msub>
+              <mo>&#x2208;<!-- ∈ --></mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>R</mi>
+              </mrow>
+            </msub>
+            <msub>
+              <mi>D</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>n</mi>
+              </mrow>
+            </msub>
+          </mrow>
+        </munder>
+        <mrow>
+          <mo>[</mo>
+          <mrow>
+            <msub>
+              <mi>t</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>A</mi>
+              </mrow>
+            </msub>
+            <mo stretchy="false">(</mo>
+            <mi>x</mi>
+            <mo stretchy="false">)</mo>
+            <mo>&#x2265;<!-- ≥ --></mo>
+            <mi>t</mi>
+          </mrow>
+          <mo>]</mo>
+        </mrow>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mi>p</mi>
+              <mo stretchy="false">(</mo>
+              <mi>n</mi>
+              <mo stretchy="false">)</mo>
+            </mrow>
+            <msup>
+              <mi>t</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>&#x03F5;<!-- ϵ --></mi>
+              </mrow>
+            </msup>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Pr _{x\in _{R}D_{n}}\left[t_{A}(x)\geq t\right]\leq {\frac {p(n)}{t^{\epsilon }}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7045c500135cd3442a32d1be762c21f02c300bd2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.338ex; width:24.909ex; height:6.176ex;" alt="{\displaystyle \Pr _{x\in _{R}D_{n}}\left[t_{A}(x)\geq t\right]\leq {\frac {p(n)}{t^{\epsilon }}}}"/></span></dd></dl>
+<p>for every n, t &gt; 0 and polynomial p, where t<sub>A</sub>(x) denotes the running time of algorithm A on input x, and  ε is a positive constant value.<sup id="cite_ref-wangsurvey_6-0" class="reference"><a href="#cite_note-wangsurvey-6">&#91;6&#93;</a></sup> Alternatively, this can be written as
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle E_{x\in _{R}D_{n}}\left[{\frac {t_{A}(x)^{\epsilon }}{n}}\right]\leq C}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>E</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>x</mi>
+            <msub>
+              <mo>&#x2208;<!-- ∈ --></mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>R</mi>
+              </mrow>
+            </msub>
+            <msub>
+              <mi>D</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>n</mi>
+              </mrow>
+            </msub>
+          </mrow>
+        </msub>
+        <mrow>
+          <mo>[</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mfrac>
+              <mrow>
+                <msub>
+                  <mi>t</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>A</mi>
+                  </mrow>
+                </msub>
+                <mo stretchy="false">(</mo>
+                <mi>x</mi>
+                <msup>
+                  <mo stretchy="false">)</mo>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>&#x03F5;<!-- ϵ --></mi>
+                  </mrow>
+                </msup>
+              </mrow>
+              <mi>n</mi>
+            </mfrac>
+          </mrow>
+          <mo>]</mo>
+        </mrow>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mi>C</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle E_{x\in _{R}D_{n}}\left[{\frac {t_{A}(x)^{\epsilon }}{n}}\right]\leq C}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/97edee63746b20f39645d34920067531e4874912" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:22.373ex; height:6.343ex;" alt="{\displaystyle E_{x\in _{R}D_{n}}\left[{\frac {t_{A}(x)^{\epsilon }}{n}}\right]\leq C}"/></span></dd></dl>
+<p>for some constants C and  ε, where n = |x|.<sup id="cite_ref-ab09_7-0" class="reference"><a href="#cite_note-ab09-7">&#91;7&#93;</a></sup> In other words, an algorithm A has good average-case complexity if, after running for t<sub>A</sub>(n) steps, A can solve all but a <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {n^{c}}{(t_{A}(n))^{\epsilon }}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msup>
+              <mi>n</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>c</mi>
+              </mrow>
+            </msup>
+            <mrow>
+              <mo stretchy="false">(</mo>
+              <msub>
+                <mi>t</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>A</mi>
+                </mrow>
+              </msub>
+              <mo stretchy="false">(</mo>
+              <mi>n</mi>
+              <mo stretchy="false">)</mo>
+              <msup>
+                <mo stretchy="false">)</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>&#x03F5;<!-- ϵ --></mi>
+                </mrow>
+              </msup>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {n^{c}}{(t_{A}(n))^{\epsilon }}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0b17619b7e1fc1fd31610a376b234e8e89c230bc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.671ex; width:9.054ex; height:6.009ex;" alt="{\frac  {n^{c}}{(t_{A}(n))^{{\epsilon }}}}"/></span> fraction of inputs of length n, for some ε, c &gt; 0.<sup id="cite_ref-bog06_3-2" class="reference"><a href="#cite_note-bog06-3">&#91;3&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Distributional_problem">Distributional problem</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;action=edit&amp;section=4" title="Edit section: Distributional problem">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The next step is to define the "average" input to a particular problem. This is achieved by associating the inputs of each problem with a particular probability distribution. That is, an "average-case" problem consists of a language L and an associated probability distribution D which forms the pair (L, D).<sup id="cite_ref-ab09_7-1" class="reference"><a href="#cite_note-ab09-7">&#91;7&#93;</a></sup> The two most common classes of distributions which are allowed are:
+</p>
+<ol><li>Polynomial-time computable distributions (P-computable): these are distributions for which it is possible to compute the cumulative density of any given input x. More formally, given a probability distribution μ and a string x ∈ {0, 1}<sup>n</sup> it is possible to compute the value <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mu (x)=\sum \limits _{y\in \{0,1\}^{n}:y\leq x}\Pr[y]}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03BC;<!-- μ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <munder>
+          <mo movablelimits="false">&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>y</mi>
+            <mo>&#x2208;<!-- ∈ --></mo>
+            <mo fence="false" stretchy="false">{</mo>
+            <mn>0</mn>
+            <mo>,</mo>
+            <mn>1</mn>
+            <msup>
+              <mo fence="false" stretchy="false">}</mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>n</mi>
+              </mrow>
+            </msup>
+            <mo>:</mo>
+            <mi>y</mi>
+            <mo>&#x2264;<!-- ≤ --></mo>
+            <mi>x</mi>
+          </mrow>
+        </munder>
+        <mo movablelimits="true" form="prefix">Pr</mo>
+        <mo stretchy="false">[</mo>
+        <mi>y</mi>
+        <mo stretchy="false">]</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mu (x)=\sum \limits _{y\in \{0,1\}^{n}:y\leq x}\Pr[y]}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/db5ac7dd29e0d54b628eb7141640156de5f1f349" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.671ex; width:23.087ex; height:6.176ex;" alt="\mu (x)=\sum \limits _{{y\in \{0,1\}^{n}:y\leq x}}\Pr[y]"/></span> in polynomial time. This implies that Pr[x] is also computable in polynomial time.</li>
+<li>Polynomial-time samplable distributions (P-samplable): these are distributions from which it is possible to draw random samples in polynomial time.</li></ol>
+<p>These two formulations, while similar, are not equivalent. If a distribution is P-computable it is also P-samplable, but the converse is not true if <a href="https://en.wikipedia.org/wiki/P_(complexity)" title="P (complexity)">P</a> ≠ P<sup>#P</sup>.<sup id="cite_ref-ab09_7-2" class="reference"><a href="#cite_note-ab09-7">&#91;7&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="AvgP_and_distNP">AvgP and distNP</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;action=edit&amp;section=5" title="Edit section: AvgP and distNP">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>A distributional problem (L, D) is in the complexity class AvgP if there is an efficient average-case algorithm for L, as defined above. The class AvgP is occasionally called distP in the literature.<sup id="cite_ref-ab09_7-3" class="reference"><a href="#cite_note-ab09-7">&#91;7&#93;</a></sup>
+</p><p>A distributional problem (L, D) is in the complexity class distNP if L is in NP and D is P-computable. When L is in NP and D is P-samplable, (L, D) belongs to sampNP.<sup id="cite_ref-ab09_7-4" class="reference"><a href="#cite_note-ab09-7">&#91;7&#93;</a></sup>
+</p><p>Together, AvgP and distNP define the average-case analogues of P and NP, respectively.<sup id="cite_ref-ab09_7-5" class="reference"><a href="#cite_note-ab09-7">&#91;7&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Reductions_between_distributional_problems">Reductions between distributional problems</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;action=edit&amp;section=6" title="Edit section: Reductions between distributional problems">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Let (L,D) and (L',D') be two distributional problems. (L, D) average-case reduces to (L', D') (written (L, D) ≤<sub>AvgP</sub> (L', D')) if there is a function f that for every n, on input x can be computed in time polynomial in n and
+</p>
+<ol><li>(Correctness) x ∈ L if and only if f(x) ∈ L'</li>
+<li>(Domination) There are polynomials p and m such that, for every n and y, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \sum \limits _{x:f(x)=y}D_{n}(x)\leq p(n)D'_{m(n)}(y)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <munder>
+          <mo movablelimits="false">&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>x</mi>
+            <mo>:</mo>
+            <mi>f</mi>
+            <mo stretchy="false">(</mo>
+            <mi>x</mi>
+            <mo stretchy="false">)</mo>
+            <mo>=</mo>
+            <mi>y</mi>
+          </mrow>
+        </munder>
+        <msub>
+          <mi>D</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mi>p</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <msubsup>
+          <mi>D</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>m</mi>
+            <mo stretchy="false">(</mo>
+            <mi>n</mi>
+            <mo stretchy="false">)</mo>
+          </mrow>
+          <mo>&#x2032;</mo>
+        </msubsup>
+        <mo stretchy="false">(</mo>
+        <mi>y</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \sum \limits _{x:f(x)=y}D_{n}(x)\leq p(n)D'_{m(n)}(y)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4df7a0ed9973e8ca1dec095a01b4d1f9bafaee3f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.505ex; width:29.587ex; height:6.009ex;" alt="\sum \limits _{{x:f(x)=y}}D_{n}(x)\leq p(n)D&#039;_{{m(n)}}(y)"/></span></li></ol>
+<p>The domination condition enforces the notion that if problem (L, D) is hard on average, then (L', D') is also hard on average. Intuitively, a reduction should provide a way to solve an instance x of problem L by computing f(x) and feeding the output to the algorithm which solves L'. Without the domination condition, this may not be possible since the algorithm which solves L in polynomial time on average may take super-polynomial time on a small number of inputs but f may map these inputs into a much larger set of D' so that algorithm A' no longer runs in polynomial time on average. The domination condition only allows such strings to occur polynomially as often in D'.<sup id="cite_ref-wangsurvey_6-1" class="reference"><a href="#cite_note-wangsurvey-6">&#91;6&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="DistNP-complete_problems">DistNP-complete problems</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;action=edit&amp;section=7" title="Edit section: DistNP-complete problems">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The average-case analogue to NP-completeness is distNP-completeness. A distributional problem (L', D') is distNP-complete if (L', D') is in distNP and for every (L, D) in distNP, (L, D) is average-case reducible to (L', D').<sup id="cite_ref-ab09_7-6" class="reference"><a href="#cite_note-ab09-7">&#91;7&#93;</a></sup>
+</p><p>An example of a distNP-complete problem is the Bounded Halting Problem, BH, defined as follows:
+</p><p>BH = {(M,x,1<sup>t</sup>)&#160;: M is a <a href="https://en.wikipedia.org/wiki/Non-deterministic_Turing_machine" class="mw-redirect" title="Non-deterministic Turing machine">non-deterministic Turing machine</a> that accepts x in ≤ t steps.}<sup id="cite_ref-ab09_7-7" class="reference"><a href="#cite_note-ab09-7">&#91;7&#93;</a></sup>
+</p><p>In his original paper, Levin showed an example of a distributional tiling problem that is average-case NP-complete.<sup id="cite_ref-levin86_5-1" class="reference"><a href="#cite_note-levin86-5">&#91;5&#93;</a></sup> A survey of known distNP-complete problems is available online.<sup id="cite_ref-wangsurvey_6-2" class="reference"><a href="#cite_note-wangsurvey-6">&#91;6&#93;</a></sup>
+</p><p>One area of active research involves finding new distNP-complete problems. However, finding such problems can be complicated due to a result of Gurevich which shows that any distributional problem with a flat distribution cannot be distNP-complete unless <a href="https://en.wikipedia.org/wiki/EXP" class="mw-redirect" title="EXP">EXP</a> = <a href="https://en.wikipedia.org/wiki/NEXP" class="mw-redirect" title="NEXP">NEXP</a>.<sup id="cite_ref-gur87_8-0" class="reference"><a href="#cite_note-gur87-8">&#91;8&#93;</a></sup> (A flat distribution μ is one for which there exists an ε &gt; 0 such that for any x, μ(x) ≤ 2<sup>−|x|<sup>ε</sup></sup>.) A result by Livne shows that all natural NP-complete problems have DistNP-complete versions.<sup id="cite_ref-livne06_9-0" class="reference"><a href="#cite_note-livne06-9">&#91;9&#93;</a></sup> However, the goal of finding a natural distributional problem that is DistNP-complete has not yet been achieved.<sup id="cite_ref-gol97_10-0" class="reference"><a href="#cite_note-gol97-10">&#91;10&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Applications">Applications</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;action=edit&amp;section=8" title="Edit section: Applications">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Sorting_algorithms">Sorting algorithms</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;action=edit&amp;section=9" title="Edit section: Sorting algorithms">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>As mentioned above, much early work relating to average-case complexity focused on problems for which polynomial-time algorithms already existed, such as sorting. For example, many sorting algorithms which utilize randomness, such as <a href="https://en.wikipedia.org/wiki/Quicksort" title="Quicksort">Quicksort</a>, have a worst-case running time of O(n<sup>2</sup>), but an average-case running time of O(nlog(n)), where n is the length of the input to be sorted.<sup id="cite_ref-clrs_2-1" class="reference"><a href="#cite_note-clrs-2">&#91;2&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Cryptography">Cryptography</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;action=edit&amp;section=10" title="Edit section: Cryptography">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>For most problems, average-case complexity analysis is undertaken to find efficient algorithms for a problem that is considered difficult in the worst-case. In cryptographic applications, however, the opposite is true: the worst-case complexity is irrelevant; we instead want a guarantee that the average-case complexity of every algorithm which "breaks" the cryptographic scheme is inefficient.<sup id="cite_ref-katz07_11-0" class="reference"><a href="#cite_note-katz07-11">&#91;11&#93;</a></sup>
+</p><p>Thus, all secure cryptographic schemes rely on the existence of <a href="https://en.wikipedia.org/wiki/One-way_functions" class="mw-redirect" title="One-way functions">one-way functions</a>.<sup id="cite_ref-bog06_3-3" class="reference"><a href="#cite_note-bog06-3">&#91;3&#93;</a></sup> Although the existence of one-way functions is still an open problem, many candidate one-way functions are based on hard problems such as <a href="https://en.wikipedia.org/wiki/Integer_factorization" title="Integer factorization">integer factorization</a> or computing the <a href="https://en.wikipedia.org/wiki/Discrete_log" class="mw-redirect" title="Discrete log">discrete log</a>. Note that it is not desirable for the candidate function to be NP-complete since this would only guarantee that there is likely no efficient algorithm for solving the problem in the worst case; what we actually want is a guarantee that no efficient algorithm can solve the problem over random inputs (i.e. the average case). In fact, both the integer factorization and discrete log problems are in NP ∩ <a href="https://en.wikipedia.org/wiki/CoNP" class="mw-redirect" title="CoNP">coNP</a>, and are therefore not believed to be NP-complete.<sup id="cite_ref-ab09_7-8" class="reference"><a href="#cite_note-ab09-7">&#91;7&#93;</a></sup> The fact that all of cryptography is predicated on the existence of average-case intractable problems in NP is one of the primary motivations for studying average-case complexity.
+</p>
+<h2><span class="mw-headline" id="Other_results">Other results</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;action=edit&amp;section=11" title="Edit section: Other results">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In 1990, Impagliazzo and Levin showed that if there is an efficient average-case algorithm for a distNP-complete problem under the uniform distribution, then there is an average-case algorithm for every problem in NP under any polynomial-time samplable distribution.<sup id="cite_ref-imp90_12-0" class="reference"><a href="#cite_note-imp90-12">&#91;12&#93;</a></sup> Applying this theory to natural distributional problems remains an outstanding open question.<sup id="cite_ref-bog06_3-4" class="reference"><a href="#cite_note-bog06-3">&#91;3&#93;</a></sup>
+</p><p>In 1992, Ben-David et al. showed that if all languages in distNP have good-on-average decision algorithms, they also have good-on-average search algorithms. Further, they show that this conclusion holds under a weaker assumption: if every language in NP is easy on average for decision algorithms with respect to the uniform distribution, then it is also easy on average for search algorithms with respect to the uniform distribution.<sup id="cite_ref-bd92_13-0" class="reference"><a href="#cite_note-bd92-13">&#91;13&#93;</a></sup> Thus, cryptographic one-way functions can exist only if there are distNP problems over the uniform distribution that are hard on average for decision algorithms.
+</p><p>In 1993, Feigenbaum and Fortnow showed that it is not possible to prove, under non-adaptive random reductions, that the existence of a good-on-average algorithm for a distNP-complete problem under the uniform distribution implies the existence of worst-case efficient algorithms for all problems in NP.<sup id="cite_ref-ff93_14-0" class="reference"><a href="#cite_note-ff93-14">&#91;14&#93;</a></sup> In 2003, Bogdanov and Trevisan generalized this result to arbitrary non-adaptive reductions.<sup id="cite_ref-bog03_15-0" class="reference"><a href="#cite_note-bog03-15">&#91;15&#93;</a></sup> These results show that it is unlikely that any association can be made between average-case complexity and worst-case complexity via reductions.<sup id="cite_ref-bog06_3-5" class="reference"><a href="#cite_note-bog06-3">&#91;3&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;action=edit&amp;section=12" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Probabilistic_analysis_of_algorithms" title="Probabilistic analysis of algorithms">Probabilistic analysis of algorithms</a></li>
+<li><a href="https://en.wikipedia.org/wiki/NP-complete_problems" class="mw-redirect" title="NP-complete problems">NP-complete problems</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Worst-case_complexity" title="Worst-case complexity">Worst-case complexity</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Amortized_analysis" title="Amortized analysis">Amortized analysis</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Best,_worst_and_average_case" title="Best, worst and average case">Best, worst and average case</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;action=edit&amp;section=13" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist reflist-columns references-column-width" style="column-width: 30em;">
+<ol class="references">
+<li id="cite_note-gol07-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-gol07_1-0">^</a></b></span> <span class="reference-text">O. Goldreich and S. Vadhan, Special issue on worst-case versus average-case complexity, Comput. Complex. 16, 325–330, 2007.</span>
+</li>
+<li id="cite_note-clrs-2"><span class="mw-cite-backlink">^ <a href="#cite_ref-clrs_2-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-clrs_2-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text">Cormen, Thomas H.; Leiserson, Charles E., Rivest, Ronald L., Stein, Clifford (2009) [1990]. Introduction to Algorithms (3rd ed.). MIT Press and McGraw-Hill. <style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-262-03384-4" title="Special:BookSources/0-262-03384-4">0-262-03384-4</a>.</span>
+</li>
+<li id="cite_note-bog06-3"><span class="mw-cite-backlink">^ <a href="#cite_ref-bog06_3-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-bog06_3-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-bog06_3-2"><sup><i><b>c</b></i></sup></a> <a href="#cite_ref-bog06_3-3"><sup><i><b>d</b></i></sup></a> <a href="#cite_ref-bog06_3-4"><sup><i><b>e</b></i></sup></a> <a href="#cite_ref-bog06_3-5"><sup><i><b>f</b></i></sup></a></span> <span class="reference-text">A. Bogdanov and L. Trevisan, "Average-Case Complexity," Foundations and Trends in Theoretical Computer Science, Vol. 2, No 1 (2006) 1–106.</span>
+</li>
+<li id="cite_note-knu73-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-knu73_4-0">^</a></b></span> <span class="reference-text">D. Knuth, <a href="https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming" title="The Art of Computer Programming">The Art of Computer Programming</a>. Vol. 3, Addison-Wesley, 1973.</span>
+</li>
+<li id="cite_note-levin86-5"><span class="mw-cite-backlink">^ <a href="#cite_ref-levin86_5-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-levin86_5-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text">L. Levin, "Average case complete problems," SIAM Journal on Computing, vol. 15, no. 1, pp. 285–286, 1986.</span>
+</li>
+<li id="cite_note-wangsurvey-6"><span class="mw-cite-backlink">^ <a href="#cite_ref-wangsurvey_6-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-wangsurvey_6-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-wangsurvey_6-2"><sup><i><b>c</b></i></sup></a></span> <span class="reference-text">J. Wang, "Average-case computational complexity theory,"  Complexity Theory Retrospective II,  pp. 295–328, 1997.</span>
+</li>
+<li id="cite_note-ab09-7"><span class="mw-cite-backlink">^ <a href="#cite_ref-ab09_7-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-ab09_7-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-ab09_7-2"><sup><i><b>c</b></i></sup></a> <a href="#cite_ref-ab09_7-3"><sup><i><b>d</b></i></sup></a> <a href="#cite_ref-ab09_7-4"><sup><i><b>e</b></i></sup></a> <a href="#cite_ref-ab09_7-5"><sup><i><b>f</b></i></sup></a> <a href="#cite_ref-ab09_7-6"><sup><i><b>g</b></i></sup></a> <a href="#cite_ref-ab09_7-7"><sup><i><b>h</b></i></sup></a> <a href="#cite_ref-ab09_7-8"><sup><i><b>i</b></i></sup></a></span> <span class="reference-text">S. Arora and B. Barak, Computational Complexity: A Modern Approach, Cambridge University Press, New York, NY, 2009.</span>
+</li>
+<li id="cite_note-gur87-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-gur87_8-0">^</a></b></span> <span class="reference-text">Y. Gurevich, "Complete and incomplete randomized NP problems", Proc. 28th Annual Symp. on Found. of Computer Science, IEEE (1987), pp. 111–117.</span>
+</li>
+<li id="cite_note-livne06-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-livne06_9-0">^</a></b></span> <span class="reference-text">N. Livne, "All Natural NP-Complete Problems Have Average-Case Complete Versions," Computational Complexity (2010) 19:477. <a rel="nofollow" class="external free" href="https://doi.org/10.1007/s00037-010-0298-9">https://doi.org/10.1007/s00037-010-0298-9</a></span>
+</li>
+<li id="cite_note-gol97-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-gol97_10-0">^</a></b></span> <span class="reference-text">O. Goldreich, "Notes on Levin's theory of average-case complexity," Technical Report TR97-058, Electronic Colloquium on Computational Complexity, 1997.</span>
+</li>
+<li id="cite_note-katz07-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-katz07_11-0">^</a></b></span> <span class="reference-text">J. Katz and Y. Lindell, Introduction to Modern Cryptography (Chapman and Hall/Crc Cryptography and Network Security Series), Chapman and Hall/CRC, 2007.</span>
+</li>
+<li id="cite_note-imp90-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-imp90_12-0">^</a></b></span> <span class="reference-text">R. Impagliazzo and L. Levin, "No Better Ways to Generate Hard NP Instances than Picking Uniformly at Random," in Proceedings of the 31st IEEE Sympo- sium on Foundations of Computer Science, pp. 812–821, 1990.</span>
+</li>
+<li id="cite_note-bd92-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-bd92_13-0">^</a></b></span> <span class="reference-text">S. Ben-David, B. Chor, O. Goldreich, and M. Luby, "On the theory of average case complexity," Journal of Computer and System Sciences, vol. 44, no. 2, pp. 193–219, 1992.</span>
+</li>
+<li id="cite_note-ff93-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-ff93_14-0">^</a></b></span> <span class="reference-text">J. Feigenbaum and L. Fortnow, "Random-self-reducibility of complete sets," SIAM Journal on Computing, vol. 22, pp. 994–1005, 1993.</span>
+</li>
+<li id="cite_note-bog03-15"><span class="mw-cite-backlink"><b><a href="#cite_ref-bog03_15-0">^</a></b></span> <span class="reference-text">A. Bogdanov and L. Trevisan, "On worst-case to average-case reductions for NP problems," in Proceedings of the 44th IEEE Symposium on Foundations of Computer Science, pp. 308–317, 2003.</span>
+</li>
+</ol></div>
+<h2><span class="mw-headline" id="Further_reading">Further reading</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;action=edit&amp;section=14" title="Edit section: Further reading">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The literature of average case complexity includes the following work:
+</p>
+<ul><li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFFranco1986" class="citation cs2">Franco, John (1986), "On the probabilistic performance of algorithms for the satisfiability problem", <i>Information Processing Letters</i>, <b>23</b> (2): 103–106, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2F0020-0190(86)90051-7">10.1016/0020-0190(86)90051-7</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Information+Processing+Letters&amp;rft.atitle=On+the+probabilistic+performance+of+algorithms+for+the+satisfiability+problem&amp;rft.volume=23&amp;rft.issue=2&amp;rft.pages=103-106&amp;rft.date=1986&amp;rft_id=info%3Adoi%2F10.1016%2F0020-0190%2886%2990051-7&amp;rft.aulast=Franco&amp;rft.aufirst=John&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAverage-case+complexity" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFLevin1986" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Leonid_Levin" title="Leonid Levin">Levin, Leonid</a> (1986), "Average case complete problems", <i>SIAM Journal on Computing</i>, <b>15</b> (1): 285–286, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1137%2F0215020">10.1137/0215020</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=SIAM+Journal+on+Computing&amp;rft.atitle=Average+case+complete+problems&amp;rft.volume=15&amp;rft.issue=1&amp;rft.pages=285-286&amp;rft.date=1986&amp;rft_id=info%3Adoi%2F10.1137%2F0215020&amp;rft.aulast=Levin&amp;rft.aufirst=Leonid&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAverage-case+complexity" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFFlajoletVitter1987" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Philippe_Flajolet" title="Philippe Flajolet">Flajolet, Philippe</a>; <a href="https://en.wikipedia.org/wiki/Jeffrey_Vitter" title="Jeffrey Vitter">Vitter, J. S.</a> (August 1987), <i>Average-case analysis of algorithms and data structures</i>, Tech. Report, Institut National de Recherche en Informatique et en Automatique, B.P. 105-78153 Le Chesnay Cedex France</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Average-case+analysis+of+algorithms+and+data+structures&amp;rft.series=Tech.+Report&amp;rft.pub=Institut+National+de+Recherche+en+Informatique+et+en+Automatique%2C+B.P.+105-78153+Le+Chesnay+Cedex+France&amp;rft.date=1987-08&amp;rft.aulast=Flajolet&amp;rft.aufirst=Philippe&amp;rft.au=Vitter%2C+J.+S.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAverage-case+complexity" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGurevichShelah1987" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Yuri_Gurevich" title="Yuri Gurevich">Gurevich, Yuri</a>; <a href="https://en.wikipedia.org/wiki/Saharon_Shelah" title="Saharon Shelah">Shelah, Saharon</a> (1987), "Expected computation time for <a href="https://en.wikipedia.org/wiki/Hamiltonian_path_problem" title="Hamiltonian path problem">Hamiltonian path problem</a>", <i>SIAM Journal on Computing</i>, <b>16</b> (3): 486–502, <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.359.8982">10.1.1.359.8982</a></span>, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1137%2F0216034">10.1137/0216034</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=SIAM+Journal+on+Computing&amp;rft.atitle=Expected+computation+time+for+Hamiltonian+path+problem&amp;rft.volume=16&amp;rft.issue=3&amp;rft.pages=486-502&amp;rft.date=1987&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.359.8982%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1137%2F0216034&amp;rft.aulast=Gurevich&amp;rft.aufirst=Yuri&amp;rft.au=Shelah%2C+Saharon&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAverage-case+complexity" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBen-DavidChorGoldreichLuby1989" class="citation cs2">Ben-David, Shai; Chor, Benny; <a href="https://en.wikipedia.org/wiki/Oded_Goldreich" title="Oded Goldreich">Goldreich, Oded</a>; <a href="https://en.wikipedia.org/wiki/Michael_Luby" title="Michael Luby">Luby, Michael</a> (1989), "On the theory of average case complexity", <i><a href="https://en.wikipedia.org/wiki/Symposium_on_Theory_of_Computing" title="Symposium on Theory of Computing">Proc. 21st Annual Symposium on Theory of Computing</a></i>, <a href="https://en.wikipedia.org/wiki/Association_for_Computing_Machinery" title="Association for Computing Machinery">Association for Computing Machinery</a>, pp.&#160;204–216</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=On+the+theory+of+average+case+complexity&amp;rft.btitle=Proc.+21st+Annual+Symposium+on+Theory+of+Computing&amp;rft.pages=204-216&amp;rft.pub=Association+for+Computing+Machinery&amp;rft.date=1989&amp;rft.aulast=Ben-David&amp;rft.aufirst=Shai&amp;rft.au=Chor%2C+Benny&amp;rft.au=Goldreich%2C+Oded&amp;rft.au=Luby%2C+Michael&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAverage-case+complexity" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGurevich1991" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Yuri_Gurevich" title="Yuri Gurevich">Gurevich, Yuri</a> (1991), "Average case completeness", <i>Journal of Computer and System Sciences</i>, <b>42</b> (3): 346–398, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2F0022-0000(91)90007-R">10.1016/0022-0000(91)90007-R</a>, <a href="https://en.wikipedia.org/wiki/Hdl_(identifier)" class="mw-redirect" title="Hdl (identifier)">hdl</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://hdl.handle.net/2027.42%2F29307">2027.42/29307</a></span></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Computer+and+System+Sciences&amp;rft.atitle=Average+case+completeness&amp;rft.volume=42&amp;rft.issue=3&amp;rft.pages=346-398&amp;rft.date=1991&amp;rft_id=info%3Ahdl%2F2027.42%2F29307&amp;rft_id=info%3Adoi%2F10.1016%2F0022-0000%2891%2990007-R&amp;rft.aulast=Gurevich&amp;rft.aufirst=Yuri&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAverage-case+complexity" class="Z3988"></span>. See also <a rel="nofollow" class="external text" href="http://research.microsoft.com/~gurevich/Opera/76.pdf">1989 draft</a>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSelmanMitchellLevesque1992" class="citation cs2">Selman, B.; Mitchell, D.; Levesque, H. (1992), "Hard and easy distributions of SAT problems", <i>Proc. 10th National Conference on Artificial Intelligence</i>, pp.&#160;459–465</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Hard+and+easy+distributions+of+SAT+problems&amp;rft.btitle=Proc.+10th+National+Conference+on+Artificial+Intelligence&amp;rft.pages=459-465&amp;rft.date=1992&amp;rft.aulast=Selman&amp;rft.aufirst=B.&amp;rft.au=Mitchell%2C+D.&amp;rft.au=Levesque%2C+H.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAverage-case+complexity" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSchulerYamakami1992" class="citation cs2">Schuler, Rainer; Yamakami, Tomoyuki (1992), "Structural average case complexity", <i>Proc. Foundations of Software Technology and Theoretical Computer Science</i>, Lecture Notes in Computer Science, vol.&#160;652, Springer-Verlag, pp.&#160;128–139</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Structural+average+case+complexity&amp;rft.btitle=Proc.+Foundations+of+Software+Technology+and+Theoretical+Computer+Science&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=128-139&amp;rft.pub=Springer-Verlag&amp;rft.date=1992&amp;rft.aulast=Schuler&amp;rft.aufirst=Rainer&amp;rft.au=Yamakami%2C+Tomoyuki&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAverage-case+complexity" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFReischukSchindelhauer1993" class="citation cs2">Reischuk, Rüdiger; Schindelhauer, Christian (1993), "Precise average case complexity", <i>Proc. 10th Annual Symposium on Theoretical Aspects of Computer Science</i>, pp.&#160;650–661</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Precise+average+case+complexity&amp;rft.btitle=Proc.+10th+Annual+Symposium+on+Theoretical+Aspects+of+Computer+Science&amp;rft.pages=650-661&amp;rft.date=1993&amp;rft.aulast=Reischuk&amp;rft.aufirst=R%C3%BCdiger&amp;rft.au=Schindelhauer%2C+Christian&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAverage-case+complexity" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFVenkatesanRajagopalan1992" class="citation cs2">Venkatesan, R.; Rajagopalan, S. (1992), "Average case intractability of matrix and Diophantine problems", <i><a href="https://en.wikipedia.org/wiki/Symposium_on_Theory_of_Computing" title="Symposium on Theory of Computing">Proc. 24th Annual Symposium on Theory of Computing</a></i>, <a href="https://en.wikipedia.org/wiki/Association_for_Computing_Machinery" title="Association for Computing Machinery">Association for Computing Machinery</a>, pp.&#160;632–642</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Average+case+intractability+of+matrix+and+Diophantine+problems&amp;rft.btitle=Proc.+24th+Annual+Symposium+on+Theory+of+Computing&amp;rft.pages=632-642&amp;rft.pub=Association+for+Computing+Machinery&amp;rft.date=1992&amp;rft.aulast=Venkatesan&amp;rft.aufirst=R.&amp;rft.au=Rajagopalan%2C+S.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAverage-case+complexity" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCoxEricsonMishra1995" class="citation cs2">Cox, Jim; Ericson, Lars; Mishra, Bud (1995), <a rel="nofollow" class="external text" href="http://www.cs.nyu.edu/csweb/Research/TechReports/TR1995-711/TR1995-711.pdf"><i>The average case complexity of multilevel syllogistic</i></a> <span class="cs1-format">(PDF)</span>, Technical Report TR1995-711, New York University Computer Science Department</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+average+case+complexity+of+multilevel+syllogistic&amp;rft.series=Technical+Report+TR1995-711&amp;rft.pub=New+York+University+Computer+Science+Department&amp;rft.date=1995&amp;rft.aulast=Cox&amp;rft.aufirst=Jim&amp;rft.au=Ericson%2C+Lars&amp;rft.au=Mishra%2C+Bud&amp;rft_id=http%3A%2F%2Fwww.cs.nyu.edu%2Fcsweb%2FResearch%2FTechReports%2FTR1995-711%2FTR1995-711.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAverage-case+complexity" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFImpagliazzo1995" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Russell_Impagliazzo" title="Russell Impagliazzo">Impagliazzo, Russell</a> (April 17, 1995), <a rel="nofollow" class="external text" href="http://www-cse.ucsd.edu/~russell/average.ps"><i>A personal view of average-case complexity</i></a>, <a href="https://en.wikipedia.org/wiki/University_of_California,_San_Diego" title="University of California, San Diego">University of California, San Diego</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=A+personal+view+of+average-case+complexity&amp;rft.pub=University+of+California%2C+San+Diego&amp;rft.date=1995-04-17&amp;rft.aulast=Impagliazzo&amp;rft.aufirst=Russell&amp;rft_id=http%3A%2F%2Fwww-cse.ucsd.edu%2F~russell%2Faverage.ps&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAverage-case+complexity" class="Z3988"></span>.</li>
+<li>Paul E. Black, <a rel="nofollow" class="external text" href="https://web.archive.org/web/20090214175940/http://www.itl.nist.gov/div897/sqg/dads/HTML/theta.html">"Θ"</a>, in Dictionary of Algorithms and Data Structures[online]Paul E. Black, ed., U.S. National Institute of Standards and Technology. 17 December 2004.Retrieved Feb. 20/09.</li>
+<li>Christos Papadimitriou (1994). Computational Complexity. Addison-Wesley.</li></ul>
+<!-- 
+NewPP limit report
+Parsed by mw1418
+Cached time: 20220505145025
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.329 seconds
+Real time usage: 0.426 seconds
+Preprocessor visited node count: 1364/1000000
+Post‐expand include size: 23100/2097152 bytes
+Template argument size: 712/2097152 bytes
+Highest expansion depth: 16/100
+Expensive parser function count: 2/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 33766/5000000 bytes
+Lua time usage: 0.132/10.000 seconds
+Lua memory usage: 5131146/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  335.100      1 -total
+ 35.54%  119.089      1 Template:Reflist
+ 34.98%  117.213     12 Template:Citation
+ 24.82%   83.176      1 Template:ISBN
+ 14.43%   48.370      1 Template:Catalog_lookup_link
+ 14.23%   47.694      1 Template:Redirect
+  8.55%   28.663      1 Template:Rp
+  7.51%   25.175      1 Template:R/superscript
+  4.26%   14.287      1 Template:Error-small
+  3.55%   11.907      1 Template:Small
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:15383952-0!canonical and timestamp 20220505145025 and revision id 1073706948. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;oldid=1073706948">https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;oldid=1073706948</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Randomized_algorithms" title="Category:Randomized algorithms">Randomized algorithms</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Average-case+complexity" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Average-case+complexity" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Average-case_complexity" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Average-case_complexity" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Average-case_complexity"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Average-case_complexity" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Average-case_complexity" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;oldid=1073706948" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Average-case_complexity&amp;id=1073706948&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q4828244" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Average-case_complexity&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Average-case_complexity&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/پیچیدگی_حالت_متوسط" title="پیچیدگی حالت متوسط – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Complexité_en_moyenne_des_algorithmes" title="Complexité en moyenne des algorithmes – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/Complexidade_de_caso_médio" title="Complexidade de caso médio – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Сложность_алгоритма_в_среднем" title="Сложность алгоритма в среднем – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/Сложеност_просечног_случаја" title="Сложеност просечног случаја – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q4828244#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 24 February 2022, at 04:24<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Average-case_complexity&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.329","walltime":"0.426","ppvisitednodes":{"value":1364,"limit":1000000},"postexpandincludesize":{"value":23100,"limit":2097152},"templateargumentsize":{"value":712,"limit":2097152},"expansiondepth":{"value":16,"limit":100},"expensivefunctioncount":{"value":2,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":33766,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  335.100      1 -total"," 35.54%  119.089      1 Template:Reflist"," 34.98%  117.213     12 Template:Citation"," 24.82%   83.176      1 Template:ISBN"," 14.43%   48.370      1 Template:Catalog_lookup_link"," 14.23%   47.694      1 Template:Redirect","  8.55%   28.663      1 Template:Rp","  7.51%   25.175      1 Template:R/superscript","  4.26%   14.287      1 Template:Error-small","  3.55%   11.907      1 Template:Small"]},"scribunto":{"limitreport-timeusage":{"value":"0.132","limit":"10.000"},"limitreport-memusage":{"value":5131146,"limit":52428800}},"cachereport":{"origin":"mw1418","timestamp":"20220505145025","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Average-case complexity","url":"https:\/\/en.wikipedia.org\/wiki\/Average-case_complexity","sameAs":"http:\/\/www.wikidata.org\/entity\/Q4828244","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q4828244","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2008-01-23T18:57:57Z","dateModified":"2022-02-24T04:24:16Z"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Average-case complexity","url":"https:\/\/en.wikipedia.org\/wiki\/Average-case_complexity","sameAs":"http:\/\/www.wikidata.org\/entity\/Q4828244","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q4828244","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2008-01-23T18:57:57Z","dateModified":"2022-02-24T04:24:16Z"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":144,"wgHostname":"mw1455"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Average-case_complexity by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:48 GMT -->
+</html>

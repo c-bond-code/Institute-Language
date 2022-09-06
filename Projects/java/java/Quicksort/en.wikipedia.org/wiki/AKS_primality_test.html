@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/AKS_primality_test by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>AKS primality test - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"bed6f235-0062-4568-b663-1f0590eb6644","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"AKS_primality_test","wgTitle":"AKS primality test","wgCurRevisionId":1085160704,"wgRevisionId":1085160704,"wgArticleId":405847,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Webarchive template wayback links","Articles with short description","Short description is different from Wikidata","AC with 0 elements","Articles with example pseudocode","Primality tests","Finite fields"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext",
+"wgRelevantPageName":"AKS_primality_test","wgRelevantArticleId":405847,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":20000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q294284","wgGENewcomerTasksGuidanceEnabled":true,"wgGEAskQuestionEnabled":false,"wgGELinkRecommendationsFrontendEnabled":false};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":
+"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface",
+"ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.9"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="AKS primality test - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/AKS_primality_test"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=AKS_primality_test&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/AKS_primality_test"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-AKS_primality_test rootpage-AKS_primality_test skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">AKS primality test</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Algorithm checking for prime numbers</div>
+<p>The <b>AKS primality test</b> (also known as <b>Agrawal–Kayal–Saxena primality test</b> and <b>cyclotomic AKS test</b>) is a <a href="https://en.wikipedia.org/wiki/Deterministic_algorithm" title="Deterministic algorithm">deterministic</a> <a href="https://en.wikipedia.org/wiki/Primality_test" title="Primality test">primality-proving</a> <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithm</a> created and published by <a href="https://en.wikipedia.org/wiki/Manindra_Agrawal" title="Manindra Agrawal">Manindra Agrawal</a>, <a href="https://en.wikipedia.org/wiki/Neeraj_Kayal" title="Neeraj Kayal">Neeraj Kayal</a>, and <a href="https://en.wikipedia.org/wiki/Nitin_Saxena" title="Nitin Saxena">Nitin Saxena</a>, computer scientists at the <a href="https://en.wikipedia.org/wiki/Indian_Institute_of_Technology_Kanpur" class="mw-redirect" title="Indian Institute of Technology Kanpur">Indian Institute of Technology Kanpur</a>, on August 6, 2002, in an article titled "PRIMES is in P".<sup id="cite_ref-AKS_1-0" class="reference"><a href="#cite_note-AKS-1">&#91;1&#93;</a></sup> The algorithm was the first that can provably determine whether any given number is <a href="https://en.wikipedia.org/wiki/Prime_number" title="Prime number">prime</a> or <a href="https://en.wikipedia.org/wiki/Composite_number" title="Composite number">composite</a> in <a href="https://en.wikipedia.org/wiki/Polynomial_time" class="mw-redirect" title="Polynomial time">polynomial time</a>, without relying on <a href="https://en.wikipedia.org/wiki/Mathematical_conjecture" class="mw-redirect" title="Mathematical conjecture">mathematical conjectures</a> such as the <a href="https://en.wikipedia.org/wiki/Generalized_Riemann_hypothesis" title="Generalized Riemann hypothesis">generalized Riemann hypothesis</a>. The proof is also notable for not relying on the field of <a href="https://en.wikipedia.org/wiki/Analysis_(mathematics)" class="mw-redirect" title="Analysis (mathematics)">analysis</a>.<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup> In 2006 the authors received both the <a href="https://en.wikipedia.org/wiki/Gödel_Prize" title="Gödel Prize">Gödel Prize</a> and <a href="https://en.wikipedia.org/wiki/Fulkerson_Prize" title="Fulkerson Prize">Fulkerson Prize</a> for their work.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Importance"><span class="tocnumber">1</span> <span class="toctext">Importance</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Concepts"><span class="tocnumber">2</span> <span class="toctext">Concepts</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#History_and_running_time"><span class="tocnumber">3</span> <span class="toctext">History and running time</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#The_algorithm"><span class="tocnumber">4</span> <span class="toctext">The algorithm</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Proof_of_validity_outline"><span class="tocnumber">4.1</span> <span class="toctext">Proof of validity outline</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Example_1:_n_=_31_is_prime"><span class="tocnumber">4.2</span> <span class="toctext">Example 1: <i>n</i> = 31 is prime</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Further_reading"><span class="tocnumber">6</span> <span class="toctext">Further reading</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#External_links"><span class="tocnumber">7</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Importance">Importance</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=AKS_primality_test&amp;action=edit&amp;section=1" title="Edit section: Importance">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>AKS is the first primality-proving algorithm to be simultaneously <i>general</i>, <i>polynomial-time</i>, <i>deterministic</i>, and <i>unconditionally correct</i>. Previous algorithms had been developed for centuries and achieved three of these properties at most, but not all four. 
+</p>
+<ul><li>The AKS algorithm can be used to verify the primality of any <b>general</b> number given. Many fast primality tests are known that work only for numbers with certain properties. For example, the <a href="https://en.wikipedia.org/wiki/Lucas–Lehmer_primality_test" title="Lucas–Lehmer primality test">Lucas–Lehmer test</a> works only for <a href="https://en.wikipedia.org/wiki/Mersenne_number" class="mw-redirect" title="Mersenne number">Mersenne numbers</a>, while <a href="https://en.wikipedia.org/wiki/Pépin%27s_test" title="Pépin&#39;s test">Pépin's test</a> can be applied to <a href="https://en.wikipedia.org/wiki/Fermat_number" title="Fermat number">Fermat numbers</a> only.</li>
+<li>The maximum running time of the algorithm can be bounded by a <b><a href="https://en.wikipedia.org/wiki/Polynomial_time#Polynomial_time" class="mw-redirect" title="Polynomial time">polynomial</a></b> over the number of digits in the target number. <a href="https://en.wikipedia.org/wiki/Elliptic_curve_primality_proving" class="mw-redirect" title="Elliptic curve primality proving">ECPP</a> and <a href="https://en.wikipedia.org/wiki/Adleman–Pomerance–Rumely_primality_test" title="Adleman–Pomerance–Rumely primality test">APR</a> conclusively prove or disprove that a given number is prime, but are not known to have polynomial time bounds for all inputs.</li>
+<li>The algorithm is guaranteed to distinguish <b><a href="https://en.wikipedia.org/wiki/Deterministic_algorithm" title="Deterministic algorithm">deterministically</a></b> whether the target number is prime or composite. Randomized tests, such as <a href="https://en.wikipedia.org/wiki/Miller–Rabin_primality_test" title="Miller–Rabin primality test">Miller–Rabin</a> and <a href="https://en.wikipedia.org/wiki/Baillie–PSW_primality_test" title="Baillie–PSW primality test">Baillie–PSW</a>, can test any given number for primality in polynomial time, but are known to produce only a probabilistic result.</li>
+<li>The correctness of AKS is <b>not conditional</b> on any subsidiary unproven <a href="https://en.wikipedia.org/wiki/Hypothesis" title="Hypothesis">hypothesis</a>. In contrast, Miller's version of the <a href="https://en.wikipedia.org/wiki/Miller–Rabin_primality_test#Deterministic_variants" title="Miller–Rabin primality test">Miller–Rabin test</a> is fully deterministic and runs in polynomial time over all inputs, but its correctness depends on the truth of the yet-unproven <a href="https://en.wikipedia.org/wiki/Generalized_Riemann_hypothesis" title="Generalized Riemann hypothesis">generalized Riemann hypothesis</a>.</li></ul>
+<p>While the algorithm is of immense theoretical importance, it is not used in practice, rendering it a <a href="https://en.wikipedia.org/wiki/Galactic_algorithm" title="Galactic algorithm">galactic algorithm</a>.  For 64-bit inputs, the Baillie–PSW test is deterministic and runs many orders of magnitude faster.  For larger inputs, the performance of the (also unconditionally correct) ECPP and APR tests is <i>far</i> superior to AKS.  Additionally, ECPP can output a <a href="https://en.wikipedia.org/wiki/Primality_certificate" title="Primality certificate">primality certificate</a> that allows independent and rapid verification of the results, which is not possible with the AKS algorithm.
+</p>
+<h2><span class="mw-headline" id="Concepts">Concepts</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=AKS_primality_test&amp;action=edit&amp;section=2" title="Edit section: Concepts">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The AKS primality test is based upon the following theorem: Given an integer <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n\geq 2}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mo>&#x2265;<!-- ≥ --></mo>
+        <mn>2</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n\geq 2}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e6bf67f9d06ca3af619657f8d20ee1322da77174" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:5.656ex; height:2.343ex;" alt="n\geq 2"/></span> and integer <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle a}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>a</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ffd2487510aa438433a2579450ab2b3d557e5edc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.23ex; height:1.676ex;" alt="a"/></span> <a href="https://en.wikipedia.org/wiki/Coprime" class="mw-redirect" title="Coprime">coprime</a> to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span>, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> is prime if and only if the <a href="https://en.wikipedia.org/wiki/Polynomial_ring" title="Polynomial ring">polynomial</a> <a href="https://en.wikipedia.org/wiki/Congruence_relation#Modular_arithmetic" title="Congruence relation">congruence relation</a>
+</p>
+<dl><dd>
+<table style="border-collapse:collapse; background:none; margin:0; border:none;">
+<tbody><tr>
+<td style="vertical-align:middle; border:none; padding:0.08em;" class="nowrap"><div style="margin:0;"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (X+a)^{n}\equiv X^{n}+a{\pmod {n}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo>+</mo>
+        <mi>a</mi>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msup>
+        <mo>&#x2261;<!-- ≡ --></mo>
+        <msup>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mi>a</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mspace width="1em" />
+          <mo stretchy="false">(</mo>
+          <mi>mod</mi>
+          <mspace width="0.333em" />
+          <mi>n</mi>
+          <mo stretchy="false">)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (X+a)^{n}\equiv X^{n}+a{\pmod {n}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/08199a5a1adbc0d07e1b7538567df3fdd94047c8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:30.541ex; height:2.843ex;" alt="{\displaystyle (X+a)^{n}\equiv X^{n}+a{\pmod {n}}}"/></span></div>
+</td>
+<td style="vertical-align:middle; width:99%; border:none; padding:0.08em;">
+<div style="margin:0;">
+<table style="border-collapse:collapse; background:none; margin:0; border:none; width:99%;">
+<tbody><tr>
+<td style="border:none; padding:0.08em;" rowspan="2"><p style="margin:0; font-size:4pt;">&#160;</p>
+</td>
+<td style="width:100%; border:none; padding:0.08em;"><p style="margin:0; font-size:1pt;">&#160;</p>
+</td>
+<td style="border:none; padding:0.08em;" rowspan="2"><p style="margin:0; font-size:4pt;">&#160;</p>
+</td></tr>
+<tr>
+<td style="border-left:none; border-top:0px none #e5e5e5; border-right:none; border-bottom:none; padding:0.08em;">
+<p style="margin:0; font-size:1pt;">&#160;</p>
+</td></tr></tbody></table>
+</div>
+</td>
+<td style="vertical-align:middle; border:none; padding:0.08em;" class="nowrap"><p style="margin:0pt;"><b>(<span id="math_1" class="reference nourlexpansion" style="font-weight:bold;">1</span>)</b></p>
+</td></tr></tbody></table></dd></dl>
+<p>holds within the polynomial ring <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbb {Z} _{n}[X]}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">Z</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">[</mo>
+        <mi>X</mi>
+        <mo stretchy="false">]</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbb {Z} _{n}[X]}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/82135e036b2faf791a49f60d054df9d8ac2c53e5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.042ex; height:2.843ex;" alt="{\displaystyle \mathbb {Z} _{n}[X]}"/></span>.<sup id="cite_ref-AKS_1-1" class="reference"><a href="#cite_note-AKS-1">&#91;1&#93;</a></sup> Note that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle X}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>X</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle X}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68baa052181f707c662844a465bfeeb135e82bab" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.98ex; height:2.176ex;" alt="X"/></span> denotes the <a href="https://en.wikipedia.org/wiki/Polynomial_ring#Definition_(univariate_case)" title="Polynomial ring">indeterminate</a> which generates this polynomial ring.
+</p><p>This theorem is a generalization to polynomials of <a href="https://en.wikipedia.org/wiki/Fermat%27s_little_theorem" title="Fermat&#39;s little theorem">Fermat's little theorem</a>.  In one direction it can easily be proven using the <a href="https://en.wikipedia.org/wiki/Binomial_theorem" title="Binomial theorem">binomial theorem</a> together with the following property of the <a href="https://en.wikipedia.org/wiki/Binomial_coefficient" title="Binomial coefficient">binomial coefficient</a>:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {n \choose k}\equiv 0{\pmod {n}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow>
+            <mrow class="MJX-TeXAtom-OPEN">
+              <mo maxsize="2.047em" minsize="2.047em">(</mo>
+            </mrow>
+            <mfrac linethickness="0">
+              <mi>n</mi>
+              <mi>k</mi>
+            </mfrac>
+            <mrow class="MJX-TeXAtom-CLOSE">
+              <mo maxsize="2.047em" minsize="2.047em">)</mo>
+            </mrow>
+          </mrow>
+        </mrow>
+        <mo>&#x2261;<!-- ≡ --></mo>
+        <mn>0</mn>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mspace width="1em" />
+          <mo stretchy="false">(</mo>
+          <mi>mod</mi>
+          <mspace width="0.333em" />
+          <mi>n</mi>
+          <mo stretchy="false">)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {n \choose k}\equiv 0{\pmod {n}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5a2e85d1d9cca8fe5e1bd2a610b9db777f66d5c5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:20.156ex; height:6.176ex;" alt="{n \choose k}\equiv 0{\pmod {n}}"/></span> for all <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 0&lt;k&lt;n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>0</mn>
+        <mo>&lt;</mo>
+        <mi>k</mi>
+        <mo>&lt;</mo>
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 0&lt;k&lt;n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e9346654d73329403fdfffb51d8002b65cb4c8d7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:9.965ex; height:2.176ex;" alt="0&lt;k&lt;n"/></span> if <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> is prime.</dd></dl>
+<p>While the relation (<b><a href="#math_1">1</a></b>) constitutes a primality test in itself, verifying it takes <a href="https://en.wikipedia.org/wiki/Exponential_time" class="mw-redirect" title="Exponential time">exponential time</a>: the <a href="https://en.wikipedia.org/wiki/Brute_force_method" class="mw-redirect" title="Brute force method">brute force</a> approach would require the expansion of the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (X+a)^{n}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo>+</mo>
+        <mi>a</mi>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (X+a)^{n}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a064611ce1de66137bf69d5f6d891b14433f3592" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.078ex; height:2.843ex;" alt="{\displaystyle (X+a)^{n}}"/></span> polynomial and a reduction <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\pmod {n}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mspace width="1em" />
+          <mo stretchy="false">(</mo>
+          <mi>mod</mi>
+          <mspace width="0.333em" />
+          <mi>n</mi>
+          <mo stretchy="false">)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\pmod {n}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2d1296775902b168a3d79709d582fe6b544004bb" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:11.079ex; height:2.843ex;" alt="\pmod{n}"/></span> of the resulting <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2a135e65a42f2d73cccbfc4569523996ca0036f1" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:5.398ex; height:2.343ex;" alt="n+1"/></span> coefficients.
+</p><p>The congruence is an equality in the <a href="https://en.wikipedia.org/wiki/Polynomial_ring" title="Polynomial ring">polynomial ring</a> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbb {Z} _{n}[X]}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">Z</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">[</mo>
+        <mi>X</mi>
+        <mo stretchy="false">]</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbb {Z} _{n}[X]}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/82135e036b2faf791a49f60d054df9d8ac2c53e5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.042ex; height:2.843ex;" alt="{\displaystyle \mathbb {Z} _{n}[X]}"/></span>. Evaluating in a quotient ring of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbb {Z} _{n}[X]}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">Z</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">[</mo>
+        <mi>X</mi>
+        <mo stretchy="false">]</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbb {Z} _{n}[X]}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/82135e036b2faf791a49f60d054df9d8ac2c53e5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.042ex; height:2.843ex;" alt="{\displaystyle \mathbb {Z} _{n}[X]}"/></span> creates an upper bound for the degree of the polynomials involved. The AKS evaluates the equality in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbb {Z} _{n}[X]/(X^{r}-1)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">Z</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">[</mo>
+        <mi>X</mi>
+        <mo stretchy="false">]</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>r</mi>
+          </mrow>
+        </msup>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbb {Z} _{n}[X]/(X^{r}-1)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/24b2640b1d107180f8fd3d21573685c9bdfad355" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:15.988ex; height:2.843ex;" alt="{\displaystyle \mathbb {Z} _{n}[X]/(X^{r}-1)}"/></span>, making the <a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" title="Computational complexity theory">computational complexity</a> dependent on the size of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>r</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d1ecb613aa2984f0576f70f86650b7c2a132538" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.049ex; height:1.676ex;" alt="r"/></span>. For clarity,<sup id="cite_ref-AKS_1-2" class="reference"><a href="#cite_note-AKS-1">&#91;1&#93;</a></sup> this is expressed as the congruence
+</p>
+<dl><dd>
+<table style="border-collapse:collapse; background:none; margin:0; border:none;">
+<tbody><tr>
+<td style="vertical-align:middle; border:none; padding:0.08em;" class="nowrap"><div style="margin:0;"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (X+a)^{n}\equiv (X^{n}+a){\pmod {X^{r}-1,n}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo>+</mo>
+        <mi>a</mi>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msup>
+        <mo>&#x2261;<!-- ≡ --></mo>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mi>a</mi>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mspace width="1em" />
+          <mo stretchy="false">(</mo>
+          <mi>mod</mi>
+          <mspace width="0.333em" />
+          <msup>
+            <mi>X</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>r</mi>
+            </mrow>
+          </msup>
+          <mo>&#x2212;<!-- − --></mo>
+          <mn>1</mn>
+          <mo>,</mo>
+          <mi>n</mi>
+          <mo stretchy="false">)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (X+a)^{n}\equiv (X^{n}+a){\pmod {X^{r}-1,n}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8d155e4d600deb86b8268a3a355f9694f6853a0e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:40.357ex; height:2.843ex;" alt="{\displaystyle (X+a)^{n}\equiv (X^{n}+a){\pmod {X^{r}-1,n}}}"/></span></div>
+</td>
+<td style="vertical-align:middle; width:99%; border:none; padding:0.08em;">
+<div style="margin:0;">
+<table style="border-collapse:collapse; background:none; margin:0; border:none; width:99%;">
+<tbody><tr>
+<td style="border:none; padding:0.08em;" rowspan="2"><p style="margin:0; font-size:4pt;">&#160;</p>
+</td>
+<td style="width:100%; border:none; padding:0.08em;"><p style="margin:0; font-size:1pt;">&#160;</p>
+</td>
+<td style="border:none; padding:0.08em;" rowspan="2"><p style="margin:0; font-size:4pt;">&#160;</p>
+</td></tr>
+<tr>
+<td style="border-left:none; border-top:0px none #e5e5e5; border-right:none; border-bottom:none; padding:0.08em;">
+<p style="margin:0; font-size:1pt;">&#160;</p>
+</td></tr></tbody></table>
+</div>
+</td>
+<td style="vertical-align:middle; border:none; padding:0.08em;" class="nowrap"><p style="margin:0pt;"><b>(<span id="math_2" class="reference nourlexpansion" style="font-weight:bold;">2</span>)</b></p>
+</td></tr></tbody></table></dd></dl>
+<p>which is the same as:
+</p>
+<dl><dd>
+<table style="border-collapse:collapse; background:none; margin:0; border:none;">
+<tbody><tr>
+<td style="vertical-align:middle; border:none; padding:0.08em;" class="nowrap"><div style="margin:0;"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (X+a)^{n}-(X^{n}+a)=(X^{r}-1)g+nf}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo>+</mo>
+        <mi>a</mi>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msup>
+        <mo>&#x2212;<!-- − --></mo>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mi>a</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>r</mi>
+          </mrow>
+        </msup>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mi>g</mi>
+        <mo>+</mo>
+        <mi>n</mi>
+        <mi>f</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (X+a)^{n}-(X^{n}+a)=(X^{r}-1)g+nf}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c2932beb5c5c7efe204d20e5ac1e739c2e7e4a14" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:39.524ex; height:2.843ex;" alt="{\displaystyle (X+a)^{n}-(X^{n}+a)=(X^{r}-1)g+nf}"/></span></div>
+</td>
+<td style="vertical-align:middle; width:99%; border:none; padding:0.08em;">
+<div style="margin:0;">
+<table style="border-collapse:collapse; background:none; margin:0; border:none; width:99%;">
+<tbody><tr>
+<td style="border:none; padding:0.08em;" rowspan="2"><p style="margin:0; font-size:4pt;">&#160;</p>
+</td>
+<td style="width:100%; border:none; padding:0.08em;"><p style="margin:0; font-size:1pt;">&#160;</p>
+</td>
+<td style="border:none; padding:0.08em;" rowspan="2"><p style="margin:0; font-size:4pt;">&#160;</p>
+</td></tr>
+<tr>
+<td style="border-left:none; border-top:0px none #e5e5e5; border-right:none; border-bottom:none; padding:0.08em;">
+<p style="margin:0; font-size:1pt;">&#160;</p>
+</td></tr></tbody></table>
+</div>
+</td>
+<td style="vertical-align:middle; border:none; padding:0.08em;" class="nowrap"><p style="margin:0pt;"><b>(<span id="math_3" class="reference nourlexpansion" style="font-weight:bold;">3</span>)</b></p>
+</td></tr></tbody></table></dd></dl>
+<p>for some polynomials <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/132e57acb643253e7810ee9702d9581f159a1c61" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.279ex; height:2.509ex;" alt="f"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle g}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>g</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle g}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d3556280e66fe2c0d0140df20935a6f057381d77" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.116ex; height:2.009ex;" alt="g"/></span>.
+</p><p>Note that all primes satisfy this relation (choosing <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle g=0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>g</mi>
+        <mo>=</mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle g=0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0607b4f563220901d455691e4a1705d598fdbaeb" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:5.377ex; height:2.509ex;" alt="g=0"/></span> in (<b><a href="#math_3">3</a></b>) gives (<b><a href="#math_1">1</a></b>), which holds for <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> prime). This congruence can be checked in polynomial time when <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>r</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d1ecb613aa2984f0576f70f86650b7c2a132538" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.049ex; height:1.676ex;" alt="r"/></span> is polynomial to the digits of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span>. The AKS algorithm evaluates this congruence for a large set of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle a}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>a</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ffd2487510aa438433a2579450ab2b3d557e5edc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.23ex; height:1.676ex;" alt="a"/></span> values, whose size is polynomial to the digits of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span>. The proof of validity of the AKS algorithm shows that one can find an <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>r</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d1ecb613aa2984f0576f70f86650b7c2a132538" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.049ex; height:1.676ex;" alt="r"/></span> and a set of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle a}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>a</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ffd2487510aa438433a2579450ab2b3d557e5edc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.23ex; height:1.676ex;" alt="a"/></span> values with the above properties such that if the congruences hold then <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> is a power of a prime.<sup id="cite_ref-AKS_1-3" class="reference"><a href="#cite_note-AKS-1">&#91;1&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="History_and_running_time">History and running time</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=AKS_primality_test&amp;action=edit&amp;section=3" title="Edit section: History and running time">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In the first version of the above-cited paper, the authors proved the asymptotic time complexity of the algorithm to be <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\tilde {O}}(\log(n)^{12})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>O</mi>
+              <mo stretchy="false">&#x007E;<!-- ~ --></mo>
+            </mover>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>12</mn>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\tilde {O}}(\log(n)^{12})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ab5c5df608ea55d58d333418f151244172c27775" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:11.635ex; height:3.176ex;" alt="{\displaystyle {\tilde {O}}(\log(n)^{12})}"/></span> (using <a href="https://en.wikipedia.org/wiki/Big_O_notation#Extensions_to_the_Bachmann–Landau_notations" title="Big O notation">Õ</a> from <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">big O notation</a>)—the twelfth power of the number of digits in <i>n</i> times a factor that is polylogarithmic in the number of digits. However, this upper bound was rather loose; a widely-held conjecture about the distribution of the <a href="https://en.wikipedia.org/wiki/Sophie_Germain_prime" class="mw-redirect" title="Sophie Germain prime">Sophie Germain primes</a> would, if true, immediately cut the worst case down to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\tilde {O}}(\log(n)^{6})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>O</mi>
+              <mo stretchy="false">&#x007E;<!-- ~ --></mo>
+            </mover>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>6</mn>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\tilde {O}}(\log(n)^{6})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8d6da5249f5d5255416a4c9e2873400ca8331ffb" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.813ex; height:3.176ex;" alt="{\displaystyle {\tilde {O}}(\log(n)^{6})}"/></span>.
+</p><p>In the months following the discovery, new variants appeared (Lenstra 2002, Pomerance 2002, Berrizbeitia 2002, Cheng 2003, Bernstein 2003a/b, Lenstra and Pomerance 2003), which improved the speed of computation greatly. Owing to the existence of the many variants, Crandall and Papadopoulos refer to the "AKS-class" of algorithms in their scientific paper "On the implementation of AKS-class primality tests", published in March 2003.
+</p><p>In response to some of these variants, and to other feedback, the paper "PRIMES is in P" was updated with a new formulation of the AKS algorithm and of its proof of correctness. (This version was eventually published in <i><a href="https://en.wikipedia.org/wiki/Annals_of_Mathematics" title="Annals of Mathematics">Annals of Mathematics</a></i>.) While the basic idea remained the same, <i>r</i> was chosen in a new manner, and the proof of correctness was more coherently organized. The new proof relied almost exclusively on the behavior of <a href="https://en.wikipedia.org/wiki/Cyclotomic_polynomial" title="Cyclotomic polynomial">cyclotomic polynomials</a> over <a href="https://en.wikipedia.org/wiki/Finite_fields" class="mw-redirect" title="Finite fields">finite fields</a>. The new upper bound on time complexity was <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\tilde {O}}(\log(n)^{10.5})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>O</mi>
+              <mo stretchy="false">&#x007E;<!-- ~ --></mo>
+            </mover>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>10.5</mn>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\tilde {O}}(\log(n)^{10.5})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e42041cb20852a99231de0b85781418351260235" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:12.914ex; height:3.176ex;" alt="{\displaystyle {\tilde {O}}(\log(n)^{10.5})}"/></span>, later reduced using additional results from <a href="https://en.wikipedia.org/wiki/Sieve_theory" title="Sieve theory">sieve theory</a> to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\tilde {O}}(\log(n)^{7.5})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>O</mi>
+              <mo stretchy="false">&#x007E;<!-- ~ --></mo>
+            </mover>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>7.5</mn>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\tilde {O}}(\log(n)^{7.5})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/542153a6de501c139e9e815545495eb9a131ae0e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:12.092ex; height:3.176ex;" alt="{\displaystyle {\tilde {O}}(\log(n)^{7.5})}"/></span>.
+</p><p>In 2005, <a href="https://en.wikipedia.org/wiki/Carl_Pomerance" title="Carl Pomerance">Pomerance</a> and <a href="https://en.wikipedia.org/wiki/Hendrik_Lenstra" title="Hendrik Lenstra">Lenstra</a> demonstrated a variant of AKS that runs in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\tilde {O}}(\log(n)^{6})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>O</mi>
+              <mo stretchy="false">&#x007E;<!-- ~ --></mo>
+            </mover>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>6</mn>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\tilde {O}}(\log(n)^{6})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8d6da5249f5d5255416a4c9e2873400ca8331ffb" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.813ex; height:3.176ex;" alt="{\displaystyle {\tilde {O}}(\log(n)^{6})}"/></span>operations,<sup id="cite_ref-lenstra_pomerance_2005_3-0" class="reference"><a href="#cite_note-lenstra_pomerance_2005-3">&#91;3&#93;</a></sup> leading to another updated version of the paper.<sup id="cite_ref-lenstra_pomerance_2011_4-0" class="reference"><a href="#cite_note-lenstra_pomerance_2011-4">&#91;4&#93;</a></sup> Agrawal, Kayal and Saxena proposed a variant which would run in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\tilde {O}}(\log(n)^{3})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>O</mi>
+              <mo stretchy="false">&#x007E;<!-- ~ --></mo>
+            </mover>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\tilde {O}}(\log(n)^{3})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/398bd87bd466a6f43ea9ae0e44dc8299723362da" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.813ex; height:3.176ex;" alt="{\displaystyle {\tilde {O}}(\log(n)^{3})}"/></span> if <a href="https://en.wikipedia.org/wiki/Agrawal%27s_conjecture" title="Agrawal&#39;s conjecture">Agrawal's conjecture</a> were true; however, a heuristic argument by Pomerance and Lenstra suggested that it is probably false.
+</p>
+<h2><span class="mw-headline" id="The_algorithm">The algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=AKS_primality_test&amp;action=edit&amp;section=4" title="Edit section: The algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The algorithm is as follows:<sup id="cite_ref-AKS_1-4" class="reference"><a href="#cite_note-AKS-1">&#91;1&#93;</a></sup>
+</p>
+<dl><dd>Input: integer <span class="texhtml texhtml-big" style="font-size:100%;"><i>n</i>&#160;&gt;&#160;1</span>.</dd></dl>
+<ol><li>Check if <i>n</i> is a <a href="https://en.wikipedia.org/wiki/Perfect_power" title="Perfect power">perfect power</a>: if <span class="texhtml texhtml-big" style="font-size:100%;"><i>n</i>&#160;=&#160;<i>a</i><sup><i>b</i></sup></span> for integers <span class="texhtml texhtml-big" style="font-size:100%;"><i>a</i>&#160;&gt;&#160;1</span> and <span class="texhtml texhtml-big" style="font-size:100%;"><i>b</i>&#160;&gt;&#160;1</span>, output <i>composite</i>.</li>
+<li>Find the smallest <i>r</i> such that <span class="texhtml texhtml-big" style="font-size:100%;"><a href="https://en.wikipedia.org/wiki/Multiplicative_order" title="Multiplicative order">ord</a><sub><i>r</i></sub>(<i>n</i>)&#160;&gt;&#160;(log<sub>2</sub> <i>n</i>)<sup>2</sup></span>. (if <i>r</i> and <i>n</i> are not coprime, then skip this <i>r</i>)</li>
+<li>For all 2 ≤ <i>a</i> ≤ min (<i>r</i>, <i>n</i>−1), check that <i>a</i> does not divide <i>n</i>: If <i>a</i>|<i>n</i> for some 2 ≤ <i>a</i> ≤ min (<i>r</i>, <i>n</i>−1), output <i>composite</i>.</li>
+<li>If <i>n</i> ≤ <i>r</i>, output <i>prime</i>.</li>
+<li>For <span class="texhtml texhtml-big" style="font-size:100%;"><i>a</i>&#160;=&#160;1</span> to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \left\lfloor {\sqrt {\varphi (r)}}\log _{2}(n)\right\rfloor }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow>
+          <mo>&#x230A;</mo>
+          <mrow>
+            <mrow class="MJX-TeXAtom-ORD">
+              <msqrt>
+                <mi>&#x03C6;<!-- φ --></mi>
+                <mo stretchy="false">(</mo>
+                <mi>r</mi>
+                <mo stretchy="false">)</mo>
+              </msqrt>
+            </mrow>
+            <msub>
+              <mi>log</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msub>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mo stretchy="false">(</mo>
+            <mi>n</mi>
+            <mo stretchy="false">)</mo>
+          </mrow>
+          <mo>&#x230B;</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \left\lfloor {\sqrt {\varphi (r)}}\log _{2}(n)\right\rfloor }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/66e8f8e1f842f93eeafb29da46bd297fd6accdbc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:16.774ex; height:4.843ex;" alt="{\displaystyle \left\lfloor {\sqrt {\varphi (r)}}\log _{2}(n)\right\rfloor }"/></span> do
+<dl><dd>if (<i>X</i>+<i>a</i>)<sup><i>n</i></sup>≠ <i>X</i><sup><i>n</i></sup>+<i>a</i> (mod <i>X</i><sup><i>r</i></sup> − 1,<i>n</i>), output <i>composite</i>;</dd></dl></li>
+<li>Output <i>prime</i>.</li></ol>
+<p>Here <a href="https://en.wikipedia.org/wiki/Multiplicative_order" title="Multiplicative order">ord</a><sub><i>r</i></sub>(<i>n</i>) is the <a href="https://en.wikipedia.org/wiki/Multiplicative_order" title="Multiplicative order">multiplicative order</a> of <i>n</i> <a href="https://en.wikipedia.org/wiki/Modular_arithmetic" title="Modular arithmetic">modulo</a> <i>r</i>, log<sub>2</sub> is the <a href="https://en.wikipedia.org/wiki/Binary_logarithm" title="Binary logarithm">binary logarithm</a>, and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \varphi (r)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03C6;<!-- φ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>r</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \varphi (r)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5e1a1b480a264e4a38135d0ae2589bfc49984669" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.378ex; height:2.843ex;" alt="\varphi (r)"/></span> is <a href="https://en.wikipedia.org/wiki/Euler%27s_totient_function" title="Euler&#39;s totient function">Euler's totient function</a> of <i>r</i>.
+</p><p>Step 3 is shown in the paper as checking 1 &lt; (<i>a</i>,<i>n</i>) &lt; <i>n</i> for all <i>a</i> ≤ <i>r</i>.  It can be seen this is equivalent to trial division up to <i>r</i>, which can be done very efficiently without using <a href="https://en.wikipedia.org/wiki/Greatest_common_divisor" title="Greatest common divisor">gcd</a>.  Similarly the comparison in step 4 can be replaced by having the trial division return <i>prime</i> once it has checked all values up to and including <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \left\lfloor {\sqrt {n}}\right\rfloor .}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow>
+          <mo>&#x230A;</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msqrt>
+              <mi>n</mi>
+            </msqrt>
+          </mrow>
+          <mo>&#x230B;</mo>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \left\lfloor {\sqrt {n}}\right\rfloor .}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/30b6a48012686ce433dc52d29137361c689d3612" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:6.429ex; height:3.009ex;" alt="{\displaystyle \left\lfloor {\sqrt {n}}\right\rfloor .}"/></span>
+</p><p>Once beyond very small inputs, step 5 dominates the time taken.  The essential reduction in complexity (from exponential to polynomial) is achieved by performing all calculations in the finite ring
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle R:={\Bigl (}{\bigl (}\mathbb {Z} /(n){\bigr )}[X]{\Bigr )}{\Bigl /}(X^{r}\!\!-\!\!1){\Bigr .}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>R</mi>
+        <mo>:=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-OPEN">
+            <mo maxsize="1.623em" minsize="1.623em">(</mo>
+          </mrow>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-OPEN">
+            <mo maxsize="1.2em" minsize="1.2em">(</mo>
+          </mrow>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">Z</mi>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-CLOSE">
+            <mo maxsize="1.2em" minsize="1.2em">)</mo>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">[</mo>
+        <mi>X</mi>
+        <mo stretchy="false">]</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-CLOSE">
+            <mo maxsize="1.623em" minsize="1.623em">)</mo>
+          </mrow>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-OPEN">
+            <mo fence="true" stretchy="true" symmetric="true" maxsize="1.623em" minsize="1.623em">/</mo>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>r</mi>
+          </mrow>
+        </msup>
+        <mspace width="negativethinmathspace" />
+        <mspace width="negativethinmathspace" />
+        <mo>&#x2212;<!-- − --></mo>
+        <mspace width="negativethinmathspace" />
+        <mspace width="negativethinmathspace" />
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-CLOSE">
+            <mo fence="true" stretchy="true" symmetric="true" maxsize="1.623em" minsize="1.623em"></mo>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R:={\Bigl (}{\bigl (}\mathbb {Z} /(n){\bigr )}[X]{\Bigr )}{\Bigl /}(X^{r}\!\!-\!\!1){\Bigr .}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/19e69958bfe02a528845e11903c3f9a2ed21f884" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:28.724ex; height:4.843ex;" alt="{\displaystyle R:={\Bigl (}{\bigl (}\mathbb {Z} /(n){\bigr )}[X]{\Bigr )}{\Bigl /}(X^{r}\!\!-\!\!1){\Bigr .}}"/></span></dd></dl>
+<p>consisting of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n\cdot r}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mi>r</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n\cdot r}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cfc8a855e623cc4cc1956dc7761e9b104bd2a99a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:4.122ex; height:1.676ex;" alt="{\displaystyle n\cdot r}"/></span> elements. This ring contains only the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle r}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>r</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d1ecb613aa2984f0576f70f86650b7c2a132538" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.049ex; height:1.676ex;" alt="r"/></span> <a href="https://en.wikipedia.org/wiki/Monomial" title="Monomial">monomials</a> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{X^{0},X^{1},\ldots ,X^{r-1}\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <msup>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msup>
+        <mo>,</mo>
+        <msup>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msup>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msup>
+          <mi>X</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>r</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msup>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{X^{0},X^{1},\ldots ,X^{r-1}\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/74fc9acbc4870c2444846e51b60a355cff8f8f5c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:19.71ex; height:3.176ex;" alt="{\displaystyle \{X^{0},X^{1},\ldots ,X^{r-1}\}}"/></span>, and the <a href="https://en.wikipedia.org/wiki/Coefficient" title="Coefficient">coefficients</a> are in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbb {Z} /(n)=:\mathbb {Z} _{n}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="double-struck">Z</mi>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=:</mo>
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">Z</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbb {Z} /(n)=:\mathbb {Z} _{n}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d1e16869e05db601a408f19a31c95cfec7346f7b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:12.431ex; height:2.843ex;" alt="{\displaystyle \mathbb {Z} /(n)=:\mathbb {Z} _{n}}"/></span> which has <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> elements all of them codable within <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \log _{2}(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>log</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \log _{2}(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f4e7727d9ed8daee1d80207aba949782dccf9547" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.23ex; height:2.843ex;" alt="\log _{2}(n)"/></span> bits.
+</p><p>Most later improvements made to the algorithm have concentrated on reducing the size of <i>r</i> which makes the core operation in step 5 faster, and in reducing the size of <i>s</i>, the number of loops performed in step 5.<sup id="cite_ref-bernstein03_5-0" class="reference"><a href="#cite_note-bernstein03-5">&#91;5&#93;</a></sup>  Typically these changes do not change the computational complexity, but can lead to many orders of magnitude less time taken, e.g. Bernstein's final version has a theoretical speedup by a factor of over 2 million.
+</p>
+<h3><span class="mw-headline" id="Proof_of_validity_outline">Proof of validity outline</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=AKS_primality_test&amp;action=edit&amp;section=5" title="Edit section: Proof of validity outline">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>For the algorithm to be correct, all steps that identify <i>n</i> must be correct. Steps 1, 3 and 4 are trivially correct, since they are based on direct tests of the divisibility of <i>n</i>. Step 5 is also correct: since (2) is true for any choice of <i>a</i> coprime to <i>n</i> and <i>r</i> if <i>n</i> is prime, an inequality means that <i>n</i> must be composite.
+</p><p>The difficult part of the proof is showing that step 6 is true. Its proof of correctness is based on the upper and lower bounds of a <a href="https://en.wikipedia.org/wiki/Multiplicative_group" title="Multiplicative group">multiplicative group</a> in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbb {Z} _{n}[x]}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">Z</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">[</mo>
+        <mi>x</mi>
+        <mo stretchy="false">]</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbb {Z} _{n}[x]}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4995fef9354139d887121f41794989ca2502e54c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.392ex; height:2.843ex;" alt="{\displaystyle \mathbb {Z} _{n}[x]}"/></span> constructed from the (<i>X</i> + <i>a</i>) binomials that are tested in step 5. Step 4 guarantees that these binomials are <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \left\lfloor {\sqrt {\varphi (r)}}\log _{2}(n)\right\rfloor }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow>
+          <mo>&#x230A;</mo>
+          <mrow>
+            <mrow class="MJX-TeXAtom-ORD">
+              <msqrt>
+                <mi>&#x03C6;<!-- φ --></mi>
+                <mo stretchy="false">(</mo>
+                <mi>r</mi>
+                <mo stretchy="false">)</mo>
+              </msqrt>
+            </mrow>
+            <msub>
+              <mi>log</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msub>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mo stretchy="false">(</mo>
+            <mi>n</mi>
+            <mo stretchy="false">)</mo>
+          </mrow>
+          <mo>&#x230B;</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \left\lfloor {\sqrt {\varphi (r)}}\log _{2}(n)\right\rfloor }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/66e8f8e1f842f93eeafb29da46bd297fd6accdbc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:16.774ex; height:4.843ex;" alt="{\displaystyle \left\lfloor {\sqrt {\varphi (r)}}\log _{2}(n)\right\rfloor }"/></span> distinct elements of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbb {Z} _{n}[x]}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">Z</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">[</mo>
+        <mi>x</mi>
+        <mo stretchy="false">]</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbb {Z} _{n}[x]}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4995fef9354139d887121f41794989ca2502e54c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.392ex; height:2.843ex;" alt="\mathbb{Z}_n[x]"/></span>. For the particular choice of <i>r</i>, the bounds produce a <a href="https://en.wikipedia.org/wiki/Proof_by_contradiction" title="Proof by contradiction">contradiction</a> unless <i>n</i> is prime or a power of a prime. Together with the test of step 1, this implies that <i>n</i> is always prime at step 6.<sup id="cite_ref-AKS_1-5" class="reference"><a href="#cite_note-AKS-1">&#91;1&#93;</a></sup>
+</p>
+<h3><span id="Example_1:_n_.3D_31_is_prime"></span><span class="mw-headline" id="Example_1:_n_=_31_is_prime">Example 1: <i>n</i> = 31 is prime</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=AKS_primality_test&amp;action=edit&amp;section=6" title="Edit section: Example 1: n = 31 is prime">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<dl><dd>Input: integer <i>n</i>&#160;=&#160;31&#160;&gt;&#160;1.</dd></dl>
+<div><ol><li><div>
+<pre>  If <i>n</i>&#160;=&#160;<i>a</i><sup><i>b</i></sup> for integers <i>a</i>&#160;&gt;&#160;1 and <i>b</i>&#160;&gt;&#160;1, output <i>composite</i>.
+    For [ b=2, b &lt;= log<sub>2</sub>(n), b++,
+      a=n<sup>1/b</sup>;
+      If [ a is integer, Return[Composite]]
+    ];
+    a=n<sup>1/2</sup>...n<sup>1/4</sup>={5.568, 3.141, 2.360}
+</pre>
+</div></li><li><div>
+<pre>  Find the smallest <i>r</i> such that <i>O</i><sub><i>r</i></sub>(<i>n</i>)&#160;&gt;&#160;(log<sub><i>2</i></sub> <i>n</i>)<sup>2</sup>.
+    maxk=⌊(log<sub><i>2</i></sub>&#160;n)<sup>2</sup>⌋;
+    maxr=Max[3, ⌈(Log<sub><i>2</i></sub>&#160;n)<sup>5</sup>⌉]; (*maxr really isn't needed*)
+    nextR=True;
+    For&#160;[r=2, nextR&#160;&amp;&amp;&#160;r&#160;&lt;&#160;maxr, r++,
+      nextR=False;
+      For&#160;[k=1,(!nextR)&#160;&amp;&amp;k&#160;&#8804;&#160;maxk, k++,
+        nextR=(Mod[n<sup>k</sup>, r]==1&#160;||&#160;Mod[n<sup>k</sup>, r]==0)
+      ]
+    ];
+    r--; (*the loop over increments by one*)
+    &#160;
+    r&#160;=&#160;29
+</pre>
+</div></li><li><div>
+<pre>  If 1&#160;&lt;&#160;<a href="https://en.wikipedia.org/wiki/Greatest_common_divisor" title="Greatest common divisor">gcd</a>(<i>a</i>,<i>n</i>)&#160;&lt;&#160;<i>n</i> for some <i>a</i> ≤ <i>r</i>, output <i>composite</i>.
+    For&#160;[a=r, a&#160;&gt;&#160;1, a--,
+      If&#160;[(gcd=GCD[a,n])&#160;&gt;&#160;1&#160;&amp;&amp;&#160;gcd&#160;&lt;&#160;n, Return[Composite]]
+    ];
+    &#160;
+    gcd={GCD(29,31)=1, GCD(28,31)=1, ..., GCD(2,31)=1}&#160;≯&#160;1
+</pre>
+</div></li><li><div>
+<pre>  If <i>n</i> ≤ <i>r</i>, output <i>prime</i>.
+    If [n&#160;&#8804;&#160;r, Return[Prime]]; (* this step may be omitted if n&#160;&gt;&#160;5690034 *)
+    &#160;
+    31&#160;&gt;&#160;29
+</pre>
+</div></li><li><div>
+<pre>  For <i>a</i>&#160;=&#160;1 to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \left\lfloor {\sqrt {\varphi (r)}}\log _{2}(n)\right\rfloor }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow>
+          <mo>&#x230A;</mo>
+          <mrow>
+            <mrow class="MJX-TeXAtom-ORD">
+              <msqrt>
+                <mi>&#x03C6;<!-- φ --></mi>
+                <mo stretchy="false">(</mo>
+                <mi>r</mi>
+                <mo stretchy="false">)</mo>
+              </msqrt>
+            </mrow>
+            <msub>
+              <mi>log</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msub>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mo stretchy="false">(</mo>
+            <mi>n</mi>
+            <mo stretchy="false">)</mo>
+          </mrow>
+          <mo>&#x230B;</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \left\lfloor {\sqrt {\varphi (r)}}\log _{2}(n)\right\rfloor }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/66e8f8e1f842f93eeafb29da46bd297fd6accdbc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:16.774ex; height:4.843ex;" alt="{\displaystyle \left\lfloor {\sqrt {\varphi (r)}}\log _{2}(n)\right\rfloor }"/></span> do
+    if (<i>X</i>+<i>a</i>)<sup><i>n</i></sup>≠ <i>X</i><sup><i>n</i></sup>+<i>a</i> (mod <i>X</i><sup><i>r</i></sup> − 1,<i>n</i>), output <i>composite</i>;
+    &#160;
+    φ[x_]:=EulerPhi[x];
+    PolyModulo[f_]:=PolynomialMod[ <a href="https://en.wikipedia.org/wiki/Polynomial_remainder" class="mw-redirect" title="Polynomial remainder">PolynomialRemainder</a>[f,x<sup>r</sup>-1,x],n];
+    max=Floor[Log[2,n]<span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">φ[r]</span></span>];
+    For[a=1, a&#160;≤&#160;max, a++,
+      If[PolyModulo[(x+a)<sup>n</sup>-PolynomialRemainder[x<sup>n</sup>+a, x<sup>r</sup>-1], x]≠0,
+        Return[Composite]
+      ]
+    ];
+    &#160;
+    (x+a)<sup>31</sup>&#160;=
+      a<sup>31</sup> +31a<sup>30</sup>x +465a<sup>29</sup>x<sup>2</sup> +4495a<sup>28</sup>x<sup>3</sup> +31465a<sup>27</sup>x<sup>4</sup> +169911a<sup>26</sup>x<sup>5</sup> +736281a<sup>25</sup>x<sup>6</sup> +2629575a<sup>24</sup>x<sup>7</sup> +7888725a<sup>23</sup>x<sup>8</sup> +20160075a<sup>22</sup>x<sup>9</sup> +44352165a<sup>21</sup>x<sup>10</sup> +84672315a<sup>20</sup>x<sup>11</sup> +141120525a<sup>19</sup>x<sup>12</sup> +206253075a<sup>18</sup>x<sup>13</sup> +265182525a<sup>17</sup>x<sup>14</sup> +300540195a<sup>16</sup>x<sup>15</sup> +300540195a<sup>15</sup>x<sup>16</sup> +265182525a<sup>14</sup>x<sup>17</sup> +206253075a<sup>13</sup>x<sup>18</sup> +141120525a<sup>12</sup>x<sup>19</sup> +84672315a<sup>11</sup>x<sup>20</sup> +44352165a<sup>10</sup>x<sup>21</sup> +20160075a<sup>9</sup>x<sup>22</sup> +7888725a<sup>8</sup>x<sup>23</sup> +2629575a<sup>7</sup>x<sup>24</sup> +736281a<sup>6</sup>x<sup>25</sup> +169911a<sup>5</sup>x<sup>26</sup> +31465a<sup>4</sup>x<sup>27</sup> +4495a<sup>3</sup>x<sup>28</sup> +465a<sup>2</sup>x<sup>29</sup> +31ax<sup>30</sup> +x<sup>31</sup>
+    &#160;
+    PolynomialRemainder&#160;[(x+a)<sup>31</sup>, x<sup>29</sup>-1]&#160;=
+      465a<sup>2</sup> +a<sup>31</sup> +(31a+31a<sup>30</sup>)x +(1+465a<sup>29</sup>)x<sup>2</sup> +4495a<sup>28</sup>x<sup>3</sup> +31465a<sup>27</sup>x<sup>4</sup> +169911a<sup>26</sup>x<sup>5</sup> +736281a<sup>25</sup>x<sup>6</sup> +2629575a<sup>24</sup>x<sup>7</sup> +7888725a<sup>23</sup>x<sup>8</sup> +20160075a<sup>22</sup>x<sup>9</sup> +44352165a<sup>21</sup>x<sup>10</sup> +84672315a<sup>20</sup>x<sup>11</sup> +141120525a<sup>19</sup>x<sup>12</sup> +206253075a<sup>18</sup>x<sup>13</sup> +265182525a<sup>17</sup>x<sup>14</sup> +300540195a<sup>16</sup>x<sup>15</sup> +300540195a<sup>15</sup>x<sup>16</sup> +265182525a<sup>14</sup>x<sup>17</sup> +206253075a<sup>13</sup>x<sup>18</sup> +141120525a<sup>12</sup>x<sup>19</sup> +84672315a<sup>11</sup>x<sup>20</sup> +44352165a<sup>10</sup>x<sup>21</sup> +20160075a<sup>9</sup>x<sup>22</sup> +7888725a<sup>8</sup>x<sup>23</sup> +2629575a<sup>7</sup>x<sup>24</sup> +736281a<sup>6</sup>x<sup>25</sup> +169911a<sup>5</sup>x<sup>26</sup> +31465a<sup>4</sup>x<sup>27</sup> +4495a<sup>3</sup>x<sup>28</sup>
+    &#160;
+    (<span id="math_A" class="reference nourlexpansion" style="font-weight:bold;">A</span>) PolynomialMod&#160;[PolynomialRemainder&#160;[(x+a)<sup>31</sup>, x<sup>29</sup>-1], 31]&#160;=&#160;a<sup>31</sup>+x<sup>2</sup>
+    &#160;
+    (<span id="math_B" class="reference nourlexpansion" style="font-weight:bold;">B</span>) PolynomialRemainder&#160;[x<sup>31</sup>+a, x<sup>29</sup>-1]&#160;=&#160;a+x<sup>2</sup>
+    &#160;
+    (<b><a href="#math_A">A</a></b>)&#160;-&#160;(<b><a href="#math_B">B</a></b>)&#160;=&#160;a<sup>31</sup>+x<sup>2</sup>&#160;-&#160;(a+x<sup>2</sup>)&#160;=&#160;a<sup>31</sup>-a
+    &#160;
+    max&#160;=&#160;<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \left\lfloor \log _{2}(31){\sqrt {\varphi (29)}}\right\rfloor }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow>
+          <mo>&#x230A;</mo>
+          <mrow>
+            <msub>
+              <mi>log</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msub>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mo stretchy="false">(</mo>
+            <mn>31</mn>
+            <mo stretchy="false">)</mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <msqrt>
+                <mi>&#x03C6;<!-- φ --></mi>
+                <mo stretchy="false">(</mo>
+                <mn>29</mn>
+                <mo stretchy="false">)</mo>
+              </msqrt>
+            </mrow>
+          </mrow>
+          <mo>&#x230B;</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \left\lfloor \log _{2}(31){\sqrt {\varphi (29)}}\right\rfloor }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d0347c34decce60ef493b7b3bd1e3679ab5b3e33" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:18.593ex; height:4.843ex;" alt="{\displaystyle \left\lfloor \log _{2}(31){\sqrt {\varphi (29)}}\right\rfloor }"/></span>&#160;=&#160;26
+    &#160;
+    {1<sup>31</sup>-1=0&#160;(mod 31), 2<sup>31</sup>-2=0&#160;(mod 31), 3<sup>31</sup>-3=0&#160;(mod 31), ..., 26<sup>31</sup>-26=0&#160;(mod 31)}
+</pre>
+</div></li><li><div>
+<pre>  Output <i>prime</i>.
+    31 Must be Prime
+</pre>
+</div></li></ol></div>
+<p>Where PolynomialMod is a term-wise modulo reduction of the polynomial. e.g. PolynomialMod[x+2x<sup>2</sup>+3x<sup>3</sup>,&#160;3]&#160;=&#160;x+2x<sup>2</sup>+0x<sup>3</sup>
+</p><p><sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=AKS_primality_test&amp;action=edit&amp;section=7" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-AKS-1"><span class="mw-cite-backlink">^ <a href="#cite_ref-AKS_1-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-AKS_1-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-AKS_1-2"><sup><i><b>c</b></i></sup></a> <a href="#cite_ref-AKS_1-3"><sup><i><b>d</b></i></sup></a> <a href="#cite_ref-AKS_1-4"><sup><i><b>e</b></i></sup></a> <a href="#cite_ref-AKS_1-5"><sup><i><b>f</b></i></sup></a></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFAgrawalKayalSaxena2004" class="citation journal cs1">Agrawal, Manindra; Kayal, Neeraj; Saxena, Nitin (2004). <a rel="nofollow" class="external text" href="http://www.cse.iitk.ac.in/users/manindra/algebra/primality_v6.pdf">"PRIMES is in P"</a> <span class="cs1-format">(PDF)</span>. <i><a href="https://en.wikipedia.org/wiki/Annals_of_Mathematics" title="Annals of Mathematics">Annals of Mathematics</a></i>. <b>160</b> (2): 781–793. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.4007%2Fannals.2004.160.781">10.4007/annals.2004.160.781</a></span>. <a href="https://en.wikipedia.org/wiki/JSTOR_(identifier)" class="mw-redirect" title="JSTOR (identifier)">JSTOR</a>&#160;<a rel="nofollow" class="external text" href="http://www.jstor.org/stable/3597229">3597229</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Annals+of+Mathematics&amp;rft.atitle=PRIMES+is+in+P&amp;rft.volume=160&amp;rft.issue=2&amp;rft.pages=781-793&amp;rft.date=2004&amp;rft_id=info%3Adoi%2F10.4007%2Fannals.2004.160.781&amp;rft_id=%2F%2Fwww.jstor.org%2Fstable%2F3597229%23id-name%3DJSTOR&amp;rft.aulast=Agrawal&amp;rft.aufirst=Manindra&amp;rft.au=Kayal%2C+Neeraj&amp;rft.au=Saxena%2C+Nitin&amp;rft_id=http%3A%2F%2Fwww.cse.iitk.ac.in%2Fusers%2Fmanindra%2Falgebra%2Fprimality_v6.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAKS+primality+test" class="Z3988"></span></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGranville2005" class="citation journal cs1">Granville, Andrew (2005). <a rel="nofollow" class="external text" href="https://www.ams.org/bull/2005-42-01/S0273-0979-04-01037-7/home.html">"It is easy to determine whether a given integer is prime"</a>. <i>Bull. Amer. Math. Soc</i>. <b>42</b>: 3–38. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1090%2FS0273-0979-04-01037-7">10.1090/S0273-0979-04-01037-7</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Bull.+Amer.+Math.+Soc.&amp;rft.atitle=It+is+easy+to+determine+whether+a+given+integer+is+prime&amp;rft.volume=42&amp;rft.pages=3-38&amp;rft.date=2005&amp;rft_id=info%3Adoi%2F10.1090%2FS0273-0979-04-01037-7&amp;rft.aulast=Granville&amp;rft.aufirst=Andrew&amp;rft_id=https%3A%2F%2Fwww.ams.org%2Fbull%2F2005-42-01%2FS0273-0979-04-01037-7%2Fhome.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAKS+primality+test" class="Z3988"></span></span>
+</li>
+<li id="cite_note-lenstra_pomerance_2005-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-lenstra_pomerance_2005_3-0">^</a></b></span> <span class="reference-text">H. W. Lenstra Jr. and Carl Pomerance, "<a rel="nofollow" class="external text" href="http://www.math.dartmouth.edu/~carlp/PDF/complexity12.pdf">Primality testing with Gaussian periods</a>", preliminary version July 20, 2005.</span>
+</li>
+<li id="cite_note-lenstra_pomerance_2011-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-lenstra_pomerance_2011_4-0">^</a></b></span> <span class="reference-text">H. W. Lenstra Jr. and Carl Pomerance, "<a rel="nofollow" class="external text" href="http://www.math.dartmouth.edu/~carlp/aks041411.pdf">Primality testing with Gaussian periods</a> <a rel="nofollow" class="external text" href="https://web.archive.org/web/20120225052810/http://www.math.dartmouth.edu/~carlp/aks041411.pdf">Archived</a> 2012-02-25 at the <a href="https://en.wikipedia.org/wiki/Wayback_Machine" title="Wayback Machine">Wayback Machine</a>", version of April 12, 2011.</span>
+</li>
+<li id="cite_note-bernstein03-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-bernstein03_5-0">^</a></b></span> <span class="reference-text">Daniel J. Bernstein, "<a rel="nofollow" class="external text" href="https://cr.yp.to/papers/aks.pdf">Proving Primality After Agrawal-Kayal-Saxena</a>", version of January 25, 2003.</span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text">See <a href="https://en.wikipedia.org/wiki/Talk:AKS_primality_test#Worked_Example" title="Talk:AKS primality test">AKS Talk</a> page for a discussion on why 'Example 2: n is not Prime past Step 4' is missing.</span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="Further_reading">Further reading</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=AKS_primality_test&amp;action=edit&amp;section=8" title="Edit section: Further reading">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFDietzfelbinger2004" class="citation book cs1">Dietzfelbinger, Martin (2004). <i>Primality testing in polynomial time. From randomized algorithms to </i>PRIMES is in P<i>. Lecture Notes in Computer Science. Vol.&#160;3000. Berlin: <a href="https://en.wikipedia.org/wiki/Springer-Verlag" class="mw-redirect" title="Springer-Verlag">Springer-Verlag</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/3-540-40344-2" title="Special:BookSources/3-540-40344-2"><bdi>3-540-40344-2</bdi></a>. <a href="https://en.wikipedia.org/wiki/Zbl_(identifier)" class="mw-redirect" title="Zbl (identifier)">Zbl</a>&#160;<a rel="nofollow" class="external text" href="http://zbmath.org/?format=complete&amp;q=an:1058.11070">1058.11070</a>.</i></cite><i><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Primality+testing+in+polynomial+time.+From+randomized+algorithms+to+PRIMES+is+in+P&amp;rft.place=Berlin&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pub=Springer-Verlag&amp;rft.date=2004&amp;rft_id=%2F%2Fzbmath.org%2F%3Fformat%3Dcomplete%26q%3Dan%3A1058.11070%23id-name%3DZbl&amp;rft.isbn=3-540-40344-2&amp;rft.aulast=Dietzfelbinger&amp;rft.aufirst=Martin&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAKS+primality+test" class="Z3988"></span></i></li></ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=AKS_primality_test&amp;action=edit&amp;section=9" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><span class="citation mathworld" id="Reference-Mathworld-AKS_Primality_Test"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFWeisstein" class="citation web cs1"><a href="https://en.wikipedia.org/wiki/Eric_W._Weisstein" title="Eric W. Weisstein">Weisstein, Eric W.</a> <a rel="nofollow" class="external text" href="https://mathworld.wolfram.com/AKSPrimalityTest.html">"AKS Primality Test"</a>. <i><a href="https://en.wikipedia.org/wiki/MathWorld" title="MathWorld">MathWorld</a></i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=MathWorld&amp;rft.atitle=AKS+Primality+Test&amp;rft.au=Weisstein%2C+Eric+W.&amp;rft_id=https%3A%2F%2Fmathworld.wolfram.com%2FAKSPrimalityTest.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAKS+primality+test" class="Z3988"></span></span></li>
+<li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20140219064936/http://www.dm.unito.it/~cerruti/ac/aks-crandall.pdf">R. Crandall, Apple ACG, and J. Papadopoulos (March 18, 2003): On the implementation of AKS-class primality tests</a> (PDF)</li>
+<li><a rel="nofollow" class="external text" href="https://www.ams.org/notices/200305/fea-bornemann.pdf">Article by Borneman, containing photos and information about the three Indian scientists</a> (PDF)</li>
+<li><a rel="nofollow" class="external text" href="https://www.ams.org/bull/2005-42-01/S0273-0979-04-01037-7/home.html">Andrew Granville: It is easy to determine whether a given integer is prime</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.scottaaronson.com/writings/prime.pdf">The Prime Facts: From Euclid to AKS</a>, by <a href="https://en.wikipedia.org/wiki/Scott_Aaronson" title="Scott Aaronson">Scott Aaronson</a> (PDF)</li>
+<li><a rel="nofollow" class="external text" href="http://www.instantlogic.net/publications/PRIMES is in P little FAQ.htm">The PRIMES is in P little FAQ</a> by Anton Stiglic</li>
+<li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20150327071905/http://www.sigact.org/Prizes/Godel/2006.html">2006 Gödel Prize Citation</a></li>
+<li><a rel="nofollow" class="external text" href="https://www.ams.org/notices/200611/comm-fulkerson.pdf">2006 Fulkerson Prize Citation</a></li>
+<li><a rel="nofollow" class="external text" href="http://fatphil.org/maths/AKS">The AKS "PRIMES in P" Algorithm Resource</a></li></ul>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Number-theoretic_algorithms" style="padding:3px"><table class="nowraplinks mw-collapsible uncollapsed navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Number-theoretic_algorithms" title="Template:Number-theoretic algorithms"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Number-theoretic_algorithms" title="Template talk:Number-theoretic algorithms"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Number-theoretic_algorithms&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Number-theoretic_algorithms" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Number_theory" title="Number theory">Number-theoretic</a> <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithms</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Primality_test" title="Primality test">Primality tests</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a class="mw-selflink selflink">AKS</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Adleman–Pomerance–Rumely_primality_test" title="Adleman–Pomerance–Rumely primality test">APR</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Baillie–PSW_primality_test" title="Baillie–PSW primality test">Baillie–PSW</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Elliptic_curve_primality" title="Elliptic curve primality">Elliptic curve</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pocklington_primality_test" title="Pocklington primality test">Pocklington</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fermat_primality_test" title="Fermat primality test">Fermat</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lucas_primality_test" title="Lucas primality test">Lucas</a></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Lucas–Lehmer_primality_test" title="Lucas–Lehmer primality test">Lucas–Lehmer</a></i></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Lucas–Lehmer–Riesel_test" title="Lucas–Lehmer–Riesel test">Lucas–Lehmer–Riesel</a></i></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Proth%27s_theorem" title="Proth&#39;s theorem">Proth's theorem</a></i></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Pépin%27s_test" title="Pépin&#39;s test">Pépin's</a></i></li>
+<li><a href="https://en.wikipedia.org/wiki/Quadratic_Frobenius_test" title="Quadratic Frobenius test">Quadratic Frobenius</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Solovay–Strassen_primality_test" title="Solovay–Strassen primality test">Solovay–Strassen</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Miller–Rabin_primality_test" title="Miller–Rabin primality test">Miller–Rabin</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Generating_primes" class="mw-redirect" title="Generating primes">Prime-generating</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Sieve_of_Atkin" title="Sieve of Atkin">Sieve of Atkin</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes" title="Sieve of Eratosthenes">Sieve of Eratosthenes</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sieve_of_Sundaram" title="Sieve of Sundaram">Sieve of Sundaram</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Wheel_factorization" title="Wheel factorization">Wheel factorization</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Integer_factorization" title="Integer factorization">Integer factorization</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Continued_fraction_factorization" title="Continued fraction factorization">Continued fraction (CFRAC)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dixon%27s_factorization_method" title="Dixon&#39;s factorization method">Dixon's</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lenstra_elliptic-curve_factorization" title="Lenstra elliptic-curve factorization">Lenstra elliptic curve (ECM)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Euler%27s_factorization_method" title="Euler&#39;s factorization method">Euler's</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm" title="Pollard&#39;s rho algorithm">Pollard's rho</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pollard%27s_p_−_1_algorithm" title="Pollard&#39;s p − 1 algorithm"><i>p</i> − 1</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Williams%27s_p_+_1_algorithm" title="Williams&#39;s p + 1 algorithm"><i>p</i> + 1</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quadratic_sieve" title="Quadratic sieve">Quadratic sieve (QS)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/General_number_field_sieve" title="General number field sieve">General number field sieve (GNFS)</a></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Special_number_field_sieve" title="Special number field sieve">Special number field sieve (SNFS)</a></i></li>
+<li><a href="https://en.wikipedia.org/wiki/Rational_sieve" title="Rational sieve">Rational sieve</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fermat%27s_factorization_method" title="Fermat&#39;s factorization method">Fermat's</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shanks%27s_square_forms_factorization" title="Shanks&#39;s square forms factorization">Shanks's square forms</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Trial_division" title="Trial division">Trial division</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shor%27s_algorithm" title="Shor&#39;s algorithm">Shor's</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Multiplication_algorithm" title="Multiplication algorithm">Multiplication</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Ancient_Egyptian_multiplication" title="Ancient Egyptian multiplication">Ancient Egyptian</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Long_multiplication" class="mw-redirect" title="Long multiplication">Long</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Karatsuba_algorithm" title="Karatsuba algorithm">Karatsuba</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Toom–Cook_multiplication" title="Toom–Cook multiplication">Toom–Cook</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Schönhage–Strassen_algorithm" title="Schönhage–Strassen algorithm">Schönhage–Strassen</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fürer%27s_algorithm" title="Fürer&#39;s algorithm">Fürer's</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Euclidean_division" title="Euclidean division">Euclidean</a> <a href="https://en.wikipedia.org/wiki/Division_algorithm" title="Division algorithm">division</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Binary_division" class="mw-redirect" title="Binary division">Binary</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Chunking_(division)" title="Chunking (division)">Chunking</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fourier_division" title="Fourier division">Fourier</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Goldschmidt_division" class="mw-redirect" title="Goldschmidt division">Goldschmidt</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Newton–Raphson_division" class="mw-redirect" title="Newton–Raphson division">Newton-Raphson</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Long_division" title="Long division">Long</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Short_division" title="Short division">Short</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SRT_division" class="mw-redirect" title="SRT division">SRT</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Discrete_logarithm" title="Discrete logarithm">Discrete logarithm</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Baby-step_giant-step" title="Baby-step giant-step">Baby-step giant-step</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm_for_logarithms" title="Pollard&#39;s rho algorithm for logarithms">Pollard rho</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pollard%27s_kangaroo_algorithm" title="Pollard&#39;s kangaroo algorithm">Pollard kangaroo</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pohlig–Hellman_algorithm" title="Pohlig–Hellman algorithm">Pohlig–Hellman</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Index_calculus_algorithm" title="Index calculus algorithm">Index calculus</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Function_field_sieve" title="Function field sieve">Function field sieve</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Greatest_common_divisor" title="Greatest common divisor">Greatest common divisor</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Binary_GCD_algorithm" title="Binary GCD algorithm">Binary</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Euclidean_algorithm" title="Euclidean algorithm">Euclidean</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm" title="Extended Euclidean algorithm">Extended Euclidean</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lehmer%27s_GCD_algorithm" title="Lehmer&#39;s GCD algorithm">Lehmer's</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Quadratic_residue" title="Quadratic residue">Modular square root</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Cipolla%27s_algorithm" title="Cipolla&#39;s algorithm">Cipolla</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pocklington%27s_algorithm" title="Pocklington&#39;s algorithm">Pocklington's</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tonelli–Shanks_algorithm" title="Tonelli–Shanks algorithm">Tonelli–Shanks</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Berlekamp–Rabin_algorithm" title="Berlekamp–Rabin algorithm">Berlekamp</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kunerth%27s_algorithm" title="Kunerth&#39;s algorithm">Kunerth</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Other algorithms</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Chakravala_method" title="Chakravala method">Chakravala</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cornacchia%27s_algorithm" title="Cornacchia&#39;s algorithm">Cornacchia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Exponentiation_by_squaring" title="Exponentiation by squaring">Exponentiation by squaring</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Integer_square_root" title="Integer square root">Integer square root</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Integer_relation_algorithm" title="Integer relation algorithm">Integer relation</a> (<a href="https://en.wikipedia.org/wiki/Lenstra–Lenstra–Lovász_lattice_basis_reduction_algorithm" title="Lenstra–Lenstra–Lovász lattice basis reduction algorithm">LLL</a>; <a href="https://en.wikipedia.org/wiki/Korkine–Zolotarev_lattice_basis_reduction_algorithm" title="Korkine–Zolotarev lattice basis reduction algorithm">KZ</a>)</li>
+<li><a href="https://en.wikipedia.org/wiki/Modular_exponentiation" title="Modular exponentiation">Modular exponentiation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Montgomery_reduction" class="mw-redirect" title="Montgomery reduction">Montgomery reduction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Schoof%27s_algorithm" title="Schoof&#39;s algorithm">Schoof</a></li></ul>
+</div></td></tr><tr><td class="navbox-abovebelow hlist" colspan="2"><div>
+<ul><li><i>Italics</i> indicate that algorithm is for numbers of special forms</li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1329
+Cached time: 20220429190055
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.513 seconds
+Real time usage: 0.646 seconds
+Preprocessor visited node count: 1593/1000000
+Post‐expand include size: 46913/2097152 bytes
+Template argument size: 1847/2097152 bytes
+Highest expansion depth: 10/100
+Expensive parser function count: 1/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 18668/5000000 bytes
+Lua time usage: 0.221/10.000 seconds
+Lua memory usage: 4734205/52428800 bytes
+Number of Wikibase entities loaded: 1/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  434.935      1 -total
+ 39.56%  172.079      1 Template:Reflist
+ 29.49%  128.269      2 Template:Cite_journal
+ 17.86%   77.674      1 Template:Short_description
+ 14.12%   61.409      1 Template:Number_theoretic_algorithms
+ 13.14%   57.133      1 Template:Navbox
+ 10.02%   43.589      1 Template:Pagetype
+  6.15%   26.734      1 Template:Authority_control
+  5.20%   22.637      3 Template:NumBlk
+  4.88%   21.230      9 Template:Main_other
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:405847-0!canonical and timestamp 20220429190054 and revision id 1085160704. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=AKS_primality_test&amp;oldid=1085160704">https://en.wikipedia.org/w/index.php?title=AKS_primality_test&amp;oldid=1085160704</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Primality_tests" title="Category:Primality tests">Primality tests</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Finite_fields" title="Category:Finite fields">Finite fields</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Webarchive_template_wayback_links" title="Category:Webarchive template wayback links">Webarchive template wayback links</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_is_different_from_Wikidata" title="Category:Short description is different from Wikidata">Short description is different from Wikidata</a></li><li><a href="https://en.wikipedia.org/wiki/Category:AC_with_0_elements" title="Category:AC with 0 elements">AC with 0 elements</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_example_pseudocode" title="Category:Articles with example pseudocode">Articles with example pseudocode</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=AKS+primality+test" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=AKS+primality+test" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/AKS_primality_test" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:AKS_primality_test" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/AKS_primality_test"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=AKS_primality_test&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=AKS_primality_test&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/AKS_primality_test" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/AKS_primality_test" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=AKS_primality_test&amp;oldid=1085160704" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=AKS_primality_test&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=AKS_primality_test&amp;id=1085160704&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q294284" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=AKS_primality_test&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=AKS_primality_test&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-ar mw-list-item"><a href="https://ar.wikipedia.org/wiki/اختبار_أ.ك.أس_لأولية_عدد_ما" title="اختبار أ.ك.أس لأولية عدد ما – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target"><span>العربية</span></a></li><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/AKS-Primzahltest" title="AKS-Primzahltest – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Test_de_primalidad_AKS" title="Test de primalidad AKS – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-eo mw-list-item"><a href="https://eo.wikipedia.org/wiki/Primeca_provo_AKS" title="Primeca provo AKS – Esperanto" lang="eo" hreflang="eo" class="interlanguage-link-target"><span>Esperanto</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/آزمون_اول_بودن_ای‌کی‌اس" title="آزمون اول بودن ای‌کی‌اس – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Test_de_primalité_AKS" title="Test de primalité AKS – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-ko mw-list-item"><a href="https://ko.wikipedia.org/wiki/AKS_소수판별법" title="AKS 소수판별법 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target"><span>한국어</span></a></li><li class="interlanguage-link interwiki-hi mw-list-item"><a href="https://hi.wikipedia.org/wiki/ए॰_के॰_ऐस॰_नंबर_अभाज्यता_टेस्ट" title="ए॰ के॰ ऐस॰ नंबर अभाज्यता टेस्ट – Hindi" lang="hi" hreflang="hi" class="interlanguage-link-target"><span>हिन्दी</span></a></li><li class="interlanguage-link interwiki-it mw-list-item"><a href="https://it.wikipedia.org/wiki/Algoritmo_AKS" title="Algoritmo AKS – Italian" lang="it" hreflang="it" class="interlanguage-link-target"><span>Italiano</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/מבחן_AKS_לראשוניות" title="מבחן AKS לראשוניות – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-ml mw-list-item"><a href="https://ml.wikipedia.org/wiki/എ.കെ.എസ്._അഭാജ്യതാപരിശോധന" title="എ.കെ.എസ്. അഭാജ്യതാപരിശോധന – Malayalam" lang="ml" hreflang="ml" class="interlanguage-link-target"><span>മലയാളം</span></a></li><li class="interlanguage-link interwiki-nl mw-list-item"><a href="https://nl.wikipedia.org/wiki/AKS-test" title="AKS-test – Dutch" lang="nl" hreflang="nl" class="interlanguage-link-target"><span>Nederlands</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/AKS素数判定法" title="AKS素数判定法 – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Test_pierwszości_AKS" title="Test pierwszości AKS – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/Teste_de_primalidade_AKS" title="Teste de primalidade AKS – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-ru badge-Q17559452 badge-recommendedarticle mw-list-item" title="recommended article"><a href="https://ru.wikipedia.org/wiki/Тест_Агравала_—_Каяла_—_Саксены" title="Тест Агравала — Каяла — Саксены – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Тест_простоти_AKS" title="Тест простоти AKS – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-vi mw-list-item"><a href="https://vi.wikipedia.org/wiki/Phép_kiểm_tra_tính_nguyên_tố_AKS" title="Phép kiểm tra tính nguyên tố AKS – Vietnamese" lang="vi" hreflang="vi" class="interlanguage-link-target"><span>Tiếng Việt</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/AKS質數測試" title="AKS質數測試 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q294284#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 28 April 2022, at 20:02<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=AKS_primality_test&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.513","walltime":"0.646","ppvisitednodes":{"value":1593,"limit":1000000},"postexpandincludesize":{"value":46913,"limit":2097152},"templateargumentsize":{"value":1847,"limit":2097152},"expansiondepth":{"value":10,"limit":100},"expensivefunctioncount":{"value":1,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":18668,"limit":5000000},"entityaccesscount":{"value":1,"limit":400},"timingprofile":["100.00%  434.935      1 -total"," 39.56%  172.079      1 Template:Reflist"," 29.49%  128.269      2 Template:Cite_journal"," 17.86%   77.674      1 Template:Short_description"," 14.12%   61.409      1 Template:Number_theoretic_algorithms"," 13.14%   57.133      1 Template:Navbox"," 10.02%   43.589      1 Template:Pagetype","  6.15%   26.734      1 Template:Authority_control","  5.20%   22.637      3 Template:NumBlk","  4.88%   21.230      9 Template:Main_other"]},"scribunto":{"limitreport-timeusage":{"value":"0.221","limit":"10.000"},"limitreport-memusage":{"value":4734205,"limit":52428800}},"cachereport":{"origin":"mw1329","timestamp":"20220429190055","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"AKS primality test","url":"https:\/\/en.wikipedia.org\/wiki\/AKS_primality_test","sameAs":"http:\/\/www.wikidata.org\/entity\/Q294284","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q294284","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2003-12-17T18:13:57Z","dateModified":"2022-04-28T20:02:35Z","headline":"primality test"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"AKS primality test","url":"https:\/\/en.wikipedia.org\/wiki\/AKS_primality_test","sameAs":"http:\/\/www.wikidata.org\/entity\/Q294284","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q294284","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2003-12-17T18:13:57Z","dateModified":"2022-04-28T20:02:35Z","headline":"primality test"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":178,"wgHostname":"mw1371"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/AKS_primality_test by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:50 GMT -->
+</html>

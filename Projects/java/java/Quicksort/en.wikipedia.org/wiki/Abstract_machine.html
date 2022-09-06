@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Abstract_machine by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Abstract machine - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"5f867918-90ab-4809-9325-f5d817c33d9e","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Abstract_machine","wgTitle":"Abstract machine","wgCurRevisionId":1080862267,"wgRevisionId":1080862267,"wgArticleId":60492,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles with short description","Short description is different from Wikidata","Articles needing additional references from October 2009","All articles needing additional references","All articles with unsourced statements","Articles with unsourced statements from August 2021",
+"All pages needing factual verification","Wikipedia articles needing factual verification from August 2021","Wikipedia articles needing clarification from December 2016","AC with 0 elements","All stub articles","Abstract machines","Automata (computation)","Models of computation","Computer science stubs"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Abstract_machine","wgRelevantArticleId":60492,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":6000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":
+"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q787114"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","site","mediawiki.page.ready","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert",
+"ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/3/3b/2-state_3-symbol_Turing_Machine.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="750"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/3/3b/2-state_3-symbol_Turing_Machine.png"/>
+<meta property="og:image:width" content="800"/>
+<meta property="og:image:height" content="500"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/2-state_3-symbol_Turing_Machine.png/640px-2-state_3-symbol_Turing_Machine.png"/>
+<meta property="og:image:width" content="640"/>
+<meta property="og:image:height" content="400"/>
+<meta property="og:title" content="Abstract machine - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Abstract_machine"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Abstract_machine&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Abstract_machine"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Abstract_machine rootpage-Abstract_machine skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Abstract machine</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Theoretical computer used for defining a model of computation</div>
+<style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">Not to be confused with <a href="https://en.wikipedia.org/wiki/Virtual_machine" title="Virtual machine">Virtual machine</a>.</div>
+<table class="box-More_citations_needed plainlinks metadata ambox ambox-content ambox-Refimprove" role="presentation"><tbody><tr><td class="mbox-image"><div style="width:52px"><a href="https://en.wikipedia.org/wiki/File:Question_book-new.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/50px-Question_book-new.svg.png" decoding="async" width="50" height="39" srcset="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/75px-Question_book-new.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/100px-Question_book-new.svg.png 2x" data-file-width="512" data-file-height="399" /></a></div></td><td class="mbox-text"><div class="mbox-text-span">This article <b>needs additional citations for <a href="https://en.wikipedia.org/wiki/Wikipedia:Verifiability" title="Wikipedia:Verifiability">verification</a></b>.<span class="hide-when-compact"> Please help <a class="external text" href="https://en.wikipedia.org/w/index.php?title=Abstract_machine&amp;action=edit">improve this article</a> by <a href="https://en.wikipedia.org/wiki/Help:Referencing_for_beginners" title="Help:Referencing for beginners">adding citations to reliable sources</a>. Unsourced material may be challenged and removed.<br /><small><span class="plainlinks"><i>Find sources:</i>&#160;<a rel="nofollow" class="external text" href="http://www.google.com/search?as_eq=wikipedia&amp;q=%22Abstract+machine%22">"Abstract machine"</a>&#160;–&#160;<a rel="nofollow" class="external text" href="http://www.google.com/search?tbm=nws&amp;q=%22Abstract+machine%22+-wikipedia&amp;tbs=ar:1">news</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="http://www.google.com/search?&amp;q=%22Abstract+machine%22&amp;tbs=bkt:s&amp;tbm=bks">newspapers</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="http://www.google.com/search?tbs=bks:1&amp;q=%22Abstract+machine%22+-wikipedia">books</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="http://scholar.google.com/scholar?q=%22Abstract+machine%22">scholar</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="https://www.jstor.org/action/doBasicSearch?Query=%22Abstract+machine%22&amp;acc=on&amp;wc=on">JSTOR</a></span></small></span>  <span class="date-container"><i>(<span class="date">October 2009</span>)</i></span><span class="hide-when-compact"><i> (<small><a href="https://en.wikipedia.org/wiki/Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this template message</a></small>)</i></span></div></td></tr></tbody></table>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:2-state_3-symbol_Turing_Machine.png" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/2-state_3-symbol_Turing_Machine.png/220px-2-state_3-symbol_Turing_Machine.png" decoding="async" width="220" height="138" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/3b/2-state_3-symbol_Turing_Machine.png/330px-2-state_3-symbol_Turing_Machine.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/3b/2-state_3-symbol_Turing_Machine.png/440px-2-state_3-symbol_Turing_Machine.png 2x" data-file-width="800" data-file-height="500" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:2-state_3-symbol_Turing_Machine.png" class="internal" title="Enlarge"></a></div>A run of a <a href="https://en.wikipedia.org/wiki/Turing_machine" title="Turing machine">Turing machine</a>.</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Machine_de_Krivine.jpg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Machine_de_Krivine.jpg/220px-Machine_de_Krivine.jpg" decoding="async" width="220" height="83" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Machine_de_Krivine.jpg/330px-Machine_de_Krivine.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Machine_de_Krivine.jpg/440px-Machine_de_Krivine.jpg 2x" data-file-width="2794" data-file-height="1056" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Machine_de_Krivine.jpg" class="internal" title="Enlarge"></a></div>Pictoral representation of a <a href="https://en.wikipedia.org/wiki/Krivine_machine" title="Krivine machine">Krivine machine</a>.</div></div></div>
+<p>An <b>abstract machine</b>, <span class="citation-needed-content" style="padding-left:0.1em; padding-right:0.1em; color:#595959; border:1px solid #DDD;">also called an abstract computer</span><sup class="noprint Inline-Template Template-Fact" style="margin-left:0.1em; white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (August 2021)">citation needed</span></a></i>&#93;</sup>, is a theoretical <a href="https://en.wikipedia.org/wiki/Computer" title="Computer">computer</a> used for defining a <a href="https://en.wikipedia.org/wiki/Model_of_computation" title="Model of computation">model of computation</a>.<sup id="cite_ref-:0_1-0" class="reference"><a href="#cite_note-:0-1">&#91;1&#93;</a></sup><sup id="cite_ref-:1_2-0" class="reference"><a href="#cite_note-:1-2">&#91;2&#93;</a></sup> Abstraction of computing processes is used in both the <a href="https://en.wikipedia.org/wiki/Computer_science" title="Computer science">computer science</a> and <a href="https://en.wikipedia.org/wiki/Computer_engineering" title="Computer engineering">computer engineering</a> disciplines and usually assumes a <a href="https://en.wikipedia.org/wiki/Discrete_time" class="mw-redirect" title="Discrete time">discrete time</a> <a href="https://en.wikipedia.org/wiki/Paradigm" title="Paradigm">paradigm</a>.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (August 2021)">citation needed</span></a></i>&#93;</sup>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#In_computer_science"><span class="tocnumber">1</span> <span class="toctext">In computer science</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Implementation"><span class="tocnumber">2</span> <span class="toctext">Implementation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Further_reading"><span class="tocnumber">5</span> <span class="toctext">Further reading</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="In_computer_science">In computer science</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Abstract_machine&amp;action=edit&amp;section=1" title="Edit section: In computer science">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A typical abstract machine consists of a definition in terms of input, output, and the set of allowable operations used to turn the former into the latter. The best-known example is the <a href="https://en.wikipedia.org/wiki/Turing_machine" title="Turing machine">Turing machine</a>.<sup id="cite_ref-:0_1-1" class="reference"><a href="#cite_note-:0-1">&#91;1&#93;</a></sup><sup id="cite_ref-:1_2-1" class="reference"><a href="#cite_note-:1-2">&#91;2&#93;</a></sup><sup class="noprint Inline-Template" style="white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Verifiability" title="Wikipedia:Verifiability"><span title="The material near this tag needs to be fact-checked with the cited source(s). (August 2021)">verification needed</span></a></i>&#93;</sup>
+</p><p>More complex definitions create abstract machines with full <a href="https://en.wikipedia.org/wiki/Instruction_set" class="mw-redirect" title="Instruction set">instruction sets</a>, <a href="https://en.wikipedia.org/wiki/Processor_register" title="Processor register">registers</a> and <a href="https://en.wikipedia.org/wiki/Memory_hierarchy" title="Memory hierarchy">models of memory</a>.<sup id="cite_ref-:0_1-2" class="reference"><a href="#cite_note-:0-1">&#91;1&#93;</a></sup> One popular model more similar to real modern machines is the <a href="https://en.wikipedia.org/wiki/RAM_model" class="mw-redirect" title="RAM model">RAM model</a>, which allows <a href="https://en.wikipedia.org/wiki/Random_access" title="Random access">random access</a> to indexed memory locations. As the performance difference between different levels of <a href="https://en.wikipedia.org/wiki/Cache_memory" class="mw-redirect" title="Cache memory">cache memory</a> grows, cache-sensitive models such as the external-memory model and <a href="https://en.wikipedia.org/wiki/Cache-oblivious_algorithm#Idealized_cache_model" title="Cache-oblivious algorithm">cache-oblivious model</a> are growing in importance.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (August 2021)">citation needed</span></a></i>&#93;</sup>
+</p><p>An abstract machine can also refer to a <a href="https://en.wikipedia.org/wiki/Microprocessor" title="Microprocessor">microprocessor</a> design which has yet to be (or is not intended to be) implemented as hardware. An abstract machine implemented as a software simulation, or for which an <a href="https://en.wikipedia.org/wiki/Interpreter_(computing)" title="Interpreter (computing)">interpreter</a> exists, is called a <a href="https://en.wikipedia.org/wiki/Virtual_machine" title="Virtual machine">virtual machine</a>.<sup id="cite_ref-:0_1-3" class="reference"><a href="#cite_note-:0-1">&#91;1&#93;</a></sup>
+</p><p>In the <a href="https://en.wikipedia.org/wiki/Theory_of_computation" title="Theory of computation">theory of computation</a>, abstract machines are often used in <a href="https://en.wikipedia.org/wiki/Thought_experiments" class="mw-redirect" title="Thought experiments">thought experiments</a> regarding <a href="https://en.wikipedia.org/wiki/Computability" title="Computability">computability</a> or to analyze the complexity of <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithms</a>. This application of abstract machines is related to the subject of <a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" title="Computational complexity theory">computational complexity theory</a>.
+</p><p>Abstract machines can also be used to model <a href="https://en.wikipedia.org/wiki/Abstract_data_type" title="Abstract data type">abstract data types</a>, which can be specified in terms of their <a href="https://en.wikipedia.org/wiki/Operational_semantics" title="Operational semantics">operational semantics</a> on an abstract machine. For example, a stack can be specified in terms of operations on an abstract machine with an array of memory. Through the use of abstract machines, it is possible to compute the amount of resources (time, memory, etc.) necessary to perform a particular operation without having to construct a physical system.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (August 2021)">citation needed</span></a></i>&#93;</sup><sup class="noprint Inline-Template" style="margin-left:0.1em; white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Please_clarify" title="Wikipedia:Please clarify"><span title="The text near this tag may need clarification or removal of jargon. (December 2016)">clarification needed</span></a></i>&#93;</sup>
+</p>
+<h2><span class="mw-headline" id="Implementation">Implementation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Abstract_machine&amp;action=edit&amp;section=2" title="Edit section: Implementation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Any implementation of an abstract machine must employ a physical device (mechanical, electrical, biological, etc.) to execute <a href="https://en.wikipedia.org/wiki/Programming_language" title="Programming language">programming language</a> instructions. However, the employment of such a technique can be explicit or implicit. In reality, in addition to the "physical" implementation (in <a href="https://en.wikipedia.org/wiki/Hardware_description_language" title="Hardware description language">hardware</a>) of the abstract machine's structures, there is an implementation (in <a href="https://en.wikipedia.org/wiki/Software" title="Software">software</a> or <a href="https://en.wikipedia.org/wiki/Firmware" title="Firmware">firmware</a>) at layers intermediate between the abstract machine and the underlying physical device. As a result, there are three cases and combinations of them for creating an abstract machine.<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup>
+</p>
+<ul><li>implementation in hardware;</li>
+<li>simulation using software;</li>
+<li>simulation (emulation) using firmware.</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Abstract_machine&amp;action=edit&amp;section=3" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Abstraction_(computer_science)" title="Abstraction (computer science)">Abstraction (computer science)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Abstract_interpretation" title="Abstract interpretation">Abstract interpretation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bulk_synchronous_parallel" title="Bulk synchronous parallel">Bulk synchronous parallel</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Discrete_time" class="mw-redirect" title="Discrete time">Discrete time</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Finite-state_machine" title="Finite-state machine">Finite-state machine</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Flynn%27s_taxonomy" title="Flynn&#39;s taxonomy">Flynn's taxonomy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Computability#Formal_models_of_computation" title="Computability">Formal models of computation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Krivine_machine" title="Krivine machine">Krivine machine</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Model_of_computation" title="Model of computation">Model of computation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Parallel_random-access_machine" class="mw-redirect" title="Parallel random-access machine">Parallel random-access machine</a>, the de facto standard model.<sup id="cite_ref-Skillicorn2005_4-0" class="reference"><a href="#cite_note-Skillicorn2005-4">&#91;4&#93;</a></sup></li>
+<li><a href="https://en.wikipedia.org/wiki/SECD_machine" title="SECD machine">SECD machine</a></li>
+<li><a href="https://en.wikipedia.org/wiki/State_space" title="State space">State space</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Turing_machine" title="Turing machine">Turing machine</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Abstract_machine&amp;action=edit&amp;section=4" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-:0-1"><span class="mw-cite-backlink">^ <a href="#cite_ref-:0_1-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-:0_1-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-:0_1-2"><sup><i><b>c</b></i></sup></a> <a href="#cite_ref-:0_1-3"><sup><i><b>d</b></i></sup></a></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://foldoc.org/Abstract+machine">"abstract machine from FOLDOC"</a>. <i>foldoc.org</i><span class="reference-accessdate">. Retrieved <span class="nowrap">2021-08-07</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=foldoc.org&amp;rft.atitle=abstract+machine+from+FOLDOC&amp;rft_id=http%3A%2F%2Ffoldoc.org%2FAbstract%2Bmachine&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAbstract+machine" class="Z3988"></span></span>
+</li>
+<li id="cite_note-:1-2"><span class="mw-cite-backlink">^ <a href="#cite_ref-:1_2-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-:1_2-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFWeisstein" class="citation web cs1">Weisstein, Eric W. <a rel="nofollow" class="external text" href="https://mathworld.wolfram.com/AbstractMachine.html">"Abstract Machine"</a>. <i>mathworld.wolfram.com</i><span class="reference-accessdate">. Retrieved <span class="nowrap">2021-08-07</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=mathworld.wolfram.com&amp;rft.atitle=Abstract+Machine&amp;rft.aulast=Weisstein&amp;rft.aufirst=Eric+W.&amp;rft_id=https%3A%2F%2Fmathworld.wolfram.com%2FAbstractMachine.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAbstract+machine" class="Z3988"></span></span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGabbrielliMartini2010" class="citation cs2">Gabbrielli, Maurizio; Martini, Simone (2010),  Gabbrielli, Maurizio; Martini, Simone (eds.), <a rel="nofollow" class="external text" href="https://doi.org/10.1007/978-1-84882-914-5_1">"Abstract Machines"</a>, <i>Programming Languages: Principles and Paradigms</i>, London: Springer, pp.&#160;1–25, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-1-84882-914-5_1">10.1007/978-1-84882-914-5_1</a>, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-1-84882-914-5" title="Special:BookSources/978-1-84882-914-5"><bdi>978-1-84882-914-5</bdi></a><span class="reference-accessdate">, retrieved <span class="nowrap">2022-04-03</span></span></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Programming+Languages%3A+Principles+and+Paradigms&amp;rft.atitle=Abstract+Machines&amp;rft.pages=1-25&amp;rft.date=2010&amp;rft_id=info%3Adoi%2F10.1007%2F978-1-84882-914-5_1&amp;rft.isbn=978-1-84882-914-5&amp;rft.aulast=Gabbrielli&amp;rft.aufirst=Maurizio&amp;rft.au=Martini%2C+Simone&amp;rft_id=https%3A%2F%2Fdoi.org%2F10.1007%2F978-1-84882-914-5_1&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAbstract+machine" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Skillicorn2005-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-Skillicorn2005_4-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFD._B._Skillicorn2005" class="citation book cs1">D. B. Skillicorn (2005). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=rQwsL5xsZigC&amp;pg=PA18"><i>Foundations of Parallel Programming</i></a>. Cambridge University Press. p.&#160;18. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-521-01856-2" title="Special:BookSources/978-0-521-01856-2"><bdi>978-0-521-01856-2</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Foundations+of+Parallel+Programming&amp;rft.pages=18&amp;rft.pub=Cambridge+University+Press&amp;rft.date=2005&amp;rft.isbn=978-0-521-01856-2&amp;rft.au=D.+B.+Skillicorn&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3DrQwsL5xsZigC%26pg%3DPA18&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAbstract+machine" class="Z3988"></span></span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="Further_reading">Further reading</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Abstract_machine&amp;action=edit&amp;section=5" title="Edit section: Further reading">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>Peter van Emde Boas, <i>Machine Models and Simulations</i> pp.&#160;3–66, appearing in:</li></ul>
+<dl><dd><dl><dd><a href="https://en.wikipedia.org/wiki/Jan_van_Leeuwen" title="Jan van Leeuwen">Jan van Leeuwen</a>, ed. "Handbook of Theoretical Computer Science. Volume A: Algorithms and Complexity<i>, The MIT PRESS/Elsevier, 1990. <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-444-88071-2" title="Special:BookSources/0-444-88071-2">0-444-88071-2</a> (volume A). QA 76.H279 1990.</i></dd></dl></dd></dl>
+<ul><li>Stephan Diehl, Pieter Hartel and Peter Sestoft, <a rel="nofollow" class="external text" href="http://www.inf.ed.ac.uk/teaching/courses/lsi/diehl_abstract_machines.pdf"><i>Abstract Machines for Programming Language Implementation</i></a>, Future Generation Computer Systems, Vol. 16(7), Elsevier, 2000.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFWerner_Kluge2006" class="citation book cs1">Werner Kluge (2006). <i>Abstract Computing Machines: A Lambda Calculus Perspective</i>. Springer. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-3-540-27359-2" title="Special:BookSources/978-3-540-27359-2"><bdi>978-3-540-27359-2</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Abstract+Computing+Machines%3A+A+Lambda+Calculus+Perspective&amp;rft.pub=Springer&amp;rft.date=2006&amp;rft.isbn=978-3-540-27359-2&amp;rft.au=Werner+Kluge&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAbstract+machine" class="Z3988"></span></li></ul>
+<p><br />
+</p>
+<style data-mw-deduplicate="TemplateStyles:r1012311289">.mw-parser-output .asbox{position:relative;overflow:hidden}.mw-parser-output .asbox table{background:transparent}.mw-parser-output .asbox p{margin:0}.mw-parser-output .asbox p+p{margin-top:0.25em}.mw-parser-output .asbox-body{font-style:italic}.mw-parser-output .asbox-note{font-size:smaller}.mw-parser-output .asbox .navbar{position:absolute;top:-0.75em;right:1em;display:none}</style><div role="note" class="metadata plainlinks asbox stub"><table role="presentation"><tbody><tr class="noresize"><td><a href="https://en.wikipedia.org/wiki/File:LampFlowchart.svg" class="image"><img alt="Stub icon" src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/91/LampFlowchart.svg/22px-LampFlowchart.svg.png" decoding="async" width="22" height="30" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/91/LampFlowchart.svg/33px-LampFlowchart.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/91/LampFlowchart.svg/44px-LampFlowchart.svg.png 2x" data-file-width="324" data-file-height="442" /></a></td><td><p class="asbox-body">This <a href="https://en.wikipedia.org/wiki/Computer_science" title="Computer science">computer science</a> article is a <a href="https://en.wikipedia.org/wiki/Wikipedia:Stub" title="Wikipedia:Stub">stub</a>. You can help Wikipedia by <a class="external text" href="https://en.wikipedia.org/w/index.php?title=Abstract_machine&amp;action=edit">expanding it</a>.</p></td></tr></tbody></table><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Comp-sci-stub" title="Template:Comp-sci-stub"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Comp-sci-stub" title="Template talk:Comp-sci-stub"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Comp-sci-stub&amp;action=edit"><abbr title="Edit this template">e</abbr></a></li></ul></div></div>
+<!-- 
+NewPP limit report
+Parsed by mw1456
+Cached time: 20220505150010
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.507 seconds
+Real time usage: 0.633 seconds
+Preprocessor visited node count: 1782/1000000
+Post‐expand include size: 36075/2097152 bytes
+Template argument size: 4726/2097152 bytes
+Highest expansion depth: 14/100
+Expensive parser function count: 6/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 18751/5000000 bytes
+Lua time usage: 0.286/10.000 seconds
+Lua memory usage: 5729099/52428800 bytes
+Number of Wikibase entities loaded: 1/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  566.954      1 -total
+ 28.91%  163.930      1 Template:Reflist
+ 19.39%  109.959      2 Template:Cite_web
+ 15.37%   87.162      1 Template:Short_description
+  9.83%   55.729      1 Template:More_citations_needed
+  9.06%   51.373      1 Template:Pagetype
+  8.68%   49.239      1 Template:Ambox
+  8.11%   45.994      4 Template:Fix
+  7.86%   44.588      3 Template:Citation_needed
+  7.01%   39.717      1 Template:ISBN
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:60492-0!canonical and timestamp 20220505150009 and revision id 1080862267. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Abstract_machine&amp;oldid=1080862267">https://en.wikipedia.org/w/index.php?title=Abstract_machine&amp;oldid=1080862267</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Abstract_machines" title="Category:Abstract machines">Abstract machines</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Automata_(computation)" title="Category:Automata (computation)">Automata (computation)</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Models_of_computation" title="Category:Models of computation">Models of computation</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Computer_science_stubs" title="Category:Computer science stubs">Computer science stubs</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_is_different_from_Wikidata" title="Category:Short description is different from Wikidata">Short description is different from Wikidata</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_needing_additional_references_from_October_2009" title="Category:Articles needing additional references from October 2009">Articles needing additional references from October 2009</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_needing_additional_references" title="Category:All articles needing additional references">All articles needing additional references</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_unsourced_statements_from_August_2021" title="Category:Articles with unsourced statements from August 2021">Articles with unsourced statements from August 2021</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_pages_needing_factual_verification" title="Category:All pages needing factual verification">All pages needing factual verification</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Wikipedia_articles_needing_factual_verification_from_August_2021" title="Category:Wikipedia articles needing factual verification from August 2021">Wikipedia articles needing factual verification from August 2021</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Wikipedia_articles_needing_clarification_from_December_2016" title="Category:Wikipedia articles needing clarification from December 2016">Wikipedia articles needing clarification from December 2016</a></li><li><a href="https://en.wikipedia.org/wiki/Category:AC_with_0_elements" title="Category:AC with 0 elements">AC with 0 elements</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_stub_articles" title="Category:All stub articles">All stub articles</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Abstract+machine" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Abstract+machine" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Abstract_machine" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Abstract_machine" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Abstract_machine"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Abstract_machine&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Abstract_machine&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Abstract_machine" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Abstract_machine" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Abstract_machine&amp;oldid=1080862267" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Abstract_machine&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Abstract_machine&amp;id=1080862267&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q787114" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Abstract_machine&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Abstract_machine&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-ar mw-list-item"><a href="https://ar.wikipedia.org/wiki/آلة_مجردة" title="آلة مجردة – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target"><span>العربية</span></a></li><li class="interlanguage-link interwiki-bn mw-list-item"><a href="https://bn.wikipedia.org/wiki/বিমূর্ত_পরিগণক_যন্ত্র" title="বিমূর্ত পরিগণক যন্ত্র – Bangla" lang="bn" hreflang="bn" class="interlanguage-link-target"><span>বাংলা</span></a></li><li class="interlanguage-link interwiki-ca mw-list-item"><a href="https://ca.wikipedia.org/wiki/Màquina_abstracta" title="Màquina abstracta – Catalan" lang="ca" hreflang="ca" class="interlanguage-link-target"><span>Català</span></a></li><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Automat_(Informatik)" title="Automat (Informatik) – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-el mw-list-item"><a href="https://el.wikipedia.org/wiki/Αυτόματο" title="Αυτόματο – Greek" lang="el" hreflang="el" class="interlanguage-link-target"><span>Ελληνικά</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Máquina_abstracta" title="Máquina abstracta – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/دستگاه_انتزاعی" title="دستگاه انتزاعی – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Machine_abstraite" title="Machine abstraite – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-ko mw-list-item"><a href="https://ko.wikipedia.org/wiki/추상_기계" title="추상 기계 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target"><span>한국어</span></a></li><li class="interlanguage-link interwiki-hr mw-list-item"><a href="https://hr.wikipedia.org/wiki/Apstraktni_stroj" title="Apstraktni stroj – Croatian" lang="hr" hreflang="hr" class="interlanguage-link-target"><span>Hrvatski</span></a></li><li class="interlanguage-link interwiki-it mw-list-item"><a href="https://it.wikipedia.org/wiki/Automa_(informatica)" title="Automa (informatica) – Italian" lang="it" hreflang="it" class="interlanguage-link-target"><span>Italiano</span></a></li><li class="interlanguage-link interwiki-hu mw-list-item"><a href="https://hu.wikipedia.org/wiki/Absztrakt_automata" title="Absztrakt automata – Hungarian" lang="hu" hreflang="hu" class="interlanguage-link-target"><span>Magyar</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/抽象機械" title="抽象機械 – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/Máquina_abstrata" title="Máquina abstrata – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Абстрактный_автомат" title="Абстрактный автомат – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-simple mw-list-item"><a href="https://simple.wikipedia.org/wiki/Automaton" title="Automaton – Simple English" lang="en-simple" hreflang="en-simple" class="interlanguage-link-target"><span>Simple English</span></a></li><li class="interlanguage-link interwiki-fi mw-list-item"><a href="https://fi.wikipedia.org/wiki/Abstrakti_kone" title="Abstrakti kone – Finnish" lang="fi" hreflang="fi" class="interlanguage-link-target"><span>Suomi</span></a></li><li class="interlanguage-link interwiki-sv mw-list-item"><a href="https://sv.wikipedia.org/wiki/Automat_(datavetenskap)" title="Automat (datavetenskap) – Swedish" lang="sv" hreflang="sv" class="interlanguage-link-target"><span>Svenska</span></a></li><li class="interlanguage-link interwiki-tr mw-list-item"><a href="https://tr.wikipedia.org/wiki/Soyut_makine" title="Soyut makine – Turkish" lang="tr" hreflang="tr" class="interlanguage-link-target"><span>Türkçe</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Абстрактний_автомат" title="Абстрактний автомат – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-zh-yue mw-list-item"><a href="https://zh-yue.wikipedia.org/wiki/抽象機械" title="抽象機械 – Cantonese" lang="yue" hreflang="yue" class="interlanguage-link-target"><span>粵語</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/抽象機器" title="抽象機器 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q787114#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 3 April 2022, at 22:31<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Abstract_machine&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.507","walltime":"0.633","ppvisitednodes":{"value":1782,"limit":1000000},"postexpandincludesize":{"value":36075,"limit":2097152},"templateargumentsize":{"value":4726,"limit":2097152},"expansiondepth":{"value":14,"limit":100},"expensivefunctioncount":{"value":6,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":18751,"limit":5000000},"entityaccesscount":{"value":1,"limit":400},"timingprofile":["100.00%  566.954      1 -total"," 28.91%  163.930      1 Template:Reflist"," 19.39%  109.959      2 Template:Cite_web"," 15.37%   87.162      1 Template:Short_description","  9.83%   55.729      1 Template:More_citations_needed","  9.06%   51.373      1 Template:Pagetype","  8.68%   49.239      1 Template:Ambox","  8.11%   45.994      4 Template:Fix","  7.86%   44.588      3 Template:Citation_needed","  7.01%   39.717      1 Template:ISBN"]},"scribunto":{"limitreport-timeusage":{"value":"0.286","limit":"10.000"},"limitreport-memusage":{"value":5729099,"limit":52428800}},"cachereport":{"origin":"mw1456","timestamp":"20220505150010","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Abstract machine","url":"https:\/\/en.wikipedia.org\/wiki\/Abstract_machine","sameAs":"http:\/\/www.wikidata.org\/entity\/Q787114","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q787114","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2002-07-04T21:16:22Z","dateModified":"2022-04-03T22:31:43Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/3\/3b\/2-state_3-symbol_Turing_Machine.png","headline":"theoretical model of a computer hardware or software system used in automata theory"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Abstract machine","url":"https:\/\/en.wikipedia.org\/wiki\/Abstract_machine","sameAs":"http:\/\/www.wikidata.org\/entity\/Q787114","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q787114","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2002-07-04T21:16:22Z","dateModified":"2022-04-03T22:31:43Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/3\/3b\/2-state_3-symbol_Turing_Machine.png","headline":"theoretical model of a computer hardware or software system used in automata theory"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":151,"wgHostname":"mw1453"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Abstract_machine by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:52 GMT -->
+</html>

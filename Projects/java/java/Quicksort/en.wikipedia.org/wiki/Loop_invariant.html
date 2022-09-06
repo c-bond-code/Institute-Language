@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Loop_invariant by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:32:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Loop invariant - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"ae9131de-7a93-43c3-8005-9b089ca9e5dc","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Loop_invariant","wgTitle":"Loop invariant","wgCurRevisionId":1085061149,"wgRevisionId":1085061149,"wgArticleId":578460,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles with short description","Short description matches Wikidata","All articles with unsourced statements","Articles with unsourced statements from May 2016","Wikipedia articles needing clarification from March 2016","Articles with unsourced statements from March 2016","Formal methods",
+"Control flow"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Loop_invariant","wgRelevantArticleId":578460,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":20000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q2238838","wgGENewcomerTasksGuidanceEnabled":true,"wgGEAskQuestionEnabled":false,"wgGELinkRecommendationsFrontendEnabled":
+false};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.pygments":"ready","ext.math.styles":"ready","skins.vector.styles.legacy":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.ready","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks",
+"ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.pygments%2CwikimediaBadges%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.9"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="Loop invariant - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Loop_invariant"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Loop_invariant&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Loop_invariant"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Loop_invariant rootpage-Loop_invariant skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Loop invariant</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Invariants used to prove properties of loops</div>
+<style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">For the computer programming  optimization technique, see <a href="https://en.wikipedia.org/wiki/Loop-invariant_code_motion" title="Loop-invariant code motion">Loop-invariant code motion</a>.</div>
+<p>In <a href="https://en.wikipedia.org/wiki/Computer_science" title="Computer science">computer science</a>, a <b>loop invariant</b> is a property of a <a href="https://en.wikipedia.org/wiki/Computer_program" title="Computer program">program</a> <a href="https://en.wikipedia.org/wiki/Control_flow#Loops" title="Control flow">loop</a> that is true before (and after) each iteration. It is a <a href="https://en.wikipedia.org/wiki/Logical_assertion" class="mw-redirect" title="Logical assertion">logical assertion</a>, sometimes checked within the code by an <a href="https://en.wikipedia.org/wiki/Assertion_(software_development)" title="Assertion (software development)">assertion</a> call. Knowing its invariant(s) is essential in understanding the effect of a loop.
+</p><p>In <a href="https://en.wikipedia.org/wiki/Formal_verification" title="Formal verification">formal program verification</a>, particularly the <a href="https://en.wikipedia.org/wiki/Hoare_logic" title="Hoare logic">Floyd-Hoare approach</a>, loop invariants are expressed by formal <a href="https://en.wikipedia.org/wiki/Predicate_logic" class="mw-redirect" title="Predicate logic">predicate logic</a> and used to prove properties of loops and by extension <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithms</a> that employ loops (usually <a href="https://en.wikipedia.org/wiki/Correctness_(computer_science)" title="Correctness (computer science)">correctness</a> properties).
+The loop invariants will be true on entry into a loop and following each iteration, so that on exit from the loop both the loop invariants and the loop termination condition can be guaranteed.
+</p><p>From a programming methodology viewpoint, the loop invariant can be viewed as a more abstract specification of the loop, which characterizes the deeper purpose of the loop beyond the details of this implementation. A survey article <sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup> covers fundamental algorithms from many areas of computer science (searching, sorting, optimization, arithmetic etc.), characterizing each of them from the viewpoint of its invariant.
+</p><p>Because of the similarity of loops and <a href="https://en.wikipedia.org/wiki/Recursion" title="Recursion">recursive</a> programs, proving partial correctness of loops with invariants is very similar to proving correctness of recursive programs via <a href="https://en.wikipedia.org/wiki/Structural_induction" title="Structural induction">induction</a>.  In fact, the loop invariant is often the same as the inductive hypothesis to be proved for a recursive program equivalent to a given loop.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Informal_example"><span class="tocnumber">1</span> <span class="toctext">Informal example</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Floyd–Hoare_logic"><span class="tocnumber">2</span> <span class="toctext">Floyd–Hoare logic</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Example"><span class="tocnumber">2.1</span> <span class="toctext">Example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Programming_language_support"><span class="tocnumber">3</span> <span class="toctext">Programming language support</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Eiffel"><span class="tocnumber">3.1</span> <span class="toctext">Eiffel</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Whiley"><span class="tocnumber">3.2</span> <span class="toctext">Whiley</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Use_of_loop_invariants"><span class="tocnumber">4</span> <span class="toctext">Use of loop invariants</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Distinction_from_loop-invariant_code"><span class="tocnumber">5</span> <span class="toctext">Distinction from loop-invariant code</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Further_reading"><span class="tocnumber">8</span> <span class="toctext">Further reading</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Informal_example">Informal example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Loop_invariant&amp;action=edit&amp;section=1" title="Edit section: Informal example">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The following <a href="https://en.wikipedia.org/wiki/C_(programming_language)" title="C (programming language)">C</a> <a href="https://en.wikipedia.org/wiki/Subroutine" title="Subroutine">subroutine</a> <code>max()</code> returns the maximum value in its argument array <code>a[]</code>, provided its length <code>n</code> is at least 1.
+Comments are provided at lines 3, 6, 9, 11, and 13. Each comment makes an assertion about the values of one or more variables at that stage of the function.
+The highlighted assertions within the loop body, at the beginning and end of the loop (lines 6 and 11), are exactly the same. They thus describe an invariant property of the loop.
+When line 13 is reached, this invariant still holds, and it is known that the loop condition <code>i!=n</code> from line 5 has become false. Both properties together imply that <code>m</code> equals the maximum value in <code>a[0...n-1]</code>, that is, that the correct value is returned from line 14.
+</p>
+<div class="mw-highlight mw-highlight-lang-c mw-content-ltr mw-highlight-lines" dir="ltr"><pre><span></span><span class="linenos" data-line="1"></span><span class="kt">int</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos" data-line="2"></span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w"></span>
+<span class="linenos" data-line="3"></span><span class="w">    </span><span class="c1">// m equals the maximum value in a[0...0]</span>
+<span class="linenos" data-line="4"></span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos" data-line="5"></span><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="hll"><span class="linenos" data-line="6"></span><span class="w">        </span><span class="c1">// m equals the maximum value in a[0...i-1]</span>
+</span><span class="linenos" data-line="7"></span><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="w"></span>
+<span class="linenos" data-line="8"></span><span class="w">            </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="linenos" data-line="9"></span><span class="w">        </span><span class="c1">// m equals the maximum value in a[0...i]</span>
+<span class="linenos" data-line="10"></span><span class="w">        </span><span class="o">++</span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="hll"><span class="linenos" data-line="11"></span><span class="w">        </span><span class="c1">// m equals the maximum value in a[0...i-1]</span>
+</span><span class="linenos" data-line="12"></span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos" data-line="13"></span><span class="w">    </span><span class="c1">// m equals the maximum value in a[0...i-1], and i==n</span>
+<span class="linenos" data-line="14"></span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"></span>
+<span class="linenos" data-line="15"></span><span class="p">}</span><span class="w"></span>
+</pre></div>
+<p>Following a <a href="https://en.wikipedia.org/wiki/Defensive_programming" title="Defensive programming">defensive programming</a> paradigm, the loop condition <code>i!=n</code> in line 5 should better be modified to <code>i&lt;n</code>, in order to avoid endless looping for illegitimate negative values of <code>n</code>. While this change in code intuitively shouldn't make a difference, the reasoning leading to its correctness becomes somewhat more complicated, since then only <code>i&gt;=n</code> is known in line 13. In order to obtain that also <code>i&lt;=n</code> holds, that condition has to be included into the loop invariant. It is easy to see that <code>i&lt;=n</code>, too, is an invariant of the loop, since <code>i&lt;n</code> in line 6 can be obtained from the (modified) loop condition in line 5, and hence <code>i&lt;=n</code> holds in line 11 after <code>i</code> has been incremented in line 10. However, when loop invariants have to be manually provided for formal program verification, such intuitively too obvious properties like <code>i&lt;=n</code> are often overlooked.
+</p>
+<h2><span id="Floyd.E2.80.93Hoare_logic"></span><span class="mw-headline" id="Floyd–Hoare_logic">Floyd–Hoare logic</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Loop_invariant&amp;action=edit&amp;section=2" title="Edit section: Floyd–Hoare logic">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In <a href="https://en.wikipedia.org/wiki/Hoare_logic" title="Hoare logic">Floyd–Hoare logic</a>,<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup><sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup> the <a href="https://en.wikipedia.org/wiki/Partial_correctness" class="mw-redirect" title="Partial correctness">partial correctness</a> of a <a href="https://en.wikipedia.org/wiki/While_loop" title="While loop">while loop</a> is governed by the following rule of inference:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {\{C\land I\}\;\mathrm {body} \;\{I\}}{\{I\}\;{\mathtt {while}}\ (C)\ \mathrm {body} \;\{\lnot C\land I\}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mo fence="false" stretchy="false">{</mo>
+              <mi>C</mi>
+              <mo>&#x2227;<!-- ∧ --></mo>
+              <mi>I</mi>
+              <mo fence="false" stretchy="false">}</mo>
+              <mspace width="thickmathspace" />
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi mathvariant="normal">b</mi>
+                <mi mathvariant="normal">o</mi>
+                <mi mathvariant="normal">d</mi>
+                <mi mathvariant="normal">y</mi>
+              </mrow>
+              <mspace width="thickmathspace" />
+              <mo fence="false" stretchy="false">{</mo>
+              <mi>I</mi>
+              <mo fence="false" stretchy="false">}</mo>
+            </mrow>
+            <mrow>
+              <mo fence="false" stretchy="false">{</mo>
+              <mi>I</mi>
+              <mo fence="false" stretchy="false">}</mo>
+              <mspace width="thickmathspace" />
+              <mrow class="MJX-TeXAtom-ORD">
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi mathvariant="monospace">w</mi>
+                  <mi mathvariant="monospace">h</mi>
+                  <mi mathvariant="monospace">i</mi>
+                  <mi mathvariant="monospace">l</mi>
+                  <mi mathvariant="monospace">e</mi>
+                </mrow>
+              </mrow>
+              <mtext>&#xA0;</mtext>
+              <mo stretchy="false">(</mo>
+              <mi>C</mi>
+              <mo stretchy="false">)</mo>
+              <mtext>&#xA0;</mtext>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi mathvariant="normal">b</mi>
+                <mi mathvariant="normal">o</mi>
+                <mi mathvariant="normal">d</mi>
+                <mi mathvariant="normal">y</mi>
+              </mrow>
+              <mspace width="thickmathspace" />
+              <mo fence="false" stretchy="false">{</mo>
+              <mi mathvariant="normal">&#x00AC;<!-- ¬ --></mi>
+              <mi>C</mi>
+              <mo>&#x2227;<!-- ∧ --></mo>
+              <mi>I</mi>
+              <mo fence="false" stretchy="false">}</mo>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {\{C\land I\}\;\mathrm {body} \;\{I\}}{\{I\}\;{\mathtt {while}}\ (C)\ \mathrm {body} \;\{\lnot C\land I\}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1fd81e5296bc4175b59764808592976192740a93" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.671ex; width:30.834ex; height:6.509ex;" alt="{\displaystyle {\frac {\{C\land I\}\;\mathrm {body} \;\{I\}}{\{I\}\;{\mathtt {while}}\ (C)\ \mathrm {body} \;\{\lnot C\land I\}}}}"/></span></dd></dl>
+<p>This means:
+</p>
+<ul><li>If some property <span class="texhtml mvar" style="font-style:italic;">I</span> is preserved by the code <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathrm {body} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">d</mi>
+          <mi mathvariant="normal">y</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathrm {body} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68368f4d89b8869dc1491b90ba819ea8832d0756" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:4.975ex; height:2.509ex;" alt="{\displaystyle \mathrm {body} }"/></span> —more precisely, if <span class="texhtml mvar" style="font-style:italic;">I</span> holds after the execution of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathrm {body} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">d</mi>
+          <mi mathvariant="normal">y</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathrm {body} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68368f4d89b8869dc1491b90ba819ea8832d0756" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:4.975ex; height:2.509ex;" alt="{\displaystyle \mathrm {body} }"/></span> whenever both <span class="texhtml mvar" style="font-style:italic;">C</span> and <span class="texhtml mvar" style="font-style:italic;">I</span> held beforehand— <i>(upper line)</i> then</li>
+<li><span class="texhtml mvar" style="font-style:italic;">C</span> and <span class="texhtml mvar" style="font-style:italic;">I</span> are guaranteed to be false and true, respectively, after the execution of the whole loop <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathtt {while}}\ (C)\ \mathrm {body} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="monospace">w</mi>
+            <mi mathvariant="monospace">h</mi>
+            <mi mathvariant="monospace">i</mi>
+            <mi mathvariant="monospace">l</mi>
+            <mi mathvariant="monospace">e</mi>
+          </mrow>
+        </mrow>
+        <mtext>&#xA0;</mtext>
+        <mo stretchy="false">(</mo>
+        <mi>C</mi>
+        <mo stretchy="false">)</mo>
+        <mtext>&#xA0;</mtext>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">d</mi>
+          <mi mathvariant="normal">y</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathtt {while}}\ (C)\ \mathrm {body} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/75949ac9528cdebf4d149f0442af95f6cb3b4e4f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:15.815ex; height:2.843ex;" alt="{\displaystyle {\mathtt {while}}\ (C)\ \mathrm {body} }"/></span>, provided <span class="texhtml mvar" style="font-style:italic;">I</span> was true before the loop <i>(lower line)</i>.</li></ul>
+<p>In other words: The rule above is a deductive step that has as its premise the <a href="https://en.wikipedia.org/wiki/Hoare_triple" class="mw-redirect" title="Hoare triple">Hoare triple</a> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{C\land I\}\;\mathrm {body} \;\{I\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mi>C</mi>
+        <mo>&#x2227;<!-- ∧ --></mo>
+        <mi>I</mi>
+        <mo fence="false" stretchy="false">}</mo>
+        <mspace width="thickmathspace" />
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">d</mi>
+          <mi mathvariant="normal">y</mi>
+        </mrow>
+        <mspace width="thickmathspace" />
+        <mo fence="false" stretchy="false">{</mo>
+        <mi>I</mi>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{C\land I\}\;\mathrm {body} \;\{I\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/198b8eb6fdfe84b1cc59e5a31b5d835ea382479c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:17.608ex; height:2.843ex;" alt="\{C\land I\}\;\mathrm {body} \;\{I\}"/></span>.  This triple is actually a <a href="https://en.wikipedia.org/wiki/Relation_(mathematics)" title="Relation (mathematics)">relation</a> on machine states.  It holds whenever starting from a state in which the boolean expression <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle C\land I}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>C</mi>
+        <mo>&#x2227;<!-- ∧ --></mo>
+        <mi>I</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle C\land I}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6fb35c33cc3de64b75a9762691d2b9da4170730f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.521ex; height:2.176ex;" alt="C\land I"/></span> is true and successfully executing some code called <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathrm {body} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">d</mi>
+          <mi mathvariant="normal">y</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathrm {body} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68368f4d89b8869dc1491b90ba819ea8832d0756" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:4.975ex; height:2.509ex;" alt="{\displaystyle \mathrm {body} }"/></span>, the machine ends up in a state in which <span class="texhtml mvar" style="font-style:italic;">I</span> is true.  If this relation can be proven, the rule then allows us to conclude that successful execution of the program <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathtt {while}}\ (C)\ \mathrm {body} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="monospace">w</mi>
+            <mi mathvariant="monospace">h</mi>
+            <mi mathvariant="monospace">i</mi>
+            <mi mathvariant="monospace">l</mi>
+            <mi mathvariant="monospace">e</mi>
+          </mrow>
+        </mrow>
+        <mtext>&#xA0;</mtext>
+        <mo stretchy="false">(</mo>
+        <mi>C</mi>
+        <mo stretchy="false">)</mo>
+        <mtext>&#xA0;</mtext>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">b</mi>
+          <mi mathvariant="normal">o</mi>
+          <mi mathvariant="normal">d</mi>
+          <mi mathvariant="normal">y</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathtt {while}}\ (C)\ \mathrm {body} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/75949ac9528cdebf4d149f0442af95f6cb3b4e4f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:15.815ex; height:2.843ex;" alt="{\displaystyle {\mathtt {while}}\ (C)\ \mathrm {body} }"/></span> will lead from a state in which <span class="texhtml mvar" style="font-style:italic;">I</span> is true to a state in which <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \lnot C\land I}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x00AC;<!-- ¬ --></mi>
+        <mi>C</mi>
+        <mo>&#x2227;<!-- ∧ --></mo>
+        <mi>I</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \lnot C\land I}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/10be0df682cee4e5bfdabf8695889497f281d764" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:7.071ex; height:2.176ex;" alt="\lnot C\land I"/></span> holds.  The boolean formula <span class="texhtml mvar" style="font-style:italic;">I</span> in this rule is called a loop invariant.
+</p>
+<h3><span class="mw-headline" id="Example">Example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Loop_invariant&amp;action=edit&amp;section=3" title="Edit section: Example">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The following example illustrates how this rule works.  Consider the program
+</p>
+<pre>while (x &lt; 10)
+    x&#160;:= x+1;
+</pre>
+<p>One can then prove the following Hoare triple:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{x\leq 10\}\;{\mathtt {while}}\ (x&lt;10)\ x:=x+1\;\{x=10\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mi>x</mi>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mn>10</mn>
+        <mo fence="false" stretchy="false">}</mo>
+        <mspace width="thickmathspace" />
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="monospace">w</mi>
+            <mi mathvariant="monospace">h</mi>
+            <mi mathvariant="monospace">i</mi>
+            <mi mathvariant="monospace">l</mi>
+            <mi mathvariant="monospace">e</mi>
+          </mrow>
+        </mrow>
+        <mtext>&#xA0;</mtext>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>&lt;</mo>
+        <mn>10</mn>
+        <mo stretchy="false">)</mo>
+        <mtext>&#xA0;</mtext>
+        <mi>x</mi>
+        <mo>:=</mo>
+        <mi>x</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mspace width="thickmathspace" />
+        <mo fence="false" stretchy="false">{</mo>
+        <mi>x</mi>
+        <mo>=</mo>
+        <mn>10</mn>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{x\leq 10\}\;{\mathtt {while}}\ (x&lt;10)\ x:=x+1\;\{x=10\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5334e062777dd00f70fdb25665eaade2e6b7cb19" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:45.68ex; height:2.843ex;" alt="{\displaystyle \{x\leq 10\}\;{\mathtt {while}}\ (x&lt;10)\ x:=x+1\;\{x=10\}}"/></span></dd></dl>
+<p>The condition <i>C</i> of the <code>while</code> loop is <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x&lt;10}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+        <mo>&lt;</mo>
+        <mn>10</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x&lt;10}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fbbd105ba9ef2bc5acf7f879c5935b9917585405" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:6.753ex; height:2.176ex;" alt="x&lt;10"/></span>.  A useful loop invariant <span class="texhtml mvar" style="font-style:italic;">I</span> has to be guessed; it will turn out that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x\leq 10}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mn>10</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x\leq 10}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aa05a8478fd54c1f89b109b887adcc1249367568" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:6.753ex; height:2.343ex;" alt="x\leq 10"/></span> is appropriate.  Under these assumptions it is possible to prove the following Hoare triple:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{x&lt;10\land x\leq 10\}\;x:=x+1\;\{x\leq 10\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mi>x</mi>
+        <mo>&lt;</mo>
+        <mn>10</mn>
+        <mo>&#x2227;<!-- ∧ --></mo>
+        <mi>x</mi>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mn>10</mn>
+        <mo fence="false" stretchy="false">}</mo>
+        <mspace width="thickmathspace" />
+        <mi>x</mi>
+        <mo>:=</mo>
+        <mi>x</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mspace width="thickmathspace" />
+        <mo fence="false" stretchy="false">{</mo>
+        <mi>x</mi>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mn>10</mn>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{x&lt;10\land x\leq 10\}\;x:=x+1\;\{x\leq 10\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8a827b7ed5740900596c60ea551551ac22d25faa" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:39.189ex; height:2.843ex;" alt="\{x&lt;10\land x\leq 10\}\;x:=x+1\;\{x\leq 10\}"/></span></dd></dl>
+<p>While this triple can be derived formally from the rules of Floyd-Hoare logic governing assignment, it is also intuitively justified: Computation starts in a state where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x&lt;10\land x\leq 10}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+        <mo>&lt;</mo>
+        <mn>10</mn>
+        <mo>&#x2227;<!-- ∧ --></mo>
+        <mi>x</mi>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mn>10</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x&lt;10\land x\leq 10}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/89a5b0a6c3f7bb9808b46b913db7bf4fdda6493a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:16.089ex; height:2.343ex;" alt="x&lt;10\land x\leq 10"/></span> is true, which means simply that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x&lt;10}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+        <mo>&lt;</mo>
+        <mn>10</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x&lt;10}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fbbd105ba9ef2bc5acf7f879c5935b9917585405" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:6.753ex; height:2.176ex;" alt="x&lt;10"/></span> is true.  The computation adds 1 to <span class="texhtml mvar" style="font-style:italic;">x</span>, which means that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x\leq 10}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mn>10</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x\leq 10}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aa05a8478fd54c1f89b109b887adcc1249367568" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:6.753ex; height:2.343ex;" alt="x\leq 10"/></span> is still true (for integer x).
+</p><p>Under this premise, the rule for <code>while</code> loops permits the following conclusion:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{x\leq 10\}\;{\mathtt {while}}\ (x&lt;10)\ x:=x+1\;\{\lnot (x&lt;10)\land x\leq 10\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mi>x</mi>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mn>10</mn>
+        <mo fence="false" stretchy="false">}</mo>
+        <mspace width="thickmathspace" />
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="monospace">w</mi>
+            <mi mathvariant="monospace">h</mi>
+            <mi mathvariant="monospace">i</mi>
+            <mi mathvariant="monospace">l</mi>
+            <mi mathvariant="monospace">e</mi>
+          </mrow>
+        </mrow>
+        <mtext>&#xA0;</mtext>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>&lt;</mo>
+        <mn>10</mn>
+        <mo stretchy="false">)</mo>
+        <mtext>&#xA0;</mtext>
+        <mi>x</mi>
+        <mo>:=</mo>
+        <mi>x</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mspace width="thickmathspace" />
+        <mo fence="false" stretchy="false">{</mo>
+        <mi mathvariant="normal">&#x00AC;<!-- ¬ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>&lt;</mo>
+        <mn>10</mn>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2227;<!-- ∧ --></mo>
+        <mi>x</mi>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mn>10</mn>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{x\leq 10\}\;{\mathtt {while}}\ (x&lt;10)\ x:=x+1\;\{\lnot (x&lt;10)\land x\leq 10\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f339320bbf9330b341ea886a19106d9f1b3e8df2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:58.375ex; height:2.843ex;" alt="{\displaystyle \{x\leq 10\}\;{\mathtt {while}}\ (x&lt;10)\ x:=x+1\;\{\lnot (x&lt;10)\land x\leq 10\}}"/></span></dd></dl>
+<p>However, the post-condition <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \lnot (x&lt;10)\land x\leq 10}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x00AC;<!-- ¬ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>&lt;</mo>
+        <mn>10</mn>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2227;<!-- ∧ --></mo>
+        <mi>x</mi>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mn>10</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \lnot (x&lt;10)\land x\leq 10}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/700fc13e9384930902cbdca54143f679211a1f9a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:19.448ex; height:2.843ex;" alt="\lnot (x&lt;10)\land x\leq 10"/></span> (<span class="texhtml mvar" style="font-style:italic;">x</span> is less than or equal to 10, but it is not less than 10) is <a href="https://en.wikipedia.org/wiki/Logical_equivalence" title="Logical equivalence">logically equivalent</a> to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x=10}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+        <mo>=</mo>
+        <mn>10</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x=10}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9dc68280f58d5939fb1cc2d63e7587bf5da1053a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:6.753ex; height:2.176ex;" alt="x=10"/></span>, which is what we wanted to show.
+</p><p>The property <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 0\leq x}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>0</mn>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mi>x</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 0\leq x}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3744ec5c328cae43887a6ed07a7a9c388634758c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:5.591ex; height:2.343ex;" alt="{\displaystyle 0\leq x}"/></span> is another invariant of the example loop, and the trivial property <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathrm {true} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">t</mi>
+          <mi mathvariant="normal">r</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">e</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathrm {true} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8f79ece6c0c1404bd257709c68bd7e69e27305b9" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:4.141ex; height:2.009ex;" alt="{\displaystyle \mathrm {true} }"/></span> is another one.
+Applying the above inference rule to the former invariant yields <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{0\leq x\}\;{\mathtt {while}}\ (x&lt;10)\ x:=x+1\;\{10\leq x\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mn>0</mn>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mi>x</mi>
+        <mo fence="false" stretchy="false">}</mo>
+        <mspace width="thickmathspace" />
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="monospace">w</mi>
+            <mi mathvariant="monospace">h</mi>
+            <mi mathvariant="monospace">i</mi>
+            <mi mathvariant="monospace">l</mi>
+            <mi mathvariant="monospace">e</mi>
+          </mrow>
+        </mrow>
+        <mtext>&#xA0;</mtext>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>&lt;</mo>
+        <mn>10</mn>
+        <mo stretchy="false">)</mo>
+        <mtext>&#xA0;</mtext>
+        <mi>x</mi>
+        <mo>:=</mo>
+        <mi>x</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mspace width="thickmathspace" />
+        <mo fence="false" stretchy="false">{</mo>
+        <mn>10</mn>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mi>x</mi>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{0\leq x\}\;{\mathtt {while}}\ (x&lt;10)\ x:=x+1\;\{10\leq x\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6f4c2fba899e2364d176c154a299ebf7422c5061" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:44.518ex; height:2.843ex;" alt="{\displaystyle \{0\leq x\}\;{\mathtt {while}}\ (x&lt;10)\ x:=x+1\;\{10\leq x\}}"/></span>.
+Applying it to invariant <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathrm {true} }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">t</mi>
+          <mi mathvariant="normal">r</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">e</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathrm {true} }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8f79ece6c0c1404bd257709c68bd7e69e27305b9" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:4.141ex; height:2.009ex;" alt="{\displaystyle \mathrm {true} }"/></span> yields <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{\mathrm {true} \}\;{\mathtt {while}}\ (x&lt;10)\ x:=x+1\;\{10\leq x\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="normal">t</mi>
+          <mi mathvariant="normal">r</mi>
+          <mi mathvariant="normal">u</mi>
+          <mi mathvariant="normal">e</mi>
+        </mrow>
+        <mo fence="false" stretchy="false">}</mo>
+        <mspace width="thickmathspace" />
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="monospace">w</mi>
+            <mi mathvariant="monospace">h</mi>
+            <mi mathvariant="monospace">i</mi>
+            <mi mathvariant="monospace">l</mi>
+            <mi mathvariant="monospace">e</mi>
+          </mrow>
+        </mrow>
+        <mtext>&#xA0;</mtext>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>&lt;</mo>
+        <mn>10</mn>
+        <mo stretchy="false">)</mo>
+        <mtext>&#xA0;</mtext>
+        <mi>x</mi>
+        <mo>:=</mo>
+        <mi>x</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+        <mspace width="thickmathspace" />
+        <mo fence="false" stretchy="false">{</mo>
+        <mn>10</mn>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mi>x</mi>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{\mathrm {true} \}\;{\mathtt {while}}\ (x&lt;10)\ x:=x+1\;\{10\leq x\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/220edd327add3be3a03dd9eced829014a2f56325" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:43.068ex; height:2.843ex;" alt="{\displaystyle \{\mathrm {true} \}\;{\mathtt {while}}\ (x&lt;10)\ x:=x+1\;\{10\leq x\}}"/></span>, which is slightly more expressive.
+</p>
+<h2><span class="mw-headline" id="Programming_language_support">Programming language support</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Loop_invariant&amp;action=edit&amp;section=4" title="Edit section: Programming language support">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Eiffel">Eiffel</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Loop_invariant&amp;action=edit&amp;section=5" title="Edit section: Eiffel">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Eiffel_(programming_language)" title="Eiffel (programming language)">Eiffel</a> programming language provides native support for loop invariants.<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup> A loop invariant is expressed with the same syntax used for a <a href="https://en.wikipedia.org/wiki/Class_invariant" title="Class invariant">class invariant</a>. In the sample below, the loop invariant expression <code>x&#160;&lt;=&#160;10</code> must be true following the loop initialization, and after each execution of the loop body; this is checked at runtime.
+</p>
+<div class="mw-highlight mw-highlight-lang-eiffel mw-content-ltr" dir="ltr"><pre><span></span>    <span class="kr">from</span>
+        <span class="n">x</span> <span class="o">:=</span> <span class="mi">0</span>
+    <span class="kr">invariant</span>
+        <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">10</span>
+    <span class="kr">until</span>
+        <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span>
+    <span class="kr">loop</span>
+        <span class="n">x</span> <span class="o">:=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="kr">end</span>
+</pre></div>
+<h3><span class="mw-headline" id="Whiley">Whiley</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Loop_invariant&amp;action=edit&amp;section=6" title="Edit section: Whiley">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Whiley_(programming_language)" title="Whiley (programming language)">Whiley</a> programming language also provides first-class support for loop invariants.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup> Loop invariants are expressed using one or more <code>where</code> clauses, as the following illustrates:
+</p>
+<div class="mw-highlight mw-highlight-lang-whiley mw-content-ltr" dir="ltr"><pre><span></span><span class="kd">function</span> <span class="n">max</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">items</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">int</span> <span class="n">r</span><span class="p">)</span>
+<span class="c1">// Requires at least one element to compute max</span>
+<span class="kr">requires</span> <span class="o">|</span><span class="n">items</span><span class="o">|</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="c1">// (1) Result is not smaller than any element</span>
+<span class="kr">ensures</span> <span class="kr">all</span> <span class="p">{</span> <span class="n">i</span> <span class="kr">in</span> <span class="mi">0</span><span class="p">..</span><span class="o">|</span><span class="n">items</span><span class="o">|</span> <span class="o">|</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">r</span> <span class="p">}</span>
+<span class="c1">// (2) Result matches at least one element</span>
+<span class="kr">ensures</span> <span class="kr">some</span> <span class="p">{</span> <span class="n">i</span> <span class="kr">in</span> <span class="mi">0</span><span class="p">..</span><span class="o">|</span><span class="n">items</span><span class="o">|</span> <span class="o">|</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">r</span> <span class="p">}</span><span class="o">:</span>
+    <span class="c1">//</span>
+    <span class="nb">nat</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1">//</span>
+    <span class="kr">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="o">|</span><span class="n">items</span><span class="o">|</span>
+    <span class="c1">// (1) No item seen so far is larger than m</span>
+    <span class="kr">where</span> <span class="kr">all</span> <span class="p">{</span> <span class="n">k</span> <span class="kr">in</span> <span class="mi">0</span><span class="p">..</span><span class="n">i</span> <span class="o">|</span> <span class="n">items</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">m</span> <span class="p">}</span>
+    <span class="c1">// (2) One or more items seen so far matches m</span>
+    <span class="kr">where</span> <span class="kr">some</span> <span class="p">{</span> <span class="n">k</span> <span class="kr">in</span> <span class="mi">0</span><span class="p">..</span><span class="n">i</span> <span class="o">|</span> <span class="n">items</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">==</span> <span class="n">m</span> <span class="p">}</span><span class="o">:</span>
+        <span class="kr">if</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">m</span><span class="o">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="c1">//</span>
+    <span class="kr">return</span> <span class="n">m</span>
+</pre></div>
+<p>The <code>max()</code> function determines the largest element in an integer array.  For this to be defined, the array must contain at least one element.  The <a href="https://en.wikipedia.org/wiki/Postconditions" class="mw-redirect" title="Postconditions">postconditions</a> of <code>max()</code> require that the returned value is: (1) not smaller than any element; and, (2) that it matches at least one element.  The loop invariant is defined inductively through two <code>where</code> clauses, each of which corresponds to a clause in the postcondition.  The fundamental difference is that each clause of the loop invariant identifies the result as being correct up to the current element <code>i</code>, whilst the postconditions identify the result as being correct for all elements.
+</p>
+<h2><span class="mw-headline" id="Use_of_loop_invariants">Use of loop invariants</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Loop_invariant&amp;action=edit&amp;section=7" title="Edit section: Use of loop invariants">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A loop invariant can serve one of the following purposes:
+</p>
+<ol><li>purely documentary</li>
+<li>to be checked within in the code by an assertion call</li>
+<li>to be verified based on the <a href="https://en.wikipedia.org/wiki/Hoare_logic" title="Hoare logic">Floyd-Hoare approach</a></li></ol>
+<p>For 1., a natural language comment (like <code>// m equals the maximum value in a[0...i-1]</code> in the <a href="#Informal_example">above</a> example) is sufficient.
+</p><p>For 2., programming language support is required, such as the <a href="https://en.wikipedia.org/wiki/C_(programming_language)" title="C (programming language)">C</a> library <a href="https://en.wikipedia.org/wiki/Assert.h" title="Assert.h">assert.h</a>, or the <a href="#Eiffel">above</a>-shown <code>invariant</code> clause in Eiffel. Often, run-time checking can be switched on (for debugging runs) and off (for production runs) by a compiler or a runtime option.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="hope that C&#39;s or/and Eiffel assert.h supports that? (May 2016)">citation needed</span></a></i>&#93;</sup>
+</p><p>For 3., some tools exist to support mathematical proofs, usually based on the <a href="#Floyd–Hoare_logic">above</a>-shown Floyd–Hoare rule, that a given loop code in fact satisfies a given (set of) loop invariant(s).
+</p><p>The technique of <a href="https://en.wikipedia.org/wiki/Abstract_interpretation" title="Abstract interpretation">abstract interpretation</a> can be used to detect loop invariant of given code automatically. However, this approach is limited to very simple invariants (such as <code>0&lt;=i &amp;&amp; i&lt;=n &amp;&amp; i%2==0</code>).
+</p>
+<h2><span class="mw-headline" id="Distinction_from_loop-invariant_code">Distinction from loop-invariant code</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Loop_invariant&amp;action=edit&amp;section=8" title="Edit section: Distinction from loop-invariant code">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1033289096"/><div role="note" class="hatnote navigation-not-searchable">Further information: <a href="https://en.wikipedia.org/wiki/Loop-invariant_code_motion" title="Loop-invariant code motion">Loop-invariant code motion</a></div>
+<p><b>Loop-invariant code</b> consists of statements or expressions that can be moved outside a loop body without affecting the program semantics. Such transformations, called <a href="https://en.wikipedia.org/wiki/Loop-invariant_code_motion" title="Loop-invariant code motion">loop-invariant code motion</a>, are performed by some compilers to <a href="https://en.wikipedia.org/wiki/Optimizing_compiler" title="Optimizing compiler">optimize</a> programs.
+A loop-invariant code example (in the <a href="https://en.wikipedia.org/wiki/C_(programming_language)" title="C (programming language)">C programming language</a>) is
+</p>
+<div class="mw-highlight mw-highlight-lang-c mw-content-ltr" dir="ltr"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="o">+</span><span class="n">z</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="o">*</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<p>where the calculations <code>x = y+z</code> and <code>x*x</code> can be moved before the loop, resulting in an equivalent, but faster, program:
+</p>
+<div class="mw-highlight mw-highlight-lang-c mw-content-ltr" dir="ltr"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="o">+</span><span class="n">z</span><span class="p">;</span><span class="w"></span>
+<span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="o">*</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<p>In contrast, e.g. the property <code>0&lt;=i &amp;&amp; i&lt;=n</code> is a loop invariant for both the original and the optimized program, but is not part of the code, hence it doesn't make sense to speak of "moving it out of the loop".
+</p><p>Loop-invariant code may induce a corresponding loop-invariant property.<sup class="noprint Inline-Template" style="margin-left:0.1em; white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Please_clarify" title="Wikipedia:Please clarify"><span title="I guess, once the notion of &#39;loop-invariant code&#39; is defined in a sufficiently formal way, it can be proven that loop-invariant code *always* induces a corresponding loop invariant property. (March 2016)">clarification needed</span></a></i>&#93;</sup> For the above example, the easiest way to see it is to consider a program where the loop invariant code is computed both before and within the loop:
+</p>
+<div class="mw-highlight mw-highlight-lang-c mw-content-ltr" dir="ltr"><pre><span></span><span class="n">x1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="o">+</span><span class="n">z</span><span class="p">;</span><span class="w"></span>
+<span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x1</span><span class="o">*</span><span class="n">x1</span><span class="p">;</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">x2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="o">+</span><span class="n">z</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="o">*</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+<p>A loop-invariant property of this code is <code>(x1==x2 &amp;&amp; t1==x2*x2) || i==0</code>, indicating that the values computed before the loop agree with those computed within (except before the first iteration).<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (March 2016)">citation needed</span></a></i>&#93;</sup>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Loop_invariant&amp;action=edit&amp;section=9" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Invariant_(computer_science)" class="mw-redirect" title="Invariant (computer science)">Invariant (computer science)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Loop-invariant_code_motion" title="Loop-invariant code motion">Loop-invariant code motion</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Loop_variant" title="Loop variant">Loop variant</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Predicate_transformer_semantics#While_loop" title="Predicate transformer semantics">Weakest-preconditions of While loop</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Loop_invariant&amp;action=edit&amp;section=10" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text">Carlo A. Furia, <a href="https://en.wikipedia.org/wiki/Bertrand_Meyer" title="Bertrand Meyer">Bertrand Meyer</a> and Sergey Velder. "Loop invariants: analysis, classification, and examples."ACM Computing Surveys.  vol. 46, no. 3, February 2014(<a rel="nofollow" class="external autonumber" href="http://se.ethz.ch/~meyer/publications/methodology/invariants.pdf">[1]</a></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFRobert_W._Floyd1967" class="citation book cs1">Robert W. Floyd (1967). <a rel="nofollow" class="external text" href="http://www.cse.chalmers.se/edu/year/2017/course/TDA384_LP1/files/lectures/additional-material/AssigningMeanings1967.pdf">"Assigning Meanings to Programs"</a> <span class="cs1-format">(PDF)</span>.  In J.T. Schwartz (ed.). <i>Proceedings of Symposia in Applied Mathematics</i>. Mathematical Aspects of Computer Science. Vol.&#160;19. Providence, RI: American Mathematical Society. pp.&#160;19–32.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Assigning+Meanings+to+Programs&amp;rft.btitle=Proceedings+of+Symposia+in+Applied+Mathematics&amp;rft.place=Providence%2C+RI&amp;rft.series=Mathematical+Aspects+of+Computer+Science&amp;rft.pages=19-32&amp;rft.pub=American+Mathematical+Society&amp;rft.date=1967&amp;rft.au=Robert+W.+Floyd&amp;rft_id=http%3A%2F%2Fwww.cse.chalmers.se%2Fedu%2Fyear%2F2017%2Fcourse%2FTDA384_LP1%2Ffiles%2Flectures%2Fadditional-material%2FAssigningMeanings1967.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ALoop+invariant" class="Z3988"></span></span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHoare1969" class="citation journal cs1"><a href="https://en.wikipedia.org/wiki/C.A.R._Hoare" class="mw-redirect" title="C.A.R. Hoare">Hoare, C. A. R.</a> (October 1969). <a rel="nofollow" class="external text" href="https://web.archive.org/web/20160304013345/http://www.spatial.maine.edu/~worboys/processes/hoare axiomatic.pdf">"An axiomatic basis for computer programming"</a> <span class="cs1-format">(PDF)</span>. <i><a href="https://en.wikipedia.org/wiki/Communications_of_the_ACM" title="Communications of the ACM">Communications of the ACM</a></i>. <b>12</b> (10): 576–580. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F363235.363259">10.1145/363235.363259</a>. Archived from <a rel="nofollow" class="external text" href="http://www.spatial.maine.edu/~worboys/processes/hoare axiomatic.pdf">the original</a> <span class="cs1-format">(PDF)</span> on 2016-03-04.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Communications+of+the+ACM&amp;rft.atitle=An+axiomatic+basis+for+computer+programming&amp;rft.volume=12&amp;rft.issue=10&amp;rft.pages=576-580&amp;rft.date=1969-10&amp;rft_id=info%3Adoi%2F10.1145%2F363235.363259&amp;rft.aulast=Hoare&amp;rft.aufirst=C.+A.+R.&amp;rft_id=http%3A%2F%2Fwww.spatial.maine.edu%2F~worboys%2Fprocesses%2Fhoare%2520axiomatic.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ALoop+invariant" class="Z3988"></span></span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><a href="https://en.wikipedia.org/wiki/Bertrand_Meyer" title="Bertrand Meyer">Meyer, Bertrand</a>, <i>Eiffel: The Language,</i> <a href="https://en.wikipedia.org/wiki/Prentice_Hall" title="Prentice Hall">Prentice Hall</a>, 1991, pp. 129–131.</span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFPearceGroves2015" class="citation journal cs1">Pearce, David J.; Groves, Lindsay (2015). <a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.scico.2015.09.006">"Designing a Verifying Compiler: Lessons Learned from Developing Whiley"</a>. <i>Science of Computer Programming</i>. <b>113</b>: 191–220. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.scico.2015.09.006">10.1016/j.scico.2015.09.006</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Science+of+Computer+Programming&amp;rft.atitle=Designing+a+Verifying+Compiler%3A+Lessons+Learned+from+Developing+Whiley&amp;rft.volume=113&amp;rft.pages=191-220&amp;rft.date=2015&amp;rft_id=info%3Adoi%2F10.1016%2Fj.scico.2015.09.006&amp;rft.aulast=Pearce&amp;rft.aufirst=David+J.&amp;rft.au=Groves%2C+Lindsay&amp;rft_id=%2F%2Fdoi.org%2F10.1016%252Fj.scico.2015.09.006&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ALoop+invariant" class="Z3988"></span></span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="Further_reading">Further reading</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Loop_invariant&amp;action=edit&amp;section=11" title="Edit section: Further reading">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Thomas H. Cormen</a>, <a href="https://en.wikipedia.org/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Charles E. Leiserson</a>, <a href="https://en.wikipedia.org/wiki/Ronald_L._Rivest" class="mw-redirect" title="Ronald L. Rivest">Ronald L. Rivest</a>, and <a href="https://en.wikipedia.org/wiki/Clifford_Stein" title="Clifford Stein">Clifford Stein</a>. <i><a href="https://en.wikipedia.org/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms">Introduction to Algorithms</a></i>, Second Edition. MIT Press and McGraw-Hill, 2001. <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-262-03293-7" title="Special:BookSources/0-262-03293-7">0-262-03293-7</a>. Pages 17–19, section 2.1: Insertion sort.</li>
+<li><a href="https://en.wikipedia.org/wiki/David_Gries" title="David Gries">David Gries</a>. "<a rel="nofollow" class="external text" href="https://www.sciencedirect.com/science/article/pii/0167642383900151/pdf?md5=b36e62073525cbaa449b94ac1f1784fb&amp;isDTMRedir=Y&amp;pid=1-s2.0-0167642383900151-main.pdf&amp;_valck=1">A note on a standard strategy for developing loop invariants and loops</a>." <i>Science of Computer Programming</i>, vol 2, pp.&#160;207–214. 1984.</li>
+<li>Michael D. Ernst, Jake Cockrell, William G. Griswold, David Notkin. "<a rel="nofollow" class="external text" href="http://citeseer.ist.psu.edu/292512.html">Dynamically Discovering Likely Program Invariants to Support Program Evolution</a>." <i>International Conference on Software Engineering</i>, pp.&#160;213–224. 1999.</li>
+<li>Robert Paige. "<a rel="nofollow" class="external text" href="https://www.cs.tufts.edu/~nr/cs257/archive/robert-paige/invariants.pdf">Programming with Invariants</a>." <i>IEEE Software</i>, 3(1):56–69. January 1986.</li>
+<li>Yanhong A. Liu, Scott D. Stoller, and <a href="https://en.wikipedia.org/wiki/Tim_Teitelbaum" title="Tim Teitelbaum">Tim Teitelbaum</a>. <a rel="nofollow" class="external text" href="http://www.cs.sunysb.edu/~stoller/SIEC-SCP.html">Strengthening Invariants for Efficient Computation</a>. <i>Science of Computer Programming</i>, 41(2):139–172. October 2001.</li>
+<li>Michael Huth, Mark Ryan. "<a rel="nofollow" class="external text" href="https://books.google.com/books?id=eUggAwAAQBAJ&amp;printsec=frontcover#v=onepage&amp;q=%22loop%20invariant%22&amp;f=false">Logic in Computer Science</a>.", Second Edition.</li></ul>
+<!-- 
+NewPP limit report
+Parsed by mw1364
+Cached time: 20220429174019
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.483 seconds
+Real time usage: 0.618 seconds
+Preprocessor visited node count: 1400/1000000
+Post‐expand include size: 17783/2097152 bytes
+Template argument size: 3143/2097152 bytes
+Highest expansion depth: 14/100
+Expensive parser function count: 4/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 27957/5000000 bytes
+Lua time usage: 0.199/10.000 seconds
+Lua memory usage: 3998379/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  447.098      1 -total
+ 32.65%  145.984      1 Template:Reflist
+ 22.39%  100.099      1 Template:Cite_book
+ 18.55%   82.931      1 Template:Short_description
+ 18.42%   82.339      2 Template:Citation_needed
+ 15.14%   67.671      2 Template:Fix
+ 10.62%   47.473      1 Template:ISBN
+  9.90%   44.257      1 Template:Pagetype
+  9.09%   40.658      6 Template:Category_handler
+  7.09%   31.702      1 Template:For
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:578460-0!canonical and timestamp 20220429174019 and revision id 1085061149. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Loop_invariant&amp;oldid=1085061149">https://en.wikipedia.org/w/index.php?title=Loop_invariant&amp;oldid=1085061149</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Formal_methods" title="Category:Formal methods">Formal methods</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Control_flow" title="Category:Control flow">Control flow</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_matches_Wikidata" title="Category:Short description matches Wikidata">Short description matches Wikidata</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_unsourced_statements_from_May_2016" title="Category:Articles with unsourced statements from May 2016">Articles with unsourced statements from May 2016</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Wikipedia_articles_needing_clarification_from_March_2016" title="Category:Wikipedia articles needing clarification from March 2016">Wikipedia articles needing clarification from March 2016</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_unsourced_statements_from_March_2016" title="Category:Articles with unsourced statements from March 2016">Articles with unsourced statements from March 2016</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Loop+invariant" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Loop+invariant" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Loop_invariant" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Loop_invariant" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Loop_invariant"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Loop_invariant&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Loop_invariant&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Loop_invariant" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Loop_invariant" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Loop_invariant&amp;oldid=1085061149" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Loop_invariant&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Loop_invariant&amp;id=1085061149&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q2238838" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Loop_invariant&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Loop_invariant&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Schleifeninvariante" title="Schleifeninvariante – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Ciclo_invariante" title="Ciclo invariante – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-eu mw-list-item"><a href="https://eu.wikipedia.org/wiki/Begizta_inbariante" title="Begizta inbariante – Basque" lang="eu" hreflang="eu" class="interlanguage-link-target"><span>Euskara</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Invariant_de_boucle" title="Invariant de boucle – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/ループ不変条件" title="ループ不変条件 – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-no mw-list-item"><a href="https://no.wikipedia.org/wiki/Løkkeinvariant" title="Løkkeinvariant – Norwegian Bokmål" lang="nb" hreflang="nb" class="interlanguage-link-target"><span>Norsk bokmål</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Niezmiennik_pętli" title="Niezmiennik pętli – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Инвариант_цикла" title="Инвариант цикла – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-zh-yue mw-list-item"><a href="https://zh-yue.wikipedia.org/wiki/迴圈不變量" title="迴圈不變量 – Cantonese" lang="yue" hreflang="yue" class="interlanguage-link-target"><span>粵語</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/循环不变量" title="循环不变量 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q2238838#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 28 April 2022, at 05:18<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Loop_invariant&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.483","walltime":"0.618","ppvisitednodes":{"value":1400,"limit":1000000},"postexpandincludesize":{"value":17783,"limit":2097152},"templateargumentsize":{"value":3143,"limit":2097152},"expansiondepth":{"value":14,"limit":100},"expensivefunctioncount":{"value":4,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":27957,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  447.098      1 -total"," 32.65%  145.984      1 Template:Reflist"," 22.39%  100.099      1 Template:Cite_book"," 18.55%   82.931      1 Template:Short_description"," 18.42%   82.339      2 Template:Citation_needed"," 15.14%   67.671      2 Template:Fix"," 10.62%   47.473      1 Template:ISBN","  9.90%   44.257      1 Template:Pagetype","  9.09%   40.658      6 Template:Category_handler","  7.09%   31.702      1 Template:For"]},"scribunto":{"limitreport-timeusage":{"value":"0.199","limit":"10.000"},"limitreport-memusage":{"value":3998379,"limit":52428800}},"cachereport":{"origin":"mw1364","timestamp":"20220429174019","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Loop invariant","url":"https:\/\/en.wikipedia.org\/wiki\/Loop_invariant","sameAs":"http:\/\/www.wikidata.org\/entity\/Q2238838","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q2238838","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-04-05T21:06:01Z","dateModified":"2022-04-28T05:18:46Z","headline":"invariants used to prove properties of loops"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Loop invariant","url":"https:\/\/en.wikipedia.org\/wiki\/Loop_invariant","sameAs":"http:\/\/www.wikidata.org\/entity\/Q2238838","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q2238838","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-04-05T21:06:01Z","dateModified":"2022-04-28T05:18:46Z","headline":"invariants used to prove properties of loops"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":134,"wgHostname":"mw1401"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Loop_invariant by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:32:06 GMT -->
+</html>

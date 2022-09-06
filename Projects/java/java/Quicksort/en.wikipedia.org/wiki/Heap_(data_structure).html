@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Heap_(data_structure) by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Heap (data structure) - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"9fef07d9-5569-4b95-8a81-6dc088200152","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Heap_(data_structure)","wgTitle":"Heap (data structure)","wgCurRevisionId":1076478457,"wgRevisionId":1076478457,"wgArticleId":13996,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles with short description","Short description is different from Wikidata","Commons category link is on Wikidata","Heaps (data structures)"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Heap_(data_structure)","wgRelevantArticleId":13996,
+"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":20000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q274089","wgGENewcomerTasksGuidanceEnabled":true,"wgGEAskQuestionEnabled":false,"wgGELinkRecommendationsFrontendEnabled":false};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready",
+"user.options":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.9"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Max-Heap-new.svg/1200px-Max-Heap-new.svg.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="1439"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Max-Heap-new.svg/800px-Max-Heap-new.svg.png"/>
+<meta property="og:image:width" content="800"/>
+<meta property="og:image:height" content="959"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Max-Heap-new.svg/640px-Max-Heap-new.svg.png"/>
+<meta property="og:image:width" content="640"/>
+<meta property="og:image:height" content="768"/>
+<meta property="og:title" content="Heap (data structure) - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Heap_(data_structure)"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Heap_(data_structure)&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Heap_(data_structure)"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Heap_data_structure rootpage-Heap_data_structure skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Heap (data structure)</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Computer science data structure</div>
+<style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">For the memory heap (in low-level computer programming), see <a href="https://en.wikipedia.org/wiki/C_dynamic_memory_allocation" title="C dynamic memory allocation">C dynamic memory allocation</a>.</div>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Max-Heap-new.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Max-Heap-new.svg/220px-Max-Heap-new.svg.png" decoding="async" width="220" height="264" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Max-Heap-new.svg/330px-Max-Heap-new.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Max-Heap-new.svg/440px-Max-Heap-new.svg.png 2x" data-file-width="512" data-file-height="614" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Max-Heap-new.svg" class="internal" title="Enlarge"></a></div>Example of a <a href="https://en.wikipedia.org/wiki/Binary_tree" title="Binary tree">binary</a> max-heap with node keys being integers between 1 and 100</div></div></div>
+<p>In <a href="https://en.wikipedia.org/wiki/Computer_science" title="Computer science">computer science</a>, a <b>heap</b> is a specialized <a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" title="Tree (data structure)">tree</a>-based <a href="https://en.wikipedia.org/wiki/Data_structure" title="Data structure">data structure</a> which is essentially an <a href="https://en.wikipedia.org/wiki/Binary_tree#Types_of_binary_trees" title="Binary tree">almost complete</a><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup> tree that satisfies the <b>heap property</b>: in a <i>max heap</i>, for any given <a href="https://en.wikipedia.org/wiki/Node_(computer_science)" title="Node (computer science)">node</a> C, if P is a parent node of C, then the <i>key</i> (the <i>value</i>) of P is greater than or equal to the key of C. In a <i>min heap</i>, the key of P is less than or equal to the key of C.<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup> The node at the "top" of the heap (with no parents) is called the <i>root</i> node.
+</p><p>The heap is one maximally efficient implementation of an <a href="https://en.wikipedia.org/wiki/Abstract_data_type" title="Abstract data type">abstract data type</a> called a <a href="https://en.wikipedia.org/wiki/Priority_queue" title="Priority queue">priority queue</a>, and in fact, priority queues are often referred to as "heaps", regardless of how they may be implemented. In a heap, the highest (or lowest) priority element is always stored at the root. However, a heap is not a sorted structure; it can be regarded as being partially ordered. A heap is a useful data structure when it is necessary to repeatedly remove the object with the highest (or lowest) priority, or when insertions need to be interspersed with removals of the root node.
+</p><p>A common implementation of a heap is the <a href="https://en.wikipedia.org/wiki/Binary_heap" title="Binary heap">binary heap</a>, in which the tree is a <a href="https://en.wikipedia.org/wiki/Binary_tree" title="Binary tree">binary tree</a> (see figure). The heap data structure, specifically the binary heap, was introduced by <a href="https://en.wikipedia.org/wiki/J._W._J._Williams" title="J. W. J. Williams">J. W. J. Williams</a> in 1964, as a data structure for the <a href="https://en.wikipedia.org/wiki/Heapsort" title="Heapsort">heapsort</a> sorting algorithm.<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup> Heaps are also crucial in several efficient <a href="https://en.wikipedia.org/wiki/Graph_algorithms" class="mw-redirect" title="Graph algorithms">graph algorithms</a> such as <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm" title="Dijkstra&#39;s algorithm">Dijkstra's algorithm</a>. When a heap is a complete binary tree, it has a smallest possible height—a heap with <i>N</i> nodes and <i>a</i> branches for each node always has log<sub><i>a</i></sub> <i>N</i> height.
+</p><p>Note that, as shown in the graphic, there is no implied ordering between siblings or cousins and no implied sequence for an <a href="https://en.wikipedia.org/wiki/Inorder_traversal" class="mw-redirect" title="Inorder traversal">in-order traversal</a> (as there would be in, e.g., a <a href="https://en.wikipedia.org/wiki/Binary_search_tree" title="Binary search tree">binary search tree</a>). The heap relation mentioned above applies only between nodes and their parents, grandparents, etc. The maximum number of children each node can have depends on the type of heap.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Operations"><span class="tocnumber">1</span> <span class="toctext">Operations</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Implementation"><span class="tocnumber">2</span> <span class="toctext">Implementation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Variants"><span class="tocnumber">3</span> <span class="toctext">Variants</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Comparison_of_theoretic_bounds_for_variants"><span class="tocnumber">4</span> <span class="toctext">Comparison of theoretic bounds for variants</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Applications"><span class="tocnumber">5</span> <span class="toctext">Applications</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Programming_language_implementations"><span class="tocnumber">6</span> <span class="toctext">Programming language implementations</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#External_links"><span class="tocnumber">9</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Operations">Operations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heap_(data_structure)&amp;action=edit&amp;section=1" title="Edit section: Operations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The common operations involving heaps are:
+</p>
+<dl><dt>Basic</dt></dl>
+<ul><li><i>find-max</i> (or <i>find-min</i>): find a maximum item of a max-heap, or a minimum item of a min-heap, respectively (a.k.a. <i><a href="https://en.wikipedia.org/wiki/Peek_(data_type_operation)" title="Peek (data type operation)">peek</a></i>)</li>
+<li><i>insert</i>: adding a new key to the heap (a.k.a., <i>push</i><sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup>)</li>
+<li><i>extract-max</i> (or <i>extract-min</i>): returns the node of maximum value from a max heap [or minimum value from a min heap] after removing it from the heap (a.k.a., <i>pop</i><sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup>)</li>
+<li><i>delete-max</i> (or <i>delete-min</i>): removing the root node of a max heap (or min heap), respectively</li>
+<li><i>replace</i>: pop root and push a new key. More efficient than pop followed by push, since only need to balance once, not twice, and appropriate for fixed-size heaps.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup></li></ul>
+<dl><dt>Creation</dt></dl>
+<ul><li><i>create-heap</i>: create an empty heap</li>
+<li><i>heapify</i>: create a heap out of given array of elements</li>
+<li><i>merge</i> (<i>union</i>): joining two heaps to form a valid new heap containing all the elements of both, preserving the original heaps.</li>
+<li><i>meld</i>: joining two heaps to form a valid new heap containing all the elements of both, destroying the original heaps.</li></ul>
+<dl><dt>Inspection</dt></dl>
+<ul><li><i>size</i>: return the number of items in the heap.</li>
+<li><i>is-empty</i>: return true if the heap is empty, false otherwise.</li></ul>
+<dl><dt>Internal</dt></dl>
+<ul><li><i>increase-key</i> or <i>decrease-key</i>: updating a key within a max- or min-heap, respectively</li>
+<li><i>delete</i>: delete an arbitrary node (followed by moving last node and sifting to maintain heap)</li>
+<li><i>sift-up</i>: move a node up in the tree, as long as needed; used to restore heap condition after insertion. Called "sift" because node moves up the tree until it reaches the correct level, as in a <a href="https://en.wikipedia.org/wiki/Sieve" title="Sieve">sieve</a>.</li>
+<li><i>sift-down</i>: move a node down in the tree, similar to sift-up; used to restore heap condition after deletion or replacement.</li></ul>
+<h2><span class="mw-headline" id="Implementation">Implementation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heap_(data_structure)&amp;action=edit&amp;section=2" title="Edit section: Implementation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Heaps are usually implemented with an <a href="https://en.wikipedia.org/wiki/Array_data_structure" title="Array data structure">array</a>, as follows:
+</p>
+<ul><li>Each element in the array represents a node of the heap, and</li>
+<li>The parent / child relationship is <a href="https://en.wikipedia.org/wiki/Implicit_data_structure" title="Implicit data structure">defined implicitly</a> by the elements' indices in the array.</li></ul>
+<div class="thumb tright"><div class="thumbinner" style="width:332px;"><a href="https://en.wikipedia.org/wiki/File:Heap-as-array.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Heap-as-array.svg/330px-Heap-as-array.svg.png" decoding="async" width="330" height="124" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Heap-as-array.svg/495px-Heap-as-array.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Heap-as-array.svg/660px-Heap-as-array.svg.png 2x" data-file-width="603" data-file-height="227" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Heap-as-array.svg" class="internal" title="Enlarge"></a></div>Example of a complete binary max-heap with node keys being integers from 1 to 100 and how it would be stored in an array.</div></div></div>
+<p>For a <a href="https://en.wikipedia.org/wiki/Binary_heap" title="Binary heap">binary heap</a>, in the array, the first index contains the root element. The next two indices of the array contain the root's children. The next four indices contain the four children of the root's two child nodes, and so on. Therefore, given a node at index <span class="texhtml mvar" style="font-style:italic;">i</span>, its children are at indices <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 2i+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>2</mn>
+        <mi>i</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 2i+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f077f73c2ecdf3c6e29a120f948a7255c0a65da1" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:5.968ex; height:2.343ex;" alt="2i+1"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 2i+2}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>2</mn>
+        <mi>i</mi>
+        <mo>+</mo>
+        <mn>2</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 2i+2}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a756deaef520ee23fe2b1232c90957f55ec9d92b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:5.968ex; height:2.343ex;" alt="{\displaystyle 2i+2}"/></span>, and its parent is at index <span class="texhtml">⌊(<i>i</i>−1)/2⌋</span>. This simple indexing scheme makes it efficient to move "up" or "down" the tree.
+</p><p>Balancing a heap is done by sift-up or sift-down operations (swapping elements which are out of order). As we can build a heap from an array without requiring extra memory (for the nodes, for example), <a href="https://en.wikipedia.org/wiki/Heapsort" title="Heapsort">heapsort</a> can be used to sort an array in-place.
+</p><p>After an element is inserted into or deleted from a heap, the heap property may be violated, and the heap must be re-balanced by swapping elements within the array.
+</p><p>Although different type of heaps implement the operations differently, the most common way is as follows:
+</p>
+<ul><li><b>Insertion:</b> Add the new element at the end of the heap, in the first available free space. If this will violate the heap property, sift up the new element (<i>swim</i> operation) until the heap property has been reestablished.</li>
+<li><b>Extraction:</b> Remove the root and insert the last element of the heap in the root. If this will violate the heap property, sift down the new root (<i>sink</i> operation) to reestablish the heap property.</li>
+<li><b>Replacement:</b> Remove the root and put the <i>new</i> element in the root and sift down. When compared to extraction followed by insertion, this avoids a sift up step.</li></ul>
+<p>Construction of a binary (or <i>d</i>-ary) heap out of a given array of elements may be performed in linear time using the classic <a href="https://en.wikipedia.org/wiki/Heapsort#Variations" title="Heapsort">Floyd algorithm</a>, with the worst-case number of comparisons equal to 2<i>N</i> − 2<i>s</i><sub>2</sub>(<i>N</i>) − <i>e</i><sub>2</sub>(<i>N</i>) (for a binary heap), where <i>s</i><sub>2</sub>(<i>N</i>) is the sum of all digits of the binary representation of <i>N</i> and <i>e</i><sub>2</sub>(<i>N</i>) is the exponent of 2 in the prime factorization of <i>N</i>.<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup> This is faster than a sequence of consecutive insertions into an originally empty heap, which is log-linear.<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;a&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Variants">Variants</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heap_(data_structure)&amp;action=edit&amp;section=3" title="Edit section: Variants">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r998391716">.mw-parser-output .div-col{margin-top:0.3em;column-width:30em}.mw-parser-output .div-col-small{font-size:90%}.mw-parser-output .div-col-rules{column-rule:1px solid #aaa}.mw-parser-output .div-col dl,.mw-parser-output .div-col ol,.mw-parser-output .div-col ul{margin-top:0}.mw-parser-output .div-col li,.mw-parser-output .div-col dd{page-break-inside:avoid;break-inside:avoid-column}</style><div class="div-col" style="column-width: 10em;">
+<ul><li><a href="https://en.wikipedia.org/wiki/2–3_heap" title="2–3 heap">2–3 heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/B-heap" title="B-heap">B-heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Beap" title="Beap">Beap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binary_heap" title="Binary heap">Binary heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binomial_heap" title="Binomial heap">Binomial heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Brodal_queue" title="Brodal queue">Brodal queue</a></li>
+<li><a href="https://en.wikipedia.org/wiki/D-ary_heap" title="D-ary heap"><i>d</i>-ary heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/K-D_Heap" class="mw-redirect" title="K-D Heap">K-D Heap</a></li>
+<li><a href="https://en.wikipedia.org/w/index.php?title=Leaf_heap&amp;action=edit&amp;redlink=1" class="new" title="Leaf heap (page does not exist)">Leaf heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Leftist_tree" title="Leftist tree">Leftist heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pairing_heap" title="Pairing heap">Pairing heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Radix_heap" title="Radix heap">Radix heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Randomized_meldable_heap" title="Randomized meldable heap">Randomized meldable heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Skew_heap" title="Skew heap">Skew heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Soft_heap" title="Soft heap">Soft heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ternary_heap" class="mw-redirect" title="Ternary heap">Ternary heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Treap" title="Treap">Treap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Weak_heap" title="Weak heap">Weak heap</a></li></ul>
+</div>
+<h2><span class="mw-headline" id="Comparison_of_theoretic_bounds_for_variants">Comparison of theoretic bounds for variants</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heap_(data_structure)&amp;action=edit&amp;section=4" title="Edit section: Comparison of theoretic bounds for variants">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Here are <a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" title="Computational complexity theory">time complexities</a><sup id="cite_ref-CLRS_9-0" class="reference"><a href="#cite_note-CLRS-9">&#91;8&#93;</a></sup> of various heap data structures. Function names assume a max-heap.  For the meaning of "<i>O</i>(<i>f</i>)" and "<i>Θ</i>(<i>f</i>)" see <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">Big O notation</a>.
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Operation
+</th>
+<th>find-max
+</th>
+<th>delete-max
+</th>
+<th>insert
+</th>
+<th>increase-key
+</th>
+<th>meld
+</th></tr>
+<tr>
+<th><a href="https://en.wikipedia.org/wiki/Binary_heap" title="Binary heap">Binary</a><sup id="cite_ref-CLRS_9-1" class="reference"><a href="#cite_note-CLRS-9">&#91;8&#93;</a></sup>
+</th>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>Θ</i>(log&#160;<i>n</i>)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log&#160;<i>n</i>)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log&#160;<i>n</i>)
+</td>
+<td style="background:#ffdddd"><i>Θ</i>(<i>n</i>)
+</td></tr>
+<tr>
+<th><a href="https://en.wikipedia.org/wiki/Leftist_tree" title="Leftist tree">Leftist</a>
+</th>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>Θ</i>(log <i>n</i>)
+</td>
+<td style="background:#ffffdd"><i>Θ</i>(log <i>n</i>)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log <i>n</i>)
+</td>
+<td style="background:#ffffdd"><i>Θ</i>(log <i>n</i>)
+</td></tr>
+<tr>
+<th><a href="https://en.wikipedia.org/wiki/Binomial_heap" title="Binomial heap">Binomial</a><sup id="cite_ref-CLRS_9-2" class="reference"><a href="#cite_note-CLRS-9">&#91;8&#93;</a></sup><sup id="cite_ref-10" class="reference"><a href="#cite_note-10">&#91;9&#93;</a></sup>
+</th>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>Θ</i>(log <i>n</i>)
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)<sup id="cite_ref-amortized_11-0" class="reference"><a href="#cite_note-amortized-11">&#91;b&#93;</a></sup>
+</td>
+<td style="background:#ffffdd"><i>Θ</i>(log <i>n</i>)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log&#160;<i>n</i>)<sup id="cite_ref-meld_12-0" class="reference"><a href="#cite_note-meld-12">&#91;c&#93;</a></sup>
+</td></tr>
+<tr>
+<th><a href="https://en.wikipedia.org/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci</a><sup id="cite_ref-CLRS_9-3" class="reference"><a href="#cite_note-CLRS-9">&#91;8&#93;</a></sup><sup id="cite_ref-Fredman_And_Tarjan_13-0" class="reference"><a href="#cite_note-Fredman_And_Tarjan-13">&#91;10&#93;</a></sup>
+</th>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log&#160;<i>n</i>)<sup id="cite_ref-amortized_11-1" class="reference"><a href="#cite_note-amortized-11">&#91;b&#93;</a></sup>
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)<sup id="cite_ref-amortized_11-2" class="reference"><a href="#cite_note-amortized-11">&#91;b&#93;</a></sup>
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td></tr>
+<tr>
+<th><a href="https://en.wikipedia.org/wiki/Pairing_heap" title="Pairing heap">Pairing</a><sup id="cite_ref-Iacono_14-0" class="reference"><a href="#cite_note-Iacono-14">&#91;11&#93;</a></sup>
+</th>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log <i>n</i>)<sup id="cite_ref-amortized_11-3" class="reference"><a href="#cite_note-amortized-11">&#91;b&#93;</a></sup>
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>o</i>(log&#160;<i>n</i>)<sup id="cite_ref-amortized_11-4" class="reference"><a href="#cite_note-amortized-11">&#91;b&#93;</a></sup><sup id="cite_ref-pairingdecreasekey_17-0" class="reference"><a href="#cite_note-pairingdecreasekey-17">&#91;d&#93;</a></sup>
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td></tr>
+<tr>
+<th><a href="https://en.wikipedia.org/wiki/Brodal_queue" title="Brodal queue">Brodal</a><sup id="cite_ref-18" class="reference"><a href="#cite_note-18">&#91;14&#93;</a></sup><sup id="cite_ref-brodal_20-0" class="reference"><a href="#cite_note-brodal-20">&#91;e&#93;</a></sup>
+</th>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log&#160;<i>n</i>)
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td></tr>
+<tr>
+<th><a href="https://en.wikipedia.org/w/index.php?title=Rank-pairing_heap&amp;action=edit&amp;redlink=1" class="new" title="Rank-pairing heap (page does not exist)">Rank-pairing</a><sup id="cite_ref-21" class="reference"><a href="#cite_note-21">&#91;16&#93;</a></sup>
+</th>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log <i>n</i>)<sup id="cite_ref-amortized_11-5" class="reference"><a href="#cite_note-amortized-11">&#91;b&#93;</a></sup>
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)<sup id="cite_ref-amortized_11-6" class="reference"><a href="#cite_note-amortized-11">&#91;b&#93;</a></sup>
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td></tr>
+<tr>
+<th><a href="https://en.wikipedia.org/wiki/Fibonacci_heap" title="Fibonacci heap">Strict Fibonacci</a><sup id="cite_ref-22" class="reference"><a href="#cite_note-22">&#91;17&#93;</a></sup>
+</th>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log <i>n</i>)
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td></tr>
+<tr>
+<th><a href="https://en.wikipedia.org/wiki/2–3_heap" title="2–3 heap">2–3 heap</a><sup id="cite_ref-23" class="reference"><a href="#cite_note-23">&#91;18&#93;</a></sup>
+</th>
+<td style="background:#ffffdd"><i>O</i>(log <i>n</i>)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log <i>n</i>)<sup id="cite_ref-amortized_11-7" class="reference"><a href="#cite_note-amortized-11">&#91;b&#93;</a></sup>
+</td>
+<td style="background:#ffffdd"><i>O</i>(log <i>n</i>)<sup id="cite_ref-amortized_11-8" class="reference"><a href="#cite_note-amortized-11">&#91;b&#93;</a></sup>
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>?</i>
+</td></tr></tbody></table>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist reflist-lower-alpha">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text">Each insertion takes O(log(<i>k</i>)) in the existing size of the heap, thus <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \sum _{k=1}^{n}O(\log k)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <munderover>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+            <mo>=</mo>
+            <mn>1</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </munderover>
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>k</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \sum _{k=1}^{n}O(\log k)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/57ee533ff7ef5300fd717d9230ca17a135c24df4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.005ex; width:11.895ex; height:6.843ex;" alt="\sum _{k=1}^{n}O(\log k)"/></span>. Since <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \log n/2=(\log n)-1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mn>2</mn>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \log n/2=(\log n)-1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4dc03c817e6d65fe0ea9dffce246278943db343e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:20.743ex; height:2.843ex;" alt="\log n/2=(\log n)-1"/></span>, a constant factor (half) of these insertions are within a constant factor of the maximum, so asymptotically we can assume <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k=n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+        <mo>=</mo>
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k=n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c4b8cc6fcba0c0b24656b0fb33414d2e6cffb83c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.704ex; height:2.176ex;" alt="k=n"/></span>; formally the time is <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle nO(\log n)-O(n)=O(n\log n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle nO(\log n)-O(n)=O(n\log n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d96da998a5bf48e66f5960204a4610d2d9e0a226" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:30.765ex; height:2.843ex;" alt="nO(\log n)-O(n)=O(n\log n)"/></span>. This can also be readily seen from <a href="https://en.wikipedia.org/wiki/Stirling%27s_approximation" title="Stirling&#39;s approximation">Stirling's approximation</a>.</span>
+</li>
+<li id="cite_note-amortized-11"><span class="mw-cite-backlink">^ <a href="#cite_ref-amortized_11-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-amortized_11-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-amortized_11-2"><sup><i><b>c</b></i></sup></a> <a href="#cite_ref-amortized_11-3"><sup><i><b>d</b></i></sup></a> <a href="#cite_ref-amortized_11-4"><sup><i><b>e</b></i></sup></a> <a href="#cite_ref-amortized_11-5"><sup><i><b>f</b></i></sup></a> <a href="#cite_ref-amortized_11-6"><sup><i><b>g</b></i></sup></a> <a href="#cite_ref-amortized_11-7"><sup><i><b>h</b></i></sup></a> <a href="#cite_ref-amortized_11-8"><sup><i><b>i</b></i></sup></a></span> <span class="reference-text">Amortized time.</span>
+</li>
+<li id="cite_note-meld-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-meld_12-0">^</a></b></span> <span class="reference-text"><i>n</i> is the size of the larger heap.</span>
+</li>
+<li id="cite_note-pairingdecreasekey-17"><span class="mw-cite-backlink"><b><a href="#cite_ref-pairingdecreasekey_17-0">^</a></b></span> <span class="reference-text">Lower bound of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \Omega (\log \log n),}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x03A9;<!-- Ω --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Omega (\log \log n),}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7caf8c32fbd99eed1338c02b7f7f1255f16ade36" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:12.247ex; height:2.843ex;" alt="{\displaystyle \Omega (\log \log n),}"/></span><sup id="cite_ref-Fredman1999_15-0" class="reference"><a href="#cite_note-Fredman1999-15">&#91;12&#93;</a></sup> upper bound of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(2^{2{\sqrt {\log \log n}}}).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+            <mrow class="MJX-TeXAtom-ORD">
+              <msqrt>
+                <mi>log</mi>
+                <mo>&#x2061;<!-- ⁡ --></mo>
+                <mi>log</mi>
+                <mo>&#x2061;<!-- ⁡ --></mo>
+                <mi>n</mi>
+              </msqrt>
+            </mrow>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(2^{2{\sqrt {\log \log n}}}).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/45c772d2ec070e49a6438ea92b1c8dc764613c5e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:14.052ex; height:3.509ex;" alt="{\displaystyle O(2^{2{\sqrt {\log \log n}}}).}"/></span><sup id="cite_ref-16" class="reference"><a href="#cite_note-16">&#91;13&#93;</a></sup></span>
+</li>
+<li id="cite_note-brodal-20"><span class="mw-cite-backlink"><b><a href="#cite_ref-brodal_20-0">^</a></b></span> <span class="reference-text">Brodal and Okasaki later describe a <a href="https://en.wikipedia.org/wiki/Persistent_data_structure" title="Persistent data structure">persistent</a> variant with the same bounds except for decrease-key, which is not supported.
+Heaps with <i>n</i> elements can be constructed bottom-up in <i>O</i>(<i>n</i>).<sup id="cite_ref-19" class="reference"><a href="#cite_note-19">&#91;15&#93;</a></sup></span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="Applications">Applications</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heap_(data_structure)&amp;action=edit&amp;section=5" title="Edit section: Applications">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The heap data structure has many applications.
+</p>
+<ul><li><a href="https://en.wikipedia.org/wiki/Heapsort" title="Heapsort">Heapsort</a>: One of the best sorting methods being in-place and with no quadratic worst-case scenarios.</li>
+<li><a href="https://en.wikipedia.org/wiki/Selection_algorithm" title="Selection algorithm">Selection algorithms</a>: A heap allows access to the min or max element in constant time, and other selections (such as median or kth-element) can be done in sub-linear time on data that is in a heap.<sup id="cite_ref-24" class="reference"><a href="#cite_note-24">&#91;19&#93;</a></sup></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_algorithms#Graph_algorithms" title="List of algorithms">Graph algorithms</a>: By using heaps as internal traversal data structures, run time will be reduced by polynomial order. Examples of such problems are <a href="https://en.wikipedia.org/wiki/Prim%27s_algorithm" title="Prim&#39;s algorithm">Prim's minimal-spanning-tree algorithm</a> and <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm" title="Dijkstra&#39;s algorithm">Dijkstra's shortest-path algorithm</a>.</li>
+<li><a href="https://en.wikipedia.org/wiki/Priority_Queue" class="mw-redirect" title="Priority Queue">Priority Queue</a>: A priority queue is an abstract concept like "a list" or "a map"; just as a list can be implemented with a linked list or an array, a priority queue can be implemented with a heap or a variety of other methods.</li>
+<li><a href="https://en.wikipedia.org/wiki/K-way_merge_algorithm" title="K-way merge algorithm">K-way merge</a>: A heap data structure is useful to merge many already-sorted input streams into a single sorted output stream. Examples of the need for merging include external sorting and streaming results from distributed data such as a log structured merge tree. The inner loop is obtaining the min element, replacing with the next element for the corresponding input stream, then doing a sift-down heap operation. (Alternatively the replace function.) (Using extract-max and insert functions of a priority queue are much less efficient.)</li>
+<li><a href="https://en.wikipedia.org/wiki/Order_statistics" class="mw-redirect" title="Order statistics">Order statistics</a>: The Heap data structure can be used to efficiently find the kth smallest (or largest) element in an array.</li></ul>
+<h2><span class="mw-headline" id="Programming_language_implementations">Programming language implementations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heap_(data_structure)&amp;action=edit&amp;section=6" title="Edit section: Programming language implementations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>The <a href="https://en.wikipedia.org/wiki/C++_Standard_Library" title="C++ Standard Library">C++ Standard Library</a> provides the <style data-mw-deduplicate="TemplateStyles:r886049734">.mw-parser-output .monospaced{font-family:monospace,monospace}</style><span class="monospaced">make_heap</span>, <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r886049734"/><span class="monospaced">push_heap</span> and <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r886049734"/><span class="monospaced">pop_heap</span> algorithms for heaps (usually implemented as binary heaps), which operate on arbitrary random access <a href="https://en.wikipedia.org/wiki/Iterator" title="Iterator">iterators</a>. It treats the iterators as a reference to an array, and uses the array-to-heap conversion. It also provides the container adaptor <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r886049734"/><span class="monospaced">priority_queue</span>, which wraps these facilities in a container-like class. However, there is no standard support for the replace, sift-up/sift-down, or decrease/increase-key operations.</li>
+<li>The <a href="https://en.wikipedia.org/wiki/Boost_(C++_libraries)" title="Boost (C++ libraries)">Boost C++ libraries</a> include a heaps library. Unlike the STL, it supports decrease and increase operations, and supports additional types of heap: specifically, it supports <i>d</i>-ary, binomial, Fibonacci, pairing and skew heaps.</li>
+<li>There is a <a rel="nofollow" class="external text" href="https://github.com/valyala/gheap">generic heap implementation</a> for <a href="https://en.wikipedia.org/wiki/C_(programming_language)" title="C (programming language)">C</a> and <a href="https://en.wikipedia.org/wiki/C++" title="C++">C++</a> with <a href="https://en.wikipedia.org/wiki/D-ary_heap" title="D-ary heap">D-ary heap</a> and <a href="https://en.wikipedia.org/wiki/B-heap" title="B-heap">B-heap</a> support. It provides an STL-like API.</li>
+<li>The standard library of the <a href="https://en.wikipedia.org/wiki/D_(programming_language)" title="D (programming language)">D programming language</a> includes <a rel="nofollow" class="external text" href="https://dlang.org/phobos/std_container_binaryheap.html"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r886049734"/><span class="monospaced">std.container.BinaryHeap</span></a>, which is implemented in terms of D's <a rel="nofollow" class="external text" href="https://tour.dlang.org/tour/en/basics/ranges">ranges</a>. Instances can be constructed from any <a rel="nofollow" class="external text" href="https://dlang.org/phobos/std_range_primitives.html#isRandomAccessRange">random-access range</a>. <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r886049734"/><span class="monospaced">BinaryHeap</span> exposes an <a rel="nofollow" class="external text" href="https://dlang.org/phobos/std_range_primitives.html#isInputRange">input range interface</a> that allows iteration with D's built-in <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r886049734"/><span class="monospaced">foreach</span> statements and integration with the range-based API of the <a rel="nofollow" class="external text" href="https://dlang.org/phobos/std_algorithm.html"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r886049734"/><span class="monospaced">std.algorithm</span> package</a>.</li>
+<li>The <a href="https://en.wikipedia.org/wiki/Java_(programming_language)" title="Java (programming language)">Java</a> platform (since version 1.5) provides a binary heap implementation with the class <code><a rel="nofollow" class="external text" href="https://docs.oracle.com/javase/10/docs/api/java/util/PriorityQueue.html">java.util.PriorityQueue</a></code> in the <a href="https://en.wikipedia.org/wiki/Java_Collections_Framework" class="mw-redirect" title="Java Collections Framework">Java Collections Framework</a>. This class implements by default a min-heap; to implement a max-heap, programmer should write a custom comparator. There is no support for the replace, sift-up/sift-down, or decrease/increase-key operations.</li>
+<li><a href="https://en.wikipedia.org/wiki/Python_(programming_language)" title="Python (programming language)">Python</a> has a <a rel="nofollow" class="external text" href="https://docs.python.org/library/heapq.html"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r886049734"/><span class="monospaced">heapq</span></a> module that implements a priority queue using a binary heap. The library exposes a heapreplace function to support k-way merging.</li>
+<li><a href="https://en.wikipedia.org/wiki/PHP" title="PHP">PHP</a> has both max-heap (<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r886049734"/><span class="monospaced">SplMaxHeap</span>) and min-heap (<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r886049734"/><span class="monospaced">SplMinHeap</span>) as of version 5.3 in the Standard PHP Library.</li>
+<li><a href="https://en.wikipedia.org/wiki/Perl" title="Perl">Perl</a> has implementations of binary, binomial, and Fibonacci heaps in the <a rel="nofollow" class="external text" href="https://metacpan.org/module/Heap"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r886049734"/><span class="monospaced">Heap</span></a> distribution available on <a href="https://en.wikipedia.org/wiki/CPAN" title="CPAN">CPAN</a>.</li>
+<li>The <a href="https://en.wikipedia.org/wiki/Go_(programming_language)" title="Go (programming language)">Go</a> language contains a <a rel="nofollow" class="external text" href="https://golang.org/pkg/container/heap/"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r886049734"/><span class="monospaced">heap</span></a> package with heap algorithms that operate on an arbitrary type that satisfies a given interface. That package does not support the replace, sift-up/sift-down, or decrease/increase-key operations.</li>
+<li>Apple's <a href="https://en.wikipedia.org/wiki/Core_Foundation" title="Core Foundation">Core Foundation</a> library contains a <a rel="nofollow" class="external text" href="https://developer.apple.com/library/mac/#documentation/CoreFoundation/Reference/CFBinaryHeapRef/Reference/reference.html"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r886049734"/><span class="monospaced">CFBinaryHeap</span></a> structure.</li>
+<li><a href="https://en.wikipedia.org/wiki/Pharo" title="Pharo">Pharo</a> has an implementation of a heap in the Collections-Sequenceable package along with a set of test cases. A heap is used in the implementation of the timer event loop.</li>
+<li>The <a href="https://en.wikipedia.org/wiki/Rust_(programming_language)" title="Rust (programming language)">Rust</a> programming language has a binary max-heap implementation, <a rel="nofollow" class="external text" href="https://doc.rust-lang.org/std/collections/struct.BinaryHeap.html"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r886049734"/><span class="monospaced">BinaryHeap</span></a>, in the <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r886049734"/><span class="monospaced">collections</span> module of its standard library.</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heap_(data_structure)&amp;action=edit&amp;section=7" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">Sorting algorithm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Search_data_structure" title="Search data structure">Search data structure</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)" title="Stack (abstract data type)">Stack (abstract data type)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)" title="Queue (abstract data type)">Queue (abstract data type)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" title="Tree (data structure)">Tree (data structure)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Treap" title="Treap">Treap</a>, a form of binary search tree based on heap-ordered trees</li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heap_(data_structure)&amp;action=edit&amp;section=8" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1011085734"/><div class="reflist">
+<div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFCORMEN2009" class="citation book cs1">CORMEN, THOMAS H. (2009). <i>INTRODUCTION TO ALGORITHMS</i>. United States of America: The MIT Press Cambridge, Massachusetts London, England. pp.&#160;151–152. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-262-03384-8" title="Special:BookSources/978-0-262-03384-8"><bdi>978-0-262-03384-8</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=INTRODUCTION+TO+ALGORITHMS&amp;rft.place=United+States+of+America&amp;rft.pages=151-152&amp;rft.pub=The+MIT+Press+Cambridge%2C+Massachusetts+London%2C+England&amp;rft.date=2009&amp;rft.isbn=978-0-262-03384-8&amp;rft.aulast=CORMEN&amp;rft.aufirst=THOMAS+H.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeap+%28data+structure%29" class="Z3988"></span></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text">Black (ed.), Paul E. (2004-12-14). Entry for <i>heap</i> in <i><a href="https://en.wikipedia.org/wiki/Dictionary_of_Algorithms_and_Data_Structures" class="mw-redirect" title="Dictionary of Algorithms and Data Structures">Dictionary of Algorithms and Data Structures</a></i>. Online version. U.S. <a href="https://en.wikipedia.org/wiki/National_Institute_of_Standards_and_Technology" title="National Institute of Standards and Technology">National Institute of Standards and Technology</a>, 14 December 2004. Retrieved on 2017-10-08 from <a rel="nofollow" class="external free" href="https://xlinux.nist.gov/dads/HTML/heap.html">https://xlinux.nist.gov/dads/HTML/heap.html</a>.</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFWilliams1964" class="citation cs2"><a href="https://en.wikipedia.org/wiki/J._W._J._Williams" title="J. W. J. Williams">Williams, J. W. J.</a> (1964), "Algorithm 232 - Heapsort", <i><a href="https://en.wikipedia.org/wiki/Communications_of_the_ACM" title="Communications of the ACM">Communications of the ACM</a></i>, <b>7</b> (6): 347–348, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F512274.512284">10.1145/512274.512284</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Communications+of+the+ACM&amp;rft.atitle=Algorithm+232+-+Heapsort&amp;rft.volume=7&amp;rft.issue=6&amp;rft.pages=347-348&amp;rft.date=1964&amp;rft_id=info%3Adoi%2F10.1145%2F512274.512284&amp;rft.aulast=Williams&amp;rft.aufirst=J.+W.+J.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeap+%28data+structure%29" class="Z3988"></span></span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text">The Python Standard Library, 8.4. heapq — Heap queue algorithm, <a rel="nofollow" class="external text" href="https://docs.python.org/2/library/heapq.html#heapq.heappush">heapq.heappush</a></span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text">The Python Standard Library, 8.4. heapq — Heap queue algorithm, <a rel="nofollow" class="external text" href="https://docs.python.org/2/library/heapq.html#heapq.heappop">heapq.heappop</a></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text">The Python Standard Library, 8.4. heapq — Heap queue algorithm, <a rel="nofollow" class="external text" href="https://docs.python.org/2/library/heapq.html#heapq.heapreplace">heapq.heapreplace</a></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSuchenek2012" class="citation cs2">Suchenek, Marek A. (2012), "Elementary Yet Precise Worst-Case Analysis of Floyd's Heap-Construction Program", <i>Fundamenta Informaticae</i>, IOS Press, <b>120</b> (1): 75–92, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.3233%2FFI-2012-751">10.3233/FI-2012-751</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Fundamenta+Informaticae&amp;rft.atitle=Elementary+Yet+Precise+Worst-Case+Analysis+of+Floyd%27s+Heap-Construction+Program&amp;rft.volume=120&amp;rft.issue=1&amp;rft.pages=75-92&amp;rft.date=2012&amp;rft_id=info%3Adoi%2F10.3233%2FFI-2012-751&amp;rft.aulast=Suchenek&amp;rft.aufirst=Marek+A.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeap+%28data+structure%29" class="Z3988"></span>.</span>
+</li>
+<li id="cite_note-CLRS-9"><span class="mw-cite-backlink">^ <a href="#cite_ref-CLRS_9-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-CLRS_9-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-CLRS_9-2"><sup><i><b>c</b></i></sup></a> <a href="#cite_ref-CLRS_9-3"><sup><i><b>d</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCormenLeisersonRivest1990" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Cormen, Thomas H.</a>; <a href="https://en.wikipedia.org/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Leiserson, Charles E.</a>; <a href="https://en.wikipedia.org/wiki/Ron_Rivest" title="Ron Rivest">Rivest, Ronald L.</a> (1990). <a href="https://en.wikipedia.org/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms"><i>Introduction to Algorithms</i></a> (1st&#160;ed.). MIT Press and McGraw-Hill. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-262-03141-8" title="Special:BookSources/0-262-03141-8"><bdi>0-262-03141-8</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Introduction+to+Algorithms&amp;rft.edition=1st&amp;rft.pub=MIT+Press+and+McGraw-Hill&amp;rft.date=1990&amp;rft.isbn=0-262-03141-8&amp;rft.aulast=Cormen&amp;rft.aufirst=Thomas+H.&amp;rft.au=Leiserson%2C+Charles+E.&amp;rft.au=Rivest%2C+Ronald+L.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeap+%28data+structure%29" class="Z3988"></span></span>
+</li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://brilliant.org/wiki/binomial-heap/">"Binomial Heap | Brilliant Math &amp; Science Wiki"</a>. <i>brilliant.org</i><span class="reference-accessdate">. Retrieved <span class="nowrap">2019-09-30</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=brilliant.org&amp;rft.atitle=Binomial+Heap+%7C+Brilliant+Math+%26+Science+Wiki&amp;rft_id=https%3A%2F%2Fbrilliant.org%2Fwiki%2Fbinomial-heap%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeap+%28data+structure%29" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Fredman_And_Tarjan-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-Fredman_And_Tarjan_13-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFFredmanTarjan1987" class="citation journal cs1"><a href="https://en.wikipedia.org/wiki/Michael_Fredman" title="Michael Fredman">Fredman, Michael Lawrence</a>; <a href="https://en.wikipedia.org/wiki/Robert_Tarjan" title="Robert Tarjan">Tarjan, Robert E.</a> (July 1987). <a rel="nofollow" class="external text" href="http://bioinfo.ict.ac.cn/~dbu/AlgorithmCourses/Lectures/Fibonacci-Heap-Tarjan.pdf">"Fibonacci heaps and their uses in improved network optimization algorithms"</a> <span class="cs1-format">(PDF)</span>. <i><a href="https://en.wikipedia.org/wiki/Journal_of_the_Association_for_Computing_Machinery" class="mw-redirect" title="Journal of the Association for Computing Machinery">Journal of the Association for Computing Machinery</a></i>. <b>34</b> (3): 596–615. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.309.8927">10.1.1.309.8927</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F28869.28874">10.1145/28869.28874</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+the+Association+for+Computing+Machinery&amp;rft.atitle=Fibonacci+heaps+and+their+uses+in+improved+network+optimization+algorithms&amp;rft.volume=34&amp;rft.issue=3&amp;rft.pages=596-615&amp;rft.date=1987-07&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.309.8927%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1145%2F28869.28874&amp;rft.aulast=Fredman&amp;rft.aufirst=Michael+Lawrence&amp;rft.au=Tarjan%2C+Robert+E.&amp;rft_id=http%3A%2F%2Fbioinfo.ict.ac.cn%2F~dbu%2FAlgorithmCourses%2FLectures%2FFibonacci-Heap-Tarjan.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeap+%28data+structure%29" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Iacono-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-Iacono_14-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFIacono2000" class="citation cs2"><a href="https://en.wikipedia.org/wiki/John_Iacono" title="John Iacono">Iacono, John</a> (2000), "Improved upper bounds for pairing heaps", <a rel="nofollow" class="external text" href="http://john2.poly.edu/papers/swat00/paper.pdf"><i>Proc. 7th Scandinavian Workshop on Algorithm Theory</i></a> <span class="cs1-format">(PDF)</span>, Lecture Notes in Computer Science, vol.&#160;1851, Springer-Verlag, pp.&#160;63–77, <a href="https://en.wikipedia.org/wiki/ArXiv_(identifier)" class="mw-redirect" title="ArXiv (identifier)">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://arxiv.org/abs/1110.4428">1110.4428</a></span>, <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.748.7812">10.1.1.748.7812</a></span>, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F3-540-44985-X_5">10.1007/3-540-44985-X_5</a>, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/3-540-67690-2" title="Special:BookSources/3-540-67690-2"><bdi>3-540-67690-2</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Improved+upper+bounds+for+pairing+heaps&amp;rft.btitle=Proc.+7th+Scandinavian+Workshop+on+Algorithm+Theory&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=63-77&amp;rft.pub=Springer-Verlag&amp;rft.date=2000&amp;rft_id=info%3Aarxiv%2F1110.4428&amp;rft_id=info%3Adoi%2F10.1007%2F3-540-44985-X_5&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.748.7812%23id-name%3DCiteSeerX&amp;rft.isbn=3-540-67690-2&amp;rft.aulast=Iacono&amp;rft.aufirst=John&amp;rft_id=http%3A%2F%2Fjohn2.poly.edu%2Fpapers%2Fswat00%2Fpaper.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeap+%28data+structure%29" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Fredman1999-15"><span class="mw-cite-backlink"><b><a href="#cite_ref-Fredman1999_15-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFFredman1999" class="citation journal cs1"><a href="https://en.wikipedia.org/wiki/Michael_Fredman" title="Michael Fredman">Fredman, Michael Lawrence</a> (July 1999). <a rel="nofollow" class="external text" href="http://www.uqac.ca/azinflou/Fichiers840/EfficiencyPairingHeap.pdf">"On the Efficiency of Pairing Heaps and Related Data Structures"</a> <span class="cs1-format">(PDF)</span>. <i><a href="https://en.wikipedia.org/wiki/Journal_of_the_Association_for_Computing_Machinery" class="mw-redirect" title="Journal of the Association for Computing Machinery">Journal of the Association for Computing Machinery</a></i>. <b>46</b> (4): 473–501. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F320211.320214">10.1145/320211.320214</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+the+Association+for+Computing+Machinery&amp;rft.atitle=On+the+Efficiency+of+Pairing+Heaps+and+Related+Data+Structures&amp;rft.volume=46&amp;rft.issue=4&amp;rft.pages=473-501&amp;rft.date=1999-07&amp;rft_id=info%3Adoi%2F10.1145%2F320211.320214&amp;rft.aulast=Fredman&amp;rft.aufirst=Michael+Lawrence&amp;rft_id=http%3A%2F%2Fwww.uqac.ca%2Fazinflou%2FFichiers840%2FEfficiencyPairingHeap.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeap+%28data+structure%29" class="Z3988"></span></span>
+</li>
+<li id="cite_note-16"><span class="mw-cite-backlink"><b><a href="#cite_ref-16">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFPettie2005" class="citation conference cs1">Pettie, Seth (2005). <a rel="nofollow" class="external text" href="http://web.eecs.umich.edu/~pettie/papers/focs05.pdf"><i>Towards a Final Analysis of Pairing Heaps</i></a> <span class="cs1-format">(PDF)</span>. FOCS '05 Proceedings of the 46th Annual IEEE Symposium on Foundations of Computer Science. pp.&#160;174–183. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.549.471">10.1.1.549.471</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FSFCS.2005.75">10.1109/SFCS.2005.75</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-7695-2468-0" title="Special:BookSources/0-7695-2468-0"><bdi>0-7695-2468-0</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Towards+a+Final+Analysis+of+Pairing+Heaps&amp;rft.pages=174-183&amp;rft.date=2005&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.549.471%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1109%2FSFCS.2005.75&amp;rft.isbn=0-7695-2468-0&amp;rft.aulast=Pettie&amp;rft.aufirst=Seth&amp;rft_id=http%3A%2F%2Fweb.eecs.umich.edu%2F~pettie%2Fpapers%2Ffocs05.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeap+%28data+structure%29" class="Z3988"></span></span>
+</li>
+<li id="cite_note-18"><span class="mw-cite-backlink"><b><a href="#cite_ref-18">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBrodal1996" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Gerth_Stølting_Brodal" title="Gerth Stølting Brodal">Brodal, Gerth S.</a> (1996), <a rel="nofollow" class="external text" href="http://www.cs.au.dk/~gerth/papers/soda96.pdf">"Worst-Case Efficient Priority Queues"</a> <span class="cs1-format">(PDF)</span>, <i>Proc. 7th Annual ACM-SIAM Symposium on Discrete Algorithms</i>, pp.&#160;52–58</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Worst-Case+Efficient+Priority+Queues&amp;rft.btitle=Proc.+7th+Annual+ACM-SIAM+Symposium+on+Discrete+Algorithms&amp;rft.pages=52-58&amp;rft.date=1996&amp;rft.aulast=Brodal&amp;rft.aufirst=Gerth+S.&amp;rft_id=http%3A%2F%2Fwww.cs.au.dk%2F~gerth%2Fpapers%2Fsoda96.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeap+%28data+structure%29" class="Z3988"></span></span>
+</li>
+<li id="cite_note-19"><span class="mw-cite-backlink"><b><a href="#cite_ref-19">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGoodrichTamassia2004" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Michael_T._Goodrich" title="Michael T. Goodrich">Goodrich, Michael T.</a>; <a href="https://en.wikipedia.org/wiki/Roberto_Tamassia" title="Roberto Tamassia">Tamassia, Roberto</a> (2004). "7.3.6. Bottom-Up Heap Construction". <i>Data Structures and Algorithms in Java</i> (3rd&#160;ed.). pp.&#160;338–341. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-471-46983-1" title="Special:BookSources/0-471-46983-1"><bdi>0-471-46983-1</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=7.3.6.+Bottom-Up+Heap+Construction&amp;rft.btitle=Data+Structures+and+Algorithms+in+Java&amp;rft.pages=338-341&amp;rft.edition=3rd&amp;rft.date=2004&amp;rft.isbn=0-471-46983-1&amp;rft.aulast=Goodrich&amp;rft.aufirst=Michael+T.&amp;rft.au=Tamassia%2C+Roberto&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeap+%28data+structure%29" class="Z3988"></span></span>
+</li>
+<li id="cite_note-21"><span class="mw-cite-backlink"><b><a href="#cite_ref-21">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHaeuplerSenTarjan2011" class="citation journal cs1">Haeupler, Bernhard; Sen, Siddhartha; <a href="https://en.wikipedia.org/wiki/Robert_Tarjan" title="Robert Tarjan">Tarjan, Robert E.</a> (November 2011). <a rel="nofollow" class="external text" href="http://sidsen.org/papers/rp-heaps-journal.pdf">"Rank-pairing heaps"</a> <span class="cs1-format">(PDF)</span>. <i>SIAM J. Computing</i>. <b>40</b> (6): 1463–1485. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1137%2F100785351">10.1137/100785351</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=SIAM+J.+Computing&amp;rft.atitle=Rank-pairing+heaps&amp;rft.volume=40&amp;rft.issue=6&amp;rft.pages=1463-1485&amp;rft.date=2011-11&amp;rft_id=info%3Adoi%2F10.1137%2F100785351&amp;rft.aulast=Haeupler&amp;rft.aufirst=Bernhard&amp;rft.au=Sen%2C+Siddhartha&amp;rft.au=Tarjan%2C+Robert+E.&amp;rft_id=http%3A%2F%2Fsidsen.org%2Fpapers%2Frp-heaps-journal.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeap+%28data+structure%29" class="Z3988"></span></span>
+</li>
+<li id="cite_note-22"><span class="mw-cite-backlink"><b><a href="#cite_ref-22">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBrodalLagogiannisTarjan2012" class="citation conference cs1"><a href="https://en.wikipedia.org/wiki/Gerth_Stølting_Brodal" title="Gerth Stølting Brodal">Brodal, Gerth Stølting</a>; Lagogiannis, George; <a href="https://en.wikipedia.org/wiki/Robert_Tarjan" title="Robert Tarjan">Tarjan, Robert E.</a> (2012). <a rel="nofollow" class="external text" href="http://www.cs.au.dk/~gerth/papers/stoc12.pdf"><i>Strict Fibonacci heaps</i></a> <span class="cs1-format">(PDF)</span>. Proceedings of the 44th symposium on Theory of Computing - STOC '12. pp.&#160;1177–1184. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.233.1740">10.1.1.233.1740</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F2213977.2214082">10.1145/2213977.2214082</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-1-4503-1245-5" title="Special:BookSources/978-1-4503-1245-5"><bdi>978-1-4503-1245-5</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Strict+Fibonacci+heaps&amp;rft.pages=1177-1184&amp;rft.date=2012&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.233.1740%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1145%2F2213977.2214082&amp;rft.isbn=978-1-4503-1245-5&amp;rft.aulast=Brodal&amp;rft.aufirst=Gerth+St%C3%B8lting&amp;rft.au=Lagogiannis%2C+George&amp;rft.au=Tarjan%2C+Robert+E.&amp;rft_id=http%3A%2F%2Fwww.cs.au.dk%2F~gerth%2Fpapers%2Fstoc12.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeap+%28data+structure%29" class="Z3988"></span></span>
+</li>
+<li id="cite_note-23"><span class="mw-cite-backlink"><b><a href="#cite_ref-23">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFTakaoka1999" class="citation cs2"><a href="https://en.wikipedia.org/w/index.php?title=Tadao_Takaoka&amp;action=edit&amp;redlink=1" class="new" title="Tadao Takaoka (page does not exist)">Takaoka, Tadao</a> (1999), <a rel="nofollow" class="external text" href="https://ir.canterbury.ac.nz/bitstream/handle/10092/14769/2-3heaps.pdf"><i>Theory of 2–3 Heaps</i></a> <span class="cs1-format">(PDF)</span>, p.&#160;12</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Theory+of+2%E2%80%933+Heaps&amp;rft.pages=12&amp;rft.date=1999&amp;rft.aulast=Takaoka&amp;rft.aufirst=Tadao&amp;rft_id=https%3A%2F%2Fir.canterbury.ac.nz%2Fbitstream%2Fhandle%2F10092%2F14769%2F2-3heaps.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeap+%28data+structure%29" class="Z3988"></span></span>
+</li>
+<li id="cite_note-24"><span class="mw-cite-backlink"><b><a href="#cite_ref-24">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFFrederickson1993" class="citation cs2">Frederickson, Greg N. (1993), "An Optimal Algorithm for Selection in a Min-Heap", <a rel="nofollow" class="external text" href="https://web.archive.org/web/20121203045606/http://ftp.cs.purdue.edu/research/technical_reports/1991/TR 91-027.pdf"><i>Information and Computation</i></a> <span class="cs1-format">(PDF)</span>, vol.&#160;104, Academic Press, pp.&#160;197–214, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1006%2Finco.1993.1030">10.1006/inco.1993.1030</a></span>, archived from <a rel="nofollow" class="external text" href="http://ftp.cs.purdue.edu/research/technical_reports/1991/TR 91-027.pdf">the original</a> <span class="cs1-format">(PDF)</span> on 2012-12-03<span class="reference-accessdate">, retrieved <span class="nowrap">2010-10-31</span></span></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=An+Optimal+Algorithm+for+Selection+in+a+Min-Heap&amp;rft.btitle=Information+and+Computation&amp;rft.pages=197-214&amp;rft.pub=Academic+Press&amp;rft.date=1993&amp;rft_id=info%3Adoi%2F10.1006%2Finco.1993.1030&amp;rft.aulast=Frederickson&amp;rft.aufirst=Greg+N.&amp;rft_id=http%3A%2F%2Fftp.cs.purdue.edu%2Fresearch%2Ftechnical_reports%2F1991%2FTR%252091-027.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeap+%28data+structure%29" class="Z3988"></span></span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Heap_(data_structure)&amp;action=edit&amp;section=9" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table role="presentation" class="mbox-small plainlinks sistersitebox" style="background-color:#f9f9f9;border:1px solid #aaa;color:#000">
+<tbody><tr>
+<td class="mbox-image"><img alt="" src="http://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/30px-Commons-logo.svg.png" decoding="async" width="30" height="40" class="noviewer" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/45px-Commons-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/59px-Commons-logo.svg.png 2x" data-file-width="1024" data-file-height="1376" /></td>
+<td class="mbox-text plainlist">Wikimedia Commons has media related to <span style="font-weight: bold; font-style: italic;"><a href="https://commons.wikimedia.org/wiki/Category:Heap_data_structures" class="extiw" title="commons:Category:Heap data structures">Heap data structures</a></span>.</td></tr>
+</tbody></table>
+<table role="presentation" class="mbox-small plainlinks sistersitebox" style="background-color:#f9f9f9;border:1px solid #aaa;color:#000">
+<tbody><tr>
+<td class="mbox-image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Wikibooks-logo-en-noslogan.svg/40px-Wikibooks-logo-en-noslogan.svg.png" decoding="async" width="40" height="40" class="noviewer" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/df/Wikibooks-logo-en-noslogan.svg/60px-Wikibooks-logo-en-noslogan.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/df/Wikibooks-logo-en-noslogan.svg/80px-Wikibooks-logo-en-noslogan.svg.png 2x" data-file-width="400" data-file-height="400" /></td>
+<td class="mbox-text plainlist">The Wikibook <i><a href="https://en.wikibooks.org/wiki/Data_Structures" class="extiw" title="wikibooks:Data Structures">Data Structures</a></i> has a page on the topic of: <i><b><a href="https://en.wikibooks.org/wiki/Data_Structures/Min_and_Max_Heaps" class="extiw" title="wikibooks:Data Structures/Min and Max Heaps">Min and Max Heaps</a></b></i></td></tr>
+</tbody></table>
+<ul><li><a rel="nofollow" class="external text" href="http://mathworld.wolfram.com/Heap.html">Heap</a> at Wolfram MathWorld</li>
+<li><a rel="nofollow" class="external text" href="https://www.cs.auckland.ac.nz/software/AlgAnim/heaps.html">Explanation</a> of how the basic heap algorithms work</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBentley2000" class="citation book cs1">Bentley, Jon Louis (2000). <i>Programming Pearls</i> (2nd&#160;ed.). Addison Wesley. pp.&#160;147–162. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0201657880" title="Special:BookSources/0201657880"><bdi>0201657880</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Programming+Pearls&amp;rft.pages=147-162&amp;rft.edition=2nd&amp;rft.pub=Addison+Wesley&amp;rft.date=2000&amp;rft.isbn=0201657880&amp;rft.aulast=Bentley&amp;rft.aufirst=Jon+Louis&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AHeap+%28data+structure%29" class="Z3988"></span></li></ul>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Tree_data_structures" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:CS_trees" title="Template:CS trees"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:CS_trees" title="Template talk:CS trees"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:CS_trees&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Tree_data_structures" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" title="Tree (data structure)">Tree data structures</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Search_tree" title="Search tree">Search trees</a><br />(<a href="https://en.wikipedia.org/wiki/Set_(abstract_data_type)" title="Set (abstract data type)">dynamic sets</a>/<a href="https://en.wikipedia.org/wiki/Associative_array" title="Associative array">associative arrays</a>)</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/2–3_tree" title="2–3 tree">2–3</a></li>
+<li><a href="https://en.wikipedia.org/wiki/2–3–4_tree" title="2–3–4 tree">2–3–4</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AA_tree" title="AA tree">AA</a></li>
+<li><a href="https://en.wikipedia.org/wiki/(a,b)-tree" title="(a,b)-tree">(a,b)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AVL_tree" title="AVL tree">AVL</a></li>
+<li><a href="https://en.wikipedia.org/wiki/B-tree" title="B-tree">B</a></li>
+<li><a href="https://en.wikipedia.org/wiki/B+_tree" title="B+ tree">B+</a></li>
+<li><a href="https://en.wikipedia.org/wiki/B*-tree" class="mw-redirect" title="B*-tree">B*</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bx-tree" title="Bx-tree">B<sup>x</sup></a></li>
+<li>(<a href="https://en.wikipedia.org/wiki/Optimal_binary_search_tree" title="Optimal binary search tree">Optimal</a>)&#160;<a href="https://en.wikipedia.org/wiki/Binary_search_tree" title="Binary search tree">Binary search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dancing_tree" title="Dancing tree">Dancing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/HTree" title="HTree">HTree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interval_tree" title="Interval tree">Interval</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Order_statistic_tree" title="Order statistic tree">Order statistic</a></li>
+<li>(<a href="https://en.wikipedia.org/wiki/Left-leaning_red–black_tree" title="Left-leaning red–black tree">Left-leaning</a>)&#160;<a href="https://en.wikipedia.org/wiki/Red–black_tree" title="Red–black tree">Red–black</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Scapegoat_tree" title="Scapegoat tree">Scapegoat</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Splay_tree" title="Splay tree">Splay</a></li>
+<li><a href="https://en.wikipedia.org/wiki/T-tree" title="T-tree">T</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Treap" title="Treap">Treap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/UB-tree" title="UB-tree">UB</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Weight-balanced_tree" title="Weight-balanced tree">Weight-balanced</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a class="mw-selflink selflink">Heaps</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Binary_heap" title="Binary heap">Binary</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binomial_heap" title="Binomial heap">Binomial</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Brodal_queue" title="Brodal queue">Brodal</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Leftist_tree" title="Leftist tree">Leftist</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pairing_heap" title="Pairing heap">Pairing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Skew_heap" title="Skew heap">Skew</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Van_Emde_Boas_tree" title="Van Emde Boas tree">van Emde Boas</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Weak_heap" title="Weak heap">Weak</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Trie" title="Trie">Tries</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Ctrie" title="Ctrie">Ctrie</a></li>
+<li><a href="https://en.wikipedia.org/wiki/C-trie" title="C-trie">C-trie (compressed ADT)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hash_tree_(persistent_data_structure)" title="Hash tree (persistent data structure)">Hash</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Radix_tree" title="Radix tree">Radix</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Suffix_tree" title="Suffix tree">Suffix</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ternary_search_tree" title="Ternary search tree">Ternary search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X-fast_trie" title="X-fast trie">X-fast</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Y-fast_trie" title="Y-fast trie">Y-fast</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Spatial_index" class="mw-redirect" title="Spatial index">Spatial</a> data partitioning trees</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Ball_tree" title="Ball tree">Ball</a></li>
+<li><a href="https://en.wikipedia.org/wiki/BK-tree" title="BK-tree">BK</a></li>
+<li><a href="https://en.wikipedia.org/wiki/BSP_tree" class="mw-redirect" title="BSP tree">BSP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cartesian_tree" title="Cartesian tree">Cartesian</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hilbert_R-tree" title="Hilbert R-tree">Hilbert R</a></li>
+<li><a href="https://en.wikipedia.org/wiki/K-d_tree" title="K-d tree"><i>k</i>-d</a> (<a href="https://en.wikipedia.org/wiki/Implicit_k-d_tree" title="Implicit k-d tree">implicit <i>k</i>-d</a>)</li>
+<li><a href="https://en.wikipedia.org/wiki/M-tree" title="M-tree">M</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Metric_tree" title="Metric tree">Metric</a></li>
+<li><a href="https://en.wikipedia.org/wiki/MVP_tree" class="mw-redirect" title="MVP tree">MVP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Octree" title="Octree">Octree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/PH-tree" title="PH-tree">PH</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Priority_R-tree" title="Priority R-tree">Priority R</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quadtree" title="Quadtree">Quad</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R-tree" title="R-tree">R</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R+_tree" title="R+ tree">R+</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R*_tree" class="mw-redirect" title="R* tree">R*</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Segment_tree" title="Segment tree">Segment</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Vantage-point_tree" title="Vantage-point tree">VP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X-tree" title="X-tree">X</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Other trees</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Cover_tree" title="Cover tree">Cover</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Exponential_tree" title="Exponential tree">Exponential</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fenwick_tree" title="Fenwick tree">Fenwick</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Finger_tree" title="Finger tree">Finger</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fractal_tree_index" title="Fractal tree index">Fractal tree index</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fusion_tree" title="Fusion tree">Fusion</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hash_calendar" title="Hash calendar">Hash calendar</a></li>
+<li><a href="https://en.wikipedia.org/wiki/IDistance" title="IDistance">iDistance</a></li>
+<li><a href="https://en.wikipedia.org/wiki/K-ary_tree" class="mw-redirect" title="K-ary tree">K-ary</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Left-child_right-sibling_binary_tree" title="Left-child right-sibling binary tree">Left-child right-sibling</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Link/cut_tree" title="Link/cut tree">Link/cut</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Log-structured_merge-tree" title="Log-structured merge-tree">Log-structured merge</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Merkle_tree" title="Merkle tree">Merkle</a></li>
+<li><a href="https://en.wikipedia.org/wiki/PQ_tree" title="PQ tree">PQ</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Range_tree" title="Range tree">Range</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SPQR_tree" title="SPQR tree">SPQR</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Top_tree" title="Top tree">Top</a></li></ul>
+</div></td></tr></tbody></table></div>
+<div class="navbox-styles nomobile"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1061467846"/></div><div role="navigation" class="navbox" aria-labelledby="Well-known_data_structures" style="padding:3px"><table class="nowraplinks hlist mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1063604349"/><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Data_structures" title="Template:Data structures"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Data_structures" title="Template talk:Data structures"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Data_structures&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Well-known_data_structures" style="font-size:114%;margin:0 4em">Well-known <a href="https://en.wikipedia.org/wiki/Data_structure" title="Data structure">data structures</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Types</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Collection_(abstract_data_type)" title="Collection (abstract data type)">Collection</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Container_(abstract_data_type)" title="Container (abstract data type)">Container</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Abstract_data_type" title="Abstract data type">Abstract</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Associative_array" title="Associative array">Associative array</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Multimap" title="Multimap">Multimap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Retrieval_Data_Structure" title="Retrieval Data Structure">Retrieval Data Structure</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/List_(abstract_data_type)" title="List (abstract data type)">List</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)" title="Stack (abstract data type)">Stack</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)" title="Queue (abstract data type)">Queue</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Double-ended_queue" title="Double-ended queue">Double-ended queue</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Priority_queue" title="Priority queue">Priority queue</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Double-ended_priority_queue" title="Double-ended priority queue">Double-ended priority queue</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Set_(abstract_data_type)" title="Set (abstract data type)">Set</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Set_(abstract_data_type)#Multiset" title="Set (abstract data type)">Multiset</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Disjoint-set_data_structure" title="Disjoint-set data structure">Disjoint-set</a></li></ul></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Array_data_structure" title="Array data structure">Arrays</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Bit_array" title="Bit array">Bit array</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Circular_buffer" title="Circular buffer">Circular buffer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dynamic_array" title="Dynamic array">Dynamic array</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hash_table" title="Hash table">Hash table</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hashed_array_tree" title="Hashed array tree">Hashed array tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sparse_matrix" title="Sparse matrix">Sparse matrix</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Linked_data_structure" title="Linked data structure">Linked</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Association_list" title="Association list">Association list</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Linked_list" title="Linked list">Linked list</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Skip_list" title="Skip list">Skip list</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Unrolled_linked_list" title="Unrolled linked list">Unrolled linked list</a></li>
+<li><a href="https://en.wikipedia.org/wiki/XOR_linked_list" title="XOR linked list">XOR linked list</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" title="Tree (data structure)">Trees</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/B-tree" title="B-tree">B-tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binary_search_tree" title="Binary search tree">Binary search tree</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/AA_tree" title="AA tree">AA tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AVL_tree" title="AVL tree">AVL tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Red–black_tree" title="Red–black tree">Red–black tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree" title="Self-balancing binary search tree">Self-balancing tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Splay_tree" title="Splay tree">Splay tree</a></li></ul></li>
+<li><a class="mw-selflink selflink">Heap</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Binary_heap" title="Binary heap">Binary heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binomial_heap" title="Binomial heap">Binomial heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci heap</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/R-tree" title="R-tree">R-tree</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/R*_tree" class="mw-redirect" title="R* tree">R* tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R+_tree" title="R+ tree">R+ tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hilbert_R-tree" title="Hilbert R-tree">Hilbert R-tree</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Trie" title="Trie">Trie</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Hash_tree_(persistent_data_structure)" title="Hash tree (persistent data structure)">Hash tree</a></li></ul></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Graph_(abstract_data_type)" title="Graph (abstract data type)">Graphs</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Binary_decision_diagram" title="Binary decision diagram">Binary decision diagram</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph" title="Directed acyclic graph">Directed acyclic graph</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Deterministic_acyclic_finite_state_automaton" title="Deterministic acyclic finite state automaton">Directed acyclic word graph</a></li></ul>
+</div></td></tr><tr><td class="navbox-abovebelow" colspan="2"><div>
+<ul><li><a href="https://en.wikipedia.org/wiki/List_of_data_structures" title="List of data structures">List of data structures</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1441
+Cached time: 20220501142714
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.528 seconds
+Real time usage: 0.664 seconds
+Preprocessor visited node count: 2598/1000000
+Post‐expand include size: 73499/2097152 bytes
+Template argument size: 3667/2097152 bytes
+Highest expansion depth: 13/100
+Expensive parser function count: 1/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 66656/5000000 bytes
+Lua time usage: 0.243/10.000 seconds
+Lua memory usage: 5416622/52428800 bytes
+Number of Wikibase entities loaded: 1/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  489.673      1 -total
+ 43.76%  214.277      2 Template:Reflist
+ 19.16%   93.800      4 Template:Cite_book
+ 13.79%   67.503      2 Template:Navbox
+ 13.76%   67.380      1 Template:Short_description
+ 13.24%   64.829      1 Template:CS-Trees
+  8.80%   43.073      1 Template:Heap_Running_Times
+  8.07%   39.499      1 Template:Pagetype
+  7.02%   34.396      2 Template:Sister_project
+  6.75%   33.042      6 Template:Citation
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:13996-0!canonical and timestamp 20220501142713 and revision id 1076478457. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Heap_(data_structure)&amp;oldid=1076478457">https://en.wikipedia.org/w/index.php?title=Heap_(data_structure)&amp;oldid=1076478457</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Heaps_(data_structures)" title="Category:Heaps (data structures)">Heaps (data structures)</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_is_different_from_Wikidata" title="Category:Short description is different from Wikidata">Short description is different from Wikidata</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Commons_category_link_is_on_Wikidata" title="Category:Commons category link is on Wikidata">Commons category link is on Wikidata</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Heap+%28data+structure%29" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Heap+%28data+structure%29" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Heap_(data_structure)" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Heap_(data_structure)"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Heap_(data_structure)&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Heap_(data_structure)&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Heap_(data_structure)" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Heap_(data_structure)" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Heap_(data_structure)&amp;oldid=1076478457" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Heap_(data_structure)&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Heap_%28data_structure%29&amp;id=1076478457&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q274089" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Heap_%28data_structure%29&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Heap_(data_structure)&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-wikibase-otherprojects" class="mw-portlet mw-portlet-wikibase-otherprojects vector-menu vector-menu-portal portal" aria-labelledby="p-wikibase-otherprojects-label" role="navigation" 
+	 >
+	<label id="p-wikibase-otherprojects-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">In other projects</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="wb-otherproject-link wb-otherproject-commons mw-list-item"><a href="https://commons.wikimedia.org/wiki/Category:Heap_data_structures" hreflang="en"><span>Wikimedia Commons</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-ar mw-list-item"><a href="https://ar.wikipedia.org/wiki/الكومة_(بنية_معطيات)" title="الكومة (بنية معطيات) – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target"><span>العربية</span></a></li><li class="interlanguage-link interwiki-az mw-list-item"><a href="https://az.wikipedia.org/wiki/Qalaq_(verilənlər_strukturu)" title="Qalaq (verilənlər strukturu) – Azerbaijani" lang="az" hreflang="az" class="interlanguage-link-target"><span>Azərbaycanca</span></a></li><li class="interlanguage-link interwiki-cs mw-list-item"><a href="https://cs.wikipedia.org/wiki/Halda_(datová_struktura)" title="Halda (datová struktura) – Czech" lang="cs" hreflang="cs" class="interlanguage-link-target"><span>Čeština</span></a></li><li class="interlanguage-link interwiki-da mw-list-item"><a href="https://da.wikipedia.org/wiki/Hob_(datastruktur)" title="Hob (datastruktur) – Danish" lang="da" hreflang="da" class="interlanguage-link-target"><span>Dansk</span></a></li><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Heap_(Datenstruktur)" title="Heap (Datenstruktur) – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-et mw-list-item"><a href="https://et.wikipedia.org/wiki/Kuhi_(informaatika)" title="Kuhi (informaatika) – Estonian" lang="et" hreflang="et" class="interlanguage-link-target"><span>Eesti</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Montículo_(informática)" title="Montículo (informática) – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/هرم_(ساختمان_داده)" title="هرم (ساختمان داده) – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Tas_(informatique)" title="Tas (informatique) – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-ko mw-list-item"><a href="https://ko.wikipedia.org/wiki/힙_(자료_구조)" title="힙 (자료 구조) – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target"><span>한국어</span></a></li><li class="interlanguage-link interwiki-hi mw-list-item"><a href="https://hi.wikipedia.org/wiki/हीप" title="हीप – Hindi" lang="hi" hreflang="hi" class="interlanguage-link-target"><span>हिन्दी</span></a></li><li class="interlanguage-link interwiki-id mw-list-item"><a href="https://id.wikipedia.org/wiki/Heap_(struktur_data)" title="Heap (struktur data) – Indonesian" lang="id" hreflang="id" class="interlanguage-link-target"><span>Bahasa Indonesia</span></a></li><li class="interlanguage-link interwiki-is mw-list-item"><a href="https://is.wikipedia.org/wiki/Hrúga_(tölvunarfræði)" title="Hrúga (tölvunarfræði) – Icelandic" lang="is" hreflang="is" class="interlanguage-link-target"><span>Íslenska</span></a></li><li class="interlanguage-link interwiki-it mw-list-item"><a href="https://it.wikipedia.org/wiki/Heap_(struttura_dati)" title="Heap (struttura dati) – Italian" lang="it" hreflang="it" class="interlanguage-link-target"><span>Italiano</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/ערימה" title="ערימה – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-la mw-list-item"><a href="https://la.wikipedia.org/wiki/Cumulus_(scientia_computatralis)" title="Cumulus (scientia computatralis) – Latin" lang="la" hreflang="la" class="interlanguage-link-target"><span>Latina</span></a></li><li class="interlanguage-link interwiki-lt mw-list-item"><a href="https://lt.wikipedia.org/wiki/Krūva" title="Krūva – Lithuanian" lang="lt" hreflang="lt" class="interlanguage-link-target"><span>Lietuvių</span></a></li><li class="interlanguage-link interwiki-lmo mw-list-item"><a href="https://lmo.wikipedia.org/wiki/Heap" title="Heap – Lombard" lang="lmo" hreflang="lmo" class="interlanguage-link-target"><span>Lombard</span></a></li><li class="interlanguage-link interwiki-hu mw-list-item"><a href="https://hu.wikipedia.org/wiki/Kupac_(adatszerkezet)" title="Kupac (adatszerkezet) – Hungarian" lang="hu" hreflang="hu" class="interlanguage-link-target"><span>Magyar</span></a></li><li class="interlanguage-link interwiki-ml mw-list-item"><a href="https://ml.wikipedia.org/wiki/ഹീപ്_(ഡാറ്റാ_സ്ട്രക്‌ച്ചർ)" title="ഹീപ് (ഡാറ്റാ സ്ട്രക്‌ച്ചർ) – Malayalam" lang="ml" hreflang="ml" class="interlanguage-link-target"><span>മലയാളം</span></a></li><li class="interlanguage-link interwiki-nl mw-list-item"><a href="https://nl.wikipedia.org/wiki/Heap" title="Heap – Dutch" lang="nl" hreflang="nl" class="interlanguage-link-target"><span>Nederlands</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/ヒープ" title="ヒープ – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-no mw-list-item"><a href="https://no.wikipedia.org/wiki/Heap" title="Heap – Norwegian Bokmål" lang="nb" hreflang="nb" class="interlanguage-link-target"><span>Norsk bokmål</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Kopiec_(informatyka)" title="Kopiec (informatyka) – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/Heap" title="Heap – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Куча_(структура_данных)" title="Куча (структура данных) – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-simple mw-list-item"><a href="https://simple.wikipedia.org/wiki/Heap_(data_structure)" title="Heap (data structure) – Simple English" lang="en-simple" hreflang="en-simple" class="interlanguage-link-target"><span>Simple English</span></a></li><li class="interlanguage-link interwiki-sk mw-list-item"><a href="https://sk.wikipedia.org/wiki/Halda_(dátová_štruktúra)" title="Halda (dátová štruktúra) – Slovak" lang="sk" hreflang="sk" class="interlanguage-link-target"><span>Slovenčina</span></a></li><li class="interlanguage-link interwiki-sl mw-list-item"><a href="https://sl.wikipedia.org/wiki/Kopica" title="Kopica – Slovenian" lang="sl" hreflang="sl" class="interlanguage-link-target"><span>Slovenščina</span></a></li><li class="interlanguage-link interwiki-ckb mw-list-item"><a href="https://ckb.wikipedia.org/wiki/ھیپ_(پێکھاتەی_دراوە)" title="ھیپ (پێکھاتەی دراوە) – Central Kurdish" lang="ckb" hreflang="ckb" class="interlanguage-link-target"><span>کوردی</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/Hip_(struktura_podataka)" title="Hip (struktura podataka) – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-fi mw-list-item"><a href="https://fi.wikipedia.org/wiki/Keko_(tietorakenne)" title="Keko (tietorakenne) – Finnish" lang="fi" hreflang="fi" class="interlanguage-link-target"><span>Suomi</span></a></li><li class="interlanguage-link interwiki-sv mw-list-item"><a href="https://sv.wikipedia.org/wiki/Heap_(datastruktur)" title="Heap (datastruktur) – Swedish" lang="sv" hreflang="sv" class="interlanguage-link-target"><span>Svenska</span></a></li><li class="interlanguage-link interwiki-th mw-list-item"><a href="https://th.wikipedia.org/wiki/ฮีป_(โครงสร้างข้อมูล)" title="ฮีป (โครงสร้างข้อมูล) – Thai" lang="th" hreflang="th" class="interlanguage-link-target"><span>ไทย</span></a></li><li class="interlanguage-link interwiki-tr mw-list-item"><a href="https://tr.wikipedia.org/wiki/Öbek_(veri_yapısı)" title="Öbek (veri yapısı) – Turkish" lang="tr" hreflang="tr" class="interlanguage-link-target"><span>Türkçe</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Купа_(структура_даних)" title="Купа (структура даних) – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-vi mw-list-item"><a href="https://vi.wikipedia.org/wiki/Đống_(cấu_trúc_dữ_liệu)" title="Đống (cấu trúc dữ liệu) – Vietnamese" lang="vi" hreflang="vi" class="interlanguage-link-target"><span>Tiếng Việt</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/堆積" title="堆積 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q274089#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 11 March 2022, at 09:16<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Heap_(data_structure)&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.528","walltime":"0.664","ppvisitednodes":{"value":2598,"limit":1000000},"postexpandincludesize":{"value":73499,"limit":2097152},"templateargumentsize":{"value":3667,"limit":2097152},"expansiondepth":{"value":13,"limit":100},"expensivefunctioncount":{"value":1,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":66656,"limit":5000000},"entityaccesscount":{"value":1,"limit":400},"timingprofile":["100.00%  489.673      1 -total"," 43.76%  214.277      2 Template:Reflist"," 19.16%   93.800      4 Template:Cite_book"," 13.79%   67.503      2 Template:Navbox"," 13.76%   67.380      1 Template:Short_description"," 13.24%   64.829      1 Template:CS-Trees","  8.80%   43.073      1 Template:Heap_Running_Times","  8.07%   39.499      1 Template:Pagetype","  7.02%   34.396      2 Template:Sister_project","  6.75%   33.042      6 Template:Citation"]},"scribunto":{"limitreport-timeusage":{"value":"0.243","limit":"10.000"},"limitreport-memusage":{"value":5416622,"limit":52428800}},"cachereport":{"origin":"mw1441","timestamp":"20220501142714","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Heap (data structure)","url":"https:\/\/en.wikipedia.org\/wiki\/Heap_(data_structure)","sameAs":"http:\/\/www.wikidata.org\/entity\/Q274089","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q274089","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2001-10-25T19:11:53Z","dateModified":"2022-03-11T09:16:25Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/c\/c4\/Max-Heap-new.svg","headline":"tree-based data structure in computer science"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Heap (data structure)","url":"https:\/\/en.wikipedia.org\/wiki\/Heap_(data_structure)","sameAs":"http:\/\/www.wikidata.org\/entity\/Q274089","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q274089","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2001-10-25T19:11:53Z","dateModified":"2022-03-11T09:16:25Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/c\/c4\/Max-Heap-new.svg","headline":"tree-based data structure in computer science"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":123,"wgHostname":"mw1431"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Heap_(data_structure) by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:46 GMT -->
+</html>

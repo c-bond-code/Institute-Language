@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Integer_overflow by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Integer overflow - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"02d592e6-7864-4b9c-b316-cfe58f3e07d3","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Integer_overflow","wgTitle":"Integer overflow","wgCurRevisionId":1083446035,"wgRevisionId":1083446035,"wgArticleId":2151421,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles with short description","Short description is different from Wikidata","Use American English from January 2019","All Wikipedia articles written in American English","Articles containing potentially dated statements from 2005","All articles containing potentially dated statements",
+"Articles containing potentially dated statements from 2021","Software bugs","Computer security exploits","Computer arithmetic"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Integer_overflow","wgRelevantArticleId":2151421,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":30000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":
+"Q1423448","wgGENewcomerTasksGuidanceEnabled":true,"wgGEAskQuestionEnabled":false,"wgGELinkRecommendationsFrontendEnabled":false};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","site","mediawiki.page.ready","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar",
+"ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.9"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/5/53/Odometer_rollover.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="1098"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/5/53/Odometer_rollover.jpg"/>
+<meta property="og:image:width" content="800"/>
+<meta property="og:image:height" content="732"/>
+<meta property="og:image:width" content="640"/>
+<meta property="og:image:height" content="586"/>
+<meta property="og:title" content="Integer overflow - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Integer_overflow"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Integer_overflow"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Integer_overflow rootpage-Integer_overflow skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Integer overflow</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Event when the result of computer arithmetic requires more bits than the data type can represent</div>
+<p class="mw-empty-elt">
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:252px;"><a href="https://en.wikipedia.org/wiki/File:Odometer_rollover.jpg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Odometer_rollover.jpg/250px-Odometer_rollover.jpg" decoding="async" width="250" height="229" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/5/53/Odometer_rollover.jpg/375px-Odometer_rollover.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/5/53/Odometer_rollover.jpg/500px-Odometer_rollover.jpg 2x" data-file-width="600" data-file-height="549" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Odometer_rollover.jpg" class="internal" title="Enlarge"></a></div>Integer overflow can be demonstrated through an <a href="https://en.wikipedia.org/wiki/Odometer" title="Odometer">odometer</a> overflowing, a mechanical version of the phenomenon. All digits are set to the maximum 9 and the next increment of the white digit causes a cascade of carry-over additions setting all digits to 0, but there is no higher digit (1,000,000s digit) to change to a 1, so the counter resets to zero. This is <i>wrapping</i> in contrast to <i>saturating</i>.</div></div></div>
+<p>In <a href="https://en.wikipedia.org/wiki/Computer_programming" title="Computer programming">computer programming</a>, an <b>integer overflow</b> occurs when an <a href="https://en.wikipedia.org/wiki/Arithmetic" title="Arithmetic">arithmetic</a> operation attempts to create a numeric value that is outside of the range that can be represented with a given number of digits – either higher than the maximum or lower than the minimum representable value.
+</p><p>The most common result of an overflow is that the least significant representable digits of the result are stored; the result is said to <i>wrap</i> around the maximum (i.e. <a href="https://en.wikipedia.org/wiki/Modular_arithmetic" title="Modular arithmetic">modulo</a> a power of the <a href="https://en.wikipedia.org/wiki/Radix" title="Radix">radix</a>, usually two in modern computers, but sometimes ten or another radix).
+</p><p>An overflow condition may give results leading to unintended behavior. In particular, if the possibility has not been anticipated, overflow can compromise a program's reliability and <a href="https://en.wikipedia.org/wiki/Software_security" class="mw-redirect" title="Software security">security</a>.
+</p><p>For some applications, such as timers and clocks, wrapping on overflow can be desirable. The <a href="https://en.wikipedia.org/wiki/C_(programming_language)" title="C (programming language)">C11</a> standard states that for unsigned integers, modulo wrapping is the defined behavior and the term overflow never applies: "a computation involving unsigned operands can never overflow."<sup id="cite_ref-auto_1-0" class="reference"><a href="#cite_note-auto-1">&#91;1&#93;</a></sup>
+</p><p>On some processors like <a href="https://en.wikipedia.org/wiki/Graphics_processing_unit" title="Graphics processing unit">graphics processing units</a> (GPUs) and <a href="https://en.wikipedia.org/wiki/Digital_signal_processor" title="Digital signal processor">digital signal processors</a> (DSPs) which support <a href="https://en.wikipedia.org/wiki/Saturation_arithmetic" title="Saturation arithmetic">saturation arithmetic</a>, overflowed results would be "clamped", i.e. set to the minimum or the maximum value in the representable range, rather than wrapped around.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Origin"><span class="tocnumber">1</span> <span class="toctext">Origin</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Flags"><span class="tocnumber">2</span> <span class="toctext">Flags</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Definition_variations_and_ambiguity"><span class="tocnumber">3</span> <span class="toctext">Definition variations and ambiguity</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Inconsistent_behavior"><span class="tocnumber">4</span> <span class="toctext">Inconsistent behavior</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Methods_to_address_integer_overflow_problems"><span class="tocnumber">5</span> <span class="toctext">Methods to address integer overflow problems</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#Detection"><span class="tocnumber">5.1</span> <span class="toctext">Detection</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Avoidance"><span class="tocnumber">5.2</span> <span class="toctext">Avoidance</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Handling"><span class="tocnumber">5.3</span> <span class="toctext">Handling</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Explicit_propagation"><span class="tocnumber">5.4</span> <span class="toctext">Explicit propagation</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Programming_language_support"><span class="tocnumber">5.5</span> <span class="toctext">Programming language support</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Saturated_arithmetic"><span class="tocnumber">5.6</span> <span class="toctext">Saturated arithmetic</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#Examples"><span class="tocnumber">6</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="#External_links"><span class="tocnumber">9</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Origin">Origin</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=edit&amp;section=1" title="Edit section: Origin">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The <a href="https://en.wikipedia.org/wiki/Register_width" class="mw-redirect" title="Register width">register width</a> of a processor determines the range of values that can be represented in its registers. Though the vast majority of computers can perform multiple-precision arithmetic on operands in memory, allowing numbers to be arbitrarily long and overflow to be avoided, the register width limits the sizes of numbers that can be operated on (e.g., added or subtracted) using a single <a href="https://en.wikipedia.org/wiki/Instruction_set_architecture#Instructions" title="Instruction set architecture">instruction</a> per operation. Typical <a href="https://en.wikipedia.org/wiki/Binary_numeral_system" class="mw-redirect" title="Binary numeral system">binary</a> register widths for unsigned integers include:
+</p>
+<ul><li><a href="https://en.wikipedia.org/wiki/4-bit_computing" title="4-bit computing">4-bit</a>: maximum representable value 2<sup>4</sup> - 1 = 15</li>
+<li><a href="https://en.wikipedia.org/wiki/8-bit_computing" title="8-bit computing">8-bit</a>: maximum representable value 2<sup>8</sup> − 1 = 255</li>
+<li><a href="https://en.wikipedia.org/wiki/16-bit_computing" title="16-bit computing">16-bit</a>: maximum representable value 2<sup>16</sup> − 1 = 65,535</li>
+<li><a href="https://en.wikipedia.org/wiki/32-bit_computing" title="32-bit computing">32-bit</a>: maximum representable value 2<sup>32</sup> − 1 = 4,294,967,295 (the most common width for personal computers as of 2005<sup class="plainlinks noexcerpt noprint asof-tag update" style="display:none;"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=edit">&#91;update&#93;</a></sup>),</li>
+<li><a href="https://en.wikipedia.org/wiki/64-bit_computing" title="64-bit computing">64-bit</a>: maximum representable value 2<sup>64</sup> − 1 = 18,446,744,073,709,551,615 (the most common width for personal computer <a href="https://en.wikipedia.org/wiki/Central_processing_unit" title="Central processing unit">central processing units</a> (CPUs), as of 2021<sup class="plainlinks noexcerpt noprint asof-tag update" style="display:none;"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=edit">&#91;update&#93;</a></sup>),</li>
+<li><a href="https://en.wikipedia.org/wiki/128-bit_computing" title="128-bit computing">128-bit</a>: maximum representable value 2<sup>128</sup> − 1 = 340,282,366,920,938,463,463,374,607,431,768,211,455</li></ul>
+<p>When an unsigned arithmetic operation produces a result larger than the maximum above for an N-bit integer, an overflow reduces the result to <a href="https://en.wikipedia.org/wiki/Modulo_operation" title="Modulo operation">modulo</a> N-th power of 2, retaining only the least significant bits of the result and effectively causing a <i>wrap around</i>.
+</p><p>In particular, multiplying or adding two integers may result in a value that is unexpectedly small, and subtracting from a small integer may cause a wrap to a large positive value (for example, 8-bit integer addition 255 + 2 results in 1, which is <span class="texhtml">257 mod 2<sup>8</sup></span>, and similarly subtraction 0 − 1 results in 255, a <a href="https://en.wikipedia.org/wiki/Two%27s_complement" title="Two&#39;s complement">two's complement</a> representation of −1).
+</p><p><span class="anchor" id="Security_ramifications"></span>
+Such wraparound may cause security detriments&#8212;if an overflowed value is used as the number of bytes to allocate for a buffer, the buffer will be allocated unexpectedly small, potentially leading to a buffer overflow which, depending on the use of the buffer, might in turn cause arbitrary code execution.
+</p><p>If the variable has a <a href="https://en.wikipedia.org/wiki/Signed_number_representations" title="Signed number representations">signed integer</a> type, a program may make the assumption that a variable always contains a positive value. An integer overflow can cause the value to wrap and become negative, which violates the program's assumption and may lead to unexpected behavior (for example, 8-bit integer addition of 127 + 1 results in −128, a two's complement of 128). (A solution for this particular problem is to use unsigned integer types for values that a program expects and assumes will never be negative.)
+</p>
+<h2><span class="mw-headline" id="Flags">Flags</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=edit&amp;section=2" title="Edit section: Flags">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Most computers have two dedicated processor flags to check for overflow conditions.
+</p><p>The <a href="https://en.wikipedia.org/wiki/Carry_flag" title="Carry flag">carry flag</a> is set when the result of an addition or subtraction, considering the operands and result as unsigned numbers, does not fit in the given number of bits. This indicates an overflow with a <a href="https://en.wikipedia.org/wiki/Carry_(arithmetic)" title="Carry (arithmetic)"><i>carry</i> or <i>borrow</i></a> from the <a href="https://en.wikipedia.org/wiki/Most_significant_bit" class="mw-redirect" title="Most significant bit">most significant bit</a>. An immediately following <i>add with carry</i> or <i>subtract with borrow</i> operation would use the contents of this flag to modify a register or a memory location that contains the higher part of a multi-word value.
+</p><p>The <a href="https://en.wikipedia.org/wiki/Overflow_flag" title="Overflow flag">overflow flag</a> is set when the result of an operation on signed numbers does not have the sign that one would predict from the signs of the operands, e.g., a negative result when adding two positive numbers. This indicates that an overflow has occurred and the signed result represented in <a href="https://en.wikipedia.org/wiki/Two%27s_complement" title="Two&#39;s complement">two's complement</a> form would not fit in the given number of bits.
+</p>
+<h2><span class="mw-headline" id="Definition_variations_and_ambiguity">Definition variations and ambiguity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=edit&amp;section=3" title="Edit section: Definition variations and ambiguity">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>For an unsigned type, when the ideal result of an operation is outside the type's representable range and the returned result is obtained by wrapping, then this event is commonly defined as an overflow. In contrast, the C11 standard defines that this event is not an overflow and states "a computation involving unsigned operands can never overflow."<sup id="cite_ref-auto_1-1" class="reference"><a href="#cite_note-auto-1">&#91;1&#93;</a></sup>
+</p><p>When the ideal result of an integer operation is outside the type's representable range and the returned result is obtained by clamping, then this event is commonly defined as a saturation. Use varies as to whether a saturation is or is not an overflow. To eliminate ambiguity, the terms wrapping overflow<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup> and saturating overflow<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup> can be used.
+</p><p>The term underflow is most commonly used for floating-point math and not for integer math.<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup>
+But, many references can be found to integer underflow.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup><sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup><sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup><sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup><sup id="cite_ref-9" class="reference"><a href="#cite_note-9">&#91;9&#93;</a></sup>
+When the term integer underflow is used, it means the ideal result was closer to minus infinity than the output type's representable value closest to minus infinity. When the term integer underflow is used, the definition of overflow may include all types of overflows, or it may only include cases where the ideal result was closer to positive infinity than the output type's representable value closest to positive infinity.
+</p><p>When the ideal result of an operation is not an exact integer, the meaning of overflow can be ambiguous in edge cases. Consider the case where the ideal result has value 127.25 and the output type's maximum representable value is 127. If overflow is defined as the ideal value being outside the representable range of the output type, then this case would be classified as an overflow. For operations that have well defined rounding behavior, overflow classification may need to be postponed until after rounding is applied. The C11 standard<sup id="cite_ref-auto_1-2" class="reference"><a href="#cite_note-auto-1">&#91;1&#93;</a></sup> defines that conversions from floating point to integer must round toward zero. If C is used to convert the floating point value 127.25 to integer, then rounding should be applied first to give an ideal integer output of 127. Since the rounded integer is in the outputs range, the C standard would not classify this conversion as an overflow.
+</p>
+<h2><span class="mw-headline" id="Inconsistent_behavior">Inconsistent behavior</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=edit&amp;section=4" title="Edit section: Inconsistent behavior">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The behavior on occurrence of overflow may not be consistent in all circumstances. For example, in the language <a href="https://en.wikipedia.org/wiki/Rust_(programming_language)" title="Rust (programming language)">Rust</a>, while functionality <i>is</i> provided to give users choice and control, the behavior for basic use of mathematic operators is naturally fixed; however, this fixed behavior differs between a program built in 'debug' mode and one built in 'release' mode.<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">&#91;10&#93;</a></sup> In C, unsigned integer overflow is defined to wrap around, while signed integer overflow causes <a href="https://en.wikipedia.org/wiki/Undefined_behavior" title="Undefined behavior">undefined behavior</a>.
+</p>
+<h2><span class="mw-headline" id="Methods_to_address_integer_overflow_problems">Methods to address integer overflow problems</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=edit&amp;section=5" title="Edit section: Methods to address integer overflow problems">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="wikitable" style="float:right; margin-left:1em; margin-right:0; width:30%;">
+<caption>Integer overflow handling in various programming languages
+</caption>
+<tbody><tr>
+<th>Language
+</th>
+<th>Unsigned integer
+</th>
+<th>Signed integer
+</th></tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Ada_(programming_language)" title="Ada (programming language)">Ada</a></td>
+<td>modulo the type's modulus</td>
+<td><tt><b>raise</b> Constraint_Error</tt>
+</td></tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/C_(programming_language)" title="C (programming language)">C</a>, <a href="https://en.wikipedia.org/wiki/C++" title="C++">C++</a></td>
+<td>modulo power of two</td>
+<td>undefined behavior
+</td></tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)" title="C Sharp (programming language)">C#</a></td>
+<td colspan="2">modulo power of 2 in unchecked context; <code>System.OverflowException</code> is raised in checked context<sup id="cite_ref-11" class="reference"><a href="#cite_note-11">&#91;11&#93;</a></sup>
+</td></tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Java_(programming_language)" title="Java (programming language)">Java</a></td>
+<td>modulo power of two (char is unsigned in Java)</td>
+<td>modulo power of two
+</td></tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/JavaScript" title="JavaScript">JavaScript</a></td>
+<td colspan="2">all numbers are <a href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format" title="Double-precision floating-point format">double-precision floating-point</a> except the new <a rel="nofollow" class="external text" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt">BigInt</a>
+</td></tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/MATLAB" title="MATLAB">MATLAB</a></td>
+<td colspan="2">Builtin integers saturate. Fixed-point integers configurable to wrap or saturate
+</td></tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Python_(programming_language)" title="Python (programming language)">Python</a> 2</td>
+<td data-sort-value="" style="background: #ececec; color: #2C2C2C; vertical-align: middle; text-align: center;" class="table-na">N/A</td>
+<td>convert to <tt>long</tt> type (bigint)
+</td></tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Seed7" title="Seed7">Seed7</a></td>
+<td data-sort-value="" style="background: #ececec; color: #2C2C2C; vertical-align: middle; text-align: center;" class="table-na">N/A</td>
+<td><tt><b>raise</b> OVERFLOW_ERROR</tt><sup id="cite_ref-12" class="reference"><a href="#cite_note-12">&#91;12&#93;</a></sup>
+</td></tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Scheme_(programming_language)" title="Scheme (programming language)">Scheme</a></td>
+<td data-sort-value="" style="background: #ececec; color: #2C2C2C; vertical-align: middle; text-align: center;" class="table-na">N/A</td>
+<td>convert to bigNum
+</td></tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Simulink" title="Simulink">Simulink</a></td>
+<td colspan="2">configurable to wrap or saturate
+</td></tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Smalltalk" title="Smalltalk">Smalltalk</a></td>
+<td data-sort-value="" style="background: #ececec; color: #2C2C2C; vertical-align: middle; text-align: center;" class="table-na">N/A</td>
+<td>convert to LargeInteger
+</td></tr>
+<tr>
+<td><a href="https://en.wikipedia.org/wiki/Swift_(programming_language)" title="Swift (programming language)">Swift</a></td>
+<td colspan="2">Causes error unless using special overflow operators.<sup id="cite_ref-13" class="reference"><a href="#cite_note-13">&#91;13&#93;</a></sup>
+</td></tr>
+</tbody></table>
+<h3><span class="mw-headline" id="Detection">Detection</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=edit&amp;section=6" title="Edit section: Detection">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Run-time overflow detection implementation <code>UBSan</code> is available for <a href="https://en.wikipedia.org/wiki/C_compiler" class="mw-redirect" title="C compiler">C compilers</a>.
+</p><p>In Java 8, there are <a href="https://en.wikipedia.org/wiki/Function_overloading" title="Function overloading">overloaded methods</a>, for example like <code><a rel="nofollow" class="external text" href="https://docs.oracle.com/javase/10/docs/api/java/lang/Math.html#addExact(int,int)">Math.addExact(int, int)</a></code>, which will throw <code><a rel="nofollow" class="external text" href="https://docs.oracle.com/javase/10/docs/api/java/lang/ArithmeticException.html">ArithmeticException</a></code> in case of overflow.
+</p><p><a href="https://en.wikipedia.org/wiki/Computer_emergency_response_team" title="Computer emergency response team">Computer emergency response team</a> (CERT) developed the As-if Infinitely Ranged (AIR) integer model, a largely automated mechanism to eliminate integer overflow and truncation in C/C++ using run-time error handling.<sup id="cite_ref-14" class="reference"><a href="#cite_note-14">&#91;14&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Avoidance">Avoidance</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=edit&amp;section=7" title="Edit section: Avoidance">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>By allocating variables with data types that are large enough to contain all values that may possibly be computed and stored in them, it is always possible to avoid overflow. Even when the available space or the fixed data types provided by a programming language or environment are too limited to allow for variables to be defensively allocated with generous sizes, by carefully ordering operations and checking operands in advance, it is often possible to ensure <i>a priori</i> that the result will never be larger than can be stored. <a href="https://en.wikipedia.org/wiki/Static_program_analysis" title="Static program analysis">Static analysis</a> tools, <a href="https://en.wikipedia.org/wiki/Formal_verification" title="Formal verification">formal verification</a> and <a href="https://en.wikipedia.org/wiki/Design_by_contract" title="Design by contract">design by contract</a> techniques can be used to more confidently and robustly ensure that an overflow cannot accidentally result.
+</p>
+<h3><span class="mw-headline" id="Handling">Handling</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=edit&amp;section=8" title="Edit section: Handling">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>If it is anticipated that overflow may occur, then tests can be inserted into the program to detect when it happens, or is about to happen, and do other processing to mitigate it. For example, if an important result computed from user input overflows, the program can stop, reject the input, and perhaps prompt the user for different input, rather than the program proceeding with the invalid overflowed input and probably malfunctioning as a consequence. This full process can be automated: it is possible to automatically synthesize a handler for an integer overflow, where the handler is, for example, a clean exit.<sup id="cite_ref-15" class="reference"><a href="#cite_note-15">&#91;15&#93;</a></sup>
+</p><p><a href="https://en.wikipedia.org/wiki/Central_processing_unit" title="Central processing unit">CPUs</a> generally have a way to detect this to support addition of numbers larger than their register size, typically using a status bit. The technique is called multiple-precision arithmetic. Thus, it is possible to add two numbers each two bytes wide using just a byte addition in steps: first add the low bytes then add the high bytes, but if it is necessary to carry out of the low bytes this is arithmetic overflow of the byte addition and it becomes necessary to detect and increment the sum of the high bytes.
+</p><p>Handling possible overflow of a calculation may sometimes present a choice between performing a check <i>before</i> a calculation (to determine whether or not overflow is going to occur), or <i>after</i> it (to consider whether or not it likely occurred based on the resulting value). Caution should be shown towards the latter choice. Firstly, since it may not be a reliable detection method (for example, an addition may not necessarily wrap to a lower value). Secondly, because the occurrence of overflow itself may in some cases be <a href="https://en.wikipedia.org/wiki/Undefined_behavior" title="Undefined behavior">undefined behavior</a>. In the C language, overflow of unsigned integer types results in wrapping, however overflow of signed integer types is undefined behavior; consequently a C <a href="https://en.wikipedia.org/wiki/Compiler" title="Compiler">compiler</a> is free to assume that the programmer has ensured that signed overflow cannot possibly occur and thus it may silently optimise out any check subsequent to the calculation that involves checking the result to detect it without giving the programmer any warning that this has been done. It is thus advisable to always prefer to implement checks before calculations not after them.
+</p>
+<h3><span class="mw-headline" id="Explicit_propagation">Explicit propagation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=edit&amp;section=9" title="Edit section: Explicit propagation">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>If a value is too large to be stored it can be assigned a special value indicating that overflow has occurred and then have all successive operations return this flag value. Such values are sometimes referred to as <a href="https://en.wikipedia.org/wiki/NaN" title="NaN">NaN</a>, for "not a number". This is useful so that the problem can be checked once at the end of a long calculation rather than after each step. This is often supported in floating-point hardware called <a href="https://en.wikipedia.org/wiki/Floating_point_unit" class="mw-redirect" title="Floating point unit">FPUs</a>.
+</p>
+<h3><span class="mw-headline" id="Programming_language_support">Programming language support</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=edit&amp;section=10" title="Edit section: Programming language support">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Programming languages implement various mitigation methods against an accidental overflow: <a href="https://en.wikipedia.org/wiki/Ada_(programming_language)" title="Ada (programming language)">Ada</a>, <a href="https://en.wikipedia.org/wiki/Seed7" title="Seed7">Seed7</a> (and certain variants of functional languages), trigger an exception condition on overflow, while <a href="https://en.wikipedia.org/wiki/Python_(programming_language)" title="Python (programming language)">Python</a> (since 2.4) seamlessly converts internal representation of the number to match its growth, eventually representing it as <code>long</code> – whose ability is only limited by the available memory.<sup id="cite_ref-16" class="reference"><a href="#cite_note-16">&#91;16&#93;</a></sup>
+</p><p>In languages with native support for <a href="https://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic" title="Arbitrary-precision arithmetic">Arbitrary-precision arithmetic</a> and <a href="https://en.wikipedia.org/wiki/Type_safety" title="Type safety">type safety</a> (such as <a href="https://en.wikipedia.org/wiki/Python_(programming_language)" title="Python (programming language)">Python</a>, <a href="https://en.wikipedia.org/wiki/Smalltalk" title="Smalltalk">Smalltalk</a>, or <a href="https://en.wikipedia.org/wiki/Common_Lisp" title="Common Lisp">Common Lisp</a>), numbers are promoted to a larger size automatically when overflows occur, or exceptions thrown (conditions signaled) when a range constraint exists. Using such languages may thus be helpful to mitigate this issue. However, in some such languages, situations are still possible where an integer overflow can occur. An example is explicit optimization of a code path which is considered a bottleneck by the profiler. In the case of <a href="https://en.wikipedia.org/wiki/Common_Lisp" title="Common Lisp">Common Lisp</a>, this is possible by using an explicit declaration to type-annotate a variable to a machine-size word (fixnum)<sup id="cite_ref-17" class="reference"><a href="#cite_note-17">&#91;17&#93;</a></sup> and lower the type safety level to zero<sup id="cite_ref-18" class="reference"><a href="#cite_note-18">&#91;18&#93;</a></sup> for a particular code block.<sup id="cite_ref-reddy_19-0" class="reference"><a href="#cite_note-reddy-19">&#91;19&#93;</a></sup><sup id="cite_ref-20" class="reference"><a href="#cite_note-20">&#91;20&#93;</a></sup><sup id="cite_ref-21" class="reference"><a href="#cite_note-21">&#91;21&#93;</a></sup><sup id="cite_ref-22" class="reference"><a href="#cite_note-22">&#91;22&#93;</a></sup>
+</p><p>In stark contrast to older languages such as C, some newer languages such as <a href="https://en.wikipedia.org/wiki/Rust_(programming_language)" title="Rust (programming language)">Rust</a>, provide built-in functions that allow easy detection and user choice over how overflow should be handled case by case. In Rust, while use of basic mathematic operators naturally lacks such flexibility, users can alternatively perform calculations via a set of methods provided by each of the integer primitive types. These methods give users several choices between performing a <i>checked</i> (or <i>overflowing</i>) operation (which indicates whether or not overflow occurred via the return type); an 'unchecked' operation; an operation that performs wrapping, or an operation which performs saturation at the numeric bounds.
+</p>
+<h3><span class="mw-headline" id="Saturated_arithmetic">Saturated arithmetic</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=edit&amp;section=11" title="Edit section: Saturated arithmetic">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In <a href="https://en.wikipedia.org/wiki/Computer_graphics" title="Computer graphics">computer graphics</a> or <a href="https://en.wikipedia.org/wiki/Signal_processing" title="Signal processing">signal processing</a>, it is typical to work on data that ranges from 0 to 1 or from −1 to 1. For example, take a <a href="https://en.wikipedia.org/wiki/Grayscale" title="Grayscale">grayscale</a> image where 0 represents black, 1 represents white, and the values in-between represent shades of gray. One operation that one may want to support is brightening the image by multiplying every <a href="https://en.wikipedia.org/wiki/Pixel" title="Pixel">pixel</a> by a constant. <a href="https://en.wikipedia.org/wiki/Saturated_arithmetic" class="mw-redirect" title="Saturated arithmetic">Saturated arithmetic</a> allows one to just blindly multiply every pixel by that constant without worrying about overflow by just sticking to a reasonable outcome that all these pixels larger than 1 (i.e., <a href="https://en.wikipedia.org/wiki/High-dynamic-range_imaging" class="mw-redirect" title="High-dynamic-range imaging">"brighter than white"</a>) just become white and all values "darker than black" just become black.
+</p>
+<h2><span class="mw-headline" id="Examples">Examples</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=edit&amp;section=12" title="Edit section: Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Unanticipated arithmetic overflow is a fairly common cause of <a href="https://en.wikipedia.org/wiki/Software_bug" title="Software bug">program errors</a>. Such overflow bugs may be hard to discover and diagnose because they may manifest themselves only for very large input data sets, which are less likely to be used in validation tests.
+</p><p>Taking the arithmetic mean of two numbers by adding them and dividing by two, as done in many <a href="https://en.wikipedia.org/wiki/Search_algorithm" title="Search algorithm">search algorithms</a>, causes error if the sum (although not the resulting mean) is too large to be represented and hence overflows.<sup id="cite_ref-23" class="reference"><a href="#cite_note-23">&#91;23&#93;</a></sup>
+</p><p>An unhandled arithmetic overflow in the engine steering software was the primary cause of the crash of the 1996 maiden flight of the <a href="https://en.wikipedia.org/wiki/Ariane_5_Flight_501" class="mw-redirect" title="Ariane 5 Flight 501">Ariane 5</a> rocket.<sup id="cite_ref-24" class="reference"><a href="#cite_note-24">&#91;24&#93;</a></sup> The software had been considered bug-free since it had been used in many previous flights, but those used smaller rockets which generated lower acceleration than Ariane 5. Frustratingly, the part of the software in which the overflow error occurred was not even required to be running for the Ariane 5 at the time that it caused the rocket to fail: it was a launch-regime process for a smaller predecessor of the Ariane 5 that had remained in the software when it was adapted for the new rocket. Further, the true cause of the failure was a flaw in the engineering specification of how the software dealt with the overflow when it was detected: it did a diagnostic dump to its bus, which would have been connected to test equipment during software testing during development but was connected to the rocket steering motors during flight; the data dump drove the engine nozzle hard to one side which put the rocket out of aerodynamic control and precipitated its rapid breakup in the air.<sup id="cite_ref-25" class="reference"><a href="#cite_note-25">&#91;25&#93;</a></sup>
+</p><p>On 30 April 2015, the U.S. <a href="https://en.wikipedia.org/wiki/Federal_Aviation_Administration" title="Federal Aviation Administration">Federal Aviation Administration</a> announced it will order <a href="https://en.wikipedia.org/wiki/Boeing_787" class="mw-redirect" title="Boeing 787">Boeing 787</a> operators to reset its electrical system periodically, to avoid an integer overflow which could lead to loss of electrical power and <a href="https://en.wikipedia.org/wiki/Ram_air_turbine" title="Ram air turbine">ram air turbine</a> deployment, and Boeing deployed a <a href="https://en.wikipedia.org/wiki/Software_update" class="mw-redirect" title="Software update">software update</a> in the fourth quarter.<sup id="cite_ref-26" class="reference"><a href="#cite_note-26">&#91;26&#93;</a></sup> The <a href="https://en.wikipedia.org/wiki/European_Aviation_Safety_Agency" class="mw-redirect" title="European Aviation Safety Agency">European Aviation Safety Agency</a> followed on 4 May 2015.<sup id="cite_ref-27" class="reference"><a href="#cite_note-27">&#91;27&#93;</a></sup> The error happens after 2³¹ centiseconds (about 249 days), indicating a 32-bit <a href="https://en.wikipedia.org/wiki/Signed_number_representations" title="Signed number representations">signed</a> <a href="https://en.wikipedia.org/wiki/Integer_(computer_science)" title="Integer (computer science)">integer</a>.
+</p><p>Overflow bugs are evident in some computer games. In the arcade game <i><a href="https://en.wikipedia.org/wiki/Donkey_Kong_(video_game)" title="Donkey Kong (video game)">Donkey Kong</a></i>, <a href="https://en.wikipedia.org/wiki/Kill_screen" class="mw-redirect" title="Kill screen">it is impossible to advance past level 22</a> due to an integer overflow in its time/bonus. The game takes the level number a user is on, multiplies it by 10 and adds 40. When they reach level 22, the time/bonus number is 260, which is too large for its 8-bit 256 value register, so it resets itself to 0 and gives the remaining 4 as the time/bonus – too short to finish the level. In <i><a href="https://en.wikipedia.org/wiki/Donkey_Kong_Jr._Math" title="Donkey Kong Jr. Math">Donkey Kong Jr. Math</a></i>, when trying to calculate a number over 10,000, it shows only the first 4 digits. Overflow is the cause of the famous <a href="https://en.wikipedia.org/wiki/Kill_screen" class="mw-redirect" title="Kill screen">"split-screen" level</a> in <i><a href="https://en.wikipedia.org/wiki/Pac-Man" title="Pac-Man">Pac-Man</a></i>.<sup id="cite_ref-28" class="reference"><a href="#cite_note-28">&#91;28&#93;</a></sup> The notorious <a href="https://en.wikipedia.org/wiki/Nuclear_Gandhi" title="Nuclear Gandhi">Nuclear Gandhi</a> bug in <a href="https://en.wikipedia.org/wiki/Civilization_(video_game)" title="Civilization (video game)">Civilization</a> was purportedly caused by an integer underflow which occurred when the game attempted to subtract 2 from Gandhi's default aggression level of 1, setting it to 255, nearly 26 times higher than the normal maximum of 10. (<a href="https://en.wikipedia.org/wiki/Sid_Meier" title="Sid Meier">Sid Meier</a> claimed in an interview that this was, in fact, intentional.) Such a bug also caused the <i>Far Lands</i> in <i><a href="https://en.wikipedia.org/wiki/Minecraft" title="Minecraft">Minecraft</a></i> which existed from the Infdev development period to Beta 1.7.3; it was later fixed in Beta 1.8 but still exists in <i>Minecraft</i> Pocket Edition and Windows 10 Edition.<sup id="cite_ref-29" class="reference"><a href="#cite_note-29">&#91;29&#93;</a></sup> In the <a href="https://en.wikipedia.org/wiki/Super_Nintendo_Entertainment_System" title="Super Nintendo Entertainment System">Super Nintendo Entertainment System</a> (NES) game <a href="https://en.wikipedia.org/wiki/Lamborghini_American_Challenge" title="Lamborghini American Challenge">Lamborghini American Challenge</a>, the player can cause their amount of money to drop below $0 during a race by being fined over the limit of remaining money after paying the fee for a race, which glitches the integer and grants the player $65,535,000 more than it would have had after going negative.<sup id="cite_ref-30" class="reference"><a href="#cite_note-30">&#91;30&#93;</a></sup> A similar glitch occurs in <a href="https://en.wikipedia.org/wiki/S.T.A.L.K.E.R.:_Clear_Sky" title="S.T.A.L.K.E.R.: Clear Sky">S.T.A.L.K.E.R.: Clear Sky</a> where the player can drop into a negative amount by fast travelling without sufficient funds, then proceeding to the event where the player gets robbed and has all of their currency taken away. After the game attempts to take the player's money away to an amount of $0, the player is granted 2147482963 in game currency.<sup id="cite_ref-31" class="reference"><a href="#cite_note-31">&#91;31&#93;</a></sup>
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Error_message_due_to_an_integer_signedness_bug_in_the_stack_setup_code_of_MASM_1.00.gif" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Error_message_due_to_an_integer_signedness_bug_in_the_stack_setup_code_of_MASM_1.00.gif/220px-Error_message_due_to_an_integer_signedness_bug_in_the_stack_setup_code_of_MASM_1.00.gif" decoding="async" width="220" height="122" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Error_message_due_to_an_integer_signedness_bug_in_the_stack_setup_code_of_MASM_1.00.gif/330px-Error_message_due_to_an_integer_signedness_bug_in_the_stack_setup_code_of_MASM_1.00.gif 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Error_message_due_to_an_integer_signedness_bug_in_the_stack_setup_code_of_MASM_1.00.gif/440px-Error_message_due_to_an_integer_signedness_bug_in_the_stack_setup_code_of_MASM_1.00.gif 2x" data-file-width="720" data-file-height="400" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Error_message_due_to_an_integer_signedness_bug_in_the_stack_setup_code_of_MASM_1.00.gif" class="internal" title="Enlarge"></a></div>An integer signedness bug in the stack setup code emitted by the <a href="https://en.wikipedia.org/wiki/Pascal_(programming_language)" title="Pascal (programming language)">Pascal</a> compiler prevented IBM–<a href="https://en.wikipedia.org/wiki/Microsoft_Macro_Assembler" title="Microsoft Macro Assembler">Microsoft Macro Assembler</a> (MASM) version 1.00, a <a href="https://en.wikipedia.org/wiki/DOS" title="DOS">DOS</a> program from 1981, and many other programs compiled with the same compiler, to run under some configurations with more than 512 KB of memory.</div></div></div>
+<p>IBM–<a href="https://en.wikipedia.org/wiki/Microsoft_Macro_Assembler" title="Microsoft Macro Assembler">Microsoft Macro Assembler</a> (MASM) version 1.00, and likely all other programs built by the same <a href="https://en.wikipedia.org/wiki/Pascal_(programming_language)" title="Pascal (programming language)">Pascal</a> compiler, had an integer overflow and signedness error in the stack setup code, which prevented them from running on newer <a href="https://en.wikipedia.org/wiki/DOS" title="DOS">DOS</a> machines or emulators under some common configurations with more than 512 KB of memory. The program either hangs or displays an error message and exits to DOS.<sup id="cite_ref-32" class="reference"><a href="#cite_note-32">&#91;32&#93;</a></sup>
+</p><p>In August 2016, a <a href="https://en.wikipedia.org/wiki/Casino" title="Casino">casino</a> machine at <a href="https://en.wikipedia.org/wiki/Resorts_World" title="Resorts World">Resorts World</a> casino printed a prize ticket of $42,949,672.76 as a result of an overflow bug. The casino refused to pay this amount, calling it a malfunction, using in their defense that the machine clearly stated that the maximum payout was $10,000, so any prize exceeding that had to be the result of a programming bug. The <a href="https://en.wikipedia.org/wiki/Iowa_Supreme_Court" title="Iowa Supreme Court">Iowa Supreme Court</a> ruled in favor of the casino.<sup id="cite_ref-33" class="reference"><a href="#cite_note-33">&#91;33&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=edit&amp;section=13" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Buffer_overflow" title="Buffer overflow">Buffer overflow</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Heap_overflow" title="Heap overflow">Heap overflow</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Modular_arithmetic" title="Modular arithmetic">Modular arithmetic</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pointer_swizzling" title="Pointer swizzling">Pointer swizzling</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Software_testing" title="Software testing">Software testing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stack_buffer_overflow" title="Stack buffer overflow">Stack buffer overflow</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Static_program_analysis" title="Static program analysis">Static program analysis</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Unix_signal" class="mw-redirect" title="Unix signal">Unix signal</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=edit&amp;section=14" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite_note-auto-1"><span class="mw-cite-backlink">^ <a href="#cite_ref-auto_1-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-auto_1-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-auto_1-2"><sup><i><b>c</b></i></sup></a></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFISO_staff" class="citation web cs1">ISO staff. <a rel="nofollow" class="external text" href="https://webstore.ansi.org/RecordDetail.aspx?sku=ISO/IEC+9899:2011">"ISO/IEC 9899:2011 Information technology - Programming languages - C"</a>. <i>ANSI.org</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=ANSI.org&amp;rft.atitle=ISO%2FIEC+9899%3A2011+Information+technology+-+Programming+languages+-+C&amp;rft.au=ISO+staff&amp;rft_id=https%3A%2F%2Fwebstore.ansi.org%2FRecordDetail.aspx%3Fsku%3DISO%2FIEC%2B9899%3A2011&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://www.mathworks.com/help/simulink/gui/wrap-on-overflow.html?searchHighlight=overflow&amp;s_tid=doc_srchtitle">"Wrap on overflow - MATLAB &amp; Simulink"</a>. <i>www.mathworks.com</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=www.mathworks.com&amp;rft.atitle=Wrap+on+overflow+-+MATLAB+%26+Simulink&amp;rft_id=https%3A%2F%2Fwww.mathworks.com%2Fhelp%2Fsimulink%2Fgui%2Fwrap-on-overflow.html%3FsearchHighlight%3Doverflow%26s_tid%3Ddoc_srchtitle&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://www.mathworks.com/help/simulink/gui/saturate-on-overflow.html?searchHighlight=overflow&amp;s_tid=doc_srchtitle">"Saturate on overflow - MATLAB &amp; Simulink"</a>. <i>www.mathworks.com</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=www.mathworks.com&amp;rft.atitle=Saturate+on+overflow+-+MATLAB+%26+Simulink&amp;rft_id=https%3A%2F%2Fwww.mathworks.com%2Fhelp%2Fsimulink%2Fgui%2Fsaturate-on-overflow.html%3FsearchHighlight%3Doverflow%26s_tid%3Ddoc_srchtitle&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><a href="https://en.wikipedia.org/wiki/Arithmetic_underflow" title="Arithmetic underflow">Arithmetic underflow</a></span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://cwe.mitre.org/data/definitions/191.html">"CWE - CWE-191: Integer Underflow (Wrap or Wraparound) (3.1)"</a>. <i>cwe.mitre.org</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=cwe.mitre.org&amp;rft.atitle=CWE+-+CWE-191%3A+Integer+Underflow+%28Wrap+or+Wraparound%29+%283.1%29&amp;rft_id=https%3A%2F%2Fcwe.mitre.org%2Fdata%2Fdefinitions%2F191.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://dzone.com/articles/overflow-and-underflow-data">"Overflow And Underflow of Data Types in Java - DZone Java"</a>. <i>dzone.com</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=dzone.com&amp;rft.atitle=Overflow+And+Underflow+of+Data+Types+in+Java+-+DZone+Java&amp;rft_id=https%3A%2F%2Fdzone.com%2Farticles%2Foverflow-and-underflow-data&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFMir2017" class="citation web cs1">Mir, Tabish (4 April 2017). <a rel="nofollow" class="external text" href="https://medium.com/@taabishm2/integer-overflow-underflow-and-floating-point-imprecision-6ba869a99033">"Integer Overflow/Underflow and Floating Point Imprecision"</a>. <i>medium.com</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=medium.com&amp;rft.atitle=Integer+Overflow%2FUnderflow+and+Floating+Point+Imprecision&amp;rft.date=2017-04-04&amp;rft.aulast=Mir&amp;rft.aufirst=Tabish&amp;rft_id=https%3A%2F%2Fmedium.com%2F%40taabishm2%2Finteger-overflow-underflow-and-floating-point-imprecision-6ba869a99033&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://www.mozilla.org/en-US/security/advisories/mfsa2015-147/">"Integer underflow and buffer overflow processing MP4 metadata in libstagefright"</a>. <i>Mozilla</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Mozilla&amp;rft.atitle=Integer+underflow+and+buffer+overflow+processing+MP4+metadata+in+libstagefright&amp;rft_id=https%3A%2F%2Fwww.mozilla.org%2Fen-US%2Fsecurity%2Fadvisories%2Fmfsa2015-147%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://developer.apple.com/library/content/documentation/Security/Conceptual/SecureCodingGuide/Articles/BufferOverflows.html#//apple_ref/doc/uid/TP40002577-SW7">"Avoiding Buffer Overflows and Underflows"</a>. <i>developer.apple.com</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=developer.apple.com&amp;rft.atitle=Avoiding+Buffer+Overflows+and+Underflows&amp;rft_id=https%3A%2F%2Fdeveloper.apple.com%2Flibrary%2Fcontent%2Fdocumentation%2FSecurity%2FConceptual%2FSecureCodingGuide%2FArticles%2FBufferOverflows.html%23%2F%2Fapple_ref%2Fdoc%2Fuid%2FTP40002577-SW7&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://doc.rust-lang.org/stable/reference/expressions/operator-expr.html#overflow">"Operator expressions - The Rust Reference"</a>. <i>Rust-lang.org</i><span class="reference-accessdate">. Retrieved <span class="nowrap">2021-02-12</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Rust-lang.org&amp;rft.atitle=Operator+expressions+-+The+Rust+Reference&amp;rft_id=https%3A%2F%2Fdoc.rust-lang.org%2Fstable%2Freference%2Fexpressions%2Foperator-expr.html%23overflow&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-11">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBillWagner" class="citation web cs1">BillWagner. <a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/khy08726.aspx">"Checked and Unchecked (C# Reference)"</a>. <i>msdn.microsoft.com</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=msdn.microsoft.com&amp;rft.atitle=Checked+and+Unchecked+%28C%23+Reference%29&amp;rft.au=BillWagner&amp;rft_id=http%3A%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2Fkhy08726.aspx&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-12">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://seed7.sourceforge.net/manual/errors.htm#OVERFLOW_ERROR">Seed7 manual</a>, section 16.3.3 OVERFLOW_ERROR.</span>
+</li>
+<li id="cite_note-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-13">^</a></b></span> <span class="reference-text">The Swift Programming Language. Swift 2.1 Edition. October 21, 2015.</span>
+</li>
+<li id="cite_note-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-14">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://www.cert.org/archive/pdf/09tn023.pdf">As-if Infinitely Ranged Integer Model</a></span>
+</li>
+<li id="cite_note-15"><span class="mw-cite-backlink"><b><a href="#cite_ref-15">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFMunteanMonperrusSunGrossklags2019" class="citation journal cs1">Muntean, Paul Ioan; Monperrus, Martin; Sun, Hao; Grossklags, Jens; Eckert, Claudia (2019). "IntRepair: Informed Repairing of Integer Overflows". <i>IEEE Transactions on Software Engineering</i>. <b>47</b> (10): 2225–2241. <a href="https://en.wikipedia.org/wiki/ArXiv_(identifier)" class="mw-redirect" title="ArXiv (identifier)">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://arxiv.org/abs/1807.05092">1807.05092</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FTSE.2019.2946148">10.1109/TSE.2019.2946148</a>. <a href="https://en.wikipedia.org/wiki/ISSN_(identifier)" class="mw-redirect" title="ISSN (identifier)">ISSN</a>&#160;<a rel="nofollow" class="external text" href="http://www.worldcat.org/issn/0098-5589">0098-5589</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:51627444">51627444</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=IEEE+Transactions+on+Software+Engineering&amp;rft.atitle=IntRepair%3A+Informed+Repairing+of+Integer+Overflows&amp;rft.volume=47&amp;rft.issue=10&amp;rft.pages=2225-2241&amp;rft.date=2019&amp;rft_id=info%3Aarxiv%2F1807.05092&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A51627444%23id-name%3DS2CID&amp;rft.issn=0098-5589&amp;rft_id=info%3Adoi%2F10.1109%2FTSE.2019.2946148&amp;rft.aulast=Muntean&amp;rft.aufirst=Paul+Ioan&amp;rft.au=Monperrus%2C+Martin&amp;rft.au=Sun%2C+Hao&amp;rft.au=Grossklags%2C+Jens&amp;rft.au=Eckert%2C+Claudia&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-16"><span class="mw-cite-backlink"><b><a href="#cite_ref-16">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="https://docs.python.org/2/reference/expressions.html">Python documentation</a>, section 5.1 Arithmetic conversions.</span>
+</li>
+<li id="cite_note-17"><span class="mw-cite-backlink"><b><a href="#cite_ref-17">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.lispworks.com/documentation/HyperSpec/Body/d_type.htm">"<i>Declaration</i> <b>TYPE</b>"</a>. <i>Common Lisp HyperSpec</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Common+Lisp+HyperSpec&amp;rft.atitle=Declaration+TYPE&amp;rft_id=http%3A%2F%2Fwww.lispworks.com%2Fdocumentation%2FHyperSpec%2FBody%2Fd_type.htm&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-18"><span class="mw-cite-backlink"><b><a href="#cite_ref-18">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.lispworks.com/documentation/HyperSpec/Body/d_optimi.htm">"<i>Declaration</i> <b>OPTIMIZE</b>"</a>. <i>Common Lisp HyperSpec</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Common+Lisp+HyperSpec&amp;rft.atitle=Declaration+OPTIMIZE&amp;rft_id=http%3A%2F%2Fwww.lispworks.com%2Fdocumentation%2FHyperSpec%2FBody%2Fd_optimi.htm&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-reddy-19"><span class="mw-cite-backlink"><b><a href="#cite_ref-reddy_19-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFReddy2008" class="citation web cs1">Reddy, Abhishek (2008-08-22). <a rel="nofollow" class="external text" href="http://random-state.net/features-of-common-lisp.html">"Features of Common Lisp"</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Features+of+Common+Lisp&amp;rft.date=2008-08-22&amp;rft.aulast=Reddy&amp;rft.aufirst=Abhishek&amp;rft_id=http%3A%2F%2Frandom-state.net%2Ffeatures-of-common-lisp.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-20"><span class="mw-cite-backlink"><b><a href="#cite_ref-20">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFPierce2002" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Benjamin_C._Pierce" title="Benjamin C. Pierce">Pierce, Benjamin C.</a> (2002). <a rel="nofollow" class="external text" href="http://www.cis.upenn.edu/~bcpierce/tapl/"><i>Types and Programming Languages</i></a>. MIT Press. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-262-16209-1" title="Special:BookSources/0-262-16209-1"><bdi>0-262-16209-1</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Types+and+Programming+Languages&amp;rft.pub=MIT+Press&amp;rft.date=2002&amp;rft.isbn=0-262-16209-1&amp;rft.aulast=Pierce&amp;rft.aufirst=Benjamin+C.&amp;rft_id=http%3A%2F%2Fwww.cis.upenn.edu%2F~bcpierce%2Ftapl%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-21"><span class="mw-cite-backlink"><b><a href="#cite_ref-21">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFWrightFelleisen1994" class="citation journal cs1">Wright, Andrew K.; <a href="https://en.wikipedia.org/wiki/Matthias_Felleisen" title="Matthias Felleisen">Felleisen, Matthias</a> (1994). <a rel="nofollow" class="external text" href="http://citeseer.ist.psu.edu/wright92syntactic.html">"A Syntactic Approach to Type Soundness"</a>. <i>Information and Computation</i>. <b>115</b> (1): 38–94. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1006%2Finco.1994.1093">10.1006/inco.1994.1093</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Information+and+Computation&amp;rft.atitle=A+Syntactic+Approach+to+Type+Soundness&amp;rft.volume=115&amp;rft.issue=1&amp;rft.pages=38-94&amp;rft.date=1994&amp;rft_id=info%3Adoi%2F10.1006%2Finco.1994.1093&amp;rft.aulast=Wright&amp;rft.aufirst=Andrew+K.&amp;rft.au=Felleisen%2C+Matthias&amp;rft_id=http%3A%2F%2Fciteseer.ist.psu.edu%2Fwright92syntactic.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-22"><span class="mw-cite-backlink"><b><a href="#cite_ref-22">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFMacrakis1982" class="citation journal cs1">Macrakis, Stavros (April 1982). "Safety and power". <i>ACM SIGSOFT Software Engineering Notes</i>. <b>7</b> (2): 25–26. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F1005937.1005941">10.1145/1005937.1005941</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:10426644">10426644</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=ACM+SIGSOFT+Software+Engineering+Notes&amp;rft.atitle=Safety+and+power&amp;rft.volume=7&amp;rft.issue=2&amp;rft.pages=25-26&amp;rft.date=1982-04&amp;rft_id=info%3Adoi%2F10.1145%2F1005937.1005941&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A10426644%23id-name%3DS2CID&amp;rft.aulast=Macrakis&amp;rft.aufirst=Stavros&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-23"><span class="mw-cite-backlink"><b><a href="#cite_ref-23">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://googleresearch.blogspot.co.uk/2006/06/extra-extra-read-all-about-it-nearly.html">"Extra, Extra - Read All About It: Nearly All Binary Searches and Mergesorts are Broken"</a>. <i>googleresearch.blogspot.co.uk</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=googleresearch.blogspot.co.uk&amp;rft.atitle=Extra%2C+Extra+-+Read+All+About+It%3A+Nearly+All+Binary+Searches+and+Mergesorts+are+Broken&amp;rft_id=http%3A%2F%2Fgoogleresearch.blogspot.co.uk%2F2006%2F06%2Fextra-extra-read-all-about-it-nearly.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-24"><span class="mw-cite-backlink"><b><a href="#cite_ref-24">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGleick1996" class="citation web cs1"><a href="https://en.wikipedia.org/wiki/James_Gleick" title="James Gleick">Gleick, James</a> (1 December 1996). <a rel="nofollow" class="external text" href="https://www.nytimes.com/1996/12/01/magazine/little-bug-big-bang.html">"A Bug and A Crash"</a>. <i>The New York Times</i><span class="reference-accessdate">. Retrieved <span class="nowrap">17 January</span> 2019</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=The+New+York+Times&amp;rft.atitle=A+Bug+and+A+Crash&amp;rft.date=1996-12-01&amp;rft.aulast=Gleick&amp;rft.aufirst=James&amp;rft_id=https%3A%2F%2Fwww.nytimes.com%2F1996%2F12%2F01%2Fmagazine%2Flittle-bug-big-bang.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-25"><span class="mw-cite-backlink"><b><a href="#cite_ref-25">^</a></b></span> <span class="reference-text">Official report of Ariane 5 launch failure incident.</span>
+</li>
+<li id="cite_note-26"><span class="mw-cite-backlink"><b><a href="#cite_ref-26">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFMouawad2015" class="citation news cs1">Mouawad, Jad (30 April 2015). <a rel="nofollow" class="external text" href="https://www.nytimes.com/2015/05/01/business/faa-orders-fix-for-possible-power-loss-in-boeing-787.html?_r=0">"F.A.A. Orders Fix for Possible Power Loss in Boeing 787"</a>. <i><a href="https://en.wikipedia.org/wiki/New_York_Times" class="mw-redirect" title="New York Times">New York Times</a></i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=New+York+Times&amp;rft.atitle=F.A.A.+Orders+Fix+for+Possible+Power+Loss+in+Boeing+787&amp;rft.date=2015-04-30&amp;rft.aulast=Mouawad&amp;rft.aufirst=Jad&amp;rft_id=https%3A%2F%2Fwww.nytimes.com%2F2015%2F05%2F01%2Fbusiness%2Ffaa-orders-fix-for-possible-power-loss-in-boeing-787.html%3F_r%3D0&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-27"><span class="mw-cite-backlink"><b><a href="#cite_ref-27">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://ad.easa.europa.eu/ad/US-2015-09-07">"US-2015-09-07: Electrical Power – Deactivation"</a>. <i>Airworthiness Directives</i>. <a href="https://en.wikipedia.org/wiki/European_Aviation_Safety_Agency" class="mw-redirect" title="European Aviation Safety Agency">European Aviation Safety Agency</a>. 4 May 2015.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Airworthiness+Directives&amp;rft.atitle=US-2015-09-07%3A+Electrical+Power+%E2%80%93+Deactivation&amp;rft.date=2015-05-04&amp;rft_id=http%3A%2F%2Fad.easa.europa.eu%2Fad%2FUS-2015-09-07&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-28"><span class="mw-cite-backlink"><b><a href="#cite_ref-28">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFPittman" class="citation web cs1">Pittman, Jamey. <a rel="nofollow" class="external text" href="http://home.comcast.net/~jpittman2/pacman/pacmandossier.html">"The Pac-Man Dossier"</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=The+Pac-Man+Dossier&amp;rft.aulast=Pittman&amp;rft.aufirst=Jamey&amp;rft_id=http%3A%2F%2Fhome.comcast.net%2F~jpittman2%2Fpacman%2Fpacmandossier.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-29"><span class="mw-cite-backlink"><b><a href="#cite_ref-29">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://minecraft.gamepedia.com/Far_Lands">"Minecraft Gamepedia Page"</a>. <i>Minecraft Gamepedia</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Minecraft+Gamepedia&amp;rft.atitle=Minecraft+Gamepedia+Page&amp;rft_id=http%3A%2F%2Fminecraft.gamepedia.com%2FFar_Lands&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-30"><span class="mw-cite-backlink"><b><a href="#cite_ref-30">^</a></b></span> <span class="reference-text">Archived at <a rel="nofollow" class="external text" href="https://ghostarchive.org/varchive/youtube/20211205/aNQdQPi0xMo">Ghostarchive</a> and the <a rel="nofollow" class="external text" href="https://web.archive.org/web/20190726012137/https://www.youtube.com/watch?v=aNQdQPi0xMo&amp;t=17m55s">Wayback Machine</a>: <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://www.youtube.com/watch?v=aNQdQPi0xMo&amp;t=17m55s">"Lamborghini American Challenge SPEEDRUN (13:24)"</a>. <i><a href="https://en.wikipedia.org/wiki/YouTube" title="YouTube">YouTube</a></i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=YouTube&amp;rft.atitle=Lamborghini+American+Challenge+SPEEDRUN+%2813%3A24%29&amp;rft_id=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DaNQdQPi0xMo%26t%3D17m55s&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-31"><span class="mw-cite-backlink"><b><a href="#cite_ref-31">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://steamcommunity.com/app/20510/discussions/0/1484358860942756615/">"Money glitch&#160;:: S.T.A.L.K.E.R.: Clear Sky General Discussions"</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Money+glitch+%3A%3A+S.T.A.L.K.E.R.%3A+Clear+Sky+General+Discussions&amp;rft_id=https%3A%2F%2Fsteamcommunity.com%2Fapp%2F20510%2Fdiscussions%2F0%2F1484358860942756615%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-32"><span class="mw-cite-backlink"><b><a href="#cite_ref-32">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFLenclud" class="citation web cs1">Lenclud, Christophe. <a rel="nofollow" class="external text" href="https://slions.net/threads/debugging-the-ibm-personal-computer-macro-assembler-masm-version-1-00.33/">"Debugging IBM MACRO Assembler Version 1.00"</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Debugging+IBM+MACRO+Assembler+Version+1.00&amp;rft.aulast=Lenclud&amp;rft.aufirst=Christophe&amp;rft_id=https%3A%2F%2Fslions.net%2Fthreads%2Fdebugging-the-ibm-personal-computer-macro-assembler-masm-version-1-00.33%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+<li id="cite_note-33"><span class="mw-cite-backlink"><b><a href="#cite_ref-33">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKravets2017" class="citation web cs1">Kravets, David (June 15, 2017). <a rel="nofollow" class="external text" href="https://arstechnica.com/tech-policy/2017/06/sorry-maam-you-didnt-win-43m-there-was-a-slot-machine-malfunction">"Sorry ma'am you didn't win $43M – there was a slot machine 'malfunction'<span class="cs1-kern-right"></span>"</a>. <i>Ars Technica</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Ars+Technica&amp;rft.atitle=Sorry+ma%27am+you+didn%27t+win+%2443M+%E2%80%93+there+was+a+slot+machine+%27malfunction%27&amp;rft.date=2017-06-15&amp;rft.aulast=Kravets&amp;rft.aufirst=David&amp;rft_id=https%3A%2F%2Farstechnica.com%2Ftech-policy%2F2017%2F06%2Fsorry-maam-you-didnt-win-43m-there-was-a-slot-machine-malfunction&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AInteger+overflow" class="Z3988"></span></span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=edit&amp;section=15" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://www.phrack.org/issues.html?issue=60&amp;id=10#article">Phrack #60, Basic Integer Overflows</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.phrack.org/issues.html?issue=60&amp;id=9#article">Phrack #60, Big Loop Integer Protection</a></li>
+<li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20121010025025/http://www.cs.cmu.edu/~dbrumley/pubs/integer-ndss-07.pdf">Efficient and Accurate Detection of Integer-based Attacks</a></li>
+<li><a rel="nofollow" class="external text" href="http://projects.webappsec.org/Integer-Overflows">WASC Threat Classification – Integer Overflows</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.cs.utah.edu/~regehr/papers/tosem15.pdf">Understanding Integer Overflow in C/C++</a></li>
+<li><a rel="nofollow" class="external text" href="https://www.allaboutcircuits.com/textbook/digital/chpt-2/binary-overflow/">Binary Overflow – Binary Arithmetic</a></li>
+<li><a rel="nofollow" class="external text" href="https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%209899:2011">ISO C11 Standard</a></li></ul>
+<!-- 
+NewPP limit report
+Parsed by mw1396
+Cached time: 20220418212343
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.332 seconds
+Real time usage: 0.404 seconds
+Preprocessor visited node count: 1829/1000000
+Post‐expand include size: 44431/2097152 bytes
+Template argument size: 2317/2097152 bytes
+Highest expansion depth: 13/100
+Expensive parser function count: 3/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 79227/5000000 bytes
+Lua time usage: 0.168/10.000 seconds
+Lua memory usage: 5815363/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  346.113      1 -total
+ 61.52%  212.917      1 Template:Reflist
+ 43.50%  150.574     22 Template:Cite_web
+ 15.47%   53.530      1 Template:Short_description
+  7.69%   26.632      1 Template:Pagetype
+  6.39%   22.102      3 Template:DMCA
+  6.14%   21.240      1 Template:Use_American_English
+  5.79%   20.043      3 Template:Dated_maintenance_category
+  5.24%   18.120      3 Template:Cite_journal
+  4.98%   17.232      2 Template:As_of
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:2151421-0!canonical and timestamp 20220418212345 and revision id 1083446035. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;oldid=1083446035">https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;oldid=1083446035</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Software_bugs" title="Category:Software bugs">Software bugs</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Computer_security_exploits" title="Category:Computer security exploits">Computer security exploits</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Computer_arithmetic" title="Category:Computer arithmetic">Computer arithmetic</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_is_different_from_Wikidata" title="Category:Short description is different from Wikidata">Short description is different from Wikidata</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Use_American_English_from_January_2019" title="Category:Use American English from January 2019">Use American English from January 2019</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_Wikipedia_articles_written_in_American_English" title="Category:All Wikipedia articles written in American English">All Wikipedia articles written in American English</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_containing_potentially_dated_statements_from_2005" title="Category:Articles containing potentially dated statements from 2005">Articles containing potentially dated statements from 2005</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_containing_potentially_dated_statements" title="Category:All articles containing potentially dated statements">All articles containing potentially dated statements</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_containing_potentially_dated_statements_from_2021" title="Category:Articles containing potentially dated statements from 2021">Articles containing potentially dated statements from 2021</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Integer+overflow" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Integer+overflow" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Integer_overflow" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Integer_overflow" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Integer_overflow"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Integer_overflow" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Integer_overflow" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;oldid=1083446035" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Integer_overflow&amp;id=1083446035&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q1423448" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Integer_overflow&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Integer_overflow&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-ar mw-list-item"><a href="https://ar.wikipedia.org/wiki/طفح_عدد_صحيح" title="طفح عدد صحيح – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target"><span>العربية</span></a></li><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Arithmetischer_Überlauf" title="Arithmetischer Überlauf – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/سرریز_عدد_صحیح" title="سرریز عدد صحیح – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Dépassement_d%27entier" title="Dépassement d&#039;entier – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/גלישה_נומרית" title="גלישה נומרית – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-no mw-list-item"><a href="https://no.wikipedia.org/wiki/Heltallsoverflyt" title="Heltallsoverflyt – Norwegian Bokmål" lang="nb" hreflang="nb" class="interlanguage-link-target"><span>Norsk bokmål</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Przekroczenie_zakresu_liczb_całkowitych" title="Przekroczenie zakresu liczb całkowitych – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Целочисленное_переполнение" title="Целочисленное переполнение – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-simple mw-list-item"><a href="https://simple.wikipedia.org/wiki/Integer_overflow" title="Integer overflow – Simple English" lang="en-simple" hreflang="en-simple" class="interlanguage-link-target"><span>Simple English</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Програмне_переповнення" title="Програмне переповнення – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-vi mw-list-item"><a href="https://vi.wikipedia.org/wiki/Tràn_số_nguyên" title="Tràn số nguyên – Vietnamese" lang="vi" hreflang="vi" class="interlanguage-link-target"><span>Tiếng Việt</span></a></li><li class="interlanguage-link interwiki-zh-yue mw-list-item"><a href="https://zh-yue.wikipedia.org/wiki/整數過溢" title="整數過溢 – Cantonese" lang="yue" hreflang="yue" class="interlanguage-link-target"><span>粵語</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/整数溢出" title="整数溢出 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q1423448#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 18 April 2022, at 21:23<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Integer_overflow&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.332","walltime":"0.404","ppvisitednodes":{"value":1829,"limit":1000000},"postexpandincludesize":{"value":44431,"limit":2097152},"templateargumentsize":{"value":2317,"limit":2097152},"expansiondepth":{"value":13,"limit":100},"expensivefunctioncount":{"value":3,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":79227,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  346.113      1 -total"," 61.52%  212.917      1 Template:Reflist"," 43.50%  150.574     22 Template:Cite_web"," 15.47%   53.530      1 Template:Short_description","  7.69%   26.632      1 Template:Pagetype","  6.39%   22.102      3 Template:DMCA","  6.14%   21.240      1 Template:Use_American_English","  5.79%   20.043      3 Template:Dated_maintenance_category","  5.24%   18.120      3 Template:Cite_journal","  4.98%   17.232      2 Template:As_of"]},"scribunto":{"limitreport-timeusage":{"value":"0.168","limit":"10.000"},"limitreport-memusage":{"value":5815363,"limit":52428800}},"cachereport":{"origin":"mw1396","timestamp":"20220418212343","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Integer overflow","url":"https:\/\/en.wikipedia.org\/wiki\/Integer_overflow","sameAs":"http:\/\/www.wikidata.org\/entity\/Q1423448","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q1423448","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2005-07-01T18:42:53Z","dateModified":"2022-04-18T21:23:43Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/5\/53\/Odometer_rollover.jpg","headline":"in programming, a condition that occurs when an arithmetic operation attempts to create a numeric value that is outside of the range that can be represented with a given number of digits"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Integer overflow","url":"https:\/\/en.wikipedia.org\/wiki\/Integer_overflow","sameAs":"http:\/\/www.wikidata.org\/entity\/Q1423448","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q1423448","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2005-07-01T18:42:53Z","dateModified":"2022-04-18T21:23:43Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/5\/53\/Odometer_rollover.jpg","headline":"in programming, a condition that occurs when an arithmetic operation attempts to create a numeric value that is outside of the range that can be represented with a given number of digits"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":174,"wgHostname":"mw1333"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Integer_overflow by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:40 GMT -->
+</html>

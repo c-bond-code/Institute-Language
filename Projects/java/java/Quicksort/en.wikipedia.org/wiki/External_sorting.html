@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/External_sorting by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:40 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>External sorting - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"28bda84c-9bc8-4b30-9f90-bb6de85e01fd","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"External_sorting","wgTitle":"External sorting","wgCurRevisionId":1077853982,"wgRevisionId":1077853982,"wgArticleId":1478246,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles with short description","Short description matches Wikidata","Sorting algorithms","External memory algorithms"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"External_sorting","wgRelevantArticleId":1478246,"wgIsProbablyEditable":true,
+"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":10000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q209687"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.math.styles":"ready","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready",
+"ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.math.scripts","ext.cite.ux-enhancements","site","mediawiki.page.ready","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="External sorting - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/External_sorting"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=External_sorting&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/External_sorting"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-External_sorting rootpage-External_sorting skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">External sorting</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Class of sorting algorithms that can handle massive amounts of data</div>
+<p><b>External sorting</b> is a class of <a href="https://en.wikipedia.org/wiki/Sorting" title="Sorting">sorting</a> <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithms</a> that can handle massive amounts of <a href="https://en.wikipedia.org/wiki/Data" title="Data">data</a>. External sorting is required when the data being sorted do not fit into the <a href="https://en.wikipedia.org/wiki/Main_memory" class="mw-redirect" title="Main memory">main memory</a> of a computing device (usually <a href="https://en.wikipedia.org/wiki/RAM" class="mw-redirect" title="RAM">RAM</a>) and instead they must reside in the slower <a href="https://en.wikipedia.org/wiki/Auxiliary_memory" class="mw-redirect" title="Auxiliary memory">external memory</a>, usually a <a href="https://en.wikipedia.org/wiki/Disk_drive" class="mw-redirect" title="Disk drive">disk drive</a>. Thus, external sorting algorithms are <a href="https://en.wikipedia.org/wiki/External_memory_algorithm" title="External memory algorithm">external memory algorithms</a> and thus applicable in the <a href="https://en.wikipedia.org/wiki/External_memory_model" class="mw-redirect" title="External memory model">external memory</a> <a href="https://en.wikipedia.org/wiki/Model_of_computation" title="Model of computation">model of computation</a>.
+</p><p>External sorting algorithms generally fall into two types, distribution sorting, which resembles <a href="https://en.wikipedia.org/wiki/Quicksort" title="Quicksort">quicksort</a>, and external merge sort, which resembles <a href="https://en.wikipedia.org/wiki/Merge_sort" title="Merge sort">merge sort</a>. The latter typically uses a <a href="https://en.wikipedia.org/wiki/Hybrid_algorithm" title="Hybrid algorithm">hybrid</a> sort-merge strategy.  In the sorting phase, chunks of data small enough to fit in main memory are read, sorted, and written out to a temporary file.  In the merge phase, the sorted subfiles are combined into a single larger file.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Model"><span class="tocnumber">1</span> <span class="toctext">Model</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#External_merge_sort"><span class="tocnumber">2</span> <span class="toctext">External merge sort</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Additional_passes"><span class="tocnumber">2.1</span> <span class="toctext">Additional passes</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#External_distribution_sort"><span class="tocnumber">3</span> <span class="toctext">External distribution sort</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Performance"><span class="tocnumber">4</span> <span class="toctext">Performance</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#External_links"><span class="tocnumber">7</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Model">Model</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=External_sorting&amp;action=edit&amp;section=1" title="Edit section: Model">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">See also: <a href="https://en.wikipedia.org/wiki/External_memory_model" class="mw-redirect" title="External memory model">External memory model</a></div>
+<p>External sorting algorithms can be analyzed in the <a href="https://en.wikipedia.org/wiki/External_memory_model" class="mw-redirect" title="External memory model">external memory model</a>. In this model, a <a href="https://en.wikipedia.org/wiki/Cache_(computing)" title="Cache (computing)">cache</a> or internal memory of size <span class="texhtml mvar" style="font-style:italic;">M</span> and an unbounded external memory are divided into <a href="https://en.wikipedia.org/wiki/Blocking_(data_storage)" class="mw-redirect" title="Blocking (data storage)">blocks</a> of size <span class="texhtml mvar" style="font-style:italic;">B</span>, and the <a href="https://en.wikipedia.org/wiki/Running_time" class="mw-redirect" title="Running time">running time</a> of an algorithm is determined by the number of memory transfers between internal and external memory. Like their <a href="https://en.wikipedia.org/wiki/Cache-oblivious_algorithm" title="Cache-oblivious algorithm">cache-oblivious</a> counterparts, <a href="https://en.wikipedia.org/wiki/Asymptotically_optimal" class="mw-redirect" title="Asymptotically optimal">asymptotically optimal</a> external sorting algorithms achieve a <a href="https://en.wikipedia.org/wiki/Running_time" class="mw-redirect" title="Running time">running time</a> (in <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">Big O notation</a>) of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O\left({\tfrac {N}{B}}\log _{\tfrac {M}{B}}{\tfrac {N}{B}}\right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mstyle displaystyle="false" scriptlevel="0">
+                <mfrac>
+                  <mi>N</mi>
+                  <mi>B</mi>
+                </mfrac>
+              </mstyle>
+            </mrow>
+            <msub>
+              <mi>log</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mstyle displaystyle="false" scriptlevel="0">
+                  <mfrac>
+                    <mi>M</mi>
+                    <mi>B</mi>
+                  </mfrac>
+                </mstyle>
+              </mrow>
+            </msub>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mstyle displaystyle="false" scriptlevel="0">
+                <mfrac>
+                  <mi>N</mi>
+                  <mi>B</mi>
+                </mfrac>
+              </mstyle>
+            </mrow>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O\left({\tfrac {N}{B}}\log _{\tfrac {M}{B}}{\tfrac {N}{B}}\right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/496ff85a291f2a81b89ac3b14929c774ad5c0035" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.671ex; width:16.713ex; height:6.343ex;" alt="{\displaystyle O\left({\tfrac {N}{B}}\log _{\tfrac {M}{B}}{\tfrac {N}{B}}\right)}"/></span>.
+</p>
+<h2><span class="mw-headline" id="External_merge_sort">External merge sort</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=External_sorting&amp;action=edit&amp;section=2" title="Edit section: External merge sort">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>One example of external sorting is the external <a href="https://en.wikipedia.org/wiki/Merge_sort" title="Merge sort">merge sort</a> algorithm, which is a <a href="https://en.wikipedia.org/wiki/K-way_merge_algorithm" title="K-way merge algorithm">K-way merge algorithm</a>. It sorts chunks that each fit in RAM, then merges the sorted chunks together.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup>
+</p><p>The algorithm first sorts <span class="texhtml mvar" style="font-style:italic;">M</span> items at a time and puts the sorted lists back into external memory. It then <a href="https://en.wikipedia.org/wiki/Recursion" title="Recursion">recursively</a> does a <a href="https://en.wikipedia.org/wiki/K-way_merge_algorithm" title="K-way merge algorithm"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\tfrac {M}{B}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mstyle displaystyle="false" scriptlevel="0">
+            <mfrac>
+              <mi>M</mi>
+              <mi>B</mi>
+            </mfrac>
+          </mstyle>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\tfrac {M}{B}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/860c96a1698eb35072253cf373ad394015efe974" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.171ex; width:2.563ex; height:3.509ex;" alt="{\displaystyle {\tfrac {M}{B}}}"/></span>-way merge</a> on those sorted lists. To do this merge, <span class="texhtml mvar" style="font-style:italic;">B</span> elements from each sorted list are loaded into internal memory, and the minimum is repeatedly outputted.
+</p><p>For example, for sorting 900 <a href="https://en.wikipedia.org/wiki/Megabyte" title="Megabyte">megabytes</a> of data using only 100 megabytes of RAM:
+</p>
+<ol><li>Read 100 MB of the data in main memory and sort by some conventional method, like <a href="https://en.wikipedia.org/wiki/Quicksort" title="Quicksort">quicksort</a>.</li>
+<li>Write the sorted data to disk.</li>
+<li>Repeat steps 1 and 2 until all of the data is in sorted 100 MB chunks (there are 900MB / 100MB = 9 chunks), which now need to be merged into one single output file.</li>
+<li>Read the first 10 MB (= 100MB / (9 chunks + 1)) of each sorted chunk into input buffers in main memory and allocate the remaining 10 MB for an output buffer.  (In practice, it might provide better performance to make the output buffer larger and the input buffers slightly smaller.)</li>
+<li>Perform a <a href="https://en.wikipedia.org/wiki/K-way_merging" class="mw-redirect" title="K-way merging">9-way merge</a> and store the result in the output buffer. Whenever the output buffer fills, write it to the final sorted file and empty it. Whenever any of the 9 input buffers empties, fill it with the next 10 MB of its associated 100 MB sorted chunk until no more data from the chunk is available. This is the key step that makes external merge sort work externally—because the merge algorithm only makes one pass sequentially through each of the chunks, each chunk does not have to be loaded completely; rather, sequential parts of the chunk can be loaded as needed.</li></ol>
+<p>Historically, instead of a sort, sometimes a replacement-selection algorithm<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup> was used to perform the initial distribution, to produce on average half as many output chunks of double the length.
+</p>
+<h3><span class="mw-headline" id="Additional_passes">Additional passes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=External_sorting&amp;action=edit&amp;section=3" title="Edit section: Additional passes">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The previous example is a two-pass sort: first sort, then merge. The sort ends with a single <i>k</i>-way merge, rather than a series of two-way merge passes as in a typical in-memory merge sort. This is because each merge pass reads and writes <i>every value</i> from and to disk, so reducing the number of passes more than compensates for the additional cost of a <i>k</i>-way merge.
+</p><p>The limitation to single-pass merging is that as the number of chunks increases, memory will be divided into more buffers, so each buffer is smaller. Eventually, the reads become so small that more time is spent on <a href="https://en.wikipedia.org/wiki/Disk_seek" class="mw-redirect" title="Disk seek">disk seeks</a> than data transfer.  A typical magnetic <a href="https://en.wikipedia.org/wiki/Hard_disk_drive" title="Hard disk drive">hard disk drive</a> might have a 10&#160;ms access time and 100&#160;MB/s data transfer rate, so each seek takes as much time as transferring 1&#160;MB of data.
+</p><p>Thus, for sorting, say, 50&#160;GB in 100&#160;MB of RAM, using a single 500-way merge pass isn't efficient: we can only read 100&#160;MB / 501 ≈ 200&#160;KB from each chunk at once, so 5/6 of the disk's time is spent seeking.  Using two merge passes solves the problem.  Then the sorting process might look like this:
+</p>
+<ol><li>Run the initial chunk-sorting pass as before to create 500×100&#160;MB sorted chunks.</li>
+<li>Run a first merge pass combining 25×100&#160;MB chunks at a time, resulting in 20×2.5&#160;GB sorted chunks.</li>
+<li>Run a second merge pass to merge the 20×2.5&#160;GB sorted chunks into a single 50&#160;GB sorted result</li></ol>
+<p>Although this requires an additional pass over the data, each read is now 4&#160;MB long, so only 1/5 of the disk's time is spent seeking.  The improvement in data transfer efficiency during the merge passes (16.6% to 80% is almost a 5&#215; improvement) more than makes up for the doubled number of merge passes.
+</p><p>Variations include using an intermediate medium like <a href="https://en.wikipedia.org/wiki/Solid-state_disk" class="mw-redirect" title="Solid-state disk">solid-state disk</a> for some stages, even if there isn't enough of it to hold the full dataset. Repeating the example above with 20 GB of temporary storage on SSD, the first pass could merge 200×100&#160;MB sorted chunks read from that temporary space to write 20GB sorted chunks to HDD. The 200-way merge with 500kb buffers is reasonably efficient due to the SSD's lower random-read latency (on the order of 0.1ms), the first pass can benefit from an SSD's higher read/write bandwidth, and the second pass has fewer larger chunks to merge and therefore fewer HDD seeks.  Given the relatively low cost of SSD space, it can be an economical tool for sorting large inputs with very limited memory.
+</p><p>Like in-memory sorts, efficient external sorts require <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">O</a>(<i>n</i> log <i>n</i>) time: linear increases in data size require logarithmic increases in the number of passes, and each pass takes a linear number of reads and writes. Using the large memory sizes provided by modern computers the logarithmic factor grows very slowly. Under reasonable assumptions at least 500&#160;GB of data stored on a hard drive can be sorted using 1&#160;GB of main memory before a third pass becomes advantageous, and many times that much data can be sorted before a fourth pass becomes useful.<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup> Low-seek-time media like <a href="https://en.wikipedia.org/wiki/Solid-state_drive" title="Solid-state drive">solid-state drives</a> (SSDs) also increase the amount that can be sorted before additional passes improve performance.
+</p><p>Main memory size is important. Doubling memory dedicated to sorting halves the number of chunks <i>and</i> the number of reads per chunk, reducing the number of seeks required by about three-quarters. The ratio of RAM to disk storage on servers often makes it convenient to do huge sorts on a cluster of machines<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup> rather than on one machine with multiple passes.
+</p>
+<h2><span class="mw-headline" id="External_distribution_sort">External distribution sort</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=External_sorting&amp;action=edit&amp;section=4" title="Edit section: External distribution sort">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>External distribution sort is analogous to <a href="https://en.wikipedia.org/wiki/Quicksort" title="Quicksort">quicksort</a>. The algorithm finds approximately <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\tfrac {M}{B}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mstyle displaystyle="false" scriptlevel="0">
+            <mfrac>
+              <mi>M</mi>
+              <mi>B</mi>
+            </mfrac>
+          </mstyle>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\tfrac {M}{B}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/860c96a1698eb35072253cf373ad394015efe974" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.171ex; width:2.563ex; height:3.509ex;" alt="{\displaystyle {\tfrac {M}{B}}}"/></span> pivots and uses them to divide the <span class="texhtml mvar" style="font-style:italic;">N</span> elements into approximately equally sized subarrays, each of whose elements are all smaller than the next, and then recurse until the sizes of the subarrays are less than the <a href="https://en.wikipedia.org/wiki/Blocking_(data_storage)" class="mw-redirect" title="Blocking (data storage)">block size</a>. When the subarrays are less than the block size, sorting can be done quickly because all reads and writes are done in the <a href="https://en.wikipedia.org/wiki/Cache_(computing)" title="Cache (computing)">cache</a>, and in the <a href="https://en.wikipedia.org/wiki/External_memory_model" class="mw-redirect" title="External memory model">external memory model</a> requires <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(1)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(1)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e66384bc40452c5452f33563fe0e27e803b0cc21" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.745ex; height:2.843ex;" alt="O(1)"/></span> operations.
+</p><p>However, finding exactly <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\tfrac {M}{B}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mstyle displaystyle="false" scriptlevel="0">
+            <mfrac>
+              <mi>M</mi>
+              <mi>B</mi>
+            </mfrac>
+          </mstyle>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\tfrac {M}{B}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/860c96a1698eb35072253cf373ad394015efe974" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.171ex; width:2.563ex; height:3.509ex;" alt="{\displaystyle {\tfrac {M}{B}}}"/></span> pivots would not be fast enough to make the external distribution sort <a href="https://en.wikipedia.org/wiki/Asymptotically_optimal" class="mw-redirect" title="Asymptotically optimal">asymptotically optimal</a>. Instead, we find slightly fewer pivots. To find these pivots, the algorithm splits the <span class="texhtml mvar" style="font-style:italic;">N</span> input elements into <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\tfrac {N}{M}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mstyle displaystyle="false" scriptlevel="0">
+            <mfrac>
+              <mi>N</mi>
+              <mi>M</mi>
+            </mfrac>
+          </mstyle>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\tfrac {N}{M}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b5d5ee01c2981ba95017bd5bdb588cb2316ca3e3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.171ex; width:2.563ex; height:3.509ex;" alt="{\displaystyle {\tfrac {N}{M}}}"/></span> chunks, and takes every <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\sqrt {\tfrac {M}{16B}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <msqrt>
+            <mstyle displaystyle="false" scriptlevel="0">
+              <mfrac>
+                <mi>M</mi>
+                <mrow>
+                  <mn>16</mn>
+                  <mi>B</mi>
+                </mrow>
+              </mfrac>
+            </mstyle>
+          </msqrt>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\sqrt {\tfrac {M}{16B}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/224e39237bb73c547dcdd5569ceb993dd36bc062" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:6.051ex; height:4.843ex;" alt="{\displaystyle {\sqrt {\tfrac {M}{16B}}}}"/></span> elements, and <a href="https://en.wikipedia.org/wiki/Recursion" title="Recursion">recursively</a> uses the <a href="https://en.wikipedia.org/wiki/Median_of_medians" title="Median of medians">median of medians</a> algorithm to find <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\sqrt {\tfrac {M}{B}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <msqrt>
+            <mstyle displaystyle="false" scriptlevel="0">
+              <mfrac>
+                <mi>M</mi>
+                <mi>B</mi>
+              </mfrac>
+            </mstyle>
+          </msqrt>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\sqrt {\tfrac {M}{B}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d831ae852c648eaefbe9c1336a15bdb6cc2d8ef1" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:4.887ex; height:4.843ex;" alt="{\displaystyle {\sqrt {\tfrac {M}{B}}}}"/></span> pivots.<sup id="cite_ref-Aggarwal88_6-0" class="reference"><a href="#cite_note-Aggarwal88-6">&#91;6&#93;</a></sup>
+</p><p>There is a <a href="https://en.wikipedia.org/wiki/Duality_(mathematics)" title="Duality (mathematics)">duality</a>, or fundamental similarity, between merge- and distribution-based algorithms.<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Performance">Performance</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=External_sorting&amp;action=edit&amp;section=5" title="Edit section: Performance">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The <a rel="nofollow" class="external text" href="http://sortbenchmark.org/">Sort Benchmark</a>, created by computer scientist <a href="https://en.wikipedia.org/wiki/Jim_Gray_(computer_scientist)" title="Jim Gray (computer scientist)">Jim Gray</a>, compares external sorting algorithms implemented using finely tuned hardware and software.  Winning implementations use several techniques:
+</p>
+<ul><li><b>Using parallelism</b>
+<ul><li>Multiple disk drives can be used in parallel in order to improve sequential read and write speed.  This can be a very cost-efficient improvement: a Sort Benchmark winner in the cost-centric Penny Sort category uses six hard drives in an otherwise midrange machine.<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup></li>
+<li>Sorting software can use <a href="https://en.wikipedia.org/wiki/Thread_(computer_science)" class="mw-redirect" title="Thread (computer science)">multiple threads</a>, to speed up the process on modern multicore computers.</li>
+<li>Software can use <a href="https://en.wikipedia.org/wiki/Asynchronous_I/O" title="Asynchronous I/O">asynchronous I/O</a> so that one run of data can be sorted or merged while other runs are being read from or written to disk.</li>
+<li>Multiple machines connected by fast network links can each sort part of a huge dataset in parallel.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">&#91;9&#93;</a></sup></li></ul></li>
+<li><b>Increasing hardware speed</b>
+<ul><li>Using more RAM for sorting can reduce the number of disk seeks and avoid the need for more passes.</li>
+<li>Fast external memory like <a href="https://en.wikipedia.org/wiki/Solid-state_drives" class="mw-redirect" title="Solid-state drives">solid-state drives</a> can speed sorts, either if the data is small enough to fit entirely on SSDs or, more rarely, to accelerate sorting SSD-sized chunks in a three-pass sort.</li>
+<li><i>Many</i> other factors can affect hardware's maximum sorting speed: CPU speed and number of cores, RAM access latency, input/output bandwidth, disk read/write speed, disk seek time, and others. "Balancing" the hardware to minimize bottlenecks is an important part of designing an efficient sorting system.</li>
+<li>Cost-efficiency as well as absolute speed can be critical, especially in cluster environments where lower node costs allow purchasing more nodes.</li></ul></li>
+<li><b>Increasing software speed</b>
+<ul><li>Some Sort Benchmark entrants use a variation on <a href="https://en.wikipedia.org/wiki/Radix_sort" title="Radix sort">radix sort</a> for the first phase of sorting: they separate data into one of many "bins" based on the beginning of its value.  Sort Benchmark data is random and especially well-suited to this optimization.</li>
+<li>Compacting the input, intermediate files, and output can reduce time spent on I/O, but is not allowed in the Sort Benchmark.</li>
+<li>Because the Sort Benchmark sorts long (100-byte) records using short (10-byte) keys, sorting software sometimes rearranges the keys separately from the values to reduce memory I/O volume.</li></ul></li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=External_sorting&amp;action=edit&amp;section=6" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Mainframe_sort_merge" title="Mainframe sort merge">Mainframe sort merge</a></li>
+<li><a href="https://en.wikipedia.org/wiki/External_memory_algorithm" title="External memory algorithm">External memory algorithm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Funnelsort" title="Funnelsort">Funnelsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cache-oblivious_distribution_sort" title="Cache-oblivious distribution sort">Cache-oblivious distribution sort</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=External_sorting&amp;action=edit&amp;section=7" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist reflist-columns references-column-width" style="column-width: 30em;">
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><a href="https://en.wikipedia.org/wiki/Donald_Knuth" title="Donald Knuth">Donald Knuth</a>, <i><a href="https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming" title="The Art of Computer Programming">The Art of Computer Programming</a></i>, Volume 3: <i>Sorting and Searching</i>, Second Edition. Addison-Wesley, 1998, <style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-201-89685-0" title="Special:BookSources/0-201-89685-0">0-201-89685-0</a>, Section 5.4: External Sorting, pp.248–379.</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><a href="https://en.wikipedia.org/wiki/Ellis_Horowitz" title="Ellis Horowitz">Ellis Horowitz</a> and <a href="https://en.wikipedia.org/wiki/Sartaj_Sahni" title="Sartaj Sahni">Sartaj Sahni</a>, <i>Fundamentals of Data Structures</i>, H. Freeman &amp; Co., <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-7167-8042-9" title="Special:BookSources/0-7167-8042-9">0-7167-8042-9</a>.</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><a href="https://en.wikipedia.org/wiki/Donald_Knuth" title="Donald Knuth">Donald Knuth</a>, <i>The Art of Computer Programming</i>, Volume 3: <i>Sorting and Searching</i>, Second Edition. Addison-Wesley, 1998, <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-201-89685-0" title="Special:BookSources/0-201-89685-0">0-201-89685-0</a>, Section 5.4: External Sorting, pp.254–ff.</span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text">For another example, assume 500&#160;GB of data to sort, 1&#160;GB of buffer memory, and a single disk with 200&#160;MB/s transfer rate and 20&#160;ms seek time.  A single 500-way merging phase will use buffers of 2&#160;MB each, and need to do 250&#160;K seeks while reading then writing 500&#160;GB. It will spend 5,000 seconds seeking and 5,000&#160;s transferring. Doing two merge passes as described above would nearly eliminate the seek time but add an additional 5,000&#160;s of data transfer time, so this is approximately the break-even point between a two-pass and three-pass sort.</span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text">Chris Nyberg, Mehul Shah, <a rel="nofollow" class="external text" href="http://sortbenchmark.org/">Sort Benchmark Home Page</a> (links to examples of parallel sorts)</span>
+</li>
+<li id="cite_note-Aggarwal88-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-Aggarwal88_6-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFAggarwalVitter1988" class="citation journal cs1">Aggarwal, Alok; <a href="https://en.wikipedia.org/wiki/Jeffrey_Vitter" title="Jeffrey Vitter">Vitter, Jeffrey</a> (1988). <a rel="nofollow" class="external text" href="https://hal.inria.fr/inria-00075827/file/RR-0725.pdf">"The input/output complexity of sorting and related problems"</a> <span class="cs1-format">(PDF)</span>. <i><a href="https://en.wikipedia.org/wiki/Communications_of_the_ACM" title="Communications of the ACM">Communications of the ACM</a></i>. <b>31</b> (9): 1116–1127. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F48529.48535">10.1145/48529.48535</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Communications+of+the+ACM&amp;rft.atitle=The+input%2Foutput+complexity+of+sorting+and+related+problems&amp;rft.volume=31&amp;rft.issue=9&amp;rft.pages=1116-1127&amp;rft.date=1988&amp;rft_id=info%3Adoi%2F10.1145%2F48529.48535&amp;rft.aulast=Aggarwal&amp;rft.aufirst=Alok&amp;rft.au=Vitter%2C+Jeffrey&amp;rft_id=https%3A%2F%2Fhal.inria.fr%2Finria-00075827%2Ffile%2FRR-0725.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AExternal+sorting" class="Z3988"></span></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><a href="https://en.wikipedia.org/wiki/J._S._Vitter" class="mw-redirect" title="J. S. Vitter">J. S. Vitter</a>, <i><a rel="nofollow" class="external text" href="http://www.ittc.ku.edu/~jsv/Papers/Vit.IO_book.pdf">Algorithms and Data Structures for External Memory</a></i>, Series on Foundations and Trends in Theoretical Computer Science, now Publishers, Hanover, MA, 2008, <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-1-60198-106-6" title="Special:BookSources/978-1-60198-106-6">978-1-60198-106-6</a>.</span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text">Nikolas Askitis, <a rel="nofollow" class="external text" href="http://sortbenchmark.org/ozsort-2010.pdf">OzSort 2.0: Sorting up to 252GB for a Penny</a></span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text">Rasmussen et al., <a rel="nofollow" class="external text" href="http://sortbenchmark.org/tritonsort_2010_May_15.pdf">TritonSort</a></span>
+</li>
+</ol></div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=External_sorting&amp;action=edit&amp;section=8" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://stxxl.sourceforge.net/">STXXL, an algorithm toolkit including external mergesort</a></li>
+<li><a rel="nofollow" class="external text" href="http://cis.stvincent.edu/html/tutorials/swd/extsort/extsort.html">An external mergesort example</a></li>
+<li><a rel="nofollow" class="external text" href="https://code.google.com/p/kway">A K-Way Merge Implementation</a></li>
+<li><a rel="nofollow" class="external text" href="https://code.google.com/p/externalsortinginjava/">External-Memory Sorting in Java</a></li>
+<li><a rel="nofollow" class="external text" href="https://code.google.com/p/judyarray">A sample pennysort implementation using Judy Arrays</a></li>
+<li><a rel="nofollow" class="external text" href="http://sortbenchmark.org/">Sort Benchmark</a></li></ul>
+<!-- 
+NewPP limit report
+Parsed by mw1385
+Cached time: 20220505142927
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.248 seconds
+Real time usage: 0.360 seconds
+Preprocessor visited node count: 1513/1000000
+Post‐expand include size: 9453/2097152 bytes
+Template argument size: 2853/2097152 bytes
+Highest expansion depth: 16/100
+Expensive parser function count: 1/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 16165/5000000 bytes
+Lua time usage: 0.080/10.000 seconds
+Lua memory usage: 2826710/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  273.444      1 -total
+ 61.81%  169.023      1 Template:Reflist
+ 35.74%   97.731      4 Template:ISBN
+ 25.71%   70.307      1 Template:Short_description
+ 23.82%   65.132      4 Template:Catalog_lookup_link
+ 17.07%   46.675      1 Template:Cite_journal
+ 13.27%   36.281      1 Template:Pagetype
+  8.78%   24.005      1 Template:See_also
+  8.38%   22.904     11 Template:Main_other
+  6.70%   18.310      1 Template:SDcat
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:1478246-0!canonical and timestamp 20220505142927 and revision id 1077853982. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=External_sorting&amp;oldid=1077853982">https://en.wikipedia.org/w/index.php?title=External_sorting&amp;oldid=1077853982</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Sorting_algorithms" title="Category:Sorting algorithms">Sorting algorithms</a></li><li><a href="https://en.wikipedia.org/wiki/Category:External_memory_algorithms" title="Category:External memory algorithms">External memory algorithms</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_matches_Wikidata" title="Category:Short description matches Wikidata">Short description matches Wikidata</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=External+sorting" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=External+sorting" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/External_sorting" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:External_sorting" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/External_sorting"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=External_sorting&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=External_sorting&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/External_sorting" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/External_sorting" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=External_sorting&amp;oldid=1077853982" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=External_sorting&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=External_sorting&amp;id=1077853982&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q209687" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=External_sorting&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=External_sorting&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Externes_Sortieren" title="Externes Sortieren – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Ordenamiento_externo" title="Ordenamiento externo – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-eo mw-list-item"><a href="https://eo.wikipedia.org/wiki/Ekstera_ordigo" title="Ekstera ordigo – Esperanto" lang="eo" hreflang="eo" class="interlanguage-link-target"><span>Esperanto</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/مرتب‌سازی_خارجی" title="مرتب‌سازی خارجی – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Algorithme_de_tri_externe" title="Algorithme de tri externe – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/מיון_חיצוני" title="מיון חיצוני – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Sortowanie_zewnętrzne" title="Sortowanie zewnętrzne – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Внешняя_сортировка" title="Внешняя сортировка – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/Spoljašnje_sortiranje" title="Spoljašnje sortiranje – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-th mw-list-item"><a href="https://th.wikipedia.org/wiki/การเรียงลำดับภายนอก" title="การเรียงลำดับภายนอก – Thai" lang="th" hreflang="th" class="interlanguage-link-target"><span>ไทย</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Зовнішнє_сортування" title="Зовнішнє сортування – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/外排序" title="外排序 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q209687#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 18 March 2022, at 15:02<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=External_sorting&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.248","walltime":"0.360","ppvisitednodes":{"value":1513,"limit":1000000},"postexpandincludesize":{"value":9453,"limit":2097152},"templateargumentsize":{"value":2853,"limit":2097152},"expansiondepth":{"value":16,"limit":100},"expensivefunctioncount":{"value":1,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":16165,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  273.444      1 -total"," 61.81%  169.023      1 Template:Reflist"," 35.74%   97.731      4 Template:ISBN"," 25.71%   70.307      1 Template:Short_description"," 23.82%   65.132      4 Template:Catalog_lookup_link"," 17.07%   46.675      1 Template:Cite_journal"," 13.27%   36.281      1 Template:Pagetype","  8.78%   24.005      1 Template:See_also","  8.38%   22.904     11 Template:Main_other","  6.70%   18.310      1 Template:SDcat"]},"scribunto":{"limitreport-timeusage":{"value":"0.080","limit":"10.000"},"limitreport-memusage":{"value":2826710,"limit":52428800}},"cachereport":{"origin":"mw1385","timestamp":"20220505142927","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"External sorting","url":"https:\/\/en.wikipedia.org\/wiki\/External_sorting","sameAs":"http:\/\/www.wikidata.org\/entity\/Q209687","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q209687","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2005-02-07T20:42:58Z","dateModified":"2022-03-18T15:02:44Z","headline":"class of sorting algorithms that can handle massive amounts of data"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"External sorting","url":"https:\/\/en.wikipedia.org\/wiki\/External_sorting","sameAs":"http:\/\/www.wikidata.org\/entity\/Q209687","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q209687","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2005-02-07T20:42:58Z","dateModified":"2022-03-18T15:02:44Z","headline":"class of sorting algorithms that can handle massive amounts of data"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":121,"wgHostname":"mw1413"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/External_sorting by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:40 GMT -->
+</html>

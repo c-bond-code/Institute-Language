@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Weak_heap by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Weak heap - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"beadfc69-1e6e-4f4b-9cdb-5c5f16669611","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Weak_heap","wgTitle":"Weak heap","wgCurRevisionId":1081292270,"wgRevisionId":1081292270,"wgArticleId":48677284,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Heaps (data structures)","Sorting algorithms","Comparison sorts"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Weak_heap","wgRelevantArticleId":48677284,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[
+],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":20000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q25304407"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready",
+"ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.scribunto.logs","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="Weak heap - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Weak_heap"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Weak_heap&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Weak_heap"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Weak_heap rootpage-Weak_heap skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Weak heap</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><p>In <a href="https://en.wikipedia.org/wiki/Computer_science" title="Computer science">computer science</a>, a <b>weak heap</b> is a <a href="https://en.wikipedia.org/wiki/Data_structure" title="Data structure">data structure</a> for <a href="https://en.wikipedia.org/wiki/Priority_queue" title="Priority queue">priority queues</a>, combining features of the <a href="https://en.wikipedia.org/wiki/Binary_heap" title="Binary heap">binary heap</a> and <a href="https://en.wikipedia.org/wiki/Binomial_heap" title="Binomial heap">binomial heap</a>.  It can be stored in an array as an <a href="https://en.wikipedia.org/wiki/Implicit_data_structure" title="Implicit data structure">implicit</a> binary tree like a binary heap, and has the efficiency guarantees of binomial heaps.
+</p><p>A <a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">sorting algorithm</a> using weak heaps, weak-heapsort, uses a number of comparisons that is close to the theoretical <a href="https://en.wikipedia.org/wiki/Lower_bound" class="mw-redirect" title="Lower bound">lower bound</a> on the <a href="https://en.wikipedia.org/wiki/Comparison_sort#Number_of_comparisons_required_to_sort_a_list" title="Comparison sort">number of comparisons required to sort a list</a>, so is particularly useful when comparison is expensive, such as when comparing strings using the full <a href="https://en.wikipedia.org/wiki/Unicode_collation_algorithm" title="Unicode collation algorithm">Unicode collation algorithm</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Operations_on_weak_heaps"><span class="tocnumber">2</span> <span class="toctext">Operations on weak heaps</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Weak-heap_sort"><span class="tocnumber">3</span> <span class="toctext">Weak-heap sort</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Priority_queue_operations"><span class="tocnumber">4</span> <span class="toctext">Priority queue operations</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#History_and_applications"><span class="tocnumber">5</span> <span class="toctext">History and applications</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Further_reading"><span class="tocnumber">7</span> <span class="toctext">Further reading</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Description">Description</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Weak_heap&amp;action=edit&amp;section=1" title="Edit section: Description">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A weak heap is most easily understood as a heap-ordered <a href="https://en.wikipedia.org/wiki/Multi-way_tree" class="mw-redirect" title="Multi-way tree">multi-way tree</a> stored as a binary tree using the "right-child left-sibling" convention.  (This is equivalent to, but reversed from, the usual <a href="https://en.wikipedia.org/wiki/Left-child_right-sibling_binary_tree" title="Left-child right-sibling binary tree">left-child right-sibling binary tree</a>.)
+</p><p>In the multi-way tree, and assuming a max-heap, each parent's key is greater than or equal to (<span class="texhtml">≥</span>) all the child keys (and thus, by induction, all members of the subtree).
+</p><p>Expressed as a binary tree, this translates to the following invariants:<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
+</p>
+<ul><li>The root node has no left child</li>
+<li>For every node, the value associated with that node is greater than or equal to the values associated with all nodes in its right subtree.</li>
+<li>The leaves of the tree have heights that are all within one of each other.</li></ul>
+<p>The last condition is a consequence of the fact that an implicit binary tree is a <a href="https://en.wikipedia.org/wiki/Binary_tree#Types_of_binary_trees" title="Binary tree">complete binary tree</a>.
+</p><p>The structure of this tree maps very neatly onto the traditional <span class="texhtml">1</span>-based (<a href="https://en.wikipedia.org/wiki/Ahnentafel" title="Ahnentafel">Ahnentafel</a>) implicit binary tree arrangement, where node <span class="texhtml mvar" style="font-style:italic;">k</span> has a next sibling (left child) numbered <span class="texhtml">2<i>k</i></span> and a first child (right child) numbered <span class="texhtml">2<i>k</i> + 1</span>, by adding an additional root numbered <span class="texhtml">0</span>.  This root has no siblings, only a first child, which is node <span class="texhtml">1</span> (<span class="texhtml">2×0 + 1</span>).
+</p><p>This structure is very similar to that of a binomial heap, with a tree of height <span class="texhtml mvar" style="font-style:italic;">h</span> being composed of a root plus trees of heights <span class="texhtml"><i>h</i> − 1</span>, <span class="texhtml"><i>h</i> − 2</span>, ..., <span class="texhtml">1</span>.  A perfect (no missing leaves) weak heap with <span class="texhtml">2<sup><i>n</i></sup></span> elements is exactly isomorphic to a binomial heap of the same size,<sup id="cite_ref-Edelkamp12_2-0" class="reference"><a href="#cite_note-Edelkamp12-2">&#91;2&#93;</a></sup> but the two algorithms handle sizes which are not a power of <span class="texhtml">2</span> differently: a binomial heap uses multiple perfect trees, while a weak heap uses a single imperfect tree.
+</p><p>Weak heaps require the ability to exchange the left and right children (and associated subtrees) of a node.  In an explicit (<a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)" title="Pointer (computer programming)">pointer</a>-based) representation of the tree, this is straightforward.  In an implicit (<a href="https://en.wikipedia.org/wiki/Array_data_structure" title="Array data structure">array</a>) representation, this requires one "reverse bit" per internal node to indicate which child is considered the left child.  A weak heap is thus not a strictly implicit data structure since it requires <span class="texhtml"><i>O</i>(<i>n</i>)</span> additional space (<style data-mw-deduplicate="TemplateStyles:r1050945101">.mw-parser-output .sfrac{white-space:nowrap}.mw-parser-output .sfrac.tion,.mw-parser-output .sfrac .tion{display:inline-block;vertical-align:-0.5em;font-size:85%;text-align:center}.mw-parser-output .sfrac .num,.mw-parser-output .sfrac .den{display:block;line-height:1em;margin:0 0.1em}.mw-parser-output .sfrac .den{border-top:1px solid}.mw-parser-output .sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}</style><span role="math" class="sfrac tion"><span class="num">1</span><span class="sr-only">/</span><span class="den">2</span></span> bit per node).  However, it is often possible to find space for this extra bit within the node structure, such as by <a href="https://en.wikipedia.org/wiki/Tagged_pointer" title="Tagged pointer">tagging a pointer</a> which is already present.
+</p><p>In the implicit binary tree, node <span class="texhtml mvar" style="font-style:italic;">k</span> with reverse bit <span class="texhtml"><i>r<sub>k</sub></i></span> has parent <span class="texhtml"><span style="font-size:1em">⌊</span><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1050945101"/><span role="math" class="sfrac tion"><span class="num"><i>k</i></span><span class="sr-only">/</span><span class="den">2</span></span><span style="font-size:1em">⌋</span></span>, left child <span class="texhtml">2<i>k</i> + <i>r<sub>k</sub></i></span>, and right child <span class="texhtml">2<i>k</i> + 1 − <i>r<sub>k</sub></i></span>.
+</p><p>Viewed as a multi-way tree, each node in a weak heap is linked to two others: a "next sibling" and a "first child".  In the implicit tree, the links are fixed, so <i>which</i> of the two links is the sibling and which the first child is indicated by the reverse bit.
+</p>
+<h2><span class="mw-headline" id="Operations_on_weak_heaps">Operations on weak heaps</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Weak_heap&amp;action=edit&amp;section=2" title="Edit section: Operations on weak heaps">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Note that <i>every</i> node in a weak heap can be considered the root of a smaller weak heap by ignoring its next sibling.  Nodes with no first child are automatically valid weak heaps.
+</p><p>A node of height <span class="texhtml mvar" style="font-style:italic;">h</span> has <span class="texhtml"><i>h</i> − 1</span> children: a first child of height <span class="texhtml"><i>h</i> − 1</span>, a second child of height <span class="texhtml"><i>h</i> − 2</span>, and so on to the last child of height <span class="texhtml">1</span>.  These may be found by following the first child link and then successive next sibling links.
+</p><p>It also has next siblings of height <span class="texhtml"><i>h</i> − 1</span>, <span class="texhtml"><i>h</i> − 2</span>, etc.
+</p><p>A node's parent in the multi-way tree is called its "distinguished ancestor".  To find this in the binary tree, find the node's binary parent.  If the node is the right child (first child), the parent is the distinguished ancestor.  If the node is the left child (next sibling), its distinguished ancestor is the same as its binary parent's.  In the implicit tree, finding the binary parent is easy, but its reverse bit must be consulted to determine which type of child the node is.  (Early papers used the term "grandparent" for the distinguished ancestor,<sup id="cite_ref-Dutton93_3-0" class="reference"><a href="#cite_note-Dutton93-3">&#91;3&#93;</a></sup> a meaning confusingly different from the usual "parent of parent".)
+</p><p>Although the distinguished ancestor may be <span class="texhtml">log<sub>2</sub><i>n</i></span> levels high in the tree, the <i>average</i> distance is <span class="texhtml">2</span>.  (It's at least <span class="texhtml">1</span>, and half of the time we recurse, so <span class="texhtml"><i>D</i> = 1 + <i>D</i>/2</span>, meaning that <span class="texhtml"><i>D</i> = 2</span>.)  Thus, even a simple iterative algorithm for finding the distinguished ancestor is sufficient.
+</p><p>Like binomial heaps, the fundamental operation on weak heaps is merging two heaps of equal height <span class="texhtml mvar" style="font-style:italic;">h</span>, to make a weak heap of height <span class="texhtml"><i>h</i>+1</span>.  This requires exactly one comparison, between the roots.  Whichever root is greater (assuming a max-heap) is the final root.  Its first child is the losing root, which retains its children (right subtree).  The winning root's children are installed as siblings of the losing root.
+</p><p>This operation can be performed on the implicit tree structure because the heaps being merged are never arbitrary.  Rather, the two heaps are formed as part of sifting a node up the multi-way tree:
+</p>
+<ul><li>The first is a normal weak heap (whose next sibling link exists, but is ignored).</li>
+<li>The second is the imaginary heap formed by linking the first root's distinguished ancestor (multi-way parent) to the first root's following siblings.</li></ul>
+<p>At the beginning, the heap invariants apply everywhere <i>except</i> possibly between the first root and its distinguished ancestor.  All <i>other</i> nodes are less than or equal to their distinguished ancestors.
+</p><p>After comparing the two roots, the merge proceeds in one of two ways:
+</p>
+<ol><li>(The distinguished ancestor is greater or equal.)  Nothing needs to be moved, and the result of the merge is the distinguished ancestor.</li>
+<li>(The first root is greater.)  The first root's binary children (first child and next sibling) are exchanged (using the reverse bit), and then the first root and its distinguished ancestor are exchanged (by copying).</li></ol>
+<p>The second case works because, in the multi-way tree, each node keeps its children with it.  The first root is promoted up the tree because it is greater than its distinguished ancestor.  Thus, it is safely greater than all of the ancestor's previous children.
+</p><p>The previous ancestor, however, is not a safe parent for the first root's old children, because it is less than the first root and so it's not guaranteed to be greater than or equal to all of its children.
+</p><p>By swapping the binary children, the appropriate subset of the demoted ancestor's old children (which are safely less than or equal to it) are demoted with it.  The demoted ancestor's new siblings are the first root's old children, promoted, which are safely less than or equal to the promoted first root.
+</p><p>After this operation, it is uncertain whether the invariant is maintained between the new distinguished ancestor and <i>its</i> distinguished ancestor, so the operation is repeated until the root is reached.
+</p>
+<h2><span class="mw-headline" id="Weak-heap_sort">Weak-heap sort</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Weak_heap&amp;action=edit&amp;section=3" title="Edit section: Weak-heap sort">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Weak heaps may be used to sort an array, in essentially the same way as a conventional <a href="https://en.wikipedia.org/wiki/Heapsort" title="Heapsort">heapsort</a>.<sup id="cite_ref-Dutton93_3-1" class="reference"><a href="#cite_note-Dutton93-3">&#91;3&#93;</a></sup>  First, a weak heap is built out of all of the elements of the array, and then the root is repeatedly exchanged with the last element, which is sifted down to its proper place.
+</p><p>A weak heap of <span class="texhtml mvar" style="font-style:italic;">n</span> elements can be formed in <span class="texhtml"><i>n</i> − 1</span> merges.  It can be done on various orders, but a simple bottom-up implementation works from the end of the array to the beginning, merging each node with its distinguished ancestor.  Note that <i>finding</i> the distinguished ancestor is simplified because the reverse bits in all parents of the heaps being merged are unmodified from their initial state ("not reversed"), and so do not need to be consulted.
+</p><p>As with heapsort, if the array to be sorted is larger than the <a href="https://en.wikipedia.org/wiki/CPU_cache" title="CPU cache">CPU cache</a>, performance is improved if subtrees are merged as soon as two of the same size become available, rather than merging all subtrees on one level before proceeding to the next.<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup>
+</p><p>Sifting down in a weak heap can be done in <span class="texhtml"><i>h</i> = ⌈log<sub>2</sub><i>n</i>⌉</span> comparisons, as opposed to <span class="texhtml">2&#8201;log<sub>2</sub><i>n</i></span> for a binary heap, or <span class="texhtml">1.5&#8201;log<sub>2</sub><i>n</i></span> for the "<a href="https://en.wikipedia.org/wiki/Heapsort#Bottom-up_heapsort" title="Heapsort">bottom-up heapsort</a>" variant.  This is done by "merging up": after swapping the root with the last element of the heap, find the last (height 1) child of the root.  Merge this with the root (its distinguished ancestor), resulting in a valid height-2 heap at the global root.  Then go to the previous sibling (binary parent) of the last merged node, and merge again.  Repeat until the root is reached, when it will be correct for the complete tree.
+</p>
+<h2><span class="mw-headline" id="Priority_queue_operations">Priority queue operations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Weak_heap&amp;action=edit&amp;section=4" title="Edit section: Priority queue operations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In a weak max-heap, the maximum value can be found (in constant time) as the value associated with the root node; similarly, in a weak min-heap, the minimum value can be found at the root.
+</p><p>As with binary heaps, weak heaps can support the typical operations of a <a href="https://en.wikipedia.org/wiki/Priority_queue" title="Priority queue">priority queue</a> data structure: insert, delete-min, delete, or decrease-key, in logarithmic time per operation.
+</p><p>Sifting up is done using the same process as in binary heaps.  The new node is added at the leaf level, then compared with its distinguished ancestor and swapped if necessary (the merge operation).  This is repeated until no more swaps are necessary or the root is reached.
+</p><p>Variants of the weak heap structure allow constant <a href="https://en.wikipedia.org/wiki/Amortized_time" class="mw-redirect" title="Amortized time">amortized time</a> insertions and decrease-keys, matching the time for <a href="https://en.wikipedia.org/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci heaps</a>.<sup id="cite_ref-Edelkamp12_2-1" class="reference"><a href="#cite_note-Edelkamp12-2">&#91;2&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="History_and_applications">History and applications</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Weak_heap&amp;action=edit&amp;section=5" title="Edit section: History and applications">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Weak heaps were introduced by <a href="#CITEREFDutton1993">Dutton (1993)</a>, as part of a variant <a href="https://en.wikipedia.org/wiki/Heap_sort" class="mw-redirect" title="Heap sort">heap sort</a> algorithm that (unlike the standard heap sort using binary heaps) could be used to sort <span class="texhtml mvar" style="font-style:italic;">n</span> items using only <span class="texhtml"><i>n</i>&#160;log<sub>2</sub><i>n</i>&#160;+&#160;<i>O</i>(<i>n</i>)</span> comparisons.<sup id="cite_ref-Dutton93_3-2" class="reference"><a href="#cite_note-Dutton93-3">&#91;3&#93;</a></sup><sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup> They were later investigated as a more generally applicable priority queue data structure.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup><sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Weak_heap&amp;action=edit&amp;section=6" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFEdelkamp2011" class="citation cs2">Edelkamp, Stefan (26 May 2011),  Pieterse, Vreda; Black, Paul E. (eds.), <a rel="nofollow" class="external text" href="https://xlinux.nist.gov/dads/HTML/weakheap.html">"weak-heap"</a>, <i>Dictionary of Algorithms and Data Structures</i><span class="reference-accessdate">, retrieved <span class="nowrap">2015-12-01</span></span></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Dictionary+of+Algorithms+and+Data+Structures&amp;rft.atitle=weak-heap&amp;rft.date=2011-05-26&amp;rft.aulast=Edelkamp&amp;rft.aufirst=Stefan&amp;rft_id=https%3A%2F%2Fxlinux.nist.gov%2Fdads%2FHTML%2Fweakheap.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AWeak+heap" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Edelkamp12-2"><span class="mw-cite-backlink">^ <a href="#cite_ref-Edelkamp12_2-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Edelkamp12_2-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFEdelkampElmasryKatajainen2012" class="citation cs2">Edelkamp, Stefan; Elmasry, Amr; Katajainen, Jyrki (October 2012), <a rel="nofollow" class="external text" href="http://www.cphstl.dk/Paper/Two-dishes/two-dishes.pdf">"The weak-heap data structure: variants and applications"</a> <span class="cs1-format">(PDF)</span>, <i>Journal of Discrete Algorithms</i>, <b>16</b>: 187–205, <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.455.1213">10.1.1.455.1213</a></span>, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.jda.2012.04.010">10.1016/j.jda.2012.04.010</a>, <a href="https://en.wikipedia.org/wiki/MR_(identifier)" class="mw-redirect" title="MR (identifier)">MR</a>&#160;<a rel="nofollow" class="external text" href="http://www.ams.org/mathscinet-getitem?mr=2960353">2960353</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Discrete+Algorithms&amp;rft.atitle=The+weak-heap+data+structure%3A+variants+and+applications&amp;rft.volume=16&amp;rft.pages=187-205&amp;rft.date=2012-10&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.455.1213%23id-name%3DCiteSeerX&amp;rft_id=%2F%2Fwww.ams.org%2Fmathscinet-getitem%3Fmr%3D2960353%23id-name%3DMR&amp;rft_id=info%3Adoi%2F10.1016%2Fj.jda.2012.04.010&amp;rft.aulast=Edelkamp&amp;rft.aufirst=Stefan&amp;rft.au=Elmasry%2C+Amr&amp;rft.au=Katajainen%2C+Jyrki&amp;rft_id=http%3A%2F%2Fwww.cphstl.dk%2FPaper%2FTwo-dishes%2Ftwo-dishes.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AWeak+heap" class="Z3988"></span>.</span>
+</li>
+<li id="cite_note-Dutton93-3"><span class="mw-cite-backlink">^ <a href="#cite_ref-Dutton93_3-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Dutton93_3-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-Dutton93_3-2"><sup><i><b>c</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFDutton1993" class="citation cs2">Dutton, Ronald D. (1993), "Weak-heap sort", <i>BIT</i>, <b>33</b> (3): 372–381, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2Fbf01990520">10.1007/bf01990520</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=BIT&amp;rft.atitle=Weak-heap+sort&amp;rft.volume=33&amp;rft.issue=3&amp;rft.pages=372-381&amp;rft.date=1993&amp;rft_id=info%3Adoi%2F10.1007%2Fbf01990520&amp;rft.aulast=Dutton&amp;rft.aufirst=Ronald+D.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AWeak+heap" class="Z3988"></span>.</span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBojesenKatajainenSpork2000" class="citation journal cs1">Bojesen, Jesper; Katajainen, Jyrki; Spork, Maz (2000). <a rel="nofollow" class="external text" href="http://www.diku.dk/~jyrki/Paper/katajain.ps">"Performance Engineering Case Study: Heap Construction"</a> <span class="cs1-format">(PostScript)</span>. <i>ACM Journal of Experimental Algorithmics</i>. <b>5</b> (15). <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.35.3248">10.1.1.35.3248</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F351827.384257">10.1145/351827.384257</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=ACM+Journal+of+Experimental+Algorithmics&amp;rft.atitle=Performance+Engineering+Case+Study%3A+Heap+Construction&amp;rft.volume=5&amp;rft.issue=15&amp;rft.date=2000&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.35.3248%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1145%2F351827.384257&amp;rft.aulast=Bojesen&amp;rft.aufirst=Jesper&amp;rft.au=Katajainen%2C+Jyrki&amp;rft.au=Spork%2C+Maz&amp;rft_id=http%3A%2F%2Fwww.diku.dk%2F~jyrki%2FPaper%2Fkatajain.ps&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AWeak+heap" class="Z3988"></span> <a rel="nofollow" class="external text" href="https://www.semanticscholar.org/paper/Performance-Engineering-Case-Study-Heap-Bojesen-Katajainen/6f4ada5912c1da64e16453d67ec99c970173fb5b">Alternate PDF source</a>.</span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFEdelkampWegener2000" class="citation cs2">Edelkamp, Stefan; <a href="https://en.wikipedia.org/wiki/Ingo_Wegener" title="Ingo Wegener">Wegener, Ingo</a> (2000), "On the performance of <i>WEAK-HEAPSORT</i>", <a rel="nofollow" class="external text" href="http://www.tzi.de/~edelkamp/publications/conf/stacs/EdelkampW00.pdf"><i>Proceedings of the Symposium on Theoretical Aspects of Computer Science (STACS 2000)</i></a> <span class="cs1-format">(PDF)</span>, Lecture Notes in Computer Science, vol.&#160;1770, Springer-Verlag, pp.&#160;254–266, <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.21.1863">10.1.1.21.1863</a></span>, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F3-540-46541-3_21">10.1007/3-540-46541-3_21</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=On+the+performance+of+WEAK-HEAPSORT&amp;rft.btitle=Proceedings+of+the+Symposium+on+Theoretical+Aspects+of+Computer+Science+%28STACS+2000%29&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=254-266&amp;rft.pub=Springer-Verlag&amp;rft.date=2000&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.21.1863%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1007%2F3-540-46541-3_21&amp;rft.aulast=Edelkamp&amp;rft.aufirst=Stefan&amp;rft.au=Wegener%2C+Ingo&amp;rft_id=http%3A%2F%2Fwww.tzi.de%2F~edelkamp%2Fpublications%2Fconf%2Fstacs%2FEdelkampW00.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AWeak+heap" class="Z3988"></span>.</span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBruunEdelkampKatajainenRasmussen2010" class="citation conference cs1">Bruun, Asger; Edelkamp, Stefan; Katajainen, Jyrki; Rasmussen, Jens (2010). <a rel="nofollow" class="external text" href="https://web.archive.org/web/20170811001458/http://www.cphstl.dk/Paper/Policy-based-benchmarking/policy.pdf">"Policy-Based Benchmarking of Weak Heaps and Their Relatives"</a> <span class="cs1-format">(PDF)</span>. <i>Proceedings of the 9th International Symposium on Experimental Algorithms (SEA 2010)</i>. Lecture Notes in Computer Science. Vol.&#160;6049. Springer-Verlag. pp.&#160;424–435. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-3-642-13193-6_36">10.1007/978-3-642-13193-6_36</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/3-642-13192-1" title="Special:BookSources/3-642-13192-1"><bdi>3-642-13192-1</bdi></a>. Archived from <a rel="nofollow" class="external text" href="http://www.cphstl.dk/Paper/Policy-based-benchmarking/policy.pdf">the original</a> <span class="cs1-format">(PDF)</span> on 2017-08-11.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.atitle=Policy-Based+Benchmarking+of+Weak+Heaps+and+Their+Relatives&amp;rft.btitle=Proceedings+of+the+9th+International+Symposium+on+Experimental+Algorithms+%28SEA+2010%29&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=424-435&amp;rft.pub=Springer-Verlag&amp;rft.date=2010&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-642-13193-6_36&amp;rft.isbn=3-642-13192-1&amp;rft.aulast=Bruun&amp;rft.aufirst=Asger&amp;rft.au=Edelkamp%2C+Stefan&amp;rft.au=Katajainen%2C+Jyrki&amp;rft.au=Rasmussen%2C+Jens&amp;rft_id=http%3A%2F%2Fwww.cphstl.dk%2FPaper%2FPolicy-based-benchmarking%2Fpolicy.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AWeak+heap" class="Z3988"></span>.
+<ul><li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20161227060112/https://pdfs.semanticscholar.org/d493/e5f8313c449ffa8b2526b3a6555b537a2215.pdf">"Policy-Based Benchmarking of Weak Heaps and Their Relatives"</a> <span class="cs1-format">(PDF)</span>. <i>Semantic Scholar</i>. Archived from <a rel="nofollow" class="external text" href="https://pdfs.semanticscholar.org/d493/e5f8313c449ffa8b2526b3a6555b537a2215.pdf">the original</a> <span class="cs1-format">(PDF)</span> on 2016-12-27.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Semantic+Scholar&amp;rft.atitle=Policy-Based+Benchmarking+of+Weak+Heaps+and+Their+Relatives&amp;rft_id=https%3A%2F%2Fpdfs.semanticscholar.org%2Fd493%2Fe5f8313c449ffa8b2526b3a6555b537a2215.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AWeak+heap" class="Z3988"></span></li></ul>
+</span></li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFEdelkampElmasryKatajainen2012" class="citation cs2">Edelkamp, Stefan; Elmasry, Amr; Katajainen, Jyrki (2012), <a rel="nofollow" class="external text" href="http://crpit.com/confpapers/CRPITV128Edelkamp.pdf">"The Weak-heap Family of Priority Queues in Theory and Praxis"</a> <span class="cs1-format">(PDF)</span>, <i>Proceedings of the Eighteenth Computing: The Australasian Theory Symposium (CATS 2012)</i>, vol.&#160;128, Darlinghurst, Australia: Australian Computer Society, Inc., pp.&#160;103–112, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-1-921770-09-8" title="Special:BookSources/978-1-921770-09-8"><bdi>978-1-921770-09-8</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=The+Weak-heap+Family+of+Priority+Queues+in+Theory+and+Praxis&amp;rft.btitle=Proceedings+of+the+Eighteenth+Computing%3A+The+Australasian+Theory+Symposium+%28CATS+2012%29&amp;rft.place=Darlinghurst%2C+Australia&amp;rft.pages=103-112&amp;rft.pub=Australian+Computer+Society%2C+Inc.&amp;rft.date=2012&amp;rft.isbn=978-1-921770-09-8&amp;rft.aulast=Edelkamp&amp;rft.aufirst=Stefan&amp;rft.au=Elmasry%2C+Amr&amp;rft.au=Katajainen%2C+Jyrki&amp;rft_id=http%3A%2F%2Fcrpit.com%2Fconfpapers%2FCRPITV128Edelkamp.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AWeak+heap" class="Z3988"></span>.</span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="Further_reading">Further reading</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Weak_heap&amp;action=edit&amp;section=7" title="Edit section: Further reading">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFEdelkampElmasryKatajainen2013" class="citation journal cs1">Edelkamp, Stefan; Elmasry, Amr; Katajainen, Jyrki (November 2013). <a rel="nofollow" class="external text" href="http://www.cphstl.dk/Paper/JDA-12-92/jda.pdf">"Weak heaps engineered"</a> <span class="cs1-format">(PDF)</span>. <i>Journal of Discrete Algorithms</i>. <b>23</b>: 83–97. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.jda.2013.07.002">10.1016/j.jda.2013.07.002</a></span>. <q>We provide a catalogue of algorithms that optimize the standard algorithms in various ways. As the optimization criteria, we consider the worst-case running time, the number of instructions, branch mispredictions, cache misses, element comparisons, and element moves.</q></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Discrete+Algorithms&amp;rft.atitle=Weak+heaps+engineered&amp;rft.volume=23&amp;rft.pages=83-97&amp;rft.date=2013-11&amp;rft_id=info%3Adoi%2F10.1016%2Fj.jda.2013.07.002&amp;rft.aulast=Edelkamp&amp;rft.aufirst=Stefan&amp;rft.au=Elmasry%2C+Amr&amp;rft.au=Katajainen%2C+Jyrki&amp;rft_id=http%3A%2F%2Fwww.cphstl.dk%2FPaper%2FJDA-12-92%2Fjda.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AWeak+heap" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFEdelkampElmasryKatajainenWeiß2013" class="citation conference cs1">Edelkamp, Stefan; Elmasry, Amr; Katajainen, Jyrki; Weiß, Armin (July 2013). <a rel="nofollow" class="external text" href="https://www.researchgate.net/profile/Amr_Elmasry2/publication/265808560_Weak_Heaps_and_Friends_Recent_Developments/links/5719752508ae986b8b7b35b7/Weak-Heaps-and-Friends-Recent-Developments.pdf"><i>Weak Heaps and Friends: Recent Developments</i></a> <span class="cs1-format">(PDF)</span>. Combinatorial Algorithms - 24th International Workshop. <a href="https://en.wikipedia.org/wiki/Rouen" title="Rouen">Rouen</a>, France. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-3-642-45278-9_1">10.1007/978-3-642-45278-9_1</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Weak+Heaps+and+Friends%3A+Recent+Developments&amp;rft.place=Rouen%2C+France&amp;rft.date=2013-07&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-642-45278-9_1&amp;rft.aulast=Edelkamp&amp;rft.aufirst=Stefan&amp;rft.au=Elmasry%2C+Amr&amp;rft.au=Katajainen%2C+Jyrki&amp;rft.au=Wei%C3%9F%2C+Armin&amp;rft_id=https%3A%2F%2Fwww.researchgate.net%2Fprofile%2FAmr_Elmasry2%2Fpublication%2F265808560_Weak_Heaps_and_Friends_Recent_Developments%2Flinks%2F5719752508ae986b8b7b35b7%2FWeak-Heaps-and-Friends-Recent-Developments.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AWeak+heap" class="Z3988"></span></li></ul>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Tree_data_structures" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:CS_trees" title="Template:CS trees"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:CS_trees" title="Template talk:CS trees"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:CS_trees&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Tree_data_structures" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" title="Tree (data structure)">Tree data structures</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Search_tree" title="Search tree">Search trees</a><br />(<a href="https://en.wikipedia.org/wiki/Set_(abstract_data_type)" title="Set (abstract data type)">dynamic sets</a>/<a href="https://en.wikipedia.org/wiki/Associative_array" title="Associative array">associative arrays</a>)</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/2–3_tree" title="2–3 tree">2–3</a></li>
+<li><a href="https://en.wikipedia.org/wiki/2–3–4_tree" title="2–3–4 tree">2–3–4</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AA_tree" title="AA tree">AA</a></li>
+<li><a href="https://en.wikipedia.org/wiki/(a,b)-tree" title="(a,b)-tree">(a,b)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AVL_tree" title="AVL tree">AVL</a></li>
+<li><a href="https://en.wikipedia.org/wiki/B-tree" title="B-tree">B</a></li>
+<li><a href="https://en.wikipedia.org/wiki/B+_tree" title="B+ tree">B+</a></li>
+<li><a href="https://en.wikipedia.org/wiki/B*-tree" class="mw-redirect" title="B*-tree">B*</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bx-tree" title="Bx-tree">B<sup>x</sup></a></li>
+<li>(<a href="https://en.wikipedia.org/wiki/Optimal_binary_search_tree" title="Optimal binary search tree">Optimal</a>)&#160;<a href="https://en.wikipedia.org/wiki/Binary_search_tree" title="Binary search tree">Binary search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dancing_tree" title="Dancing tree">Dancing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/HTree" title="HTree">HTree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interval_tree" title="Interval tree">Interval</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Order_statistic_tree" title="Order statistic tree">Order statistic</a></li>
+<li>(<a href="https://en.wikipedia.org/wiki/Left-leaning_red–black_tree" title="Left-leaning red–black tree">Left-leaning</a>)&#160;<a href="https://en.wikipedia.org/wiki/Red–black_tree" title="Red–black tree">Red–black</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Scapegoat_tree" title="Scapegoat tree">Scapegoat</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Splay_tree" title="Splay tree">Splay</a></li>
+<li><a href="https://en.wikipedia.org/wiki/T-tree" title="T-tree">T</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Treap" title="Treap">Treap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/UB-tree" title="UB-tree">UB</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Weight-balanced_tree" title="Weight-balanced tree">Weight-balanced</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" title="Heap (data structure)">Heaps</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Binary_heap" title="Binary heap">Binary</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binomial_heap" title="Binomial heap">Binomial</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Brodal_queue" title="Brodal queue">Brodal</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Leftist_tree" title="Leftist tree">Leftist</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pairing_heap" title="Pairing heap">Pairing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Skew_heap" title="Skew heap">Skew</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Van_Emde_Boas_tree" title="Van Emde Boas tree">van Emde Boas</a></li>
+<li><a class="mw-selflink selflink">Weak</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Trie" title="Trie">Tries</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Ctrie" title="Ctrie">Ctrie</a></li>
+<li><a href="https://en.wikipedia.org/wiki/C-trie" title="C-trie">C-trie (compressed ADT)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hash_tree_(persistent_data_structure)" title="Hash tree (persistent data structure)">Hash</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Radix_tree" title="Radix tree">Radix</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Suffix_tree" title="Suffix tree">Suffix</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ternary_search_tree" title="Ternary search tree">Ternary search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X-fast_trie" title="X-fast trie">X-fast</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Y-fast_trie" title="Y-fast trie">Y-fast</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Spatial_index" class="mw-redirect" title="Spatial index">Spatial</a> data partitioning trees</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Ball_tree" title="Ball tree">Ball</a></li>
+<li><a href="https://en.wikipedia.org/wiki/BK-tree" title="BK-tree">BK</a></li>
+<li><a href="https://en.wikipedia.org/wiki/BSP_tree" class="mw-redirect" title="BSP tree">BSP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cartesian_tree" title="Cartesian tree">Cartesian</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hilbert_R-tree" title="Hilbert R-tree">Hilbert R</a></li>
+<li><a href="https://en.wikipedia.org/wiki/K-d_tree" title="K-d tree"><i>k</i>-d</a> (<a href="https://en.wikipedia.org/wiki/Implicit_k-d_tree" title="Implicit k-d tree">implicit <i>k</i>-d</a>)</li>
+<li><a href="https://en.wikipedia.org/wiki/M-tree" title="M-tree">M</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Metric_tree" title="Metric tree">Metric</a></li>
+<li><a href="https://en.wikipedia.org/wiki/MVP_tree" class="mw-redirect" title="MVP tree">MVP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Octree" title="Octree">Octree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/PH-tree" title="PH-tree">PH</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Priority_R-tree" title="Priority R-tree">Priority R</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quadtree" title="Quadtree">Quad</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R-tree" title="R-tree">R</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R+_tree" title="R+ tree">R+</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R*_tree" class="mw-redirect" title="R* tree">R*</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Segment_tree" title="Segment tree">Segment</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Vantage-point_tree" title="Vantage-point tree">VP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X-tree" title="X-tree">X</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Other trees</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Cover_tree" title="Cover tree">Cover</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Exponential_tree" title="Exponential tree">Exponential</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fenwick_tree" title="Fenwick tree">Fenwick</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Finger_tree" title="Finger tree">Finger</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fractal_tree_index" title="Fractal tree index">Fractal tree index</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fusion_tree" title="Fusion tree">Fusion</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hash_calendar" title="Hash calendar">Hash calendar</a></li>
+<li><a href="https://en.wikipedia.org/wiki/IDistance" title="IDistance">iDistance</a></li>
+<li><a href="https://en.wikipedia.org/wiki/K-ary_tree" class="mw-redirect" title="K-ary tree">K-ary</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Left-child_right-sibling_binary_tree" title="Left-child right-sibling binary tree">Left-child right-sibling</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Link/cut_tree" title="Link/cut tree">Link/cut</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Log-structured_merge-tree" title="Log-structured merge-tree">Log-structured merge</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Merkle_tree" title="Merkle tree">Merkle</a></li>
+<li><a href="https://en.wikipedia.org/wiki/PQ_tree" title="PQ tree">PQ</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Range_tree" title="Range tree">Range</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SPQR_tree" title="SPQR tree">SPQR</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Top_tree" title="Top tree">Top</a></li></ul>
+</div></td></tr></tbody></table></div>
+<div class="navbox-styles nomobile"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1061467846"/></div><div role="navigation" class="navbox" aria-labelledby="Sorting_algorithms" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1063604349"/><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Sorting" title="Template:Sorting"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Sorting" title="Template talk:Sorting"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Sorting&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Sorting_algorithms" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">Sorting algorithms</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Theory</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" title="Computational complexity theory">Computational complexity theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">Big O notation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Total_order" title="Total order">Total order</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_(abstract_data_type)" title="List (abstract data type)">Lists</a></li>
+<li><a href="https://en.wikipedia.org/wiki/In-place_algorithm" title="In-place algorithm">Inplacement</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sorting_algorithm#Stability" title="Sorting algorithm">Stability</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Comparison_sort" title="Comparison sort">Comparison sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Adaptive_sort" title="Adaptive sort">Adaptive sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sorting_network" title="Sorting network">Sorting network</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Integer_sorting" title="Integer sorting">Integer sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X_+_Y_sorting" title="X + Y sorting">X + Y sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Transdichotomous_model" title="Transdichotomous model">Transdichotomous model</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quantum_sort" title="Quantum sort">Quantum sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Exchange sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Bubble_sort" title="Bubble sort">Bubble sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cocktail_shaker_sort" title="Cocktail shaker sort">Cocktail shaker sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Odd–even_sort" title="Odd–even sort">Odd–even sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Comb_sort" title="Comb sort">Comb sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gnome_sort" title="Gnome sort">Gnome sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Proportion_extend_sort" title="Proportion extend sort">Proportion extend sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quicksort" title="Quicksort">Quicksort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Slowsort" title="Slowsort">Slowsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stooge_sort" title="Stooge sort">Stooge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bogosort" title="Bogosort">Bogosort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Selection_algorithm" title="Selection algorithm">Selection sorts</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Selection_sort" title="Selection sort">Selection sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Heapsort" title="Heapsort">Heapsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Smoothsort" title="Smoothsort">Smoothsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cartesian_tree#Application_in_sorting" title="Cartesian tree">Cartesian tree sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tournament_sort" title="Tournament sort">Tournament sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cycle_sort" title="Cycle sort">Cycle sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Weak_heap#Weak-heap_sort" title="Weak heap">Weak-heap sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Insertion sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Insertion_sort" title="Insertion sort">Insertion sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shellsort" title="Shellsort">Shellsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Splaysort" title="Splaysort">Splaysort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tree_sort" title="Tree sort">Tree sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Library_sort" title="Library sort">Library sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Patience_sorting" title="Patience sorting">Patience sorting</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Merge sorts</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Merge_sort" title="Merge sort">Merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cascade_merge_sort" title="Cascade merge sort">Cascade merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Oscillating_merge_sort" title="Oscillating merge sort">Oscillating merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Polyphase_merge_sort" title="Polyphase merge sort">Polyphase merge sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Distribution sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/American_flag_sort" title="American flag sort">American flag sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bead_sort" title="Bead sort">Bead sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bucket_sort" title="Bucket sort">Bucket sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Burstsort" title="Burstsort">Burstsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Counting_sort" title="Counting sort">Counting sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interpolation_sort" title="Interpolation sort">Interpolation sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pigeonhole_sort" title="Pigeonhole sort">Pigeonhole sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Proxmap_sort" title="Proxmap sort">Proxmap sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Radix_sort" title="Radix sort">Radix sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Flashsort" title="Flashsort">Flashsort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Concurrent sorts</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Bitonic_sorter" title="Bitonic sorter">Bitonic sorter</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Batcher_odd–even_mergesort" title="Batcher odd–even mergesort">Batcher odd–even mergesort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pairwise_sorting_network" title="Pairwise sorting network">Pairwise sorting network</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Samplesort" title="Samplesort">Samplesort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Hybrid_algorithm" title="Hybrid algorithm">Hybrid sorts</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Block_sort" title="Block sort">Block merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kirkpatrick-Reisch_sort" class="mw-redirect" title="Kirkpatrick-Reisch sort">Kirkpatrick-Reisch sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Timsort" title="Timsort">Timsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Introsort" title="Introsort">Introsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Spreadsort" title="Spreadsort">Spreadsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Merge-insertion_sort" title="Merge-insertion sort">Merge-insertion sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Other</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Topological_sorting" title="Topological sorting">Topological sorting</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Pre-topological_order" title="Pre-topological order">Pre-topological order</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Pancake_sorting" title="Pancake sorting">Pancake sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Spaghetti_sort" title="Spaghetti sort">Spaghetti sort</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1329
+Cached time: 20220418181542
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.477 seconds
+Real time usage: 0.546 seconds
+Preprocessor visited node count: 2492/1000000
+Post‐expand include size: 58500/2097152 bytes
+Template argument size: 3036/2097152 bytes
+Highest expansion depth: 10/100
+Expensive parser function count: 0/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 38972/5000000 bytes
+Lua time usage: 0.244/10.000 seconds
+Lua memory usage: 5085588/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  448.281      1 -total
+ 38.32%  171.780      1 Template:Reflist
+ 24.56%  110.108      5 Template:Citation
+ 22.04%   98.821     34 Template:Math
+ 14.70%   65.883      2 Template:Navbox
+ 14.33%   64.241      1 Template:CS_trees
+ 10.97%   49.157      1 Template:Harvtxt
+  6.59%   29.539      2 Template:Sfrac
+  4.19%   18.775      2 Template:Cite_conference
+  3.59%   16.095     35 Template:Main_other
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:48677284-0!canonical and timestamp 20220418181541 and revision id 1081292270. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Weak_heap&amp;oldid=1081292270">https://en.wikipedia.org/w/index.php?title=Weak_heap&amp;oldid=1081292270</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Heaps_(data_structures)" title="Category:Heaps (data structures)">Heaps (data structures)</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Sorting_algorithms" title="Category:Sorting algorithms">Sorting algorithms</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Comparison_sorts" title="Category:Comparison sorts">Comparison sorts</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Weak+heap" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Weak+heap" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Weak_heap" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Weak_heap" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Weak_heap"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Weak_heap&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Weak_heap&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Weak_heap" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Weak_heap" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Weak_heap&amp;oldid=1081292270" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Weak_heap&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Weak_heap&amp;id=1081292270&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q25304407" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Weak_heap&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Weak_heap&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		<div class="after-portlet after-portlet-lang"><span class="uls-after-portlet-link"></span><span class="wb-langlinks-add wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q25304407#sitelinks-wikipedia" title="Add interlanguage links" class="wbc-editpage">Add links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 6 April 2022, at 15:07<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Weak_heap&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.477","walltime":"0.546","ppvisitednodes":{"value":2492,"limit":1000000},"postexpandincludesize":{"value":58500,"limit":2097152},"templateargumentsize":{"value":3036,"limit":2097152},"expansiondepth":{"value":10,"limit":100},"expensivefunctioncount":{"value":0,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":38972,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  448.281      1 -total"," 38.32%  171.780      1 Template:Reflist"," 24.56%  110.108      5 Template:Citation"," 22.04%   98.821     34 Template:Math"," 14.70%   65.883      2 Template:Navbox"," 14.33%   64.241      1 Template:CS_trees"," 10.97%   49.157      1 Template:Harvtxt","  6.59%   29.539      2 Template:Sfrac","  4.19%   18.775      2 Template:Cite_conference","  3.59%   16.095     35 Template:Main_other"]},"scribunto":{"limitreport-timeusage":{"value":"0.244","limit":"10.000"},"limitreport-memusage":{"value":5085588,"limit":52428800},"limitreport-logs":"anchor_id_list = table#1 {\n  [\"CITEREFBojesenKatajainenSpork2000\"] = 1,\n  [\"CITEREFBruunEdelkampKatajainenRasmussen2010\"] = 1,\n  [\"CITEREFDutton1993\"] = 1,\n  [\"CITEREFEdelkamp2011\"] = 1,\n  [\"CITEREFEdelkampElmasryKatajainen2012\"] = 2,\n  [\"CITEREFEdelkampElmasryKatajainen2013\"] = 1,\n  [\"CITEREFEdelkampElmasryKatajainenWeiß2013\"] = 1,\n  [\"CITEREFEdelkampWegener2000\"] = 1,\n}\ntemplate_list = table#1 {\n  [\"CS trees\"] = 1,\n  [\"Ceil\"] = 1,\n  [\"Citation\"] = 5,\n  [\"Cite conference\"] = 2,\n  [\"Cite journal\"] = 2,\n  [\"Cite web\"] = 1,\n  [\"Floor\"] = 1,\n  [\"Harvtxt\"] = 1,\n  [\"Math\"] = 34,\n  [\"Mvar\"] = 7,\n  [\"Reflist\"] = 1,\n  [\"Sfrac\"] = 2,\n  [\"Sorting\"] = 1,\n}\narticle_whitelist = table#1 {\n}\n"},"cachereport":{"origin":"mw1329","timestamp":"20220418181542","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Weak heap","url":"https:\/\/en.wikipedia.org\/wiki\/Weak_heap","sameAs":"http:\/\/www.wikidata.org\/entity\/Q25304407","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q25304407","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2015-11-29T02:33:52Z","dateModified":"2022-04-06T15:07:37Z","headline":"combination of the binary heap and binomial heap data structures for implementing priority queues"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Weak heap","url":"https:\/\/en.wikipedia.org\/wiki\/Weak_heap","sameAs":"http:\/\/www.wikidata.org\/entity\/Q25304407","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q25304407","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2015-11-29T02:33:52Z","dateModified":"2022-04-06T15:07:37Z","headline":"combination of the binary heap and binomial heap data structures for implementing priority queues"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":135,"wgHostname":"mw1366"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Weak_heap by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:42 GMT -->
+</html>

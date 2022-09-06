@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Topological_sorting by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Topological sorting - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"0c885997-d9f2-4b34-8380-5701c0067e19","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Topological_sorting","wgTitle":"Topological sorting","wgCurRevisionId":1082738867,"wgRevisionId":1082738867,"wgArticleId":897064,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles with short description","Short description is different from Wikidata","Articles with example pseudocode","Graph algorithms","Sorting algorithms","Directed graphs"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Topological_sorting",
+"wgRelevantArticleId":897064,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":20000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q753127","wgGENewcomerTasksGuidanceEnabled":true,"wgGEAskQuestionEnabled":false,"wgGELinkRecommendationsFrontendEnabled":false};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready",
+"ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","ext.scribunto.logs","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks",
+"ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.9"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="Topological sorting - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Topological_sorting"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Topological_sorting"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Topological_sorting rootpage-Topological_sorting skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Topological sorting</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Node ordering for directed acyclic graphs</div>
+<style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">"Dependency resolution" redirects here. For other uses, see <a href="https://en.wikipedia.org/wiki/Dependency_(disambiguation)" class="mw-redirect mw-disambig" title="Dependency (disambiguation)">Dependency (disambiguation)</a>.</div>
+<p>In <a href="https://en.wikipedia.org/wiki/Computer_science" title="Computer science">computer science</a>, a <b>topological sort</b> or <b>topological ordering</b> of a <a href="https://en.wikipedia.org/wiki/Directed_graph" title="Directed graph">directed graph</a> is a <a href="https://en.wikipedia.org/wiki/Total_order" title="Total order">linear ordering</a> of its <a href="https://en.wikipedia.org/wiki/Vertex_(graph_theory)" title="Vertex (graph theory)">vertices</a> such that for every directed edge <i>uv</i> from vertex <i>u</i> to vertex <i>v</i>, <i>u</i> comes before <i>v</i> in the ordering. For instance, the vertices of the graph may represent tasks to be performed, and the edges may represent constraints that one task must be performed before another; in this application, a topological ordering is just a valid sequence for the tasks. Precisely, a topological sort is a graph traversal in which each node <i>v</i> is visited only after all its dependencies are visited<i>.</i> A topological ordering is possible if and only if the graph has no <a href="https://en.wikipedia.org/wiki/Directed_cycle" class="mw-redirect" title="Directed cycle">directed cycles</a>, that is, if it is a <a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph" title="Directed acyclic graph">directed acyclic graph</a> (DAG). Any DAG has at least one topological ordering, and <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithms</a> are known for constructing a topological ordering of any DAG in <a href="https://en.wikipedia.org/wiki/Linear_time" class="mw-redirect" title="Linear time">linear time</a>. Topological sorting has many applications especially in ranking problems such as <a href="https://en.wikipedia.org/wiki/Feedback_arc_set" title="Feedback arc set">feedback arc set</a>. Topological sorting is possible even when the DAG has <a href="https://en.wikipedia.org/wiki/Connectivity_(graph_theory)" title="Connectivity (graph theory)">disconnected components</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Examples"><span class="tocnumber">1</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Algorithms"><span class="tocnumber">2</span> <span class="toctext">Algorithms</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Kahn&#39;s_algorithm"><span class="tocnumber">2.1</span> <span class="toctext">Kahn's algorithm</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Depth-first_search"><span class="tocnumber">2.2</span> <span class="toctext">Depth-first search</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Parallel_algorithms"><span class="tocnumber">2.3</span> <span class="toctext">Parallel algorithms</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Application_to_shortest_path_finding"><span class="tocnumber">3</span> <span class="toctext">Application to shortest path finding</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Uniqueness"><span class="tocnumber">4</span> <span class="toctext">Uniqueness</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Relation_to_partial_orders"><span class="tocnumber">5</span> <span class="toctext">Relation to partial orders</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Relation_to_scheduling_optimisation"><span class="tocnumber">6</span> <span class="toctext">Relation to scheduling optimisation</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Further_reading"><span class="tocnumber">9</span> <span class="toctext">Further reading</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#External_links"><span class="tocnumber">10</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Examples">Examples</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;action=edit&amp;section=1" title="Edit section: Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The canonical application of topological sorting is in <a href="https://en.wikipedia.org/wiki/Job_shop_scheduling" class="mw-redirect" title="Job shop scheduling">scheduling</a> a sequence of jobs or tasks based on their <a href="https://en.wikipedia.org/wiki/Dependency_graph" title="Dependency graph">dependencies</a>. The jobs are represented by vertices, and there is an edge from <i>x</i> to <i>y</i> if job <i>x</i> must be completed before job <i>y</i> can be started (for example, when washing clothes, the washing machine must finish before we put the clothes in the dryer). Then, a topological sort gives an order in which to perform the jobs.  A closely related application of topological sorting algorithms was first studied in the early 1960s in the context of the <a href="https://en.wikipedia.org/wiki/Program_Evaluation_and_Review_Technique" class="mw-redirect" title="Program Evaluation and Review Technique">PERT</a> technique for scheduling in <a href="https://en.wikipedia.org/wiki/Project_management" title="Project management">project management</a>.<sup id="cite_ref-Jarnagin_1-0" class="reference"><a href="#cite_note-Jarnagin-1">&#91;1&#93;</a></sup> In this application, the vertices of a graph represent the milestones of a project, and the edges represent tasks that must be performed between one milestone and another. Topological sorting forms the basis of linear-time algorithms for finding the <a href="https://en.wikipedia.org/wiki/Critical_path_method" title="Critical path method">critical path</a> of the project, a sequence of milestones and tasks that controls the length of the overall project schedule.
+</p><p>In computer science, applications of this type arise in <a href="https://en.wikipedia.org/wiki/Instruction_scheduling" title="Instruction scheduling">instruction scheduling</a>, ordering of formula cell evaluation when recomputing formula values in <a href="https://en.wikipedia.org/wiki/Spreadsheet" title="Spreadsheet">spreadsheets</a>, <a href="https://en.wikipedia.org/wiki/Logic_synthesis" title="Logic synthesis">logic synthesis</a>, determining the order of compilation tasks to perform in <a href="https://en.wikipedia.org/wiki/Makefile" class="mw-redirect" title="Makefile">makefiles</a>, data <a href="https://en.wikipedia.org/wiki/Serialization" title="Serialization">serialization</a>, and resolving symbol dependencies in <a href="https://en.wikipedia.org/wiki/Linker_(computing)" title="Linker (computing)">linkers</a>. It is also used to decide in which order to load tables with foreign keys in databases.
+</p>
+<table>
+<tbody><tr>
+<td><div class="floatleft"><a href="https://en.wikipedia.org/wiki/File:Directed_acyclic_graph_2.svg" class="image"><img alt="Directed acyclic graph 2.svg" src="http://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Directed_acyclic_graph_2.svg/305px-Directed_acyclic_graph_2.svg.png" decoding="async" width="305" height="245" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/0/03/Directed_acyclic_graph_2.svg/458px-Directed_acyclic_graph_2.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/03/Directed_acyclic_graph_2.svg/610px-Directed_acyclic_graph_2.svg.png 2x" data-file-width="305" data-file-height="245" /></a></div>
+</td>
+<td>The graph shown to the left has many valid topological sorts, including:
+<ul><li>5, 7, 3, 11, 8, 2, 9, 10 (visual top-to-bottom, left-to-right)</li>
+<li>3, 5, 7, 8, 11, 2, 9, 10 (smallest-numbered available vertex first)</li>
+<li>5, 7, 3, 8, 11, 10, 9, 2 (fewest edges first)</li>
+<li>7, 5, 11, 3, 10, 8, 9, 2 (largest-numbered available vertex first)</li>
+<li>5, 7, 11, 2, 3, 8, 9, 10 (attempting top-to-bottom, left-to-right)</li>
+<li>3, 7, 8, 5, 11, 10, 2, 9 (arbitrary)</li></ul>
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Algorithms">Algorithms</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;action=edit&amp;section=2" title="Edit section: Algorithms">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The usual algorithms for topological sorting have running time linear in the number of nodes plus the number of edges, asymptotically, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(\left|{V}\right|+\left|{E}\right|).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mrow>
+          <mo>|</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>V</mi>
+          </mrow>
+          <mo>|</mo>
+        </mrow>
+        <mo>+</mo>
+        <mrow>
+          <mo>|</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>E</mi>
+          </mrow>
+          <mo>|</mo>
+        </mrow>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(\left|{V}\right|+\left|{E}\right|).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f40de423f10d77a2da65bcc82f0f94944de04ef1" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:13.22ex; height:2.843ex;" alt="{\displaystyle O(\left|{V}\right|+\left|{E}\right|).}"/></span>
+</p>
+<h3><span id="Kahn.27s_algorithm"></span><span class="mw-headline" id="Kahn's_algorithm">Kahn's algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;action=edit&amp;section=3" title="Edit section: Kahn&#039;s algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1033289096"/><div role="note" class="hatnote navigation-not-searchable">Not to be confused with <a href="https://en.wikipedia.org/wiki/Kuhn%27s_algorithm" class="mw-redirect" title="Kuhn&#39;s algorithm">Kuhn's algorithm</a>.</div>
+<p>One of these algorithms, first described by <a href="#CITEREFKahn1962">Kahn (1962)</a>, works by choosing vertices in the same order as the eventual topological sort.<sup id="cite_ref-Kahn_2-0" class="reference"><a href="#cite_note-Kahn-2">&#91;2&#93;</a></sup> First, find a list of "start nodes" which have no incoming edges and insert them into a set S; at least one such node must exist in a non-empty acyclic graph. Then:
+</p>
+<pre><i>L</i> ← Empty list that will contain the sorted elements
+<i>S</i> ← Set of all nodes with no incoming edge
+
+<b>while</b> <i>S</i> <b>is not</b> empty <b>do</b>
+    remove a node <i>n</i> from <i>S</i>
+    add <i>n</i> to <i>L</i>
+    <b>for each</b> node <i>m</i> with an edge <i>e</i> from <i>n</i> to <i>m</i> <b>do</b>
+        remove edge <i>e</i> from the graph
+        <b>if</b> <i>m</i> has no other incoming edges <b>then</b>
+            insert <i>m</i> into <i>S</i>
+
+<b>if</b> <i>graph</i> has edges <b>then</b>
+    <b>return</b> error   <i>(graph has at least one cycle)</i>
+<b>else</b> 
+    <b>return</b> <i>L</i>   <i>(a topologically sorted order)</i>
+</pre>
+<p>If the graph is a <a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph" title="Directed acyclic graph">DAG</a>, a solution will be contained in the list L (the solution is not necessarily unique). Otherwise, the graph must have at least one cycle and therefore a topological sort is impossible.
+</p><p>Reflecting the non-uniqueness of the resulting sort, the structure S can be simply a set or a queue or a stack. Depending on the order that nodes n are removed from set S, a different solution is created. A variation of Kahn's algorithm that breaks ties <a href="https://en.wikipedia.org/wiki/Lexicographic_order" title="Lexicographic order">lexicographically</a> forms a key component of the <a href="https://en.wikipedia.org/wiki/Coffman–Graham_algorithm" title="Coffman–Graham algorithm">Coffman–Graham algorithm</a> for parallel scheduling and <a href="https://en.wikipedia.org/wiki/Layered_graph_drawing" title="Layered graph drawing">layered graph drawing</a>.
+</p>
+<h3><span class="mw-headline" id="Depth-first_search">Depth-first search</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;action=edit&amp;section=4" title="Edit section: Depth-first search">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>An alternative algorithm for topological sorting is based on <a href="https://en.wikipedia.org/wiki/Depth-first_search" title="Depth-first search">depth-first search</a>. The algorithm loops through each node of the graph, in an arbitrary order, initiating a depth-first search that terminates when it hits any node that has already been visited since the beginning of the topological sort or the node has no outgoing edges (i.e. a leaf node):
+</p>
+<pre><i>L</i> ← Empty list that will contain the sorted nodes
+<b>while</b> exists nodes without a permanent mark <b>do</b>
+    select an unmarked node <i>n</i>
+    visit(<i>n</i>)
+
+<b>function</b> visit(node <i>n</i>)
+    <b>if</b> <i>n</i> has a permanent mark <b>then</b>
+        <b>return</b>
+    <b>if</b> <i>n</i> has a temporary mark <b>then</b>
+        <b>stop</b>   <i>(not a DAG)</i>
+
+    mark <i>n</i> with a temporary mark
+
+    <b>for each</b> node <i>m</i> with an edge from <i>n</i> to <i>m</i> <b>do</b>
+        visit(<i>m</i>)
+
+    remove temporary mark from <i>n</i>
+    mark <i>n</i> with a permanent mark
+    add <i>n</i> to head of <i>L</i>
+</pre>
+<p>Each node <i>n</i> gets <i>prepended</i> to the output list L only after considering all other nodes which depend on <i>n</i> (all descendants of <i>n</i> in the graph).  Specifically, when the algorithm adds node <i>n</i>, we are guaranteed that all nodes which depend on <i>n</i> are already in the output list L: they were added to L either by the recursive call to visit() which ended before the call to visit <i>n</i>, or by a call to visit() which started even before the call to visit <i>n</i>.  Since each edge and node is visited once, the algorithm runs in linear time. This depth-first-search-based algorithm is the one described by <a href="#CITEREFCormenLeisersonRivestStein2001">Cormen et al. (2001)</a>;<sup id="cite_ref-CLRS_3-0" class="reference"><a href="#cite_note-CLRS-3">&#91;3&#93;</a></sup> it seems to have been first described in print by Tarjan in 1976.<sup id="cite_ref-Tarjan_4-0" class="reference"><a href="#cite_note-Tarjan-4">&#91;4&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Parallel_algorithms">Parallel algorithms</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;action=edit&amp;section=5" title="Edit section: Parallel algorithms">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>On a <a href="https://en.wikipedia.org/wiki/Parallel_random-access_machine" class="mw-redirect" title="Parallel random-access machine">parallel random-access machine</a>, a topological ordering can be constructed in <i>O</i>(log<sup>2</sup> <i>n</i>) time using a polynomial number of processors, putting the problem into the complexity class <b><a href="https://en.wikipedia.org/wiki/NC_(complexity)" title="NC (complexity)">NC</a><sup>2</sup></b>.<sup id="cite_ref-Cook_5-0" class="reference"><a href="#cite_note-Cook-5">&#91;5&#93;</a></sup>
+One method for doing this is to repeatedly square the <a href="https://en.wikipedia.org/wiki/Adjacency_matrix" title="Adjacency matrix">adjacency matrix</a> of the given graph, logarithmically many times, using <a href="https://en.wikipedia.org/wiki/Min-plus_matrix_multiplication" title="Min-plus matrix multiplication">min-plus matrix multiplication</a> with maximization in place of minimization. The resulting matrix describes the <a href="https://en.wikipedia.org/wiki/Longest_path_problem" title="Longest path problem">longest path</a> distances in the graph. Sorting the vertices by the lengths of their longest incoming paths produces a topological ordering.<sup id="cite_ref-DNS_6-0" class="reference"><a href="#cite_note-DNS-6">&#91;6&#93;</a></sup>
+</p><p>An algorithm for parallel topological sorting on <a href="https://en.wikipedia.org/wiki/Distributed_memory" title="Distributed memory">distributed memory</a> machines parallelizes the algorithm of Kahn for a <a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph" title="Directed acyclic graph">DAG</a> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle G=(V,E)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>G</mi>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <mi>V</mi>
+        <mo>,</mo>
+        <mi>E</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle G=(V,E)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/644a8d85ee410b6159ca2bdb5dcb9097e2c8f182" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:11.331ex; height:2.843ex;" alt="G=(V,E)"/></span>.<sup id="cite_ref-SMDD_7-0" class="reference"><a href="#cite_note-SMDD-7">&#91;7&#93;</a></sup> On a high level, the algorithm of Kahn repeatedly removes the vertices of indegree 0 and adds them to the topological sorting in the order in which they were removed. Since the outgoing edges of the removed vertices are also removed, there will be a new set of vertices of indegree 0, where the procedure is repeated until no vertices are left. This algorithm performs <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle D+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>D</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle D+1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6a2a5ae5a26d2595babc37427927b0cf26f9235f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:5.927ex; height:2.343ex;" alt="{\displaystyle D+1}"/></span> iterations, where <span class="texhtml mvar" style="font-style:italic;">D</span> is the longest path in <span class="texhtml mvar" style="font-style:italic;">G</span>. Each iteration can be parallelized, which is the idea of the following algorithm.
+</p><p>In the following it is assumed that the graph partition is stored on <span class="texhtml mvar" style="font-style:italic;">p</span> processing elements (PE) which are labeled <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 0,\dots ,p-1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>0</mn>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <mi>p</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 0,\dots ,p-1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/350871b5980d758f5a36ecc7b1dba63c20724f0d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:11.513ex; height:2.509ex;" alt="{\displaystyle 0,\dots ,p-1}"/></span>. Each PE <span class="texhtml mvar" style="font-style:italic;">i</span> initializes a set of local vertices <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Q_{i}^{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msubsup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q_{i}^{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7c3ac9c76e43c749c88818ace54d0ce79c4ebc23" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:2.893ex; height:3.176ex;" alt="{\displaystyle Q_{i}^{1}}"/></span> with <a href="https://en.wikipedia.org/wiki/Indegree" class="mw-redirect" title="Indegree">indegree</a> 0, where the upper index represents the current iteration. Since all vertices in the local sets <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Q_{0}^{1},\dots ,Q_{p-1}^{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msubsup>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msubsup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q_{0}^{1},\dots ,Q_{p-1}^{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2a13fb14f805a8fe8b5f2f6b929539fdb6f4bbe5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.338ex; width:13.069ex; height:3.509ex;" alt="{\displaystyle Q_{0}^{1},\dots ,Q_{p-1}^{1}}"/></span> have indegree 0, i.e. they are not adjacent, they can be given in an arbitrary order for a valid topological sorting. To assign a global index to each vertex, a <a href="https://en.wikipedia.org/wiki/Prefix_sum" title="Prefix sum">prefix sum</a> is calculated over the sizes of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Q_{0}^{1},\dots ,Q_{p-1}^{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msubsup>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msubsup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q_{0}^{1},\dots ,Q_{p-1}^{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2a13fb14f805a8fe8b5f2f6b929539fdb6f4bbe5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.338ex; width:13.069ex; height:3.509ex;" alt="{\displaystyle Q_{0}^{1},\dots ,Q_{p-1}^{1}}"/></span>. So each step, there are <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle \sum _{i=0}^{p-1}|Q_{i}|}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <munderover>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>=</mo>
+            <mn>0</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </munderover>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <msub>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle \sum _{i=0}^{p-1}|Q_{i}|}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c47c838aa5d281e4ff2c5854e976a0399801eb4b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:9.932ex; height:3.509ex;" alt="{\textstyle \sum _{i=0}^{p-1}|Q_{i}|}"/></span> vertices added to the topological sorting.
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://en.wikipedia.org/wiki/File:Parallel_Topological_Sorting.gif" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Parallel_Topological_Sorting.gif/300px-Parallel_Topological_Sorting.gif" decoding="async" width="300" height="188" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Parallel_Topological_Sorting.gif/450px-Parallel_Topological_Sorting.gif 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Parallel_Topological_Sorting.gif/600px-Parallel_Topological_Sorting.gif 2x" data-file-width="1200" data-file-height="750" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Parallel_Topological_Sorting.gif" class="internal" title="Enlarge"></a></div>Execution of the parallel topological sorting algorithm on a DAG with two processing elements.</div></div></div>
+<p>In the first step, PE <span class="texhtml mvar" style="font-style:italic;">j</span> assigns the indices <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle \sum _{i=0}^{j-1}|Q_{i}^{1}|,\dots ,\left(\sum _{i=0}^{j}|Q_{i}^{1}|\right)-1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <munderover>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>=</mo>
+            <mn>0</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </munderover>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msubsup>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <munderover>
+              <mo>&#x2211;<!-- ∑ --></mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+                <mo>=</mo>
+                <mn>0</mn>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>j</mi>
+              </mrow>
+            </munderover>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+            <msubsup>
+              <mi>Q</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>1</mn>
+              </mrow>
+            </msubsup>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle \sum _{i=0}^{j-1}|Q_{i}^{1}|,\dots ,\left(\sum _{i=0}^{j}|Q_{i}^{1}|\right)-1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/63a79a820bd39172be3a325720109ef7c6cefd12" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:31.921ex; height:4.843ex;" alt="{\textstyle \sum _{i=0}^{j-1}|Q_{i}^{1}|,\dots ,\left(\sum _{i=0}^{j}|Q_{i}^{1}|\right)-1}"/></span> to the local vertices in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Q_{j}^{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msubsup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q_{j}^{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8a6910292344848e4f98b55de54dfc6ef3b5bc95" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.338ex; width:2.893ex; height:3.509ex;" alt="{\displaystyle Q_{j}^{1}}"/></span>. These vertices in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Q_{j}^{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msubsup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q_{j}^{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8a6910292344848e4f98b55de54dfc6ef3b5bc95" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.338ex; width:2.893ex; height:3.509ex;" alt="{\displaystyle Q_{j}^{1}}"/></span> are removed, together with their corresponding outgoing edges. For each outgoing edge <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (u,v)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>u</mi>
+        <mo>,</mo>
+        <mi>v</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (u,v)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/eadf12294edccd7a29c99cfc1765e4a14bf47e58" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.301ex; height:2.843ex;" alt="(u,v)"/></span> with endpoint <span class="texhtml mvar" style="font-style:italic;">v</span> in another PE <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle l,j\neq l}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>l</mi>
+        <mo>,</mo>
+        <mi>j</mi>
+        <mo>&#x2260;<!-- ≠ --></mo>
+        <mi>l</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle l,j\neq l}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e7191b8105913470a4a1ae3748fe3375d2e79453" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.477ex; height:2.676ex;" alt="{\displaystyle l,j\neq l}"/></span>, the message <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (u,v)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>u</mi>
+        <mo>,</mo>
+        <mi>v</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (u,v)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/eadf12294edccd7a29c99cfc1765e4a14bf47e58" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.301ex; height:2.843ex;" alt="(u,v)"/></span> is posted to PE <span class="texhtml mvar" style="font-style:italic;">l</span>. After all vertices in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Q_{j}^{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msubsup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q_{j}^{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8a6910292344848e4f98b55de54dfc6ef3b5bc95" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.338ex; width:2.893ex; height:3.509ex;" alt="{\displaystyle Q_{j}^{1}}"/></span> are removed, the posted messages are sent to their corresponding PE. Each message <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (u,v)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>u</mi>
+        <mo>,</mo>
+        <mi>v</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (u,v)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/eadf12294edccd7a29c99cfc1765e4a14bf47e58" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.301ex; height:2.843ex;" alt="(u,v)"/></span> received updates the indegree of the local vertex <span class="texhtml mvar" style="font-style:italic;">v</span>. If the indegree drops to zero, <span class="texhtml mvar" style="font-style:italic;">v</span> is added to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle Q_{j}^{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msubsup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle Q_{j}^{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a193d4505b0f293d868e551e9bf2cf2184bf96a4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.338ex; width:2.893ex; height:3.509ex;" alt="{\displaystyle Q_{j}^{2}}"/></span>. Then the next iteration starts.
+</p><p>In step <span class="texhtml mvar" style="font-style:italic;">k</span>, PE <span class="texhtml mvar" style="font-style:italic;">j</span> assigns the indices <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle a_{k-1}+\sum _{i=0}^{j-1}|Q_{i}^{k}|,\dots ,a_{k-1}+\left(\sum _{i=0}^{j}|Q_{i}^{k}|\right)-1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <munderover>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>=</mo>
+            <mn>0</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </munderover>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msubsup>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <munderover>
+              <mo>&#x2211;<!-- ∑ --></mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+                <mo>=</mo>
+                <mn>0</mn>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>j</mi>
+              </mrow>
+            </munderover>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+            <msubsup>
+              <mi>Q</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>k</mi>
+              </mrow>
+            </msubsup>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle a_{k-1}+\sum _{i=0}^{j-1}|Q_{i}^{k}|,\dots ,a_{k-1}+\left(\sum _{i=0}^{j}|Q_{i}^{k}|\right)-1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7dbbd5c704c1c882ef0b21b8b89c7658a38dc530" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:46.509ex; height:4.843ex;" alt="{\textstyle a_{k-1}+\sum _{i=0}^{j-1}|Q_{i}^{k}|,\dots ,a_{k-1}+\left(\sum _{i=0}^{j}|Q_{i}^{k}|\right)-1}"/></span>, where  <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle a_{k-1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a_{k-1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9b56e9e10d3cbe93addd3eba751f36913155ad33" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:4.419ex; height:2.009ex;" alt="a_{{k-1}}"/></span>is the total amount of processed vertices after step <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k-1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k-1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/21363ebd7038c93aae93127e7d910fc1b2e2c745" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:5.214ex; height:2.343ex;" alt="k-1"/></span>. This procedure repeats until there are no vertices left to process, hence <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle \sum _{i=0}^{p-1}|Q_{i}^{D+1}|=0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <munderover>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>=</mo>
+            <mn>0</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </munderover>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>D</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msubsup>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo>=</mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle \sum _{i=0}^{p-1}|Q_{i}^{D+1}|=0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8e1be13101642fb1389aa0849c4730686c619aa3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:17.087ex; height:3.509ex;" alt="{\textstyle \sum _{i=0}^{p-1}|Q_{i}^{D+1}|=0}"/></span>. Below is a high level, <a href="https://en.wikipedia.org/wiki/SPMD" title="SPMD">single program, multiple data</a> pseudo code overview of this algorithm.
+</p><p>Note that the <a href="https://en.wikipedia.org/wiki/Prefix_sum#Parallel_algorithms" title="Prefix sum">prefix sum</a> for the local offsets <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle a_{k-1}+\sum _{i=0}^{j-1}|Q_{i}^{k}|,\dots ,a_{k-1}+\left(\sum _{i=0}^{j}|Q_{i}^{k}|\right)-1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <munderover>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>=</mo>
+            <mn>0</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>j</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </munderover>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msubsup>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo stretchy="false">|</mo>
+        </mrow>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <munderover>
+              <mo>&#x2211;<!-- ∑ --></mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+                <mo>=</mo>
+                <mn>0</mn>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>j</mi>
+              </mrow>
+            </munderover>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+            <msubsup>
+              <mi>Q</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>k</mi>
+              </mrow>
+            </msubsup>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle a_{k-1}+\sum _{i=0}^{j-1}|Q_{i}^{k}|,\dots ,a_{k-1}+\left(\sum _{i=0}^{j}|Q_{i}^{k}|\right)-1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7dbbd5c704c1c882ef0b21b8b89c7658a38dc530" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:46.509ex; height:4.843ex;" alt="{\textstyle a_{k-1}+\sum _{i=0}^{j-1}|Q_{i}^{k}|,\dots ,a_{k-1}+\left(\sum _{i=0}^{j}|Q_{i}^{k}|\right)-1}"/></span> can be efficiently calculated in parallel.
+</p>
+<pre><b>p</b> processing elements with IDs from 0 to <i>p</i>-1
+<b>Input:</b> G = (V, E) DAG, distributed to PEs, PE index j = 0, ..., p - 1
+<b>Output:</b> topological sorting of G
+
+<b>function</b> traverseDAGDistributed
+    δ incoming degree of local vertices <i>V</i>
+    <span class="texhtml"><i>Q</i> = {<i>v</i> ∈ <i>V</i> | δ[<i>v</i>] = 0}</span>                     // All vertices with indegree 0
+    nrOfVerticesProcessed = 0
+
+    <b>do</b>                 
+        <b>global</b> build prefix sum over size of <i>Q</i>     // get offsets and total amount of vertices in this step
+        offset = nrOfVerticesProcessed + sum(Q<sub>i</sub>, i = 0 to j - 1)          // <i>j</i> is the processor index
+        <b>foreach</b> u <b>in</b> Q                                       
+            localOrder[u] = index++;
+            <b>foreach</b> (u,v) in E <b>do</b> post message (<i>u, v</i>) to PE owning vertex <i>v</i>
+        nrOfVerticesProcessed += sum(|Q<sub>i</sub>|, i = 0 to p - 1)
+        deliver all messages to neighbors of vertices in Q  
+        receive messages for local vertices V
+        remove all vertices in Q
+        <b>foreach</b> message (<i>u, v</i>) received:
+            <b>if</b> --δ[v] = 0
+                add <i>v</i> to <i>Q</i>
+    <b>while</b> global size of <i>Q</i> &gt; 0
+
+    <b>return</b> localOrder
+</pre>
+<p>The communication cost depends heavily on the given graph partition. As for runtime, on a <a href="https://en.wikipedia.org/wiki/CRCW_PRAM" class="mw-redirect" title="CRCW PRAM">CRCW-PRAM</a> model that allows fetch-and-decrement in constant time, this algorithm runs in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle {\mathcal {O}}\left({\frac {m+n}{p}}+D(\Delta +\log n)\right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">O</mi>
+          </mrow>
+        </mrow>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mfrac>
+                <mrow>
+                  <mi>m</mi>
+                  <mo>+</mo>
+                  <mi>n</mi>
+                </mrow>
+                <mi>p</mi>
+              </mfrac>
+            </mrow>
+            <mo>+</mo>
+            <mi>D</mi>
+            <mo stretchy="false">(</mo>
+            <mi mathvariant="normal">&#x0394;<!-- Δ --></mi>
+            <mo>+</mo>
+            <mi>log</mi>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mi>n</mi>
+            <mo stretchy="false">)</mo>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle {\mathcal {O}}\left({\frac {m+n}{p}}+D(\Delta +\log n)\right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9c633a9209ad4683fe90e9431cd56ac33dd62236" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:25.66ex; height:4.843ex;" alt="{\textstyle {\mathcal {O}}\left({\frac {m+n}{p}}+D(\Delta +\log n)\right)}"/></span>, where <span class="texhtml mvar" style="font-style:italic;">D</span> is again the longest path in <span class="texhtml mvar" style="font-style:italic;">G</span> and <span class="texhtml mvar" style="font-style:italic;">Δ</span> the maximum degree.<sup id="cite_ref-SMDD_7-1" class="reference"><a href="#cite_note-SMDD-7">&#91;7&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Application_to_shortest_path_finding">Application to shortest path finding</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;action=edit&amp;section=6" title="Edit section: Application to shortest path finding">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The topological ordering can also be used to quickly compute <a href="https://en.wikipedia.org/wiki/Shortest_path_problem" title="Shortest path problem">shortest paths</a> through a <a href="https://en.wikipedia.org/wiki/Weighted_graph" class="mw-redirect" title="Weighted graph">weighted</a> directed acyclic graph. Let <span class="texhtml mvar" style="font-style:italic;">V</span> be the list of vertices in such a graph, in topological order. Then the following algorithm computes the shortest path from some source vertex <span class="texhtml mvar" style="font-style:italic;">s</span> to all other vertices:<sup id="cite_ref-CLRS_3-1" class="reference"><a href="#cite_note-CLRS-3">&#91;3&#93;</a></sup>
+</p>
+<div style="margin-left: 35px; width: 600px">
+<div style="width:auto ; margin-left: margin-bottom:1.25em;border:1px solid #8898BF; background:transparent;padding:0">
+<div style="height:8px;margin:0;border:0;border-bottom:1px solid #8898BF;background: #C8D8FF;font-size:1px"></div>
+<div style="padding:5px;font-size:small">
+<ul><li>Let <span class="texhtml mvar" style="font-style:italic;">d</span> be an array of the same length as <span class="texhtml mvar" style="font-style:italic;">V</span>; this will hold the shortest-path distances from <span class="texhtml mvar" style="font-style:italic;">s</span>. Set <span class="texhtml"><i>d</i>[<i>s</i>] = 0</span>, all other <span class="texhtml"><i>d</i>[<i>u</i>] = ∞</span>.</li>
+<li>Let <span class="texhtml mvar" style="font-style:italic;">p</span> be an array of the same length as <span class="texhtml mvar" style="font-style:italic;">V</span>, with all elements initialized to <style data-mw-deduplicate="TemplateStyles:r886049734">.mw-parser-output .monospaced{font-family:monospace,monospace}</style><span class="monospaced">nil</span>. Each <span class="texhtml"><i>p</i>[<i>u</i>]</span> will hold the predecessor of <span class="texhtml"><i>u</i></span> in the shortest path from <span class="texhtml mvar" style="font-style:italic;">s</span> to <span class="texhtml mvar" style="font-style:italic;">u</span>.</li>
+<li>Loop over the vertices <span class="texhtml mvar" style="font-style:italic;">u</span> as ordered in <span class="texhtml mvar" style="font-style:italic;">V</span>, starting from <span class="texhtml mvar" style="font-style:italic;">s</span>:
+<ul><li>For each vertex <span class="texhtml mvar" style="font-style:italic;">v</span> directly following <span class="texhtml mvar" style="font-style:italic;">u</span> (i.e., there exists an edge from <span class="texhtml mvar" style="font-style:italic;">u</span> to <span class="texhtml mvar" style="font-style:italic;">v</span>):
+<ul><li>Let <span class="texhtml mvar" style="font-style:italic;">w</span> be the weight of the edge from <span class="texhtml mvar" style="font-style:italic;">u</span> to <span class="texhtml mvar" style="font-style:italic;">v</span>.</li>
+<li>Relax the edge: if <span class="texhtml"><i>d</i>[<i>v</i>] &gt; <i>d</i>[<i>u</i>] + <i>w</i></span>, set
+<ul><li><span class="texhtml"><i>d</i>[<i>v</i>] ← <i>d</i>[<i>u</i>] + <i>w</i></span>,</li>
+<li><span class="texhtml"><i>p</i>[<i>v</i>] ← <i>u</i></span>.</li></ul></li></ul></li></ul></li></ul>
+</div></div>
+</div>
+<p>Equivalently:
+</p>
+<div style="margin-left: 35px; width: 600px">
+<div style="width:auto ; margin-left: margin-bottom:1.25em;border:1px solid #8898BF; background:transparent;padding:0">
+<div style="height:8px;margin:0;border:0;border-bottom:1px solid #8898BF;background: #C8D8FF;font-size:1px"></div>
+<div style="padding:5px;font-size:small">
+<ul><li>Let <span class="texhtml mvar" style="font-style:italic;">d</span> be an array of the same length as <span class="texhtml mvar" style="font-style:italic;">V</span>; this will hold the shortest-path distances from <span class="texhtml mvar" style="font-style:italic;">s</span>. Set <span class="texhtml"><i>d</i>[<i>s</i>] = 0</span>, all other <span class="texhtml"><i>d</i>[<i>u</i>] = ∞</span>.</li>
+<li>Let <span class="texhtml mvar" style="font-style:italic;">p</span> be an array of the same length as <span class="texhtml mvar" style="font-style:italic;">V</span>, with all elements initialized to <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r886049734"/><span class="monospaced">nil</span>. Each <span class="texhtml"><i>p</i>[<i>u</i>]</span> will hold the predecessor of <span class="texhtml mvar" style="font-style:italic;">u</span> in the shortest path from <span class="texhtml mvar" style="font-style:italic;">s</span> to <span class="texhtml mvar" style="font-style:italic;">u</span>.</li>
+<li>Loop over the vertices <span class="texhtml mvar" style="font-style:italic;">u</span> as ordered in <span class="texhtml mvar" style="font-style:italic;">V</span>, starting from <span class="texhtml mvar" style="font-style:italic;">s</span>:
+<ul><li>For each vertex <span class="texhtml mvar" style="font-style:italic;">v</span> into <span class="texhtml mvar" style="font-style:italic;">u</span> (i.e., there exists an edge from <span class="texhtml mvar" style="font-style:italic;">v</span> to <span class="texhtml mvar" style="font-style:italic;">u</span>):
+<ul><li>Let <span class="texhtml mvar" style="font-style:italic;">w</span> be the weight of the edge from <span class="texhtml mvar" style="font-style:italic;">v</span> to <span class="texhtml mvar" style="font-style:italic;">u</span>.</li>
+<li>Relax the edge: if <span class="texhtml"><i>d</i>[<i>u</i>] &gt; <i>d</i>[<i>v</i>] + <i>w</i></span>, set
+<ul><li><span class="texhtml"><i>d</i>[<i>u</i>] ← <i>d</i>[<i>v</i>] + <i>w</i></span>,</li>
+<li><span class="texhtml"><i>p</i>[<i>u</i>] ← <i>v</i></span>.</li></ul></li></ul></li></ul></li></ul>
+</div></div>
+</div>
+<p>On a graph of <span class="texhtml mvar" style="font-style:italic;">n</span> vertices and <span class="texhtml mvar" style="font-style:italic;">m</span> edges, this algorithm takes <span class="texhtml">Θ(<i>n</i> + <i>m</i>)</span>, i.e., <a href="https://en.wikipedia.org/wiki/Linear_time" class="mw-redirect" title="Linear time">linear</a>, time.<sup id="cite_ref-CLRS_3-2" class="reference"><a href="#cite_note-CLRS-3">&#91;3&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Uniqueness">Uniqueness</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;action=edit&amp;section=7" title="Edit section: Uniqueness">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>If a topological sort has the property that all pairs of consecutive vertices in the sorted order are connected by edges, then these edges form a directed <a href="https://en.wikipedia.org/wiki/Hamiltonian_path" title="Hamiltonian path">Hamiltonian path</a> in the <a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph" title="Directed acyclic graph">DAG</a>. If a Hamiltonian path exists, the topological sort order is unique; no other order respects the edges of the path. Conversely, if a topological sort does not form a Hamiltonian path, the DAG will have two or more valid topological orderings, for in this case it is always possible to form a second valid ordering by swapping two consecutive vertices that are not connected by an edge to each other. Therefore, it is possible to test in linear time whether a unique ordering exists, and whether a Hamiltonian path exists, despite the <a href="https://en.wikipedia.org/wiki/NP-hard" class="mw-redirect" title="NP-hard">NP-hardness</a> of the Hamiltonian path problem for more general directed graphs (i.e. cyclic directed graphs).<sup id="cite_ref-VM_8-0" class="reference"><a href="#cite_note-VM-8">&#91;8&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Relation_to_partial_orders">Relation to partial orders</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;action=edit&amp;section=8" title="Edit section: Relation to partial orders">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Topological orderings are also closely related to the concept of a <a href="https://en.wikipedia.org/wiki/Linear_extension" title="Linear extension">linear extension</a> of a <a href="https://en.wikipedia.org/wiki/Partial_order" class="mw-redirect" title="Partial order">partial order</a> in mathematics. A partially ordered set is just a set of objects together with a definition of the "≤" inequality relation, satisfying the axioms of reflexivity (<i>x</i>&#160;≤&#160;<i>x</i>), antisymmetry (if <i>x</i>&#160;≤&#160;<i>y</i> and <i>y</i>&#160;≤&#160;<i>x</i> then <i>x</i>&#160;=&#160;<i>y</i>) and <a href="https://en.wikipedia.org/wiki/Transitive_relation" title="Transitive relation">transitivity</a> (if <i>x</i>&#160;≤&#160;<i>y</i> and <i>y</i>&#160;≤&#160;<i>z</i>, then <i>x</i>&#160;≤&#160;<i>z</i>). A <a href="https://en.wikipedia.org/wiki/Total_order" title="Total order">total order</a> is a partial order in which, for every two objects <i>x</i> and <i>y</i> in the set, either <i>x</i>&#160;≤&#160;<i>y</i> or <i>y</i>&#160;≤&#160;<i>x</i>. Total orders are familiar in computer science as the comparison operators needed to perform <a href="https://en.wikipedia.org/wiki/Comparison_sort" title="Comparison sort">comparison sorting</a> algorithms. For finite sets, total orders may be identified with linear sequences of objects, where the "≤" relation is true whenever the first object precedes the second object in the order; a comparison sorting algorithm may be used to convert a total order into a sequence in this way. A linear extension of a partial order is a total order that is compatible with it, in the sense that, if <i>x</i>&#160;≤&#160;<i>y</i> in the partial order, then  <i>x</i>&#160;≤&#160;<i>y</i> in the total order as well.
+</p><p>One can define a partial ordering from any DAG by letting the set of objects be the vertices of the DAG, and defining <i>x</i>&#160;≤&#160;<i>y</i> to be true, for any two vertices <i>x</i> and <i>y</i>, whenever there exists a <a href="https://en.wikipedia.org/wiki/Directed_path" class="mw-redirect" title="Directed path">directed path</a> from <i>x</i> to <i>y</i>; that is,  whenever <i>y</i> is <a href="https://en.wikipedia.org/wiki/Reachability" title="Reachability">reachable</a> from <i>x</i>. With these definitions, a topological ordering of the DAG is the same thing as a linear extension of this partial order. Conversely, any partial ordering may be defined as the reachability relation in a DAG. One way of doing this is to define a DAG that has a vertex for every object in the partially ordered set, and an edge <i>xy</i> for every pair of objects for which <i>x</i>&#160;≤&#160;<i>y</i>. An alternative way of doing this is to use the <a href="https://en.wikipedia.org/wiki/Transitive_reduction" title="Transitive reduction">transitive reduction</a> of the partial ordering; in general, this produces DAGs with fewer edges, but the reachability relation in these DAGs is still the same partial order. By using these constructions, one can use topological ordering algorithms to find linear extensions of partial orders.
+</p>
+<h2><span class="mw-headline" id="Relation_to_scheduling_optimisation">Relation to scheduling optimisation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;action=edit&amp;section=9" title="Edit section: Relation to scheduling optimisation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>By definition, the solution of a scheduling problem that includes a precedence graph is a valid solution to topological sort (irrespective of the number of machines), however, topological sort in itself is <i>not</i> enough to optimally solve a scheduling optimisation problem. Hu's algorithm is a popular method used to solve scheduling problems that require a precedence graph and involve processing times (where the goal is to minimise the largest completion time amongst all the jobs). Like topological sort, Hu's algorithm is not unique and can be solved using DFS (by finding the largest path length and then assigning the jobs). 
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;action=edit&amp;section=10" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Tsort" title="Tsort">tsort</a>, a Unix program for topological sorting</li>
+<li><a href="https://en.wikipedia.org/wiki/Feedback_arc_set" title="Feedback arc set">Feedback arc set</a>, a set of edges whose removal allows the remaining subgraph to be topologically sorted</li>
+<li><a href="https://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm" title="Tarjan&#39;s strongly connected components algorithm">Tarjan's strongly connected components algorithm</a>, an algorithm that gives the topologically sorted list of strongly connected components in a graph</li>
+<li><a href="https://en.wikipedia.org/wiki/Pre-topological_order" title="Pre-topological order">Pre-topological order</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;action=edit&amp;section=11" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-Jarnagin-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-Jarnagin_1-0">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFJarnagin1960" class="citation cs2">Jarnagin, M. P. (1960), <i>Automatic machine methods of testing PERT networks for consistency</i>, Technical Memorandum No. K-24/60, Dahlgren, Virginia: U. S. Naval Weapons Laboratory</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Automatic+machine+methods+of+testing+PERT+networks+for+consistency&amp;rft.place=Dahlgren%2C+Virginia&amp;rft.series=Technical+Memorandum+No.+K-24%2F60&amp;rft.pub=U.+S.+Naval+Weapons+Laboratory&amp;rft.date=1960&amp;rft.aulast=Jarnagin&amp;rft.aufirst=M.+P.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATopological+sorting" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Kahn-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-Kahn_2-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKahn1962" class="citation cs2">Kahn, Arthur B. (1962), "Topological sorting of large networks", <i>Communications of the ACM</i>, <b>5</b> (11): 558–562, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F368996.369025">10.1145/368996.369025</a>, <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:16728233">16728233</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Communications+of+the+ACM&amp;rft.atitle=Topological+sorting+of+large+networks&amp;rft.volume=5&amp;rft.issue=11&amp;rft.pages=558-562&amp;rft.date=1962&amp;rft_id=info%3Adoi%2F10.1145%2F368996.369025&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A16728233%23id-name%3DS2CID&amp;rft.aulast=Kahn&amp;rft.aufirst=Arthur+B.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATopological+sorting" class="Z3988"></span></span>
+</li>
+<li id="cite_note-CLRS-3"><span class="mw-cite-backlink">^ <a href="#cite_ref-CLRS_3-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-CLRS_3-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-CLRS_3-2"><sup><i><b>c</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCormenLeisersonRivestStein2001" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Cormen, Thomas H.</a>; <a href="https://en.wikipedia.org/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Leiserson, Charles E.</a>; <a href="https://en.wikipedia.org/wiki/Ronald_L._Rivest" class="mw-redirect" title="Ronald L. Rivest">Rivest, Ronald L.</a>; <a href="https://en.wikipedia.org/wiki/Clifford_Stein" title="Clifford Stein">Stein, Clifford</a> (2001), "Section 22.4: Topological sort", <a href="https://en.wikipedia.org/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms"><i>Introduction to Algorithms</i></a> (2nd&#160;ed.), MIT Press and McGraw-Hill, pp.&#160;549–552, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-262-03293-7" title="Special:BookSources/0-262-03293-7"><bdi>0-262-03293-7</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Section+22.4%3A+Topological+sort&amp;rft.btitle=Introduction+to+Algorithms&amp;rft.pages=549-552&amp;rft.edition=2nd&amp;rft.pub=MIT+Press+and+McGraw-Hill&amp;rft.date=2001&amp;rft.isbn=0-262-03293-7&amp;rft.aulast=Cormen&amp;rft.aufirst=Thomas+H.&amp;rft.au=Leiserson%2C+Charles+E.&amp;rft.au=Rivest%2C+Ronald+L.&amp;rft.au=Stein%2C+Clifford&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATopological+sorting" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Tarjan-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-Tarjan_4-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFTarjan1976" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Robert_Tarjan" title="Robert Tarjan">Tarjan, Robert E.</a> (1976), "Edge-disjoint spanning trees and depth-first search", <i>Acta Informatica</i>, <b>6</b> (2): 171–185, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2FBF00268499">10.1007/BF00268499</a>, <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:12044793">12044793</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Acta+Informatica&amp;rft.atitle=Edge-disjoint+spanning+trees+and+depth-first+search&amp;rft.volume=6&amp;rft.issue=2&amp;rft.pages=171-185&amp;rft.date=1976&amp;rft_id=info%3Adoi%2F10.1007%2FBF00268499&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A12044793%23id-name%3DS2CID&amp;rft.aulast=Tarjan&amp;rft.aufirst=Robert+E.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATopological+sorting" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Cook-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-Cook_5-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCook1985" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Stephen_Cook" title="Stephen Cook">Cook, Stephen A.</a> (1985), "A Taxonomy of Problems with Fast Parallel Algorithms", <i>Information and Control</i>, <b>64</b> (1–3): 2–22, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1016%2FS0019-9958(85)80041-3">10.1016/S0019-9958(85)80041-3</a></span></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Information+and+Control&amp;rft.atitle=A+Taxonomy+of+Problems+with+Fast+Parallel+Algorithms&amp;rft.volume=64&amp;rft.issue=1%E2%80%933&amp;rft.pages=2-22&amp;rft.date=1985&amp;rft_id=info%3Adoi%2F10.1016%2FS0019-9958%2885%2980041-3&amp;rft.aulast=Cook&amp;rft.aufirst=Stephen+A.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATopological+sorting" class="Z3988"></span></span>
+</li>
+<li id="cite_note-DNS-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-DNS_6-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFDekelNassimiSahni1981" class="citation cs2">Dekel, Eliezer; Nassimi, David; Sahni, Sartaj (1981), "Parallel matrix and graph algorithms", <i>SIAM Journal on Computing</i>, <b>10</b> (4): 657–675, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1137%2F0210049">10.1137/0210049</a>, <a href="https://en.wikipedia.org/wiki/MR_(identifier)" class="mw-redirect" title="MR (identifier)">MR</a>&#160;<a rel="nofollow" class="external text" href="http://www.ams.org/mathscinet-getitem?mr=0635424">0635424</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=SIAM+Journal+on+Computing&amp;rft.atitle=Parallel+matrix+and+graph+algorithms&amp;rft.volume=10&amp;rft.issue=4&amp;rft.pages=657-675&amp;rft.date=1981&amp;rft_id=info%3Adoi%2F10.1137%2F0210049&amp;rft_id=%2F%2Fwww.ams.org%2Fmathscinet-getitem%3Fmr%3D635424%23id-name%3DMR&amp;rft.aulast=Dekel&amp;rft.aufirst=Eliezer&amp;rft.au=Nassimi%2C+David&amp;rft.au=Sahni%2C+Sartaj&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATopological+sorting" class="Z3988"></span></span>
+</li>
+<li id="cite_note-SMDD-7"><span class="mw-cite-backlink">^ <a href="#cite_ref-SMDD_7-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-SMDD_7-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSandersMehlhornDietzfelbingerDementiev2019" class="citation cs2">Sanders, Peter; Mehlhorn, Kurt; Dietzfelbinger, Martin; Dementiev, Roman (2019), <a rel="nofollow" class="external text" href="https://www.springer.com/gp/book/9783030252083"><i>Sequential and Parallel Algorithms and Data Structures: The Basic Toolbox</i></a>, Springer International Publishing, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-3-030-25208-3" title="Special:BookSources/978-3-030-25208-3"><bdi>978-3-030-25208-3</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Sequential+and+Parallel+Algorithms+and+Data+Structures%3A+The+Basic+Toolbox&amp;rft.pub=Springer+International+Publishing&amp;rft.date=2019&amp;rft.isbn=978-3-030-25208-3&amp;rft.aulast=Sanders&amp;rft.aufirst=Peter&amp;rft.au=Mehlhorn%2C+Kurt&amp;rft.au=Dietzfelbinger%2C+Martin&amp;rft.au=Dementiev%2C+Roman&amp;rft_id=https%3A%2F%2Fwww.springer.com%2Fgp%2Fbook%2F9783030252083&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATopological+sorting" class="Z3988"></span></span>
+</li>
+<li id="cite_note-VM-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-VM_8-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFVernetMarkenzon1997" class="citation cs2">Vernet, Oswaldo; Markenzon, Lilian (1997), <a rel="nofollow" class="external text" href="http://pantheon.ufrj.br/bitstream/11422/2585/4/02_97_000575787.pdf">"Hamiltonian problems for reducible flowgraphs"</a> <span class="cs1-format">(PDF)</span>, <i>Proceedings: 17th International Conference of the Chilean Computer Science Society</i>, pp.&#160;264–267, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FSCCC.1997.637099">10.1109/SCCC.1997.637099</a>, <a href="https://en.wikipedia.org/wiki/Hdl_(identifier)" class="mw-redirect" title="Hdl (identifier)">hdl</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://hdl.handle.net/11422%2F2585">11422/2585</a></span>, <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:206554481">206554481</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Hamiltonian+problems+for+reducible+flowgraphs&amp;rft.btitle=Proceedings%3A+17th+International+Conference+of+the+Chilean+Computer+Science+Society&amp;rft.pages=264-267&amp;rft.date=1997&amp;rft_id=info%3Ahdl%2F11422%2F2585&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A206554481%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1109%2FSCCC.1997.637099&amp;rft.aulast=Vernet&amp;rft.aufirst=Oswaldo&amp;rft.au=Markenzon%2C+Lilian&amp;rft_id=http%3A%2F%2Fpantheon.ufrj.br%2Fbitstream%2F11422%2F2585%2F4%2F02_97_000575787.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATopological+sorting" class="Z3988"></span></span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="Further_reading">Further reading</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;action=edit&amp;section=12" title="Edit section: Further reading">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/D._E._Knuth" class="mw-redirect" title="D. E. Knuth">D. E. Knuth</a>, <a href="https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming" title="The Art of Computer Programming">The Art of Computer Programming</a>, Volume 1, section 2.2.3, which gives an algorithm for topological sorting of a partial ordering, and a brief history.</li></ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;action=edit&amp;section=13" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="https://xlinux.nist.gov/dads/HTML/topologicalSort.html">NIST Dictionary of Algorithms and Data Structures: topological sort</a></li>
+<li><span class="citation mathworld" id="Reference-Mathworld-Topological_Sort"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFWeisstein" class="citation web cs2"><a href="https://en.wikipedia.org/wiki/Eric_W._Weisstein" title="Eric W. Weisstein">Weisstein, Eric W.</a>, <a rel="nofollow" class="external text" href="https://mathworld.wolfram.com/TopologicalSort.html">"Topological Sort"</a>, <i><a href="https://en.wikipedia.org/wiki/MathWorld" title="MathWorld">MathWorld</a></i></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=MathWorld&amp;rft.atitle=Topological+Sort&amp;rft.au=Weisstein%2C+Eric+W.&amp;rft_id=https%3A%2F%2Fmathworld.wolfram.com%2FTopologicalSort.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ATopological+sorting" class="Z3988"></span></span></li></ul>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Sorting_algorithms" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Sorting" title="Template:Sorting"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Sorting" title="Template talk:Sorting"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Sorting&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Sorting_algorithms" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">Sorting algorithms</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Theory</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" title="Computational complexity theory">Computational complexity theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">Big O notation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Total_order" title="Total order">Total order</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_(abstract_data_type)" title="List (abstract data type)">Lists</a></li>
+<li><a href="https://en.wikipedia.org/wiki/In-place_algorithm" title="In-place algorithm">Inplacement</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sorting_algorithm#Stability" title="Sorting algorithm">Stability</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Comparison_sort" title="Comparison sort">Comparison sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Adaptive_sort" title="Adaptive sort">Adaptive sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sorting_network" title="Sorting network">Sorting network</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Integer_sorting" title="Integer sorting">Integer sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X_+_Y_sorting" title="X + Y sorting">X + Y sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Transdichotomous_model" title="Transdichotomous model">Transdichotomous model</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quantum_sort" title="Quantum sort">Quantum sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Exchange sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Bubble_sort" title="Bubble sort">Bubble sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cocktail_shaker_sort" title="Cocktail shaker sort">Cocktail shaker sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Odd–even_sort" title="Odd–even sort">Odd–even sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Comb_sort" title="Comb sort">Comb sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gnome_sort" title="Gnome sort">Gnome sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Proportion_extend_sort" title="Proportion extend sort">Proportion extend sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quicksort" title="Quicksort">Quicksort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Slowsort" title="Slowsort">Slowsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stooge_sort" title="Stooge sort">Stooge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bogosort" title="Bogosort">Bogosort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Selection_algorithm" title="Selection algorithm">Selection sorts</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Selection_sort" title="Selection sort">Selection sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Heapsort" title="Heapsort">Heapsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Smoothsort" title="Smoothsort">Smoothsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cartesian_tree#Application_in_sorting" title="Cartesian tree">Cartesian tree sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tournament_sort" title="Tournament sort">Tournament sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cycle_sort" title="Cycle sort">Cycle sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Weak_heap#Weak-heap_sort" title="Weak heap">Weak-heap sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Insertion sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Insertion_sort" title="Insertion sort">Insertion sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shellsort" title="Shellsort">Shellsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Splaysort" title="Splaysort">Splaysort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tree_sort" title="Tree sort">Tree sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Library_sort" title="Library sort">Library sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Patience_sorting" title="Patience sorting">Patience sorting</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Merge sorts</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Merge_sort" title="Merge sort">Merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cascade_merge_sort" title="Cascade merge sort">Cascade merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Oscillating_merge_sort" title="Oscillating merge sort">Oscillating merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Polyphase_merge_sort" title="Polyphase merge sort">Polyphase merge sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Distribution sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/American_flag_sort" title="American flag sort">American flag sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bead_sort" title="Bead sort">Bead sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bucket_sort" title="Bucket sort">Bucket sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Burstsort" title="Burstsort">Burstsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Counting_sort" title="Counting sort">Counting sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interpolation_sort" title="Interpolation sort">Interpolation sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pigeonhole_sort" title="Pigeonhole sort">Pigeonhole sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Proxmap_sort" title="Proxmap sort">Proxmap sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Radix_sort" title="Radix sort">Radix sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Flashsort" title="Flashsort">Flashsort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Concurrent sorts</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Bitonic_sorter" title="Bitonic sorter">Bitonic sorter</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Batcher_odd–even_mergesort" title="Batcher odd–even mergesort">Batcher odd–even mergesort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pairwise_sorting_network" title="Pairwise sorting network">Pairwise sorting network</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Samplesort" title="Samplesort">Samplesort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Hybrid_algorithm" title="Hybrid algorithm">Hybrid sorts</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Block_sort" title="Block sort">Block merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kirkpatrick-Reisch_sort" class="mw-redirect" title="Kirkpatrick-Reisch sort">Kirkpatrick-Reisch sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Timsort" title="Timsort">Timsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Introsort" title="Introsort">Introsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Spreadsort" title="Spreadsort">Spreadsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Merge-insertion_sort" title="Merge-insertion sort">Merge-insertion sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Other</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a class="mw-selflink selflink">Topological sorting</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Pre-topological_order" title="Pre-topological order">Pre-topological order</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Pancake_sorting" title="Pancake sorting">Pancake sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Spaghetti_sort" title="Spaghetti sort">Spaghetti sort</a></li></ul>
+</div></td></tr></tbody></table></div><div class="navbox-styles nomobile"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1061467846"/></div><div role="navigation" class="navbox" aria-labelledby="Data_structures_and_algorithms" style="padding:3px"><table class="nowraplinks hlist mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1063604349"/><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Data_structures_and_algorithms" title="Template:Data structures and algorithms"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Data_structures_and_algorithms" title="Template talk:Data structures and algorithms"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Data_structures_and_algorithms&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Data_structures_and_algorithms" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Data_structure" title="Data structure">Data structures</a> and <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithms</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Data structures</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Array_data_structure" title="Array data structure">Array</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Associative_array" title="Associative array">Associative array</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binary_search_tree" title="Binary search tree">Binary search tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fenwick_tree" title="Fenwick tree">Fenwick tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Graph_(abstract_data_type)" title="Graph (abstract data type)">Graph</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hash_table" title="Hash table">Hash table</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" title="Heap (data structure)">Heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Linked_list" title="Linked list">Linked list</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)" title="Queue (abstract data type)">Queue</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Segment_tree" title="Segment tree">Segment tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)" title="Stack (abstract data type)">Stack</a></li>
+<li><a href="https://en.wikipedia.org/wiki/String_(computer_science)" title="String (computer science)">String</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" title="Tree (data structure)">Tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Trie" title="Trie">Trie</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Algorithms</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Backtracking" title="Backtracking">Backtracking</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binary_search" class="mw-redirect" title="Binary search">Binary search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Breadth-first_search" title="Breadth-first search">Breadth-first search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Depth-first_search" title="Depth-first search">Depth-first search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm" title="Divide-and-conquer algorithm">Divide and conquer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dynamic_programming" title="Dynamic programming">Dynamic programming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fold_(higher-order_function)" title="Fold (higher-order function)">Fold</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Greedy_algorithm" title="Greedy algorithm">Greedy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Minimax" title="Minimax">Minimax</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)" title="Recursion (computer science)">Recursion</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">Sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Streaming_algorithm" title="Streaming algorithm">Streaming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sweep_line_algorithm" title="Sweep line algorithm">Sweep line</a></li>
+<li><a class="mw-selflink selflink">Topological sorting</a></li></ul>
+</div></td></tr><tr><td class="navbox-abovebelow" colspan="2"><div>
+<ul><li><a href="https://en.wikipedia.org/wiki/List_of_data_structures" title="List of data structures">List of data structures</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_algorithms" title="List of algorithms">List of algorithms</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1314
+Cached time: 20220504091935
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.756 seconds
+Real time usage: 0.880 seconds
+Preprocessor visited node count: 4746/1000000
+Post‐expand include size: 49725/2097152 bytes
+Template argument size: 2412/2097152 bytes
+Highest expansion depth: 11/100
+Expensive parser function count: 3/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 35905/5000000 bytes
+Lua time usage: 0.329/10.000 seconds
+Lua memory usage: 6807816/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  670.447      1 -total
+ 28.89%  193.664      1 Template:Reflist
+ 22.64%  151.763      8 Template:Citation
+ 13.83%   92.733     11 Template:R
+ 13.00%   87.145      2 Template:Navbox
+ 12.37%   82.946      1 Template:Sorting
+ 11.45%   76.767     11 Template:R/ref
+ 11.45%   76.753      1 Template:Short_description
+  7.70%   51.607      2 Template:Harvp
+  6.18%   41.451     15 Template:Math
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:897064-0!canonical and timestamp 20220504091934 and revision id 1082738867. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;oldid=1082738867">https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;oldid=1082738867</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Graph_algorithms" title="Category:Graph algorithms">Graph algorithms</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Sorting_algorithms" title="Category:Sorting algorithms">Sorting algorithms</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Directed_graphs" title="Category:Directed graphs">Directed graphs</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_is_different_from_Wikidata" title="Category:Short description is different from Wikidata">Short description is different from Wikidata</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_example_pseudocode" title="Category:Articles with example pseudocode">Articles with example pseudocode</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Topological+sorting" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Topological+sorting" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Topological_sorting" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Topological_sorting" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Topological_sorting"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Topological_sorting" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Topological_sorting" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;oldid=1082738867" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Topological_sorting&amp;id=1082738867&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q753127" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Topological_sorting&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Topological_sorting&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Topologische_Sortierung" title="Topologische Sortierung – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-el mw-list-item"><a href="https://el.wikipedia.org/wiki/Τοπολογική_ταξινόμηση" title="Τοπολογική ταξινόμηση – Greek" lang="el" hreflang="el" class="interlanguage-link-target"><span>Ελληνικά</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Ordenamiento_topológico" title="Ordenamiento topológico – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/مرتب‌سازی_توپولوژیکی" title="مرتب‌سازی توپولوژیکی – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Tri_topologique" title="Tri topologique – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-ko mw-list-item"><a href="https://ko.wikipedia.org/wiki/위상정렬" title="위상정렬 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target"><span>한국어</span></a></li><li class="interlanguage-link interwiki-it mw-list-item"><a href="https://it.wikipedia.org/wiki/Ordinamento_topologico" title="Ordinamento topologico – Italian" lang="it" hreflang="it" class="interlanguage-link-target"><span>Italiano</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/מיון_טופולוגי" title="מיון טופולוגי – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-hu mw-list-item"><a href="https://hu.wikipedia.org/wiki/Topologikus_sorrend" title="Topologikus sorrend – Hungarian" lang="hu" hreflang="hu" class="interlanguage-link-target"><span>Magyar</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/トポロジカルソート" title="トポロジカルソート – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-no mw-list-item"><a href="https://no.wikipedia.org/wiki/Topologisk_sortering" title="Topologisk sortering – Norwegian Bokmål" lang="nb" hreflang="nb" class="interlanguage-link-target"><span>Norsk bokmål</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Sortowanie_topologiczne" title="Sortowanie topologiczne – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/Ordenação_topológica" title="Ordenação topológica – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Топологическая_сортировка" title="Топологическая сортировка – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/Topološko_uređenje" title="Topološko uređenje – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-fi mw-list-item"><a href="https://fi.wikipedia.org/wiki/Topologinen_lajittelu" title="Topologinen lajittelu – Finnish" lang="fi" hreflang="fi" class="interlanguage-link-target"><span>Suomi</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Топологічне_сортування" title="Топологічне сортування – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-vi mw-list-item"><a href="https://vi.wikipedia.org/wiki/Sắp_xếp_tô_pô" title="Sắp xếp tô pô – Vietnamese" lang="vi" hreflang="vi" class="interlanguage-link-target"><span>Tiếng Việt</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/拓撲排序" title="拓撲排序 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q753127#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 14 April 2022, at 19:56<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Topological_sorting&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.756","walltime":"0.880","ppvisitednodes":{"value":4746,"limit":1000000},"postexpandincludesize":{"value":49725,"limit":2097152},"templateargumentsize":{"value":2412,"limit":2097152},"expansiondepth":{"value":11,"limit":100},"expensivefunctioncount":{"value":3,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":35905,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  670.447      1 -total"," 28.89%  193.664      1 Template:Reflist"," 22.64%  151.763      8 Template:Citation"," 13.83%   92.733     11 Template:R"," 13.00%   87.145      2 Template:Navbox"," 12.37%   82.946      1 Template:Sorting"," 11.45%   76.767     11 Template:R/ref"," 11.45%   76.753      1 Template:Short_description","  7.70%   51.607      2 Template:Harvp","  6.18%   41.451     15 Template:Math"]},"scribunto":{"limitreport-timeusage":{"value":"0.329","limit":"10.000"},"limitreport-memusage":{"value":6807816,"limit":52428800},"limitreport-logs":"anchor_id_list = table#1 {\n  [\"CITEREFCook1985\"] = 1,\n  [\"CITEREFCormenLeisersonRivestStein2001\"] = 1,\n  [\"CITEREFDekelNassimiSahni1981\"] = 1,\n  [\"CITEREFJarnagin1960\"] = 1,\n  [\"CITEREFKahn1962\"] = 1,\n  [\"CITEREFSandersMehlhornDietzfelbingerDementiev2019\"] = 1,\n  [\"CITEREFTarjan1976\"] = 1,\n  [\"CITEREFVernetMarkenzon1997\"] = 1,\n}\ntemplate_list = table#1 {\n  [\"=\"] = 1,\n  [\"Citation\"] = 8,\n  [\"Data structures and algorithms\"] = 1,\n  [\"Distinguish\"] = 1,\n  [\"Frame-footer\"] = 2,\n  [\"Framebox\"] = 2,\n  [\"Harvp\"] = 2,\n  [\"Math\"] = 15,\n  [\"MathWorld\"] = 1,\n  [\"Mono\"] = 2,\n  [\"Mset\"] = 1,\n  [\"Mvar\"] = 53,\n  [\"R\"] = 11,\n  [\"Redirect\"] = 1,\n  [\"Reflist\"] = 1,\n  [\"Short description\"] = 1,\n  [\"Sorting\"] = 1,\n  [\"Tmath\"] = 1,\n}\narticle_whitelist = table#1 {\n}\n"},"cachereport":{"origin":"mw1314","timestamp":"20220504091935","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Topological sorting","url":"https:\/\/en.wikipedia.org\/wiki\/Topological_sorting","sameAs":"http:\/\/www.wikidata.org\/entity\/Q753127","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q753127","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-08-13T03:56:57Z","dateModified":"2022-04-14T19:56:03Z","headline":"an ordering of the vertices of the directed graph for which each edge is directed from earlier to later in the ordering"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Topological sorting","url":"https:\/\/en.wikipedia.org\/wiki\/Topological_sorting","sameAs":"http:\/\/www.wikidata.org\/entity\/Q753127","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q753127","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-08-13T03:56:57Z","dateModified":"2022-04-14T19:56:03Z","headline":"an ordering of the vertices of the directed graph for which each edge is directed from earlier to later in the ordering"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":159,"wgHostname":"mw1324"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Topological_sorting by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:43 GMT -->
+</html>

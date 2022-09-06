@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Cartesian_tree by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Cartesian tree - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"5b5c64a7-7871-4ecb-a4bf-4f16654856d3","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Cartesian_tree","wgTitle":"Cartesian tree","wgCurRevisionId":1076479080,"wgRevisionId":1076479080,"wgArticleId":15843635,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CS1 French-language sources (fr)","Binary trees","Sorting algorithms"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Cartesian_tree","wgRelevantArticleId":15843635,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],
+"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":20000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q5047286"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":
+"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.scribunto.logs","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Cartesian_tree.svg/1200px-Cartesian_tree.svg.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="1150"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Cartesian_tree.svg/800px-Cartesian_tree.svg.png"/>
+<meta property="og:image:width" content="800"/>
+<meta property="og:image:height" content="767"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Cartesian_tree.svg/640px-Cartesian_tree.svg.png"/>
+<meta property="og:image:width" content="640"/>
+<meta property="og:image:height" content="613"/>
+<meta property="og:title" content="Cartesian tree - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Cartesian_tree"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Cartesian_tree&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Cartesian_tree"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Cartesian_tree rootpage-Cartesian_tree skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Cartesian tree</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="thumb tright"><div class="thumbinner" style="width:242px;"><a href="https://en.wikipedia.org/wiki/File:Cartesian_tree.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Cartesian_tree.svg/240px-Cartesian_tree.svg.png" decoding="async" width="240" height="230" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Cartesian_tree.svg/360px-Cartesian_tree.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Cartesian_tree.svg/480px-Cartesian_tree.svg.png 2x" data-file-width="432" data-file-height="414" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Cartesian_tree.svg" class="internal" title="Enlarge"></a></div>A sequence of numbers and the Cartesian tree derived from them.</div></div></div>
+<style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">For Descartes' metaphor of tree of knowledge, see <a href="https://en.wikipedia.org/wiki/Tree_of_knowledge_(philosophy)" title="Tree of knowledge (philosophy)">Tree of knowledge (philosophy)</a>.</div>
+<p>In <a href="https://en.wikipedia.org/wiki/Computer_science" title="Computer science">computer science</a>, a <b>Cartesian tree</b> is a <a href="https://en.wikipedia.org/wiki/Binary_tree" title="Binary tree">binary tree</a> derived from a sequence of numbers; it can be uniquely defined from the properties that it is <a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" title="Heap (data structure)">heap</a>-ordered and that a <a href="https://en.wikipedia.org/wiki/Tree_traversal" title="Tree traversal">symmetric (in-order) traversal</a> of the tree returns the original sequence. Introduced by <a href="#CITEREFVuillemin1980">Vuillemin (1980)</a> in the context of geometric <a href="https://en.wikipedia.org/wiki/Range_searching" title="Range searching">range searching</a> <a href="https://en.wikipedia.org/wiki/Data_structure" title="Data structure">data structures</a>, Cartesian trees have also been used in the definition of the <a href="https://en.wikipedia.org/wiki/Treap" title="Treap">treap</a> and <a href="https://en.wikipedia.org/wiki/Randomized_binary_search_tree" class="mw-redirect" title="Randomized binary search tree">randomized binary search tree</a> data structures for <a href="https://en.wikipedia.org/wiki/Binary_search" class="mw-redirect" title="Binary search">binary search</a> problems. The Cartesian tree for a sequence may be constructed in <a href="https://en.wikipedia.org/wiki/Linear_time" class="mw-redirect" title="Linear time">linear time</a> using a <a href="https://en.wikipedia.org/wiki/Stack_(data_structure)" class="mw-redirect" title="Stack (data structure)">stack</a>-based algorithm for finding <a href="https://en.wikipedia.org/wiki/All_nearest_smaller_values" title="All nearest smaller values">all nearest smaller values</a> in a sequence.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Definition"><span class="tocnumber">1</span> <span class="toctext">Definition</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Range_searching_and_lowest_common_ancestors"><span class="tocnumber">2</span> <span class="toctext">Range searching and lowest common ancestors</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Treaps"><span class="tocnumber">3</span> <span class="toctext">Treaps</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Efficient_construction"><span class="tocnumber">4</span> <span class="toctext">Efficient construction</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Application_in_sorting"><span class="tocnumber">5</span> <span class="toctext">Application in sorting</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#History"><span class="tocnumber">6</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Notes"><span class="tocnumber">7</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Definition">Definition</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Cartesian_tree&amp;action=edit&amp;section=1" title="Edit section: Definition">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The Cartesian tree for a sequence of distinct numbers can be uniquely defined by the following properties:
+</p>
+<ol><li>The Cartesian tree for a sequence has one node for each number in the sequence. Each node is associated with a single sequence value.</li>
+<li>A <a href="https://en.wikipedia.org/wiki/Tree_traversal" title="Tree traversal">symmetric (in-order) traversal</a> of the tree results in the original sequence. That is, the left subtree consists of the values earlier than the root in the sequence order, while the right subtree consists of the values later than the root, and a similar ordering constraint holds at each lower node of the tree.</li>
+<li>The tree has the <a href="https://en.wikipedia.org/wiki/Binary_heap" title="Binary heap">heap property</a>: the parent of any non-root node has a smaller value than the node itself.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup></li></ol>
+<p>Based on the heap property, the root of the tree must be the smallest number in the sequence. From this, the tree itself may also be defined recursively: the root is the minimum value of the sequence, and the left and right subtrees are the Cartesian trees for the subsequences to the left and right of the root value. Therefore, the three properties above uniquely define the Cartesian tree.
+</p><p>If a sequence of numbers contains repetitions, the Cartesian tree may be defined by determining a consistent tie-breaking rule (for instance, determining that the first of two equal elements is treated as the smaller of the two) before applying the above rules.
+</p><p>An example of a Cartesian tree is shown in the figure above.
+</p>
+<h2><span class="mw-headline" id="Range_searching_and_lowest_common_ancestors">Range searching and lowest common ancestors</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Cartesian_tree&amp;action=edit&amp;section=2" title="Edit section: Range searching and lowest common ancestors">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://en.wikipedia.org/wiki/File:Cartesian_tree_range_searching.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Cartesian_tree_range_searching.svg/300px-Cartesian_tree_range_searching.svg.png" decoding="async" width="300" height="300" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/de/Cartesian_tree_range_searching.svg/450px-Cartesian_tree_range_searching.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/de/Cartesian_tree_range_searching.svg/600px-Cartesian_tree_range_searching.svg.png 2x" data-file-width="361" data-file-height="361" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Cartesian_tree_range_searching.svg" class="internal" title="Enlarge"></a></div>Two-dimensional range-searching using a Cartesian tree: the bottom point (red in the figure) within a three-sided region with two vertical sides and one horizontal side (if the region is nonempty) may be found as the nearest common ancestor of the leftmost and rightmost points (the blue points in the figure) within the slab defined by the vertical region boundaries. The remaining points in the three-sided region may be found by splitting it by a vertical line through the bottom point and recursing.</div></div></div>
+<p>Cartesian trees may be used as part of an efficient <a href="https://en.wikipedia.org/wiki/Data_structure" title="Data structure">data structure</a> for <a href="https://en.wikipedia.org/wiki/Range_Minimum_Query" class="mw-redirect" title="Range Minimum Query">range minimum queries</a>, a <a href="https://en.wikipedia.org/wiki/Range_searching" title="Range searching">range searching</a> problem involving queries that ask for the minimum value in a contiguous subsequence of the original sequence.<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup> In a Cartesian tree, this minimum value may be found at the <a href="https://en.wikipedia.org/wiki/Lowest_common_ancestor" title="Lowest common ancestor">lowest common ancestor</a> of the leftmost and rightmost values in the subsequence. For instance, in the subsequence (12,10,20,15) of the sequence shown in the first illustration, the minimum value of the subsequence (10) forms the lowest common ancestor of the leftmost and rightmost values (12 and 15). Because lowest common ancestors may be found in constant time per query, using a data structure that takes linear space to store and that may be constructed in linear time,<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup> the same bounds hold for the range minimization problem.
+</p><p><a href="#CITEREFBenderFarach-Colton2000">Bender &amp; Farach-Colton (2000)</a> reversed this relationship between the two data structure problems by showing that lowest common ancestors in an input tree could be solved efficiently applying a non-tree-based technique for range minimization. Their data structure uses an <a href="https://en.wikipedia.org/wiki/Euler_tour" class="mw-redirect" title="Euler tour">Euler tour</a> technique to transform the input tree into a sequence and then finds range minima in the resulting sequence.  The sequence resulting from this transformation has a special form (adjacent numbers, representing heights of adjacent nodes in the tree, differ by ±1) which they take advantage of in their data structure; to solve the range minimization problem for sequences that do not have this special form, they use Cartesian trees to transform the range minimization problem into a lowest common ancestor problem, and then apply the Euler tour technique to transform the problem again into one of range minimization for sequences with this special form.
+</p><p>The same range minimization problem may also be given an alternative interpretation in terms of two dimensional range searching. A collection of finitely many points in the <a href="https://en.wikipedia.org/wiki/Cartesian_plane" class="mw-redirect" title="Cartesian plane">Cartesian plane</a> may be used to form a Cartesian tree, by sorting the points by their <i>x</i>-coordinates and using the <i>y</i>-coordinates in this order as the sequence of values from which this tree is formed. If <i>S</i> is the subset of the input points within some vertical slab defined by the inequalities <i>L</i>&#160;≤&#160;<i>x</i>&#160;≤&#160;<i>R</i>, <i>p</i> is the leftmost point in <i>S</i> (the one with minimum <i>x</i>-coordinate), and <i>q</i> is the rightmost point in <i>S</i> (the one with maximum <i>x</i>-coordinate) then the lowest common ancestor of <i>p</i> and <i>q</i> in the Cartesian tree is the bottommost point in the slab. A three-sided range query, in which the task is to list all points within a region bounded by the three inequalities <i>L</i>&#160;≤&#160;<i>x</i>&#160;≤&#160;<i>R</i> and <i>y</i>&#160;≤&#160;<i>T</i>, may be answered by finding this bottommost point <i>b</i>, comparing its <i>y</i>-coordinate to <i>T</i>, and (if the point lies within the three-sided region) continuing recursively in the two slabs bounded between <i>p</i> and <i>b</i> and between <i>b</i> and <i>q</i>. In this way, after the leftmost and rightmost points in the slab are identified, all points within the three-sided region may be listed in constant time per point.<sup id="cite_ref-gbt_4-0" class="reference"><a href="#cite_note-gbt-4">&#91;4&#93;</a></sup>
+</p><p>The same construction, of lowest common ancestors in a Cartesian tree, makes it possible to construct a data structure with linear space that allows the distances between pairs of points in any <a href="https://en.wikipedia.org/wiki/Ultrametric_space" title="Ultrametric space">ultrametric space</a> to be queried in constant time per query. The distance within an ultrametric is the same as the <a href="https://en.wikipedia.org/wiki/Widest_path_problem" title="Widest path problem">minimax path</a> weight in the <a href="https://en.wikipedia.org/wiki/Minimum_spanning_tree" title="Minimum spanning tree">minimum spanning tree</a> of the metric.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup> From the minimum spanning tree, one can construct a Cartesian tree, the root node of which represents the heaviest edge of the minimum spanning tree. Removing this edge partitions the minimum spanning tree into two subtrees, and Cartesian trees recursively constructed for these two subtrees form the children of the root node of the Cartesian tree. The leaves of the Cartesian tree represent points of the metric space, and the lowest common ancestor of two leaves in the Cartesian tree is the heaviest edge between those two points in the minimum spanning tree, which has weight equal to the distance between the two points. Once the minimum spanning tree has been found and its edge weights sorted, the Cartesian tree may be constructed in linear time.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Treaps">Treaps</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Cartesian_tree&amp;action=edit&amp;section=3" title="Edit section: Treaps">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1033289096"/><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="https://en.wikipedia.org/wiki/Treap" title="Treap">Treap</a></div>
+<p>Because a Cartesian tree is a binary tree, it is natural to use it as a <a href="https://en.wikipedia.org/wiki/Binary_search_tree" title="Binary search tree">binary search tree</a> for an ordered sequence of values.  However, defining a Cartesian tree based on the same values that form the search keys of a binary search tree does not work well: the Cartesian tree of a sorted sequence is just a <a href="https://en.wikipedia.org/wiki/Path_graph" title="Path graph">path</a>, rooted at its leftmost endpoint, and binary searching in this tree degenerates to <a href="https://en.wikipedia.org/wiki/Sequential_search" class="mw-redirect" title="Sequential search">sequential search</a> in the path. However, it is possible to generate more-balanced search trees by generating <i>priority</i> values for each search key that are different than the key itself, sorting the inputs by their key values, and using the corresponding sequence of priorities to generate a Cartesian tree. This construction may equivalently be viewed in the geometric framework described above, in which the <i>x</i>-coordinates of a set of points are the search keys and the <i>y</i>-coordinates are the priorities.
+</p><p>This idea was applied by <a href="#CITEREFSeidelAragon1996">Seidel &amp; Aragon (1996)</a>, who suggested the use of random numbers as priorities. The data structure resulting from this random choice is called a <a href="https://en.wikipedia.org/wiki/Treap" title="Treap">treap</a>, due to its combination of binary search tree and binary heap features. An insertion into a treap may be performed by inserting the new key as a leaf of an existing tree, choosing a priority for it, and then performing <a href="https://en.wikipedia.org/wiki/Tree_rotation" title="Tree rotation">tree rotation</a> operations along a path from the node to the root of the tree to repair any violations of the heap property caused by this insertion; a deletion may similarly be performed by a constant amount of change to the tree followed by a sequence of rotations along a single path in the tree.
+</p><p>If the priorities of each key are chosen randomly and independently once whenever the key is inserted into the tree, the resulting Cartesian tree will have the same properties as a <a href="https://en.wikipedia.org/wiki/Random_binary_search_tree" class="mw-redirect" title="Random binary search tree">random binary search tree</a>, a tree computed by inserting the keys in a randomly chosen <a href="https://en.wikipedia.org/wiki/Permutation" title="Permutation">permutation</a> starting from an empty tree, with each insertion leaving the previous tree structure unchanged and inserting the new node as a leaf of the tree. Random binary search trees had been studied for much longer, and are known to behave well as search trees (they have <a href="https://en.wikipedia.org/wiki/Logarithm" title="Logarithm">logarithmic</a> depth with high probability); the same good behavior carries over to treaps. It is also possible, as suggested by Aragon and Seidel, to reprioritize frequently-accessed nodes, causing them to move towards the root of the treap and speeding up future accesses for the same keys.
+</p>
+<h2><span class="mw-headline" id="Efficient_construction">Efficient construction</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Cartesian_tree&amp;action=edit&amp;section=4" title="Edit section: Efficient construction">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A Cartesian tree may be constructed in <a href="https://en.wikipedia.org/wiki/Linear_time" class="mw-redirect" title="Linear time">linear time</a> from its input sequence.
+One method is to simply process the sequence values in left-to-right order, maintaining the Cartesian tree of the nodes processed so far, in a structure that allows both upwards and downwards traversal of the tree. To process each new value <i>x</i>, start at the node representing the value prior to <i>x</i> in the sequence and follow the path from this node to the root of the tree until finding a value <i>y</i> smaller than <i>x</i>. The node <i>x</i> becomes the right child of <i>y</i>, and the previous right child of <i>y</i> becomes the new left child of <i>x</i>. The total time for this procedure is linear, because the time spent searching for the parent <i>y</i> of each new node <i>x</i> can be <a href="https://en.wikipedia.org/wiki/Potential_method" title="Potential method">charged</a> against the number of nodes that are removed from the rightmost path in the tree.<sup id="cite_ref-gbt_4-1" class="reference"><a href="#cite_note-gbt-4">&#91;4&#93;</a></sup>
+</p><p>An alternative linear-time construction algorithm is based on the <a href="https://en.wikipedia.org/wiki/All_nearest_smaller_values" title="All nearest smaller values">all nearest smaller values</a> problem. In the input sequence, one may define the <i>left neighbor</i> of a value <i>x</i> to be the value that occurs prior to <i>x</i>, is smaller than <i>x</i>, and is closer in position to <i>x</i> than any other smaller value. The <i>right neighbor</i> is defined symmetrically. The sequence of left neighbors may be found by an algorithm that maintains a <a href="https://en.wikipedia.org/wiki/Stack_(data_structure)" class="mw-redirect" title="Stack (data structure)">stack</a> containing a subsequence of the input. For each new sequence value <i>x</i>, the stack is popped until it is empty or its top element is smaller than <i>x</i>, and then <i>x</i> is pushed onto the stack. The left neighbor of <i>x</i> is the top element at the time <i>x</i> is pushed. The right neighbors may be found by applying the same stack algorithm to the reverse of the sequence. The parent of <i>x</i> in the Cartesian tree is either the left neighbor of <i>x</i> or the right neighbor of <i>x</i>, whichever exists and has a larger value. The left and right neighbors may also be constructed efficiently by <a href="https://en.wikipedia.org/wiki/Parallel_algorithm" title="Parallel algorithm">parallel algorithms</a>, so this formulation may be used to develop efficient parallel algorithms for Cartesian tree construction.<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup>
+</p><p>Another linear-time algorithm for Cartesian tree construction is based on divide-and-conquer. In particular, the algorithm recursively constructs the tree on each half of the input, and then merges the two trees by taking the right spine of the left tree and left spine of the right tree (both of which are paths whose root-to-leaf order sorts their values from smallest to largest) and performs a standard <a href="https://en.wikipedia.org/wiki/Merge_algorithm#Merging_two_lists" title="Merge algorithm">merging</a> operation, replacing these two paths in two trees by a single path that contains the same nodes. In the merged path, the successor in the sorted order of each node from the left tree is placed in its right child, and the successor of each node from the right tree is placed in its left child, the same position that was previously used for its successor in the spine. The left children of nodes from the left tree and right children of nodes from the right tree are left unchanged. The algorithm is also parallelizable since on each level of recursion, each of the two sub-problems can be computed in parallel, and the merging operation can be <a href="https://en.wikipedia.org/wiki/Merge_algorithm#Parallel_merge" title="Merge algorithm">efficiently parallelized</a> as well.<sup id="cite_ref-FOOTNOTEShunBlelloch2014_8-0" class="reference"><a href="#cite_note-FOOTNOTEShunBlelloch2014-8">&#91;8&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Application_in_sorting">Application in sorting</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Cartesian_tree&amp;action=edit&amp;section=5" title="Edit section: Application in sorting">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://en.wikipedia.org/wiki/File:Bracketing_pairs.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Bracketing_pairs.svg/300px-Bracketing_pairs.svg.png" decoding="async" width="300" height="208" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Bracketing_pairs.svg/450px-Bracketing_pairs.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Bracketing_pairs.svg/600px-Bracketing_pairs.svg.png 2x" data-file-width="306" data-file-height="212" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Bracketing_pairs.svg" class="internal" title="Enlarge"></a></div>Pairs of consecutive sequence values (shown as the thick red edges) that bracket a sequence value <i>x</i> (the darker blue point). The cost of including <i>x</i> in the sorted order produced by the Levcopoulos–Petersson algorithm is proportional to the <a href="https://en.wikipedia.org/wiki/Logarithm" title="Logarithm">logarithm</a> of this number of bracketing pairs.</div></div></div>
+<p><a href="#CITEREFLevcopoulosPetersson1989">Levcopoulos &amp; Petersson (1989)</a> describe a <a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">sorting algorithm</a> based on Cartesian trees. They describe the algorithm as based on a tree with the maximum at the root, but it may be modified straightforwardly to support a Cartesian tree with the convention that the minimum value is at the root. For consistency, it is this modified version of the algorithm that is described below.
+</p><p>The Levcopoulos–Petersson algorithm can be viewed as a version of <a href="https://en.wikipedia.org/wiki/Selection_sort" title="Selection sort">selection sort</a> or <a href="https://en.wikipedia.org/wiki/Heap_sort" class="mw-redirect" title="Heap sort">heap sort</a> that maintains a <a href="https://en.wikipedia.org/wiki/Priority_queue" title="Priority queue">priority queue</a> of candidate minima, and that at each step finds and removes the minimum value in this queue, moving this value to the end of an output sequence. In their algorithm, the priority queue consists only of elements whose parent in the Cartesian tree has already been found and removed. Thus, the algorithm consists of the following steps:
+</p>
+<ol><li>Construct a Cartesian tree for the input sequence</li>
+<li>Initialize a priority queue, initially containing only the tree root</li>
+<li>While the priority queue is non-empty:
+<ul><li>Find and remove the minimum value <i>x</i> in the priority queue</li>
+<li>Add <i>x</i> to the output sequence</li>
+<li>Add the Cartesian tree children of <i>x</i> to the priority queue</li></ul></li></ol>
+<p>As Levcopoulos and Petersson show, for input sequences that are already nearly sorted, the size of the priority queue will remain small, allowing this method to take advantage of the nearly-sorted input and run more quickly. Specifically, the worst-case running time of this algorithm is O(<i>n</i>&#160;log&#160;<i>k</i>), where <i>k</i> is the average, over all values <i>x</i> in the sequence, of the number of consecutive pairs of sequence values that bracket <i>x</i>. They also prove a lower bound stating that, for any <i>n</i> and <i>k</i>&#160;=&#160;ω(1), any comparison-based sorting algorithm must use Ω(<i>n</i>&#160;log&#160;<i>k</i>) comparisons for some inputs.
+</p>
+<h2><span class="mw-headline" id="History">History</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Cartesian_tree&amp;action=edit&amp;section=6" title="Edit section: History">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Cartesian trees were introduced and named by <a href="#CITEREFVuillemin1980">Vuillemin (1980)</a>. The name is derived from the <a href="https://en.wikipedia.org/wiki/Cartesian_coordinate" class="mw-redirect" title="Cartesian coordinate">Cartesian coordinate</a> system for the plane: in Vuillemin's version of this structure, as in the two-dimensional range searching application discussed above, a Cartesian tree for a point set has the sorted order of the points by their <i>x</i>-coordinates as its symmetric traversal order, and it has the heap property according to the <i>y</i>-coordinates of the points.
+<a href="#CITEREFGabowBentleyTarjan1984">Gabow, Bentley &amp; Tarjan (1984)</a> and subsequent authors followed the definition here in which a Cartesian tree is defined from a sequence; this change generalizes the geometric setting of Vuillemin to allow sequences other than the sorted order of <i>x</i>-coordinates, and allows the Cartesian tree to be applied to non-geometric problems as well.
+</p>
+<h2><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Cartesian_tree&amp;action=edit&amp;section=7" title="Edit section: Notes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist reflist-columns references-column-width" style="column-width: 30em;">
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text">In some references, the ordering is reversed, so the parent of any node always has a larger value and the root node holds the maximum value.</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><a href="#CITEREFGabowBentleyTarjan1984">Gabow, Bentley &amp; Tarjan (1984)</a>; <a href="#CITEREFBenderFarach-Colton2000">Bender &amp; Farach-Colton (2000)</a>.</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><a href="#CITEREFHarelTarjan1984">Harel &amp; Tarjan (1984)</a>; <a href="#CITEREFSchieberVishkin1988">Schieber &amp; Vishkin (1988)</a>.</span>
+</li>
+<li id="cite_note-gbt-4"><span class="mw-cite-backlink">^ <a href="#cite_ref-gbt_4-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-gbt_4-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><a href="#CITEREFGabowBentleyTarjan1984">Gabow, Bentley &amp; Tarjan (1984)</a>.</span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><a href="#CITEREFHu1961">Hu (1961)</a>; <a href="#CITEREFLeclerc1981">Leclerc (1981)</a></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><a href="#CITEREFDemaineLandauWeimann2009">Demaine, Landau &amp; Weimann (2009)</a>.</span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><a href="#CITEREFBerkmanSchieberVishkin1993">Berkman, Schieber &amp; Vishkin (1993)</a>.</span>
+</li>
+<li id="cite_note-FOOTNOTEShunBlelloch2014-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTEShunBlelloch2014_8-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFShunBlelloch2014">Shun &amp; Blelloch (2014)</a>.</span>
+</li>
+</ol></div>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Cartesian_tree&amp;action=edit&amp;section=8" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1054258005">.mw-parser-output .refbegin{font-size:90%;margin-bottom:0.5em}.mw-parser-output .refbegin-hanging-indents>ul{margin-left:0}.mw-parser-output .refbegin-hanging-indents>ul>li{margin-left:0;padding-left:3.2em;text-indent:-3.2em}.mw-parser-output .refbegin-hanging-indents ul,.mw-parser-output .refbegin-hanging-indents ul li{list-style:none}@media(max-width:720px){.mw-parser-output .refbegin-hanging-indents>ul>li{padding-left:1.6em;text-indent:-1.6em}}.mw-parser-output .refbegin-columns{margin-top:0.3em}.mw-parser-output .refbegin-columns ul{margin-top:0}.mw-parser-output .refbegin-columns li{page-break-inside:avoid;break-inside:avoid-column}</style><div class="refbegin refbegin-columns references-column-width" style="column-width: 30em">
+<ul><li><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFBenderFarach-Colton2000" class="citation cs2">Bender, Michael A.; <a href="https://en.wikipedia.org/wiki/Martin_Farach-Colton" title="Martin Farach-Colton">Farach-Colton, Martin</a> (2000), "The LCA problem revisited", <a rel="nofollow" class="external text" href="http://www.cs.sunysb.edu/~bender/pub/lca.ps"><i>Proceedings of the 4th Latin American Symposium on Theoretical Informatics</i></a>, Springer-Verlag, <a href="https://en.wikipedia.org/wiki/Lecture_Notes_in_Computer_Science" title="Lecture Notes in Computer Science">Lecture Notes in Computer Science</a> 1776, pp.&#160;88–94</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=The+LCA+problem+revisited&amp;rft.btitle=Proceedings+of+the+4th+Latin+American+Symposium+on+Theoretical+Informatics&amp;rft.pages=88-94&amp;rft.pub=Springer-Verlag%2C+Lecture+Notes+in+Computer+Science+1776&amp;rft.date=2000&amp;rft.aulast=Bender&amp;rft.aufirst=Michael+A.&amp;rft.au=Farach-Colton%2C+Martin&amp;rft_id=http%3A%2F%2Fwww.cs.sunysb.edu%2F~bender%2Fpub%2Flca.ps&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACartesian+tree" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBerkmanSchieberVishkin1993" class="citation cs2">Berkman, Omer; <a href="https://en.wikipedia.org/wiki/Baruch_Schieber" title="Baruch Schieber">Schieber, Baruch</a>; <a href="https://en.wikipedia.org/wiki/Uzi_Vishkin" title="Uzi Vishkin">Vishkin, Uzi</a> (1993), "Optimal doubly logarithmic parallel algorithms based on finding all nearest smaller values", <i>Journal of Algorithms</i>, <b>14</b> (3): 344–370, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1006%2Fjagm.1993.1018">10.1006/jagm.1993.1018</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Algorithms&amp;rft.atitle=Optimal+doubly+logarithmic+parallel+algorithms+based+on+finding+all+nearest+smaller+values&amp;rft.volume=14&amp;rft.issue=3&amp;rft.pages=344-370&amp;rft.date=1993&amp;rft_id=info%3Adoi%2F10.1006%2Fjagm.1993.1018&amp;rft.aulast=Berkman&amp;rft.aufirst=Omer&amp;rft.au=Schieber%2C+Baruch&amp;rft.au=Vishkin%2C+Uzi&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACartesian+tree" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFDemaineLandauWeimann2009" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Erik_Demaine" title="Erik Demaine">Demaine, Erik D.</a>; Landau, Gad M.; Weimann, Oren (2009), "On Cartesian trees and range minimum queries", <i>Automata, Languages and Programming, 36th International Colloquium, ICALP 2009, Rhodes, Greece, July 5-12, 2009</i>, Lecture Notes in Computer Science, vol.&#160;5555, pp.&#160;341–353, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-3-642-02927-1_29">10.1007/978-3-642-02927-1_29</a>, <a href="https://en.wikipedia.org/wiki/Hdl_(identifier)" class="mw-redirect" title="Hdl (identifier)">hdl</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://hdl.handle.net/1721.1%2F61963">1721.1/61963</a></span>, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-3-642-02926-4" title="Special:BookSources/978-3-642-02926-4"><bdi>978-3-642-02926-4</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=On+Cartesian+trees+and+range+minimum+queries&amp;rft.btitle=Automata%2C+Languages+and+Programming%2C+36th+International+Colloquium%2C+ICALP+2009%2C+Rhodes%2C+Greece%2C+July+5-12%2C+2009&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=341-353&amp;rft.date=2009&amp;rft_id=info%3Ahdl%2F1721.1%2F61963&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-642-02927-1_29&amp;rft.isbn=978-3-642-02926-4&amp;rft.aulast=Demaine&amp;rft.aufirst=Erik+D.&amp;rft.au=Landau%2C+Gad+M.&amp;rft.au=Weimann%2C+Oren&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACartesian+tree" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFFischerHeun2006" class="citation cs2">Fischer, Johannes; Heun, Volker (2006), "Theoretical and Practical Improvements on the RMQ-Problem, with Applications to LCA and LCE", <i>Proceedings of the 17th Annual Symposium on Combinatorial Pattern Matching</i>, Lecture Notes in Computer Science, vol.&#160;4009, Springer-Verlag, pp.&#160;36–48, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F11780441_5">10.1007/11780441_5</a>, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-3-540-35455-0" title="Special:BookSources/978-3-540-35455-0"><bdi>978-3-540-35455-0</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Theoretical+and+Practical+Improvements+on+the+RMQ-Problem%2C+with+Applications+to+LCA+and+LCE&amp;rft.btitle=Proceedings+of+the+17th+Annual+Symposium+on+Combinatorial+Pattern+Matching&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=36-48&amp;rft.pub=Springer-Verlag&amp;rft.date=2006&amp;rft_id=info%3Adoi%2F10.1007%2F11780441_5&amp;rft.isbn=978-3-540-35455-0&amp;rft.aulast=Fischer&amp;rft.aufirst=Johannes&amp;rft.au=Heun%2C+Volker&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACartesian+tree" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFFischerHeun2007" class="citation cs2">Fischer, Johannes; Heun, Volker (2007), "A New Succinct Representation of RMQ-Information and Improvements in the Enhanced Suffix Array.", <i>Proceedings of the International Symposium on Combinatorics, Algorithms, Probabilistic and Experimental Methodologies</i>, Lecture Notes in Computer Science, vol.&#160;4614, Springer-Verlag, pp.&#160;459–470, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-3-540-74450-4_41">10.1007/978-3-540-74450-4_41</a>, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-3-540-74449-8" title="Special:BookSources/978-3-540-74449-8"><bdi>978-3-540-74449-8</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=A+New+Succinct+Representation+of+RMQ-Information+and+Improvements+in+the+Enhanced+Suffix+Array.&amp;rft.btitle=Proceedings+of+the+International+Symposium+on+Combinatorics%2C+Algorithms%2C+Probabilistic+and+Experimental+Methodologies&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=459-470&amp;rft.pub=Springer-Verlag&amp;rft.date=2007&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-540-74450-4_41&amp;rft.isbn=978-3-540-74449-8&amp;rft.aulast=Fischer&amp;rft.aufirst=Johannes&amp;rft.au=Heun%2C+Volker&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACartesian+tree" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGabowBentleyTarjan1984" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Harold_N._Gabow" title="Harold N. Gabow">Gabow, Harold N.</a>; <a href="https://en.wikipedia.org/wiki/Jon_Bentley_(computer_scientist)" title="Jon Bentley (computer scientist)">Bentley, Jon Louis</a>; <a href="https://en.wikipedia.org/wiki/Robert_Tarjan" title="Robert Tarjan">Tarjan, Robert E.</a> (1984), "Scaling and related techniques for geometry problems", <a href="https://en.wikipedia.org/wiki/Symposium_on_Theory_of_Computing" title="Symposium on Theory of Computing"><i>STOC '84: Proc. 16th ACM Symp. Theory of Computing</i></a>, New York, NY, USA: ACM, pp.&#160;135–143, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F800057.808675">10.1145/800057.808675</a>, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-89791-133-4" title="Special:BookSources/0-89791-133-4"><bdi>0-89791-133-4</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Scaling+and+related+techniques+for+geometry+problems&amp;rft.btitle=STOC+%2784%3A+Proc.+16th+ACM+Symp.+Theory+of+Computing&amp;rft.place=New+York%2C+NY%2C+USA&amp;rft.pages=135-143&amp;rft.pub=ACM&amp;rft.date=1984&amp;rft_id=info%3Adoi%2F10.1145%2F800057.808675&amp;rft.isbn=0-89791-133-4&amp;rft.aulast=Gabow&amp;rft.aufirst=Harold+N.&amp;rft.au=Bentley%2C+Jon+Louis&amp;rft.au=Tarjan%2C+Robert+E.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACartesian+tree" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHarelTarjan1984" class="citation cs2">Harel, Dov; <a href="https://en.wikipedia.org/wiki/Robert_Tarjan" title="Robert Tarjan">Tarjan, Robert E.</a> (1984), "Fast algorithms for finding nearest common ancestors", <i><a href="https://en.wikipedia.org/wiki/SIAM_Journal_on_Computing" title="SIAM Journal on Computing">SIAM Journal on Computing</a></i>, <b>13</b> (2): 338–355, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1137%2F0213024">10.1137/0213024</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=SIAM+Journal+on+Computing&amp;rft.atitle=Fast+algorithms+for+finding+nearest+common+ancestors&amp;rft.volume=13&amp;rft.issue=2&amp;rft.pages=338-355&amp;rft.date=1984&amp;rft_id=info%3Adoi%2F10.1137%2F0213024&amp;rft.aulast=Harel&amp;rft.aufirst=Dov&amp;rft.au=Tarjan%2C+Robert+E.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACartesian+tree" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHu1961" class="citation cs2">Hu, T. C. (1961), "The maximum capacity route problem", <i>Operations Research</i>, <b>9</b> (6): 898–900, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1287%2Fopre.9.6.898">10.1287/opre.9.6.898</a></span>, <a href="https://en.wikipedia.org/wiki/JSTOR_(identifier)" class="mw-redirect" title="JSTOR (identifier)">JSTOR</a>&#160;<a rel="nofollow" class="external text" href="http://www.jstor.org/stable/167055">167055</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Operations+Research&amp;rft.atitle=The+maximum+capacity+route+problem&amp;rft.volume=9&amp;rft.issue=6&amp;rft.pages=898-900&amp;rft.date=1961&amp;rft_id=info%3Adoi%2F10.1287%2Fopre.9.6.898&amp;rft_id=%2F%2Fwww.jstor.org%2Fstable%2F167055%23id-name%3DJSTOR&amp;rft.aulast=Hu&amp;rft.aufirst=T.+C.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACartesian+tree" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFLeclerc1981" class="citation cs2 cs1-prop-foreign-lang-source">Leclerc, Bruno (1981), "Description combinatoire des ultramétriques", <i>Centre de Mathématique Sociale. École Pratique des Hautes Études. Mathématiques et Sciences Humaines</i> (in French) (73): 5–37, 127, <a href="https://en.wikipedia.org/wiki/MR_(identifier)" class="mw-redirect" title="MR (identifier)">MR</a>&#160;<a rel="nofollow" class="external text" href="http://www.ams.org/mathscinet-getitem?mr=0623034">0623034</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Centre+de+Math%C3%A9matique+Sociale.+%C3%89cole+Pratique+des+Hautes+%C3%89tudes.+Math%C3%A9matiques+et+Sciences+Humaines&amp;rft.atitle=Description+combinatoire+des+ultram%C3%A9triques&amp;rft.issue=73&amp;rft.pages=5-37%2C+127&amp;rft.date=1981&amp;rft_id=%2F%2Fwww.ams.org%2Fmathscinet-getitem%3Fmr%3D623034%23id-name%3DMR&amp;rft.aulast=Leclerc&amp;rft.aufirst=Bruno&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACartesian+tree" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFLevcopoulosPetersson1989" class="citation cs2">Levcopoulos, Christos; Petersson, Ola (1989), "Heapsort - Adapted for Presorted Files", <i>WADS '89: Proceedings of the Workshop on Algorithms and Data Structures</i>, Lecture Notes in Computer Science, vol.&#160;382, London, UK: Springer-Verlag, pp.&#160;499–509, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F3-540-51542-9_41">10.1007/3-540-51542-9_41</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Heapsort+-+Adapted+for+Presorted+Files&amp;rft.btitle=WADS+%2789%3A+Proceedings+of+the+Workshop+on+Algorithms+and+Data+Structures&amp;rft.place=London%2C+UK&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=499-509&amp;rft.pub=Springer-Verlag&amp;rft.date=1989&amp;rft_id=info%3Adoi%2F10.1007%2F3-540-51542-9_41&amp;rft.aulast=Levcopoulos&amp;rft.aufirst=Christos&amp;rft.au=Petersson%2C+Ola&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACartesian+tree" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSeidelAragon1996" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Raimund_Seidel" title="Raimund Seidel">Seidel, Raimund</a>; <a href="https://en.wikipedia.org/wiki/Cecilia_R._Aragon" title="Cecilia R. Aragon">Aragon, Cecilia R.</a> (1996), <a rel="nofollow" class="external text" href="http://citeseer.ist.psu.edu/seidel96randomized.html">"Randomized Search Trees"</a>, <i>Algorithmica</i>, <b>16</b> (4/5): 464–497, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2Fs004539900061">10.1007/s004539900061</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Algorithmica&amp;rft.atitle=Randomized+Search+Trees&amp;rft.volume=16&amp;rft.issue=4%2F5&amp;rft.pages=464-497&amp;rft.date=1996&amp;rft_id=info%3Adoi%2F10.1007%2Fs004539900061&amp;rft.aulast=Seidel&amp;rft.aufirst=Raimund&amp;rft.au=Aragon%2C+Cecilia+R.&amp;rft_id=http%3A%2F%2Fciteseer.ist.psu.edu%2Fseidel96randomized.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACartesian+tree" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSchieberVishkin1988" class="citation cs2">Schieber, Baruch; <a href="https://en.wikipedia.org/wiki/Uzi_Vishkin" title="Uzi Vishkin">Vishkin, Uzi</a> (1988), "On finding lowest common ancestors: simplification and parallelization", <i><a href="https://en.wikipedia.org/wiki/SIAM_Journal_on_Computing" title="SIAM Journal on Computing">SIAM Journal on Computing</a></i>, <b>17</b> (6): 1253–1262, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1137%2F0217079">10.1137/0217079</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=SIAM+Journal+on+Computing&amp;rft.atitle=On+finding+lowest+common+ancestors%3A+simplification+and+parallelization&amp;rft.volume=17&amp;rft.issue=6&amp;rft.pages=1253-1262&amp;rft.date=1988&amp;rft_id=info%3Adoi%2F10.1137%2F0217079&amp;rft.aulast=Schieber&amp;rft.aufirst=Baruch&amp;rft.au=Vishkin%2C+Uzi&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACartesian+tree" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFShunBlelloch2014" class="citation cs2">Shun, Julian; Blelloch, Guy E. (2014), "A Simple Parallel Cartesian Tree Algorithm and its Application to Parallel Suffix Tree Construction", <i>ACM Transactions on Parallel Computing</i>, <b>1</b>: 1–20, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F2661653">10.1145/2661653</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=ACM+Transactions+on+Parallel+Computing&amp;rft.atitle=A+Simple+Parallel+Cartesian+Tree+Algorithm+and+its+Application+to+Parallel+Suffix+Tree+Construction&amp;rft.volume=1&amp;rft.pages=1-20&amp;rft.date=2014&amp;rft_id=info%3Adoi%2F10.1145%2F2661653&amp;rft.aulast=Shun&amp;rft.aufirst=Julian&amp;rft.au=Blelloch%2C+Guy+E.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACartesian+tree" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFVuillemin1980" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Jean_Vuillemin" title="Jean Vuillemin">Vuillemin, Jean</a> (1980), "A unifying look at data structures", <i><a href="https://en.wikipedia.org/wiki/Communications_of_the_ACM" title="Communications of the ACM">Communications of the ACM</a></i>, New York, NY, USA: ACM, <b>23</b> (4): 229–239, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F358841.358852">10.1145/358841.358852</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Communications+of+the+ACM&amp;rft.atitle=A+unifying+look+at+data+structures&amp;rft.volume=23&amp;rft.issue=4&amp;rft.pages=229-239&amp;rft.date=1980&amp;rft_id=info%3Adoi%2F10.1145%2F358841.358852&amp;rft.aulast=Vuillemin&amp;rft.aufirst=Jean&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ACartesian+tree" class="Z3988"></span>.</li></ul>
+</div>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Tree_data_structures" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:CS_trees" title="Template:CS trees"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:CS_trees" title="Template talk:CS trees"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:CS_trees&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Tree_data_structures" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" title="Tree (data structure)">Tree data structures</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Search_tree" title="Search tree">Search trees</a><br />(<a href="https://en.wikipedia.org/wiki/Set_(abstract_data_type)" title="Set (abstract data type)">dynamic sets</a>/<a href="https://en.wikipedia.org/wiki/Associative_array" title="Associative array">associative arrays</a>)</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/2–3_tree" title="2–3 tree">2–3</a></li>
+<li><a href="https://en.wikipedia.org/wiki/2–3–4_tree" title="2–3–4 tree">2–3–4</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AA_tree" title="AA tree">AA</a></li>
+<li><a href="https://en.wikipedia.org/wiki/(a,b)-tree" title="(a,b)-tree">(a,b)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AVL_tree" title="AVL tree">AVL</a></li>
+<li><a href="https://en.wikipedia.org/wiki/B-tree" title="B-tree">B</a></li>
+<li><a href="https://en.wikipedia.org/wiki/B+_tree" title="B+ tree">B+</a></li>
+<li><a href="https://en.wikipedia.org/wiki/B*-tree" class="mw-redirect" title="B*-tree">B*</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bx-tree" title="Bx-tree">B<sup>x</sup></a></li>
+<li>(<a href="https://en.wikipedia.org/wiki/Optimal_binary_search_tree" title="Optimal binary search tree">Optimal</a>)&#160;<a href="https://en.wikipedia.org/wiki/Binary_search_tree" title="Binary search tree">Binary search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dancing_tree" title="Dancing tree">Dancing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/HTree" title="HTree">HTree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interval_tree" title="Interval tree">Interval</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Order_statistic_tree" title="Order statistic tree">Order statistic</a></li>
+<li>(<a href="https://en.wikipedia.org/wiki/Left-leaning_red–black_tree" title="Left-leaning red–black tree">Left-leaning</a>)&#160;<a href="https://en.wikipedia.org/wiki/Red–black_tree" title="Red–black tree">Red–black</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Scapegoat_tree" title="Scapegoat tree">Scapegoat</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Splay_tree" title="Splay tree">Splay</a></li>
+<li><a href="https://en.wikipedia.org/wiki/T-tree" title="T-tree">T</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Treap" title="Treap">Treap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/UB-tree" title="UB-tree">UB</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Weight-balanced_tree" title="Weight-balanced tree">Weight-balanced</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" title="Heap (data structure)">Heaps</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Binary_heap" title="Binary heap">Binary</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binomial_heap" title="Binomial heap">Binomial</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Brodal_queue" title="Brodal queue">Brodal</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Leftist_tree" title="Leftist tree">Leftist</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pairing_heap" title="Pairing heap">Pairing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Skew_heap" title="Skew heap">Skew</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Van_Emde_Boas_tree" title="Van Emde Boas tree">van Emde Boas</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Weak_heap" title="Weak heap">Weak</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Trie" title="Trie">Tries</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Ctrie" title="Ctrie">Ctrie</a></li>
+<li><a href="https://en.wikipedia.org/wiki/C-trie" title="C-trie">C-trie (compressed ADT)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hash_tree_(persistent_data_structure)" title="Hash tree (persistent data structure)">Hash</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Radix_tree" title="Radix tree">Radix</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Suffix_tree" title="Suffix tree">Suffix</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ternary_search_tree" title="Ternary search tree">Ternary search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X-fast_trie" title="X-fast trie">X-fast</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Y-fast_trie" title="Y-fast trie">Y-fast</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Spatial_index" class="mw-redirect" title="Spatial index">Spatial</a> data partitioning trees</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Ball_tree" title="Ball tree">Ball</a></li>
+<li><a href="https://en.wikipedia.org/wiki/BK-tree" title="BK-tree">BK</a></li>
+<li><a href="https://en.wikipedia.org/wiki/BSP_tree" class="mw-redirect" title="BSP tree">BSP</a></li>
+<li><a class="mw-selflink selflink">Cartesian</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hilbert_R-tree" title="Hilbert R-tree">Hilbert R</a></li>
+<li><a href="https://en.wikipedia.org/wiki/K-d_tree" title="K-d tree"><i>k</i>-d</a> (<a href="https://en.wikipedia.org/wiki/Implicit_k-d_tree" title="Implicit k-d tree">implicit <i>k</i>-d</a>)</li>
+<li><a href="https://en.wikipedia.org/wiki/M-tree" title="M-tree">M</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Metric_tree" title="Metric tree">Metric</a></li>
+<li><a href="https://en.wikipedia.org/wiki/MVP_tree" class="mw-redirect" title="MVP tree">MVP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Octree" title="Octree">Octree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/PH-tree" title="PH-tree">PH</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Priority_R-tree" title="Priority R-tree">Priority R</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quadtree" title="Quadtree">Quad</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R-tree" title="R-tree">R</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R+_tree" title="R+ tree">R+</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R*_tree" class="mw-redirect" title="R* tree">R*</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Segment_tree" title="Segment tree">Segment</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Vantage-point_tree" title="Vantage-point tree">VP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X-tree" title="X-tree">X</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Other trees</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Cover_tree" title="Cover tree">Cover</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Exponential_tree" title="Exponential tree">Exponential</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fenwick_tree" title="Fenwick tree">Fenwick</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Finger_tree" title="Finger tree">Finger</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fractal_tree_index" title="Fractal tree index">Fractal tree index</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fusion_tree" title="Fusion tree">Fusion</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hash_calendar" title="Hash calendar">Hash calendar</a></li>
+<li><a href="https://en.wikipedia.org/wiki/IDistance" title="IDistance">iDistance</a></li>
+<li><a href="https://en.wikipedia.org/wiki/K-ary_tree" class="mw-redirect" title="K-ary tree">K-ary</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Left-child_right-sibling_binary_tree" title="Left-child right-sibling binary tree">Left-child right-sibling</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Link/cut_tree" title="Link/cut tree">Link/cut</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Log-structured_merge-tree" title="Log-structured merge-tree">Log-structured merge</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Merkle_tree" title="Merkle tree">Merkle</a></li>
+<li><a href="https://en.wikipedia.org/wiki/PQ_tree" title="PQ tree">PQ</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Range_tree" title="Range tree">Range</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SPQR_tree" title="SPQR tree">SPQR</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Top_tree" title="Top tree">Top</a></li></ul>
+</div></td></tr></tbody></table></div>
+<div class="navbox-styles nomobile"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1061467846"/></div><div role="navigation" class="navbox" aria-labelledby="Sorting_algorithms" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1063604349"/><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Sorting" title="Template:Sorting"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Sorting" title="Template talk:Sorting"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Sorting&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Sorting_algorithms" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">Sorting algorithms</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Theory</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" title="Computational complexity theory">Computational complexity theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">Big O notation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Total_order" title="Total order">Total order</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_(abstract_data_type)" title="List (abstract data type)">Lists</a></li>
+<li><a href="https://en.wikipedia.org/wiki/In-place_algorithm" title="In-place algorithm">Inplacement</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sorting_algorithm#Stability" title="Sorting algorithm">Stability</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Comparison_sort" title="Comparison sort">Comparison sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Adaptive_sort" title="Adaptive sort">Adaptive sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sorting_network" title="Sorting network">Sorting network</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Integer_sorting" title="Integer sorting">Integer sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X_+_Y_sorting" title="X + Y sorting">X + Y sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Transdichotomous_model" title="Transdichotomous model">Transdichotomous model</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quantum_sort" title="Quantum sort">Quantum sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Exchange sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Bubble_sort" title="Bubble sort">Bubble sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cocktail_shaker_sort" title="Cocktail shaker sort">Cocktail shaker sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Odd–even_sort" title="Odd–even sort">Odd–even sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Comb_sort" title="Comb sort">Comb sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gnome_sort" title="Gnome sort">Gnome sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Proportion_extend_sort" title="Proportion extend sort">Proportion extend sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quicksort" title="Quicksort">Quicksort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Slowsort" title="Slowsort">Slowsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stooge_sort" title="Stooge sort">Stooge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bogosort" title="Bogosort">Bogosort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Selection_algorithm" title="Selection algorithm">Selection sorts</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Selection_sort" title="Selection sort">Selection sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Heapsort" title="Heapsort">Heapsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Smoothsort" title="Smoothsort">Smoothsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cartesian_tree#Application_in_sorting" title="Cartesian tree">Cartesian tree sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tournament_sort" title="Tournament sort">Tournament sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cycle_sort" title="Cycle sort">Cycle sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Weak_heap#Weak-heap_sort" title="Weak heap">Weak-heap sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Insertion sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Insertion_sort" title="Insertion sort">Insertion sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shellsort" title="Shellsort">Shellsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Splaysort" title="Splaysort">Splaysort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tree_sort" title="Tree sort">Tree sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Library_sort" title="Library sort">Library sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Patience_sorting" title="Patience sorting">Patience sorting</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Merge sorts</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Merge_sort" title="Merge sort">Merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cascade_merge_sort" title="Cascade merge sort">Cascade merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Oscillating_merge_sort" title="Oscillating merge sort">Oscillating merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Polyphase_merge_sort" title="Polyphase merge sort">Polyphase merge sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Distribution sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/American_flag_sort" title="American flag sort">American flag sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bead_sort" title="Bead sort">Bead sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bucket_sort" title="Bucket sort">Bucket sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Burstsort" title="Burstsort">Burstsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Counting_sort" title="Counting sort">Counting sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interpolation_sort" title="Interpolation sort">Interpolation sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pigeonhole_sort" title="Pigeonhole sort">Pigeonhole sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Proxmap_sort" title="Proxmap sort">Proxmap sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Radix_sort" title="Radix sort">Radix sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Flashsort" title="Flashsort">Flashsort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Concurrent sorts</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Bitonic_sorter" title="Bitonic sorter">Bitonic sorter</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Batcher_odd–even_mergesort" title="Batcher odd–even mergesort">Batcher odd–even mergesort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pairwise_sorting_network" title="Pairwise sorting network">Pairwise sorting network</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Samplesort" title="Samplesort">Samplesort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Hybrid_algorithm" title="Hybrid algorithm">Hybrid sorts</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Block_sort" title="Block sort">Block merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kirkpatrick-Reisch_sort" class="mw-redirect" title="Kirkpatrick-Reisch sort">Kirkpatrick-Reisch sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Timsort" title="Timsort">Timsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Introsort" title="Introsort">Introsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Spreadsort" title="Spreadsort">Spreadsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Merge-insertion_sort" title="Merge-insertion sort">Merge-insertion sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Other</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Topological_sorting" title="Topological sorting">Topological sorting</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Pre-topological_order" title="Pre-topological order">Pre-topological order</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Pancake_sorting" title="Pancake sorting">Pancake sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Spaghetti_sort" title="Spaghetti sort">Spaghetti sort</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1387
+Cached time: 20220418153618
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.441 seconds
+Real time usage: 0.519 seconds
+Preprocessor visited node count: 1485/1000000
+Post‐expand include size: 58197/2097152 bytes
+Template argument size: 204/2097152 bytes
+Highest expansion depth: 8/100
+Expensive parser function count: 2/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 36165/5000000 bytes
+Lua time usage: 0.250/10.000 seconds
+Lua memory usage: 5966089/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  410.346      1 -total
+ 35.79%  146.875     14 Template:Citation
+ 16.23%   66.580      2 Template:Navbox
+ 15.90%   65.227      1 Template:CS-Trees
+ 15.73%   64.531     15 Template:Harvtxt
+ 12.71%   52.154      1 Template:For
+  9.44%   38.739      1 Template:Reflist
+  3.53%   14.496      1 Template:Sfnp
+  3.45%   14.150      1 Template:Refbegin
+  2.01%    8.242      1 Template:Sorting
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:15843635-0!canonical and timestamp 20220418153618 and revision id 1076479080. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Cartesian_tree&amp;oldid=1076479080">https://en.wikipedia.org/w/index.php?title=Cartesian_tree&amp;oldid=1076479080</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Binary_trees" title="Category:Binary trees">Binary trees</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Sorting_algorithms" title="Category:Sorting algorithms">Sorting algorithms</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:CS1_French-language_sources_(fr)" title="Category:CS1 French-language sources (fr)">CS1 French-language sources (fr)</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Cartesian+tree" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Cartesian+tree" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Cartesian_tree" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Cartesian_tree" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Cartesian_tree"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Cartesian_tree&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Cartesian_tree&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Cartesian_tree" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Cartesian_tree" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Cartesian_tree&amp;oldid=1076479080" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Cartesian_tree&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Cartesian_tree&amp;id=1076479080&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q5047286" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Cartesian_tree&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Cartesian_tree&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Kartesischer_Baum" title="Kartesischer Baum – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Árbol_cartesiano" title="Árbol cartesiano – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/درخت_دکارتی" title="درخت دکارتی – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Arbre_cartésien" title="Arbre cartésien – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/Kartezijansko_stablo" title="Kartezijansko stablo – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-th mw-list-item"><a href="https://th.wikipedia.org/wiki/ต้นไม้คาร์ทีเซียน" title="ต้นไม้คาร์ทีเซียน – Thai" lang="th" hreflang="th" class="interlanguage-link-target"><span>ไทย</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Декартове_дерево" title="Декартове дерево – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/笛卡尔树" title="笛卡尔树 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q5047286#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 11 March 2022, at 09:21<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Cartesian_tree&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.441","walltime":"0.519","ppvisitednodes":{"value":1485,"limit":1000000},"postexpandincludesize":{"value":58197,"limit":2097152},"templateargumentsize":{"value":204,"limit":2097152},"expansiondepth":{"value":8,"limit":100},"expensivefunctioncount":{"value":2,"limit":500},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":36165,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  410.346      1 -total"," 35.79%  146.875     14 Template:Citation"," 16.23%   66.580      2 Template:Navbox"," 15.90%   65.227      1 Template:CS-Trees"," 15.73%   64.531     15 Template:Harvtxt"," 12.71%   52.154      1 Template:For","  9.44%   38.739      1 Template:Reflist","  3.53%   14.496      1 Template:Sfnp","  3.45%   14.150      1 Template:Refbegin","  2.01%    8.242      1 Template:Sorting"]},"scribunto":{"limitreport-timeusage":{"value":"0.250","limit":"10.000"},"limitreport-memusage":{"value":5966089,"limit":52428800},"limitreport-logs":"anchor_id_list = table#1 {\n  [\"CITEREFBenderFarach-Colton2000\"] = 1,\n  [\"CITEREFBerkmanSchieberVishkin1993\"] = 1,\n  [\"CITEREFDemaineLandauWeimann2009\"] = 1,\n  [\"CITEREFFischerHeun2006\"] = 1,\n  [\"CITEREFFischerHeun2007\"] = 1,\n  [\"CITEREFGabowBentleyTarjan1984\"] = 1,\n  [\"CITEREFHarelTarjan1984\"] = 1,\n  [\"CITEREFHu1961\"] = 1,\n  [\"CITEREFLeclerc1981\"] = 1,\n  [\"CITEREFLevcopoulosPetersson1989\"] = 1,\n  [\"CITEREFSchieberVishkin1988\"] = 1,\n  [\"CITEREFSeidelAragon1996\"] = 1,\n  [\"CITEREFShunBlelloch2014\"] = 1,\n  [\"CITEREFVuillemin1980\"] = 1,\n}\ntemplate_list = table#1 {\n  [\"CS-Trees\"] = 1,\n  [\"Citation\"] = 14,\n  [\"For\"] = 1,\n  [\"Harvtxt\"] = 15,\n  [\"Main article\"] = 1,\n  [\"Refbegin\"] = 1,\n  [\"Refend\"] = 1,\n  [\"Reflist\"] = 1,\n  [\"Sfnp\"] = 1,\n  [\"Sorting\"] = 1,\n}\narticle_whitelist = table#1 {\n}\n"},"cachereport":{"origin":"mw1387","timestamp":"20220418153618","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Cartesian tree","url":"https:\/\/en.wikipedia.org\/wiki\/Cartesian_tree","sameAs":"http:\/\/www.wikidata.org\/entity\/Q5047286","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q5047286","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2008-02-19T16:13:51Z","dateModified":"2022-03-11T09:21:37Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/d\/d5\/Cartesian_tree.svg","headline":"binary tree derived from a sequence of numbers"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Cartesian tree","url":"https:\/\/en.wikipedia.org\/wiki\/Cartesian_tree","sameAs":"http:\/\/www.wikidata.org\/entity\/Q5047286","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q5047286","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2008-02-19T16:13:51Z","dateModified":"2022-03-11T09:21:37Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/d\/d5\/Cartesian_tree.svg","headline":"binary tree derived from a sequence of numbers"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":170,"wgHostname":"mw1367"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Cartesian_tree by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:42 GMT -->
+</html>

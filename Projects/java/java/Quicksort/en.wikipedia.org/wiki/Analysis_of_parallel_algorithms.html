@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Analysis_of_parallel_algorithms by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:32:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Analysis of parallel algorithms - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"6910cd5d-2cfc-41af-b898-0f9e69413c37","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Analysis_of_parallel_algorithms","wgTitle":"Analysis of parallel algorithms","wgCurRevisionId":1070378063,"wgRevisionId":1070378063,"wgArticleId":45209429,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Analysis of parallel algorithms"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Analysis_of_parallel_algorithms","wgRelevantArticleId":45209429,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,
+"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":9000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q24282658"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready",
+"ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="Analysis of parallel algorithms - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Analysis_of_parallel_algorithms"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Analysis_of_parallel_algorithms&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Analysis_of_parallel_algorithms"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Analysis_of_parallel_algorithms rootpage-Analysis_of_parallel_algorithms skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Analysis of parallel algorithms</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><p>In computer science, the analysis of parallel <a href="https://en.wikipedia.org/wiki/Algorithms" class="mw-redirect" title="Algorithms">algorithms</a> is the process of finding the <a href="https://en.wikipedia.org/wiki/Computational_complexity" title="Computational complexity">computational complexity</a> of algorithms executed in parallel – the amount of time, storage, or other resources needed to execute them. In many respects, <b>analysis of parallel algorithms</b> is similar to the <a href="https://en.wikipedia.org/wiki/Analysis_of_algorithms" title="Analysis of algorithms">analysis of sequential algorithms</a>, but is generally more involved because one must reason about the behavior of multiple cooperating threads of execution. One of the primary goals of parallel analysis is to understand how a parallel algorithm's use of resources (speed, space, etc.) changes as the number of processors is changed.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Background"><span class="tocnumber">1</span> <span class="toctext">Background</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Definitions"><span class="tocnumber">2</span> <span class="toctext">Definitions</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Execution_on_a_limited_number_of_processors"><span class="tocnumber">3</span> <span class="toctext">Execution on a limited number of processors</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Background">Background</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Analysis_of_parallel_algorithms&amp;action=edit&amp;section=1" title="Edit section: Background">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A so-called work-time (WT) (sometimes called work-depth, or work-span) framework was originally introduced by Shiloach and Vishkin <sup id="cite_ref-shiloach_1-0" class="reference"><a href="#cite_note-shiloach-1">&#91;1&#93;</a></sup>
+for conceptualizing and describing parallel algorithms. 
+In the WT framework, a parallel algorithm is first described in terms of parallel rounds. For each round, the operations to be performed are characterized, but several issues can be suppressed. For example, the number of operations at each round need not be clear, processors need not be mentioned and any information that may help with the assignment of processors to jobs need not be accounted for. Second, the suppressed information is provided. The inclusion of the suppressed information is guided by the proof of a scheduling theorem due to Brent,<sup id="cite_ref-brent_2-0" class="reference"><a href="#cite_note-brent-2">&#91;2&#93;</a></sup> which is explained later in this article. The WT framework is useful since while it can greatly simplify the initial description of a parallel algorithm, inserting the details suppressed by that initial description is often not very difficult. For example, the WT framework was adopted as the basic presentation framework in the parallel algorithms books (for the <a href="https://en.wikipedia.org/wiki/Parallel_random-access_machine" class="mw-redirect" title="Parallel random-access machine">Parallel random-access machine</a> PRAM model) 
+<sup id="cite_ref-jaja_3-0" class="reference"><a href="#cite_note-jaja-3">&#91;3&#93;</a></sup>
+and, <sup id="cite_ref-kkt_4-0" class="reference"><a href="#cite_note-kkt-4">&#91;4&#93;</a></sup> 
+as well as in the class notes 
+.<sup id="cite_ref-uv_5-0" class="reference"><a href="#cite_note-uv-5">&#91;5&#93;</a></sup> The overview below explains how the WT framework can be used for analyzing more general parallel algorithms, even when their description is not available within the WT framework.
+</p>
+<h2><span class="mw-headline" id="Definitions">Definitions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Analysis_of_parallel_algorithms&amp;action=edit&amp;section=2" title="Edit section: Definitions">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Suppose computations are executed on a machine that has <span class="texhtml mvar" style="font-style:italic;">p</span> processors. Let <span class="texhtml mvar" style="font-style:italic;">T<sub>p</sub></span> denote the time that expires between the start of the computation and its end. Analysis of the computation's <a href="https://en.wikipedia.org/wiki/Time_complexity" title="Time complexity">running time</a> focuses on the following notions:
+</p>
+<ul><li>The <i>work</i> of a computation executed by <span class="texhtml mvar" style="font-style:italic;">p</span> processors is the total number of primitive operations that the processors perform.<sup id="cite_ref-casanova_6-0" class="reference"><a href="#cite_note-casanova-6">&#91;6&#93;</a></sup> Ignoring communication overhead from synchronizing the processors, this is equal to the time used to run the computation on a single processor, denoted <span class="texhtml"><i>T</i><sub>1</sub></span>.</li>
+<li>The <i>depth</i> or <i>span</i> is the length of the longest series of operations that have to be performed sequentially due to <a href="https://en.wikipedia.org/wiki/Data_dependency" title="Data dependency">data dependencies</a> (the <i>critical path</i>). The depth may also be called the <i>critical path length</i> of the computation.<sup id="cite_ref-cacm_7-0" class="reference"><a href="#cite_note-cacm-7">&#91;7&#93;</a></sup> Minimizing the depth/span is important in designing parallel algorithms, because the depth/span determines the shortest possible execution time.<sup id="cite_ref-spp_8-0" class="reference"><a href="#cite_note-spp-8">&#91;8&#93;</a></sup> Alternatively, the span can be defined as the time <span class="texhtml"><i>T</i><sub>∞</sub></span> spent computing using an idealized machine with an infinite number of processors.<sup id="cite_ref-clrs_9-0" class="reference"><a href="#cite_note-clrs-9">&#91;9&#93;</a></sup></li>
+<li>The <i>cost</i> of the computation is the quantity <span class="texhtml mvar" style="font-style:italic;">pT<sub>p</sub></span>. This expresses the total time spent, by all processors, in both computing and waiting.<sup id="cite_ref-casanova_6-1" class="reference"><a href="#cite_note-casanova-6">&#91;6&#93;</a></sup></li></ul>
+<p>Several useful results follow from the definitions of work, span and cost:
+</p>
+<ul><li><i>Work law</i>. The cost is always at least the work: <span class="texhtml"><i>pT<sub>p</sub></i> ≥ <i>T</i><sub>1</sub></span>. This follows from the fact that <span class="texhtml mvar" style="font-style:italic;">p</span> processors can perform at most <span class="texhtml mvar" style="font-style:italic;">p</span> operations in parallel.<sup id="cite_ref-casanova_6-2" class="reference"><a href="#cite_note-casanova-6">&#91;6&#93;</a></sup><sup id="cite_ref-clrs_9-1" class="reference"><a href="#cite_note-clrs-9">&#91;9&#93;</a></sup></li>
+<li><i>Span law</i>. A finite number <span class="texhtml mvar" style="font-style:italic;">p</span> of processors cannot outperform an infinite number, so that <span class="texhtml"><i>T<sub>p</sub></i> ≥ <i>T</i><sub>∞</sub></span>.<sup id="cite_ref-clrs_9-2" class="reference"><a href="#cite_note-clrs-9">&#91;9&#93;</a></sup></li></ul>
+<p>Using these definitions and laws, the following measures of performance can be given:
+</p>
+<ul><li><i><a href="https://en.wikipedia.org/wiki/Speedup" title="Speedup">Speedup</a></i> is the gain in speed made by parallel execution compared to sequential execution: <span class="texhtml"><i>S<sub>p</sub></i> = <i>T</i><sub>1</sub> / <i>T<sub>p</sub></i></span>. When the speedup is <span class="texhtml">Ω(<i>n</i>)</span> for input size <span class="texhtml mvar" style="font-style:italic;">n</span> (using <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">big O notation</a>), the speedup is linear, which is optimal in simple models of computation because the work law implies that <span class="texhtml"><i>T</i><sub>1</sub> / <i>T<sub>p</sub></i> ≤ <i>p</i></span> (<a href="https://en.wikipedia.org/wiki/Speedup#Super-linear_speedup" title="Speedup">super-linear speedup</a> can occur in practice due to <a href="https://en.wikipedia.org/wiki/Memory_hierarchy" title="Memory hierarchy">memory hierarchy</a> effects). The situation <span class="texhtml"><i>T</i><sub>1</sub> / <i>T<sub>p</sub></i> = <i>p</i></span> is called perfect linear speedup.<sup id="cite_ref-clrs_9-3" class="reference"><a href="#cite_note-clrs-9">&#91;9&#93;</a></sup> An algorithm that exhibits linear speedup is said to be <a href="https://en.wikipedia.org/wiki/Scalability" title="Scalability">scalable</a>.<sup id="cite_ref-casanova_6-3" class="reference"><a href="#cite_note-casanova-6">&#91;6&#93;</a></sup></li>
+<li><i>Efficiency</i> is the speedup per processor, <span class="texhtml"><i>S<sub>p</sub></i> / <i>p</i></span>.<sup id="cite_ref-casanova_6-4" class="reference"><a href="#cite_note-casanova-6">&#91;6&#93;</a></sup></li>
+<li><i>Parallelism</i> is the ratio <span class="texhtml"><i>T</i><sub>1</sub> / <i>T</i><sub>∞</sub></span>. It represents the maximum possible speedup on any number of processors. By the span law, the parallelism bounds the speedup: if <span class="texhtml"><i>p</i> &gt; <i>T</i><sub>1</sub> / <i>T<sub>∞</sub></i></span>, then:</li></ul>
+<p><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {T_{1}}{T_{p}}}\leq {\frac {T_{1}}{T_{\infty }}}&lt;p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi>T</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>1</mn>
+              </mrow>
+            </msub>
+            <msub>
+              <mi>T</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>p</mi>
+              </mrow>
+            </msub>
+          </mfrac>
+        </mrow>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi>T</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>1</mn>
+              </mrow>
+            </msub>
+            <msub>
+              <mi>T</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi mathvariant="normal">&#x221E;<!-- ∞ --></mi>
+              </mrow>
+            </msub>
+          </mfrac>
+        </mrow>
+        <mo>&lt;</mo>
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {T_{1}}{T_{p}}}\leq {\frac {T_{1}}{T_{\infty }}}&lt;p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/98c989727da6c5c20f340ce1e1267b9baf31d61d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:14.688ex; height:5.843ex;" alt="{\displaystyle {\frac {T_{1}}{T_{p}}}\leq {\frac {T_{1}}{T_{\infty }}}&lt;p}"/></span> .<sup id="cite_ref-clrs_9-4" class="reference"><a href="#cite_note-clrs-9">&#91;9&#93;</a></sup>
+</p>
+<ul><li>The <i>slackness</i> is <span class="texhtml"><i>T</i><sub>1</sub> / (<i>pT</i><sub>∞</sub>)</span>. A slackness less than one implies (by the span law) that perfect linear speedup is impossible on <span class="texhtml mvar" style="font-style:italic;">p</span> processors.<sup id="cite_ref-clrs_9-5" class="reference"><a href="#cite_note-clrs-9">&#91;9&#93;</a></sup></li></ul>
+<h2><span class="mw-headline" id="Execution_on_a_limited_number_of_processors">Execution on a limited number of processors</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Analysis_of_parallel_algorithms&amp;action=edit&amp;section=3" title="Edit section: Execution on a limited number of processors">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Analysis of parallel algorithms is usually carried out under the assumption that an unbounded number of processors is available. This is unrealistic, but not a problem, since any computation that can run in parallel on <span class="texhtml mvar" style="font-style:italic;">N</span> processors can be executed on <span class="texhtml"><i>p</i> &lt; <i>N</i></span> processors by letting each processor execute multiple units of work. A result called <b>Brent's law</b> states that one can perform such a "simulation" in time <span class="texhtml mvar" style="font-style:italic;">T<sub>p</sub></span>, bounded by<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">&#91;10&#93;</a></sup>
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle T_{p}\leq T_{N}+{\frac {T_{1}-T_{N}}{p}},}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>T</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <msub>
+          <mi>T</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>N</mi>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <msub>
+                <mi>T</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>1</mn>
+                </mrow>
+              </msub>
+              <mo>&#x2212;<!-- − --></mo>
+              <msub>
+                <mi>T</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mi>N</mi>
+                </mrow>
+              </msub>
+            </mrow>
+            <mi>p</mi>
+          </mfrac>
+        </mrow>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T_{p}\leq T_{N}+{\frac {T_{1}-T_{N}}{p}},}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1994c6ddff5549b6ef85581b33a69ab50ad9e5dc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.338ex; width:21.189ex; height:5.676ex;" alt="T_{p}\leq T_{N}+{\frac  {T_{1}-T_{N}}{p}},"/></span></dd></dl>
+<p>or, less precisely,<sup id="cite_ref-casanova_6-5" class="reference"><a href="#cite_note-casanova-6">&#91;6&#93;</a></sup>
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle T_{p}=O\left(T_{N}+{\frac {T_{1}}{p}}\right).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>T</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>O</mi>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <msub>
+              <mi>T</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>N</mi>
+              </mrow>
+            </msub>
+            <mo>+</mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mfrac>
+                <msub>
+                  <mi>T</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mn>1</mn>
+                  </mrow>
+                </msub>
+                <mi>p</mi>
+              </mfrac>
+            </mrow>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T_{p}=O\left(T_{N}+{\frac {T_{1}}{p}}\right).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/15b6adcc79c3affbc7dd1fd69cf37039e4665104" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:21.268ex; height:6.176ex;" alt="T_{p}=O\left(T_{N}+{\frac  {T_{1}}{p}}\right)."/></span></dd></dl>
+<p>An alternative statement of the law bounds <span class="texhtml mvar" style="font-style:italic;">T<sub>p</sub></span> above and below by
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {T_{1}}{p}}\leq T_{p}\leq {\frac {T_{1}}{p}}+T_{\infty }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi>T</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>1</mn>
+              </mrow>
+            </msub>
+            <mi>p</mi>
+          </mfrac>
+        </mrow>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <msub>
+          <mi>T</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>p</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <msub>
+              <mi>T</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>1</mn>
+              </mrow>
+            </msub>
+            <mi>p</mi>
+          </mfrac>
+        </mrow>
+        <mo>+</mo>
+        <msub>
+          <mi>T</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">&#x221E;<!-- ∞ --></mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {T_{1}}{p}}\leq T_{p}\leq {\frac {T_{1}}{p}}+T_{\infty }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/96e2bfb0f49aae6cfec33cb93472289ce8647910" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.338ex; width:21.183ex; height:5.676ex;" alt="{\displaystyle {\frac {T_{1}}{p}}\leq T_{p}\leq {\frac {T_{1}}{p}}+T_{\infty }}"/></span>.</dd></dl>
+<p>showing that the span (depth) <span class="texhtml"><i>T</i><sub>∞</sub></span> and the work <span class="texhtml"><i>T</i><sub>1</sub></span> together provide reasonable bounds on the computation time.<sup id="cite_ref-brent_2-1" class="reference"><a href="#cite_note-brent-2">&#91;2&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Analysis_of_parallel_algorithms&amp;action=edit&amp;section=4" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-shiloach-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-shiloach_1-0">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFShiloachVishkin1982" class="citation journal cs1">Shiloach, Yossi; Vishkin, Uzi (1982). "An <i>O</i>(<i>n</i><sup>2</sup>&#160;log&#160;<i>n</i>) parallel max-flow algorithm". <i>Journal of Algorithms</i>. <b>3</b> (2): 128–146. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2F0196-6774(82)90013-X">10.1016/0196-6774(82)90013-X</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Algorithms&amp;rft.atitle=An+O%28n%3Csup%3E2%3C%2Fsup%3E+log+n%29+parallel+max-flow+algorithm&amp;rft.volume=3&amp;rft.issue=2&amp;rft.pages=128-146&amp;rft.date=1982&amp;rft_id=info%3Adoi%2F10.1016%2F0196-6774%2882%2990013-X&amp;rft.aulast=Shiloach&amp;rft.aufirst=Yossi&amp;rft.au=Vishkin%2C+Uzi&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAnalysis+of+parallel+algorithms" class="Z3988"></span></span>
+</li>
+<li id="cite_note-brent-2"><span class="mw-cite-backlink">^ <a href="#cite_ref-brent_2-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-brent_2-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBrent1974" class="citation journal cs1">Brent, Richard P. (1974-04-01). "The Parallel Evaluation of General Arithmetic Expressions". <i>Journal of the ACM</i>. <b>21</b> (2): 201–206. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.100.9361">10.1.1.100.9361</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F321812.321815">10.1145/321812.321815</a>. <a href="https://en.wikipedia.org/wiki/ISSN_(identifier)" class="mw-redirect" title="ISSN (identifier)">ISSN</a>&#160;<a rel="nofollow" class="external text" href="http://www.worldcat.org/issn/0004-5411">0004-5411</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:16416106">16416106</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+the+ACM&amp;rft.atitle=The+Parallel+Evaluation+of+General+Arithmetic+Expressions&amp;rft.volume=21&amp;rft.issue=2&amp;rft.pages=201-206&amp;rft.date=1974-04-01&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.100.9361%23id-name%3DCiteSeerX&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A16416106%23id-name%3DS2CID&amp;rft.issn=0004-5411&amp;rft_id=info%3Adoi%2F10.1145%2F321812.321815&amp;rft.aulast=Brent&amp;rft.aufirst=Richard+P.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAnalysis+of+parallel+algorithms" class="Z3988"></span></span>
+</li>
+<li id="cite_note-jaja-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-jaja_3-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFJaJa1992" class="citation book cs1">JaJa, Joseph (1992). <a href="https://en.wikipedia.org/w/index.php?title=An_Introduction_to_Parallel_Algorithms&amp;action=edit&amp;redlink=1" class="new" title="An Introduction to Parallel Algorithms (page does not exist)"><i>An Introduction to Parallel Algorithms</i></a>. Addison-Wesley. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-201-54856-3" title="Special:BookSources/978-0-201-54856-3"><bdi>978-0-201-54856-3</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=An+Introduction+to+Parallel+Algorithms&amp;rft.pub=Addison-Wesley&amp;rft.date=1992&amp;rft.isbn=978-0-201-54856-3&amp;rft.aulast=JaJa&amp;rft.aufirst=Joseph&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAnalysis+of+parallel+algorithms" class="Z3988"></span></span>
+</li>
+<li id="cite_note-kkt-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-kkt_4-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKellerKesslerTraeff2001" class="citation book cs1">Keller, Jorg; Kessler, Cristoph W.; Traeff, Jesper L. (2001). <a href="https://en.wikipedia.org/w/index.php?title=Practical_PRAM_Programming&amp;action=edit&amp;redlink=1" class="new" title="Practical PRAM Programming (page does not exist)"><i>Practical PRAM Programming</i></a>. Wiley-Interscience. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-471-35351-5" title="Special:BookSources/978-0-471-35351-5"><bdi>978-0-471-35351-5</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Practical+PRAM+Programming&amp;rft.pub=Wiley-Interscience&amp;rft.date=2001&amp;rft.isbn=978-0-471-35351-5&amp;rft.aulast=Keller&amp;rft.aufirst=Jorg&amp;rft.au=Kessler%2C+Cristoph+W.&amp;rft.au=Traeff%2C+Jesper+L.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAnalysis+of+parallel+algorithms" class="Z3988"></span></span>
+</li>
+<li id="cite_note-uv-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-uv_5-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFVishkin2009" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Uzi_Vishkin" title="Uzi Vishkin">Vishkin, Uzi</a> (2009). <a rel="nofollow" class="external text" href="http://www.umiacs.umd.edu/users/vishkin/PUBLICATIONS/classnotes.pdf"><i>Thinking in Parallel: Some Basic Data-Parallel Algorithms and Techniques, 104 pages</i></a> <span class="cs1-format">(PDF)</span>. Class notes of courses on parallel algorithms taught since 1992 at the University of Maryland, College Park, Tel Aviv University and the Technion.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Thinking+in+Parallel%3A+Some+Basic+Data-Parallel+Algorithms+and+Techniques%2C+104+pages&amp;rft.pub=Class+notes+of+courses+on+parallel+algorithms+taught+since+1992+at+the+University+of+Maryland%2C+College+Park%2C+Tel+Aviv+University+and+the+Technion&amp;rft.date=2009&amp;rft.aulast=Vishkin&amp;rft.aufirst=Uzi&amp;rft_id=http%3A%2F%2Fwww.umiacs.umd.edu%2Fusers%2Fvishkin%2FPUBLICATIONS%2Fclassnotes.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAnalysis+of+parallel+algorithms" class="Z3988"></span></span>
+</li>
+<li id="cite_note-casanova-6"><span class="mw-cite-backlink">^ <a href="#cite_ref-casanova_6-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-casanova_6-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-casanova_6-2"><sup><i><b>c</b></i></sup></a> <a href="#cite_ref-casanova_6-3"><sup><i><b>d</b></i></sup></a> <a href="#cite_ref-casanova_6-4"><sup><i><b>e</b></i></sup></a> <a href="#cite_ref-casanova_6-5"><sup><i><b>f</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCasanovaLegrandRobert2008" class="citation book cs1">Casanova, Henri; Legrand, Arnaud; Robert, Yves (2008). <i>Parallel Algorithms</i>. CRC Press. p.&#160;10. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.466.8142">10.1.1.466.8142</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Parallel+Algorithms&amp;rft.pages=10&amp;rft.pub=CRC+Press&amp;rft.date=2008&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.466.8142%23id-name%3DCiteSeerX&amp;rft.aulast=Casanova&amp;rft.aufirst=Henri&amp;rft.au=Legrand%2C+Arnaud&amp;rft.au=Robert%2C+Yves&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAnalysis+of+parallel+algorithms" class="Z3988"></span></span>
+</li>
+<li id="cite_note-cacm-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-cacm_7-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBlelloch1996" class="citation journal cs1">Blelloch, Guy (1996). <a rel="nofollow" class="external text" href="https://www.cs.cmu.edu/afs/cs/Web/People/blelloch/papers/B85.pdf">"Programming Parallel Algorithms"</a> <span class="cs1-format">(PDF)</span>. <i><a href="https://en.wikipedia.org/wiki/Communications_of_the_ACM" title="Communications of the ACM">Communications of the ACM</a></i>. <b>39</b> (3): 85–97. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.141.5884">10.1.1.141.5884</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F227234.227246">10.1145/227234.227246</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:12118850">12118850</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Communications+of+the+ACM&amp;rft.atitle=Programming+Parallel+Algorithms&amp;rft.volume=39&amp;rft.issue=3&amp;rft.pages=85-97&amp;rft.date=1996&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.141.5884%23id-name%3DCiteSeerX&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A12118850%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1145%2F227234.227246&amp;rft.aulast=Blelloch&amp;rft.aufirst=Guy&amp;rft_id=https%3A%2F%2Fwww.cs.cmu.edu%2Fafs%2Fcs%2FWeb%2FPeople%2Fblelloch%2Fpapers%2FB85.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAnalysis+of+parallel+algorithms" class="Z3988"></span></span>
+</li>
+<li id="cite_note-spp-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-spp_8-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFMichael_McCoolJames_ReindersArch_Robison2013" class="citation book cs1">Michael McCool; James Reinders; Arch Robison (2013). <i>Structured Parallel Programming: Patterns for Efficient Computation</i>. Elsevier. pp.&#160;4–5.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Structured+Parallel+Programming%3A+Patterns+for+Efficient+Computation&amp;rft.pages=4-5&amp;rft.pub=Elsevier&amp;rft.date=2013&amp;rft.au=Michael+McCool&amp;rft.au=James+Reinders&amp;rft.au=Arch+Robison&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAnalysis+of+parallel+algorithms" class="Z3988"></span></span>
+</li>
+<li id="cite_note-clrs-9"><span class="mw-cite-backlink">^ <a href="#cite_ref-clrs_9-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-clrs_9-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-clrs_9-2"><sup><i><b>c</b></i></sup></a> <a href="#cite_ref-clrs_9-3"><sup><i><b>d</b></i></sup></a> <a href="#cite_ref-clrs_9-4"><sup><i><b>e</b></i></sup></a> <a href="#cite_ref-clrs_9-5"><sup><i><b>f</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCormenLeisersonRivestStein2009" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Cormen, Thomas H.</a>; <a href="https://en.wikipedia.org/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Leiserson, Charles E.</a>; <a href="https://en.wikipedia.org/wiki/Ron_Rivest" title="Ron Rivest">Rivest, Ronald L.</a>; <a href="https://en.wikipedia.org/wiki/Clifford_Stein" title="Clifford Stein">Stein, Clifford</a> (2009) [1990]. <a href="https://en.wikipedia.org/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms"><i>Introduction to Algorithms</i></a> (3rd&#160;ed.). MIT Press and McGraw-Hill. pp.&#160;779–784. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-262-03384-4" title="Special:BookSources/0-262-03384-4"><bdi>0-262-03384-4</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Introduction+to+Algorithms&amp;rft.pages=779-784&amp;rft.edition=3rd&amp;rft.pub=MIT+Press+and+McGraw-Hill&amp;rft.date=2009&amp;rft.isbn=0-262-03384-4&amp;rft.aulast=Cormen&amp;rft.aufirst=Thomas+H.&amp;rft.au=Leiserson%2C+Charles+E.&amp;rft.au=Rivest%2C+Ronald+L.&amp;rft.au=Stein%2C+Clifford&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAnalysis+of+parallel+algorithms" class="Z3988"></span></span>
+</li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGustafson2011" class="citation encyclopaedia cs1">Gustafson, John L. (2011). "Brent's Theorem". <i>Encyclopedia of Parallel Computing</i>. pp.&#160;182–185. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-0-387-09766-4_80">10.1007/978-0-387-09766-4_80</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-387-09765-7" title="Special:BookSources/978-0-387-09765-7"><bdi>978-0-387-09765-7</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Brent%27s+Theorem&amp;rft.btitle=Encyclopedia+of+Parallel+Computing&amp;rft.pages=182-185&amp;rft.date=2011&amp;rft_id=info%3Adoi%2F10.1007%2F978-0-387-09766-4_80&amp;rft.isbn=978-0-387-09765-7&amp;rft.aulast=Gustafson&amp;rft.aufirst=John+L.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAnalysis+of+parallel+algorithms" class="Z3988"></span></span>
+</li>
+</ol></div></div>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Parallel_computing" style="padding:3px"><table class="nowraplinks hlist mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Parallel_computing" title="Template:Parallel computing"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Parallel_computing" title="Template talk:Parallel computing"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Parallel_computing&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Parallel_computing" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Parallel_computing" title="Parallel computing">Parallel computing</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">General</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Distributed_computing" title="Distributed computing">Distributed computing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Parallel_computing" title="Parallel computing">Parallel computing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Massively_parallel" title="Massively parallel">Massively parallel</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cloud_computing" title="Cloud computing">Cloud computing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Supercomputer" title="Supercomputer">High-performance computing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Multiprocessing" title="Multiprocessing">Multiprocessing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Manycore_processor" title="Manycore processor">Manycore processor</a></li>
+<li><a href="https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units" title="General-purpose computing on graphics processing units">GPGPU</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Computer_network" title="Computer network">Computer network</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Systolic_array" title="Systolic array">Systolic array</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Levels</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Bit-level_parallelism" title="Bit-level parallelism">Bit</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Instruction-level_parallelism" title="Instruction-level parallelism">Instruction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Task_parallelism" title="Task parallelism">Thread</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Task_parallelism" title="Task parallelism">Task</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Data_parallelism" title="Data parallelism">Data</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Memory-level_parallelism" title="Memory-level parallelism">Memory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Loop-level_parallelism" title="Loop-level parallelism">Loop</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pipeline_(computing)" title="Pipeline (computing)">Pipeline</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)" title="Multithreading (computer architecture)">Multithreading</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Temporal_multithreading" title="Temporal multithreading">Temporal</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Simultaneous_multithreading" title="Simultaneous multithreading">Simultaneous</a> (SMT)</li>
+<li><a href="https://en.wikipedia.org/wiki/Speculative_multithreading" title="Speculative multithreading">Speculative</a> (SpMT)</li>
+<li><a href="https://en.wikipedia.org/wiki/Preemption_(computing)" title="Preemption (computing)">Preemptive</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Computer_multitasking#Cooperative_multitasking" title="Computer multitasking">Cooperative</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bulldozer_(microarchitecture)#Bulldozer_core" title="Bulldozer (microarchitecture)">Clustered multi-thread</a> (CMT)</li>
+<li><a href="https://en.wikipedia.org/wiki/Hardware_scout" title="Hardware scout">Hardware scout</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Theory</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Parallel_random-access_machine" class="mw-redirect" title="Parallel random-access machine">PRAM model</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Parallel_external_memory" title="Parallel external memory">PEM model</a></li>
+<li><a class="mw-selflink selflink">Analysis of parallel algorithms</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Amdahl%27s_law" title="Amdahl&#39;s law">Amdahl's law</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gustafson%27s_law" title="Gustafson&#39;s law">Gustafson's law</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cost_efficiency" title="Cost efficiency">Cost efficiency</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Karp–Flatt_metric" title="Karp–Flatt metric">Karp–Flatt metric</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Parallel_slowdown" title="Parallel slowdown">Slowdown</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Speedup" title="Speedup">Speedup</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Elements</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Process_(computing)" title="Process (computing)">Process</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Thread_(computing)" title="Thread (computing)">Thread</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fiber_(computer_science)" title="Fiber (computer science)">Fiber</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Instruction_window" title="Instruction window">Instruction window</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Array_data_structure" title="Array data structure">Array data structure</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Coordination</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Multiprocessing" title="Multiprocessing">Multiprocessing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Memory_coherence" title="Memory coherence">Memory coherency</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cache_coherence" title="Cache coherence">Cache coherency</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cache_invalidation" title="Cache invalidation">Cache invalidation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Barrier_(computer_science)" title="Barrier (computer science)">Barrier</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Synchronization_(computer_science)" title="Synchronization (computer science)">Synchronization</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Application_checkpointing" title="Application checkpointing">Application checkpointing</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Computer_programming" title="Computer programming">Programming</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Stream_processing" title="Stream processing">Stream processing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dataflow_programming" title="Dataflow programming">Dataflow programming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Parallel_programming_model" title="Parallel programming model">Models</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Implicit_parallelism" title="Implicit parallelism">Implicit parallelism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Explicit_parallelism" title="Explicit parallelism">Explicit parallelism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Concurrency_(computer_science)" title="Concurrency (computer science)">Concurrency</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Non-blocking_algorithm" title="Non-blocking algorithm">Non-blocking algorithm</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Computer_hardware" title="Computer hardware">Hardware</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Flynn%27s_taxonomy" title="Flynn&#39;s taxonomy">Flynn's taxonomy</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Single_instruction,_single_data" title="Single instruction, single data">SISD</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Single_instruction,_multiple_data" title="Single instruction, multiple data">SIMD</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Single_instruction,_multiple_threads" title="Single instruction, multiple threads">Array processing (SIMT)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Flynn%27s_taxonomy#Pipelined_processor" title="Flynn&#39;s taxonomy">Pipelined processing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Flynn%27s_taxonomy#Associative_processor" title="Flynn&#39;s taxonomy">Associative processing</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Multiple_instruction,_single_data" title="Multiple instruction, single data">MISD</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Multiple_instruction,_multiple_data" title="Multiple instruction, multiple data">MIMD</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Dataflow_architecture" title="Dataflow architecture">Dataflow architecture</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Instruction_pipelining" title="Instruction pipelining">Pipelined processor</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Superscalar_processor" title="Superscalar processor">Superscalar processor</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Vector_processor" title="Vector processor">Vector processor</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Multiprocessing" title="Multiprocessing">Multiprocessor</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Symmetric_multiprocessing" title="Symmetric multiprocessing">symmetric</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Asymmetric_multiprocessing" title="Asymmetric multiprocessing">asymmetric</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Semiconductor_memory" title="Semiconductor memory">Memory</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Shared_memory" title="Shared memory">shared</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Distributed_memory" title="Distributed memory">distributed</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Distributed_shared_memory" title="Distributed shared memory">distributed shared</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Uniform_memory_access" title="Uniform memory access">UMA</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Non-uniform_memory_access" title="Non-uniform memory access">NUMA</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cache-only_memory_architecture" title="Cache-only memory architecture">COMA</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Massively_parallel" title="Massively parallel">Massively parallel computer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Computer_cluster" title="Computer cluster">Computer cluster</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Grid_computing" title="Grid computing">Grid computer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hardware_acceleration" title="Hardware acceleration">Hardware acceleration</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Application_programming_interface" class="mw-redirect" title="Application programming interface">APIs</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Ateji_PX" title="Ateji PX">Ateji PX</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Boost_(C++_libraries)" title="Boost (C++ libraries)">Boost</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Chapel_(programming_language)" title="Chapel (programming language)">Chapel</a></li>
+<li><a href="https://en.wikipedia.org/wiki/HPX" title="HPX">HPX</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Charm++" title="Charm++">Charm++</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cilk" title="Cilk">Cilk</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Coarray_Fortran" title="Coarray Fortran">Coarray Fortran</a></li>
+<li><a href="https://en.wikipedia.org/wiki/CUDA" title="CUDA">CUDA</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dryad_(programming)" title="Dryad (programming)">Dryad</a></li>
+<li><a href="https://en.wikipedia.org/wiki/C++_AMP" title="C++ AMP">C++ AMP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Global_Arrays" title="Global Arrays">Global Arrays</a></li>
+<li><a href="https://en.wikipedia.org/wiki/GPUOpen" title="GPUOpen">GPUOpen</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Message_Passing_Interface" title="Message Passing Interface">MPI</a></li>
+<li><a href="https://en.wikipedia.org/wiki/OpenMP" title="OpenMP">OpenMP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/OpenCL" title="OpenCL">OpenCL</a></li>
+<li><a href="https://en.wikipedia.org/wiki/OpenHMPP" title="OpenHMPP">OpenHMPP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/OpenACC" title="OpenACC">OpenACC</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Parallel_Extensions" title="Parallel Extensions">Parallel Extensions</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Parallel_Virtual_Machine" title="Parallel Virtual Machine">PVM</a></li>
+<li><a href="https://en.wikipedia.org/wiki/POSIX_Threads" class="mw-redirect" title="POSIX Threads">POSIX Threads</a></li>
+<li><a href="https://en.wikipedia.org/wiki/RaftLib" title="RaftLib">RaftLib</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ROCm" title="ROCm">ROCm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Unified_Parallel_C" title="Unified Parallel C">UPC</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Threading_Building_Blocks" title="Threading Building Blocks">TBB</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ZPL_(programming_language)" title="ZPL (programming language)">ZPL</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Problems</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Automatic_parallelization" title="Automatic parallelization">Automatic parallelization</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Deadlock" title="Deadlock">Deadlock</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Deterministic_algorithm" title="Deterministic algorithm">Deterministic algorithm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Embarrassingly_parallel" title="Embarrassingly parallel">Embarrassingly parallel</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Parallel_slowdown" title="Parallel slowdown">Parallel slowdown</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Race_condition" title="Race condition">Race condition</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Software_lockout" title="Software lockout">Software lockout</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Scalability" title="Scalability">Scalability</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Starvation_(computer_science)" title="Starvation (computer science)">Starvation</a></li></ul>
+</div></td></tr><tr><td class="navbox-abovebelow" colspan="2"><div>
+<ul><li><img alt="" src="http://upload.wikimedia.org/wikipedia/en/thumb/9/96/Symbol_category_class.svg/16px-Symbol_category_class.svg.png" decoding="async" title="Category" width="16" height="16" class="noviewer" srcset="//upload.wikimedia.org/wikipedia/en/thumb/9/96/Symbol_category_class.svg/23px-Symbol_category_class.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/96/Symbol_category_class.svg/31px-Symbol_category_class.svg.png 2x" data-file-width="180" data-file-height="185" />&#160;<a href="https://en.wikipedia.org/wiki/Category:Parallel_computing" title="Category:Parallel computing">Category: Parallel computing</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1351
+Cached time: 20220505171534
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.441 seconds
+Real time usage: 1.406 seconds
+Preprocessor visited node count: 1580/1000000
+Post‐expand include size: 46075/2097152 bytes
+Template argument size: 1600/2097152 bytes
+Highest expansion depth: 8/100
+Expensive parser function count: 0/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 36602/5000000 bytes
+Lua time usage: 0.247/10.000 seconds
+Lua memory usage: 4493112/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00% 1044.514      1 -total
+ 49.43%  516.341      1 Template:Reflist
+ 44.20%  461.661      1 Template:Parallel_Computing
+ 43.24%  451.606      1 Template:Navbox
+ 39.25%  409.933      3 Template:Cite_journal
+  4.91%   51.312     15 Template:Math
+  4.88%   51.016      6 Template:Cite_book
+  2.39%   24.946      1 Template:Category-inline
+  2.06%   21.566      1 Template:Icon
+  1.32%   13.836      1 Template:Introduction_to_Algorithms
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:45209429-0!canonical and timestamp 20220505171532 and revision id 1070378063. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Analysis_of_parallel_algorithms&amp;oldid=1070378063">https://en.wikipedia.org/w/index.php?title=Analysis_of_parallel_algorithms&amp;oldid=1070378063</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Analysis_of_parallel_algorithms" title="Category:Analysis of parallel algorithms">Analysis of parallel algorithms</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Analysis+of+parallel+algorithms" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Analysis+of+parallel+algorithms" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Analysis_of_parallel_algorithms" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Analysis_of_parallel_algorithms" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Analysis_of_parallel_algorithms"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Analysis_of_parallel_algorithms&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Analysis_of_parallel_algorithms&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Analysis_of_parallel_algorithms" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Analysis_of_parallel_algorithms" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Analysis_of_parallel_algorithms&amp;oldid=1070378063" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Analysis_of_parallel_algorithms&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Analysis_of_parallel_algorithms&amp;id=1070378063&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q24282658" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Analysis_of_parallel_algorithms&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Analysis_of_parallel_algorithms&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Аналіз_паралельних_алгоритмів" title="Аналіз паралельних алгоритмів – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q24282658#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 7 February 2022, at 05:11<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Analysis_of_parallel_algorithms&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.441","walltime":"1.406","ppvisitednodes":{"value":1580,"limit":1000000},"postexpandincludesize":{"value":46075,"limit":2097152},"templateargumentsize":{"value":1600,"limit":2097152},"expansiondepth":{"value":8,"limit":100},"expensivefunctioncount":{"value":0,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":36602,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00% 1044.514      1 -total"," 49.43%  516.341      1 Template:Reflist"," 44.20%  461.661      1 Template:Parallel_Computing"," 43.24%  451.606      1 Template:Navbox"," 39.25%  409.933      3 Template:Cite_journal","  4.91%   51.312     15 Template:Math","  4.88%   51.016      6 Template:Cite_book","  2.39%   24.946      1 Template:Category-inline","  2.06%   21.566      1 Template:Icon","  1.32%   13.836      1 Template:Introduction_to_Algorithms"]},"scribunto":{"limitreport-timeusage":{"value":"0.247","limit":"10.000"},"limitreport-memusage":{"value":4493112,"limit":52428800}},"cachereport":{"origin":"mw1351","timestamp":"20220505171534","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Analysis of parallel algorithms","url":"https:\/\/en.wikipedia.org\/wiki\/Analysis_of_parallel_algorithms","sameAs":"http:\/\/www.wikidata.org\/entity\/Q24282658","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q24282658","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2015-01-25T20:17:49Z","dateModified":"2022-02-07T05:11:51Z"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Analysis of parallel algorithms","url":"https:\/\/en.wikipedia.org\/wiki\/Analysis_of_parallel_algorithms","sameAs":"http:\/\/www.wikidata.org\/entity\/Q24282658","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q24282658","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2015-01-25T20:17:49Z","dateModified":"2022-02-07T05:11:51Z"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":173,"wgHostname":"mw1366"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Analysis_of_parallel_algorithms by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:32:05 GMT -->
+</html>

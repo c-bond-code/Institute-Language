@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/General_number_field_sieve by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>General number field sieve - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"c523ff4e-47b0-469a-825d-dd662a85d80d","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"General_number_field_sieve","wgTitle":"General number field sieve","wgCurRevisionId":1075844186,"wgRevisionId":1075844186,"wgArticleId":152734,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles with short description","Short description is different from Wikidata","Wikipedia articles needing clarification from May 2021","All Wikipedia articles needing clarification","All articles with unsourced statements",
+"Articles with unsourced statements from March 2017","Integer factorization algorithms"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"General_number_field_sieve","wgRelevantArticleId":152734,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":10000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q140770",
+"wgGENewcomerTasksGuidanceEnabled":true,"wgGEAskQuestionEnabled":false,"wgGELinkRecommendationsFrontendEnabled":false};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.math.styles":"ready","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.math.scripts","ext.cite.ux-enhancements","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp",
+"ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.9"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="General number field sieve - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/General_number_field_sieve"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=General_number_field_sieve&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/General_number_field_sieve"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-General_number_field_sieve rootpage-General_number_field_sieve skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">General number field sieve</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Factorization algorithm</div>
+<p>In <a href="https://en.wikipedia.org/wiki/Number_theory" title="Number theory">number theory</a>, the <b>general number field sieve</b> (<b>GNFS</b>) is the most <a href="https://en.wikipedia.org/wiki/Algorithmic_efficiency" title="Algorithmic efficiency">efficient</a> classical <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithm</a> known for <a href="https://en.wikipedia.org/wiki/Integer_factorization" title="Integer factorization">factoring integers</a> larger than <span class="texhtml">10<sup>100</sup></span>. <a href="https://en.wikipedia.org/wiki/Heuristic" title="Heuristic">Heuristically</a>, its <a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" title="Computational complexity theory">complexity</a> for factoring an integer <span class="texhtml mvar" style="font-style:italic;">n</span> (consisting of <span class="texhtml">⌊log<sub>2</sub> <span class="texhtml mvar" style="font-style:italic;">n</span>⌋ + 1</span> bits) is of the form
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \exp \left(\left({\sqrt[{3}]{\frac {64}{9}}}+o(1)\right)(\ln n)^{\frac {1}{3}}(\ln \ln n)^{\frac {2}{3}}\right)=L_{n}\left[{\frac {1}{3}},{\sqrt[{3}]{\frac {64}{9}}}\right]}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>exp</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mrow>
+              <mo>(</mo>
+              <mrow>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mroot>
+                    <mfrac>
+                      <mn>64</mn>
+                      <mn>9</mn>
+                    </mfrac>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>3</mn>
+                    </mrow>
+                  </mroot>
+                </mrow>
+                <mo>+</mo>
+                <mi>o</mi>
+                <mo stretchy="false">(</mo>
+                <mn>1</mn>
+                <mo stretchy="false">)</mo>
+              </mrow>
+              <mo>)</mo>
+            </mrow>
+            <mo stretchy="false">(</mo>
+            <mi>ln</mi>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mi>n</mi>
+            <msup>
+              <mo stretchy="false">)</mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mfrac>
+                  <mn>1</mn>
+                  <mn>3</mn>
+                </mfrac>
+              </mrow>
+            </msup>
+            <mo stretchy="false">(</mo>
+            <mi>ln</mi>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mi>ln</mi>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mi>n</mi>
+            <msup>
+              <mo stretchy="false">)</mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mfrac>
+                  <mn>2</mn>
+                  <mn>3</mn>
+                </mfrac>
+              </mrow>
+            </msup>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mo>=</mo>
+        <msub>
+          <mi>L</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mrow>
+          <mo>[</mo>
+          <mrow>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mfrac>
+                <mn>1</mn>
+                <mn>3</mn>
+              </mfrac>
+            </mrow>
+            <mo>,</mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mroot>
+                <mfrac>
+                  <mn>64</mn>
+                  <mn>9</mn>
+                </mfrac>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>3</mn>
+                </mrow>
+              </mroot>
+            </mrow>
+          </mrow>
+          <mo>]</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \exp \left(\left({\sqrt[{3}]{\frac {64}{9}}}+o(1)\right)(\ln n)^{\frac {1}{3}}(\ln \ln n)^{\frac {2}{3}}\right)=L_{n}\left[{\frac {1}{3}},{\sqrt[{3}]{\frac {64}{9}}}\right]}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fcc5450b9f039008c0a728e15b6c66f24dafbb30" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:57.324ex; height:6.343ex;" alt="\exp \left(\left({\sqrt[{3}]{\frac {64}{9}}}+o(1)\right)(\ln n)^{\frac {1}{3}}(\ln \ln n)^{\frac {2}{3}}\right)=L_{n}\left[{\frac {1}{3}},{\sqrt[{3}]{\frac {64}{9}}}\right]"/></span></dd></dl>
+<p>(in <a href="https://en.wikipedia.org/wiki/L-notation" title="L-notation">L-notation</a>), where <span class="texhtml">ln</span> is the <a href="https://en.wikipedia.org/wiki/Natural_logarithm" title="Natural logarithm">natural logarithm</a>.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup> It is a generalization of the <a href="https://en.wikipedia.org/wiki/Special_number_field_sieve" title="Special number field sieve">special number field sieve</a>: while the latter can only factor numbers of a certain special form, the general number field sieve can factor any number apart from <a href="https://en.wikipedia.org/wiki/Prime_power" title="Prime power">prime powers</a> (which are trivial to factor by taking roots). 
+</p><p>The principle of the number field sieve (both special and general) can be understood as an improvement to the simpler <a href="https://en.wikipedia.org/wiki/Rational_sieve" title="Rational sieve">rational sieve</a> or <a href="https://en.wikipedia.org/wiki/Quadratic_sieve" title="Quadratic sieve">quadratic sieve</a>. When using such algorithms to factor a large number <span class="texhtml mvar" style="font-style:italic;">n</span>, it is necessary to search for <a href="https://en.wikipedia.org/wiki/Smooth_number" title="Smooth number">smooth numbers</a> (i.e. numbers with small prime factors) of order <span class="texhtml"><i>n</i><sup>1/2</sup></span>. The size of these values is exponential in the size of <span class="texhtml mvar" style="font-style:italic;">n</span> (see below). The general number field sieve, on the other hand, manages to search for smooth numbers that are subexponential in the size of <span class="texhtml mvar" style="font-style:italic;">n</span>. Since these numbers are smaller, they are more likely to be smooth than the numbers inspected in previous algorithms. This is the key to the efficiency of the number field sieve. In order to achieve this speed-up, the number field sieve has to perform computations and factorizations in <a href="https://en.wikipedia.org/wiki/Number_field" class="mw-redirect" title="Number field">number fields</a>. This results in many rather complicated aspects of the algorithm, as compared to the simpler rational sieve.
+</p><p>The size of the input to the algorithm is <span class="texhtml">log<sub>2</sub>&#160;<i>n</i></span> or the number of bits in the binary representation of <span class="texhtml mvar" style="font-style:italic;">n</span>. Any element of the order <span class="texhtml"><i>n</i><sup><i>c</i></sup></span> for a constant <span class="texhtml mvar" style="font-style:italic;">c</span> is exponential in <span class="texhtml">log&#160;<i>n</i></span>.  The running time of the number field sieve is super-polynomial but sub-exponential in the size of the input.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Number_fields"><span class="tocnumber">1</span> <span class="toctext">Number fields</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Method"><span class="tocnumber">2</span> <span class="toctext">Method</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Improving_polynomial_choice"><span class="tocnumber">3</span> <span class="toctext">Improving polynomial choice</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Implementations"><span class="tocnumber">4</span> <span class="toctext">Implementations</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Notes"><span class="tocnumber">6</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Number_fields">Number fields</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=General_number_field_sieve&amp;action=edit&amp;section=1" title="Edit section: Number fields">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="https://en.wikipedia.org/wiki/Number_field" class="mw-redirect" title="Number field">Number field</a></div>
+<p>Suppose <span class="texhtml mvar" style="font-style:italic;">f</span> is a <span class="texhtml mvar" style="font-style:italic;">k</span>-degree polynomial over <span class="texhtml"><b>Q</b></span> (the rational numbers), and <span class="texhtml mvar" style="font-style:italic;">r</span> is a complex root of <span class="texhtml mvar" style="font-style:italic;">f</span>. Then, <span class="texhtml"><i>f</i>(<i>r</i>)&#160;=&#160;0</span>, which can be rearranged to express <span class="texhtml"><i>r</i><sup><i>k</i></sup></span> as a linear combination of powers of <span class="texhtml mvar" style="font-style:italic;">r</span> less than <span class="texhtml mvar" style="font-style:italic;">k</span>. This equation can be used to reduce away any powers of <span class="texhtml"><i>r</i></span> with exponent <span class="texhtml"> <i>e</i> ≥ <i>k</i></span>. For example, if <span class="texhtml"><i>f</i>(<i>x</i>)&#160;=&#160;<i>x</i><sup>2</sup>&#160;+&#160;1</span> and <span class="texhtml mvar" style="font-style:italic;">r</span> is the imaginary unit <span class="texhtml mvar" style="font-style:italic;">i</span>, then <span class="texhtml"><i>i</i><sup>2</sup>&#160;+&#160;1&#160;=&#160;0</span>, or <span class="texhtml"><i>i</i><sup>2</sup>&#160;=&#160;−1</span>. This allows us to define the complex product:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (a+bi)(c+di)=ac+(ad+bc)i+(bd)i^{2}=(ac-bd)+(ad+bc)i.}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>+</mo>
+        <mi>b</mi>
+        <mi>i</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">(</mo>
+        <mi>c</mi>
+        <mo>+</mo>
+        <mi>d</mi>
+        <mi>i</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>a</mi>
+        <mi>c</mi>
+        <mo>+</mo>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mi>d</mi>
+        <mo>+</mo>
+        <mi>b</mi>
+        <mi>c</mi>
+        <mo stretchy="false">)</mo>
+        <mi>i</mi>
+        <mo>+</mo>
+        <mo stretchy="false">(</mo>
+        <mi>b</mi>
+        <mi>d</mi>
+        <mo stretchy="false">)</mo>
+        <msup>
+          <mi>i</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mi>c</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>b</mi>
+        <mi>d</mi>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mi>d</mi>
+        <mo>+</mo>
+        <mi>b</mi>
+        <mi>c</mi>
+        <mo stretchy="false">)</mo>
+        <mi>i</mi>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (a+bi)(c+di)=ac+(ad+bc)i+(bd)i^{2}=(ac-bd)+(ad+bc)i.}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/087af513db0f68a8f618913ddeac77ce5a3c2509" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:67.74ex; height:3.176ex;" alt="(a+bi)(c+di)=ac+(ad+bc)i+(bd)i^{2}=(ac-bd)+(ad+bc)i."/></span></dd></dl>
+<p>In general, this leads directly to the <a href="https://en.wikipedia.org/wiki/Algebraic_number_field" title="Algebraic number field">algebraic number field</a> <span class="texhtml"><b>Q</b>[<i>r</i>]</span>, which can be defined as the set of complex numbers given by:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle a_{k-1}r^{k-1}+...+a_{1}r^{1}+a_{0}r^{0},{\text{ where }}a_{0},...,a_{k-1}{\text{ in }}\mathbf {Q} .}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <msup>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mo>.</mo>
+        <mo>.</mo>
+        <mo>.</mo>
+        <mo>+</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <msup>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+        <msup>
+          <mi>r</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msup>
+        <mo>,</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>&#xA0;where&#xA0;</mtext>
+        </mrow>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>.</mo>
+        <mo>.</mo>
+        <mo>.</mo>
+        <mo>,</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>&#xA0;in&#xA0;</mtext>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi mathvariant="bold">Q</mi>
+        </mrow>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a_{k-1}r^{k-1}+...+a_{1}r^{1}+a_{0}r^{0},{\text{ where }}a_{0},...,a_{k-1}{\text{ in }}\mathbf {Q} .}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c38673375ba86d1f4238bc0d45d66fc86fa7abd4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:52.76ex; height:3.009ex;" alt="{\displaystyle a_{k-1}r^{k-1}+...+a_{1}r^{1}+a_{0}r^{0},{\text{ where }}a_{0},...,a_{k-1}{\text{ in }}\mathbf {Q} .}"/></span></dd></dl>
+<p>The product of any two such values can be computed by taking the product as polynomials, then reducing any powers of <span class="texhtml"><i>r</i></span> with exponent <span class="texhtml"> <i>e</i> ≥ <i>k</i></span> as described above, yielding a value in the same form. To ensure that this field is actually <span class="texhtml mvar" style="font-style:italic;">k</span>-dimensional and does not collapse to an even smaller field, it is sufficient that <span class="texhtml mvar" style="font-style:italic;">f</span> is an <a href="https://en.wikipedia.org/wiki/Irreducible_polynomial" title="Irreducible polynomial">irreducible polynomial</a> over the rationals. Similarly, one may define the <a href="https://en.wikipedia.org/wiki/Ring_of_integers" title="Ring of integers">ring of integers</a> <span class="texhtml"><b>O</b><sub><b>Q</b>[<i>r</i>]</sub></span> as the subset of <span class="texhtml"><b>Q</b>[<i>r</i>]</span> which are roots of <a href="https://en.wikipedia.org/wiki/Monic_polynomial" title="Monic polynomial">monic polynomials</a> with integer coefficients. In some cases, this ring of integers is equivalent to the ring <span class="texhtml"><b>Z</b>[<i>r</i>]</span>. However, there are many exceptions, such as for <span class="texhtml"><b>Q</b>[<span class="nowrap">&#8730;<span style="border-top:1px solid; padding:0 0.1em;">d</span></span>]</span> when <span class="texhtml mvar" style="font-style:italic;">d</span> is equal to 1 modulo 4.<sup id="cite_ref-AlgNumbersRibenboim_2-0" class="reference"><a href="#cite_note-AlgNumbersRibenboim-2">&#91;2&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Method">Method</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=General_number_field_sieve&amp;action=edit&amp;section=2" title="Edit section: Method">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="box-Confusing plainlinks metadata ambox ambox-style ambox-confusing" role="presentation"><tbody><tr><td class="mbox-image"><div style="width:52px"><img alt="" src="http://upload.wikimedia.org/wikipedia/en/thumb/f/f2/Edit-clear.svg/40px-Edit-clear.svg.png" decoding="async" width="40" height="40" srcset="//upload.wikimedia.org/wikipedia/en/thumb/f/f2/Edit-clear.svg/60px-Edit-clear.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/f/f2/Edit-clear.svg/80px-Edit-clear.svg.png 2x" data-file-width="48" data-file-height="48" /></div></td><td class="mbox-text"><div class="mbox-text-span">This section <b>may be <a href="https://en.wikipedia.org/wiki/Wikipedia:Vagueness" title="Wikipedia:Vagueness">confusing or unclear</a> to readers</b>. In particular, there are no examples or pseudocode.<span class="hide-when-compact"> Please help <a href="https://en.wikipedia.org/wiki/Wikipedia:Please_clarify" title="Wikipedia:Please clarify">clarify the section</a>. There might be a discussion about this on <a href="https://en.wikipedia.org/wiki/Talk:General_number_field_sieve" title="Talk:General number field sieve">the talk page</a>.</span>  <span class="date-container"><i>(<span class="date">May 2021</span>)</i></span><span class="hide-when-compact"><i> (<small><a href="https://en.wikipedia.org/wiki/Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this template message</a></small>)</i></span></div></td></tr></tbody></table>
+<p>Two <a href="https://en.wikipedia.org/wiki/Polynomial" title="Polynomial">polynomials</a> <i>f</i>(<i>x</i>) and <i>g</i>(<i>x</i>) of small <a href="https://en.wikipedia.org/wiki/Degree_of_a_polynomial" title="Degree of a polynomial">degrees</a> <i>d</i> and <i>e</i> are chosen, which have integer coefficients, which are <a href="https://en.wikipedia.org/wiki/Irreducible_polynomial" title="Irreducible polynomial">irreducible</a> over the <a href="https://en.wikipedia.org/wiki/Rational_number" title="Rational number">rationals</a>, and which, when interpreted <a href="https://en.wikipedia.org/wiki/Modular_arithmetic" title="Modular arithmetic">mod <i>n</i></a>, have a common integer <a href="https://en.wikipedia.org/wiki/Root_of_a_function" class="mw-redirect" title="Root of a function">root</a> <i>m</i>. An optimal strategy for choosing these polynomials is not known; one simple method is to pick a degree <i>d</i> for a polynomial, consider the expansion of <i>n</i> in <a href="https://en.wikipedia.org/wiki/Radix" title="Radix">base <i>m</i></a> (allowing digits between −<i>m</i> and <i>m</i>) for a number of different <i>m</i> of order <i>n</i><sup>1/<i>d</i></sup>, and pick <i>f</i>(<i>x</i>) as the polynomial with the smallest coefficients and <i>g</i>(<i>x</i>) as <i>x</i>&#160;−&#160;<i>m</i>.
+</p><p>Consider the number field rings <b>Z</b>[<i>r</i><sub>1</sub>] and <b>Z</b>[<i>r</i><sub>2</sub>], where <i>r</i><sub>1</sub> and <i>r</i><sub>2</sub> are roots of the polynomials <i>f</i> and <i>g</i>. Since <i>f</i> is of degree <i>d</i> with integer coefficients, if <i>a</i> and <i>b</i> are integers, then so will be <i>b</i><sup><i>d</i></sup>·<i>f</i>(<i>a</i>/<i>b</i>), which we call <i>r</i>. Similarly, <i>s</i> = <i>b</i><sup><i>e</i></sup>·<i>g</i>(<i>a</i>/<i>b</i>) is an integer. The goal is to find integer values of <i>a</i> and <i>b</i> that simultaneously make <i>r</i> and <i>s</i> <a href="https://en.wikipedia.org/wiki/Smooth_number" title="Smooth number">smooth</a> relative to the chosen basis of primes. If <i>a</i> and <i>b</i> are small, then <i>r</i> and <i>s</i> will be small too, about the size of <i>m</i>, and we have a better chance for them to be smooth at the same time.  The current best-known approach for this search is <a href="https://en.wikipedia.org/wiki/Lattice_sieving" title="Lattice sieving">lattice sieving</a>; to get acceptable yields, it is necessary to use a large factor base.
+</p><p>Having enough such pairs, using <a href="https://en.wikipedia.org/wiki/Gaussian_elimination" title="Gaussian elimination">Gaussian elimination</a>, one can get products of certain <i>r</i> and of the corresponding <i>s</i> to be squares at the same time. A slightly stronger condition is needed—that they are <a href="https://en.wikipedia.org/wiki/Field_norm" title="Field norm">norms</a> of squares in our number fields, but that condition can be achieved by this method too.  Each <i>r</i> is a norm of <i>a</i>&#160;−&#160;<i>r</i><sub>1</sub><i>b</i> and hence that the product of the corresponding factors <i>a</i>&#160;−&#160;<i>r</i><sub>1</sub><i>b</i> is a square in <b>Z</b>[<i>r</i><sub>1</sub>], with a "square root" which can be determined (as a product of known factors in <b>Z</b>[<i>r</i><sub>1</sub>])—it will typically be represented as an irrational <a href="https://en.wikipedia.org/wiki/Algebraic_number" title="Algebraic number">algebraic number</a>.  Similarly, the product of the factors <i>a</i>&#160;−&#160;<i>r</i><sub>2</sub><i>b</i> is a square in <b>Z</b>[<i>r</i><sub>2</sub>], with a "square root" which also can be computed.  It should be remarked that the use of Gaussian elimination does not give the optimal run time of the algorithm.  Instead, sparse matrix solving algorithms such as <a href="https://en.wikipedia.org/wiki/Block_Lanczos_algorithm_for_nullspace_of_a_matrix_over_a_finite_field" class="mw-redirect" title="Block Lanczos algorithm for nullspace of a matrix over a finite field">Block Lanczos</a> or <a href="https://en.wikipedia.org/wiki/Block_Wiedemann_algorithm" title="Block Wiedemann algorithm">Block Wiedemann</a> are used. 
+</p><p>Since <i>m</i> is a root of both <i>f</i> and <i>g</i> mod <i>n</i>, there are <a href="https://en.wikipedia.org/wiki/Homomorphism" title="Homomorphism">homomorphisms</a> from the rings <b>Z</b>[<i>r</i><sub>1</sub>] and <b>Z</b>[<i>r</i><sub>2</sub>] to the ring <b>Z</b>/<i>n</i><b>Z</b> (the integers <a href="https://en.wikipedia.org/wiki/Modular_arithmetic" title="Modular arithmetic">modulo <i>n</i></a>), which map <i>r</i><sub>1</sub> and <i>r</i><sub>2</sub> to <i>m</i>, and these homomorphisms will map each "square root" (typically not represented as a rational number) into its integer representative. Now the product of the factors <i>a</i>&#160;−&#160;<i>mb</i> mod <i>n</i> can be obtained as a square in two ways—one for each homomorphism. Thus, one can find two numbers <i>x</i> and <i>y</i>, with <i>x</i><sup>2</sup>&#160;−&#160;<i>y</i><sup>2</sup> divisible by <i>n</i> and again with probability at least one half we get a factor of <i>n</i> by finding the <a href="https://en.wikipedia.org/wiki/Greatest_common_divisor" title="Greatest common divisor">greatest common divisor</a> of <i>n</i> and <i>x</i>&#160;−&#160;<i>y</i>.
+</p>
+<h2><span class="mw-headline" id="Improving_polynomial_choice">Improving polynomial choice</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=General_number_field_sieve&amp;action=edit&amp;section=3" title="Edit section: Improving polynomial choice">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The choice of polynomial can dramatically affect the time to complete the remainder of the algorithm. The method of choosing polynomials based on the expansion of <span class="texhtml mvar" style="font-style:italic;">n</span> in base <span class="texhtml mvar" style="font-style:italic;">m</span> shown above is suboptimal in many practical situations, leading to the development of better methods.
+</p><p>One such method was suggested by Murphy and Brent;<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup> they introduce a two-part score for polynomials, based on the presence of roots modulo small primes and on the average value that the polynomial takes over the sieving area.
+</p><p>The best reported results<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup> were achieved by the method of <a href="https://en.wikipedia.org/w/index.php?title=Thorsten_Kleinjung&amp;action=edit&amp;redlink=1" class="new" title="Thorsten Kleinjung (page does not exist)">Thorsten Kleinjung</a>,<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup> which allows <span class="texhtml"><i>g</i>(<i>x</i>) = <i>ax</i>&#160;+&#160;<i>b</i></span>, and searches over <span class="texhtml mvar" style="font-style:italic;">a</span> composed of small prime factors congruent to 1 modulo 2<span class="texhtml"><i>d</i></span> and over leading coefficients of <span class="texhtml mvar" style="font-style:italic;">f</span> which are divisible by 60.
+</p>
+<h2><span class="mw-headline" id="Implementations">Implementations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=General_number_field_sieve&amp;action=edit&amp;section=4" title="Edit section: Implementations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Some implementations focus on a certain smaller class of numbers. These are known as <a href="https://en.wikipedia.org/wiki/Special_number_field_sieve" title="Special number field sieve">special number field sieve</a> techniques, such as used in the <a href="https://en.wikipedia.org/wiki/Cunningham_project" class="mw-redirect" title="Cunningham project">Cunningham project</a>.
+A project called NFSNET ran from 2002<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup> through at least 2007. It used volunteer distributed computing on the <a href="https://en.wikipedia.org/wiki/Internet" title="Internet">Internet</a>.<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup>
+<a href="https://en.wikipedia.org/wiki/Paul_Leyland" title="Paul Leyland">Paul Leyland</a> of the <a href="https://en.wikipedia.org/wiki/United_Kingdom" title="United Kingdom">United Kingdom</a> and Richard Wackerbarth of Texas were involved.<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup>
+</p><p>Until 2007, the gold-standard implementation was a suite of software developed and distributed by <a href="https://en.wikipedia.org/wiki/Centrum_Wiskunde_%26_Informatica" title="Centrum Wiskunde &amp; Informatica">CWI</a> in the Netherlands, which was available only under a relatively restrictive license.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (March 2017)">citation needed</span></a></i>&#93;</sup> In 2007, <a href="https://en.wikipedia.org/w/index.php?title=Jason_Papadopoulos&amp;action=edit&amp;redlink=1" class="new" title="Jason Papadopoulos (page does not exist)">Jason Papadopoulos</a> developed a faster implementation of final processing as part of msieve, which is in the public domain.  Both implementations feature the ability to be distributed among several nodes in a cluster with a sufficiently fast interconnect.
+</p><p>Polynomial selection is normally performed by <a href="https://en.wikipedia.org/wiki/GPL" class="mw-redirect" title="GPL">GPL</a> software written by Kleinjung, or by msieve, and lattice sieving by GPL software written by Franke and Kleinjung; these are distributed in GGNFS.
+</p>
+<ul><li><a rel="nofollow" class="external text" href="http://escatter11.fullerton.edu/nfs/">NFS@Home</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.math.ttu.edu/~cmonico/software/ggnfs/">GGNFS</a></li>
+<li><a rel="nofollow" class="external text" href="https://sourceforge.net/projects/factor-by-gnfs/">factor by gnfs</a></li>
+<li><a rel="nofollow" class="external text" href="http://cado-nfs.inria.fr/">CADO-NFS</a></li>
+<li><a rel="nofollow" class="external text" href="http://sourceforge.net/projects/msieve/">msieve</a> (which contains final-processing code, a polynomial selection optimized for smaller numbers and an implementation of the line sieve)</li>
+<li><a rel="nofollow" class="external text" href="http://kmgnfs.cti.gr/">kmGNFS</a></li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=General_number_field_sieve&amp;action=edit&amp;section=5" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Special_number_field_sieve" title="Special number field sieve">Special number field sieve</a></li></ul>
+<h2><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=General_number_field_sieve&amp;action=edit&amp;section=6" title="Edit section: Notes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFPomerance1996" class="citation news cs1"><a href="https://en.wikipedia.org/wiki/Carl_Pomerance" title="Carl Pomerance">Pomerance, Carl</a> (December 1996). <a rel="nofollow" class="external text" href="https://www.ams.org/notices/199612/pomerance.pdf">"A Tale of Two Sieves"</a> <span class="cs1-format">(PDF)</span>. <i>Notices of the AMS</i>. Vol.&#160;43, no.&#160;12. pp.&#160;1473–1485.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Notices+of+the+AMS&amp;rft.atitle=A+Tale+of+Two+Sieves&amp;rft.volume=43&amp;rft.issue=12&amp;rft.pages=1473-1485&amp;rft.date=1996-12&amp;rft.aulast=Pomerance&amp;rft.aufirst=Carl&amp;rft_id=https%3A%2F%2Fwww.ams.org%2Fnotices%2F199612%2Fpomerance.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGeneral+number+field+sieve" class="Z3988"></span></span>
+</li>
+<li id="cite_note-AlgNumbersRibenboim-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-AlgNumbersRibenboim_2-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFRibenboim,_Paulo1972" class="citation book cs1">Ribenboim, Paulo (1972). <i>Algebraic Numbers</i>. Wiley-Interscience. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-471-71804-8" title="Special:BookSources/978-0-471-71804-8"><bdi>978-0-471-71804-8</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Algebraic+Numbers&amp;rft.pub=Wiley-Interscience&amp;rft.date=1972&amp;rft.isbn=978-0-471-71804-8&amp;rft.au=Ribenboim%2C+Paulo&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGeneral+number+field+sieve" class="Z3988"></span></span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFMurphyBrent1998" class="citation cs2">Murphy, B.; Brent, R. P. (1998), <a rel="nofollow" class="external text" href="http://maths-people.anu.edu.au/~brent/pub/pub178.html">"On quadratic polynomials for the number field sieve"</a>, <i>Australian Computer Science Communications</i>, <b>20</b>: 199–213</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Australian+Computer+Science+Communications&amp;rft.atitle=On+quadratic+polynomials+for+the+number+field+sieve&amp;rft.volume=20&amp;rft.pages=199-213&amp;rft.date=1998&amp;rft.aulast=Murphy&amp;rft.aufirst=B.&amp;rft.au=Brent%2C+R.+P.&amp;rft_id=http%3A%2F%2Fmaths-people.anu.edu.au%2F~brent%2Fpub%2Fpub178.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGeneral+number+field+sieve" class="Z3988"></span></span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFFranke2006" class="citation cs2">Franke, Jens (2006), <a rel="nofollow" class="external text" href="http://www.hyperelliptic.org/tanja/SHARCS/talks06/Jens_Franke.pdf"><i>On RSA 200 and larger projects</i></a> <span class="cs1-format">(PDF)</span></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=On+RSA+200+and+larger+projects&amp;rft.date=2006&amp;rft.aulast=Franke&amp;rft.aufirst=Jens&amp;rft_id=http%3A%2F%2Fwww.hyperelliptic.org%2Ftanja%2FSHARCS%2Ftalks06%2FJens_Franke.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGeneral+number+field+sieve" class="Z3988"></span></span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKleinjung2006" class="citation journal cs1">Kleinjung, Thorsten (October 2006). <a rel="nofollow" class="external text" href="https://www.ams.org/mcom/2006-75-256/S0025-5718-06-01870-9/S0025-5718-06-01870-9.pdf">"On polynomial selection for the general number field sieve"</a> <span class="cs1-format">(PDF)</span>. <i>Mathematics of Computation</i>. <b>75</b> (256): 2037–2047. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1090%2FS0025-5718-06-01870-9">10.1090/S0025-5718-06-01870-9</a></span><span class="reference-accessdate">. Retrieved <span class="nowrap">2007-12-13</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Mathematics+of+Computation&amp;rft.atitle=On+polynomial+selection+for+the+general+number+field+sieve&amp;rft.volume=75&amp;rft.issue=256&amp;rft.pages=2037-2047&amp;rft.date=2006-10&amp;rft_id=info%3Adoi%2F10.1090%2FS0025-5718-06-01870-9&amp;rft.aulast=Kleinjung&amp;rft.aufirst=Thorsten&amp;rft_id=https%3A%2F%2Fwww.ams.org%2Fmcom%2F2006-75-256%2FS0025-5718-06-01870-9%2FS0025-5718-06-01870-9.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGeneral+number+field+sieve" class="Z3988"></span></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFPaul_Leyland2003" class="citation web cs1">Paul Leyland (December 12, 2003). <a rel="nofollow" class="external text" href="http://homepages.cwi.nl/~herman/Leyland.ppt">"NFSNET: the first year"</a>. <i>Presentation at EIDMA-CWI Workshop on Factoring Large Numbers</i><span class="reference-accessdate">. Retrieved <span class="nowrap">August 9,</span> 2011</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Presentation+at+EIDMA-CWI+Workshop+on+Factoring+Large+Numbers&amp;rft.atitle=NFSNET%3A+the+first+year&amp;rft.date=2003-12-12&amp;rft.au=Paul+Leyland&amp;rft_id=http%3A%2F%2Fhomepages.cwi.nl%2F~herman%2FLeyland.ppt&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGeneral+number+field+sieve" class="Z3988"></span></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20071022032617/http://www.nfsnet.org/">"Welcome to NFSNET"</a>. April 23, 2007. Archived from <a rel="nofollow" class="external text" href="http://www.nfsnet.org/">the original</a> on October 22, 2007<span class="reference-accessdate">. Retrieved <span class="nowrap">August 9,</span> 2011</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Welcome+to+NFSNET&amp;rft.date=2007-04-23&amp;rft_id=http%3A%2F%2Fwww.nfsnet.org%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGeneral+number+field+sieve" class="Z3988"></span></span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20080509131653/http://www.nfsnet.org/aboutus.html">"About  NFSNET"</a>. Archived from <a rel="nofollow" class="external text" href="http://www.nfsnet.org/aboutus.html">the original</a> on May 9, 2008<span class="reference-accessdate">. Retrieved <span class="nowrap">August 9,</span> 2011</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=About+NFSNET&amp;rft_id=http%3A%2F%2Fwww.nfsnet.org%2Faboutus.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGeneral+number+field+sieve" class="Z3988"></span></span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=General_number_field_sieve&amp;action=edit&amp;section=7" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1054258005">.mw-parser-output .refbegin{font-size:90%;margin-bottom:0.5em}.mw-parser-output .refbegin-hanging-indents>ul{margin-left:0}.mw-parser-output .refbegin-hanging-indents>ul>li{margin-left:0;padding-left:3.2em;text-indent:-3.2em}.mw-parser-output .refbegin-hanging-indents ul,.mw-parser-output .refbegin-hanging-indents ul li{list-style:none}@media(max-width:720px){.mw-parser-output .refbegin-hanging-indents>ul>li{padding-left:1.6em;text-indent:-1.6em}}.mw-parser-output .refbegin-columns{margin-top:0.3em}.mw-parser-output .refbegin-columns ul{margin-top:0}.mw-parser-output .refbegin-columns li{page-break-inside:avoid;break-inside:avoid-column}</style><div class="refbegin" style="">
+<ul><li><a href="https://en.wikipedia.org/wiki/Arjen_Lenstra" title="Arjen Lenstra">Arjen K. Lenstra</a> and <a href="https://en.wikipedia.org/wiki/Hendrik_Lenstra" title="Hendrik Lenstra">H. W. Lenstra, Jr.</a> (eds.). "The development of the number field sieve". Lecture Notes in Math. (1993) 1554. Springer-Verlag.</li>
+<li>Richard Crandall and <a href="https://en.wikipedia.org/wiki/Carl_Pomerance" title="Carl Pomerance">Carl Pomerance</a>. Prime Numbers: A Computational Perspective (2001). 2nd edition, Springer. <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-387-25282-7" title="Special:BookSources/0-387-25282-7">0-387-25282-7</a>. Section 6.2: Number field sieve, pp.&#160;278–301.</li></ul>
+</div>
+<ul><li>Matthew E. Briggs: An Introduction to the General Number Field Sieve, 1998</li></ul>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Number-theoretic_algorithms" style="padding:3px"><table class="nowraplinks mw-collapsible uncollapsed navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Number-theoretic_algorithms" title="Template:Number-theoretic algorithms"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Number-theoretic_algorithms" title="Template talk:Number-theoretic algorithms"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Number-theoretic_algorithms&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Number-theoretic_algorithms" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Number_theory" title="Number theory">Number-theoretic</a> <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithms</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Primality_test" title="Primality test">Primality tests</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/AKS_primality_test" title="AKS primality test">AKS</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Adleman–Pomerance–Rumely_primality_test" title="Adleman–Pomerance–Rumely primality test">APR</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Baillie–PSW_primality_test" title="Baillie–PSW primality test">Baillie–PSW</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Elliptic_curve_primality" title="Elliptic curve primality">Elliptic curve</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pocklington_primality_test" title="Pocklington primality test">Pocklington</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fermat_primality_test" title="Fermat primality test">Fermat</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lucas_primality_test" title="Lucas primality test">Lucas</a></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Lucas–Lehmer_primality_test" title="Lucas–Lehmer primality test">Lucas–Lehmer</a></i></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Lucas–Lehmer–Riesel_test" title="Lucas–Lehmer–Riesel test">Lucas–Lehmer–Riesel</a></i></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Proth%27s_theorem" title="Proth&#39;s theorem">Proth's theorem</a></i></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Pépin%27s_test" title="Pépin&#39;s test">Pépin's</a></i></li>
+<li><a href="https://en.wikipedia.org/wiki/Quadratic_Frobenius_test" title="Quadratic Frobenius test">Quadratic Frobenius</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Solovay–Strassen_primality_test" title="Solovay–Strassen primality test">Solovay–Strassen</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Miller–Rabin_primality_test" title="Miller–Rabin primality test">Miller–Rabin</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Generating_primes" class="mw-redirect" title="Generating primes">Prime-generating</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Sieve_of_Atkin" title="Sieve of Atkin">Sieve of Atkin</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes" title="Sieve of Eratosthenes">Sieve of Eratosthenes</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sieve_of_Sundaram" title="Sieve of Sundaram">Sieve of Sundaram</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Wheel_factorization" title="Wheel factorization">Wheel factorization</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Integer_factorization" title="Integer factorization">Integer factorization</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Continued_fraction_factorization" title="Continued fraction factorization">Continued fraction (CFRAC)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dixon%27s_factorization_method" title="Dixon&#39;s factorization method">Dixon's</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lenstra_elliptic-curve_factorization" title="Lenstra elliptic-curve factorization">Lenstra elliptic curve (ECM)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Euler%27s_factorization_method" title="Euler&#39;s factorization method">Euler's</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm" title="Pollard&#39;s rho algorithm">Pollard's rho</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pollard%27s_p_−_1_algorithm" title="Pollard&#39;s p − 1 algorithm"><i>p</i> − 1</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Williams%27s_p_+_1_algorithm" title="Williams&#39;s p + 1 algorithm"><i>p</i> + 1</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quadratic_sieve" title="Quadratic sieve">Quadratic sieve (QS)</a></li>
+<li><a class="mw-selflink selflink">General number field sieve (GNFS)</a></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Special_number_field_sieve" title="Special number field sieve">Special number field sieve (SNFS)</a></i></li>
+<li><a href="https://en.wikipedia.org/wiki/Rational_sieve" title="Rational sieve">Rational sieve</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fermat%27s_factorization_method" title="Fermat&#39;s factorization method">Fermat's</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shanks%27s_square_forms_factorization" title="Shanks&#39;s square forms factorization">Shanks's square forms</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Trial_division" title="Trial division">Trial division</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shor%27s_algorithm" title="Shor&#39;s algorithm">Shor's</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Multiplication_algorithm" title="Multiplication algorithm">Multiplication</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Ancient_Egyptian_multiplication" title="Ancient Egyptian multiplication">Ancient Egyptian</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Long_multiplication" class="mw-redirect" title="Long multiplication">Long</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Karatsuba_algorithm" title="Karatsuba algorithm">Karatsuba</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Toom–Cook_multiplication" title="Toom–Cook multiplication">Toom–Cook</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Schönhage–Strassen_algorithm" title="Schönhage–Strassen algorithm">Schönhage–Strassen</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fürer%27s_algorithm" title="Fürer&#39;s algorithm">Fürer's</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Euclidean_division" title="Euclidean division">Euclidean</a> <a href="https://en.wikipedia.org/wiki/Division_algorithm" title="Division algorithm">division</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Binary_division" class="mw-redirect" title="Binary division">Binary</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Chunking_(division)" title="Chunking (division)">Chunking</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fourier_division" title="Fourier division">Fourier</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Goldschmidt_division" class="mw-redirect" title="Goldschmidt division">Goldschmidt</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Newton–Raphson_division" class="mw-redirect" title="Newton–Raphson division">Newton-Raphson</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Long_division" title="Long division">Long</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Short_division" title="Short division">Short</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SRT_division" class="mw-redirect" title="SRT division">SRT</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Discrete_logarithm" title="Discrete logarithm">Discrete logarithm</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Baby-step_giant-step" title="Baby-step giant-step">Baby-step giant-step</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm_for_logarithms" title="Pollard&#39;s rho algorithm for logarithms">Pollard rho</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pollard%27s_kangaroo_algorithm" title="Pollard&#39;s kangaroo algorithm">Pollard kangaroo</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pohlig–Hellman_algorithm" title="Pohlig–Hellman algorithm">Pohlig–Hellman</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Index_calculus_algorithm" title="Index calculus algorithm">Index calculus</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Function_field_sieve" title="Function field sieve">Function field sieve</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Greatest_common_divisor" title="Greatest common divisor">Greatest common divisor</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Binary_GCD_algorithm" title="Binary GCD algorithm">Binary</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Euclidean_algorithm" title="Euclidean algorithm">Euclidean</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm" title="Extended Euclidean algorithm">Extended Euclidean</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lehmer%27s_GCD_algorithm" title="Lehmer&#39;s GCD algorithm">Lehmer's</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Quadratic_residue" title="Quadratic residue">Modular square root</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Cipolla%27s_algorithm" title="Cipolla&#39;s algorithm">Cipolla</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pocklington%27s_algorithm" title="Pocklington&#39;s algorithm">Pocklington's</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tonelli–Shanks_algorithm" title="Tonelli–Shanks algorithm">Tonelli–Shanks</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Berlekamp–Rabin_algorithm" title="Berlekamp–Rabin algorithm">Berlekamp</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kunerth%27s_algorithm" title="Kunerth&#39;s algorithm">Kunerth</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Other algorithms</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Chakravala_method" title="Chakravala method">Chakravala</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cornacchia%27s_algorithm" title="Cornacchia&#39;s algorithm">Cornacchia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Exponentiation_by_squaring" title="Exponentiation by squaring">Exponentiation by squaring</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Integer_square_root" title="Integer square root">Integer square root</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Integer_relation_algorithm" title="Integer relation algorithm">Integer relation</a> (<a href="https://en.wikipedia.org/wiki/Lenstra–Lenstra–Lovász_lattice_basis_reduction_algorithm" title="Lenstra–Lenstra–Lovász lattice basis reduction algorithm">LLL</a>; <a href="https://en.wikipedia.org/wiki/Korkine–Zolotarev_lattice_basis_reduction_algorithm" title="Korkine–Zolotarev lattice basis reduction algorithm">KZ</a>)</li>
+<li><a href="https://en.wikipedia.org/wiki/Modular_exponentiation" title="Modular exponentiation">Modular exponentiation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Montgomery_reduction" class="mw-redirect" title="Montgomery reduction">Montgomery reduction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Schoof%27s_algorithm" title="Schoof&#39;s algorithm">Schoof</a></li></ul>
+</div></td></tr><tr><td class="navbox-abovebelow hlist" colspan="2"><div>
+<ul><li><i>Italics</i> indicate that algorithm is for numbers of special forms</li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1332
+Cached time: 20220414135248
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.564 seconds
+Real time usage: 0.707 seconds
+Preprocessor visited node count: 2464/1000000
+Post‐expand include size: 46594/2097152 bytes
+Template argument size: 3751/2097152 bytes
+Highest expansion depth: 14/100
+Expensive parser function count: 3/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 29894/5000000 bytes
+Lua time usage: 0.287/10.000 seconds
+Lua memory usage: 4960215/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  569.090      1 -total
+ 33.83%  192.531      1 Template:Reflist
+ 18.21%  103.616      1 Template:Cite_news
+ 16.66%   94.782      1 Template:Number_theoretic_algorithms
+ 15.64%   89.033      1 Template:Navbox
+ 12.16%   69.215      1 Template:Short_description
+  7.83%   44.557     24 Template:Math
+  7.74%   44.062      1 Template:ISBN
+  7.08%   40.275      1 Template:Confusing
+  6.59%   37.520      1 Template:Pagetype
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:152734-0!canonical and timestamp 20220414135247 and revision id 1075844186. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=General_number_field_sieve&amp;oldid=1075844186">https://en.wikipedia.org/w/index.php?title=General_number_field_sieve&amp;oldid=1075844186</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Integer_factorization_algorithms" title="Category:Integer factorization algorithms">Integer factorization algorithms</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_is_different_from_Wikidata" title="Category:Short description is different from Wikidata">Short description is different from Wikidata</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Wikipedia_articles_needing_clarification_from_May_2021" title="Category:Wikipedia articles needing clarification from May 2021">Wikipedia articles needing clarification from May 2021</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_Wikipedia_articles_needing_clarification" title="Category:All Wikipedia articles needing clarification">All Wikipedia articles needing clarification</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_unsourced_statements_from_March_2017" title="Category:Articles with unsourced statements from March 2017">Articles with unsourced statements from March 2017</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=General+number+field+sieve" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=General+number+field+sieve" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/General_number_field_sieve" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:General_number_field_sieve" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/General_number_field_sieve"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=General_number_field_sieve&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=General_number_field_sieve&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/General_number_field_sieve" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/General_number_field_sieve" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=General_number_field_sieve&amp;oldid=1075844186" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=General_number_field_sieve&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=General_number_field_sieve&amp;id=1075844186&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q140770" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=General_number_field_sieve&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=General_number_field_sieve&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-ca mw-list-item"><a href="https://ca.wikipedia.org/wiki/Garbell_sobre_el_cos_de_nombres_generalitzat" title="Garbell sobre el cos de nombres generalitzat – Catalan" lang="ca" hreflang="ca" class="interlanguage-link-target"><span>Català</span></a></li><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Zahlkörpersieb" title="Zahlkörpersieb – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Criba_general_del_cuerpo_de_números" title="Criba general del cuerpo de números – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Crible_algébrique" title="Crible algébrique – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-ko mw-list-item"><a href="https://ko.wikipedia.org/wiki/수체_체" title="수체 체 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target"><span>한국어</span></a></li><li class="interlanguage-link interwiki-it mw-list-item"><a href="https://it.wikipedia.org/wiki/Crivello_dei_campi_di_numeri_generale" title="Crivello dei campi di numeri generale – Italian" lang="it" hreflang="it" class="interlanguage-link-target"><span>Italiano</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/נפת_שדה_מספרים" title="נפת שדה מספרים – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-nl mw-list-item"><a href="https://nl.wikipedia.org/wiki/Getallenlichamenzeef" title="Getallenlichamenzeef – Dutch" lang="nl" hreflang="nl" class="interlanguage-link-target"><span>Nederlands</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/GNFS" title="GNFS – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/Campo_de_número_de_peneira_geral" title="Campo de número de peneira geral – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Общий_метод_решета_числового_поля" title="Общий метод решета числового поля – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-fi mw-list-item"><a href="https://fi.wikipedia.org/wiki/Yleinen_lukukuntaseula" title="Yleinen lukukuntaseula – Finnish" lang="fi" hreflang="fi" class="interlanguage-link-target"><span>Suomi</span></a></li><li class="interlanguage-link interwiki-th mw-list-item"><a href="https://th.wikipedia.org/wiki/การกรองตัวเลขในขอบเขตแบบธรรมดา" title="การกรองตัวเลขในขอบเขตแบบธรรมดา – Thai" lang="th" hreflang="th" class="interlanguage-link-target"><span>ไทย</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Метод_решета_числового_поля" title="Метод решета числового поля – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/普通数域筛选法" title="普通数域筛选法 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q140770#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 8 March 2022, at 00:29<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=General_number_field_sieve&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.564","walltime":"0.707","ppvisitednodes":{"value":2464,"limit":1000000},"postexpandincludesize":{"value":46594,"limit":2097152},"templateargumentsize":{"value":3751,"limit":2097152},"expansiondepth":{"value":14,"limit":100},"expensivefunctioncount":{"value":3,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":29894,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  569.090      1 -total"," 33.83%  192.531      1 Template:Reflist"," 18.21%  103.616      1 Template:Cite_news"," 16.66%   94.782      1 Template:Number_theoretic_algorithms"," 15.64%   89.033      1 Template:Navbox"," 12.16%   69.215      1 Template:Short_description","  7.83%   44.557     24 Template:Math","  7.74%   44.062      1 Template:ISBN","  7.08%   40.275      1 Template:Confusing","  6.59%   37.520      1 Template:Pagetype"]},"scribunto":{"limitreport-timeusage":{"value":"0.287","limit":"10.000"},"limitreport-memusage":{"value":4960215,"limit":52428800}},"cachereport":{"origin":"mw1332","timestamp":"20220414135248","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"General number field sieve","url":"https:\/\/en.wikipedia.org\/wiki\/General_number_field_sieve","sameAs":"http:\/\/www.wikidata.org\/entity\/Q140770","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q140770","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2002-11-28T19:09:28Z","dateModified":"2022-03-08T00:29:18Z","headline":"Integer factorization algorithm"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"General number field sieve","url":"https:\/\/en.wikipedia.org\/wiki\/General_number_field_sieve","sameAs":"http:\/\/www.wikidata.org\/entity\/Q140770","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q140770","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2002-11-28T19:09:28Z","dateModified":"2022-03-08T00:29:18Z","headline":"Integer factorization algorithm"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":148,"wgHostname":"mw1326"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/General_number_field_sieve by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:50 GMT -->
+</html>

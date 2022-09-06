@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/NP-hard by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>NP-hardness - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"16de27fa-8dbb-406f-b311-3acea94cfe31","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"NP-hardness","wgTitle":"NP-hardness","wgCurRevisionId":1068948912,"wgRevisionId":1068948912,"wgArticleId":54681,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CS1: long volume value","Articles with short description","Short description matches Wikidata","NP-hard problems","Complexity classes"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"NP-hardness","wgRelevantArticleId":54681,"wgIsProbablyEditable":true,
+"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"NP-hard","wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":9000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgInternalRedirectTargetUrl":"/wiki/NP-hardness","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q1137554","wgGENewcomerTasksGuidanceEnabled":true,"wgGEAskQuestionEnabled":false,"wgGELinkRecommendationsFrontendEnabled":false};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":
+"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["mediawiki.action.view.redirect","ext.cite.ux-enhancements","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface",
+"ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.9"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/P_np_np-complete_np-hard.svg/1200px-P_np_np-complete_np-hard.svg.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="750"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/P_np_np-complete_np-hard.svg/800px-P_np_np-complete_np-hard.svg.png"/>
+<meta property="og:image:width" content="800"/>
+<meta property="og:image:height" content="500"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/P_np_np-complete_np-hard.svg/640px-P_np_np-complete_np-hard.svg.png"/>
+<meta property="og:image:width" content="640"/>
+<meta property="og:image:height" content="400"/>
+<meta property="og:title" content="NP-hardness - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/NP-hardness"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=NP-hardness&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/NP-hardness"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-NP-hardness rootpage-NP-hardness skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">NP-hardness</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"><span class="mw-redirectedfrom">&#160;&#160;(Redirected from <a href="https://en.wikipedia.org/w/index.php?title=NP-hard&amp;redirect=no" class="mw-redirect" title="NP-hard">NP-hard</a>)</span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Complexity class</div>
+<style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">For a gentler introduction, see <a href="https://en.wikipedia.org/wiki/P_versus_NP_problem" title="P versus NP problem">P versus NP problem</a>.</div>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://en.wikipedia.org/wiki/File:P_np_np-complete_np-hard.svg" class="image"><img alt="Euler diagram for P, NP, NP-complete, and NP-hard set of problems." src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/P_np_np-complete_np-hard.svg/300px-P_np_np-complete_np-hard.svg.png" decoding="async" width="300" height="188" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/a0/P_np_np-complete_np-hard.svg/450px-P_np_np-complete_np-hard.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a0/P_np_np-complete_np-hard.svg/600px-P_np_np-complete_np-hard.svg.png 2x" data-file-width="800" data-file-height="500" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:P_np_np-complete_np-hard.svg" class="internal" title="Enlarge"></a></div><a href="https://en.wikipedia.org/wiki/Euler_diagram" title="Euler diagram">Euler diagram</a> for <a href="https://en.wikipedia.org/wiki/P_(complexity)" title="P (complexity)">P</a>, <a href="https://en.wikipedia.org/wiki/NP_(complexity)" title="NP (complexity)">NP</a>, NP-complete, and NP-hard set of problems. The left side is valid under the assumption that <a href="https://en.wikipedia.org/wiki/P_versus_NP_problem" title="P versus NP problem">P≠NP</a>, while the right side is valid under the assumption that P=NP (except that the empty language and its complement are never NP-complete)</div></div></div>
+<p>In <a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" title="Computational complexity theory">computational complexity theory</a>, <b>NP-hardness</b> (<a href="https://en.wikipedia.org/wiki/NP_(complexity)" title="NP (complexity)">non-deterministic polynomial-time</a> hardness) is the defining property of a class of problems that are informally "at least as hard as the hardest problems in <a href="https://en.wikipedia.org/wiki/NP_(complexity)" title="NP (complexity)">NP</a>". A simple example of an NP-hard problem is the <a href="https://en.wikipedia.org/wiki/Subset_sum_problem" title="Subset sum problem">subset sum problem</a>.
+</p><p>A more precise specification is: a problem <i>H</i> is NP-hard when every problem <i>L</i> in NP can be <a href="https://en.wikipedia.org/wiki/Reduction_(complexity)" title="Reduction (complexity)">reduced</a> in <a href="https://en.wikipedia.org/wiki/Polynomial_time" class="mw-redirect" title="Polynomial time">polynomial time</a> to <i>H</i>; that is, assuming a solution for <i>H</i> takes 1 unit time, <i>H</i>&#8206;'s solution can be used to solve <i>L</i> in polynomial time.<sup id="cite_ref-Leeuwen_1-0" class="reference"><a href="#cite_note-Leeuwen-1">&#91;1&#93;</a></sup><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup> As a consequence, finding a polynomial time algorithm to solve any NP-hard problem would give polynomial time algorithms for all the problems in NP. As it is suspected that <a href="https://en.wikipedia.org/wiki/P_versus_NP" class="mw-redirect" title="P versus NP">P≠NP</a>, it is unlikely that such an algorithm exists.<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup>
+</p><p>A common misconception is that the <i>NP</i> in "NP-hard" stands for "non-polynomial" when in fact it stands for "<a href="https://en.wikipedia.org/wiki/Non-deterministic_Turing_machine" class="mw-redirect" title="Non-deterministic Turing machine">non-deterministic</a> polynomial acceptable problems".<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup> It is suspected that there are no polynomial-time algorithms for NP-hard problems, but that has not been proven.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup> Moreover, the class <a href="https://en.wikipedia.org/wiki/P_(complexity)" title="P (complexity)">P</a>, in which all problems can be solved in polynomial time, is contained in the <a href="https://en.wikipedia.org/wiki/NP_(complexity)" title="NP (complexity)">NP</a> class.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Definition"><span class="tocnumber">1</span> <span class="toctext">Definition</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Consequences"><span class="tocnumber">2</span> <span class="toctext">Consequences</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Examples"><span class="tocnumber">3</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#NP-naming_convention"><span class="tocnumber">4</span> <span class="toctext">NP-naming convention</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Application_areas"><span class="tocnumber">5</span> <span class="toctext">Application areas</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Definition">Definition</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=NP-hardness&amp;action=edit&amp;section=1" title="Edit section: Definition">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A <a href="https://en.wikipedia.org/wiki/Decision_problem" title="Decision problem">decision problem</a> <i>H</i> is NP-hard when for every problem <i>L</i> in NP, there is a <a href="https://en.wikipedia.org/wiki/Many-one_reduction" title="Many-one reduction">polynomial-time many-one reduction</a> from <i>L</i> to <i>H</i>.<sup id="cite_ref-Leeuwen_1-1" class="reference"><a href="#cite_note-Leeuwen-1">&#91;1&#93;</a></sup><sup class="reference nowrap"><span title="Page / location: 80">&#58;&#8202;80&#8202;</span></sup>
+An equivalent definition is to require that every problem <i>L</i> in NP can be solved in <a href="https://en.wikipedia.org/wiki/Polynomial_time" class="mw-redirect" title="Polynomial time">polynomial time</a> by an <a href="https://en.wikipedia.org/wiki/Oracle_machine" title="Oracle machine">oracle machine</a> with an oracle for <i>H</i>.<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup> Informally, an algorithm can be thought of that calls such an oracle machine as a subroutine for solving <i>H</i> and solves <i>L</i> in polynomial time if the subroutine call takes only one step to compute.
+</p><p>Another definition is to require that there be a polynomial-time reduction from an <a href="https://en.wikipedia.org/wiki/NP-complete" class="mw-redirect" title="NP-complete">NP-complete</a> problem <i>G</i> to <i>H</i>.<sup id="cite_ref-Leeuwen_1-2" class="reference"><a href="#cite_note-Leeuwen-1">&#91;1&#93;</a></sup><sup class="reference nowrap"><span title="Page / location: 91">&#58;&#8202;91&#8202;</span></sup> As any problem <i>L</i> in NP reduces in polynomial time to <i>G</i>, <i>L</i> reduces in turn to <i>H</i> in polynomial time so this new definition implies the previous one. Awkwardly, it does not restrict the class NP-hard to decision problems, and it also includes <a href="https://en.wikipedia.org/wiki/Search_problem" title="Search problem">search problems</a> or <a href="https://en.wikipedia.org/wiki/Optimization_problem" title="Optimization problem">optimization problems</a>.
+</p>
+<h2><span class="mw-headline" id="Consequences">Consequences</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=NP-hardness&amp;action=edit&amp;section=2" title="Edit section: Consequences">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>If P ≠ NP, then NP-hard problems could not be solved in polynomial time.
+</p><p>Some NP-hard optimization problems can be polynomial-time <a href="https://en.wikipedia.org/wiki/Approximation_algorithm" title="Approximation algorithm">approximated</a> up to some constant approximation ratio (in particular, those in <a href="https://en.wikipedia.org/wiki/APX" title="APX">APX</a>) or even up to any approximation ratio (those in <a href="https://en.wikipedia.org/wiki/Polynomial-time_approximation_scheme#As_a_complexity_class" title="Polynomial-time approximation scheme">PTAS</a> or <a href="https://en.wikipedia.org/wiki/Polynomial-time_approximation_scheme#Deterministic" title="Polynomial-time approximation scheme">FPTAS</a>).
+</p>
+<h2><span class="mw-headline" id="Examples">Examples</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=NP-hardness&amp;action=edit&amp;section=3" title="Edit section: Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>An example of an NP-hard problem is the decision <a href="https://en.wikipedia.org/wiki/Subset_sum_problem" title="Subset sum problem">subset sum problem</a>: given a set of integers, does any non-empty subset of them add up to zero? That is a <a href="https://en.wikipedia.org/wiki/Decision_problem" title="Decision problem">decision problem</a> and happens to be NP-complete. Another example of an NP-hard problem is the optimization problem of finding the least-cost cyclic route through all nodes of a weighted graph. This is commonly known as the <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem" title="Travelling salesman problem">travelling salesman problem</a>.<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup>
+</p><p>There are decision problems that are <i>NP-hard</i> but not <i>NP-complete</i> such as the <a href="https://en.wikipedia.org/wiki/Halting_problem" title="Halting problem">halting problem</a>. That is the problem which asks "given a program and its input, will it run forever?" That is a <i>yes</i>/<i>no</i> question and so is a decision problem. It is easy to prove that the halting problem is NP-hard but not NP-complete. For example, the <a href="https://en.wikipedia.org/wiki/Boolean_satisfiability_problem" title="Boolean satisfiability problem">Boolean satisfiability problem</a> can be reduced to the halting problem by transforming it to the description of a <a href="https://en.wikipedia.org/wiki/Turing_machine" title="Turing machine">Turing machine</a> that tries all <a href="https://en.wikipedia.org/wiki/Truth_value" title="Truth value">truth value</a> assignments and when it finds one that satisfies the formula it halts and otherwise it goes into an infinite loop. It is also easy to see that the halting problem is not in <i>NP</i> since all problems in NP are decidable in a finite number of operations, but the halting problem, in general, is <a href="https://en.wikipedia.org/wiki/Undecidable_problem" title="Undecidable problem">undecidable</a>. There are also NP-hard problems that are neither <i>NP-complete</i> nor <i>Undecidable</i>. For instance, the language of <a href="https://en.wikipedia.org/wiki/True_quantified_Boolean_formula" title="True quantified Boolean formula">true quantified Boolean formulas</a> is decidable in <a href="https://en.wikipedia.org/wiki/PSPACE" title="PSPACE">polynomial space</a>, but not in non-deterministic polynomial time (unless NP = <a href="https://en.wikipedia.org/wiki/PSPACE" title="PSPACE">PSPACE</a>).<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">&#91;9&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="NP-naming_convention">NP-naming convention</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=NP-hardness&amp;action=edit&amp;section=4" title="Edit section: NP-naming convention">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>NP-hard problems do not have to be elements of the complexity class NP.
+As NP plays a central role in <a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" title="Computational complexity theory">computational complexity</a>, it is used as the basis of several classes:
+</p>
+<dl><dt><a href="https://en.wikipedia.org/wiki/NP_(complexity)" title="NP (complexity)">NP</a></dt>
+<dd>Class of computational decision problems for which any given <i>yes</i>-solution can be verified as a solution in polynomial time by a deterministic Turing machine (or <i>solvable</i> by a <i>non-deterministic</i> Turing machine in polynomial time).</dd>
+<dt>NP-hard</dt>
+<dd>Class of problems which are at least as hard as the hardest problems in NP. Problems that are NP-hard do not have to be elements of NP; indeed, they may not even be decidable.</dd>
+<dt><a href="https://en.wikipedia.org/wiki/NP-complete" class="mw-redirect" title="NP-complete">NP-complete</a></dt>
+<dd>Class of decision problems which contains the hardest problems in NP. Each NP-complete problem has to be in NP.</dd>
+<dt><a href="https://en.wikipedia.org/wiki/NP-easy" title="NP-easy">NP-easy</a></dt>
+<dd>At most as hard as NP, but not necessarily in NP.</dd>
+<dt><a href="https://en.wikipedia.org/wiki/NP-equivalent" title="NP-equivalent">NP-equivalent</a></dt>
+<dd>Decision problems that are both NP-hard and NP-easy, but not necessarily in NP.</dd>
+<dt><a href="https://en.wikipedia.org/wiki/NP-intermediate" title="NP-intermediate">NP-intermediate</a></dt>
+<dd>If P and NP are different, then there exist decision problems in the region of NP that fall between P and the NP-complete problems. (If P and NP are the same class, then NP-intermediate problems do not exist because in this case every NP-complete problem would fall in P, and by definition, every problem in NP can be reduced to an NP-complete problem.)</dd></dl>
+<h2><span class="mw-headline" id="Application_areas">Application areas</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=NP-hardness&amp;action=edit&amp;section=5" title="Edit section: Application areas">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>NP-hard problems are often tackled with rules-based languages in areas including:
+</p>
+<ul><li><a href="https://en.wikipedia.org/wiki/Approximate_computing" title="Approximate computing">Approximate computing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Configuration_management" title="Configuration management">Configuration</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cryptography" title="Cryptography">Cryptography</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Data_mining" title="Data mining">Data mining</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Decision_support_system" title="Decision support system">Decision support</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Phylogenetics" title="Phylogenetics">Phylogenetics</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Planning" title="Planning">Planning</a></li>
+<li>Process monitoring and control</li>
+<li>Rosters or schedules</li>
+<li>Routing/vehicle routing</li>
+<li><a href="https://en.wikipedia.org/wiki/Schedule" title="Schedule">Scheduling</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=NP-hardness&amp;action=edit&amp;section=6" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-Leeuwen-1"><span class="mw-cite-backlink">^ <a href="#cite_ref-Leeuwen_1-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Leeuwen_1-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-Leeuwen_1-2"><sup><i><b>c</b></i></sup></a></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFLeeuwen1998" class="citation book cs1 cs1-prop-long-vol"><a href="https://en.wikipedia.org/wiki/Jan_van_Leeuwen" title="Jan van Leeuwen">Leeuwen, Jan van</a>, ed. (1998). <i>Handbook of Theoretical Computer Science</i>. Vol.&#160;A, Algorithms and complexity. Amsterdam: Elsevier. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0262720140" title="Special:BookSources/0262720140"><bdi>0262720140</bdi></a>. <a href="https://en.wikipedia.org/wiki/OCLC_(identifier)" class="mw-redirect" title="OCLC (identifier)">OCLC</a>&#160;<a rel="nofollow" class="external text" href="http://www.worldcat.org/oclc/247934368">247934368</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Handbook+of+Theoretical+Computer+Science&amp;rft.place=Amsterdam&amp;rft.pub=Elsevier&amp;rft.date=1998&amp;rft_id=info%3Aoclcnum%2F247934368&amp;rft.isbn=0262720140&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ANP-hardness" class="Z3988"></span></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKnuth1974" class="citation journal cs1">Knuth, Donald (1974). "Postscript about NP-hard problems". <i>ACM SIGACT News</i>. <b>6</b> (2): 15–16. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F1008304.1008305">10.1145/1008304.1008305</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:46480926">46480926</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=ACM+SIGACT+News&amp;rft.atitle=Postscript+about+NP-hard+problems&amp;rft.volume=6&amp;rft.issue=2&amp;rft.pages=15-16&amp;rft.date=1974&amp;rft_id=info%3Adoi%2F10.1145%2F1008304.1008305&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A46480926%23id-name%3DS2CID&amp;rft.aulast=Knuth&amp;rft.aufirst=Donald&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ANP-hardness" class="Z3988"></span></span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFDaniel_Pierre_BovetPierluigi_Crescenzi1994" class="citation book cs1">Daniel Pierre Bovet; Pierluigi Crescenzi (1994). <i>Introduction to the Theory of Complexity</i>. Prentice Hall. p.&#160;69. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-13-915380-2" title="Special:BookSources/0-13-915380-2"><bdi>0-13-915380-2</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Introduction+to+the+Theory+of+Complexity&amp;rft.pages=69&amp;rft.pub=Prentice+Hall&amp;rft.date=1994&amp;rft.isbn=0-13-915380-2&amp;rft.au=Daniel+Pierre+Bovet&amp;rft.au=Pierluigi+Crescenzi&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ANP-hardness" class="Z3988"></span></span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20160919023326/http://www.cs.uky.edu/~lewis/cs-heuristic/text/class/p-np.html">"P and NP"</a>. <i>www.cs.uky.edu</i>. Archived from <a rel="nofollow" class="external text" href="http://www.cs.uky.edu/~lewis/cs-heuristic/text/class/p-np.html">the original</a> on 2016-09-19<span class="reference-accessdate">. Retrieved <span class="nowrap">2016-09-25</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=www.cs.uky.edu&amp;rft.atitle=P+and+NP&amp;rft_id=http%3A%2F%2Fwww.cs.uky.edu%2F~lewis%2Fcs-heuristic%2Ftext%2Fclass%2Fp-np.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ANP-hardness" class="Z3988"></span></span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.scottaaronson.com/blog/?p=1720">"Shtetl-Optimized&#160;» Blog Archive&#160;» The Scientific Case for P≠NP"</a>. <i>www.scottaaronson.com</i><span class="reference-accessdate">. Retrieved <span class="nowrap">2016-09-25</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=www.scottaaronson.com&amp;rft.atitle=Shtetl-Optimized+%C2%BB+Blog+Archive+%C2%BB+The+Scientific+Case+for+P%E2%89%A0NP&amp;rft_id=http%3A%2F%2Fwww.scottaaronson.com%2Fblog%2F%3Fp%3D1720&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ANP-hardness" class="Z3988"></span></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.scottaaronson.com/democritus/lec6.html">"PHYS771 Lecture 6: P, NP, and Friends"</a>. <i>www.scottaaronson.com</i><span class="reference-accessdate">. Retrieved <span class="nowrap">2016-09-25</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=www.scottaaronson.com&amp;rft.atitle=PHYS771+Lecture+6%3A+P%2C+NP%2C+and+Friends&amp;rft_id=http%3A%2F%2Fwww.scottaaronson.com%2Fdemocritus%2Flec6.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ANP-hardness" class="Z3988"></span></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFV._J._Rayward-Smith1986" class="citation book cs1">V. J. Rayward-Smith (1986). <i>A First Course in Computability</i>. Blackwell. p.&#160;159. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-632-01307-9" title="Special:BookSources/0-632-01307-9"><bdi>0-632-01307-9</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=A+First+Course+in+Computability&amp;rft.pages=159&amp;rft.pub=Blackwell&amp;rft.date=1986&amp;rft.isbn=0-632-01307-9&amp;rft.au=V.+J.+Rayward-Smith&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ANP-hardness" class="Z3988"></span></span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFLawlerLenstraRinnooy_KanShmoys1985" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Eugene_Lawler" title="Eugene Lawler">Lawler, E. L.</a>; <a href="https://en.wikipedia.org/wiki/Jan_Karel_Lenstra" title="Jan Karel Lenstra">Lenstra, J. K.</a>; Rinnooy Kan, A. H. G.; Shmoys, D. B. (1985), <span class="cs1-lock-registration" title="Free registration required"><a rel="nofollow" class="external text" href="https://archive.org/details/travelingsalesma00lawl"><i>The Traveling Salesman Problem: A Guided Tour of Combinatorial Optimization</i></a></span>, John Wiley &amp; Sons, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-471-90413-9" title="Special:BookSources/0-471-90413-9"><bdi>0-471-90413-9</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Traveling+Salesman+Problem%3A+A+Guided+Tour+of+Combinatorial+Optimization&amp;rft.pub=John+Wiley+%26+Sons&amp;rft.date=1985&amp;rft.isbn=0-471-90413-9&amp;rft.aulast=Lawler&amp;rft.aufirst=E.+L.&amp;rft.au=Lenstra%2C+J.+K.&amp;rft.au=Rinnooy+Kan%2C+A.+H.+G.&amp;rft.au=Shmoys%2C+D.+B.&amp;rft_id=https%3A%2F%2Farchive.org%2Fdetails%2Ftravelingsalesma00lawl&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ANP-hardness" class="Z3988"></span>.</span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text">More precisely, this language is <a href="https://en.wikipedia.org/wiki/PSPACE-complete" title="PSPACE-complete">PSPACE-complete</a>; see, for example, <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFWegener2005" class="citation cs2">Wegener, Ingo (2005), <a rel="nofollow" class="external text" href="https://books.google.com/books?id=1fo7_KoFUPsC&amp;pg=PA189"><i>Complexity Theory: Exploring the Limits of Efficient Algorithms</i></a>, Springer, p.&#160;189, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/9783540210450" title="Special:BookSources/9783540210450"><bdi>9783540210450</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Complexity+Theory%3A+Exploring+the+Limits+of+Efficient+Algorithms&amp;rft.pages=189&amp;rft.pub=Springer&amp;rft.date=2005&amp;rft.isbn=9783540210450&amp;rft.aulast=Wegener&amp;rft.aufirst=Ingo&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3D1fo7_KoFUPsC%26pg%3DPA189&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ANP-hardness" class="Z3988"></span>.</span>
+</li>
+</ol></div></div>
+<ul><li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFMichael_R._Garey_and_David_S._Johnson1979" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Michael_R._Garey" class="mw-redirect" title="Michael R. Garey">Michael R. Garey</a> and <a href="https://en.wikipedia.org/wiki/David_S._Johnson" title="David S. Johnson">David S. Johnson</a> (1979). <a href="https://en.wikipedia.org/wiki/Computers_and_Intractability:_A_Guide_to_the_Theory_of_NP-Completeness" class="mw-redirect" title="Computers and Intractability: A Guide to the Theory of NP-Completeness"><i>Computers and Intractability: A Guide to the Theory of NP-Completeness</i></a>. W.H. Freeman. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-7167-1045-5" title="Special:BookSources/0-7167-1045-5"><bdi>0-7167-1045-5</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Computers+and+Intractability%3A+A+Guide+to+the+Theory+of+NP-Completeness&amp;rft.pub=W.H.+Freeman&amp;rft.date=1979&amp;rft.isbn=0-7167-1045-5&amp;rft.au=Michael+R.+Garey+and+David+S.+Johnson&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ANP-hardness" class="Z3988"></span></li></ul>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Important_complexity_classes_(more)" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Complexity_classes" title="Template:Complexity classes"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Complexity_classes" title="Template talk:Complexity classes"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Complexity_classes&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Important_complexity_classes_(more)" style="font-size:114%;margin:0 4em">Important <a href="https://en.wikipedia.org/wiki/Complexity_class" title="Complexity class">complexity classes</a> (<a href="https://en.wikipedia.org/wiki/List_of_complexity_classes" title="List of complexity classes">more</a>)</div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Considered feasible</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/DLOGTIME" title="DLOGTIME">DLOGTIME</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AC0" title="AC0">AC<sup>0</sup></a></li>
+<li><a href="https://en.wikipedia.org/wiki/ACC0" title="ACC0">ACC<sup>0</sup></a></li>
+<li><a href="https://en.wikipedia.org/wiki/TC0" title="TC0">TC<sup>0</sup></a></li>
+<li><a href="https://en.wikipedia.org/wiki/L_(complexity)" title="L (complexity)">L</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SL_(complexity)" title="SL (complexity)">SL</a></li>
+<li><a href="https://en.wikipedia.org/wiki/RL_(complexity)" title="RL (complexity)">RL</a></li>
+<li><a href="https://en.wikipedia.org/wiki/NL_(complexity)" title="NL (complexity)">NL</a></li>
+<li><a href="https://en.wikipedia.org/wiki/NC_(complexity)" title="NC (complexity)">NC</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SC_(complexity)" title="SC (complexity)">SC</a></li>
+<li><a href="https://en.wikipedia.org/wiki/CC_(complexity)" title="CC (complexity)">CC</a></li>
+<li><a href="https://en.wikipedia.org/wiki/P_(complexity)" title="P (complexity)">P</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/P-complete" title="P-complete">P-complete</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/ZPP_(complexity)" title="ZPP (complexity)">ZPP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/RP_(complexity)" title="RP (complexity)">RP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/BPP_(complexity)" title="BPP (complexity)">BPP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/BQP" title="BQP">BQP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/APX" title="APX">APX</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Suspected infeasible</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/UP_(complexity)" title="UP (complexity)">UP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/NP_(complexity)" title="NP (complexity)">NP</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/NP-completeness" title="NP-completeness">NP-complete</a></li>
+<li><a class="mw-selflink selflink">NP-hard</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Co-NP" title="Co-NP">co-NP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Co-NP-complete" title="Co-NP-complete">co-NP-complete</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Arthur–Merlin_protocol" title="Arthur–Merlin protocol">AM</a></li>
+<li><a href="https://en.wikipedia.org/wiki/QMA" title="QMA">QMA</a></li>
+<li><a href="https://en.wikipedia.org/wiki/PH_(complexity)" title="PH (complexity)">PH</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Parity_P" title="Parity P">⊕P</a></li>
+<li><a href="https://en.wikipedia.org/wiki/PP_(complexity)" title="PP (complexity)">PP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/♯P" title="♯P">#P</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/♯P-complete" title="♯P-complete">#P-complete</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/IP_(complexity)" title="IP (complexity)">IP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/PSPACE" title="PSPACE">PSPACE</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/PSPACE-complete" title="PSPACE-complete">PSPACE-complete</a></li></ul></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Considered infeasible</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/EXPTIME" title="EXPTIME">EXPTIME</a></li>
+<li><a href="https://en.wikipedia.org/wiki/NEXPTIME" title="NEXPTIME">NEXPTIME</a></li>
+<li><a href="https://en.wikipedia.org/wiki/EXPSPACE" title="EXPSPACE">EXPSPACE</a></li>
+<li><a href="https://en.wikipedia.org/wiki/2-EXPTIME" title="2-EXPTIME">2-EXPTIME</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ELEMENTARY" title="ELEMENTARY">ELEMENTARY</a></li>
+<li><a href="https://en.wikipedia.org/wiki/PR_(complexity)" title="PR (complexity)">PR</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R_(complexity)" title="R (complexity)">R</a></li>
+<li><a href="https://en.wikipedia.org/wiki/RE_(complexity)" title="RE (complexity)">RE</a></li>
+<li><a href="https://en.wikipedia.org/wiki/ALL_(complexity)" title="ALL (complexity)">ALL</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Class hierarchies</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Polynomial_hierarchy" title="Polynomial hierarchy">Polynomial hierarchy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Exponential_hierarchy" title="Exponential hierarchy">Exponential hierarchy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Grzegorczyk_hierarchy" title="Grzegorczyk hierarchy">Grzegorczyk hierarchy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Arithmetical_hierarchy" title="Arithmetical hierarchy">Arithmetical hierarchy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Boolean_hierarchy" title="Boolean hierarchy">Boolean hierarchy</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Families of classes</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/DTIME" title="DTIME">DTIME</a></li>
+<li><a href="https://en.wikipedia.org/wiki/NTIME" title="NTIME">NTIME</a></li>
+<li><a href="https://en.wikipedia.org/wiki/DSPACE" title="DSPACE">DSPACE</a></li>
+<li><a href="https://en.wikipedia.org/wiki/NSPACE" title="NSPACE">NSPACE</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Probabilistically_checkable_proof" title="Probabilistically checkable proof">Probabilistically checkable proof</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interactive_proof_system" title="Interactive proof system">Interactive proof system</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1349
+Cached time: 20220414134444
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.415 seconds
+Real time usage: 0.515 seconds
+Preprocessor visited node count: 1192/1000000
+Post‐expand include size: 28546/2097152 bytes
+Template argument size: 438/2097152 bytes
+Highest expansion depth: 16/100
+Expensive parser function count: 1/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 32389/5000000 bytes
+Lua time usage: 0.253/10.000 seconds
+Lua memory usage: 4985847/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  435.316      1 -total
+ 43.06%  187.428      1 Template:Reflist
+ 28.96%  126.061      4 Template:Cite_book
+ 20.12%   87.601      1 Template:Short_description
+ 16.19%   70.489      1 Template:ComplexityClasses
+ 15.20%   66.182      1 Template:Navbox
+ 12.06%   52.495      1 Template:Pagetype
+  9.32%   40.566      2 Template:Rp
+  8.50%   37.011      2 Template:R/superscript
+  6.92%   30.127      1 Template:For
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:54681-0!canonical and timestamp 20220414134443 and revision id 1068948912. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=NP-hardness&amp;oldid=1068948912">https://en.wikipedia.org/w/index.php?title=NP-hardness&amp;oldid=1068948912</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:NP-hard_problems" title="Category:NP-hard problems">NP-hard problems</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Complexity_classes" title="Category:Complexity classes">Complexity classes</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:CS1:_long_volume_value" title="Category:CS1: long volume value">CS1: long volume value</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_matches_Wikidata" title="Category:Short description matches Wikidata">Short description matches Wikidata</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=NP-hardness" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=NP-hardness" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/NP-hardness" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:NP-hardness" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/NP-hardness"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=NP-hardness&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=NP-hardness&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/NP-hardness" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/NP-hardness" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=NP-hardness&amp;oldid=1068948912" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=NP-hardness&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=NP-hardness&amp;id=1068948912&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q1137554" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=NP-hardness&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=NP-hardness&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-ar mw-list-item"><a href="https://ar.wikipedia.org/wiki/مسائل_NP_صعبة" title="مسائل NP صعبة – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target"><span>العربية</span></a></li><li class="interlanguage-link interwiki-zh-min-nan mw-list-item"><a href="https://zh-min-nan.wikipedia.org/wiki/NP-khùn-lân" title="NP-khùn-lân – Chinese (Min Nan)" lang="nan" hreflang="nan" class="interlanguage-link-target"><span>Bân-lâm-gú</span></a></li><li class="interlanguage-link interwiki-ca mw-list-item"><a href="https://ca.wikipedia.org/wiki/NP-difícil" title="NP-difícil – Catalan" lang="ca" hreflang="ca" class="interlanguage-link-target"><span>Català</span></a></li><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/NP-Schwere" title="NP-Schwere – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/NP-hard" title="NP-hard – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-eo mw-list-item"><a href="https://eo.wikipedia.org/wiki/NP-peza" title="NP-peza – Esperanto" lang="eo" hreflang="eo" class="interlanguage-link-target"><span>Esperanto</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/ان‌پی_سخت" title="ان‌پی سخت – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/NP-difficile" title="NP-difficile – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-ko mw-list-item"><a href="https://ko.wikipedia.org/wiki/NP-난해" title="NP-난해 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target"><span>한국어</span></a></li><li class="interlanguage-link interwiki-it mw-list-item"><a href="https://it.wikipedia.org/wiki/NP-difficile" title="NP-difficile – Italian" lang="it" hreflang="it" class="interlanguage-link-target"><span>Italiano</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/NP-קשיות" title="NP-קשיות – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-nl mw-list-item"><a href="https://nl.wikipedia.org/wiki/NP-moeilijk" title="NP-moeilijk – Dutch" lang="nl" hreflang="nl" class="interlanguage-link-target"><span>Nederlands</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/NP困難" title="NP困難 – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-no mw-list-item"><a href="https://no.wikipedia.org/wiki/NP-hardt" title="NP-hardt – Norwegian Bokmål" lang="nb" hreflang="nb" class="interlanguage-link-target"><span>Norsk bokmål</span></a></li><li class="interlanguage-link interwiki-nn mw-list-item"><a href="https://nn.wikipedia.org/wiki/NP-hardt" title="NP-hardt – Norwegian Nynorsk" lang="nn" hreflang="nn" class="interlanguage-link-target"><span>Norsk nynorsk</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Problem_NP-trudny" title="Problem NP-trudny – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/NP-difícil" title="NP-difícil – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-ro mw-list-item"><a href="https://ro.wikipedia.org/wiki/NP-hard" title="NP-hard – Romanian" lang="ro" hreflang="ro" class="interlanguage-link-target"><span>Română</span></a></li><li class="interlanguage-link interwiki-simple mw-list-item"><a href="https://simple.wikipedia.org/wiki/NP-hardness" title="NP-hardness – Simple English" lang="en-simple" hreflang="en-simple" class="interlanguage-link-target"><span>Simple English</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/НП-тешки_проблеми" title="НП-тешки проблеми – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/NP-складна_задача" title="NP-складна задача – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-vi mw-list-item"><a href="https://vi.wikipedia.org/wiki/NP-khó" title="NP-khó – Vietnamese" lang="vi" hreflang="vi" class="interlanguage-link-target"><span>Tiếng Việt</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/NP困难" title="NP困难 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q1137554#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 30 January 2022, at 23:10<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=NP-hardness&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.415","walltime":"0.515","ppvisitednodes":{"value":1192,"limit":1000000},"postexpandincludesize":{"value":28546,"limit":2097152},"templateargumentsize":{"value":438,"limit":2097152},"expansiondepth":{"value":16,"limit":100},"expensivefunctioncount":{"value":1,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":32389,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  435.316      1 -total"," 43.06%  187.428      1 Template:Reflist"," 28.96%  126.061      4 Template:Cite_book"," 20.12%   87.601      1 Template:Short_description"," 16.19%   70.489      1 Template:ComplexityClasses"," 15.20%   66.182      1 Template:Navbox"," 12.06%   52.495      1 Template:Pagetype","  9.32%   40.566      2 Template:Rp","  8.50%   37.011      2 Template:R/superscript","  6.92%   30.127      1 Template:For"]},"scribunto":{"limitreport-timeusage":{"value":"0.253","limit":"10.000"},"limitreport-memusage":{"value":4985847,"limit":52428800}},"cachereport":{"origin":"mw1349","timestamp":"20220414134444","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"NP-hardness","url":"https:\/\/en.wikipedia.org\/wiki\/NP-hardness","sameAs":"http:\/\/www.wikidata.org\/entity\/Q1137554","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q1137554","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2001-12-03T09:33:20Z","dateModified":"2022-01-30T23:10:58Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/a\/a0\/P_np_np-complete_np-hard.svg","headline":"complexity class"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"NP-hardness","url":"https:\/\/en.wikipedia.org\/wiki\/NP-hardness","sameAs":"http:\/\/www.wikidata.org\/entity\/Q1137554","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q1137554","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2001-12-03T09:33:20Z","dateModified":"2022-01-30T23:10:58Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/a\/a0\/P_np_np-complete_np-hard.svg","headline":"complexity class"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":150,"wgHostname":"mw1323"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/NP-hard by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:52 GMT -->
+</html>

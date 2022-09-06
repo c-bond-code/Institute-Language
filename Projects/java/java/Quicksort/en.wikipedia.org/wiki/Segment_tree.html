@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Segment_tree by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Segment tree - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"be0bcccb-1d8d-44ca-804b-bedd885ae169","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Segment_tree","wgTitle":"Segment tree","wgCurRevisionId":1076478019,"wgRevisionId":1076478019,"wgArticleId":13682464,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles with short description","Short description is different from Wikidata","Articles needing additional references from November 2007","All articles needing additional references","Wikipedia articles that are too technical from October 2020","All articles that are too technical",
+"All articles with specifically marked weasel-worded phrases","Articles with specifically marked weasel-worded phrases from February 2014","Articles to be expanded from November 2007","All articles to be expanded","Articles using small message boxes","Trees (data structures)","Binary trees","Computer graphics data structures"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Segment_tree","wgRelevantArticleId":13682464,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":10000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10
+,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q2377385"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","ext.scribunto.logs","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming",
+"ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="Segment tree - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Segment_tree"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Segment_tree"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Segment_tree rootpage-Segment_tree skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Segment tree</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Data structure used in programming</div>
+<style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">This article is about the data structure used to store segments. For a different data structure only used to efficiently calculate prefix sums, see <a href="https://en.wikipedia.org/wiki/Fenwick_tree" title="Fenwick tree">Fenwick tree</a>.</div>
+<table class="box-One_source plainlinks metadata ambox ambox-content ambox-one_source" role="presentation"><tbody><tr><td class="mbox-image"><div style="width:52px"><a href="https://en.wikipedia.org/wiki/File:Question_book-new.svg" class="image"><img alt="Question book-new.svg" src="http://upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/50px-Question_book-new.svg.png" decoding="async" width="50" height="39" srcset="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/75px-Question_book-new.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/100px-Question_book-new.svg.png 2x" data-file-width="512" data-file-height="399" /></a></div></td><td class="mbox-text"><div class="mbox-text-span">This article <b>relies largely or entirely on a <a href="https://en.wikipedia.org/wiki/Wikipedia:Articles_with_a_single_source" title="Wikipedia:Articles with a single source">single source</a></b>.<span class="hide-when-compact"> Relevant discussion may be found on the <a href="https://en.wikipedia.org/wiki/Talk:Segment_tree##" title="Talk:Segment tree">talk page</a>. Please help <a class="external text" href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;action=edit">improve this article</a> by <a href="https://en.wikipedia.org/wiki/Help:Referencing_for_beginners" title="Help:Referencing for beginners">introducing  citations to additional sources</a>.<br /><small><span class="plainlinks"><i>Find sources:</i>&#160;<a rel="nofollow" class="external text" href="http://www.google.com/search?as_eq=wikipedia&amp;q=%22Segment+tree%22">"Segment tree"</a>&#160;–&#160;<a rel="nofollow" class="external text" href="http://www.google.com/search?tbm=nws&amp;q=%22Segment+tree%22+-wikipedia&amp;tbs=ar:1">news</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="http://www.google.com/search?&amp;q=%22Segment+tree%22&amp;tbs=bkt:s&amp;tbm=bks">newspapers</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="http://www.google.com/search?tbs=bks:1&amp;q=%22Segment+tree%22+-wikipedia">books</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="http://scholar.google.com/scholar?q=%22Segment+tree%22">scholar</a>&#160;<b>·</b> <a rel="nofollow" class="external text" href="https://www.jstor.org/action/doBasicSearch?Query=%22Segment+tree%22&amp;acc=on&amp;wc=on">JSTOR</a></span></small></span>  <span class="date-container"><i>(<span class="date">November 2007</span>)</i></span></div></td></tr></tbody></table><table class="box-Technical plainlinks metadata ambox ambox-style ambox-technical" role="presentation"><tbody><tr><td class="mbox-image"><div style="width:52px"><img alt="" src="http://upload.wikimedia.org/wikipedia/en/thumb/f/f2/Edit-clear.svg/40px-Edit-clear.svg.png" decoding="async" width="40" height="40" srcset="//upload.wikimedia.org/wikipedia/en/thumb/f/f2/Edit-clear.svg/60px-Edit-clear.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/f/f2/Edit-clear.svg/80px-Edit-clear.svg.png 2x" data-file-width="48" data-file-height="48" /></div></td><td class="mbox-text"><div class="mbox-text-span">This article <b>may be too technical for most readers to understand</b>.<span class="hide-when-compact"> Please <a class="external text" href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;action=edit">help improve it</a> to <a href="https://en.wikipedia.org/wiki/Wikipedia:Make_technical_articles_understandable" title="Wikipedia:Make technical articles understandable">make it understandable to non-experts</a>, without removing the technical details.</span>  <span class="date-container"><i>(<span class="date">October 2020</span>)</i></span><span class="hide-when-compact"><i> (<small><a href="https://en.wikipedia.org/wiki/Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this template message</a></small>)</i></span></div></td></tr></tbody></table>
+<p>In <a href="https://en.wikipedia.org/wiki/Computer_science" title="Computer science">computer science</a>, a <b>segment tree,</b> also known as a statistic tree, is a <a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" title="Tree (data structure)">tree</a> <a href="https://en.wikipedia.org/wiki/Data_structure" title="Data structure">data structure</a> used for storing information about <a href="https://en.wikipedia.org/wiki/Interval_(mathematics)" title="Interval (mathematics)">intervals</a>, or segments. It allows querying which of the stored segments contain a given point. It is, in principle, a static structure; that is, it's a structure that cannot be modified once it's built.  A similar data structure is the <a href="https://en.wikipedia.org/wiki/Interval_tree" title="Interval tree">interval tree</a>.
+</p><p>A segment tree for a set <span class="texhtml mvar" style="font-style:italic;">I</span> of <i>n</i> intervals uses <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation"><i>O</i></a>(<i>n</i> log <i>n</i>) storage and can be built in <i>O</i>(<i>n</i> log <i>n</i>) time. Segment trees support searching for all the intervals that contain a query point in time <i>O</i>(log <i>n</i> + <i>k</i>), <i>k</i> being the number of retrieved intervals or segments.<sup id="cite_ref-Schwarzkopf1_1-0" class="reference"><a href="#cite_note-Schwarzkopf1-1">&#91;1&#93;</a></sup>
+</p><p>Applications of the segment tree are in the areas of <a href="https://en.wikipedia.org/wiki/Computational_geometry" title="Computational geometry">computational geometry</a>, <a href="https://en.wikipedia.org/wiki/Geographic_information_systems" class="mw-redirect" title="Geographic information systems">geographic information systems</a> and <a href="https://en.wikipedia.org/wiki/Machine_learning" title="Machine learning">machine learning</a>.
+</p><p>The segment tree can be generalized to higher <a href="https://en.wikipedia.org/wiki/Dimension" title="Dimension">dimension</a> spaces.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Structure_description"><span class="tocnumber">1</span> <span class="toctext">Structure description</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Storage_requirements"><span class="tocnumber">2</span> <span class="toctext">Storage requirements</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Construction"><span class="tocnumber">3</span> <span class="toctext">Construction</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Query"><span class="tocnumber">4</span> <span class="toctext">Query</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Generalization_for_higher_dimensions"><span class="tocnumber">5</span> <span class="toctext">Generalization for higher dimensions</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Notes"><span class="tocnumber">6</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#History"><span class="tocnumber">7</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Sources_cited"><span class="tocnumber">9</span> <span class="toctext">Sources cited</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#External_links"><span class="tocnumber">10</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Structure_description">Structure description</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;action=edit&amp;section=1" title="Edit section: Structure description">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><i>This section describes the structure of a segment tree in a one-dimensional space.</i>
+</p><p>Let <i>S</i> be a set of intervals, or segments. Let <i>p</i><sub>1</sub>, <i>p</i><sub>2</sub>, ..., <i>p<sub>m</sub></i> be the list of distinct interval endpoints, sorted from left to right. Consider the partitioning of the real line induced by those points. The regions of this partitioning are called <i>elementary intervals</i>. Thus, the elementary intervals are, from left to right:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (-\infty ,p_{1}),[p_{1},p_{1}],(p_{1},p_{2}),[p_{2},p_{2}],\dots ,(p_{m-1},p_{m}),[p_{m},p_{m}],(p_{m},+\infty )}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi mathvariant="normal">&#x221E;<!-- ∞ --></mi>
+        <mo>,</mo>
+        <msub>
+          <mi>p</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+        <mo stretchy="false">[</mo>
+        <msub>
+          <mi>p</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>p</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">]</mo>
+        <mo>,</mo>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>p</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>p</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+        <mo stretchy="false">[</mo>
+        <msub>
+          <mi>p</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>p</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">]</mo>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>p</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>m</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>p</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>m</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+        <mo stretchy="false">[</mo>
+        <msub>
+          <mi>p</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>m</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>p</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>m</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">]</mo>
+        <mo>,</mo>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>p</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>m</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>+</mo>
+        <mi mathvariant="normal">&#x221E;<!-- ∞ --></mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (-\infty ,p_{1}),[p_{1},p_{1}],(p_{1},p_{2}),[p_{2},p_{2}],\dots ,(p_{m-1},p_{m}),[p_{m},p_{m}],(p_{m},+\infty )}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d7d38ca3ad16c39bc9f67a6e0601c8e82ff59358" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:68.856ex; height:2.843ex;" alt="{\displaystyle (-\infty ,p_{1}),[p_{1},p_{1}],(p_{1},p_{2}),[p_{2},p_{2}],\dots ,(p_{m-1},p_{m}),[p_{m},p_{m}],(p_{m},+\infty )}"/></span></dd></dl>
+<p>That is, the list of elementary intervals consists of open intervals between two consecutive endpoints <i>p<sub>i</sub></i> and <i>p</i><sub><i>i</i>+1</sub>, alternated with closed intervals consisting of a single endpoint. Single points are treated themselves as intervals because the answer to a query is not necessarily the same at the interior of an elementary interval and its endpoints.<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup>
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:422px;"><a href="https://en.wikipedia.org/wiki/File:Segment_tree.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Segment_tree.svg/420px-Segment_tree.svg.png" decoding="async" width="420" height="319" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Segment_tree.svg/630px-Segment_tree.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Segment_tree.svg/840px-Segment_tree.svg.png 2x" data-file-width="1923" data-file-height="1459" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Segment_tree.svg" class="internal" title="Enlarge"></a></div>Graphic example of the structure of the segment tree. This instance is built for the segments shown at the bottom.</div></div></div>
+<p>Given a set <span class="texhtml mvar" style="font-style:italic;">I</span> of intervals, or segments, a segment tree <i>T</i> for <span class="texhtml mvar" style="font-style:italic;">I</span> is structured as follows:
+</p>
+<ul><li><i>T</i> is a <a href="https://en.wikipedia.org/wiki/Binary_tree" title="Binary tree">binary tree</a>.</li>
+<li>Its <a href="https://en.wikipedia.org/wiki/Leaf_node" class="mw-redirect" title="Leaf node">leaves</a> correspond to the elementary intervals induced by the endpoints in <span class="texhtml mvar" style="font-style:italic;">I</span>, in an ordered way: the leftmost leaf corresponds to the leftmost interval, and so on. The elementary interval corresponding to a leaf <i>v</i> is denoted Int(<i>v</i>).</li>
+<li>The <a href="https://en.wikipedia.org/wiki/Internal_node" class="mw-redirect" title="Internal node">internal nodes</a> of <i>T</i>  correspond to intervals that are the <a href="https://en.wikipedia.org/wiki/Union_(set_theory)" title="Union (set theory)">union</a>  of elementary intervals: the interval Int(<i>N</i>) corresponding to node <i>N</i> is the union of the intervals corresponding to the leaves of the tree rooted at <i>N</i>. That implies that Int(<i>N</i>) is the union of the intervals of its two children.</li>
+<li>Each node or leaf <i>v</i> in <i>T</i> stores the interval Int(<i>v</i>) and a set   of intervals, in some data structure. This canonical subset of node <i>v</i> contains the intervals [<i>x</i>, <i>x&#8242;</i>] from <span class="texhtml mvar" style="font-style:italic;">I</span> such that [<i>x</i>, <i>x&#8242;</i>] contains Int(<i>v</i>) and does not contain Int(parent(<i>v</i>)). That is, each node in <i>T</i> stores the segments that span through its interval, but do not span through the interval of its parent.<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup></li></ul>
+<div style="clear:both;"></div>
+<h2><span class="mw-headline" id="Storage_requirements">Storage requirements</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;action=edit&amp;section=2" title="Edit section: Storage requirements">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><i>This section analyzes the storage cost of a segment tree in a one-dimensional space.</i>
+</p><p>A segment tree <i>T</i> on a set <span class="texhtml mvar" style="font-style:italic;">I</span> of <i>n</i> intervals uses <i>O</i>(<i>n</i> log <i>n</i>) storage.
+</p>
+<style data-mw-deduplicate="TemplateStyles:r1083668932">.mw-parser-output .math_theorem{margin:1em 2em;padding:0.5em 1em 0.4em;border:1px solid #aaa}@media(max-width:500px){.mw-parser-output .math_theorem{margin:1em 0em;padding:0.5em 0.5em 0.4em}}</style><div class="math_theorem" style="">
+<p><strong class="theorem-name"><i>Lemma</i></strong><span class="theoreme-tiret">&#160;&#8212;&#160;</span> Any interval [<i>x</i>, <i>x&#8242;</i>] of <span class="texhtml mvar" style="font-style:italic;">I</span> is stored in the canonical set for at most two nodes at the same depth.
+</p>
+</div>
+<style data-mw-deduplicate="TemplateStyles:r1037201836">.mw-parser-output .math_proof{border:thin solid #aaa;margin:1em 2em;padding:0.5em 1em 0.4em;text-align:justify}@media(max-width:500px){.mw-parser-output .math_proof{margin:1em 0;padding:0.5em 0.5em 0.4em}}</style><div class="math_proof" style=""><strong>Proof</strong>
+<p>Let <i>v</i><sub>1</sub>, <i>v</i><sub>2</sub>, <i>v</i><sub>3</sub> be the three nodes at the same depth, numbered from left to right; and let p(<i>v</i>) be the parent node of any given node <i>v</i>. Suppose [<i>x</i>, <i>x&#8242;</i>] is stored at <i>v</i><sub>1</sub> and <i>v</i><sub>3</sub>. This means that [<i>x</i>, <i>x&#8242;</i>] spans the whole interval from the left endpoint of Int(<i>v</i><sub>1</sub>) to the right endpoint of Int(<i>v</i><sub>3</sub>). Note that all segments at a particular level are non-overlapping and ordered from left to right: this is true by construction for the level containing the leaves, and the property is not lost when moving from any level to the one above it by combining pairs of adjacent segments. Now either parent(<i>v</i><sub>2</sub>) = parent(<i>v</i><sub>1</sub>), or the former is to the right of the latter (edges in the tree do not cross). In the first case, Int(parent(<i>v</i><sub>2</sub>))'s leftmost point is the same as Int(<i>v</i><sub>1</sub>)'s leftmost point; in the second case, Int(parent(<i>v</i><sub>2</sub>))'s leftmost point is to the right of Int(parent(<i>v</i><sub>1</sub>))'s rightmost point, and therefore also to the right of Int(<i>v</i><sub>1</sub>)'s rightmost point. In both cases, Int(parent(<i>v</i><sub>2</sub>)) begins at or to the right of Int(<i>v</i><sub>1</sub>)'s leftmost point. Similar reasoning shows that Int(parent(<i>v</i><sub>2</sub>)) ends at or to the left of Int(<i>v</i><sub>3</sub>)'s rightmost point. Int(parent(<i>v</i><sub>2</sub>)) must therefore be contained in [<i>x</i>, <i>x&#8242;</i>]; hence, [<i>x</i>, <i>x&#8242;</i>] will not be stored at <i>v</i><sub>2</sub>.
+</p>
+</div>
+<dl><dd>The set <span class="texhtml mvar" style="font-style:italic;">I</span> has at most 4<i>n</i> + 1 elementary intervals. Because <i>T</i> is a binary balanced tree with at most 4<i>n</i> + 1 leaves, its height is O(log <i>n</i>). Since any interval is stored at most twice at a given depth of the tree, that the total amount of storage is <i>O</i>(<i>n</i> log <i>n</i>).<sup id="cite_ref-Schwarzkopf2_4-0" class="reference"><a href="#cite_note-Schwarzkopf2-4">&#91;4&#93;</a></sup></dd></dl>
+<h2><span class="mw-headline" id="Construction">Construction</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;action=edit&amp;section=3" title="Edit section: Construction">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><i>This section describes the construction of a segment tree in a one-dimensional space.</i>
+</p><p>A segment tree from the set of segments <span class="texhtml mvar" style="font-style:italic;">I</span>, can be built as follows. First, the endpoints of the intervals in <span class="texhtml mvar" style="font-style:italic;">I</span> are sorted. The elementary intervals are obtained from that. Then, a balanced binary tree is built on the elementary intervals, and for each node <i>v</i> it is determined the interval Int(<i>v</i>) it represents. It remains to compute the canonical subsets for the nodes. To achieve this, the intervals in <span class="texhtml mvar" style="font-style:italic;">I</span> are inserted one by one into the segment tree. An interval <i>X</i> = [<i>x</i>, <i>x&#8242;</i>] can be inserted in a subtree rooted at <i>T</i>, using the following procedure:<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup>
+</p>
+<ul><li>If Int(<i>T</i>) is contained in <i>X</i> then store <i>X</i> at <i>T</i>, and finish.</li>
+<li>Else:
+<ul><li>If <i>X</i> intersects the interval of the left child of <i>T</i>, then insert <i>X</i> in that child, recursively.</li>
+<li>If <i>X</i> intersects the interval of the right child of <i>T</i>, then insert <i>X</i> in that child, recursively.</li></ul></li></ul>
+<p>The complete construction operation takes <i>O</i>(<i>n</i> log <i>n</i>) time, <i>n</i> being the number of segments in <span class="texhtml mvar" style="font-style:italic;">I</span>.
+</p>
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1037201836"/><div class="math_proof" style=""><strong>Proof</strong>
+<dl><dd>Sorting the endpoints takes <i>O</i>(<i>n</i> log <i>n</i>). Building a balanced binary tree from the sorted endpoints, takes linear time on <i>n</i>.</dd>
+<dd>The insertion of an interval <i>X</i> = [<i>x</i>, <i>x&#8242;</i>] into the tree, costs O(log <i>n</i>).</dd></dl>
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1037201836"/><div class="math_proof" style=""><strong>Proof</strong>
+<p>Visiting every node takes constant time (assuming that canonical subsets are stored in a simple data structure like a <a href="https://en.wikipedia.org/wiki/Linked_list" title="Linked list">linked list</a>). When we visit node <i>v</i>, we either store <i>X</i> at <i>v</i>, or Int(<i>v</i>) contains an endpoint of <i>X</i>. As proved above, an interval is stored at most twice at each level of the tree. There is also at most one node at every level whose corresponding interval contains <i>x</i>, and one node whose interval contains <i>x&#8242;</i>. So, at most four nodes per level are visited. Since there are <i>O</i>(log <i>n</i>) levels, the total cost of the insertion is <i>O</i>(log <i>n</i>).<sup id="cite_ref-Schwarzkopf1_1-1" class="reference"><a href="#cite_note-Schwarzkopf1-1">&#91;1&#93;</a></sup>
+</p>
+</div>
+</div>
+<h2><span class="mw-headline" id="Query">Query</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;action=edit&amp;section=4" title="Edit section: Query">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><i>This section describes the query operation of a segment tree in a one-dimensional space.</i>
+</p><p>A query for a segment tree, receives a point <i>q<sub>x</sub></i>(should be one of the leaves of tree), and retrieves a list of all the segments stored which contain the point <i>q<sub>x</sub></i>.
+</p><p>Formally stated; given a node (subtree) <i>v</i> and a query point <i>q<sub>x</sub></i>, the query can be done using the following algorithm:
+</p>
+<ol><li>Report all the intervals in <span class="texhtml"><i>I</i>(<i>v</i>)</span>.</li>
+<li>If <i>v</i> is not a leaf:
+<ul><li>If <i>q<sub>x</sub></i> is in Int(left child of <i>v</i>) then
+<ul><li>Perform a query in the left child of <i>v</i>.</li></ul></li>
+<li>If <i>q<sub>x</sub></i> is in Int(right child of <i>v</i>) then
+<ul><li>Perform a query in the right child of <i>v</i>.</li></ul></li></ul></li></ol>
+<p>In a segment tree that contains <i>n</i> intervals, those containing a given query point can be reported in <i>O</i>(log <i>n</i> + <i>k</i>) time, where <i>k</i> is the number of reported intervals.
+</p>
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1037201836"/><div class="math_proof" style=""><strong>Proof</strong>
+<p>The query algorithm visits one node per level of the tree, so <i>O</i>(log <i>n</i>) nodes in total. On the other hand, at a node <i>v</i>, the segments in <span class="texhtml mvar" style="font-style:italic;">I</span> are reported in <i>O</i>(1 + <i>k<sub>v</sub></i>) time, where <i>k<sub>v</sub></i> is the number of intervals at node <i>v</i>, reported. The sum of all the <i>k<sub>v</sub></i> for all nodes <i>v</i> visited, is <i>k</i>, the number of reported segments.<sup id="cite_ref-Schwarzkopf2_4-1" class="reference"><a href="#cite_note-Schwarzkopf2-4">&#91;4&#93;</a></sup>
+</p>
+</div>
+<h2><span class="mw-headline" id="Generalization_for_higher_dimensions">Generalization for higher dimensions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;action=edit&amp;section=5" title="Edit section: Generalization for higher dimensions">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The segment tree can be generalized to higher dimension spaces, in the form of multi-level segment trees. In higher dimensional versions, the segment tree stores a collection of axis-parallel (hyper-)rectangles, and can retrieve the rectangles that contain a given query point. The structure uses <i>O</i>(<i>n</i> log<sup><i>d</i></sup> <i>n</i>) storage, and answers queries in <i>O</i>(log<sup><i>d</i></sup> <i>n</i>).
+</p><p>The use of <a href="https://en.wikipedia.org/wiki/Fractional_cascading" title="Fractional cascading">fractional cascading</a> lowers the query time bound by a logarithmic factor. The use of the <a href="https://en.wikipedia.org/wiki/Interval_tree" title="Interval tree">interval tree</a> on the deepest level of associated structures lowers the storage bound by a logarithmic factor.<sup id="cite_ref-Schwarzkopf3_6-0" class="reference"><a href="#cite_note-Schwarzkopf3-6">&#91;6&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;action=edit&amp;section=6" title="Edit section: Notes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A query that asks for all the intervals containing a given point is often referred as a <i>stabbing query</i>.<sup id="cite_ref-Schwarzkopf4_7-0" class="reference"><a href="#cite_note-Schwarzkopf4-7">&#91;7&#93;</a></sup>
+</p><p>The segment tree is less efficient than the <a href="https://en.wikipedia.org/wiki/Interval_tree" title="Interval tree">interval tree</a> for range queries in one dimension, due to its higher storage requirement: <i>O</i>(<i>n</i> log <i>n</i>) against the O(<i>n</i>) of the interval tree. The importance of the segment tree is that the segments within each node’s canonical subset can be stored in any arbitrary manner.<sup id="cite_ref-Schwarzkopf4_7-1" class="reference"><a href="#cite_note-Schwarzkopf4-7">&#91;7&#93;</a></sup>
+</p><p>For <i>n</i> intervals whose endpoints are in a small integer range (e.g., in the range [1,&#8230;,<i>O</i>(<i>n</i>)]), optimal data structures<sup class="noprint Inline-Template" style="white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Avoid_weasel_words" class="mw-redirect" title="Wikipedia:Avoid weasel words"><span title="The material near this tag possibly uses too vague attribution or weasel words. (February 2014)">which?</span></a></i>&#93;</sup> exist with a linear preprocessing time and query time <i>O</i>(1 + <i>k</i>) for reporting all <i>k</i> intervals containing a given query point.
+</p><p>Another advantage of the segment tree is that it can easily be adapted to counting queries; that is, to report the number of segments containing a given point, instead of reporting the segments themselves. Instead of storing the intervals in the canonical subsets, it can simply store the number of them. Such a segment tree uses linear storage, and requires an <i>O</i>(log <i>n</i>) query time, so it is optimal.<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup>
+</p><p>Higher dimensional versions of the interval tree and the <a href="https://en.wikipedia.org/wiki/Priority_search_tree" title="Priority search tree">priority search tree</a> do not exist; that is, there is no clear extension of these structures that solves the analogous problem in higher dimensions. But the structures can be used as associated structure of segment trees.<sup id="cite_ref-Schwarzkopf3_6-1" class="reference"><a href="#cite_note-Schwarzkopf3-6">&#91;6&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="History">History</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;action=edit&amp;section=7" title="Edit section: History">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="box-Expand_section plainlinks metadata ambox mbox-small-left ambox-content" role="presentation"><tbody><tr><td class="mbox-image"><a href="https://en.wikipedia.org/wiki/File:Wiki_letter_w_cropped.svg" class="image"><img alt="[icon]" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/20px-Wiki_letter_w_cropped.svg.png" decoding="async" width="20" height="14" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/30px-Wiki_letter_w_cropped.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/40px-Wiki_letter_w_cropped.svg.png 2x" data-file-width="44" data-file-height="31" /></a></td><td class="mbox-text"><div class="mbox-text-span">This section <b>needs expansion</b>. You can help by <a class="external text" href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;action=edit&amp;section=">adding to it</a>.  <span class="date-container"><i>(<span class="date">November 2007</span>)</i></span></div></td></tr></tbody></table>
+<p>The segment tree was invented by <a href="https://en.wikipedia.org/wiki/Jon_Bentley_(computer_scientist)" title="Jon Bentley (computer scientist)">Jon Bentley</a> in 1977; in "Solutions to Klee’s rectangle problems".<sup id="cite_ref-Schwarzkopf4_7-2" class="reference"><a href="#cite_note-Schwarzkopf4-7">&#91;7&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;action=edit&amp;section=8" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-Schwarzkopf1-1"><span class="mw-cite-backlink">^ <a href="#cite_ref-Schwarzkopf1_1-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Schwarzkopf1_1-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text">(<a href="#CITEREFde_Bergvan_KreveldOvermarsSchwarzkopf2000">de Berg et al. 2000</a>, p.&#160;227)</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text">(<a href="#CITEREFde_Bergvan_KreveldOvermarsSchwarzkopf2000">de Berg et al. 2000</a>, p.&#160;224)</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text">(<a href="#CITEREFde_Bergvan_KreveldOvermarsSchwarzkopf2000">de Berg et al. 2000</a>, pp.&#160;225–226)</span>
+</li>
+<li id="cite_note-Schwarzkopf2-4"><span class="mw-cite-backlink">^ <a href="#cite_ref-Schwarzkopf2_4-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Schwarzkopf2_4-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text">(<a href="#CITEREFde_Bergvan_KreveldOvermarsSchwarzkopf2000">de Berg et al. 2000</a>, p.&#160;226)</span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text">(<a href="#CITEREFde_Bergvan_KreveldOvermarsSchwarzkopf2000">de Berg et al. 2000</a>, pp.&#160;226–227)</span>
+</li>
+<li id="cite_note-Schwarzkopf3-6"><span class="mw-cite-backlink">^ <a href="#cite_ref-Schwarzkopf3_6-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Schwarzkopf3_6-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text">(<a href="#CITEREFde_Bergvan_KreveldOvermarsSchwarzkopf2000">de Berg et al. 2000</a>, p.&#160;230)</span>
+</li>
+<li id="cite_note-Schwarzkopf4-7"><span class="mw-cite-backlink">^ <a href="#cite_ref-Schwarzkopf4_7-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Schwarzkopf4_7-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-Schwarzkopf4_7-2"><sup><i><b>c</b></i></sup></a></span> <span class="reference-text">(<a href="#CITEREFde_Bergvan_KreveldOvermarsSchwarzkopf2000">de Berg et al. 2000</a>, p.&#160;229)</span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text">(<a href="#CITEREFde_Bergvan_KreveldOvermarsSchwarzkopf2000">de Berg et al. 2000</a>, pp.&#160;229–230)</span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="Sources_cited">Sources cited</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;action=edit&amp;section=9" title="Edit section: Sources cited">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFde_Bergvan_KreveldOvermarsSchwarzkopf2000" class="citation book cs1">de Berg, Mark; van Kreveld, Marc; Overmars, Mark; Schwarzkopf, Otfried (2000). "More Geometric Data Structures". <span class="cs1-lock-registration" title="Free registration required"><a rel="nofollow" class="external text" href="https://archive.org/details/computationalgeo00berg"><i>Computational Geometry: algorithms and applications</i></a></span> (2nd&#160;ed.). Springer-Verlag Berlin Heidelberg New York. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-3-540-77974-2">10.1007/978-3-540-77974-2</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/3-540-65620-0" title="Special:BookSources/3-540-65620-0"><bdi>3-540-65620-0</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=More+Geometric+Data+Structures&amp;rft.btitle=Computational+Geometry%3A+algorithms+and+applications&amp;rft.edition=2nd&amp;rft.pub=Springer-Verlag+Berlin+Heidelberg+New+York&amp;rft.date=2000&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-540-77974-2&amp;rft.isbn=3-540-65620-0&amp;rft.aulast=de+Berg&amp;rft.aufirst=Mark&amp;rft.au=van+Kreveld%2C+Marc&amp;rft.au=Overmars%2C+Mark&amp;rft.au=Schwarzkopf%2C+Otfried&amp;rft_id=https%3A%2F%2Farchive.org%2Fdetails%2Fcomputationalgeo00berg&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASegment+tree" class="Z3988"></span></li>
+<li><a rel="nofollow" class="external free" href="http://www.cs.nthu.edu.tw/~wkhon/ds/ds10/tutorial/tutorial6.pdf">http://www.cs.nthu.edu.tw/~wkhon/ds/ds10/tutorial/tutorial6.pdf</a></li></ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;action=edit&amp;section=10" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="https://cp-algorithms.com/data_structures/segment_tree.html">Segment Tree – CP-Algorithms</a></li></ul>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Tree_data_structures" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:CS_trees" title="Template:CS trees"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:CS_trees" title="Template talk:CS trees"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:CS_trees&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Tree_data_structures" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" title="Tree (data structure)">Tree data structures</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Search_tree" title="Search tree">Search trees</a><br />(<a href="https://en.wikipedia.org/wiki/Set_(abstract_data_type)" title="Set (abstract data type)">dynamic sets</a>/<a href="https://en.wikipedia.org/wiki/Associative_array" title="Associative array">associative arrays</a>)</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/2–3_tree" title="2–3 tree">2–3</a></li>
+<li><a href="https://en.wikipedia.org/wiki/2–3–4_tree" title="2–3–4 tree">2–3–4</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AA_tree" title="AA tree">AA</a></li>
+<li><a href="https://en.wikipedia.org/wiki/(a,b)-tree" title="(a,b)-tree">(a,b)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AVL_tree" title="AVL tree">AVL</a></li>
+<li><a href="https://en.wikipedia.org/wiki/B-tree" title="B-tree">B</a></li>
+<li><a href="https://en.wikipedia.org/wiki/B+_tree" title="B+ tree">B+</a></li>
+<li><a href="https://en.wikipedia.org/wiki/B*-tree" class="mw-redirect" title="B*-tree">B*</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bx-tree" title="Bx-tree">B<sup>x</sup></a></li>
+<li>(<a href="https://en.wikipedia.org/wiki/Optimal_binary_search_tree" title="Optimal binary search tree">Optimal</a>)&#160;<a href="https://en.wikipedia.org/wiki/Binary_search_tree" title="Binary search tree">Binary search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dancing_tree" title="Dancing tree">Dancing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/HTree" title="HTree">HTree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interval_tree" title="Interval tree">Interval</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Order_statistic_tree" title="Order statistic tree">Order statistic</a></li>
+<li>(<a href="https://en.wikipedia.org/wiki/Left-leaning_red–black_tree" title="Left-leaning red–black tree">Left-leaning</a>)&#160;<a href="https://en.wikipedia.org/wiki/Red–black_tree" title="Red–black tree">Red–black</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Scapegoat_tree" title="Scapegoat tree">Scapegoat</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Splay_tree" title="Splay tree">Splay</a></li>
+<li><a href="https://en.wikipedia.org/wiki/T-tree" title="T-tree">T</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Treap" title="Treap">Treap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/UB-tree" title="UB-tree">UB</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Weight-balanced_tree" title="Weight-balanced tree">Weight-balanced</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" title="Heap (data structure)">Heaps</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Binary_heap" title="Binary heap">Binary</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binomial_heap" title="Binomial heap">Binomial</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Brodal_queue" title="Brodal queue">Brodal</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Leftist_tree" title="Leftist tree">Leftist</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pairing_heap" title="Pairing heap">Pairing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Skew_heap" title="Skew heap">Skew</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Van_Emde_Boas_tree" title="Van Emde Boas tree">van Emde Boas</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Weak_heap" title="Weak heap">Weak</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Trie" title="Trie">Tries</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Ctrie" title="Ctrie">Ctrie</a></li>
+<li><a href="https://en.wikipedia.org/wiki/C-trie" title="C-trie">C-trie (compressed ADT)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hash_tree_(persistent_data_structure)" title="Hash tree (persistent data structure)">Hash</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Radix_tree" title="Radix tree">Radix</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Suffix_tree" title="Suffix tree">Suffix</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ternary_search_tree" title="Ternary search tree">Ternary search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X-fast_trie" title="X-fast trie">X-fast</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Y-fast_trie" title="Y-fast trie">Y-fast</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Spatial_index" class="mw-redirect" title="Spatial index">Spatial</a> data partitioning trees</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Ball_tree" title="Ball tree">Ball</a></li>
+<li><a href="https://en.wikipedia.org/wiki/BK-tree" title="BK-tree">BK</a></li>
+<li><a href="https://en.wikipedia.org/wiki/BSP_tree" class="mw-redirect" title="BSP tree">BSP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cartesian_tree" title="Cartesian tree">Cartesian</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hilbert_R-tree" title="Hilbert R-tree">Hilbert R</a></li>
+<li><a href="https://en.wikipedia.org/wiki/K-d_tree" title="K-d tree"><i>k</i>-d</a> (<a href="https://en.wikipedia.org/wiki/Implicit_k-d_tree" title="Implicit k-d tree">implicit <i>k</i>-d</a>)</li>
+<li><a href="https://en.wikipedia.org/wiki/M-tree" title="M-tree">M</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Metric_tree" title="Metric tree">Metric</a></li>
+<li><a href="https://en.wikipedia.org/wiki/MVP_tree" class="mw-redirect" title="MVP tree">MVP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Octree" title="Octree">Octree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/PH-tree" title="PH-tree">PH</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Priority_R-tree" title="Priority R-tree">Priority R</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quadtree" title="Quadtree">Quad</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R-tree" title="R-tree">R</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R+_tree" title="R+ tree">R+</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R*_tree" class="mw-redirect" title="R* tree">R*</a></li>
+<li><a class="mw-selflink selflink">Segment</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Vantage-point_tree" title="Vantage-point tree">VP</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X-tree" title="X-tree">X</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Other trees</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Cover_tree" title="Cover tree">Cover</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Exponential_tree" title="Exponential tree">Exponential</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fenwick_tree" title="Fenwick tree">Fenwick</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Finger_tree" title="Finger tree">Finger</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fractal_tree_index" title="Fractal tree index">Fractal tree index</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fusion_tree" title="Fusion tree">Fusion</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hash_calendar" title="Hash calendar">Hash calendar</a></li>
+<li><a href="https://en.wikipedia.org/wiki/IDistance" title="IDistance">iDistance</a></li>
+<li><a href="https://en.wikipedia.org/wiki/K-ary_tree" class="mw-redirect" title="K-ary tree">K-ary</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Left-child_right-sibling_binary_tree" title="Left-child right-sibling binary tree">Left-child right-sibling</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Link/cut_tree" title="Link/cut tree">Link/cut</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Log-structured_merge-tree" title="Log-structured merge-tree">Log-structured merge</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Merkle_tree" title="Merkle tree">Merkle</a></li>
+<li><a href="https://en.wikipedia.org/wiki/PQ_tree" title="PQ tree">PQ</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Range_tree" title="Range tree">Range</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SPQR_tree" title="SPQR tree">SPQR</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Top_tree" title="Top tree">Top</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1426
+Cached time: 20220420020009
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.478 seconds
+Real time usage: 0.623 seconds
+Preprocessor visited node count: 1137/1000000
+Post‐expand include size: 49122/2097152 bytes
+Template argument size: 8933/2097152 bytes
+Highest expansion depth: 12/100
+Expensive parser function count: 6/500
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 11353/5000000 bytes
+Lua time usage: 0.260/10.000 seconds
+Lua memory usage: 4796596/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  520.296      1 -total
+ 16.80%   87.394      1 Template:Short_description
+ 16.01%   83.289      1 Template:Reflist
+ 14.70%   76.496      1 Template:Cite_book
+ 14.49%   75.394      1 Template:CS-Trees
+ 13.55%   70.478      1 Template:Navbox
+ 12.70%   66.083      1 Template:One_source
+ 12.62%   65.644      8 Template:Harv
+ 12.61%   65.585      3 Template:Ambox
+  9.60%   49.950      1 Template:Pagetype
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:13682464-0!canonical and timestamp 20220420020008 and revision id 1076478019. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;oldid=1076478019">https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;oldid=1076478019</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Trees_(data_structures)" title="Category:Trees (data structures)">Trees (data structures)</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Binary_trees" title="Category:Binary trees">Binary trees</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Computer_graphics_data_structures" title="Category:Computer graphics data structures">Computer graphics data structures</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_is_different_from_Wikidata" title="Category:Short description is different from Wikidata">Short description is different from Wikidata</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_needing_additional_references_from_November_2007" title="Category:Articles needing additional references from November 2007">Articles needing additional references from November 2007</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_needing_additional_references" title="Category:All articles needing additional references">All articles needing additional references</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Wikipedia_articles_that_are_too_technical_from_October_2020" title="Category:Wikipedia articles that are too technical from October 2020">Wikipedia articles that are too technical from October 2020</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_that_are_too_technical" title="Category:All articles that are too technical">All articles that are too technical</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_with_specifically_marked_weasel-worded_phrases" title="Category:All articles with specifically marked weasel-worded phrases">All articles with specifically marked weasel-worded phrases</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_specifically_marked_weasel-worded_phrases_from_February_2014" title="Category:Articles with specifically marked weasel-worded phrases from February 2014">Articles with specifically marked weasel-worded phrases from February 2014</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_to_be_expanded_from_November_2007" title="Category:Articles to be expanded from November 2007">Articles to be expanded from November 2007</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_to_be_expanded" title="Category:All articles to be expanded">All articles to be expanded</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_using_small_message_boxes" title="Category:Articles using small message boxes">Articles using small message boxes</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Segment+tree" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Segment+tree" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Segment_tree" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Segment_tree" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Segment_tree"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Segment_tree" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Segment_tree" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;oldid=1076478019" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Segment_tree&amp;id=1076478019&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q2377385" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Segment_tree&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Segment_tree&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-bg mw-list-item"><a href="https://bg.wikipedia.org/wiki/Сегментно_дърво" title="Сегментно дърво – Bulgarian" lang="bg" hreflang="bg" class="interlanguage-link-target"><span>Български</span></a></li><li class="interlanguage-link interwiki-et mw-list-item"><a href="https://et.wikipedia.org/wiki/Lõikude_puu" title="Lõikude puu – Estonian" lang="et" hreflang="et" class="interlanguage-link-target"><span>Eesti</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Árbol_de_segmento" title="Árbol de segmento – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/درخت_بازه‌ها" title="درخت بازه‌ها – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Arbre_de_segments" title="Arbre de segments – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-hy mw-list-item"><a href="https://hy.wikipedia.org/wiki/Սեգմենտ_ծառ" title="Սեգմենտ ծառ – Armenian" lang="hy" hreflang="hy" class="interlanguage-link-target"><span>Հայերեն</span></a></li><li class="interlanguage-link interwiki-ka mw-list-item"><a href="https://ka.wikipedia.org/wiki/სეგმენტური_ხე" title="სეგმენტური ხე – Georgian" lang="ka" hreflang="ka" class="interlanguage-link-target"><span>ქართული</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Дерево_отрезков" title="Дерево отрезков – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/Segmentno_stablo" title="Segmentno stablo – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-th mw-list-item"><a href="https://th.wikipedia.org/wiki/ต้นไม้เซกเมนต์" title="ต้นไม้เซกเมนต์ – Thai" lang="th" hreflang="th" class="interlanguage-link-target"><span>ไทย</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Дерево_відрізків" title="Дерево відрізків – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/線段樹" title="線段樹 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q2377385#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 11 March 2022, at 09:12<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Segment_tree&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.478","walltime":"0.623","ppvisitednodes":{"value":1137,"limit":1000000},"postexpandincludesize":{"value":49122,"limit":2097152},"templateargumentsize":{"value":8933,"limit":2097152},"expansiondepth":{"value":12,"limit":100},"expensivefunctioncount":{"value":6,"limit":500},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":11353,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  520.296      1 -total"," 16.80%   87.394      1 Template:Short_description"," 16.01%   83.289      1 Template:Reflist"," 14.70%   76.496      1 Template:Cite_book"," 14.49%   75.394      1 Template:CS-Trees"," 13.55%   70.478      1 Template:Navbox"," 12.70%   66.083      1 Template:One_source"," 12.62%   65.644      8 Template:Harv"," 12.61%   65.585      3 Template:Ambox","  9.60%   49.950      1 Template:Pagetype"]},"scribunto":{"limitreport-timeusage":{"value":"0.260","limit":"10.000"},"limitreport-memusage":{"value":4796596,"limit":52428800},"limitreport-logs":"anchor_id_list = table#1 {\n  [\"CITEREFde_Bergvan_KreveldOvermarsSchwarzkopf2000\"] = 1,\n}\ntemplate_list = table#1 {\n  [\"About\"] = 1,\n  [\"CS-Trees\"] = 1,\n  [\"Cite book\"] = 1,\n  [\"Clear\"] = 1,\n  [\"DEFAULTSORT:Segment Tree\"] = 1,\n  [\"Expand section\"] = 1,\n  [\"Harv\"] = 8,\n  [\"Math\"] = 1,\n  [\"Math proof\"] = 3,\n  [\"Math theorem\"] = 1,\n  [\"Mvar\"] = 13,\n  [\"One source\"] = 1,\n  [\"Proof\"] = 1,\n  [\"Reflist\"] = 1,\n  [\"Short description\"] = 1,\n  [\"Technical\"] = 1,\n  [\"Which\"] = 1,\n}\narticle_whitelist = table#1 {\n}\n"},"cachereport":{"origin":"mw1426","timestamp":"20220420020009","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Segment tree","url":"https:\/\/en.wikipedia.org\/wiki\/Segment_tree","sameAs":"http:\/\/www.wikidata.org\/entity\/Q2377385","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q2377385","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2007-10-11T20:23:48Z","dateModified":"2022-03-11T09:12:45Z","headline":"tree data structure used in computer science"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Segment tree","url":"https:\/\/en.wikipedia.org\/wiki\/Segment_tree","sameAs":"http:\/\/www.wikidata.org\/entity\/Q2377385","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q2377385","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2007-10-11T20:23:48Z","dateModified":"2022-03-11T09:12:45Z","headline":"tree data structure used in computer science"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":139,"wgHostname":"mw1434"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Segment_tree by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:48 GMT -->
+</html>

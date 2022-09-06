@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/3SAT by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Boolean satisfiability problem - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"be567a2e-ead1-447b-a7ca-0dc295b4f56f","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Boolean_satisfiability_problem","wgTitle":"Boolean satisfiability problem","wgCurRevisionId":1075904932,"wgRevisionId":1075904932,"wgArticleId":4715,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles with Russian-language sources (ru)","Articles with short description","Short description matches Wikidata","All articles needing additional references","Articles needing additional references from May 2020","All articles with unsourced statements",
+"Articles with unsourced statements from May 2020","Commons category link from Wikidata","Boolean algebra","Electronic design automation","Formal methods","Logic in computer science","NP-complete problems","Satisfiability problems"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Boolean_satisfiability_problem","wgRelevantArticleId":4715,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"3SAT","wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":50000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English",
+"wgInternalRedirectTargetUrl":"/wiki/Boolean_satisfiability_problem#3-satisfiability","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q875276"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","skins.vector.styles.legacy":"ready","jquery.tablesorter.styles":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["mediawiki.action.view.redirect","ext.cite.ux-enhancements","ext.math.scripts","ext.scribunto.logs","site","mediawiki.page.ready","jquery.tablesorter","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart"
+,"ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cjquery.tablesorter.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="Boolean satisfiability problem - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Boolean_satisfiability_problem#3-satisfiability"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Boolean_satisfiability_problem#3-satisfiability"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Boolean_satisfiability_problem rootpage-Boolean_satisfiability_problem skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Boolean satisfiability problem</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"><span class="mw-redirectedfrom">&#160;&#160;(Redirected from <a href="https://en.wikipedia.org/w/index.php?title=3SAT&amp;redirect=no" class="mw-redirect" title="3SAT">3SAT</a>)</span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">"3SAT" redirects here. For the Central European television network, see <a href="https://en.wikipedia.org/wiki/3sat" title="3sat">3sat</a>.</div>
+<div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Problem of determining if a Boolean formula could be made true</div>
+<p>In <a href="https://en.wikipedia.org/wiki/Logic" title="Logic">logic</a> and <a href="https://en.wikipedia.org/wiki/Computer_science" title="Computer science">computer science</a>, the <b>Boolean satisfiability problem</b> (sometimes called <b>propositional satisfiability problem</b> and abbreviated <b>SATISFIABILITY</b>, <b>SAT</b> or <b>B-SAT</b>) is the problem of determining if there exists an <a href="https://en.wikipedia.org/wiki/Interpretation_(logic)" title="Interpretation (logic)">interpretation</a> that <a href="https://en.wikipedia.org/wiki/Satisfiability" title="Satisfiability">satisfies</a> a given <a href="https://en.wikipedia.org/wiki/Boolean_logic" class="mw-redirect" title="Boolean logic">Boolean</a> <a href="https://en.wikipedia.org/wiki/Formula_(mathematical_logic)" class="mw-redirect" title="Formula (mathematical logic)">formula</a>. In other words, it asks whether the variables of a given Boolean formula can be consistently replaced by the values TRUE or FALSE in such a way that the formula evaluates to TRUE. If this is the case, the formula is called <i>satisfiable</i>. On the other hand, if no such assignment exists, the function expressed by the formula is <a href="https://en.wikipedia.org/wiki/Contradiction#Contradiction_in_formal_logic" title="Contradiction">FALSE</a> for all possible variable assignments and the formula is <i>unsatisfiable</i>. For example, the formula "<i>a</i> AND NOT <i>b</i>" is satisfiable because one can find the values <i>a</i>&#160;=&#160;TRUE and <i>b</i>&#160;=&#160;FALSE, which make (<i>a</i> AND NOT <i>b</i>)&#160;=&#160;TRUE. In contrast, "<i>a</i> AND NOT <i>a</i>" is unsatisfiable.
+</p><p>SAT is the first problem that was proven to be <a href="https://en.wikipedia.org/wiki/NP-complete" class="mw-redirect" title="NP-complete">NP-complete</a>; see <a href="https://en.wikipedia.org/wiki/Cook–Levin_theorem" title="Cook–Levin theorem">Cook–Levin theorem</a>. This means that all problems in the complexity class <a href="https://en.wikipedia.org/wiki/NP_(complexity)" title="NP (complexity)">NP</a>, which includes a wide range of natural decision and optimization problems, are at most as difficult to solve as SAT. There is no known algorithm that efficiently solves each SAT problem, and it is generally believed that no such algorithm exists; yet this belief has not been proven mathematically, and resolving the question of whether SAT has a <a href="https://en.wikipedia.org/wiki/Polynomial-time" class="mw-redirect" title="Polynomial-time">polynomial-time</a> algorithm is equivalent to the <a href="https://en.wikipedia.org/wiki/P_versus_NP_problem" title="P versus NP problem">P versus NP problem</a>, which is a famous open problem in the theory of computing.
+</p><p>Nevertheless, as of 2007, heuristic SAT-algorithms are able to solve problem instances involving tens of thousands of variables and formulas consisting of millions of symbols,<sup id="cite_ref-Codish.Ohrimenko.Stuckey.2007_1-0" class="reference"><a href="#cite_note-Codish.Ohrimenko.Stuckey.2007-1">&#91;1&#93;</a></sup> which is sufficient for many practical SAT problems from, e.g., <a href="https://en.wikipedia.org/wiki/Artificial_intelligence" title="Artificial intelligence">artificial intelligence</a>, <a href="https://en.wikipedia.org/wiki/Circuit_design" title="Circuit design">circuit design</a>,<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup> and <a href="https://en.wikipedia.org/wiki/Automatic_theorem_proving" class="mw-redirect" title="Automatic theorem proving">automatic theorem proving</a>.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Definitions"><span class="tocnumber">1</span> <span class="toctext">Definitions</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Conjunctive_normal_form"><span class="tocnumber">1.1</span> <span class="toctext">Conjunctive normal form</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#Complexity"><span class="tocnumber">2</span> <span class="toctext">Complexity</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#3-satisfiability"><span class="tocnumber">2.1</span> <span class="toctext">3-satisfiability</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Special_cases_of_SAT"><span class="tocnumber">3</span> <span class="toctext">Special cases of SAT</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#Conjunctive_normal_form_2"><span class="tocnumber">3.1</span> <span class="toctext">Conjunctive normal form</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Disjunctive_normal_form"><span class="tocnumber">3.2</span> <span class="toctext">Disjunctive normal form</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Exactly-1_3-satisfiability"><span class="tocnumber">3.3</span> <span class="toctext">Exactly-1 3-satisfiability</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Not-all-equal_3-satisfiability"><span class="tocnumber">3.4</span> <span class="toctext">Not-all-equal 3-satisfiability</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Linear_SAT"><span class="tocnumber">3.5</span> <span class="toctext">Linear SAT</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#2-satisfiability"><span class="tocnumber">3.6</span> <span class="toctext">2-satisfiability</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Horn-satisfiability"><span class="tocnumber">3.7</span> <span class="toctext">Horn-satisfiability</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#XOR-satisfiability"><span class="tocnumber">3.8</span> <span class="toctext">XOR-satisfiability</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Schaefer&#39;s_dichotomy_theorem"><span class="tocnumber">3.9</span> <span class="toctext">Schaefer's dichotomy theorem</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="#Extensions_of_SAT"><span class="tocnumber">4</span> <span class="toctext">Extensions of SAT</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="#Finding_a_satisfying_assignment"><span class="tocnumber">5</span> <span class="toctext">Finding a satisfying assignment</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="#Algorithms_for_solving_SAT"><span class="tocnumber">6</span> <span class="toctext">Algorithms for solving SAT</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-19"><a href="#Notes"><span class="tocnumber">8</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-20"><a href="#External_links"><span class="tocnumber">9</span> <span class="toctext">External links</span></a></li>
+<li class="toclevel-1 tocsection-21"><a href="#References"><span class="tocnumber">10</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Definitions">Definitions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=1" title="Edit section: Definitions">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A <i><a href="https://en.wikipedia.org/wiki/Propositional_logic" class="mw-redirect" title="Propositional logic">propositional logic</a> formula</i>, also called <i>Boolean expression</i>, is built from <a href="https://en.wikipedia.org/wiki/Variable_(mathematics)" title="Variable (mathematics)">variables</a>, operators AND (<a href="https://en.wikipedia.org/wiki/Logical_conjunction" title="Logical conjunction">conjunction</a>, also denoted by ∧), OR (<a href="https://en.wikipedia.org/wiki/Logical_disjunction" title="Logical disjunction">disjunction</a>, ∨), NOT (<a href="https://en.wikipedia.org/wiki/Negation" title="Negation">negation</a>, ¬), and parentheses.
+A formula is said to be <i>satisfiable</i> if it can be made TRUE by assigning appropriate <a href="https://en.wikipedia.org/wiki/Logical_value" class="mw-redirect" title="Logical value">logical values</a> (i.e. TRUE, FALSE) to its variables.
+The <i>Boolean satisfiability problem</i> (SAT) is, given a formula, to check whether it is satisfiable.
+This <a href="https://en.wikipedia.org/wiki/Decision_problem" title="Decision problem">decision problem</a> is of central importance in many areas of <a href="https://en.wikipedia.org/wiki/Computer_science" title="Computer science">computer science</a>, including <a href="https://en.wikipedia.org/wiki/Theoretical_computer_science" title="Theoretical computer science">theoretical computer science</a>, <a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" title="Computational complexity theory">complexity theory</a>,<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup><sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup> <a href="https://en.wikipedia.org/wiki/Algorithmics" title="Algorithmics">algorithmics</a>, <a href="https://en.wikipedia.org/wiki/Cryptography" title="Cryptography">cryptography</a><sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup><sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup> and <a href="https://en.wikipedia.org/wiki/Artificial_intelligence" title="Artificial intelligence">artificial intelligence</a>.<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup><sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs additional references to reliable sources. (May 2020)">additional citation(s) needed</span></a></i>&#93;</sup>
+</p>
+<h3><span class="mw-headline" id="Conjunctive_normal_form">Conjunctive normal form</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=2" title="Edit section: Conjunctive normal form">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>A <i>literal</i> is either a variable, called <i>positive literal</i>, or the negation of a variable, called <i>negative literal</i>.
+A <i>clause</i> is a disjunction of literals (or a single literal). A clause is called a <i><a href="https://en.wikipedia.org/wiki/Horn_clause" title="Horn clause">Horn clause</a></i> if it contains at most one positive literal.
+A formula is in <i><a href="https://en.wikipedia.org/wiki/Conjunctive_normal_form" title="Conjunctive normal form">conjunctive normal form</a></i> (CNF) if it is a conjunction of clauses (or a single clause).
+For example, <span class="texhtml texhtml-big" style="font-size:100%;"><i>x</i><sub>1</sub></span> is a positive literal, <span class="texhtml texhtml-big" style="font-size:100%;">¬<i>x</i><sub>2</sub></span> is a negative literal, <span class="texhtml texhtml-big" style="font-size:100%;"><i>x</i><sub>1</sub> ∨ ¬<i>x</i><sub>2</sub></span> is a clause. The formula <span class="texhtml texhtml-big" style="font-size:100%;">(<i>x</i><sub>1</sub> ∨ ¬<i>x</i><sub>2</sub>) ∧ (¬<i>x</i><sub>1</sub> ∨ <i>x</i><sub>2</sub> ∨ <i>x</i><sub>3</sub>) ∧ ¬<i>x</i><sub>1</sub></span> is  in conjunctive normal form; its first and third clauses are Horn clauses, but its second clause is not. The formula is satisfiable, by choosing <i>x</i><sub>1</sub>&#160;=&#160;FALSE, <i>x</i><sub>2</sub>&#160;=&#160;FALSE, and <i>x</i><sub>3</sub> arbitrarily, since (FALSE ∨ ¬FALSE) ∧ (¬FALSE ∨ FALSE ∨ <i>x</i><sub>3</sub>) ∧ ¬FALSE evaluates to (FALSE ∨ TRUE) ∧ (TRUE ∨ FALSE ∨ <i>x</i><sub>3</sub>) ∧ TRUE, and in turn to TRUE ∧ TRUE ∧ TRUE (i.e. to TRUE). In contrast, the CNF formula <i>a</i> ∧ ¬<i>a</i>, consisting of two clauses of one literal, is unsatisfiable, since for <i>a</i>=TRUE or <i>a</i>=FALSE it evaluates to TRUE ∧ ¬TRUE (i.e., FALSE) or FALSE ∧ ¬FALSE (i.e., again FALSE), respectively.
+</p><p>For some versions of the SAT problem, it is useful to define the notion of a <i>generalized conjunctive normal form</i> formula, viz. as a conjunction of arbitrarily many <i>generalized clauses</i>, the latter being of the form <span class="texhtml"><i>R</i>(<i>l</i><sub>1</sub>,...,<i>l</i><sub><i>n</i></sub>)</span> for some <a href="https://en.wikipedia.org/wiki/Boolean_function" title="Boolean function">Boolean function</a> <i>R</i> and (ordinary) literals <span class="texhtml mvar" style="font-style:italic;"><i>l</i><sub><i>i</i></sub></span>. Different sets of allowed boolean functions lead to different problem versions. As an example, <i>R</i>(¬<i>x</i>,<i>a</i>,<i>b</i>) is a generalized clause, and <i>R</i>(¬<i>x</i>,<i>a</i>,<i>b</i>) ∧ <i>R</i>(<i>b</i>,<i>y</i>,<i>c</i>) ∧ <i>R</i>(<i>c</i>,<i>d</i>,¬<i>z</i>) is a generalized conjunctive normal form. This formula is used <a href="#Exactly-1_3-satisfiability">below</a>, with <i>R</i> being the ternary operator that is TRUE just when exactly one of its arguments is.
+</p><p>Using the laws of <a href="https://en.wikipedia.org/wiki/Boolean_algebra_(structure)" title="Boolean algebra (structure)">Boolean algebra</a>, every propositional logic formula can be transformed into an equivalent conjunctive normal form, which may, however, be exponentially longer. For example, transforming the formula
+(<i>x</i><sub>1</sub>∧<i>y</i><sub>1</sub>) ∨ (<i>x</i><sub>2</sub>∧<i>y</i><sub>2</sub>) ∨ ... ∨ (<i>x</i><sub><i>n</i></sub>∧<i>y</i><sub><i>n</i></sub>)
+into conjunctive normal form yields
+</p>
+<dl><dd><span class="texhtml">(<i>x</i><sub>1</sub>&#160;∨&#160;<i>x</i><sub>2</sub>&#160;∨&#160;…&#160;∨&#160;<i>x</i><sub><i>n</i></sub>) ∧</span></dd>
+<dd><span class="texhtml">(<i>y</i><sub>1</sub>&#160;∨&#160;<i>x</i><sub>2</sub>&#160;∨&#160;…&#160;∨&#160;<i>x</i><sub><i>n</i></sub>) ∧</span></dd>
+<dd><span class="texhtml">(<i>x</i><sub>1</sub>&#160;∨&#160;<i>y</i><sub>2</sub>&#160;∨&#160;…&#160;∨&#160;<i>x</i><sub><i>n</i></sub>) ∧</span></dd>
+<dd><span class="texhtml">(<i>y</i><sub>1</sub>&#160;∨&#160;<i>y</i><sub>2</sub>&#160;∨&#160;…&#160;∨&#160;<i>x</i><sub><i>n</i></sub>) ∧ ... ∧</span></dd>
+<dd><span class="texhtml">(<i>x</i><sub>1</sub>&#160;∨&#160;<i>x</i><sub>2</sub>&#160;∨&#160;…&#160;∨&#160;<i>y</i><sub><i>n</i></sub>) ∧</span></dd>
+<dd><span class="texhtml">(<i>y</i><sub>1</sub>&#160;∨&#160;<i>x</i><sub>2</sub>&#160;∨&#160;…&#160;∨&#160;<i>y</i><sub><i>n</i></sub>) ∧</span></dd>
+<dd><span class="texhtml">(<i>x</i><sub>1</sub>&#160;∨&#160;<i>y</i><sub>2</sub>&#160;∨&#160;…&#160;∨&#160;<i>y</i><sub><i>n</i></sub>) ∧</span></dd>
+<dd><span class="texhtml">(<i>y</i><sub>1</sub>&#160;∨&#160;<i>y</i><sub>2</sub>&#160;∨&#160;…&#160;∨&#160;<i>y</i><sub><i>n</i></sub>)</span>;</dd></dl>
+<p>while the former is a disjunction of <i>n</i> conjunctions of 2 variables, the latter consists of 2<sup><i>n</i></sup> clauses of <i>n</i> variables.
+</p><p>However, with use of the <a href="https://en.wikipedia.org/wiki/Tseytin_transformation" title="Tseytin transformation">Tseytin transformation</a>, we may find an equisatisfiable conjunctive normal form formula with length linear in the size of the original propositional logic formula.
+</p>
+<h2><span class="mw-headline" id="Complexity">Complexity</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=3" title="Edit section: Complexity">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1033289096"/><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="https://en.wikipedia.org/wiki/Cook–Levin_theorem" title="Cook–Levin theorem">Cook–Levin theorem</a></div>
+<p>SAT was the first known <a href="https://en.wikipedia.org/wiki/NP-complete" class="mw-redirect" title="NP-complete">NP-complete</a> problem, as proved by <a href="https://en.wikipedia.org/wiki/Stephen_Cook" title="Stephen Cook">Stephen Cook</a> at the <a href="https://en.wikipedia.org/wiki/University_of_Toronto" title="University of Toronto">University of Toronto</a> in 1971<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup> and independently by <a href="https://en.wikipedia.org/wiki/Leonid_Levin" title="Leonid Levin">Leonid Levin</a> at the <a href="https://en.wikipedia.org/wiki/Russian_Academy_of_Sciences#The_Academy_of_Sciences_of_the_USSR" title="Russian Academy of Sciences">National Academy of Sciences</a> in 1973.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">&#91;9&#93;</a></sup> Until that time, the concept of an NP-complete problem did not even exist.
+The proof shows how every decision problem in the <a href="https://en.wikipedia.org/wiki/Complexity_class" title="Complexity class">complexity class</a> <a href="https://en.wikipedia.org/wiki/NP_(complexity)" title="NP (complexity)">NP</a> can be <a href="https://en.wikipedia.org/wiki/Reduction_(complexity)" title="Reduction (complexity)">reduced</a> to the SAT problem for CNF<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">&#91;note 1&#93;</a></sup> formulas, sometimes called <b>CNFSAT</b>.
+A useful property of Cook's reduction is that it preserves the number of accepting answers. For example, deciding whether a given <a href="https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)" title="Graph (discrete mathematics)">graph</a> has a <a href="https://en.wikipedia.org/wiki/Graph_coloring#Vertex_coloring" title="Graph coloring">3-coloring</a> is another problem in NP; if a graph has 17 valid 3-colorings, the SAT formula produced by the Cook–Levin reduction will have 17 satisfying assignments.
+</p><p>NP-completeness only refers to the run-time of the worst case instances.  Many of the instances that occur in practical applications can be solved much more quickly.  See <a href="#Algorithms_for_solving_SAT">Algorithms for solving SAT</a> below.
+</p>
+<h3><span class="mw-headline" id="3-satisfiability">3-satisfiability</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=4" title="Edit section: 3-satisfiability">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="https://en.wikipedia.org/wiki/File:Sat_reduced_to_Clique_from_Sipser.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Sat_reduced_to_Clique_from_Sipser.svg/300px-Sat_reduced_to_Clique_from_Sipser.svg.png" decoding="async" width="300" height="260" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Sat_reduced_to_Clique_from_Sipser.svg/450px-Sat_reduced_to_Clique_from_Sipser.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Sat_reduced_to_Clique_from_Sipser.svg/600px-Sat_reduced_to_Clique_from_Sipser.svg.png 2x" data-file-width="364" data-file-height="316" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Sat_reduced_to_Clique_from_Sipser.svg" class="internal" title="Enlarge"></a></div>The 3-SAT instance <span class="texhtml">(<i>x</i> ∨ <i>x</i> ∨ <i>y</i>) ∧ (¬<i>x</i> ∨ ¬<i>y</i> ∨ ¬<i>y</i>) ∧ (¬<i>x</i> ∨ <i>y</i> ∨ <i>y</i>)</span> reduced to a <a href="https://en.wikipedia.org/wiki/Clique_problem" title="Clique problem">clique problem</a>. The green vertices form a 3-clique and correspond to the satisfying assignment <i>x</i>=FALSE, <i>y</i>=TRUE.</div></div></div>
+<p>Like the satisfiability problem for arbitrary formulas, determining the satisfiability of a formula in conjunctive normal form where each clause is limited to at most three literals is NP-complete also; this problem is called <b>3-SAT</b>, <b>3CNFSAT</b>, or <b>3-satisfiability</b>.
+To reduce the unrestricted SAT problem to 3-SAT, transform each clause <span class="texhtml"><i>l</i><sub>1</sub> ∨ ⋯ ∨ <i>l</i><sub><i>n</i></sub></span> to a conjunction of <span class="texhtml"><i>n</i> - 2</span> clauses
+</p>
+<dl><dd><span class="texhtml">(<i>l</i><sub>1</sub> ∨ <i>l</i><sub>2</sub> ∨ <i>x</i><sub>2</sub>) ∧ </span></dd>
+<dd><span class="texhtml">(¬<i>x</i><sub>2</sub> ∨ <i>l</i><sub>3</sub> ∨ <i>x</i><sub>3</sub>) ∧ </span></dd>
+<dd><span class="texhtml">(¬<i>x</i><sub>3</sub> ∨ <i>l</i><sub>4</sub> ∨ <i>x</i><sub>4</sub>) ∧ ⋯ ∧ </span></dd>
+<dd><span class="texhtml">(¬<i>x</i><sub><i>n</i> − 3</sub> ∨ <i>l</i><sub><i>n</i> − 2</sub> ∨ <i>x</i><sub><i>n</i> − 2</sub>) ∧ </span></dd>
+<dd><span class="texhtml">(¬<i>x</i><sub><i>n</i> − 2</sub> ∨ <i>l</i><sub><i>n</i> − 1</sub> ∨ <i>l</i><sub><i>n</i></sub>)</span></dd></dl>
+<p>where <span class="texhtml"><i>x</i><sub>2</sub>,&#8201;⋯&#8201;,&#8201;<i>x</i><sub><i>n</i> − 2</sub></span> are fresh variables not occurring elsewhere.
+Although the two formulas are not <a href="https://en.wikipedia.org/wiki/Logically_equivalent" class="mw-redirect" title="Logically equivalent">logically equivalent</a>, they are <a href="https://en.wikipedia.org/wiki/Equisatisfiable" class="mw-redirect" title="Equisatisfiable">equisatisfiable</a>. The formula resulting from transforming all clauses is at most 3 times as long as its original, i.e. the length growth is polynomial.<sup id="cite_ref-Aho.Hopcroft.Ullman.1974_11-0" class="reference"><a href="#cite_note-Aho.Hopcroft.Ullman.1974-11">&#91;10&#93;</a></sup>
+</p><p>3-SAT is one of <a href="https://en.wikipedia.org/wiki/Karp%27s_21_NP-complete_problems" title="Karp&#39;s 21 NP-complete problems">Karp's 21 NP-complete problems</a>, and it is used as a starting point for proving that other problems are also <a href="https://en.wikipedia.org/wiki/NP-hard" class="mw-redirect" title="NP-hard">NP-hard</a>.<sup id="cite_ref-12" class="reference"><a href="#cite_note-12">&#91;note 2&#93;</a></sup> This is done by <a href="https://en.wikipedia.org/wiki/Polynomial-time_reduction" title="Polynomial-time reduction">polynomial-time reduction</a> from 3-SAT to the other problem. An example of a problem where this method has been used is the <a href="https://en.wikipedia.org/wiki/Clique_problem" title="Clique problem">clique problem</a>: given a CNF formula consisting of <i>c</i> clauses, the corresponding <a href="https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)" title="Graph (discrete mathematics)">graph</a> consists of a vertex for each literal, and an edge between each two non-contradicting<sup id="cite_ref-13" class="reference"><a href="#cite_note-13">&#91;note 3&#93;</a></sup> literals from different clauses, cf. picture. The graph has a <i>c</i>-clique if and only if the formula is satisfiable.<sup id="cite_ref-14" class="reference"><a href="#cite_note-14">&#91;11&#93;</a></sup>
+</p><p>There is a simple randomized algorithm due to Schöning (1999) that runs in time (4/3)<sup><i>n</i></sup> where <i>n</i> is the number of variables in the 3-SAT proposition, and succeeds with high probability to correctly decide 3-SAT.<sup id="cite_ref-Schoning.1999_15-0" class="reference"><a href="#cite_note-Schoning.1999-15">&#91;12&#93;</a></sup>
+</p><p>The <a href="https://en.wikipedia.org/wiki/Exponential_time_hypothesis" title="Exponential time hypothesis">exponential time hypothesis</a> asserts that no algorithm can solve 3-SAT (or indeed <i>k</i>-SAT for any <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k&gt;2}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+        <mo>&gt;</mo>
+        <mn>2</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k&gt;2}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fa7a4bb0e17a911cb4b3f6c4e455be472a295299" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.472ex; height:2.176ex;" alt="{\displaystyle k&gt;2}"/></span>) in <span class="texhtml">exp(<a href="https://en.wikipedia.org/wiki/Small_o_notation#Little-o_notation" class="mw-redirect" title="Small o notation"><i>o</i></a>(<i>n</i>))</span> time (i.e., fundamentally faster than exponential in <i>n</i>).
+</p><p>Selman, Mitchell, and Levesque (1996) give empirical data on the difficulty of randomly generated 3-SAT formulas, depending on their size parameters.
+Difficulty is measured in number recursive calls made by a <a href="#Algorithms_for_solving_SAT">DPLL algorithm</a>.<sup id="cite_ref-16" class="reference"><a href="#cite_note-16">&#91;13&#93;</a></sup>
+</p><p>3-satisfiability can be generalized to <b>k-satisfiability</b> (<b>k-SAT</b>, also <b>k-CNF-SAT</b>), when formulas in CNF are considered with each clause containing up to <i>k</i> literals.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (May 2020)">citation needed</span></a></i>&#93;</sup>
+However, since for any <i>k</i> ≥ 3, this problem can neither be easier than 3-SAT nor harder than SAT, and the latter two are NP-complete, so must be k-SAT.
+</p><p>Some authors restrict k-SAT to CNF formulas with <b>exactly k literals</b>.<sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (May 2020)">citation needed</span></a></i>&#93;</sup> This doesn't lead to a different complexity class either, as each clause <span class="texhtml"><i>l</i><sub>1</sub> ∨ ⋯ ∨ <i>l</i><sub><i>j</i></sub></span> with <i>j</i> &lt; <i>k</i> literals can be padded with fixed dummy variables to
+<span class="texhtml"><i>l</i><sub>1</sub> ∨ ⋯ ∨ <i>l</i><sub><i>j</i></sub> ∨ <i>d</i><sub><i>j</i>+1</sub> ∨ ⋯ ∨ <i>d</i><sub><i>k</i></sub></span>.
+After padding all clauses, 2<sup><i>k</i></sup>-1 extra clauses<sup id="cite_ref-17" class="reference"><a href="#cite_note-17">&#91;note 4&#93;</a></sup> have to be appended to ensure that only <span class="texhtml"><i>d</i><sub>1</sub> = ⋯ = <i>d</i><sub><i>k</i></sub>=FALSE</span> can lead to a satisfying assignment. Since <i>k</i> doesn't depend on the formula length, the extra clauses lead to a constant increase in length. For the same reason, it does not matter whether <b>duplicate literals</b> are allowed in clauses, as in <span class="texhtml">¬<i>x</i> ∨ ¬<i>y</i> ∨ ¬<i>y</i></span>.
+</p>
+<h2><span class="mw-headline" id="Special_cases_of_SAT">Special cases of SAT</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=5" title="Edit section: Special cases of SAT">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Conjunctive_normal_form_2">Conjunctive normal form</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=6" title="Edit section: Conjunctive normal form">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Conjunctive normal form (in particular with 3 literals per clause) is often considered the canonical representation for SAT formulas. As shown above, the general SAT problem reduces to 3-SAT, the problem of determining satisfiability for formulas in this form.
+</p>
+<h3><span class="mw-headline" id="Disjunctive_normal_form">Disjunctive normal form</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=7" title="Edit section: Disjunctive normal form">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>SAT is trivial if the formulas are restricted to those in <b><a href="https://en.wikipedia.org/wiki/Disjunctive_normal_form" title="Disjunctive normal form">disjunctive normal form</a></b>, that is, they are a disjunction of conjunctions of literals. Such a formula is indeed satisfiable if and only if at least one of its conjunctions is satisfiable, and a conjunction is satisfiable if and only if it does not contain both <i>x</i> and NOT <i>x</i> for some variable <i>x</i>. This can be checked in linear time. Furthermore, if they are restricted to being in <b>full disjunctive normal form</b>, in which every variable appears exactly once in every conjunction, they can be checked in constant time (each conjunction represents one satisfying assignment).  But it can take exponential time and space to convert a general SAT problem to disjunctive normal form; for an example exchange "∧" and "∨" in the <a href="#Definitions">above</a> exponential blow-up example for conjunctive normal forms.
+</p>
+<h3><span class="mw-headline" id="Exactly-1_3-satisfiability">Exactly-1 3-satisfiability</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=8" title="Edit section: Exactly-1 3-satisfiability">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="thumb tright"><div class="thumbinner" style="width:418px;"><a href="https://en.wikipedia.org/wiki/File:Schaefer%27s_3-SAT_to_1-in-3-SAT_reduction.gif" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Schaefer%27s_3-SAT_to_1-in-3-SAT_reduction.gif/416px-Schaefer%27s_3-SAT_to_1-in-3-SAT_reduction.gif" decoding="async" width="416" height="100" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Schaefer%27s_3-SAT_to_1-in-3-SAT_reduction.gif/624px-Schaefer%27s_3-SAT_to_1-in-3-SAT_reduction.gif 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Schaefer%27s_3-SAT_to_1-in-3-SAT_reduction.gif/831px-Schaefer%27s_3-SAT_to_1-in-3-SAT_reduction.gif 2x" data-file-width="1159" data-file-height="279" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Schaefer%27s_3-SAT_to_1-in-3-SAT_reduction.gif" class="internal" title="Enlarge"></a></div><b>Left:</b> Schaefer's reduction of a 3-SAT clause <i>x</i> ∨ <i>y</i> ∨ <i>z</i>. The result of <i>R</i> is <span style="color: #00a000;">TRUE (1)</span> if exactly one of its arguments is TRUE, and <span style="color: #a00000;">FALSE (0)</span> otherwise. All 8 combinations of values for <i>x</i>,<i>y</i>,<i>z</i> are examined, one per line. The fresh variables <i>a</i>,...,<i>f</i> can be chosen to satisfy all clauses (exactly one <span style="color: #00a000;">green</span> argument for each <i>R</i>) in all lines except the first, where <i>x</i> ∨ <i>y</i> ∨ <i>z</i> is FALSE. <b>Right:</b> A simpler reduction with the same properties.</div></div></div>
+<p>A variant of the 3-satisfiability problem is the <b>one-in-three 3-SAT</b> (also known variously as <b>1-in-3-SAT</b> and <b>exactly-1 3-SAT</b>).
+Given a conjunctive normal form with three literals per clause, the problem is to determine whether there exists a truth assignment to the variables so that each clause has <i>exactly</i> one TRUE literal (and thus exactly two FALSE literals). In contrast, ordinary 3-SAT requires that every clause has <i>at least</i> one TRUE literal.
+Formally, a one-in-three 3-SAT problem is given as a generalized conjunctive normal form with all generalized clauses using a ternary operator <i>R</i> that is TRUE just if exactly one of its arguments is. When all literals of a one-in-three 3-SAT formula are positive, the satisfiability problem is called <b>one-in-three positive 3-SAT</b>.
+</p><p>One-in-three 3-SAT, together with its positive case, is listed as NP-complete problem "LO4" in the standard reference, <i>Computers and Intractability: A Guide to the Theory of NP-Completeness</i>
+by <a href="https://en.wikipedia.org/wiki/Michael_R._Garey" class="mw-redirect" title="Michael R. Garey">Michael R. Garey</a> and <a href="https://en.wikipedia.org/wiki/David_S._Johnson" title="David S. Johnson">David S. Johnson</a>.  One-in-three 3-SAT was proved to be NP-complete by <a href="https://en.wikipedia.org/wiki/Thomas_Jerome_Schaefer" title="Thomas Jerome Schaefer">Thomas Jerome Schaefer</a> as a special case of <a href="https://en.wikipedia.org/wiki/Schaefer%27s_dichotomy_theorem" title="Schaefer&#39;s dichotomy theorem">Schaefer's dichotomy theorem</a>, which asserts that any problem generalizing Boolean satisfiability in a certain way is either in the class P or is NP-complete.<sup id="cite_ref-schaefer_18-0" class="reference"><a href="#cite_note-schaefer-18">&#91;14&#93;</a></sup>
+</p><p>Schaefer gives a construction allowing an easy polynomial-time reduction from 3-SAT to one-in-three 3-SAT.  Let "(<i>x</i> or <i>y</i> or <i>z</i>)" be a clause in a 3CNF formula.  Add six fresh boolean variables <i>a</i>, <i>b</i>, <i>c</i>, <i>d</i>, <i>e</i>, and <i>f</i>, to be used to simulate this clause and no other.
+Then the formula <i>R</i>(<i>x</i>,<i>a</i>,<i>d</i>) ∧ <i>R</i>(<i>y</i>,<i>b</i>,<i>d</i>) ∧ <i>R</i>(<i>a</i>,<i>b</i>,<i>e</i>) ∧ <i>R</i>(<i>c</i>,<i>d</i>,<i>f</i>) ∧ <i>R</i>(<i>z</i>,<i>c</i>,FALSE) is satisfiable by some setting of the fresh variables if and only if at least one of <i>x</i>, <i>y</i>, or <i>z</i> is TRUE, see picture (left).  Thus any 3-SAT instance with <i>m</i> clauses and <i>n</i> variables may be converted into an <a href="https://en.wikipedia.org/wiki/Equisatisfiable" class="mw-redirect" title="Equisatisfiable">equisatisfiable</a> one-in-three 3-SAT instance with 5<i>m</i> clauses and <i>n</i>+6<i>m</i> variables.<sup id="cite_ref-19" class="reference"><a href="#cite_note-19">&#91;15&#93;</a></sup>
+Another reduction involves only four fresh variables and three clauses: <i>R</i>(¬<i>x</i>,<i>a</i>,<i>b</i>) ∧ <i>R</i>(<i>b</i>,<i>y</i>,<i>c</i>) ∧ R(<i>c</i>,<i>d</i>,¬<i>z</i>), see picture (right).
+</p>
+<h3><span class="mw-headline" id="Not-all-equal_3-satisfiability">Not-all-equal 3-satisfiability</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=9" title="Edit section: Not-all-equal 3-satisfiability">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1033289096"/><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="https://en.wikipedia.org/wiki/Not-all-equal_3-satisfiability" title="Not-all-equal 3-satisfiability">Not-all-equal 3-satisfiability</a></div>
+<p>Another variant is the <b>not-all-equal 3-satisfiability</b> problem (also called <b>NAE3SAT</b>).
+Given a conjunctive normal form with three literals per clause, the problem is to determine if an assignment to the variables exists such that in no clause all three literals have the same truth value. This problem is NP-complete, too, even if no negation symbols are admitted, by Schaefer's dichotomy theorem.<sup id="cite_ref-schaefer_18-1" class="reference"><a href="#cite_note-schaefer-18">&#91;14&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Linear_SAT">Linear SAT</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=10" title="Edit section: Linear SAT">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>A 3-SAT formula is <i>Linear SAT</i> (<i>LSAT</i>) if each clause (viewed as a set of literals) intersects at most one other clause, and, moreover, if two clauses intersect, then they have exactly one literal in common. An LSAT formula can be depicted as a set of disjoint semi-closed intervals on a line. Deciding whether an LSAT formula is satisfiable or not is NP-complete.<sup id="cite_ref-20" class="reference"><a href="#cite_note-20">&#91;16&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="2-satisfiability">2-satisfiability</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=11" title="Edit section: 2-satisfiability">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1033289096"/><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="https://en.wikipedia.org/wiki/2-satisfiability" title="2-satisfiability">2-satisfiability</a></div>
+<p>SAT is easier if the number of literals in a clause is limited to at most 2, in which case the problem is called <b><a href="https://en.wikipedia.org/wiki/2-SAT" class="mw-redirect" title="2-SAT">2-SAT</a></b>. This problem can be solved in polynomial time, and in fact is <a href="https://en.wikipedia.org/wiki/NL-complete" title="NL-complete">complete</a> for the complexity class <a href="https://en.wikipedia.org/wiki/NL_(complexity)" title="NL (complexity)">NL</a>. If additionally all OR operations in literals are changed to <a href="https://en.wikipedia.org/wiki/Exclusive_or" title="Exclusive or">XOR</a> operations, the result is called <b>exclusive-or 2-satisfiability</b>, which is a problem complete for the complexity class <a href="https://en.wikipedia.org/wiki/SL_(complexity)" title="SL (complexity)">SL</a> = <a href="https://en.wikipedia.org/wiki/L_(complexity)" title="L (complexity)">L</a>.
+</p>
+<h3><span class="mw-headline" id="Horn-satisfiability">Horn-satisfiability</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=12" title="Edit section: Horn-satisfiability">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1033289096"/><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="https://en.wikipedia.org/wiki/Horn-satisfiability" title="Horn-satisfiability">Horn-satisfiability</a></div>
+<p>The problem of deciding the satisfiability of a given conjunction of <a href="https://en.wikipedia.org/wiki/Horn_clause" title="Horn clause">Horn clauses</a> is called <b>Horn-satisfiability</b>, or <b>HORN-SAT</b>.
+It can be solved in polynomial time by a single step of the <a href="https://en.wikipedia.org/wiki/Unit_propagation" title="Unit propagation">Unit propagation</a> algorithm, which produces the single minimal model of the set of Horn clauses (w.r.t. the set of literals assigned to TRUE).
+Horn-satisfiability is <a href="https://en.wikipedia.org/wiki/P-complete" title="P-complete">P-complete</a>. It can be seen as <a href="https://en.wikipedia.org/wiki/P_(complexity)" title="P (complexity)">P's</a> version of the Boolean satisfiability problem.
+Also, deciding the truth of quantified Horn formulas can be done in polynomial time.
+<sup id="cite_ref-buningkarpinski_21-0" class="reference"><a href="#cite_note-buningkarpinski-21">&#91;17&#93;</a></sup>
+</p><p>Horn clauses are of interest because they are able to express <a href="https://en.wikipedia.org/wiki/Entailment" class="mw-redirect" title="Entailment">implication</a> of one variable from a set of other variables. Indeed, one such clause ¬<i>x</i><sub>1</sub> ∨ ... ∨ ¬<i>x</i><sub><i>n</i></sub> ∨ <i>y</i> can be rewritten as <i>x</i><sub>1</sub> ∧ ... ∧ <i>x</i><sub><i>n</i></sub> → <i>y</i>, that is, if <i>x</i><sub>1</sub>,...,<i>x</i><sub><i>n</i></sub> are all TRUE, then <i>y</i> needs to be TRUE as well.
+</p><p>A generalization of the class of Horn formulae is that of renameable-Horn formulae, which is the set of formulae that can be placed in Horn form by replacing some variables with their respective negation.
+For example, (<i>x</i><sub>1</sub> ∨ ¬<i>x</i><sub>2</sub>) ∧ (¬<i>x</i><sub>1</sub> ∨ <i>x</i><sub>2</sub> ∨ <i>x</i><sub>3</sub>) ∧ ¬<i>x</i><sub>1</sub> is not a Horn formula, but can be renamed to the Horn formula (<i>x</i><sub>1</sub> ∨ ¬<i>x</i><sub>2</sub>) ∧ (¬<i>x</i><sub>1</sub> ∨ <i>x</i><sub>2</sub> ∨ ¬<i>y</i><sub>3</sub>) ∧ ¬<i>x</i><sub>1</sub> by introducing <i>y</i><sub>3</sub> as negation of <i>x</i><sub>3</sub>.
+In contrast, no renaming of (<i>x</i><sub>1</sub> ∨ ¬<i>x</i><sub>2</sub> ∨ ¬<i>x</i><sub>3</sub>) ∧ (¬<i>x</i><sub>1</sub> ∨ <i>x</i><sub>2</sub> ∨ <i>x</i><sub>3</sub>) ∧ ¬<i>x</i><sub>1</sub> leads to a Horn formula.
+Checking the existence of such a replacement can be done in linear time; therefore, the satisfiability of such formulae is in P as it can be solved by first performing this replacement and then checking the satisfiability of the resulting Horn formula.
+</p>
+<table style="float:right">
+<tbody><tr>
+<td><div class="thumb tright"><div class="thumbinner" style="width:196px;"><a href="https://en.wikipedia.org/wiki/File:Boolean_satisfiability_vs_true_literal_counts.png" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Boolean_satisfiability_vs_true_literal_counts.png/194px-Boolean_satisfiability_vs_true_literal_counts.png" decoding="async" width="194" height="200" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/4/42/Boolean_satisfiability_vs_true_literal_counts.png/290px-Boolean_satisfiability_vs_true_literal_counts.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/4/42/Boolean_satisfiability_vs_true_literal_counts.png/387px-Boolean_satisfiability_vs_true_literal_counts.png 2x" data-file-width="454" data-file-height="469" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Boolean_satisfiability_vs_true_literal_counts.png" class="internal" title="Enlarge"></a></div>A formula with 2 clauses may be unsatisfied (red), 3-satisfied (green), xor-3-satisfied (blue), or/and 1-in-3-satisfied (yellow), depending on the TRUE-literal count in the 1st (hor) and 2nd (vert) clause.</div></div></div>
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="XOR-satisfiability">XOR-satisfiability</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=13" title="Edit section: XOR-satisfiability">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<table align="right" class="wikitable collapsible collapsed" style="text-align:left; margin: 1em">
+
+<tbody><tr>
+<th>Solving an XOR-SAT example<br />by <a href="https://en.wikipedia.org/wiki/Gaussian_elimination" title="Gaussian elimination">Gaussian elimination</a>
+</th></tr>
+<tr>
+<td>
+<table align="left" class="collapsible collapsed" style="text-align:left">
+
+<tbody><tr>
+<th>Given formula
+</th></tr>
+<tr>
+<td>("⊕" means XOR, the <span style="color:#ff8080">red clause</span> is optional)
+</td></tr>
+<tr>
+<td>(<i>a</i>⊕<i>c</i>⊕<i>d</i>) ∧ (<i>b</i>⊕¬<i>c</i>⊕<i>d</i>) ∧ (<i>a</i>⊕<i>b</i>⊕¬<i>d</i>) ∧ (<i>a</i>⊕¬<i>b</i>⊕¬<i>c</i>) <span style="color:#ff8080">∧ (¬<i>a</i>⊕<i>b</i>⊕<i>c</i>)</span>
+</td></tr></tbody></table>
+</td></tr>
+<tr>
+<td>
+<table align="left" class="collapsible collapsed" style="text-align:left">
+
+<tbody><tr>
+<th colspan="9">Equation system
+</th></tr>
+<tr>
+<td colspan="9">("1" means TRUE, "0" means FALSE)
+</td></tr>
+<tr>
+<td colspan="9">Each clause leads to one equation.
+</td></tr>
+<tr>
+<td></td>
+<td><i>a</i></td>
+<td>⊕</td>
+<td></td>
+<td><i>c</i></td>
+<td>⊕</td>
+<td></td>
+<td><i>d</i></td>
+<td>= 1
+</td></tr>
+<tr>
+<td></td>
+<td><i>b</i></td>
+<td>⊕</td>
+<td>¬</td>
+<td><i>c</i></td>
+<td>⊕</td>
+<td></td>
+<td><i>d</i></td>
+<td>= 1
+</td></tr>
+<tr>
+<td></td>
+<td><i>a</i></td>
+<td>⊕</td>
+<td></td>
+<td><i>b</i></td>
+<td>⊕</td>
+<td>¬</td>
+<td><i>d</i></td>
+<td>= 1
+</td></tr>
+<tr>
+<td></td>
+<td><i>a</i></td>
+<td>⊕</td>
+<td>¬</td>
+<td><i>b</i></td>
+<td>⊕</td>
+<td>¬</td>
+<td><i>c</i></td>
+<td>= 1
+</td></tr>
+<tr>
+<td><span style="color:#ff8080">¬</span></td>
+<td><span style="color:#ff8080"><i>a</i></span></td>
+<td><span style="color:#ff8080">⊕</span></td>
+<td></td>
+<td><span style="color:#ff8080"><i>b</i></span></td>
+<td><span style="color:#ff8080">⊕</span></td>
+<td></td>
+<td><span style="color:#ff8080"><i>c</i></span></td>
+<td><span style="color:#ff8080"> ≃ 1</span>
+</td></tr></tbody></table>
+</td></tr>
+<tr>
+<td>
+<table align="left" class="collapsible collapsed" style="text-align:left">
+
+<tbody><tr>
+<th colspan="6">Normalized equation system
+</th></tr>
+<tr>
+<td colspan="6">using properties of <a href="https://en.wikipedia.org/wiki/Boolean_rings" class="mw-redirect" title="Boolean rings">Boolean rings</a> (¬<i>x</i>=1⊕<i>x</i>, <i>x</i>⊕<i>x</i>=0)
+</td></tr>
+<tr>
+<td><i>a</i></td>
+<td>⊕</td>
+<td><i>c</i></td>
+<td>⊕</td>
+<td><i>d</i></td>
+<td>= <b>1</b>
+</td></tr>
+<tr>
+<td><i>b</i></td>
+<td>⊕</td>
+<td><i>c</i></td>
+<td>⊕</td>
+<td><i>d</i></td>
+<td>= <b>0</b>
+</td></tr>
+<tr>
+<td><i>a</i></td>
+<td>⊕</td>
+<td><i>b</i></td>
+<td>⊕</td>
+<td><i>d</i></td>
+<td>= <b>0</b>
+</td></tr>
+<tr>
+<td><i>a</i></td>
+<td>⊕</td>
+<td><i>b</i></td>
+<td>⊕</td>
+<td><i>c</i></td>
+<td>= <b>1</b>
+</td></tr>
+<tr>
+<td><span style="color:#ff8080"><i>a</i></span></td>
+<td><span style="color:#ff8080">⊕</span></td>
+<td><span style="color:#ff8080"><i>b</i></span></td>
+<td><span style="color:#ff8080">⊕</span></td>
+<td><span style="color:#ff8080"><i>c</i></span></td>
+<td><span style="color:#ff8080"> ≃ <b>0</b></span>
+</td></tr>
+<tr>
+<td colspan="6">(If the <span style="color:#ff8080">red equation</span> is present, <span style="color:#ff8080">it</span> contradicts
+</td></tr>
+<tr>
+<td colspan="6">the last black one, so the system is unsolvable.
+</td></tr>
+<tr>
+<td colspan="6">Therefore, Gauss' algorithm is
+</td></tr>
+<tr>
+<td colspan="6">used only for the black equations.)
+</td></tr></tbody></table>
+</td></tr>
+<tr>
+<td>
+<table align="left" class="collapsible collapsed" style="text-align:left">
+
+<tbody><tr>
+<th colspan="6">Associated coefficient matrix
+</th></tr>
+<tr>
+<td>&#160;
+</td></tr>
+<tr>
+<th><i>a</i></th>
+<th><i>b</i></th>
+<th><i>c</i></th>
+<th><i>d</i></th>
+<th></th>
+<th>line
+</th></tr>
+<tr>
+<td>&#160;
+</td></tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1
+</td>
+<th>1
+</th>
+<td>A
+</td></tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1
+</td>
+<th>0
+</th>
+<td>B
+</td></tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1
+</td>
+<th>0
+</th>
+<td>C
+</td></tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0
+</td>
+<th>1
+</th>
+<td>D
+</td></tr></tbody></table>
+</td></tr>
+<tr>
+<td>
+<table align="left" class="collapsible collapsed" style="text-align:left">
+
+<tbody><tr>
+<th colspan="6">Transforming to echelon form
+</th></tr>
+<tr>
+<td>&#160;
+</td></tr>
+<tr>
+<th><i>a</i></th>
+<th><i>b</i></th>
+<th><i>c</i></th>
+<th><i>d</i></th>
+<th></th>
+<th>operation
+</th></tr>
+<tr>
+<td>&#160;
+</td></tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1
+</td>
+<th>1
+</th>
+<td>A
+</td></tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1
+</td>
+<th>0
+</th>
+<td>C
+</td></tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0
+</td>
+<th>1
+</th>
+<td>D
+</td></tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1
+</td>
+<th>0
+</th>
+<td>B (swapped)
+</td></tr>
+<tr>
+<td>&#160;
+</td></tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1
+</td>
+<th>1
+</th>
+<td>A
+</td></tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0
+</td>
+<th>1
+</th>
+<td>E = C⊕A
+</td></tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1
+</td>
+<th>0
+</th>
+<td>F = D⊕A
+</td></tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1
+</td>
+<th>0
+</th>
+<td>B
+</td></tr>
+<tr>
+<td>&#160;
+</td></tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1
+</td>
+<th>1
+</th>
+<td>A
+</td></tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0
+</td>
+<th>1
+</th>
+<td>E
+</td></tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1
+</td>
+<th>1
+</th>
+<td>G = F⊕E
+</td></tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1
+</td>
+<th>1
+</th>
+<td>H = B⊕E
+</td></tr></tbody></table>
+</td></tr>
+<tr>
+<td>
+<table align="left" class="collapsible collapsed" style="text-align:left">
+
+<tbody><tr>
+<th colspan="6">Transforming to diagonal form
+</th></tr>
+<tr>
+<td>&#160;
+</td></tr>
+<tr>
+<th><i>a</i></th>
+<th><i>b</i></th>
+<th><i>c</i></th>
+<th><i>d</i></th>
+<th></th>
+<th>operation
+</th></tr>
+<tr>
+<td>&#160;
+</td></tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0
+</td>
+<th>0
+</th>
+<td>I = A⊕H
+</td></tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0
+</td>
+<th>1
+</th>
+<td>E
+</td></tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0
+</td>
+<th>0
+</th>
+<td>J = G⊕H
+</td></tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1
+</td>
+<th>1
+</th>
+<td>H
+</td></tr>
+<tr>
+<td>&#160;
+</td></tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0
+</td>
+<th>0
+</th>
+<td>K = I⊕J
+</td></tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0
+</td>
+<th>1
+</th>
+<td>L = E⊕J
+</td></tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0
+</td>
+<th>0
+</th>
+<td>J
+</td></tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1
+</td>
+<th>1
+</th>
+<td>H
+</td></tr>
+</tbody></table>
+</td></tr>
+<tr>
+<td>
+<table align="left" class="collapsible collapsed" style="text-align:left">
+
+<tbody><tr>
+<th>Solution:
+</th></tr>
+<tr>
+<td>If the <span style="color:#ff8080">red clause</span> is present:</td>
+<td>Unsolvable
+</td></tr>
+<tr>
+<td>Else:</td>
+<td><i>a</i> = 0 = FALSE
+</td></tr>
+<tr>
+<td></td>
+<td><i>b</i> = 1 = TRUE
+</td></tr>
+<tr>
+<td></td>
+<td><i>c</i> = 0 = FALSE
+</td></tr>
+<tr>
+<td></td>
+<td><i>d</i> = 1 = TRUE
+</td></tr>
+<tr>
+<td colspan="2"><b>As a consequence:</b>
+</td></tr>
+<tr>
+<td colspan="2"><i>R</i>(<i>a</i>,<i>c</i>,<i>d</i>) ∧ <i>R</i>(<i>b</i>,¬<i>c</i>,<i>d</i>) ∧ <i>R</i>(<i>a</i>,<i>b</i>,¬<i>d</i>) ∧ <i>R</i>(<i>a</i>,¬<i>b</i>,¬<i>c</i>) <span style="color:#ff8080">∧ <i>R</i>(¬<i>a</i>,<i>b</i>,<i>c</i>)</span>
+</td></tr>
+<tr>
+<td colspan="2">is not 1-in-3-satisfiable,
+</td></tr>
+<tr>
+<td colspan="2">while (<i>a</i> ∨ <i>c</i> ∨ <i>d</i>) ∧ (<i>b</i> ∨ ¬<i>c</i> ∨ <i>d</i>) ∧ (<i>a</i> ∨ <i>b</i> ∨ ¬<i>d</i>) ∧ (<i>a</i> ∨ ¬<i>b</i> ∨ ¬<i>c</i>)
+</td></tr>
+<tr>
+<td colspan="2">is 3-satisfiable with <i>a</i>=<i>c</i>=FALSE and <i>b</i>=<i>d</i>=TRUE.
+</td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>Another special case is the class of problems where each clause contains XOR (i.e. <a href="https://en.wikipedia.org/wiki/Exclusive_or" title="Exclusive or">exclusive or</a>) rather than (plain) OR operators.<sup id="cite_ref-22" class="reference"><a href="#cite_note-22">&#91;note 5&#93;</a></sup>
+This is in <a href="https://en.wikipedia.org/wiki/P_(complexity_class)" class="mw-redirect" title="P (complexity class)">P</a>, since an XOR-SAT formula can also be viewed as a system of linear equations mod 2, and can be solved in cubic time by <a href="https://en.wikipedia.org/wiki/Gaussian_elimination" title="Gaussian elimination">Gaussian elimination</a>;<sup id="cite_ref-23" class="reference"><a href="#cite_note-23">&#91;18&#93;</a></sup> see the box for an example. This recast is based on the <a href="https://en.wikipedia.org/wiki/Boolean_algebra_(structure)#Boolean_rings" title="Boolean algebra (structure)">kinship between Boolean algebras and Boolean rings</a>, and the fact that arithmetic modulo two forms a <a href="https://en.wikipedia.org/wiki/Finite_field" title="Finite field">finite field</a>. Since <i>a</i> XOR <i>b</i> XOR <i>c</i> evaluates to TRUE if and only if exactly 1 or 3 members of {<i>a</i>,<i>b</i>,<i>c</i>} are TRUE, each solution of the 1-in-3-SAT problem for a given CNF formula is also a solution of the XOR-3-SAT problem, and in turn each solution of XOR-3-SAT is a solution of 3-SAT, cf. picture. As a consequence, for each CNF formula, it is possible to solve the XOR-3-SAT problem defined by the formula, and based on the result infer either that the 3-SAT problem is solvable or that the 1-in-3-SAT problem is unsolvable.
+</p><p>Provided that the <a href="https://en.wikipedia.org/wiki/P_%3D_NP_problem" class="mw-redirect" title="P = NP problem">complexity classes P and NP are not equal</a>, neither 2-, nor Horn-, nor XOR-satisfiability is NP-complete, unlike SAT.
+</p>
+<h3><span id="Schaefer.27s_dichotomy_theorem"></span><span class="mw-headline" id="Schaefer's_dichotomy_theorem">Schaefer's dichotomy theorem</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=14" title="Edit section: Schaefer&#039;s dichotomy theorem">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1033289096"/><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="https://en.wikipedia.org/wiki/Schaefer%27s_dichotomy_theorem" title="Schaefer&#39;s dichotomy theorem">Schaefer's dichotomy theorem</a></div>
+<p>The restrictions above (CNF, 2CNF, 3CNF, Horn, XOR-SAT) bound the considered formulae to be conjunctions of subformulae; each restriction states a specific form for all subformulae: for example, only binary clauses can be subformulae in 2CNF.
+</p><p>Schaefer's dichotomy theorem states that, for any restriction to Boolean functions that can be used to form these subformulae, the corresponding satisfiability problem is in P or NP-complete.  The membership in P of the satisfiability of 2CNF, Horn, and XOR-SAT formulae are special cases of this theorem.<sup id="cite_ref-schaefer_18-2" class="reference"><a href="#cite_note-schaefer-18">&#91;14&#93;</a></sup>
+</p><p>The following table summarizes some common variants of SAT.
+</p>
+<table class="wikitable sortable">
+<caption>
+</caption>
+<tbody><tr>
+<th>Code
+</th>
+<th>Name
+</th>
+<th>Restrictions
+</th>
+<th>Requirements
+</th>
+<th>Class
+</th></tr>
+<tr>
+<td>3SAT
+</td>
+<td>3-satisfiability
+</td>
+<td>Each clause contains 3 literals.
+</td>
+<td>At least one literal must be true.
+</td>
+<td>NPC
+</td></tr>
+<tr>
+<td>2SAT
+</td>
+<td>2-satisfiability
+</td>
+<td>Each clause contains 2 literals.
+</td>
+<td>At least one literal must be true.
+</td>
+<td>P
+</td></tr>
+<tr>
+<td>1-in-3-SAT
+</td>
+<td>Exactly-1 3-SAT
+</td>
+<td>Each clause contains 3 literals.
+</td>
+<td>Exactly one literal must be true.
+</td>
+<td>NPC
+</td></tr>
+<tr>
+<td>1-in-3-SAT+
+</td>
+<td>Exactly-1 Positive 3-SAT
+</td>
+<td>Each clause contains 3 positive literals.
+</td>
+<td>Exactly one literal must be true.
+</td>
+<td>NPC
+</td></tr>
+<tr>
+<td>NAE3SAT
+</td>
+<td>Not-all-equal 3-satisfiability
+</td>
+<td>Each clause contains 3 literals.
+</td>
+<td>Either one or two literals must be true.
+</td>
+<td>NPC
+</td></tr>
+<tr>
+<td>NAE3SAT+
+</td>
+<td>Not-all-equal positive 3-SAT
+</td>
+<td>Each clause contains 3 positive literals.
+</td>
+<td>Either one or two literals must be true.
+</td>
+<td>NPC
+</td></tr>
+<tr>
+<td>PL-SAT
+</td>
+<td><a href="https://en.wikipedia.org/wiki/Planar_SAT" title="Planar SAT">Planar SAT</a>
+</td>
+<td>The incidence graph (clause-variable graph) is <a href="https://en.wikipedia.org/wiki/Planar_graph" title="Planar graph">planar</a>.
+</td>
+<td>At least one literal must be true.
+</td>
+<td>NPC
+</td></tr>
+<tr>
+<td>L3SAT
+</td>
+<td>Linear 3-SAT
+</td>
+<td>Each clause intersects at most one other clause, and the intersection is exactly one literal.
+</td>
+<td>At least one literal must be true.
+</td>
+<td>NPC
+</td></tr>
+<tr>
+<td>HORN-SAT
+</td>
+<td>Horn satisfiability
+</td>
+<td>Horn clauses (at most one positive literal).
+</td>
+<td>At least one literal must be true.
+</td>
+<td>P
+</td></tr>
+<tr>
+<td>XOR-SAT
+</td>
+<td>Xor satisfiability
+</td>
+<td>Each clause contains XOR operations rather than OR.
+</td>
+<td>The XOR of all literals must be true.
+</td>
+<td>P
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Extensions_of_SAT">Extensions of SAT</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=15" title="Edit section: Extensions of SAT">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>An extension that has gained significant popularity since 2003 is <b><a href="https://en.wikipedia.org/wiki/Satisfiability_modulo_theories" title="Satisfiability modulo theories">satisfiability modulo theories</a></b> (<b>SMT</b>) that can enrich CNF formulas with linear constraints, arrays, all-different constraints, <a href="https://en.wikipedia.org/wiki/Uninterpreted_function" title="Uninterpreted function">uninterpreted functions</a>,<sup id="cite_ref-Bryant.German.Velev.1999_24-0" class="reference"><a href="#cite_note-Bryant.German.Velev.1999-24">&#91;19&#93;</a></sup> <i>etc.</i> Such extensions typically remain NP-complete, but very efficient solvers are now available that can handle many such kinds of constraints.
+</p><p>The satisfiability problem becomes more difficult if both "for all" (<a href="https://en.wikipedia.org/wiki/∀" class="mw-redirect" title="∀">∀</a>) and "there exists" (<a href="https://en.wikipedia.org/wiki/∃" class="mw-redirect" title="∃">∃</a>) <a href="https://en.wikipedia.org/wiki/Quantifier_(logic)" title="Quantifier (logic)">quantifiers</a> are allowed to bind the Boolean variables.
+An example of such an expression would be <span class="texhtml texhtml-big" style="font-size:100%;">∀<i>x</i> ∀<i>y</i> ∃<i>z</i> (<i>x</i> ∨ <i>y</i> ∨ <i>z</i>) ∧ (¬<i>x</i> ∨ ¬<i>y</i> ∨ ¬<i>z</i>)</span>; it is valid, since for all values of <i>x</i> and <i>y</i>, an appropriate value of <i>z</i> can be found, viz. <i>z</i>=TRUE if both <i>x</i> and <i>y</i> are FALSE, and <i>z</i>=FALSE else.
+SAT itself (tacitly) uses only ∃ quantifiers.
+If only ∀ quantifiers are allowed instead, the so-called <b><a href="https://en.wikipedia.org/wiki/Tautology_(logic)" title="Tautology (logic)">tautology</a> problem</b> is obtained, which is <a href="https://en.wikipedia.org/wiki/Co-NP-complete" title="Co-NP-complete">co-NP-complete</a>.
+If both quantifiers are allowed, the problem is called the <b><a href="https://en.wikipedia.org/wiki/Quantified_Boolean_formula_problem" class="mw-redirect" title="Quantified Boolean formula problem">quantified Boolean formula problem</a></b> (<b>QBF</b>), which can be shown to be <a href="https://en.wikipedia.org/wiki/PSPACE-complete" title="PSPACE-complete">PSPACE-complete</a>. It is widely believed that PSPACE-complete problems are strictly harder than any problem in NP, although this has not yet been proved. Using highly parallel <i><a href="https://en.wikipedia.org/wiki/P_system" title="P system">P systems</a></i>, QBF-SAT problems can be solved in linear time.<sup id="cite_ref-25" class="reference"><a href="#cite_note-25">&#91;20&#93;</a></sup>
+</p><p>Ordinary SAT asks if there is at least one variable assignment that makes the formula true. A variety of variants deal with the number of such assignments:
+</p>
+<ul><li><b>MAJ-SAT</b> asks if the majority of all assignments make the formula TRUE. It is known to be complete for <a href="https://en.wikipedia.org/wiki/PP_(complexity)" title="PP (complexity)">PP</a>, a probabilistic class.</li>
+<li><b><a href="https://en.wikipedia.org/wiki/Sharp-SAT" title="Sharp-SAT">#SAT</a></b>, the problem of counting how many variable assignments satisfy a formula, is a counting problem, not a decision problem, and is <a href="https://en.wikipedia.org/wiki/Sharp-P-complete" class="mw-redirect" title="Sharp-P-complete">#P-complete</a>.</li>
+<li><b>UNIQUE SAT</b><sup id="cite_ref-26" class="reference"><a href="#cite_note-26">&#91;21&#93;</a></sup> is the problem of determining whether a formula has exactly one assignment. It is complete for <a href="https://en.wikipedia.org/w/index.php?title=US_(complexity)&amp;action=edit&amp;redlink=1" class="new" title="US (complexity) (page does not exist)">US</a>,<sup id="cite_ref-27" class="reference"><a href="#cite_note-27">&#91;22&#93;</a></sup> the <a href="https://en.wikipedia.org/wiki/Complexity_class" title="Complexity class">complexity class</a> describing problems solvable by a non-deterministic polynomial time <a href="https://en.wikipedia.org/wiki/Turing_machine" title="Turing machine">Turing machine</a> that accepts when there is exactly one nondeterministic accepting path and rejects otherwise.</li>
+<li><b>UNAMBIGUOUS-SAT</b> is the name given to the satisfiability problem when the input is <a href="https://en.wikipedia.org/wiki/Promise_problem" title="Promise problem">restricted</a> to formulas having at most one satisfying assignment. The problem is also called <b>USAT</b>.<sup id="cite_ref-28" class="reference"><a href="#cite_note-28">&#91;23&#93;</a></sup> A solving algorithm for UNAMBIGUOUS-SAT is allowed to exhibit any behavior, including endless looping, on a formula having several satisfying assignments. Although this problem seems easier, Valiant and Vazirani have <a href="https://en.wikipedia.org/wiki/Valiant-Vazirani_theorem" class="mw-redirect" title="Valiant-Vazirani theorem">shown</a><sup id="cite_ref-29" class="reference"><a href="#cite_note-29">&#91;24&#93;</a></sup> that if there is a practical (i.e. <a href="https://en.wikipedia.org/wiki/Bounded-error_probabilistic_polynomial" class="mw-redirect" title="Bounded-error probabilistic polynomial">randomized polynomial-time</a>) algorithm to solve it, then all problems in <a href="https://en.wikipedia.org/wiki/NP_(complexity_class)" class="mw-redirect" title="NP (complexity class)">NP</a> can be solved just as easily.</li>
+<li><b>MAX-SAT</b>, the <a href="https://en.wikipedia.org/wiki/Maximum_satisfiability_problem" title="Maximum satisfiability problem">maximum satisfiability problem</a>, is an <a href="https://en.wikipedia.org/wiki/FNP_(complexity)" title="FNP (complexity)">FNP</a> generalization of SAT. It asks for the maximum number of clauses which can be satisfied by any assignment. It has efficient <a href="https://en.wikipedia.org/wiki/Approximation_algorithm" title="Approximation algorithm">approximation algorithms</a>, but is NP-hard to solve exactly. Worse still, it is <a href="https://en.wikipedia.org/wiki/APX" title="APX">APX</a>-complete, meaning there is no <a href="https://en.wikipedia.org/wiki/Polynomial-time_approximation_scheme" title="Polynomial-time approximation scheme">polynomial-time approximation scheme</a> (PTAS) for this problem unless P=NP.</li>
+<li><b>WMSAT</b> is the problem of finding an assignment of minimum weight that satisfy a monotone Boolean formula (i.e. a formula without any negation). Weights of propositional variables are given in the input of the problem. The weight of an assignment is the sum of weights of true variables. That problem is NP-complete (see Th. 1 of <sup id="cite_ref-30" class="reference"><a href="#cite_note-30">&#91;25&#93;</a></sup>).</li></ul>
+<p>Other generalizations include satisfiability for <a href="https://en.wikipedia.org/wiki/First-order_predicate_calculus" class="mw-redirect" title="First-order predicate calculus">first</a>- and <a href="https://en.wikipedia.org/wiki/Second-order_logic" title="Second-order logic">second-order logic</a>, <a href="https://en.wikipedia.org/wiki/Constraint_satisfaction_problem" title="Constraint satisfaction problem">constraint satisfaction problems</a>, <a href="https://en.wikipedia.org/wiki/0-1_integer_programming" class="mw-redirect" title="0-1 integer programming">0-1 integer programming</a>.
+</p>
+<h2><span class="mw-headline" id="Finding_a_satisfying_assignment">Finding a satisfying assignment</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=16" title="Edit section: Finding a satisfying assignment">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>While SAT is a <a href="https://en.wikipedia.org/wiki/Decision_problem" title="Decision problem">decision problem</a>, the <a href="https://en.wikipedia.org/wiki/Search_problem" title="Search problem">search problem</a> of finding a satisfying assignment reduces to SAT. That is, each algorithm which correctly answers if an instance of SAT is solvable can be used to find a satisfying assignment. First, the question is asked on the given formula Φ. If the answer is "no", the formula is unsatisfiable. Otherwise, the question is asked on the partly instantiated formula Φ<a href="https://en.wikipedia.org/wiki/Substitution_(logic)" title="Substitution (logic)">{<i>x</i><sub>1</sub>=TRUE}</a>, i.e. Φ with the first variable <i>x</i><sub>1</sub> replaced by TRUE, and simplified accordingly. If the answer is "yes", then <i>x</i><sub>1</sub>=TRUE, otherwise <i>x</i><sub>1</sub>=FALSE. Values of other variables can be found subsequently in the same way. In total, <i>n</i>+1 runs of the algorithm are required, where <i>n</i> is the number of distinct variables in Φ.
+</p><p>This property is used in several theorems in complexity theory:
+</p>
+<dl><dd><a href="https://en.wikipedia.org/wiki/NP_(complexity)" title="NP (complexity)">NP</a> ⊆ <a href="https://en.wikipedia.org/wiki/P/poly" title="P/poly">P/poly</a> ⇒ <a href="https://en.wikipedia.org/wiki/PH_(complexity)" title="PH (complexity)">PH</a> = <a href="https://en.wikipedia.org/wiki/Polynomial_hierarchy#Definitions" title="Polynomial hierarchy">Σ<sub>2</sub></a> &#160; (<a href="https://en.wikipedia.org/wiki/Karp–Lipton_theorem" title="Karp–Lipton theorem">Karp–Lipton theorem</a>)</dd>
+<dd><a href="https://en.wikipedia.org/wiki/NP_(complexity)" title="NP (complexity)">NP</a> ⊆ <a href="https://en.wikipedia.org/wiki/BPP_(complexity)" title="BPP (complexity)">BPP</a> ⇒ <a href="https://en.wikipedia.org/wiki/NP_(complexity)" title="NP (complexity)">NP</a> = <a href="https://en.wikipedia.org/wiki/RP_(complexity)" title="RP (complexity)">RP</a></dd>
+<dd><a href="https://en.wikipedia.org/wiki/P_(complexity)" title="P (complexity)">P</a> = <a href="https://en.wikipedia.org/wiki/NP_(complexity)" title="NP (complexity)">NP</a> ⇒ <a href="https://en.wikipedia.org/wiki/FP_(complexity)" title="FP (complexity)">FP</a> = <a href="https://en.wikipedia.org/wiki/FNP_(complexity)" title="FNP (complexity)">FNP</a></dd></dl>
+<h2><span class="mw-headline" id="Algorithms_for_solving_SAT">Algorithms for solving SAT</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=17" title="Edit section: Algorithms for solving SAT">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1033289096"/><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="https://en.wikipedia.org/wiki/SAT_solver" title="SAT solver">SAT solver</a></div>
+<p>Since the SAT problem is NP-complete, only algorithms with exponential worst-case complexity are known for it. In spite of this, efficient and scalable algorithms for SAT were developed during the 2000s and have contributed to dramatic advances in our ability to automatically solve problem instances involving tens of thousands of variables and millions of constraints (i.e. clauses).<sup id="cite_ref-Codish.Ohrimenko.Stuckey.2007_1-1" class="reference"><a href="#cite_note-Codish.Ohrimenko.Stuckey.2007-1">&#91;1&#93;</a></sup> Examples of such problems in <a href="https://en.wikipedia.org/wiki/Electronic_design_automation" title="Electronic design automation">electronic design automation</a> (EDA) include <a href="https://en.wikipedia.org/wiki/Formal_equivalence_checking" title="Formal equivalence checking">formal equivalence checking</a>, <a href="https://en.wikipedia.org/wiki/Model_checking" title="Model checking">model checking</a>, <a href="https://en.wikipedia.org/wiki/Formal_verification" title="Formal verification">formal verification</a> of <a href="https://en.wikipedia.org/wiki/Microprocessor" title="Microprocessor">pipelined microprocessors</a>,<sup id="cite_ref-Bryant.German.Velev.1999_24-1" class="reference"><a href="#cite_note-Bryant.German.Velev.1999-24">&#91;19&#93;</a></sup> <a href="https://en.wikipedia.org/wiki/Automatic_test_pattern_generation" title="Automatic test pattern generation">automatic test pattern generation</a>, <a href="https://en.wikipedia.org/wiki/Routing_(electronic_design_automation)" title="Routing (electronic design automation)">routing</a> of <a href="https://en.wikipedia.org/wiki/FPGA" class="mw-redirect" title="FPGA">FPGAs</a>,<sup id="cite_ref-31" class="reference"><a href="#cite_note-31">&#91;26&#93;</a></sup> <a href="https://en.wikipedia.org/wiki/Automated_planning_and_scheduling" title="Automated planning and scheduling">planning</a>, and <a href="https://en.wikipedia.org/wiki/Scheduling_algorithm" class="mw-redirect" title="Scheduling algorithm">scheduling problems</a>, and so on. A SAT-solving engine is also considered to be an essential component in the <a href="https://en.wikipedia.org/wiki/Electronic_design_automation" title="Electronic design automation">electronic design automation</a> toolbox.
+</p><p>Major techniques used by modern SAT solvers include the <a href="https://en.wikipedia.org/wiki/Davis–Putnam–Logemann–Loveland_algorithm" class="mw-redirect" title="Davis–Putnam–Logemann–Loveland algorithm">Davis–Putnam–Logemann–Loveland algorithm</a> (or DPLL), <a href="https://en.wikipedia.org/wiki/Conflict-driven_clause_learning" title="Conflict-driven clause learning">conflict-driven clause learning</a> (CDCL), and <a href="https://en.wikipedia.org/wiki/Stochastic" title="Stochastic">stochastic</a> <a href="https://en.wikipedia.org/wiki/Local_search_(constraint_satisfaction)" title="Local search (constraint satisfaction)">local search</a> algorithms such as <a href="https://en.wikipedia.org/wiki/WalkSAT" title="WalkSAT">WalkSAT</a>. Almost all SAT solvers include time-outs, so they will terminate in reasonable time even if they cannot find a solution.
+Different SAT solvers will find different instances easy or hard, and some excel at proving unsatisfiability, and others at finding solutions.
+</p><p>SAT solvers are developed and compared in SAT-solving contests.<sup id="cite_ref-32" class="reference"><a href="#cite_note-32">&#91;27&#93;</a></sup> Modern SAT solvers are also having significant impact on the fields of software verification, constraint solving in artificial intelligence, and operations research, among others.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=18" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Unsatisfiable_core" title="Unsatisfiable core">Unsatisfiable core</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Satisfiability_modulo_theories" title="Satisfiability modulo theories">Satisfiability modulo theories</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sharp-SAT" title="Sharp-SAT">Counting SAT</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Planar_SAT" title="Planar SAT">Planar SAT</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Karloff–Zwick_algorithm" title="Karloff–Zwick algorithm">Karloff–Zwick algorithm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Circuit_satisfiability" class="mw-redirect" title="Circuit satisfiability">Circuit satisfiability</a></li></ul>
+<h2><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=19" title="Edit section: Notes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text">The SAT problem for <i>arbitrary</i> formulas is NP-complete, too, since it is easily shown to be in NP, and it cannot be easier than SAT for CNF formulas.</span>
+</li>
+<li id="cite_note-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-12">^</a></b></span> <span class="reference-text">i.e. at least as hard as every other problem in NP. A decision problem is NP-complete if and only if it is in NP and is NP-hard.</span>
+</li>
+<li id="cite_note-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-13">^</a></b></span> <span class="reference-text">i.e. such that one literal is not the negation of the other</span>
+</li>
+<li id="cite_note-17"><span class="mw-cite-backlink"><b><a href="#cite_ref-17">^</a></b></span> <span class="reference-text">viz. all <a href="https://en.wikipedia.org/wiki/Canonical_form_(Boolean_algebra)#Maxterms" class="mw-redirect" title="Canonical form (Boolean algebra)">maxterms</a> that can be built with <span class="texhtml"><i>d</i><sub>1</sub>,⋯,<i>d</i><sub><i>k</i></sub></span>, except <span class="texhtml"><i>d</i><sub>1</sub>∨⋯∨<i>d</i><sub><i>k</i></sub></span></span>
+</li>
+<li id="cite_note-22"><span class="mw-cite-backlink"><b><a href="#cite_ref-22">^</a></b></span> <span class="reference-text">Formally, generalized conjunctive normal forms with a ternary boolean function <i>R</i> are employed, which is TRUE just if 1 or 3 of its arguments is. An input clause with more than 3 literals can be transformed into an equisatisfiable conjunction of clauses á 3 literals similar to <a href="#3-satisfiability">above</a>; i.e. XOR-SAT can be reduced to XOR-3-SAT.</span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=20" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table role="presentation" class="mbox-small plainlinks sistersitebox" style="background-color:#f9f9f9;border:1px solid #aaa;color:#000">
+<tbody><tr>
+<td class="mbox-image"><img alt="" src="http://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/30px-Commons-logo.svg.png" decoding="async" width="30" height="40" class="noviewer" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/45px-Commons-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/59px-Commons-logo.svg.png 2x" data-file-width="1024" data-file-height="1376" /></td>
+<td class="mbox-text plainlist">Wikimedia Commons has media related to <span style="font-weight: bold; font-style: italic;"><a href="https://commons.wikimedia.org/wiki/Category:Boolean_satisfiability_problem" class="extiw" title="commons:Category:Boolean satisfiability problem">Boolean satisfiability problem</a></span>.</td></tr>
+</tbody></table>
+<ul><li><a rel="nofollow" class="external text" href="http://www.cril.univ-artois.fr/~roussel/satgame/satgame.php?lang=eng">SAT Game</a>: try solving a Boolean satisfiability problem yourself</li>
+<li><a rel="nofollow" class="external text" href="http://www.satcompetition.org/">The international SAT competition website</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.satisfiability.org/">International Conference on Theory and Applications of Satisfiability Testing</a></li>
+<li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20060219180520/http://jsat.ewi.tudelft.nl/">Journal on Satisfiability, Boolean Modeling and Computation</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.satlive.org/">SAT Live, an aggregate website for research on the satisfiability problem</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.maxsat.udl.cat/">Yearly evaluation of MaxSAT solvers</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit&amp;section=21" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1011085734"/><div class="reflist reflist-columns references-column-width" style="column-width: 30em;">
+<ol class="references">
+<li id="cite_note-Codish.Ohrimenko.Stuckey.2007-1"><span class="mw-cite-backlink">^ <a href="#cite_ref-Codish.Ohrimenko.Stuckey.2007_1-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Codish.Ohrimenko.Stuckey.2007_1-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFOhrimenkoStuckeyCodish2007" class="citation cs2">Ohrimenko, Olga; Stuckey, Peter J.; Codish, Michael (2007), "Propagation = Lazy Clause Generation", <i>Principles and Practice of Constraint Programming – CP 2007</i>, Lecture Notes in Computer Science, vol.&#160;4741, pp.&#160;544–558, <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.70.5471">10.1.1.70.5471</a></span>, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-3-540-74970-7_39">10.1007/978-3-540-74970-7_39</a>, <q>modern SAT solvers can often handle problems with millions of constraints and hundreds of thousands of variables</q></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Propagation+%3D+Lazy+Clause+Generation&amp;rft.btitle=Principles+and+Practice+of+Constraint+Programming+%E2%80%93+CP+2007&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=544-558&amp;rft.date=2007&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.70.5471%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-540-74970-7_39&amp;rft.aulast=Ohrimenko&amp;rft.aufirst=Olga&amp;rft.au=Stuckey%2C+Peter+J.&amp;rft.au=Codish%2C+Michael&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span>.</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHongLiParkMui2010" class="citation journal cs1">Hong, Ted; Li, Yanjing; Park, Sung-Boem; Mui, Diana; Lin, David; Kaleq, Ziyad Abdel; Hakim, Nagib; Naeimi, Helia; Gardner, Donald S.; Mitra, Subhasish (November 2010). "QED: Quick Error Detection tests for effective post-silicon validation". <i>2010 IEEE International Test Conference</i>: 1–10. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FTEST.2010.5699215">10.1109/TEST.2010.5699215</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-1-4244-7206-2" title="Special:BookSources/978-1-4244-7206-2"><bdi>978-1-4244-7206-2</bdi></a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:7909084">7909084</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=2010+IEEE+International+Test+Conference&amp;rft.atitle=QED%3A+Quick+Error+Detection+tests+for+effective+post-silicon+validation&amp;rft.pages=1-10&amp;rft.date=2010-11&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A7909084%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1109%2FTEST.2010.5699215&amp;rft.isbn=978-1-4244-7206-2&amp;rft.aulast=Hong&amp;rft.aufirst=Ted&amp;rft.au=Li%2C+Yanjing&amp;rft.au=Park%2C+Sung-Boem&amp;rft.au=Mui%2C+Diana&amp;rft.au=Lin%2C+David&amp;rft.au=Kaleq%2C+Ziyad+Abdel&amp;rft.au=Hakim%2C+Nagib&amp;rft.au=Naeimi%2C+Helia&amp;rft.au=Gardner%2C+Donald+S.&amp;rft.au=Mitra%2C+Subhasish&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKarp1972" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Richard_Karp" class="mw-redirect" title="Richard Karp">Karp, Richard M.</a> (1972). <a rel="nofollow" class="external text" href="https://web.archive.org/web/20110629023717/http://www.cs.berkeley.edu/~luca/cs172/karp.pdf">"Reducibility Among Combinatorial Problems"</a> <span class="cs1-format">(PDF)</span>.  In Raymond E. Miller; James W. Thatcher (eds.). <i>Complexity of Computer Computations</i>. New York: Plenum. pp.&#160;85–103. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-306-30707-3" title="Special:BookSources/0-306-30707-3"><bdi>0-306-30707-3</bdi></a>. Archived from <a rel="nofollow" class="external text" href="http://www.cs.berkeley.edu/~luca/cs172/karp.pdf">the original</a> <span class="cs1-format">(PDF)</span> on 2011-06-29<span class="reference-accessdate">. Retrieved <span class="nowrap">2020-05-07</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Reducibility+Among+Combinatorial+Problems&amp;rft.btitle=Complexity+of+Computer+Computations&amp;rft.place=New+York&amp;rft.pages=85-103&amp;rft.pub=Plenum&amp;rft.date=1972&amp;rft.isbn=0-306-30707-3&amp;rft.aulast=Karp&amp;rft.aufirst=Richard+M.&amp;rft_id=http%3A%2F%2Fwww.cs.berkeley.edu%2F~luca%2Fcs172%2Fkarp.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span> Here: p.86</span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFAlfred_V._Aho_and_John_E._Hopcroft_and_Jeffrey_D._Ullman1974" class="citation book cs1">Alfred V. Aho and John E. Hopcroft and Jeffrey D. Ullman (1974). <i>The Design and Analysis of Computer Algorithms</i>. Reading/MA: Addison-Wesley. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-201-00029-6" title="Special:BookSources/0-201-00029-6"><bdi>0-201-00029-6</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Design+and+Analysis+of+Computer+Algorithms&amp;rft.place=Reading%2FMA&amp;rft.pub=Addison-Wesley&amp;rft.date=1974&amp;rft.isbn=0-201-00029-6&amp;rft.au=Alfred+V.+Aho+and+John+E.+Hopcroft+and+Jeffrey+D.+Ullman&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span> Here: p.403</span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFMassacciMarraro2000" class="citation journal cs1">Massacci, Fabio; Marraro, Laura (2000-02-01). <a rel="nofollow" class="external text" href="https://doi.org/10.1023/A:1006326723002">"Logical Cryptanalysis as a SAT Problem"</a>. <i>Journal of Automated Reasoning</i>. <b>24</b> (1): 165–203. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1023%2FA%3A1006326723002">10.1023/A:1006326723002</a>. <a href="https://en.wikipedia.org/wiki/ISSN_(identifier)" class="mw-redirect" title="ISSN (identifier)">ISSN</a>&#160;<a rel="nofollow" class="external text" href="http://www.worldcat.org/issn/1573-0670">1573-0670</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:3114247">3114247</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Automated+Reasoning&amp;rft.atitle=Logical+Cryptanalysis+as+a+SAT+Problem&amp;rft.volume=24&amp;rft.issue=1&amp;rft.pages=165-203&amp;rft.date=2000-02-01&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A3114247%23id-name%3DS2CID&amp;rft.issn=1573-0670&amp;rft_id=info%3Adoi%2F10.1023%2FA%3A1006326723002&amp;rft.aulast=Massacci&amp;rft.aufirst=Fabio&amp;rft.au=Marraro%2C+Laura&amp;rft_id=https%3A%2F%2Fdoi.org%2F10.1023%2FA%3A1006326723002&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFMironovZhang2006" class="citation journal cs1">Mironov, Ilya; Zhang, Lintao (2006).  Biere, Armin; Gomes, Carla P. (eds.). <a rel="nofollow" class="external text" href="https://link.springer.com/chapter/10.1007%2F11814948_13">"Applications of SAT Solvers to Cryptanalysis of Hash Functions"</a>. <i>Theory and Applications of Satisfiability Testing - SAT 2006</i>. Lecture Notes in Computer Science. Berlin, Heidelberg: Springer. <b>4121</b>: 102–115. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F11814948_13">10.1007/11814948_13</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-3-540-37207-3" title="Special:BookSources/978-3-540-37207-3"><bdi>978-3-540-37207-3</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Theory+and+Applications+of+Satisfiability+Testing+-+SAT+2006&amp;rft.atitle=Applications+of+SAT+Solvers+to+Cryptanalysis+of+Hash+Functions&amp;rft.volume=4121&amp;rft.pages=102-115&amp;rft.date=2006&amp;rft_id=info%3Adoi%2F10.1007%2F11814948_13&amp;rft.isbn=978-3-540-37207-3&amp;rft.aulast=Mironov&amp;rft.aufirst=Ilya&amp;rft.au=Zhang%2C+Lintao&amp;rft_id=https%3A%2F%2Flink.springer.com%2Fchapter%2F10.1007%252F11814948_13&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFVizelWeissenbacherMalik2015" class="citation journal cs1">Vizel, Y.; Weissenbacher, G.; Malik, S. (2015). "Boolean Satisfiability Solvers and Their Applications in Model Checking". <i>Proceedings of the IEEE</i>. <b>103</b> (11): 2021–2035. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FJPROC.2015.2455034">10.1109/JPROC.2015.2455034</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:10190144">10190144</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Proceedings+of+the+IEEE&amp;rft.atitle=Boolean+Satisfiability+Solvers+and+Their+Applications+in+Model+Checking&amp;rft.volume=103&amp;rft.issue=11&amp;rft.pages=2021-2035&amp;rft.date=2015&amp;rft_id=info%3Adoi%2F10.1109%2FJPROC.2015.2455034&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A10190144%23id-name%3DS2CID&amp;rft.aulast=Vizel&amp;rft.aufirst=Y.&amp;rft.au=Weissenbacher%2C+G.&amp;rft.au=Malik%2C+S.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCook1971" class="citation journal cs1"><a href="https://en.wikipedia.org/wiki/Stephen_Cook" title="Stephen Cook">Cook, Stephen A.</a> (1971). <a rel="nofollow" class="external text" href="http://www.cs.toronto.edu/~sacook/homepage/1971.pdf">"The Complexity of Theorem-Proving Procedures"</a> <span class="cs1-format">(PDF)</span>. <i>Proceedings of the 3rd Annual ACM Symposium on Theory of Computing</i>: 151–158. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.406.395">10.1.1.406.395</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F800157.805047">10.1145/800157.805047</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:7573663">7573663</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Proceedings+of+the+3rd+Annual+ACM+Symposium+on+Theory+of+Computing&amp;rft.atitle=The+Complexity+of+Theorem-Proving+Procedures&amp;rft.pages=151-158&amp;rft.date=1971&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.406.395%23id-name%3DCiteSeerX&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A7573663%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1145%2F800157.805047&amp;rft.aulast=Cook&amp;rft.aufirst=Stephen+A.&amp;rft_id=http%3A%2F%2Fwww.cs.toronto.edu%2F~sacook%2Fhomepage%2F1971.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFLevin1973" class="citation journal cs1"><a href="https://en.wikipedia.org/wiki/Leonid_Levin" title="Leonid Levin">Levin, Leonid</a> (1973). "Universal search problems (Russian: Универсальные задачи перебора, Universal'nye perebornye zadachi)". <i>Problems of Information Transmission (Russian: Проблемы передачи информа́ции, Problemy Peredachi Informatsii)</i>. <b>9</b> (3): 115–116.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Problems+of+Information+Transmission+%28Russian%3A+%D0%9F%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC%D1%8B+%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D1%87%D0%B8+%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%CC%81%D1%86%D0%B8%D0%B8%2C+Problemy+Peredachi+Informatsii%29&amp;rft.atitle=Universal+search+problems+%28Russian%3A+%D0%A3%D0%BD%D0%B8%D0%B2%D0%B5%D1%80%D1%81%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5+%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B8+%D0%BF%D0%B5%D1%80%D0%B5%D0%B1%D0%BE%D1%80%D0%B0%2C+Universal%27nye+perebornye+zadachi%29&amp;rft.volume=9&amp;rft.issue=3&amp;rft.pages=115-116&amp;rft.date=1973&amp;rft.aulast=Levin&amp;rft.aufirst=Leonid&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span> <a rel="nofollow" class="external text" href="http://www.mathnet.ru/php/getFT.phtml?jrnid=ppi&amp;paperid=914&amp;volume=9&amp;year=1973&amp;issue=3&amp;fpage=115&amp;what=fullt&amp;option_lang=eng">(pdf)</a> <span class="languageicon">(in Russian)</span>, translated into English by <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFTrakhtenbrot1984" class="citation journal cs1">Trakhtenbrot, B. A. (1984). "A survey of Russian approaches to <i>perebor</i> (brute-force searches) algorithms". <i>Annals of the History of Computing</i>. <b>6</b> (4): 384–400. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FMAHC.1984.10036">10.1109/MAHC.1984.10036</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:950581">950581</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Annals+of+the+History+of+Computing&amp;rft.atitle=A+survey+of+Russian+approaches+to+perebor+%28brute-force+searches%29+algorithms&amp;rft.volume=6&amp;rft.issue=4&amp;rft.pages=384-400&amp;rft.date=1984&amp;rft_id=info%3Adoi%2F10.1109%2FMAHC.1984.10036&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A950581%23id-name%3DS2CID&amp;rft.aulast=Trakhtenbrot&amp;rft.aufirst=B.+A.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Aho.Hopcroft.Ullman.1974-11"><span class="mw-cite-backlink">^ <a href="#cite_ref-Aho.Hopcroft.Ullman.1974_11-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Aho.Hopcroft.Ullman.1974_11-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFAlfred_V._AhoJohn_E._HopcroftJeffrey_D._Ullman1974" class="citation book cs1">Alfred V. Aho; John E. Hopcroft; Jeffrey D. Ullman (1974). <span class="cs1-lock-registration" title="Free registration required"><a rel="nofollow" class="external text" href="https://archive.org/details/designanalysisof00ahoarich"><i>The Design and Analysis of Computer Algorithms</i></a></span>. Addison-Wesley. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/9780201000290" title="Special:BookSources/9780201000290"><bdi>9780201000290</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Design+and+Analysis+of+Computer+Algorithms&amp;rft.pub=Addison-Wesley&amp;rft.date=1974&amp;rft.isbn=9780201000290&amp;rft.au=Alfred+V.+Aho&amp;rft.au=John+E.+Hopcroft&amp;rft.au=Jeffrey+D.+Ullman&amp;rft_id=https%3A%2F%2Farchive.org%2Fdetails%2Fdesignanalysisof00ahoarich&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span>; here: Thm.10.4</span>
+</li>
+<li id="cite_note-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-14">^</a></b></span> <span class="reference-text">Aho, Hopcroft, Ullman<sup id="cite_ref-Aho.Hopcroft.Ullman.1974_11-1" class="reference"><a href="#cite_note-Aho.Hopcroft.Ullman.1974-11">&#91;10&#93;</a></sup> (1974); Thm.10.5</span>
+</li>
+<li id="cite_note-Schoning.1999-15"><span class="mw-cite-backlink"><b><a href="#cite_ref-Schoning.1999_15-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSchöning1999" class="citation book cs1">Schöning, Uwe (Oct 1999). <a rel="nofollow" class="external text" href="http://homepages.cwi.nl/~rdewolf/schoning99.pdf">"A Probabilistic Algorithm for <i>k</i>-SAT and Constraint Satisfaction Problems"</a> <span class="cs1-format">(PDF)</span>. <i>Proc. 40th Ann. Symp. Foundations of Computer Science</i>. pp.&#160;410–414. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FSFFCS.1999.814612">10.1109/SFFCS.1999.814612</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-7695-0409-4" title="Special:BookSources/0-7695-0409-4"><bdi>0-7695-0409-4</bdi></a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:123177576">123177576</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=A+Probabilistic+Algorithm+for+k-SAT+and+Constraint+Satisfaction+Problems&amp;rft.btitle=Proc.+40th+Ann.+Symp.+Foundations+of+Computer+Science&amp;rft.pages=410-414&amp;rft.date=1999-10&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A123177576%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1109%2FSFFCS.1999.814612&amp;rft.isbn=0-7695-0409-4&amp;rft.aulast=Sch%C3%B6ning&amp;rft.aufirst=Uwe&amp;rft_id=http%3A%2F%2Fhomepages.cwi.nl%2F~rdewolf%2Fschoning99.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-16"><span class="mw-cite-backlink"><b><a href="#cite_ref-16">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBart_SelmanDavid_MitchellHector_Levesque1996" class="citation journal cs1">Bart Selman; David Mitchell; Hector Levesque (1996). "Generating Hard Satisfiability Problems". <i>Artificial Intelligence</i>. <b>81</b> (1–2): 17–29. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.37.7362">10.1.1.37.7362</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2F0004-3702(95)00045-3">10.1016/0004-3702(95)00045-3</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Artificial+Intelligence&amp;rft.atitle=Generating+Hard+Satisfiability+Problems&amp;rft.volume=81&amp;rft.issue=1%E2%80%932&amp;rft.pages=17-29&amp;rft.date=1996&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.37.7362%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1016%2F0004-3702%2895%2900045-3&amp;rft.au=Bart+Selman&amp;rft.au=David+Mitchell&amp;rft.au=Hector+Levesque&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-schaefer-18"><span class="mw-cite-backlink">^ <a href="#cite_ref-schaefer_18-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-schaefer_18-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-schaefer_18-2"><sup><i><b>c</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSchaefer1978" class="citation conference cs1">Schaefer, Thomas J. (1978). <a rel="nofollow" class="external text" href="http://www.ccs.neu.edu/home/lieber/courses/csg260/f06/materials/papers/max-sat/p216-schaefer.pdf">"The complexity of satisfiability problems"</a> <span class="cs1-format">(PDF)</span>. <i>Proceedings of the 10th Annual ACM Symposium on Theory of Computing</i>. San Diego, California. pp.&#160;216–226.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.atitle=The+complexity+of+satisfiability+problems&amp;rft.btitle=Proceedings+of+the+10th+Annual+ACM+Symposium+on+Theory+of+Computing&amp;rft.place=San+Diego%2C+California&amp;rft.pages=216-226&amp;rft.date=1978&amp;rft.aulast=Schaefer&amp;rft.aufirst=Thomas+J.&amp;rft_id=http%3A%2F%2Fwww.ccs.neu.edu%2Fhome%2Flieber%2Fcourses%2Fcsg260%2Ff06%2Fmaterials%2Fpapers%2Fmax-sat%2Fp216-schaefer.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-19"><span class="mw-cite-backlink"><b><a href="#cite_ref-19">^</a></b></span> <span class="reference-text">(Schaefer, 1978), p.222, Lemma 3.5</span>
+</li>
+<li id="cite_note-20"><span class="mw-cite-backlink"><b><a href="#cite_ref-20">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFArkinBanikCarmiCitovsky2018" class="citation journal cs1">Arkin, Esther M.; Banik, Aritra; Carmi, Paz; Citovsky, Gui; Katz, Matthew J.; Mitchell, Joseph S. B.; Simakov, Marina (2018-12-11). <a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.dam.2018.05.011">"Selecting and covering colored points"</a>. <i>Discrete Applied Mathematics</i>. <b>250</b>: 75–86. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.dam.2018.05.011">10.1016/j.dam.2018.05.011</a></span>. <a href="https://en.wikipedia.org/wiki/ISSN_(identifier)" class="mw-redirect" title="ISSN (identifier)">ISSN</a>&#160;<a rel="nofollow" class="external text" href="http://www.worldcat.org/issn/0166-218X">0166-218X</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Discrete+Applied+Mathematics&amp;rft.atitle=Selecting+and+covering+colored+points&amp;rft.volume=250&amp;rft.pages=75-86&amp;rft.date=2018-12-11&amp;rft_id=info%3Adoi%2F10.1016%2Fj.dam.2018.05.011&amp;rft.issn=0166-218X&amp;rft.aulast=Arkin&amp;rft.aufirst=Esther+M.&amp;rft.au=Banik%2C+Aritra&amp;rft.au=Carmi%2C+Paz&amp;rft.au=Citovsky%2C+Gui&amp;rft.au=Katz%2C+Matthew+J.&amp;rft.au=Mitchell%2C+Joseph+S.+B.&amp;rft.au=Simakov%2C+Marina&amp;rft_id=%2F%2Fdoi.org%2F10.1016%252Fj.dam.2018.05.011&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-buningkarpinski-21"><span class="mw-cite-backlink"><b><a href="#cite_ref-buningkarpinski_21-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBuningKarpinskiFlogel1995" class="citation journal cs1">Buning, H.K.; Karpinski, Marek; Flogel, A. (1995). <a rel="nofollow" class="external text" href="https://doi.org/10.1006%2Finco.1995.1025">"Resolution for Quantified Boolean Formulas"</a>. <i>Information and Computation</i>. Elsevier. <b>117</b> (1): 12–18. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1006%2Finco.1995.1025">10.1006/inco.1995.1025</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Information+and+Computation&amp;rft.atitle=Resolution+for+Quantified+Boolean+Formulas&amp;rft.volume=117&amp;rft.issue=1&amp;rft.pages=12-18&amp;rft.date=1995&amp;rft_id=info%3Adoi%2F10.1006%2Finco.1995.1025&amp;rft.aulast=Buning&amp;rft.aufirst=H.K.&amp;rft.au=Karpinski%2C+Marek&amp;rft.au=Flogel%2C+A.&amp;rft_id=%2F%2Fdoi.org%2F10.1006%252Finco.1995.1025&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-23"><span class="mw-cite-backlink"><b><a href="#cite_ref-23">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFMooreMertens2011" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Cristopher_Moore" title="Cristopher Moore">Moore, Cristopher</a>; Mertens, Stephan (2011), <a rel="nofollow" class="external text" href="https://books.google.com/books?id=z4zMiZyAE1kC&amp;pg=PA366"><i>The Nature of Computation</i></a>, Oxford University Press, p.&#160;366, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/9780199233212" title="Special:BookSources/9780199233212"><bdi>9780199233212</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Nature+of+Computation&amp;rft.pages=366&amp;rft.pub=Oxford+University+Press&amp;rft.date=2011&amp;rft.isbn=9780199233212&amp;rft.aulast=Moore&amp;rft.aufirst=Cristopher&amp;rft.au=Mertens%2C+Stephan&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3Dz4zMiZyAE1kC%26pg%3DPA366&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span>.</span>
+</li>
+<li id="cite_note-Bryant.German.Velev.1999-24"><span class="mw-cite-backlink">^ <a href="#cite_ref-Bryant.German.Velev.1999_24-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Bryant.German.Velev.1999_24-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text">R. E. Bryant, S. M. German, and M. N. Velev, <a rel="nofollow" class="external text" href="http://portal.acm.org/citation.cfm?id=709275">Microprocessor Verification Using Efficient Decision Procedures for a Logic of Equality with Uninterpreted Functions</a>, in Analytic Tableaux and Related Methods, pp.&#160;1–13, 1999.</span>
+</li>
+<li id="cite_note-25"><span class="mw-cite-backlink"><b><a href="#cite_ref-25">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFAlhazovMartín-VidePan2003" class="citation journal cs1">Alhazov, Artiom; Martín-Vide, Carlos; Pan, Linqiang (2003). <a rel="nofollow" class="external text" href="https://www.researchgate.net/publication/220444503">"Solving a PSPACE-Complete Problem by Recognizing P Systems with Restricted Active Membranes"</a>. <i>Fundamenta Informaticae</i>. <b>58</b>: 67–77.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Fundamenta+Informaticae&amp;rft.atitle=Solving+a+PSPACE-Complete+Problem+by+Recognizing+P+Systems+with+Restricted+Active+Membranes&amp;rft.volume=58&amp;rft.pages=67-77&amp;rft.date=2003&amp;rft.aulast=Alhazov&amp;rft.aufirst=Artiom&amp;rft.au=Mart%C3%ADn-Vide%2C+Carlos&amp;rft.au=Pan%2C+Linqiang&amp;rft_id=https%3A%2F%2Fwww.researchgate.net%2Fpublication%2F220444503&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span> Here: Sect.3, Thm.3.1</span>
+</li>
+<li id="cite_note-26"><span class="mw-cite-backlink"><b><a href="#cite_ref-26">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBlassGurevich1982" class="citation journal cs1">Blass, Andreas; Gurevich, Yuri (1982-10-01). <a rel="nofollow" class="external text" href="https://doi.org/10.1016%2FS0019-9958(82)90439-9">"On the unique satisfiability problem"</a>. <i>Information and Control</i>. <b>55</b> (1): 80–88. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1016%2FS0019-9958(82)90439-9">10.1016/S0019-9958(82)90439-9</a></span>. <a href="https://en.wikipedia.org/wiki/ISSN_(identifier)" class="mw-redirect" title="ISSN (identifier)">ISSN</a>&#160;<a rel="nofollow" class="external text" href="http://www.worldcat.org/issn/0019-9958">0019-9958</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Information+and+Control&amp;rft.atitle=On+the+unique+satisfiability+problem&amp;rft.volume=55&amp;rft.issue=1&amp;rft.pages=80-88&amp;rft.date=1982-10-01&amp;rft_id=info%3Adoi%2F10.1016%2FS0019-9958%2882%2990439-9&amp;rft.issn=0019-9958&amp;rft.aulast=Blass&amp;rft.aufirst=Andreas&amp;rft.au=Gurevich%2C+Yuri&amp;rft_id=%2F%2Fdoi.org%2F10.1016%252FS0019-9958%252882%252990439-9&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-27"><span class="mw-cite-backlink"><b><a href="#cite_ref-27">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://web.archive.org/web/20190709142353/https://complexityzoo.uwaterloo.ca/Complexity_Zoo:U#US">"Complexity Zoo:U - Complexity Zoo"</a>. <i>complexityzoo.uwaterloo.ca</i>. Archived from <a rel="nofollow" class="external text" href="https://complexityzoo.uwaterloo.ca/Complexity_Zoo:U#US">the original</a> on 2019-07-09<span class="reference-accessdate">. Retrieved <span class="nowrap">2019-12-05</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=complexityzoo.uwaterloo.ca&amp;rft.atitle=Complexity+Zoo%3AU+-+Complexity+Zoo&amp;rft_id=https%3A%2F%2Fcomplexityzoo.uwaterloo.ca%2FComplexity_Zoo%3AU%23US&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-28"><span class="mw-cite-backlink"><b><a href="#cite_ref-28">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKozen2006" class="citation book cs1">Kozen, Dexter C. (2006). <a rel="nofollow" class="external text" href="https://www.springer.com/gp/book/9781846282973">"Supplementary Lecture F: Unique Satisfiability"</a>. <i>Theory of Computation</i>. Texts in Computer Science. London: Springer-Verlag. p.&#160;180. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/9781846282973" title="Special:BookSources/9781846282973"><bdi>9781846282973</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Supplementary+Lecture+F%3A+Unique+Satisfiability&amp;rft.btitle=Theory+of+Computation&amp;rft.place=London&amp;rft.series=Texts+in+Computer+Science&amp;rft.pages=180&amp;rft.pub=Springer-Verlag&amp;rft.date=2006&amp;rft.isbn=9781846282973&amp;rft.aulast=Kozen&amp;rft.aufirst=Dexter+C.&amp;rft_id=https%3A%2F%2Fwww.springer.com%2Fgp%2Fbook%2F9781846282973&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-29"><span class="mw-cite-backlink"><b><a href="#cite_ref-29">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFValiantVazirani1986" class="citation journal cs1">Valiant, L.; Vazirani, V. (1986). <a rel="nofollow" class="external text" href="http://www.cs.princeton.edu/courses/archive/fall05/cos528/handouts/NP_is_as.pdf">"NP is as easy as detecting unique solutions"</a> <span class="cs1-format">(PDF)</span>. <i>Theoretical Computer Science</i>. <b>47</b>: 85–93. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1016%2F0304-3975(86)90135-0">10.1016/0304-3975(86)90135-0</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Theoretical+Computer+Science&amp;rft.atitle=NP+is+as+easy+as+detecting+unique+solutions&amp;rft.volume=47&amp;rft.pages=85-93&amp;rft.date=1986&amp;rft_id=info%3Adoi%2F10.1016%2F0304-3975%2886%2990135-0&amp;rft.aulast=Valiant&amp;rft.aufirst=L.&amp;rft.au=Vazirani%2C+V.&amp;rft_id=http%3A%2F%2Fwww.cs.princeton.edu%2Fcourses%2Farchive%2Ffall05%2Fcos528%2Fhandouts%2FNP_is_as.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-30"><span class="mw-cite-backlink"><b><a href="#cite_ref-30">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBuldasLeninWillemsonCharnamord2017" class="citation journal cs1">Buldas, Ahto; Lenin, Aleksandr; Willemson, Jan; Charnamord, Anton (2017).  Obana, Satoshi; Chida, Koji (eds.). "Simple Infeasibility Certificates for Attack Trees". <i>Advances in Information and Computer Security</i>. Lecture Notes in Computer Science. Springer International Publishing. <b>10418</b>: 39–55. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-3-319-64200-0_3">10.1007/978-3-319-64200-0_3</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/9783319642000" title="Special:BookSources/9783319642000"><bdi>9783319642000</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Advances+in+Information+and+Computer+Security&amp;rft.atitle=Simple+Infeasibility+Certificates+for+Attack+Trees&amp;rft.volume=10418&amp;rft.pages=39-55&amp;rft.date=2017&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-319-64200-0_3&amp;rft.isbn=9783319642000&amp;rft.aulast=Buldas&amp;rft.aufirst=Ahto&amp;rft.au=Lenin%2C+Aleksandr&amp;rft.au=Willemson%2C+Jan&amp;rft.au=Charnamord%2C+Anton&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-31"><span class="mw-cite-backlink"><b><a href="#cite_ref-31">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGi-Joon_NamSakallahRutenbar2002" class="citation journal cs1">Gi-Joon Nam; Sakallah, K. A.; Rutenbar, R. A. (2002). <a rel="nofollow" class="external text" href="http://cs-rutenbar.web.engr.illinois.edu/wp-content/uploads/2012/10/rutenbar-sattranscad02.pdf">"A new FPGA detailed routing approach via search-based Boolean satisfiability"</a> <span class="cs1-format">(PDF)</span>. <i>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems</i>. <b>21</b> (6): 674. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FTCAD.2002.1004311">10.1109/TCAD.2002.1004311</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=IEEE+Transactions+on+Computer-Aided+Design+of+Integrated+Circuits+and+Systems&amp;rft.atitle=A+new+FPGA+detailed+routing+approach+via+search-based+Boolean+satisfiability&amp;rft.volume=21&amp;rft.issue=6&amp;rft.pages=674&amp;rft.date=2002&amp;rft_id=info%3Adoi%2F10.1109%2FTCAD.2002.1004311&amp;rft.au=Gi-Joon+Nam&amp;rft.au=Sakallah%2C+K.+A.&amp;rft.au=Rutenbar%2C+R.+A.&amp;rft_id=http%3A%2F%2Fcs-rutenbar.web.engr.illinois.edu%2Fwp-content%2Fuploads%2F2012%2F10%2Frutenbar-sattranscad02.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-32"><span class="mw-cite-backlink"><b><a href="#cite_ref-32">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.satcompetition.org/">"The international SAT Competitions web page"</a><span class="reference-accessdate">. Retrieved <span class="nowrap">2007-11-15</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=The+international+SAT+Competitions+web+page&amp;rft_id=http%3A%2F%2Fwww.satcompetition.org%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></span>
+</li>
+</ol></div>
+<p>Additional references by date of publication:
+</p>
+<style data-mw-deduplicate="TemplateStyles:r1054258005">.mw-parser-output .refbegin{font-size:90%;margin-bottom:0.5em}.mw-parser-output .refbegin-hanging-indents>ul{margin-left:0}.mw-parser-output .refbegin-hanging-indents>ul>li{margin-left:0;padding-left:3.2em;text-indent:-3.2em}.mw-parser-output .refbegin-hanging-indents ul,.mw-parser-output .refbegin-hanging-indents ul li{list-style:none}@media(max-width:720px){.mw-parser-output .refbegin-hanging-indents>ul>li{padding-left:1.6em;text-indent:-1.6em}}.mw-parser-output .refbegin-columns{margin-top:0.3em}.mw-parser-output .refbegin-columns ul{margin-top:0}.mw-parser-output .refbegin-columns li{page-break-inside:avoid;break-inside:avoid-column}</style><div class="refbegin references-column-width" style="column-width: 30em">
+<ul><li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFMichael_R._GareyDavid_S._Johnson1979" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Michael_R._Garey" class="mw-redirect" title="Michael R. Garey">Michael R. Garey</a> &amp; <a href="https://en.wikipedia.org/wiki/David_S._Johnson" title="David S. Johnson">David S. Johnson</a> (1979). <a href="https://en.wikipedia.org/wiki/List_of_important_publications_in_theoretical_computer_science#Computers_and_Intractability:_A_Guide_to_the_Theory_of_NP-Completeness" title="List of important publications in theoretical computer science"><i>Computers and Intractability: A Guide to the Theory of NP-Completeness</i></a>. W.H. Freeman. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-7167-1045-5" title="Special:BookSources/0-7167-1045-5"><bdi>0-7167-1045-5</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Computers+and+Intractability%3A+A+Guide+to+the+Theory+of+NP-Completeness&amp;rft.pub=W.H.+Freeman&amp;rft.date=1979&amp;rft.isbn=0-7167-1045-5&amp;rft.au=Michael+R.+Garey&amp;rft.au=David+S.+Johnson&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span> A9.1: LO1 – LO7, pp.&#160;259 – 260.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFMarques-SilvaGlass1999" class="citation book cs1">Marques-Silva, J.; Glass, T. (1999). <a rel="nofollow" class="external text" href="http://eprints.soton.ac.uk/265003/1/jpms-date99a.pdf">"Combinational equivalence checking using satisfiability and recursive learning"</a> <span class="cs1-format">(PDF)</span>. <a rel="nofollow" class="external text" href="https://eprints.soton.ac.uk/265003/1/jpms-date99a.pdf"><i>Design, Automation and Test in Europe Conference and Exhibition, 1999. Proceedings (Cat. No. PR00078)</i></a> <span class="cs1-format">(PDF)</span>. p.&#160;145. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FDATE.1999.761110">10.1109/DATE.1999.761110</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-7695-0078-1" title="Special:BookSources/0-7695-0078-1"><bdi>0-7695-0078-1</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Combinational+equivalence+checking+using+satisfiability+and+recursive+learning&amp;rft.btitle=Design%2C+Automation+and+Test+in+Europe+Conference+and+Exhibition%2C+1999.+Proceedings+%28Cat.+No.+PR00078%29&amp;rft.pages=145&amp;rft.date=1999&amp;rft_id=info%3Adoi%2F10.1109%2FDATE.1999.761110&amp;rft.isbn=0-7695-0078-1&amp;rft.aulast=Marques-Silva&amp;rft.aufirst=J.&amp;rft.au=Glass%2C+T.&amp;rft_id=http%3A%2F%2Feprints.soton.ac.uk%2F265003%2F1%2Fjpms-date99a.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFClarkeBiereRaimiZhu2001" class="citation journal cs1">Clarke, E.; Biere, A.; Raimi, R.; Zhu, Y. (2001). "Bounded Model Checking Using Satisfiability Solving". <i>Formal Methods in System Design</i>. <b>19</b>: 7–34. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1023%2FA%3A1011276507260">10.1023/A:1011276507260</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:2484208">2484208</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Formal+Methods+in+System+Design&amp;rft.atitle=Bounded+Model+Checking+Using+Satisfiability+Solving&amp;rft.volume=19&amp;rft.pages=7-34&amp;rft.date=2001&amp;rft_id=info%3Adoi%2F10.1023%2FA%3A1011276507260&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A2484208%23id-name%3DS2CID&amp;rft.aulast=Clarke&amp;rft.aufirst=E.&amp;rft.au=Biere%2C+A.&amp;rft.au=Raimi%2C+R.&amp;rft.au=Zhu%2C+Y.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGiunchigliaTacchella2004" class="citation book cs1">Giunchiglia, E.; Tacchella, A. (2004).  Giunchiglia, Enrico; Tacchella, Armando (eds.). <i>Theory and Applications of Satisfiability Testing</i>. Lecture Notes in Computer Science. Vol.&#160;2919. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2Fb95238">10.1007/b95238</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-3-540-20851-8" title="Special:BookSources/978-3-540-20851-8"><bdi>978-3-540-20851-8</bdi></a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:31129008">31129008</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Theory+and+Applications+of+Satisfiability+Testing&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.date=2004&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A31129008%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1007%2Fb95238&amp;rft.isbn=978-3-540-20851-8&amp;rft.aulast=Giunchiglia&amp;rft.aufirst=E.&amp;rft.au=Tacchella%2C+A.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBabicBinghamHu2006" class="citation journal cs1">Babic, D.; Bingham, J.; Hu, A. J. (2006). <a rel="nofollow" class="external text" href="http://www.domagoj-babic.com/uploads/Pubs/TCOM06/tcom06.pdf">"B-Cubing: New Possibilities for Efficient SAT-Solving"</a> <span class="cs1-format">(PDF)</span>. <i>IEEE Transactions on Computers</i>. <b>55</b> (11): 1315. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FTC.2006.175">10.1109/TC.2006.175</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:14819050">14819050</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=IEEE+Transactions+on+Computers&amp;rft.atitle=B-Cubing%3A+New+Possibilities+for+Efficient+SAT-Solving&amp;rft.volume=55&amp;rft.issue=11&amp;rft.pages=1315&amp;rft.date=2006&amp;rft_id=info%3Adoi%2F10.1109%2FTC.2006.175&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A14819050%23id-name%3DS2CID&amp;rft.aulast=Babic&amp;rft.aufirst=D.&amp;rft.au=Bingham%2C+J.&amp;rft.au=Hu%2C+A.+J.&amp;rft_id=http%3A%2F%2Fwww.domagoj-babic.com%2Fuploads%2FPubs%2FTCOM06%2Ftcom06.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFRodriguezVillagraBaran2007" class="citation book cs1">Rodriguez, C.; Villagra, M.; Baran, B. (2007). <a rel="nofollow" class="external text" href="http://www.cc.pol.una.py/lcca/publicaciones/optimizacion/2007/Asynchronous Team Algorithms for Boolean Satisfiability.pdf">"Asynchronous team algorithms for Boolean Satisfiability"</a> <span class="cs1-format">(PDF)</span>. <i>2007 2nd Bio-Inspired Models of Network, Information and Computing Systems</i>. pp.&#160;66–69. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FBIMNICS.2007.4610083">10.1109/BIMNICS.2007.4610083</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:15185219">15185219</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Asynchronous+team+algorithms+for+Boolean+Satisfiability&amp;rft.btitle=2007+2nd+Bio-Inspired+Models+of+Network%2C+Information+and+Computing+Systems&amp;rft.pages=66-69&amp;rft.date=2007&amp;rft_id=info%3Adoi%2F10.1109%2FBIMNICS.2007.4610083&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A15185219%23id-name%3DS2CID&amp;rft.aulast=Rodriguez&amp;rft.aufirst=C.&amp;rft.au=Villagra%2C+M.&amp;rft.au=Baran%2C+B.&amp;rft_id=http%3A%2F%2Fwww.cc.pol.una.py%2Flcca%2Fpublicaciones%2Foptimizacion%2F2007%2FAsynchronous%2520Team%2520Algorithms%2520for%2520Boolean%2520Satisfiability.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCarla_P._GomesHenry_KautzAshish_SabharwalBart_Selman2008" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Carla_Gomes" title="Carla Gomes">Carla P. Gomes</a>; Henry Kautz; Ashish Sabharwal; Bart Selman (2008). "Satisfiability Solvers".  In Frank Van Harmelen; Vladimir Lifschitz; Bruce Porter (eds.). <i>Handbook of knowledge representation</i>. Foundations of Artificial Intelligence. Vol.&#160;3. Elsevier. pp.&#160;89–134. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2FS1574-6526(07)03002-7">10.1016/S1574-6526(07)03002-7</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-444-52211-5" title="Special:BookSources/978-0-444-52211-5"><bdi>978-0-444-52211-5</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Satisfiability+Solvers&amp;rft.btitle=Handbook+of+knowledge+representation&amp;rft.series=Foundations+of+Artificial+Intelligence&amp;rft.pages=89-134&amp;rft.pub=Elsevier&amp;rft.date=2008&amp;rft_id=info%3Adoi%2F10.1016%2FS1574-6526%2807%2903002-7&amp;rft.isbn=978-0-444-52211-5&amp;rft.au=Carla+P.+Gomes&amp;rft.au=Henry+Kautz&amp;rft.au=Ashish+Sabharwal&amp;rft.au=Bart+Selman&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFVizelWeissenbacherMalik2015" class="citation journal cs1">Vizel, Y.; Weissenbacher, G.; Malik, S. (2015). "Boolean Satisfiability Solvers and Their Applications in Model Checking". <i>Proceedings of the IEEE</i>. <b>103</b> (11): 2021–2035. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FJPROC.2015.2455034">10.1109/JPROC.2015.2455034</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:10190144">10190144</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Proceedings+of+the+IEEE&amp;rft.atitle=Boolean+Satisfiability+Solvers+and+Their+Applications+in+Model+Checking&amp;rft.volume=103&amp;rft.issue=11&amp;rft.pages=2021-2035&amp;rft.date=2015&amp;rft_id=info%3Adoi%2F10.1109%2FJPROC.2015.2455034&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A10190144%23id-name%3DS2CID&amp;rft.aulast=Vizel&amp;rft.aufirst=Y.&amp;rft.au=Weissenbacher%2C+G.&amp;rft.au=Malik%2C+S.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABoolean+satisfiability+problem" class="Z3988"></span></li></ul>
+</div>
+<hr />
+<p><i>This article includes material from a column in the ACM <a rel="nofollow" class="external text" href="http://www.sigda.org/">SIGDA</a> <a rel="nofollow" class="external text" href="https://web.archive.org/web/20070208034716/http://www.sigda.org/newsletter/index.html">e-newsletter</a> by <a rel="nofollow" class="external text" href="http://www.eecs.umich.edu/~karem">Prof. Karem Sakallah</a> <br /></i>
+Original text is available <a rel="nofollow" class="external text" href="https://web.archive.org/web/20070708233347/http://www.sigda.org/newsletter/2006/eNews_061201.html">here</a><i></i>
+</p>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Logic" style="padding:3px"><table class="nowraplinks hlist mw-collapsible mw-collapsed navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Logic" title="Template:Logic"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Logic" title="Template talk:Logic"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Logic&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Logic" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Logic" title="Logic">Logic</a></div></th></tr><tr><td class="navbox-abovebelow" colspan="2"><div id="*_Outline_*_History">
+<ul><li><a href="https://en.wikipedia.org/wiki/Outline_of_logic" title="Outline of logic">Outline</a></li>
+<li><a href="https://en.wikipedia.org/wiki/History_of_logic" title="History of logic">History</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Fields</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Logic_in_computer_science" title="Logic in computer science">Computer science</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Formal_semantics_(natural_language)" title="Formal semantics (natural language)">Formal semantics (natural language)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Inference" title="Inference">Inference</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Philosophy_of_logic" title="Philosophy of logic">Philosophy of logic</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Formal_proof" title="Formal proof">Proof</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Semantics_of_logic" title="Semantics of logic">Semantics of logic</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Syntax_(logic)" title="Syntax (logic)">Syntax</a></li></ul>
+</div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%">Logics</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Classical_logic" title="Classical logic">Classical</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Informal_logic" title="Informal logic">Informal</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Critical_thinking" title="Critical thinking">Critical thinking</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Reason" title="Reason">Reason</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Mathematical_logic" title="Mathematical logic">Mathematical</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Non-classical_logic" title="Non-classical logic">Non-classical</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Philosophical_logic" title="Philosophical logic">Philosophical</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Theories</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Argumentation_theory" title="Argumentation theory">Argumentation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Metalogic" title="Metalogic">Metalogic</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Metamathematics" title="Metamathematics">Metamathematics</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Set_theory" title="Set theory">Set</a></li></ul>
+</div></td></tr></tbody></table><div>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Foundations</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Abductive_reasoning" title="Abductive reasoning">Abduction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Analytic–synthetic_distinction" title="Analytic–synthetic distinction">Analytic and synthetic propositions</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Contradiction" title="Contradiction">Contradiction</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Paradox" title="Paradox">Paradox</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Antinomy" title="Antinomy">Antinomy</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Deductive_reasoning" title="Deductive reasoning">Deduction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Deductive_closure" title="Deductive closure">Deductive closure</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Definition" title="Definition">Definition</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Description" title="Description">Description</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Logical_consequence" title="Logical consequence">Entailment</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Entailment_(linguistics)" title="Entailment (linguistics)">Linguistic</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Logical_form" title="Logical form">Form</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Inductive_reasoning" title="Inductive reasoning">Induction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Logical_truth" title="Logical truth">Logical truth</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Name" title="Name">Name</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Necessity_and_sufficiency" title="Necessity and sufficiency">Necessity and sufficiency</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Premise" title="Premise">Premise</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Probability" title="Probability">Probability</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Reference" title="Reference">Reference</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Statement_(logic)" title="Statement (logic)">Statement</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Substitution_(logic)" title="Substitution (logic)">Substitution</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Truth" title="Truth">Truth</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Validity_(logic)" title="Validity (logic)">Validity</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Lists</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%;font-weight:normal;"><a href="https://en.wikipedia.org/wiki/Index_of_logic_articles" title="Index of logic articles">topics</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/List_of_mathematical_logic_topics" title="List of mathematical logic topics">Mathematical logic</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_Boolean_algebra_topics" title="List of Boolean algebra topics">Boolean algebra</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_set_theory_topics" title="List of set theory topics">Set theory</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%;font-weight:normal;">other</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/List_of_logicians" title="List of logicians">Logicians</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_rules_of_inference" title="List of rules of inference">Rules of inference</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_paradoxes" title="List of paradoxes">Paradoxes</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_fallacies" title="List of fallacies">Fallacies</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_logic_symbols" title="List of logic symbols">Logic symbols</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr><tr><td class="navbox-abovebelow" colspan="2"><div>
+<ul><li><a href="https://en.wikipedia.org/wiki/File:Socrates.png" class="image"><img alt="Socrates.png" src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Socrates.png/18px-Socrates.png" decoding="async" width="18" height="28" class="noviewer" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Socrates.png/27px-Socrates.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Socrates.png/36px-Socrates.png 2x" data-file-width="326" data-file-height="500" /></a>&#160;<a href="https://en.wikipedia.org/wiki/Portal:Philosophy" title="Portal:Philosophy">Philosophy&#32;portal</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Category:Logic" title="Category:Logic">Category</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Logic" title="Wikipedia:WikiProject Logic">WikiProject</a>&#160;(<a href="https://en.wikipedia.org/wiki/Wikipedia_talk:WikiProject_Logic" title="Wikipedia talk:WikiProject Logic">talk</a>)</li>
+<li><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Special:Recentchangeslinked&amp;target=Template:Logic&amp;hidebots=0">changes</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1349
+Cached time: 20220418234302
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 1.095 seconds
+Real time usage: 1.278 seconds
+Preprocessor visited node count: 4681/1000000
+Post‐expand include size: 114351/2097152 bytes
+Template argument size: 7521/2097152 bytes
+Highest expansion depth: 14/100
+Expensive parser function count: 11/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 108848/5000000 bytes
+Lua time usage: 0.626/10.000 seconds
+Lua memory usage: 26231737/52428800 bytes
+Number of Wikibase entities loaded: 1/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00% 1059.246      1 -total
+ 47.54%  503.585      2 Template:Reflist
+ 13.69%  145.017     18 Template:Cite_journal
+ 13.61%  144.198      1 Template:In_lang
+ 10.78%  114.163      2 Template:Citation
+  7.19%   76.169      3 Template:Navbox
+  7.14%   75.592      1 Template:Logic
+  7.01%   74.286     10 Template:Cite_book
+  6.78%   71.766      3 Template:Fix
+  5.73%   60.732      1 Template:Additional_citations_needed
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:4715-0!canonical and timestamp 20220418234300 and revision id 1075904932. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;oldid=1075904932#3-satisfiability">https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;oldid=1075904932#3-satisfiability</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Boolean_algebra" title="Category:Boolean algebra">Boolean algebra</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Electronic_design_automation" title="Category:Electronic design automation">Electronic design automation</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Formal_methods" title="Category:Formal methods">Formal methods</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Logic_in_computer_science" title="Category:Logic in computer science">Logic in computer science</a></li><li><a href="https://en.wikipedia.org/wiki/Category:NP-complete_problems" title="Category:NP-complete problems">NP-complete problems</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Satisfiability_problems" title="Category:Satisfiability problems">Satisfiability problems</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_Russian-language_sources_(ru)" title="Category:Articles with Russian-language sources (ru)">Articles with Russian-language sources (ru)</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_matches_Wikidata" title="Category:Short description matches Wikidata">Short description matches Wikidata</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_needing_additional_references" title="Category:All articles needing additional references">All articles needing additional references</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_needing_additional_references_from_May_2020" title="Category:Articles needing additional references from May 2020">Articles needing additional references from May 2020</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_unsourced_statements_from_May_2020" title="Category:Articles with unsourced statements from May 2020">Articles with unsourced statements from May 2020</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Commons_category_link_from_Wikidata" title="Category:Commons category link from Wikidata">Commons category link from Wikidata</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Boolean+satisfiability+problem" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Boolean+satisfiability+problem" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Boolean_satisfiability_problem" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Boolean_satisfiability_problem" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Boolean_satisfiability_problem"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Boolean_satisfiability_problem" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Boolean_satisfiability_problem" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;oldid=1075904932" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Boolean_satisfiability_problem&amp;id=1075904932&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q875276" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Boolean_satisfiability_problem&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-wikibase-otherprojects" class="mw-portlet mw-portlet-wikibase-otherprojects vector-menu vector-menu-portal portal" aria-labelledby="p-wikibase-otherprojects-label" role="navigation" 
+	 >
+	<label id="p-wikibase-otherprojects-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">In other projects</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="wb-otherproject-link wb-otherproject-commons mw-list-item"><a href="https://commons.wikimedia.org/wiki/Category:Boolean_satisfiability_problem" hreflang="en"><span>Wikimedia Commons</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-ar mw-list-item"><a href="https://ar.wikipedia.org/wiki/مسألة_قابلية_الإرضاء_المنطقية" title="مسألة قابلية الإرضاء المنطقية – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target"><span>العربية</span></a></li><li class="interlanguage-link interwiki-ca mw-list-item"><a href="https://ca.wikipedia.org/wiki/Problema_de_satisfacibilitat_booleana" title="Problema de satisfacibilitat booleana – Catalan" lang="ca" hreflang="ca" class="interlanguage-link-target"><span>Català</span></a></li><li class="interlanguage-link interwiki-cs mw-list-item"><a href="https://cs.wikipedia.org/wiki/Problém_splnitelnosti_booleovské_formule" title="Problém splnitelnosti booleovské formule – Czech" lang="cs" hreflang="cs" class="interlanguage-link-target"><span>Čeština</span></a></li><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Erfüllbarkeitsproblem_der_Aussagenlogik" title="Erfüllbarkeitsproblem der Aussagenlogik – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Problema_de_satisfacibilidad_booleana" title="Problema de satisfacibilidad booleana – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-eo mw-list-item"><a href="https://eo.wikipedia.org/wiki/Bulea_plenumebloproblemo" title="Bulea plenumebloproblemo – Esperanto" lang="eo" hreflang="eo" class="interlanguage-link-target"><span>Esperanto</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/مسئله_صدق‌پذیری_بولی" title="مسئله صدق‌پذیری بولی – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Problème_SAT" title="Problème SAT – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-ko mw-list-item"><a href="https://ko.wikipedia.org/wiki/충족_가능성_문제" title="충족 가능성 문제 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target"><span>한국어</span></a></li><li class="interlanguage-link interwiki-it mw-list-item"><a href="https://it.wikipedia.org/wiki/Soddisfacibilità_booleana" title="Soddisfacibilità booleana – Italian" lang="it" hreflang="it" class="interlanguage-link-target"><span>Italiano</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/בעיית_הספיקות" title="בעיית הספיקות – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-nl mw-list-item"><a href="https://nl.wikipedia.org/wiki/Vervulbaarheidsprobleem" title="Vervulbaarheidsprobleem – Dutch" lang="nl" hreflang="nl" class="interlanguage-link-target"><span>Nederlands</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/充足可能性問題" title="充足可能性問題 – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Problem_spełnialności" title="Problem spełnialności – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/Problema_de_satisfatibilidade_booliana" title="Problema de satisfatibilidade booliana – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Задача_выполнимости_булевых_формул" title="Задача выполнимости булевых формул – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-simple mw-list-item"><a href="https://simple.wikipedia.org/wiki/Boolean_satisfiability_problem" title="Boolean satisfiability problem – Simple English" lang="en-simple" hreflang="en-simple" class="interlanguage-link-target"><span>Simple English</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/САТ_проблем" title="САТ проблем – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-sh mw-list-item"><a href="https://sh.wikipedia.org/wiki/SAT_problem" title="SAT problem – Serbo-Croatian" lang="sh" hreflang="sh" class="interlanguage-link-target"><span>Srpskohrvatski / српскохрватски</span></a></li><li class="interlanguage-link interwiki-th mw-list-item"><a href="https://th.wikipedia.org/wiki/ปัญหาความสอดคล้องแบบบูล" title="ปัญหาความสอดคล้องแบบบูล – Thai" lang="th" hreflang="th" class="interlanguage-link-target"><span>ไทย</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Задача_здійсненності_булевих_формул" title="Задача здійсненності булевих формул – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/布尔可满足性问题" title="布尔可满足性问题 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q875276#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 8 March 2022, at 08:45<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Boolean_satisfiability_problem&amp;mobileaction=toggle_view_mobile#3-satisfiability" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"1.095","walltime":"1.278","ppvisitednodes":{"value":4681,"limit":1000000},"postexpandincludesize":{"value":114351,"limit":2097152},"templateargumentsize":{"value":7521,"limit":2097152},"expansiondepth":{"value":14,"limit":100},"expensivefunctioncount":{"value":11,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":108848,"limit":5000000},"entityaccesscount":{"value":1,"limit":400},"timingprofile":["100.00% 1059.246      1 -total"," 47.54%  503.585      2 Template:Reflist"," 13.69%  145.017     18 Template:Cite_journal"," 13.61%  144.198      1 Template:In_lang"," 10.78%  114.163      2 Template:Citation","  7.19%   76.169      3 Template:Navbox","  7.14%   75.592      1 Template:Logic","  7.01%   74.286     10 Template:Cite_book","  6.78%   71.766      3 Template:Fix","  5.73%   60.732      1 Template:Additional_citations_needed"]},"scribunto":{"limitreport-timeusage":{"value":"0.626","limit":"10.000"},"limitreport-memusage":{"value":26231737,"limit":52428800},"limitreport-logs":"table#1 {\n}\n"},"cachereport":{"origin":"mw1349","timestamp":"20220418234302","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Boolean satisfiability problem","url":"https:\/\/en.wikipedia.org\/wiki\/Boolean_satisfiability_problem#3-satisfiability","sameAs":"http:\/\/www.wikidata.org\/entity\/Q875276","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q875276","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2001-12-03T09:36:45Z","dateModified":"2022-03-08T08:45:24Z","headline":"problem of determining if a Boolean formula could be made true"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Boolean satisfiability problem","url":"https:\/\/en.wikipedia.org\/wiki\/Boolean_satisfiability_problem#3-satisfiability","sameAs":"http:\/\/www.wikidata.org\/entity\/Q875276","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q875276","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2001-12-03T09:36:45Z","dateModified":"2022-03-08T08:45:24Z","headline":"problem of determining if a Boolean formula could be made true"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":176,"wgHostname":"mw1351"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/3SAT by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:52 GMT -->
+</html>

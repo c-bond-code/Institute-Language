@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Greedy_algorithm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Greedy algorithm - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"aff58954-2410-4fa8-9067-323c4369b0d0","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Greedy_algorithm","wgTitle":"Greedy algorithm","wgCurRevisionId":1081843875,"wgRevisionId":1081843875,"wgArticleId":89247,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Harv and Sfn no-target errors","Articles with short description","Short description is different from Wikidata","Articles needing additional references from June 2018","All articles needing additional references","Articles to be expanded from June 2018","All articles to be expanded",
+"Articles using small message boxes","Pages using div col with small parameter","Commons category link is on Wikidata","Articles with PLWABN identifiers","Optimization algorithms and methods","Combinatorial algorithms","Matroid theory","Exchange algorithms","Greedy algorithms"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Greedy_algorithm","wgRelevantArticleId":89247,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":20000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English",
+"wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q504353","wgGENewcomerTasksGuidanceEnabled":true,"wgGEAskQuestionEnabled":false,"wgGELinkRecommendationsFrontendEnabled":false};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","ext.scribunto.logs","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init",
+"ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.9"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Greedy_algorithm_36_cents.svg/1200px-Greedy_algorithm_36_cents.svg.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="883"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Greedy_algorithm_36_cents.svg/800px-Greedy_algorithm_36_cents.svg.png"/>
+<meta property="og:image:width" content="800"/>
+<meta property="og:image:height" content="589"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Greedy_algorithm_36_cents.svg/640px-Greedy_algorithm_36_cents.svg.png"/>
+<meta property="og:image:width" content="640"/>
+<meta property="og:image:height" content="471"/>
+<meta property="og:title" content="Greedy algorithm - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Greedy_algorithm"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Greedy_algorithm"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Greedy_algorithm rootpage-Greedy_algorithm skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Greedy algorithm</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Sequence of locally optimal choices</div>
+<div class="thumb tright"><div class="thumbinner" style="width:282px;"><a href="https://en.wikipedia.org/wiki/File:Greedy_algorithm_36_cents.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Greedy_algorithm_36_cents.svg/280px-Greedy_algorithm_36_cents.svg.png" decoding="async" width="280" height="206" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/da/Greedy_algorithm_36_cents.svg/420px-Greedy_algorithm_36_cents.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/da/Greedy_algorithm_36_cents.svg/560px-Greedy_algorithm_36_cents.svg.png 2x" data-file-width="965" data-file-height="710" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Greedy_algorithm_36_cents.svg" class="internal" title="Enlarge"></a></div>Greedy algorithms determine the minimum number of coins to give while making change. These are the steps most people would take to emulate a greedy algorithm to represent 36 cents using only coins with values {1, 5, 10, 20}. The coin of the highest value, less than the remaining change owed, is the local optimum. (In general, the <a href="https://en.wikipedia.org/wiki/Change-making_problem" title="Change-making problem">change-making problem</a> requires <a href="https://en.wikipedia.org/wiki/Dynamic_programming" title="Dynamic programming">dynamic programming</a> to find an optimal solution; however, most currency systems are special cases where the greedy strategy does find an optimal solution.)</div></div></div>
+<p>A <b>greedy algorithm</b> is any <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithm</a> that follows the problem-solving <a href="https://en.wikipedia.org/wiki/Heuristic_(computer_science)" title="Heuristic (computer science)">heuristic</a> of making the locally optimal choice at each stage.<sup id="cite_ref-NISTg_1-0" class="reference"><a href="#cite_note-NISTg-1">&#91;1&#93;</a></sup> In many problems, a greedy strategy does not produce an optimal solution, but a greedy heuristic can yield locally optimal solutions that approximate a globally optimal solution in a reasonable amount of time.
+</p><p>For example, a greedy strategy for the <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem" title="Travelling salesman problem">travelling salesman problem</a> (which is of high computational complexity) is the following heuristic: "At each step of the journey, visit the nearest unvisited city." This heuristic does not intend to find the best solution, but it terminates in a reasonable number of steps; finding an optimal solution to such a complex problem typically requires unreasonably many steps. In mathematical optimization, greedy algorithms optimally solve combinatorial problems having the properties of <a href="https://en.wikipedia.org/wiki/Matroid" title="Matroid">matroids</a> and give constant-factor approximations to optimization problems with the submodular structure.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Specifics"><span class="tocnumber">1</span> <span class="toctext">Specifics</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Cases_of_failure"><span class="tocnumber">1.1</span> <span class="toctext">Cases of failure</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#Types"><span class="tocnumber">2</span> <span class="toctext">Types</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Theory"><span class="tocnumber">3</span> <span class="toctext">Theory</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Matroids"><span class="tocnumber">3.1</span> <span class="toctext">Matroids</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Submodular_functions"><span class="tocnumber">3.2</span> <span class="toctext">Submodular functions</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Other_problems_with_guarantees"><span class="tocnumber">3.3</span> <span class="toctext">Other problems with guarantees</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Applications"><span class="tocnumber">4</span> <span class="toctext">Applications</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Examples"><span class="tocnumber">5</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="#Sources"><span class="tocnumber">7.1</span> <span class="toctext">Sources</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="#External_links"><span class="tocnumber">8</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Specifics">Specifics</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;action=edit&amp;section=1" title="Edit section: Specifics">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Greedy algorithms produce good solutions on some <a href="https://en.wikipedia.org/wiki/Mathematical_problem" title="Mathematical problem">mathematical problems</a>, but not on others.  Most problems for which they work will  have two properties:
+</p>
+<dl><dt>Greedy choice property</dt>
+<dd>We can make whatever choice seems best at the moment and then solve the subproblems that arise later. The choice made by a greedy algorithm may depend on choices made so far, but not on future choices or all the solutions to the subproblem.  It iteratively makes one greedy choice after another, reducing each given problem into a smaller one. In other words, a greedy algorithm never reconsiders its choices. This is the main difference from <a href="https://en.wikipedia.org/wiki/Dynamic_programming" title="Dynamic programming">dynamic programming</a>, which is exhaustive and is guaranteed to find the solution. After every stage, dynamic programming makes decisions based on all the decisions made in the previous stage and may reconsider the previous stage's algorithmic path to the solution.</dd></dl>
+<dl><dt>Optimal substructure</dt>
+<dd>"A problem exhibits <a href="https://en.wikipedia.org/wiki/Optimal_substructure" title="Optimal substructure">optimal substructure</a> if an optimal solution to the problem contains optimal solutions to the sub-problems."<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup></dd></dl>
+<h3><span class="mw-headline" id="Cases_of_failure">Cases of failure</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;action=edit&amp;section=2" title="Edit section: Cases of failure">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<style data-mw-deduplicate="TemplateStyles:r978413945/mw-parser-output/.tmulti">.mw-parser-output .tmulti .thumbinner{display:flex;flex-direction:column}.mw-parser-output .tmulti .trow{display:flex;flex-direction:row;clear:left;flex-wrap:wrap;width:100%;box-sizing:border-box}.mw-parser-output .tmulti .tsingle{margin:1px;float:left}.mw-parser-output .tmulti .theader{clear:both;font-weight:bold;text-align:center;align-self:center;background-color:transparent;width:100%}.mw-parser-output .tmulti .thumbcaption{background-color:transparent}.mw-parser-output .tmulti .text-align-left{text-align:left}.mw-parser-output .tmulti .text-align-right{text-align:right}.mw-parser-output .tmulti .text-align-center{text-align:center}@media all and (max-width:720px){.mw-parser-output .tmulti .thumbinner{width:100%!important;box-sizing:border-box;max-width:none!important;align-items:center}.mw-parser-output .tmulti .trow{justify-content:center}.mw-parser-output .tmulti .tsingle{float:none!important;max-width:100%!important;box-sizing:border-box;text-align:center}.mw-parser-output .tmulti .tsingle .thumbcaption{text-align:left}.mw-parser-output .tmulti .trow>.thumbcaption{text-align:center}}</style><div class="thumb tmulti tright"><div class="thumbinner" style="width:304px;max-width:304px"><div class="trow"><div class="theader">Examples on how a greedy algorithm may fail to achieve the optimal solution.</div></div><div class="trow"><div class="tsingle" style="width:302px;max-width:302px"><div class="thumbimage"><a href="https://en.wikipedia.org/wiki/File:Greedy_Glouton.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Greedy_Glouton.svg/300px-Greedy_Glouton.svg.png" decoding="async" width="300" height="300" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/0/06/Greedy_Glouton.svg/450px-Greedy_Glouton.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/06/Greedy_Glouton.svg/600px-Greedy_Glouton.svg.png 2x" data-file-width="512" data-file-height="512" /></a></div><div class="thumbcaption">Starting from A, a greedy algorithm that tries to find the maximum by following the greatest slope will find the local maximum at "m", oblivious to the global maximum at "M".</div></div></div><div class="trow"><div class="tsingle" style="width:302px;max-width:302px"><div class="thumbimage"><a href="https://en.wikipedia.org/wiki/File:Greedy-search-path-example.gif" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/8/8c/Greedy-search-path-example.gif" decoding="async" width="300" height="180" data-file-width="300" data-file-height="180" /></a></div><div class="thumbcaption">To reach the largest sum, at each step, the greedy algorithm will choose what appears to be the optimal immediate choice, so it will choose 12 instead of 3 at the second step, and will not reach the best solution, which contains 99.</div></div></div></div></div>
+<p>Greedy algorithms fail to produce the optimal solution for many other problems and may even produce the <i>unique worst possible</i> solution. One example is the <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem" title="Travelling salesman problem">travelling salesman problem</a> mentioned above: for each number of cities, there is an assignment of distances between the cities for which the nearest-neighbour heuristic produces the unique worst possible tour.<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup>
+For other possible examples, see <a href="https://en.wikipedia.org/wiki/Horizon_effect" title="Horizon effect">horizon effect</a>.
+</p>
+<h2><span class="mw-headline" id="Types">Types</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;action=edit&amp;section=3" title="Edit section: Types">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="box-More_citations_needed_section plainlinks metadata ambox ambox-content ambox-Refimprove" role="presentation"><tbody><tr><td class="mbox-image"><div style="width:52px"><a href="https://en.wikipedia.org/wiki/File:Question_book-new.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/50px-Question_book-new.svg.png" decoding="async" width="50" height="39" srcset="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/75px-Question_book-new.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/100px-Question_book-new.svg.png 2x" data-file-width="512" data-file-height="399" /></a></div></td><td class="mbox-text"><div class="mbox-text-span">This section <b>needs additional citations for <a href="https://en.wikipedia.org/wiki/Wikipedia:Verifiability" title="Wikipedia:Verifiability">verification</a></b>.<span class="hide-when-compact"> Please help <a class="external text" href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;action=edit">improve this article</a> by <a href="https://en.wikipedia.org/wiki/Help:Referencing_for_beginners" title="Help:Referencing for beginners">adding citations to reliable sources</a>. Unsourced material may be challenged and removed.</span>  <span class="date-container"><i>(<span class="date">June 2018</span>)</i></span><span class="hide-when-compact"><i> (<small><a href="https://en.wikipedia.org/wiki/Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this template message</a></small>)</i></span></div></td></tr></tbody></table>
+<p>Greedy algorithms can be characterized as being 'short sighted', and also as 'non-recoverable'. They are ideal only for problems that have an 'optimal substructure'. Despite this, for many simple problems, the best-suited algorithms are greedy. It is important, however, to note that the greedy algorithm can be used as a selection algorithm to prioritize options within a search, or branch-and-bound algorithm. There are a few variations to the greedy algorithm:
+</p>
+<ul><li>Pure greedy algorithms</li>
+<li>Orthogonal greedy algorithms</li>
+<li>Relaxed greedy algorithms</li></ul>
+<h2><span class="mw-headline" id="Theory">Theory</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;action=edit&amp;section=4" title="Edit section: Theory">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Greedy algorithms have a long history of study in <a href="https://en.wikipedia.org/wiki/Combinatorial_optimization" title="Combinatorial optimization">combinatorial optimization</a> and <a href="https://en.wikipedia.org/wiki/Theoretical_computer_science" title="Theoretical computer science">theoretical computer science</a>. Greedy heuristics are known to produce suboptimal results on many problems,<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup> and so natural questions are:
+</p>
+<ul><li>For which problems do greedy algorithms perform optimally?</li>
+<li>For which problems do greedy algorithms guarantee an approximately optimal solution?</li>
+<li>For which problems are the greedy algorithm guaranteed <i>not</i> to produce an optimal solution?</li></ul>
+<p>A large body of literature exists answering these questions for general classes of problems, such as <a href="https://en.wikipedia.org/wiki/Matroid" title="Matroid">matroids</a>, as well as for specific problems, such as <a href="https://en.wikipedia.org/wiki/Set_cover" class="mw-redirect" title="Set cover">set cover</a>.
+</p>
+<h3><span class="mw-headline" id="Matroids">Matroids</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;action=edit&amp;section=5" title="Edit section: Matroids">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="https://en.wikipedia.org/wiki/Matroid" title="Matroid">Matroid</a></div>
+<p>A <a href="https://en.wikipedia.org/wiki/Matroid" title="Matroid">matroid</a> is a mathematical structure that generalizes the notion of <a href="https://en.wikipedia.org/wiki/Linear_independence" title="Linear independence">linear independence</a> from <a href="https://en.wikipedia.org/wiki/Vector_spaces" class="mw-redirect" title="Vector spaces">vector spaces</a> to arbitrary sets. If an optimization problem has the structure of a matroid, then the appropriate greedy algorithm will solve it optimally.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Submodular_functions">Submodular functions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;action=edit&amp;section=6" title="Edit section: Submodular functions">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1033289096"/><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="https://en.wikipedia.org/wiki/Submodular_set_function#Optimization_problems" title="Submodular set function">Submodular set function §&#160;Optimization problems</a></div>
+<p>A function <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/132e57acb643253e7810ee9702d9581f159a1c61" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.279ex; height:2.509ex;" alt="f"/></span> defined on subsets of a set <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \Omega }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x03A9;<!-- Ω --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Omega }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/24b0d5ca6f381068d756f6337c08e0af9d1eeb6f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.678ex; height:2.176ex;" alt="\Omega "/></span> is called <a href="https://en.wikipedia.org/wiki/Submodular" class="mw-redirect" title="Submodular">submodular</a> if for every <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle S,T\subseteq \Omega }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+        <mo>,</mo>
+        <mi>T</mi>
+        <mo>&#x2286;<!-- ⊆ --></mo>
+        <mi mathvariant="normal">&#x03A9;<!-- Ω --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S,T\subseteq \Omega }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c0d257a9a2eb787c5690a306ab0cdccba7c2893b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:8.946ex; height:2.509ex;" alt="S, T \subseteq \Omega"/></span> we have that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f(S)+f(T)\geq f(S\cup T)+f(S\cap T)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>S</mi>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>T</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2265;<!-- ≥ --></mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>S</mi>
+        <mo>&#x222A;<!-- ∪ --></mo>
+        <mi>T</mi>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>S</mi>
+        <mo>&#x2229;<!-- ∩ --></mo>
+        <mi>T</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f(S)+f(T)\geq f(S\cup T)+f(S\cap T)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f21068db00908ee3727f8f8f64990b2a68ea7c09" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:35.702ex; height:2.843ex;" alt="f(S)+f(T)\geq f(S\cup T)+f(S\cap T)"/></span>.
+</p><p>Suppose one wants to find a set <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4611d85173cd3b508e67077d4a1252c9c05abca2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.499ex; height:2.176ex;" alt="S"/></span> which maximizes <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/132e57acb643253e7810ee9702d9581f159a1c61" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.279ex; height:2.509ex;" alt="f"/></span>. The greedy algorithm, which builds up a set <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4611d85173cd3b508e67077d4a1252c9c05abca2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.499ex; height:2.176ex;" alt="S"/></span> by incrementally adding the element which increases <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/132e57acb643253e7810ee9702d9581f159a1c61" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.279ex; height:2.509ex;" alt="f"/></span> the most at each step, produces as output a set that is at least <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (1-1/e)\max _{X\subseteq \Omega }f(X)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mi>e</mi>
+        <mo stretchy="false">)</mo>
+        <munder>
+          <mo movablelimits="true" form="prefix">max</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>X</mi>
+            <mo>&#x2286;<!-- ⊆ --></mo>
+            <mi mathvariant="normal">&#x03A9;<!-- Ω --></mi>
+          </mrow>
+        </munder>
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>X</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (1-1/e)\max _{X\subseteq \Omega }f(X)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/80e68143eac3b3c1ce6906a7f2646793bc940fde" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.338ex; width:19.388ex; height:4.343ex;" alt="{\displaystyle (1-1/e)\max _{X\subseteq \Omega }f(X)}"/></span>.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup> That is, greedy performs within a constant factor of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (1-1/e)\approx 0.63}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mi>e</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2248;<!-- ≈ --></mo>
+        <mn>0.63</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (1-1/e)\approx 0.63}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/91728e8230b87f795fbfc68ec7c8775e4430b169" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:16.453ex; height:2.843ex;" alt="{\displaystyle (1-1/e)\approx 0.63}"/></span> as good as the optimal solution.
+</p><p>Similar guarantees are provable when additional constraints, such as cardinality constraints,<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup> are imposed on the output, though often slight variations on the greedy algorithm are required. See <sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup> for an overview.
+</p>
+<h3><span class="mw-headline" id="Other_problems_with_guarantees">Other problems with guarantees</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;action=edit&amp;section=7" title="Edit section: Other problems with guarantees">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Other problems for which the greedy algorithm gives a strong guarantee, but not an optimal solution, include
+</p>
+<ul><li><a href="https://en.wikipedia.org/wiki/Set_cover_problem#Greedy_algorithm" title="Set cover problem">Set cover</a></li>
+<li>The <a href="https://en.wikipedia.org/wiki/Steiner_tree_problem" title="Steiner tree problem">Steiner tree problem</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Load_balancing_(computing)" title="Load balancing (computing)">Load balancing</a><sup id="cite_ref-9" class="reference"><a href="#cite_note-9">&#91;9&#93;</a></sup></li>
+<li><a href="https://en.wikipedia.org/wiki/Independent_set_(graph_theory)#Approximation_algorithms" title="Independent set (graph theory)">Independent set</a></li></ul>
+<p>Many of these problems have matching lower bounds; i.e., the greedy algorithm does not perform better than the guarantee in the worst case.
+</p>
+<h2><span class="mw-headline" id="Applications">Applications</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;action=edit&amp;section=8" title="Edit section: Applications">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="box-Expand_section plainlinks metadata ambox mbox-small-left ambox-content" role="presentation"><tbody><tr><td class="mbox-image"><a href="https://en.wikipedia.org/wiki/File:Wiki_letter_w_cropped.svg" class="image"><img alt="[icon]" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/20px-Wiki_letter_w_cropped.svg.png" decoding="async" width="20" height="14" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/30px-Wiki_letter_w_cropped.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/40px-Wiki_letter_w_cropped.svg.png 2x" data-file-width="44" data-file-height="31" /></a></td><td class="mbox-text"><div class="mbox-text-span">This section <b>needs expansion</b>. You can help by <a class="external text" href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;action=edit&amp;section=">adding to it</a>.  <span class="date-container"><i>(<span class="date">June 2018</span>)</i></span></div></td></tr></tbody></table>
+<p>Greedy algorithms typically (but not always) fail to find the globally optimal solution because they usually do not operate exhaustively on all the data. They can make commitments to certain choices too early, preventing them from finding the best overall solution later. For example, all known <a href="https://en.wikipedia.org/wiki/Greedy_coloring" title="Greedy coloring">greedy coloring</a> algorithms for the <a href="https://en.wikipedia.org/wiki/Graph_coloring_problem" class="mw-redirect" title="Graph coloring problem">graph coloring problem</a> and all other <a href="https://en.wikipedia.org/wiki/NP-complete" class="mw-redirect" title="NP-complete">NP-complete</a> problems do not consistently find optimum solutions. Nevertheless, they are useful because they are quick to think up and often give good approximations to the optimum.
+</p><p>If a greedy algorithm can be proven to yield the global optimum for a given problem class, it typically becomes the method of choice because it is faster than other optimization methods like <a href="https://en.wikipedia.org/wiki/Dynamic_programming" title="Dynamic programming">dynamic programming</a>. Examples of such greedy algorithms are <a href="https://en.wikipedia.org/wiki/Kruskal%27s_algorithm" title="Kruskal&#39;s algorithm">Kruskal's algorithm</a> and <a href="https://en.wikipedia.org/wiki/Prim%27s_algorithm" title="Prim&#39;s algorithm">Prim's algorithm</a> for finding <a href="https://en.wikipedia.org/wiki/Minimum_spanning_tree" title="Minimum spanning tree">minimum spanning trees</a> and the algorithm for finding optimum <a href="https://en.wikipedia.org/wiki/Huffman_tree" class="mw-redirect" title="Huffman tree">Huffman trees</a>.
+</p><p>Greedy algorithms appear in the network <a href="https://en.wikipedia.org/wiki/Routing" title="Routing">routing</a> as well.  Using greedy routing, a message is forwarded to the neighbouring node which is "closest" to the destination. The notion of a node's location (and hence "closeness") may be determined by its physical location, as in <a href="https://en.wikipedia.org/wiki/Geographic_routing" title="Geographic routing">geographic routing</a> used by <a href="https://en.wikipedia.org/wiki/Ad_hoc_network" title="Ad hoc network">ad hoc networks</a>.  Location may also be an entirely artificial construct as in <a href="https://en.wikipedia.org/wiki/Small_world_routing" class="mw-redirect" title="Small world routing">small world routing</a> and <a href="https://en.wikipedia.org/wiki/Distributed_hash_table" title="Distributed hash table">distributed hash table</a>.
+</p>
+<h2><span class="mw-headline" id="Examples">Examples</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;action=edit&amp;section=9" title="Edit section: Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>The <a href="https://en.wikipedia.org/wiki/Activity_selection_problem" title="Activity selection problem">activity selection problem</a> is characteristic of this class of problems, where the goal is to pick the maximum number of activities that do not clash with each other.</li>
+<li>In the <a href="https://en.wikipedia.org/wiki/Macintosh_computer" class="mw-redirect" title="Macintosh computer">Macintosh computer</a> game <i><a href="https://en.wikipedia.org/wiki/Crystal_Quest" title="Crystal Quest">Crystal Quest</a></i> the objective is to collect crystals, in a fashion similar to the <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem" title="Travelling salesman problem">travelling salesman problem</a>. The game has a demo mode, where the game uses a greedy algorithm to go to every crystal. The <a href="https://en.wikipedia.org/wiki/Artificial_intelligence" title="Artificial intelligence">artificial intelligence</a> does not account for obstacles, so the demo mode often ends quickly.</li>
+<li>The <a href="https://en.wikipedia.org/wiki/Matching_pursuit" title="Matching pursuit">matching pursuit</a> is an example of a greedy algorithm applied on signal approximation.</li>
+<li>A greedy algorithm finds the optimal solution to <a href="https://en.wikipedia.org/wiki/Malfatti_circles" title="Malfatti circles">Malfatti's problem</a> of finding three disjoint circles within a given triangle that maximize the total area of the circles; it is conjectured that the same greedy algorithm is optimal for any number of circles.</li>
+<li>A greedy algorithm is used to construct a Huffman tree during <a href="https://en.wikipedia.org/wiki/Huffman_coding" title="Huffman coding">Huffman coding</a> where it finds an optimal solution.</li>
+<li>In <a href="https://en.wikipedia.org/wiki/Decision_tree_learning" title="Decision tree learning">decision tree learning</a>, greedy algorithms are commonly used, however they are not guaranteed to find the optimal solution.
+<ul><li>One popular such algorithm is the <a href="https://en.wikipedia.org/wiki/ID3_algorithm" title="ID3 algorithm">ID3 algorithm</a> for decision tree construction.</li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm" title="Dijkstra&#39;s algorithm">Dijkstra's algorithm</a> and the related <a href="https://en.wikipedia.org/wiki/A*_search_algorithm" title="A* search algorithm">A* search algorithm</a> are verifiably optimal greedy algorithms for <a href="https://en.wikipedia.org/wiki/Graph_search" class="mw-redirect" title="Graph search">graph search</a> and <a href="https://en.wikipedia.org/wiki/Shortest_path_problem" title="Shortest path problem">shortest path finding</a>.
+<ul><li>A* search is conditionally optimal, requiring an "<a href="https://en.wikipedia.org/wiki/Admissible_heuristic" title="Admissible heuristic">admissible heuristic</a>" that will not overestimate path costs.</li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Kruskal%27s_algorithm" title="Kruskal&#39;s algorithm">Kruskal's algorithm</a> and <a href="https://en.wikipedia.org/wiki/Prim%27s_algorithm" title="Prim&#39;s algorithm">Prim's algorithm</a> are greedy algorithms for constructing <a href="https://en.wikipedia.org/wiki/Minimum_spanning_tree" title="Minimum spanning tree">minimum spanning trees</a> of a given <a href="https://en.wikipedia.org/wiki/Connected_graph" class="mw-redirect" title="Connected graph">connected graph</a>. They always find an optimal solution, which may not be unique in general.</li></ul>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;action=edit&amp;section=10" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1072126029">.mw-parser-output .portalbox{float:right;padding:0}.mw-parser-output .portalborder{border:solid #aaa 1px}.mw-parser-output .portalbox.tleft{margin:0.5em 1em 0.5em 0}.mw-parser-output .portalbox.tright{margin:0.5em 0 0.5em 1em}.mw-parser-output .portalbox>ul{display:table;box-sizing:border-box;max-width:175px;font-size:85%;line-height:110%;font-style:italic;font-weight:bold}.mw-parser-output .portalborder>ul{padding:0.1em;background:#f9f9f9}.mw-parser-output .portalbox>ul>li{display:table-row}.mw-parser-output .portalbox>ul>li>span:first-child{display:table-cell;padding:0.2em;vertical-align:middle;text-align:center}.mw-parser-output .portalbox>ul>li>span:last-child{display:table-cell;padding:0.2em 0.2em 0.2em 0.3em;vertical-align:middle}</style><div role="navigation" aria-label="Portals" class="noprint plainlist portalbox portalborder tright">
+<ul>
+<li><span><a href="https://en.wikipedia.org/wiki/File:Nuvola_apps_edu_mathematics_blue-p.svg" class="image"><img alt="icon" src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Nuvola_apps_edu_mathematics_blue-p.svg/28px-Nuvola_apps_edu_mathematics_blue-p.svg.png" decoding="async" width="28" height="28" class="noviewer" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Nuvola_apps_edu_mathematics_blue-p.svg/42px-Nuvola_apps_edu_mathematics_blue-p.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Nuvola_apps_edu_mathematics_blue-p.svg/56px-Nuvola_apps_edu_mathematics_blue-p.svg.png 2x" data-file-width="128" data-file-height="128" /></a></span><span><a href="https://en.wikipedia.org/wiki/Portal:Mathematics" title="Portal:Mathematics">Mathematics portal</a></span></li></ul></div>
+<style data-mw-deduplicate="TemplateStyles:r998391716">.mw-parser-output .div-col{margin-top:0.3em;column-width:30em}.mw-parser-output .div-col-small{font-size:90%}.mw-parser-output .div-col-rules{column-rule:1px solid #aaa}.mw-parser-output .div-col dl,.mw-parser-output .div-col ol,.mw-parser-output .div-col ul{margin-top:0}.mw-parser-output .div-col li,.mw-parser-output .div-col dd{page-break-inside:avoid;break-inside:avoid-column}</style><div class="div-col div-col-small" style="column-width: 20em;">
+<ul><li><a href="https://en.wikipedia.org/wiki/Best-first_search" title="Best-first search">Best-first search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Multi-armed_bandit#Semi-uniform_strategies" title="Multi-armed bandit">Epsilon-greedy strategy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Greedy_algorithm_for_Egyptian_fractions" title="Greedy algorithm for Egyptian fractions">Greedy algorithm for Egyptian fractions</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Greedy_source" title="Greedy source">Greedy source</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Horizon_effect" title="Horizon effect">Horizon effect</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Matroid" title="Matroid">Matroid</a></li></ul>
+</div>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;action=edit&amp;section=11" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-NISTg-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-NISTg_1-0">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFBlack2005" class="citation web cs1">Black, Paul E. (2 February 2005). <a rel="nofollow" class="external text" href="http://xlinux.nist.gov/dads//HTML/greedyalgo.html">"greedy algorithm"</a>. <i>Dictionary of Algorithms and Data Structures</i>. <a href="https://en.wikipedia.org/wiki/National_Institute_of_Standards_and_Technology" title="National Institute of Standards and Technology">U.S. National Institute of Standards and Technology</a> (NIST)<span class="reference-accessdate">. Retrieved <span class="nowrap">17 August</span> 2012</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Dictionary+of+Algorithms+and+Data+Structures&amp;rft.atitle=greedy+algorithm&amp;rft.date=2005-02-02&amp;rft.aulast=Black&amp;rft.aufirst=Paul+E.&amp;rft_id=http%3A%2F%2Fxlinux.nist.gov%2Fdads%2F%2FHTML%2Fgreedyalgo.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGreedy+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><a href="#CITEREFCormenLeisersonRivestStein2001">Cormen et al. 2001</a>, Ch. 16</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGutinYeoZverovich2002" class="citation journal cs1">Gutin, Gregory; Yeo, Anders; Zverovich, Alexey (2002). <a rel="nofollow" class="external text" href="https://doi.org/10.1016%2FS0166-218X(01)00195-0">"Traveling salesman should not be greedy: Domination analysis of greedy-type heuristics for the TSP"</a>. <i>Discrete Applied Mathematics</i>. <b>117</b> (1–3): 81–86. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1016%2FS0166-218X(01)00195-0">10.1016/S0166-218X(01)00195-0</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Discrete+Applied+Mathematics&amp;rft.atitle=Traveling+salesman+should+not+be+greedy%3A+Domination+analysis+of+greedy-type+heuristics+for+the+TSP&amp;rft.volume=117&amp;rft.issue=1%E2%80%933&amp;rft.pages=81-86&amp;rft.date=2002&amp;rft_id=info%3Adoi%2F10.1016%2FS0166-218X%2801%2900195-0&amp;rft.aulast=Gutin&amp;rft.aufirst=Gregory&amp;rft.au=Yeo%2C+Anders&amp;rft.au=Zverovich%2C+Alexey&amp;rft_id=%2F%2Fdoi.org%2F10.1016%252FS0166-218X%252801%252900195-0&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGreedy+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><a href="#CITEREFFeige1998">Feige 1998</a></span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><a href="#CITEREFPapadimitriouSteiglitz1998">Papadimitriou &amp; Steiglitz 1998</a><span class="error harv-error" style="display: none; font-size:100%"> harvnb error: no target: CITEREFPapadimitriouSteiglitz1998 (<a href="https://en.wikipedia.org/wiki/Category:Harv_and_Sfn_template_errors" title="Category:Harv and Sfn template errors">help</a>)</span></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><a href="#CITEREFNemhauserWolseyFisher1978">Nemhauser, Wolsey &amp; Fisher 1978</a></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><a href="#CITEREFBuchbinderFeldmanNaorSchwartz2014">Buchbinder et al. 2014</a></span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><a href="#CITEREFKrauseGolovin2014">Krause &amp; Golovin 2014</a></span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.win.tue.nl/~mdberg/Onderwijs/AdvAlg_Material/Course Notes/lecture5.pdf">"Lecture 5: Introduction to Approximation Algorithms"</a> <span class="cs1-format">(PDF)</span>. <i>Advanced Algorithms (2IL45) — Course Notes</i>. TU Eindhoven.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=Advanced+Algorithms+%282IL45%29+%E2%80%94+Course+Notes&amp;rft.atitle=Lecture+5%3A+Introduction+to+Approximation+Algorithms&amp;rft_id=http%3A%2F%2Fwww.win.tue.nl%2F~mdberg%2FOnderwijs%2FAdvAlg_Material%2FCourse%2520Notes%2Flecture5.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGreedy+algorithm" class="Z3988"></span></span>
+</li>
+</ol></div></div>
+<h3><span class="mw-headline" id="Sources">Sources</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;action=edit&amp;section=12" title="Edit section: Sources">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<style data-mw-deduplicate="TemplateStyles:r1054258005">.mw-parser-output .refbegin{font-size:90%;margin-bottom:0.5em}.mw-parser-output .refbegin-hanging-indents>ul{margin-left:0}.mw-parser-output .refbegin-hanging-indents>ul>li{margin-left:0;padding-left:3.2em;text-indent:-3.2em}.mw-parser-output .refbegin-hanging-indents ul,.mw-parser-output .refbegin-hanging-indents ul li{list-style:none}@media(max-width:720px){.mw-parser-output .refbegin-hanging-indents>ul>li{padding-left:1.6em;text-indent:-1.6em}}.mw-parser-output .refbegin-columns{margin-top:0.3em}.mw-parser-output .refbegin-columns ul{margin-top:0}.mw-parser-output .refbegin-columns li{page-break-inside:avoid;break-inside:avoid-column}</style><div class="refbegin" style="">
+<ul><li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCormenLeisersonRivestStein2001" class="citation book cs1">Cormen, Thomas H.; Leiserson, Charles E.; Rivest, Ronald L.; Stein, Clifford (2001). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=NLngYyWFl_YC&amp;pg=PA370">"16 Greedy Algorithms"</a>. <a href="https://en.wikipedia.org/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms"><i>Introduction To Algorithms</i></a>. MIT Press. pp.&#160;370–. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-262-03293-3" title="Special:BookSources/978-0-262-03293-3"><bdi>978-0-262-03293-3</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=16+Greedy+Algorithms&amp;rft.btitle=Introduction+To+Algorithms&amp;rft.pages=370-&amp;rft.pub=MIT+Press&amp;rft.date=2001&amp;rft.isbn=978-0-262-03293-3&amp;rft.aulast=Cormen&amp;rft.aufirst=Thomas+H.&amp;rft.au=Leiserson%2C+Charles+E.&amp;rft.au=Rivest%2C+Ronald+L.&amp;rft.au=Stein%2C+Clifford&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3DNLngYyWFl_YC%26pg%3DPA370&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGreedy+algorithm" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGutinYeoZverovich2002" class="citation journal cs1">Gutin, Gregory; Yeo, Anders; Zverovich, Alexey (2002). <a rel="nofollow" class="external text" href="https://doi.org/10.1016%2FS0166-218X(01)00195-0">"Traveling salesman should not be greedy: Domination analysis of greedy-type heuristics for the TSP"</a>. <i>Discrete Applied Mathematics</i>. <b>117</b> (1–3): 81–86. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1016%2FS0166-218X(01)00195-0">10.1016/S0166-218X(01)00195-0</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Discrete+Applied+Mathematics&amp;rft.atitle=Traveling+salesman+should+not+be+greedy%3A+Domination+analysis+of+greedy-type+heuristics+for+the+TSP&amp;rft.volume=117&amp;rft.issue=1%E2%80%933&amp;rft.pages=81-86&amp;rft.date=2002&amp;rft_id=info%3Adoi%2F10.1016%2FS0166-218X%2801%2900195-0&amp;rft.aulast=Gutin&amp;rft.aufirst=Gregory&amp;rft.au=Yeo%2C+Anders&amp;rft.au=Zverovich%2C+Alexey&amp;rft_id=%2F%2Fdoi.org%2F10.1016%252FS0166-218X%252801%252900195-0&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGreedy+algorithm" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBang-JensenGutinYeo2004" class="citation journal cs1">Bang-Jensen, Jørgen; Gutin, Gregory; Yeo, Anders (2004). <a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.disopt.2004.03.007">"When the greedy algorithm fails"</a>. <i>Discrete Optimization</i>. <b>1</b> (2): 121–127. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.disopt.2004.03.007">10.1016/j.disopt.2004.03.007</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Discrete+Optimization&amp;rft.atitle=When+the+greedy+algorithm+fails&amp;rft.volume=1&amp;rft.issue=2&amp;rft.pages=121-127&amp;rft.date=2004&amp;rft_id=info%3Adoi%2F10.1016%2Fj.disopt.2004.03.007&amp;rft.aulast=Bang-Jensen&amp;rft.aufirst=J%C3%B8rgen&amp;rft.au=Gutin%2C+Gregory&amp;rft.au=Yeo%2C+Anders&amp;rft_id=%2F%2Fdoi.org%2F10.1016%252Fj.disopt.2004.03.007&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGreedy+algorithm" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBendallMargot2006" class="citation journal cs1">Bendall, Gareth; Margot, François (2006). <a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.disopt.2006.03.001">"Greedy-type resistance of combinatorial problems"</a>. <i>Discrete Optimization</i>. <b>3</b> (4): 288–298. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.disopt.2006.03.001">10.1016/j.disopt.2006.03.001</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Discrete+Optimization&amp;rft.atitle=Greedy-type+resistance+of+combinatorial+problems&amp;rft.volume=3&amp;rft.issue=4&amp;rft.pages=288-298&amp;rft.date=2006&amp;rft_id=info%3Adoi%2F10.1016%2Fj.disopt.2006.03.001&amp;rft.aulast=Bendall&amp;rft.aufirst=Gareth&amp;rft.au=Margot%2C+Fran%C3%A7ois&amp;rft_id=%2F%2Fdoi.org%2F10.1016%252Fj.disopt.2006.03.001&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGreedy+algorithm" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFFeige1998" class="citation journal cs1">Feige, U. (1998). <a rel="nofollow" class="external text" href="https://www.cs.duke.edu/courses/cps296.2/spring07/papers/p634-feige.pdf">"A threshold of ln n for approximating set cover"</a> <span class="cs1-format">(PDF)</span>. <i>Journal of the ACM</i>. <b>45</b> (4): 634–652. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F285055.285059">10.1145/285055.285059</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:52827488">52827488</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+the+ACM&amp;rft.atitle=A+threshold+of+ln+n+for+approximating+set+cover&amp;rft.volume=45&amp;rft.issue=4&amp;rft.pages=634-652&amp;rft.date=1998&amp;rft_id=info%3Adoi%2F10.1145%2F285055.285059&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A52827488%23id-name%3DS2CID&amp;rft.aulast=Feige&amp;rft.aufirst=U.&amp;rft_id=https%3A%2F%2Fwww.cs.duke.edu%2Fcourses%2Fcps296.2%2Fspring07%2Fpapers%2Fp634-feige.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGreedy+algorithm" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFNemhauserWolseyFisher1978" class="citation journal cs1">Nemhauser, G.; Wolsey, L.A.; Fisher, M.L. (1978). <a rel="nofollow" class="external text" href="https://www.researchgate.net/publication/242914003">"An analysis of approximations for maximizing submodular set functions—I"</a>. <i>Mathematical Programming</i>. <b>14</b> (1): 265–294. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2FBF01588971">10.1007/BF01588971</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:206800425">206800425</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Mathematical+Programming&amp;rft.atitle=An+analysis+of+approximations+for+maximizing+submodular+set+functions%E2%80%94I&amp;rft.volume=14&amp;rft.issue=1&amp;rft.pages=265-294&amp;rft.date=1978&amp;rft_id=info%3Adoi%2F10.1007%2FBF01588971&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A206800425%23id-name%3DS2CID&amp;rft.aulast=Nemhauser&amp;rft.aufirst=G.&amp;rft.au=Wolsey%2C+L.A.&amp;rft.au=Fisher%2C+M.L.&amp;rft_id=https%3A%2F%2Fwww.researchgate.net%2Fpublication%2F242914003&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGreedy+algorithm" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBuchbinderFeldmanNaorSchwartz2014" class="citation book cs1">Buchbinder, Niv; Feldman, Moran; Naor, Joseph (Seffi); Schwartz, Roy (2014). <a rel="nofollow" class="external text" href="http://theory.epfl.ch/moranfe/Publications/SODA2014.pdf">"Submodular maximization with cardinality constraints"</a> <span class="cs1-format">(PDF)</span>. <i>Proceedings of the twenty-fifth annual ACM-SIAM symposium on Discrete algorithms</i>. Society for Industrial and Applied Mathematics. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1137%2F1.9781611973402.106">10.1137/1.9781611973402.106</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-1-61197-340-2" title="Special:BookSources/978-1-61197-340-2"><bdi>978-1-61197-340-2</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Submodular+maximization+with+cardinality+constraints&amp;rft.btitle=Proceedings+of+the+twenty-fifth+annual+ACM-SIAM+symposium+on+Discrete+algorithms&amp;rft.pub=Society+for+Industrial+and+Applied+Mathematics&amp;rft.date=2014&amp;rft_id=info%3Adoi%2F10.1137%2F1.9781611973402.106&amp;rft.isbn=978-1-61197-340-2&amp;rft.aulast=Buchbinder&amp;rft.aufirst=Niv&amp;rft.au=Feldman%2C+Moran&amp;rft.au=Naor%2C+Joseph+%28Seffi%29&amp;rft.au=Schwartz%2C+Roy&amp;rft_id=http%3A%2F%2Ftheory.epfl.ch%2Fmoranfe%2FPublications%2FSODA2014.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGreedy+algorithm" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKrauseGolovin2014" class="citation book cs1">Krause, A.; Golovin, D. (2014). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=YxliAgAAQBAJ&amp;pg=PA71">"Submodular Function Maximization"</a>.  In Bordeaux, L.; Hamadi, Y.; Kohli, P. (eds.). <i>Tractability: Practical Approaches to Hard Problems</i>. Cambridge University Press. pp.&#160;71–104. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1017%2FCBO9781139177801.004">10.1017/CBO9781139177801.004</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/9781139177801" title="Special:BookSources/9781139177801"><bdi>9781139177801</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Submodular+Function+Maximization&amp;rft.btitle=Tractability%3A+Practical+Approaches+to+Hard+Problems&amp;rft.pages=71-104&amp;rft.pub=Cambridge+University+Press&amp;rft.date=2014&amp;rft_id=info%3Adoi%2F10.1017%2FCBO9781139177801.004&amp;rft.isbn=9781139177801&amp;rft.aulast=Krause&amp;rft.aufirst=A.&amp;rft.au=Golovin%2C+D.&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3DYxliAgAAQBAJ%26pg%3DPA71&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGreedy+algorithm" class="Z3988"></span></li></ul>
+</div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;action=edit&amp;section=13" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table role="presentation" class="mbox-small plainlinks sistersitebox" style="background-color:#f9f9f9;border:1px solid #aaa;color:#000">
+<tbody><tr>
+<td class="mbox-image"><img alt="" src="http://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/30px-Commons-logo.svg.png" decoding="async" width="30" height="40" class="noviewer" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/45px-Commons-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/59px-Commons-logo.svg.png 2x" data-file-width="1024" data-file-height="1376" /></td>
+<td class="mbox-text plainlist">Wikimedia Commons has media related to <span style="font-weight: bold; font-style: italic;"><a href="https://commons.wikimedia.org/wiki/Category:Greedy_algorithms" class="extiw" title="commons:Category:Greedy algorithms">Greedy algorithms</a></span>.</td></tr>
+</tbody></table>
+<ul><li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation cs2"><a rel="nofollow" class="external text" href="https://www.encyclopediaofmath.org/index.php?title=Greedy_algorithm">"Greedy algorithm"</a>, <i><a href="https://en.wikipedia.org/wiki/Encyclopedia_of_Mathematics" title="Encyclopedia of Mathematics">Encyclopedia of Mathematics</a></i>, <a href="https://en.wikipedia.org/wiki/European_Mathematical_Society" title="European Mathematical Society">EMS Press</a>, 2001 [1994]</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Greedy+algorithm&amp;rft.btitle=Encyclopedia+of+Mathematics&amp;rft.pub=EMS+Press&amp;rft.date=2001&amp;rft_id=https%3A%2F%2Fwww.encyclopediaofmath.org%2Findex.php%3Ftitle%3DGreedy_algorithm&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGreedy+algorithm" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGift" class="citation web cs1">Gift, Noah. <a rel="nofollow" class="external text" href="http://www.oreillynet.com/onlamp/blog/2008/04/python_greedy_coin_changer_alg.html">"Python greedy coin example"</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Python+greedy+coin+example&amp;rft.aulast=Gift&amp;rft.aufirst=Noah&amp;rft_id=http%3A%2F%2Fwww.oreillynet.com%2Fonlamp%2Fblog%2F2008%2F04%2Fpython_greedy_coin_changer_alg.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGreedy+algorithm" class="Z3988"></span></li></ul>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Optimization:_Algorithms,_methods,_and_heuristics" style="padding:3px"><table class="nowraplinks hlist mw-collapsible expanded navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="3"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Optimization_algorithms" title="Template:Optimization algorithms"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Optimization_algorithms" title="Template talk:Optimization algorithms"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Optimization_algorithms&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Optimization:_Algorithms,_methods,_and_heuristics" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Mathematical_optimization" title="Mathematical optimization">Optimization</a>: <a href="https://en.wikipedia.org/wiki/Optimization_algorithm" class="mw-redirect" title="Optimization algorithm">Algorithms</a>, <a href="https://en.wikipedia.org/wiki/Iterative_method" title="Iterative method">methods</a>, and <a href="https://en.wikipedia.org/wiki/Heuristic_algorithm" class="mw-redirect" title="Heuristic algorithm">heuristics</a></div></th></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks mw-collapsible mw-collapsed navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><div id="Unconstrained_nonlinear" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Nonlinear_programming" title="Nonlinear programming">Unconstrained nonlinear</a></div></th></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Function_(mathematics)" title="Function (mathematics)">Functions</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Golden-section_search" title="Golden-section search">Golden-section search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Powell%27s_method" title="Powell&#39;s method">Interpolation methods</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Line_search" title="Line search">Line search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Nelder–Mead_method" title="Nelder–Mead method">Nelder–Mead method</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Successive_parabolic_interpolation" title="Successive parabolic interpolation">Successive parabolic interpolation</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Gradient" title="Gradient">Gradients</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Local_convergence" title="Local convergence">Convergence</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Trust_region" title="Trust region">Trust region</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Wolfe_conditions" title="Wolfe conditions">Wolfe conditions</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Quasi-Newton_method" title="Quasi-Newton method">Quasi–Newton</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Berndt–Hall–Hall–Hausman_algorithm" title="Berndt–Hall–Hall–Hausman algorithm">Berndt–Hall–Hall–Hausman</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Broyden–Fletcher–Goldfarb–Shanno_algorithm" title="Broyden–Fletcher–Goldfarb–Shanno algorithm">Broyden–Fletcher–Goldfarb–Shanno</a> and <a href="https://en.wikipedia.org/wiki/Limited-memory_BFGS" title="Limited-memory BFGS">L-BFGS</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Davidon–Fletcher–Powell_formula" title="Davidon–Fletcher–Powell formula">Davidon–Fletcher–Powell</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Symmetric_rank-one" title="Symmetric rank-one">Symmetric rank-one (SR1)</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Iterative_method" title="Iterative method">Other methods</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Nonlinear_conjugate_gradient_method" title="Nonlinear conjugate gradient method">Conjugate gradient</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gauss–Newton_algorithm" title="Gauss–Newton algorithm">Gauss–Newton</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gradient_descent" title="Gradient descent">Gradient</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Mirror_descent" title="Mirror descent">Mirror</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Levenberg–Marquardt_algorithm" title="Levenberg–Marquardt algorithm">Levenberg–Marquardt</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Powell%27s_dog_leg_method" title="Powell&#39;s dog leg method">Powell's dog leg method</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Truncated_Newton_method" title="Truncated Newton method">Truncated Newton</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Hessian_matrix" title="Hessian matrix">Hessians</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Newton%27s_method_in_optimization" title="Newton&#39;s method in optimization">Newton's method</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr></tbody></table><div></div></td><td class="noviewer navbox-image" rowspan="5" style="width:1px;padding:0 0 0 2px"><div><div class="floatright"><a href="https://en.wikipedia.org/wiki/File:Max_paraboloid.svg" class="image" title="Optimization computes maxima and minima."><img alt="Graph of a strictly concave quadratic function with unique maximum." src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Max_paraboloid.svg/150px-Max_paraboloid.svg.png" decoding="async" width="150" height="120" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/72/Max_paraboloid.svg/225px-Max_paraboloid.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/72/Max_paraboloid.svg/300px-Max_paraboloid.svg.png 2x" data-file-width="700" data-file-height="560" /></a></div></div></td></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks mw-collapsible mw-collapsed navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><div id="Constrained_nonlinear" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Nonlinear_programming" title="Nonlinear programming">Constrained nonlinear</a></div></th></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%">General</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Barrier_function" title="Barrier function">Barrier methods</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Penalty_method" title="Penalty method">Penalty methods</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Differentiable</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Augmented_Lagrangian_method" title="Augmented Lagrangian method">Augmented Lagrangian methods</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sequential_quadratic_programming" title="Sequential quadratic programming">Sequential quadratic programming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Successive_linear_programming" title="Successive linear programming">Successive linear programming</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr></tbody></table><div></div></td></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks mw-collapsible mw-collapsed navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><div id="Convex_optimization" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Convex_optimization" title="Convex optimization">Convex optimization</a></div></th></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Convex_minimization" class="mw-redirect" title="Convex minimization">Convex<br /> minimization</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Cutting-plane_method" title="Cutting-plane method">Cutting-plane method</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Frank–Wolfe_algorithm" title="Frank–Wolfe algorithm">Reduced gradient (Frank–Wolfe)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Subgradient_method" title="Subgradient method">Subgradient method</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Linear_programming" title="Linear programming">Linear</a> and<br /><a href="https://en.wikipedia.org/wiki/Quadratic_programming" title="Quadratic programming">quadratic</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Linear_programming#Interior_point" title="Linear programming">Interior point</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Affine_scaling" title="Affine scaling">Affine scaling</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ellipsoid_method" title="Ellipsoid method">Ellipsoid algorithm of Khachiyan</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Karmarkar%27s_algorithm" title="Karmarkar&#39;s algorithm">Projective algorithm of Karmarkar</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Matroid" title="Matroid">Basis-</a><a href="https://en.wikipedia.org/wiki/Exchange_algorithm" class="mw-redirect" title="Exchange algorithm">exchange</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Simplex_algorithm" title="Simplex algorithm">Simplex algorithm of Dantzig</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Revised_simplex_method" title="Revised simplex method">Revised simplex algorithm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Criss-cross_algorithm" title="Criss-cross algorithm">Criss-cross algorithm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lemke%27s_algorithm" title="Lemke&#39;s algorithm">Principal pivoting algorithm of Lemke</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr></tbody></table><div></div></td></tr></tbody></table><div></div></td></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks mw-collapsible uncollapsed navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><div id="Combinatorial" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Combinatorial_optimization" title="Combinatorial optimization">Combinatorial</a></div></th></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="row" class="navbox-group" style="width:1%">Paradigms</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Approximation_algorithm" title="Approximation algorithm">Approximation algorithm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dynamic_programming" title="Dynamic programming">Dynamic programming</a></li>
+<li><a class="mw-selflink selflink">Greedy algorithm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Integer_programming" title="Integer programming">Integer programming</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Branch_and_bound" title="Branch and bound">Branch and bound</a>/<a href="https://en.wikipedia.org/wiki/Branch_and_cut" title="Branch and cut">cut</a></li></ul></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Graph_algorithm" class="mw-redirect" title="Graph algorithm">Graph<br /> algorithms</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th id="Minimum_spanning_tree" scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Minimum_spanning_tree" title="Minimum spanning tree">Minimum<br /> spanning tree</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Borůvka%27s_algorithm" title="Borůvka&#39;s algorithm">Borůvka</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Prim%27s_algorithm" title="Prim&#39;s algorithm">Prim</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kruskal%27s_algorithm" title="Kruskal&#39;s algorithm">Kruskal</a></li></ul>
+</div></td></tr></tbody></table><div>
+    </div><table class="nowraplinks navbox-subgroup" style="border-spacing:0"><tbody><tr><th id="Shortest_path" scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Shortest_path_problem" title="Shortest path problem">Shortest path</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Bellman–Ford_algorithm" title="Bellman–Ford algorithm">Bellman–Ford</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Shortest_Path_Faster_Algorithm" title="Shortest Path Faster Algorithm">SPFA</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm" title="Dijkstra&#39;s algorithm">Dijkstra</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm" title="Floyd–Warshall algorithm">Floyd–Warshall</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Flow_network" title="Flow network">Network flows</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Dinic%27s_algorithm" title="Dinic&#39;s algorithm">Dinic</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Edmonds–Karp_algorithm" title="Edmonds–Karp algorithm">Edmonds–Karp</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ford–Fulkerson_algorithm" title="Ford–Fulkerson algorithm">Ford–Fulkerson</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Push–relabel_maximum_flow_algorithm" title="Push–relabel maximum flow algorithm">Push–relabel maximum flow</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr></tbody></table><div></div></td></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em"></div><table class="nowraplinks mw-collapsible mw-collapsed navbox-subgroup" style="border-spacing:0"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><div id="Metaheuristics" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Metaheuristic" title="Metaheuristic">Metaheuristics</a></div></th></tr><tr><td colspan="2" class="navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Evolutionary_algorithm" title="Evolutionary algorithm">Evolutionary algorithm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hill_climbing" title="Hill climbing">Hill climbing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Local_search_(optimization)" title="Local search (optimization)">Local search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Simulated_annealing" title="Simulated annealing">Simulated annealing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tabu_search" title="Tabu search">Tabu search</a></li></ul>
+</div></td></tr></tbody></table><div></div></td></tr><tr><td class="navbox-abovebelow" colspan="3"><div>
+<ul><li><a href="https://en.wikipedia.org/wiki/Comparison_of_optimization_software" title="Comparison of optimization software">Software</a></li></ul>
+</div></td></tr></tbody></table></div><div class="navbox-styles nomobile"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1061467846"/></div><div role="navigation" class="navbox" aria-labelledby="Data_structures_and_algorithms" style="padding:3px"><table class="nowraplinks hlist mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1063604349"/><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Data_structures_and_algorithms" title="Template:Data structures and algorithms"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Data_structures_and_algorithms" title="Template talk:Data structures and algorithms"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Data_structures_and_algorithms&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Data_structures_and_algorithms" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Data_structure" title="Data structure">Data structures</a> and <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithms</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Data structures</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Array_data_structure" title="Array data structure">Array</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Associative_array" title="Associative array">Associative array</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binary_search_tree" title="Binary search tree">Binary search tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fenwick_tree" title="Fenwick tree">Fenwick tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Graph_(abstract_data_type)" title="Graph (abstract data type)">Graph</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hash_table" title="Hash table">Hash table</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" title="Heap (data structure)">Heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Linked_list" title="Linked list">Linked list</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)" title="Queue (abstract data type)">Queue</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Segment_tree" title="Segment tree">Segment tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)" title="Stack (abstract data type)">Stack</a></li>
+<li><a href="https://en.wikipedia.org/wiki/String_(computer_science)" title="String (computer science)">String</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" title="Tree (data structure)">Tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Trie" title="Trie">Trie</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Algorithms</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Backtracking" title="Backtracking">Backtracking</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binary_search" class="mw-redirect" title="Binary search">Binary search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Breadth-first_search" title="Breadth-first search">Breadth-first search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Depth-first_search" title="Depth-first search">Depth-first search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm" title="Divide-and-conquer algorithm">Divide and conquer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dynamic_programming" title="Dynamic programming">Dynamic programming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fold_(higher-order_function)" title="Fold (higher-order function)">Fold</a></li>
+<li><a class="mw-selflink selflink">Greedy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Minimax" title="Minimax">Minimax</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)" title="Recursion (computer science)">Recursion</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">Sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Streaming_algorithm" title="Streaming algorithm">Streaming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sweep_line_algorithm" title="Sweep line algorithm">Sweep line</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Topological_sorting" title="Topological sorting">Topological sorting</a></li></ul>
+</div></td></tr><tr><td class="navbox-abovebelow" colspan="2"><div>
+<ul><li><a href="https://en.wikipedia.org/wiki/List_of_data_structures" title="List of data structures">List of data structures</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_algorithms" title="List of algorithms">List of algorithms</a></li></ul>
+</div></td></tr></tbody></table></div>
+<p><br />
+</p>
+<div class="navbox-styles nomobile"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1061467846"/></div><div role="navigation" class="navbox authority-control" aria-labelledby="Authority_control:_National_libraries_frameless&amp;#124;text-top&amp;#124;10px&amp;#124;alt=Edit_this_at_Wikidata&amp;#124;link=https&amp;#58;//www.wikidata.org/wiki/Q504353#identifiers&amp;#124;class=noprint&amp;#124;Edit_this_at_Wikidata" style="padding:3px"><table class="nowraplinks hlist navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th id="Authority_control:_National_libraries_frameless&amp;#124;text-top&amp;#124;10px&amp;#124;alt=Edit_this_at_Wikidata&amp;#124;link=https&amp;#58;//www.wikidata.org/wiki/Q504353#identifiers&amp;#124;class=noprint&amp;#124;Edit_this_at_Wikidata" scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Help:Authority_control" title="Help:Authority control">Authority control: National libraries</a>  <a href="https://www.wikidata.org/wiki/Q504353#identifiers" title="Edit this at Wikidata"><img alt="Edit this at Wikidata" src="http://upload.wikimedia.org/wikipedia/en/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/10px-OOjs_UI_icon_edit-ltr-progressive.svg.png" decoding="async" width="10" height="10" style="vertical-align: text-top" class="noprint" srcset="//upload.wikimedia.org/wikipedia/en/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/15px-OOjs_UI_icon_edit-ltr-progressive.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/8/8a/OOjs_UI_icon_edit-ltr-progressive.svg/20px-OOjs_UI_icon_edit-ltr-progressive.svg.png 2x" data-file-width="20" data-file-height="20" /></a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><span class="uid"><a rel="nofollow" class="external text" href="http://mak.bn.org.pl/cgi-bin/KHW/makwww.exe?BM=1&amp;NU=1&amp;IM=4&amp;WI=9810566346105606">Poland</a></span></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1436
+Cached time: 20220504091908
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.647 seconds
+Real time usage: 0.819 seconds
+Preprocessor visited node count: 1872/1000000
+Post‐expand include size: 109778/2097152 bytes
+Template argument size: 1073/2097152 bytes
+Highest expansion depth: 13/100
+Expensive parser function count: 6/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 42030/5000000 bytes
+Lua time usage: 0.365/10.000 seconds
+Lua memory usage: 8685344/52428800 bytes
+Number of Wikibase entities loaded: 1/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  645.565      1 -total
+ 27.65%  178.520      1 Template:Reflist
+ 15.06%   97.220      3 Template:Cite_web
+ 14.14%   91.302      1 Template:Optimization_algorithms
+ 13.70%   88.455      1 Template:Navbox_with_collapsible_groups
+ 10.96%   70.758      1 Template:Short_description
+  7.55%   48.769      1 Template:Commons_category
+  7.42%   47.884      6 Template:Harvnb
+  6.67%   43.063      1 Template:Sister_project
+  6.36%   41.054      1 Template:Side_box
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:89247-0!canonical and timestamp 20220504091907 and revision id 1081843875. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;oldid=1081843875">https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;oldid=1081843875</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Optimization_algorithms_and_methods" title="Category:Optimization algorithms and methods">Optimization algorithms and methods</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Combinatorial_algorithms" title="Category:Combinatorial algorithms">Combinatorial algorithms</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Matroid_theory" title="Category:Matroid theory">Matroid theory</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Exchange_algorithms" title="Category:Exchange algorithms">Exchange algorithms</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Greedy_algorithms" title="Category:Greedy algorithms">Greedy algorithms</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Harv_and_Sfn_no-target_errors" title="Category:Harv and Sfn no-target errors">Harv and Sfn no-target errors</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_is_different_from_Wikidata" title="Category:Short description is different from Wikidata">Short description is different from Wikidata</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_needing_additional_references_from_June_2018" title="Category:Articles needing additional references from June 2018">Articles needing additional references from June 2018</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_needing_additional_references" title="Category:All articles needing additional references">All articles needing additional references</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_to_be_expanded_from_June_2018" title="Category:Articles to be expanded from June 2018">Articles to be expanded from June 2018</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_to_be_expanded" title="Category:All articles to be expanded">All articles to be expanded</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_using_small_message_boxes" title="Category:Articles using small message boxes">Articles using small message boxes</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Pages_using_div_col_with_small_parameter" title="Category:Pages using div col with small parameter">Pages using div col with small parameter</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Commons_category_link_is_on_Wikidata" title="Category:Commons category link is on Wikidata">Commons category link is on Wikidata</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_PLWABN_identifiers" title="Category:Articles with PLWABN identifiers">Articles with PLWABN identifiers</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Greedy+algorithm" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Greedy+algorithm" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Greedy_algorithm" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Greedy_algorithm" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Greedy_algorithm"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Greedy_algorithm" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Greedy_algorithm" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;oldid=1081843875" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Greedy_algorithm&amp;id=1081843875&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q504353" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Greedy_algorithm&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-wikibase-otherprojects" class="mw-portlet mw-portlet-wikibase-otherprojects vector-menu vector-menu-portal portal" aria-labelledby="p-wikibase-otherprojects-label" role="navigation" 
+	 >
+	<label id="p-wikibase-otherprojects-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">In other projects</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="wb-otherproject-link wb-otherproject-commons mw-list-item"><a href="https://commons.wikimedia.org/wiki/Category:Greedy_algorithms" hreflang="en"><span>Wikimedia Commons</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-ar mw-list-item"><a href="https://ar.wikipedia.org/wiki/خوارزمية_جشعة" title="خوارزمية جشعة – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target"><span>العربية</span></a></li><li class="interlanguage-link interwiki-az mw-list-item"><a href="https://az.wikipedia.org/wiki/Acgöz_alqoritm" title="Acgöz alqoritm – Azerbaijani" lang="az" hreflang="az" class="interlanguage-link-target"><span>Azərbaycanca</span></a></li><li class="interlanguage-link interwiki-ca mw-list-item"><a href="https://ca.wikipedia.org/wiki/Algorisme_voraç" title="Algorisme voraç – Catalan" lang="ca" hreflang="ca" class="interlanguage-link-target"><span>Català</span></a></li><li class="interlanguage-link interwiki-cs mw-list-item"><a href="https://cs.wikipedia.org/wiki/Hladový_algoritmus" title="Hladový algoritmus – Czech" lang="cs" hreflang="cs" class="interlanguage-link-target"><span>Čeština</span></a></li><li class="interlanguage-link interwiki-da mw-list-item"><a href="https://da.wikipedia.org/wiki/Grådig_algoritme" title="Grådig algoritme – Danish" lang="da" hreflang="da" class="interlanguage-link-target"><span>Dansk</span></a></li><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Greedy-Algorithmus" title="Greedy-Algorithmus – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Algoritmo_voraz" title="Algoritmo voraz – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-eu mw-list-item"><a href="https://eu.wikipedia.org/wiki/Algoritmo_irenskor" title="Algoritmo irenskor – Basque" lang="eu" hreflang="eu" class="interlanguage-link-target"><span>Euskara</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/الگوریتم_حریصانه" title="الگوریتم حریصانه – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Algorithme_glouton" title="Algorithme glouton – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-ko mw-list-item"><a href="https://ko.wikipedia.org/wiki/탐욕_알고리즘" title="탐욕 알고리즘 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target"><span>한국어</span></a></li><li class="interlanguage-link interwiki-it mw-list-item"><a href="https://it.wikipedia.org/wiki/Algoritmo_greedy" title="Algoritmo greedy – Italian" lang="it" hreflang="it" class="interlanguage-link-target"><span>Italiano</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/אלגוריתם_חמדן" title="אלגוריתם חמדן – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-hu mw-list-item"><a href="https://hu.wikipedia.org/wiki/Mohó_algoritmus" title="Mohó algoritmus – Hungarian" lang="hu" hreflang="hu" class="interlanguage-link-target"><span>Magyar</span></a></li><li class="interlanguage-link interwiki-mn mw-list-item"><a href="https://mn.wikipedia.org/wiki/Шуналтай_алгоритм" title="Шуналтай алгоритм – Mongolian" lang="mn" hreflang="mn" class="interlanguage-link-target"><span>Монгол</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/貪欲法" title="貪欲法 – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-no mw-list-item"><a href="https://no.wikipedia.org/wiki/Grådig_algoritme" title="Grådig algoritme – Norwegian Bokmål" lang="nb" hreflang="nb" class="interlanguage-link-target"><span>Norsk bokmål</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Algorytm_zachłanny" title="Algorytm zachłanny – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/Algoritmo_guloso" title="Algoritmo guloso – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-ro mw-list-item"><a href="https://ro.wikipedia.org/wiki/Algoritm_greedy" title="Algoritm greedy – Romanian" lang="ro" hreflang="ro" class="interlanguage-link-target"><span>Română</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Жадный_алгоритм" title="Жадный алгоритм – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-simple mw-list-item"><a href="https://simple.wikipedia.org/wiki/Greedy_algorithm" title="Greedy algorithm – Simple English" lang="en-simple" hreflang="en-simple" class="interlanguage-link-target"><span>Simple English</span></a></li><li class="interlanguage-link interwiki-sk mw-list-item"><a href="https://sk.wikipedia.org/wiki/Pažravý_algoritmus" title="Pažravý algoritmus – Slovak" lang="sk" hreflang="sk" class="interlanguage-link-target"><span>Slovenčina</span></a></li><li class="interlanguage-link interwiki-sl mw-list-item"><a href="https://sl.wikipedia.org/wiki/Požrešna_metoda" title="Požrešna metoda – Slovenian" lang="sl" hreflang="sl" class="interlanguage-link-target"><span>Slovenščina</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/Похлепни_алгоритам" title="Похлепни алгоритам – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-fi mw-list-item"><a href="https://fi.wikipedia.org/wiki/Ahne_algoritmi" title="Ahne algoritmi – Finnish" lang="fi" hreflang="fi" class="interlanguage-link-target"><span>Suomi</span></a></li><li class="interlanguage-link interwiki-sv mw-list-item"><a href="https://sv.wikipedia.org/wiki/Girig_algoritm" title="Girig algoritm – Swedish" lang="sv" hreflang="sv" class="interlanguage-link-target"><span>Svenska</span></a></li><li class="interlanguage-link interwiki-th mw-list-item"><a href="https://th.wikipedia.org/wiki/ขั้นตอนวิธีแบบละโมบ" title="ขั้นตอนวิธีแบบละโมบ – Thai" lang="th" hreflang="th" class="interlanguage-link-target"><span>ไทย</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Жадібний_алгоритм" title="Жадібний алгоритм – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-vi mw-list-item"><a href="https://vi.wikipedia.org/wiki/Giải_thuật_tham_lam" title="Giải thuật tham lam – Vietnamese" lang="vi" hreflang="vi" class="interlanguage-link-target"><span>Tiếng Việt</span></a></li><li class="interlanguage-link interwiki-zh-yue mw-list-item"><a href="https://zh-yue.wikipedia.org/wiki/貪心演算法" title="貪心演算法 – Cantonese" lang="yue" hreflang="yue" class="interlanguage-link-target"><span>粵語</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/贪心算法" title="贪心算法 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q504353#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 10 April 2022, at 01:16<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Greedy_algorithm&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.647","walltime":"0.819","ppvisitednodes":{"value":1872,"limit":1000000},"postexpandincludesize":{"value":109778,"limit":2097152},"templateargumentsize":{"value":1073,"limit":2097152},"expansiondepth":{"value":13,"limit":100},"expensivefunctioncount":{"value":6,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":42030,"limit":5000000},"entityaccesscount":{"value":1,"limit":400},"timingprofile":["100.00%  645.565      1 -total"," 27.65%  178.520      1 Template:Reflist"," 15.06%   97.220      3 Template:Cite_web"," 14.14%   91.302      1 Template:Optimization_algorithms"," 13.70%   88.455      1 Template:Navbox_with_collapsible_groups"," 10.96%   70.758      1 Template:Short_description","  7.55%   48.769      1 Template:Commons_category","  7.42%   47.884      6 Template:Harvnb","  6.67%   43.063      1 Template:Sister_project","  6.36%   41.054      1 Template:Side_box"]},"scribunto":{"limitreport-timeusage":{"value":"0.365","limit":"10.000"},"limitreport-memusage":{"value":8685344,"limit":52428800},"limitreport-logs":"anchor_id_list = table#1 {\n  [\"CITEREFBang-JensenGutinYeo2004\"] = 1,\n  [\"CITEREFBendallMargot2006\"] = 1,\n  [\"CITEREFBlack2005\"] = 1,\n  [\"CITEREFBuchbinderFeldmanNaorSchwartz2014\"] = 1,\n  [\"CITEREFCormenLeisersonRivestStein2001\"] = 1,\n  [\"CITEREFFeige1998\"] = 1,\n  [\"CITEREFGift\"] = 1,\n  [\"CITEREFGutinYeoZverovich2002\"] = 2,\n  [\"CITEREFKrauseGolovin2014\"] = 1,\n  [\"CITEREFNemhauserWolseyFisher1978\"] = 1,\n}\ntemplate_list = table#1 {\n  [\"Authority control\"] = 1,\n  [\"Cite book\"] = 3,\n  [\"Cite journal\"] = 6,\n  [\"Cite web\"] = 3,\n  [\"Commons category\"] = 1,\n  [\"Data structures and algorithms\"] = 1,\n  [\"Div col\"] = 1,\n  [\"Div col end\"] = 1,\n  [\"Expand section\"] = 1,\n  [\"Harvnb\"] = 6,\n  [\"Main\"] = 2,\n  [\"More citations needed section\"] = 1,\n  [\"Multiple image\"] = 1,\n  [\"Optimization algorithms\"] = 1,\n  [\"Portal\"] = 1,\n  [\"Refbegin\"] = 1,\n  [\"Refend\"] = 1,\n  [\"Reflist\"] = 1,\n  [\"Short description\"] = 1,\n  [\"Springer\"] = 1,\n}\narticle_whitelist = table#1 {\n}\n"},"cachereport":{"origin":"mw1436","timestamp":"20220504091908","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Greedy algorithm","url":"https:\/\/en.wikipedia.org\/wiki\/Greedy_algorithm","sameAs":"http:\/\/www.wikidata.org\/entity\/Q504353","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q504353","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2002-09-22T09:16:14Z","dateModified":"2022-04-10T01:16:05Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/d\/da\/Greedy_algorithm_36_cents.svg","headline":"algorithm that makes locally optimal choices in a sequence of steps with the goal of reaching a global optimum"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Greedy algorithm","url":"https:\/\/en.wikipedia.org\/wiki\/Greedy_algorithm","sameAs":"http:\/\/www.wikidata.org\/entity\/Q504353","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q504353","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2002-09-22T09:16:14Z","dateModified":"2022-04-10T01:16:05Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/d\/da\/Greedy_algorithm_36_cents.svg","headline":"algorithm that makes locally optimal choices in a sequence of steps with the goal of reaching a global optimum"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":165,"wgHostname":"mw1456"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Greedy_algorithm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:48 GMT -->
+</html>

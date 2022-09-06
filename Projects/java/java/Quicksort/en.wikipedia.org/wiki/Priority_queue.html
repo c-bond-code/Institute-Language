@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Priority_queue by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Priority queue - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"5aeef0aa-38fd-47b1-bdcd-00970d5453e9","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Priority_queue","wgTitle":"Priority queue","wgCurRevisionId":1083761771,"wgRevisionId":1083761771,"wgArticleId":24485,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CS1 maint: archived copy as title","CS1 German-language sources (de)","Articles with short description","Short description matches Wikidata","Priority queues","Abstract data types"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Priority_queue",
+"wgRelevantArticleId":24485,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":30000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q629283"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.math.styles":"ready",
+"skins.vector.styles.legacy":"ready","jquery.tablesorter.styles":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.ready","jquery.tablesorter","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cjquery.tablesorter.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="Priority queue - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Priority_queue"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Priority_queue"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Priority_queue rootpage-Priority_queue skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Priority queue</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Abstract data type in computer science</div>
+<p>In <a href="https://en.wikipedia.org/wiki/Computer_science" title="Computer science">computer science</a>, a <b>priority queue</b> is an <a href="https://en.wikipedia.org/wiki/Abstract_data_type" title="Abstract data type"> abstract data-type</a> similar to a regular <a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)" title="Queue (abstract data type)">queue</a> or <a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)" title="Stack (abstract data type)">stack</a> data structure in which each element additionally has a "priority" associated with it. In a priority queue, an element with high priority is served before an element with low priority. In some implementations, if two elements have the same priority, they are served according to the order in which they were enqueued; in other implementations ordering of elements with the same priority remains undefined.
+</p><p>While coders often implement priority queues with <a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" title="Heap (data structure)">heaps</a>, they are conceptually distinct from heaps. A priority queue is a concept like "a <a href="https://en.wikipedia.org/wiki/List_(abstract_data_type)" title="List (abstract data type)">list</a>" or "a <a href="https://en.wikipedia.org/wiki/Associative_array" title="Associative array">map</a>"; just as a list can be implemented with a <a href="https://en.wikipedia.org/wiki/Linked_list" title="Linked list">linked list</a> or with an <a href="https://en.wikipedia.org/wiki/Array_data_structure" title="Array data structure">array</a>, a priority queue can be implemented with a heap or with a variety of other methods such as an unordered array.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Operations"><span class="tocnumber">1</span> <span class="toctext">Operations</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Implementation"><span class="tocnumber">2</span> <span class="toctext">Implementation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Naive_implementations"><span class="tocnumber">2.1</span> <span class="toctext">Naive implementations</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Usual_implementation"><span class="tocnumber">2.2</span> <span class="toctext">Usual implementation</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Specialized_heaps"><span class="tocnumber">2.3</span> <span class="toctext">Specialized heaps</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Summary_of_running_times"><span class="tocnumber">2.4</span> <span class="toctext">Summary of running times</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Equivalence_of_priority_queues_and_sorting_algorithms"><span class="tocnumber">3</span> <span class="toctext">Equivalence of priority queues and sorting algorithms</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#Using_a_priority_queue_to_sort"><span class="tocnumber">3.1</span> <span class="toctext">Using a priority queue to sort</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Using_a_sorting_algorithm_to_make_a_priority_queue"><span class="tocnumber">3.2</span> <span class="toctext">Using a sorting algorithm to make a priority queue</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Libraries"><span class="tocnumber">4</span> <span class="toctext">Libraries</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Applications"><span class="tocnumber">5</span> <span class="toctext">Applications</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="#Bandwidth_management"><span class="tocnumber">5.1</span> <span class="toctext">Bandwidth management</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Discrete_event_simulation"><span class="tocnumber">5.2</span> <span class="toctext">Discrete event simulation</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Dijkstra&#39;s_algorithm"><span class="tocnumber">5.3</span> <span class="toctext">Dijkstra's algorithm</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Huffman_coding"><span class="tocnumber">5.4</span> <span class="toctext">Huffman coding</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Best-first_search_algorithms"><span class="tocnumber">5.5</span> <span class="toctext">Best-first search algorithms</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#ROAM_triangulation_algorithm"><span class="tocnumber">5.6</span> <span class="toctext">ROAM triangulation algorithm</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#Prim&#39;s_algorithm_for_minimum_spanning_tree"><span class="tocnumber">5.7</span> <span class="toctext">Prim's algorithm for minimum spanning tree</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="#Parallel_priority_queue"><span class="tocnumber">6</span> <span class="toctext">Parallel priority queue</span></a>
+<ul>
+<li class="toclevel-2 tocsection-20"><a href="#Concurrent_parallel_access"><span class="tocnumber">6.1</span> <span class="toctext">Concurrent parallel access</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#K-element_operations"><span class="tocnumber">6.2</span> <span class="toctext">K-element operations</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-22"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-23"><a href="#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-24"><a href="#Further_reading"><span class="tocnumber">9</span> <span class="toctext">Further reading</span></a></li>
+<li class="toclevel-1 tocsection-25"><a href="#External_links"><span class="tocnumber">10</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Operations">Operations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=1" title="Edit section: Operations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A priority queue must at least support the following operations:
+</p>
+<ul><li><i>is_empty</i>: check whether the queue has no elements.</li>
+<li><i>insert_with_priority</i>: add an <a href="https://en.wikipedia.org/wiki/Element_(mathematics)" title="Element (mathematics)">element</a> to the <a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)" title="Queue (abstract data type)">queue</a> with an associated priority.</li>
+<li><i>pull_highest_priority_element</i>: remove the element from the queue that has the <i>highest priority</i>, and return it.
+<dl><dd>This is also known as "<i>pop_element(Off)</i>", "<i>get_maximum_element</i>" or "<i>get_front(most)_element</i>".</dd>
+<dd>Some conventions reverse the order of priorities, considering lower values to be higher priority, so this may also be known as "<i>get_minimum_element</i>", and is often referred to as "<i>get-min</i>" in the literature.</dd>
+<dd>This may instead be specified as separate "<i>peek_at_highest_priority_element</i>" and "<i>delete_element</i>" functions, which can be combined to produce "<i>pull_highest_priority_element</i>".</dd></dl></li></ul>
+<p>In addition, <i><a href="https://en.wikipedia.org/wiki/Peek_(data_type_operation)" title="Peek (data type operation)">peek</a></i> (in this context often called <i>find-max</i> or <i>find-min</i>), which returns the highest-priority element but does not modify the queue, is very frequently implemented, and nearly always executes in <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation"><i>O</i>(1)</a> time. This operation and its <i>O</i>(1) performance is crucial to many applications of priority queues.
+</p><p>More advanced implementations may support more complicated operations, such as <i>pull_lowest_priority_element</i>, inspecting the first few highest- or lowest-priority elements, clearing the queue, clearing subsets of the queue, performing a batch insert, merging two or more queues into one, incrementing priority of any element, etc.
+</p><p><a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)" title="Stack (abstract data type)">Stacks</a> and <a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)" title="Queue (abstract data type)">queues</a> are different than priority queues.  In a priority queue, the ordering is <a href="https://en.wikipedia.org/wiki/Intrinsic_and_extrinsic_properties" title="Intrinsic and extrinsic properties">intrinsic</a>:  it depends on the value being inserted.  In a stack or queue, the ordering is <a href="https://en.wikipedia.org/wiki/Intrinsic_and_extrinsic_properties" title="Intrinsic and extrinsic properties">extrinsic</a>:  it depends on the order in which the value is inserted.  In terms of <a href="https://en.wikipedia.org/wiki/Behavioral_subtyping" title="Behavioral subtyping">behavioral subtyping</a>, a queue is not a subtype of a priority queue, and a priority queue is not a subtype of a queue.  Neither one can be substituted for the other, nor should either one be a subtype of the other in an <a href="https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)" title="Inheritance (object-oriented programming)">inheritance hierarchy</a>.
+</p>
+<h2><span class="mw-headline" id="Implementation">Implementation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=2" title="Edit section: Implementation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Naive_implementations">Naive implementations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=3" title="Edit section: Naive implementations">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>There are a variety of simple, usually inefficient, ways to implement a priority queue. They provide an analogy to help one understand what a priority queue is.
+</p><p>For instance, one can keep all the elements in an unsorted list (<i>O</i>(1) insertion time). Whenever the highest-priority element is requested, search through all elements for the one with the highest priority. (<i>O</i>(<i>n</i>) pull time),
+</p>
+<pre><b>insert</b>(node)
+{
+  list.append(node)
+}
+</pre>
+<pre><b>pull</b>()
+{
+  highest = list.get_first_element()
+  foreach node in list
+  {
+     if highest.priority &lt; node.priority
+     {
+         highest = node
+     }
+  }
+  list.remove(highest)
+  return highest
+}
+</pre>
+<p>In another case, one can keep all the elements in a priority sorted list (<i>O</i>(n) insertion sort time), whenever the highest-priority element is requested, the first one in the list can be returned. (<i>O</i>(1) pull time)
+</p>
+<pre><b>insert</b>(node)
+{
+  foreach (index, element) in list
+  {
+    if node.priority &lt; element.priority
+    {
+       list.insert_at_index(node,index)
+    }
+  }
+}
+</pre>
+<pre><b>pull</b>()
+{
+    highest = list.get_at_index(list.length-1)
+    list.remove(highest)
+    return highest
+}
+</pre>
+<h3><span class="mw-headline" id="Usual_implementation">Usual implementation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=4" title="Edit section: Usual implementation">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>To improve performance, priority queues are typically based on a <a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" title="Heap (data structure)">heap</a>, giving <i>O</i>(log <i>n</i>) performance for inserts and removals, and <i>O</i>(<i>n</i>) to build the <a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" title="Heap (data structure)">heap</a> initially from a set of <i>n</i> elements. Variants of the basic heap data structure such as <a href="https://en.wikipedia.org/wiki/Pairing_heap" title="Pairing heap">pairing heaps</a> or <a href="https://en.wikipedia.org/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci heaps</a> can provide better bounds for some operations.<sup id="cite_ref-CLRS_priority_queue_pp476_1-0" class="reference"><a href="#cite_note-CLRS_priority_queue_pp476-1">&#91;1&#93;</a></sup>
+</p><p>Alternatively, when a <a href="https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree" title="Self-balancing binary search tree">self-balancing binary search tree</a> is used, insertion and removal also take <i>O</i>(log <i>n</i>) time, although building trees from existing sequences of elements takes <i>O</i>(<i>n</i> log <i>n</i>) time; this is typical where one might already have access to these data structures, such as with third-party or standard libraries. From a space-complexity standpoint, using <a href="https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree" title="Self-balancing binary search tree">self-balancing binary search tree</a> with <a href="https://en.wikipedia.org/wiki/Linked_list" title="Linked list">linked list</a> takes more storage, since it requires to store extra references to other nodes.
+</p><p>From a computational-complexity standpoint, priority queues are congruent to sorting algorithms. The section on <a href="#Equivalence_of_priority_queues_and_sorting_algorithms">the equivalence of priority queues and sorting algorithms</a>, below, describes how efficient sorting algorithms can create efficient priority queues.
+</p>
+<h3><span class="mw-headline" id="Specialized_heaps">Specialized heaps</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=5" title="Edit section: Specialized heaps">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>There are several specialized <a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" title="Heap (data structure)">heap</a> <a href="https://en.wikipedia.org/wiki/Data_structures" class="mw-redirect" title="Data structures">data structures</a> that either supply additional operations or outperform heap-based implementations for specific types of keys, specifically integer keys. Suppose the set of possible keys is {1, 2, ..., C}.
+</p>
+<ul><li>When only <i>insert</i>, <i>find-min</i> and <i>extract-min</i> are needed and in case of integer priorities, a <a href="https://en.wikipedia.org/wiki/Bucket_queue" title="Bucket queue">bucket queue</a> can be constructed as an array of <span class="texhtml mvar" style="font-style:italic;">C</span> <a href="https://en.wikipedia.org/wiki/Linked_list" title="Linked list">linked lists</a> plus a pointer <span class="texhtml">top</span>, initially <span class="texhtml mvar" style="font-style:italic;">C</span>. Inserting an item with key <span class="texhtml mvar" style="font-style:italic;">k</span> appends the item to the <span class="texhtml mvar" style="font-style:italic;">k</span>'th, and updates <span class="texhtml">top ← min(top, <i>k</i>)</span>, both in constant time. <i>Extract-min</i> deletes and returns one item from the list with index <span class="texhtml">top</span>, then increments <span class="texhtml">top</span> if needed until it again points to a non-empty list; this takes <span class="texhtml"><i>O</i>(<i>C</i>)</span> time in the worst case. These queues are useful for sorting the vertices of a graph by their degree.<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup><sup class="reference nowrap"><span title="Page / location: 374">&#58;&#8202;374&#8202;</span></sup></li>
+<li>A <a href="https://en.wikipedia.org/wiki/Van_Emde_Boas_tree" title="Van Emde Boas tree">van Emde Boas tree</a> supports the <i><a href="https://en.wikipedia.org/wiki/Minimum" class="mw-redirect" title="Minimum">minimum</a></i>, <i><a href="https://en.wikipedia.org/wiki/Maximum" class="mw-redirect" title="Maximum">maximum</a></i>, <i>insert</i>, <i>delete</i>, <i>search</i>, <i><a href="https://en.wikipedia.org/w/index.php?title=Extract-min&amp;action=edit&amp;redlink=1" class="new" title="Extract-min (page does not exist)">extract-min</a></i>, <i><a href="https://en.wikipedia.org/w/index.php?title=Extract-max&amp;action=edit&amp;redlink=1" class="new" title="Extract-max (page does not exist)">extract-max</a></i>, <i><a href="https://en.wikipedia.org/wiki/Predecessor_(graph_theory)" class="mw-redirect" title="Predecessor (graph theory)">predecessor</a></i> and <i><a href="https://en.wikipedia.org/wiki/Successor_(graph_theory)" class="mw-redirect" title="Successor (graph theory)">successor</a></i> operations in <i>O</i>(log log <i>C</i>) time, but has a space cost for small queues of about <i>O</i>(2<sup><i>m</i>/2</sup>), where <i>m</i> is the number of bits in the priority value.<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup> The space can be reduced significantly with hashing.</li>
+<li>The <a href="https://en.wikipedia.org/wiki/Fusion_tree" title="Fusion tree">Fusion tree</a> by <a href="https://en.wikipedia.org/wiki/Michael_Fredman" title="Michael Fredman">Fredman</a> and Willard implements the <i>minimum</i> operation in <i>O</i>(1) time and <i>insert</i> and <i>extract-min</i> operations in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(\log n/\log \log C)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>C</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(\log n/\log \log C)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5b962ccdeb17f601f2c34a5b4bcb8d1c0d455534" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:18.37ex; height:2.843ex;" alt="{\displaystyle O(\log n/\log \log C)}"/></span>time. However it is stated by the author that, "Our algorithms have theoretical interest only; The constant factors involved in the execution times preclude practicality."<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup></li></ul>
+<p>For applications that do many "<a href="https://en.wikipedia.org/wiki/Peek_(data_type_operation)" title="Peek (data type operation)">peek</a>" operations for every "extract-min" operation, the time complexity for peek actions can be reduced to <i>O</i>(1) in all tree and heap implementations by caching the highest priority element after every insertion and removal. For insertion, this adds at most a constant cost, since the newly inserted element is compared only to the previously cached minimum element. For deletion, this at most adds an additional "peek" cost, which is typically cheaper than the deletion cost, so overall time complexity is not significantly impacted.
+</p><p><a href="https://en.wikipedia.org/wiki/Monotone_priority_queue" title="Monotone priority queue">Monotone priority queues</a> are specialized queues that are optimized for the case where no item is ever inserted that has a lower priority (in the case of min-heap) than any item previously extracted. This restriction is met by several practical applications of priority queues.
+</p>
+<h3><span class="mw-headline" id="Summary_of_running_times">Summary of running times</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=6" title="Edit section: Summary of running times">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Here are <a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" title="Computational complexity theory">time complexities</a><sup id="cite_ref-CLRS_5-0" class="reference"><a href="#cite_note-CLRS-5">&#91;5&#93;</a></sup> of various heap data structures. Function names assume a min-heap.  For the meaning of "<i>O</i>(<i>f</i>)" and "<i>Θ</i>(<i>f</i>)" see <a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">Big O notation</a>.
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Operation
+</th>
+<th>find-min
+</th>
+<th>delete-min
+</th>
+<th>insert
+</th>
+<th>decrease-key
+</th>
+<th>meld
+</th></tr>
+<tr>
+<th><a href="https://en.wikipedia.org/wiki/Binary_heap" title="Binary heap">Binary</a><sup id="cite_ref-CLRS_5-1" class="reference"><a href="#cite_note-CLRS-5">&#91;5&#93;</a></sup>
+</th>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>Θ</i>(log&#160;<i>n</i>)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log&#160;<i>n</i>)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log&#160;<i>n</i>)
+</td>
+<td style="background:#ffdddd"><i>Θ</i>(<i>n</i>)
+</td></tr>
+<tr>
+<th><a href="https://en.wikipedia.org/wiki/Leftist_tree" title="Leftist tree">Leftist</a>
+</th>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>Θ</i>(log <i>n</i>)
+</td>
+<td style="background:#ffffdd"><i>Θ</i>(log <i>n</i>)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log <i>n</i>)
+</td>
+<td style="background:#ffffdd"><i>Θ</i>(log <i>n</i>)
+</td></tr>
+<tr>
+<th><a href="https://en.wikipedia.org/wiki/Binomial_heap" title="Binomial heap">Binomial</a><sup id="cite_ref-CLRS_5-2" class="reference"><a href="#cite_note-CLRS-5">&#91;5&#93;</a></sup><sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup>
+</th>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>Θ</i>(log <i>n</i>)
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)<sup id="cite_ref-amortized_7-0" class="reference"><a href="#cite_note-amortized-7">&#91;a&#93;</a></sup>
+</td>
+<td style="background:#ffffdd"><i>Θ</i>(log <i>n</i>)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log&#160;<i>n</i>)<sup id="cite_ref-meld_8-0" class="reference"><a href="#cite_note-meld-8">&#91;b&#93;</a></sup>
+</td></tr>
+<tr>
+<th><a href="https://en.wikipedia.org/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci</a><sup id="cite_ref-CLRS_5-3" class="reference"><a href="#cite_note-CLRS-5">&#91;5&#93;</a></sup><sup id="cite_ref-Fredman_And_Tarjan_9-0" class="reference"><a href="#cite_note-Fredman_And_Tarjan-9">&#91;7&#93;</a></sup>
+</th>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log&#160;<i>n</i>)<sup id="cite_ref-amortized_7-1" class="reference"><a href="#cite_note-amortized-7">&#91;a&#93;</a></sup>
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)<sup id="cite_ref-amortized_7-2" class="reference"><a href="#cite_note-amortized-7">&#91;a&#93;</a></sup>
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td></tr>
+<tr>
+<th><a href="https://en.wikipedia.org/wiki/Pairing_heap" title="Pairing heap">Pairing</a><sup id="cite_ref-Iacono_10-0" class="reference"><a href="#cite_note-Iacono-10">&#91;8&#93;</a></sup>
+</th>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log <i>n</i>)<sup id="cite_ref-amortized_7-3" class="reference"><a href="#cite_note-amortized-7">&#91;a&#93;</a></sup>
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>o</i>(log&#160;<i>n</i>)<sup id="cite_ref-amortized_7-4" class="reference"><a href="#cite_note-amortized-7">&#91;a&#93;</a></sup><sup id="cite_ref-pairingdecreasekey_13-0" class="reference"><a href="#cite_note-pairingdecreasekey-13">&#91;c&#93;</a></sup>
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td></tr>
+<tr>
+<th><a href="https://en.wikipedia.org/wiki/Brodal_queue" title="Brodal queue">Brodal</a><sup id="cite_ref-14" class="reference"><a href="#cite_note-14">&#91;11&#93;</a></sup><sup id="cite_ref-brodal_16-0" class="reference"><a href="#cite_note-brodal-16">&#91;d&#93;</a></sup>
+</th>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log&#160;<i>n</i>)
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td></tr>
+<tr>
+<th><a href="https://en.wikipedia.org/w/index.php?title=Rank-pairing_heap&amp;action=edit&amp;redlink=1" class="new" title="Rank-pairing heap (page does not exist)">Rank-pairing</a><sup id="cite_ref-17" class="reference"><a href="#cite_note-17">&#91;13&#93;</a></sup>
+</th>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log <i>n</i>)<sup id="cite_ref-amortized_7-5" class="reference"><a href="#cite_note-amortized-7">&#91;a&#93;</a></sup>
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)<sup id="cite_ref-amortized_7-6" class="reference"><a href="#cite_note-amortized-7">&#91;a&#93;</a></sup>
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td></tr>
+<tr>
+<th><a href="https://en.wikipedia.org/wiki/Fibonacci_heap" title="Fibonacci heap">Strict Fibonacci</a><sup id="cite_ref-18" class="reference"><a href="#cite_note-18">&#91;14&#93;</a></sup>
+</th>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log <i>n</i>)
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td></tr>
+<tr>
+<th><a href="https://en.wikipedia.org/wiki/2–3_heap" title="2–3 heap">2–3 heap</a><sup id="cite_ref-19" class="reference"><a href="#cite_note-19">&#91;15&#93;</a></sup>
+</th>
+<td style="background:#ffffdd"><i>O</i>(log <i>n</i>)
+</td>
+<td style="background:#ffffdd"><i>O</i>(log <i>n</i>)<sup id="cite_ref-amortized_7-7" class="reference"><a href="#cite_note-amortized-7">&#91;a&#93;</a></sup>
+</td>
+<td style="background:#ffffdd"><i>O</i>(log <i>n</i>)<sup id="cite_ref-amortized_7-8" class="reference"><a href="#cite_note-amortized-7">&#91;a&#93;</a></sup>
+</td>
+<td style="background:#ddffdd"><i>Θ</i>(1)
+</td>
+<td style="background:#ffffdd"><i>?</i>
+</td></tr></tbody></table>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist reflist-lower-alpha">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-amortized-7"><span class="mw-cite-backlink">^ <a href="#cite_ref-amortized_7-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-amortized_7-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-amortized_7-2"><sup><i><b>c</b></i></sup></a> <a href="#cite_ref-amortized_7-3"><sup><i><b>d</b></i></sup></a> <a href="#cite_ref-amortized_7-4"><sup><i><b>e</b></i></sup></a> <a href="#cite_ref-amortized_7-5"><sup><i><b>f</b></i></sup></a> <a href="#cite_ref-amortized_7-6"><sup><i><b>g</b></i></sup></a> <a href="#cite_ref-amortized_7-7"><sup><i><b>h</b></i></sup></a> <a href="#cite_ref-amortized_7-8"><sup><i><b>i</b></i></sup></a></span> <span class="reference-text">Amortized time.</span>
+</li>
+<li id="cite_note-meld-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-meld_8-0">^</a></b></span> <span class="reference-text"><i>n</i> is the size of the larger heap.</span>
+</li>
+<li id="cite_note-pairingdecreasekey-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-pairingdecreasekey_13-0">^</a></b></span> <span class="reference-text">Lower bound of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \Omega (\log \log n),}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x03A9;<!-- Ω --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Omega (\log \log n),}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7caf8c32fbd99eed1338c02b7f7f1255f16ade36" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:12.247ex; height:2.843ex;" alt="{\displaystyle \Omega (\log \log n),}"/></span><sup id="cite_ref-Fredman1999_11-0" class="reference"><a href="#cite_note-Fredman1999-11">&#91;9&#93;</a></sup> upper bound of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(2^{2{\sqrt {\log \log n}}}).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+            <mrow class="MJX-TeXAtom-ORD">
+              <msqrt>
+                <mi>log</mi>
+                <mo>&#x2061;<!-- ⁡ --></mo>
+                <mi>log</mi>
+                <mo>&#x2061;<!-- ⁡ --></mo>
+                <mi>n</mi>
+              </msqrt>
+            </mrow>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(2^{2{\sqrt {\log \log n}}}).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/45c772d2ec070e49a6438ea92b1c8dc764613c5e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:14.052ex; height:3.509ex;" alt="{\displaystyle O(2^{2{\sqrt {\log \log n}}}).}"/></span><sup id="cite_ref-12" class="reference"><a href="#cite_note-12">&#91;10&#93;</a></sup></span>
+</li>
+<li id="cite_note-brodal-16"><span class="mw-cite-backlink"><b><a href="#cite_ref-brodal_16-0">^</a></b></span> <span class="reference-text">Brodal and Okasaki later describe a <a href="https://en.wikipedia.org/wiki/Persistent_data_structure" title="Persistent data structure">persistent</a> variant with the same bounds except for decrease-key, which is not supported.
+Heaps with <i>n</i> elements can be constructed bottom-up in <i>O</i>(<i>n</i>).<sup id="cite_ref-15" class="reference"><a href="#cite_note-15">&#91;12&#93;</a></sup></span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="Equivalence_of_priority_queues_and_sorting_algorithms">Equivalence of priority queues and sorting algorithms</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=7" title="Edit section: Equivalence of priority queues and sorting algorithms">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Using_a_priority_queue_to_sort">Using a priority queue to sort</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=8" title="Edit section: Using a priority queue to sort">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Operational_semantics" title="Operational semantics">semantics</a> of priority queues naturally suggest a sorting method: insert all the elements to be sorted into a priority queue, and sequentially remove them; they will come out in sorted order. This is actually the procedure used by several <a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">sorting algorithms</a>, once the layer of <a href="https://en.wikipedia.org/wiki/Abstraction_(computer_science)" title="Abstraction (computer science)">abstraction</a> provided by the priority queue is removed. This sorting method is equivalent to the following sorting algorithms:
+</p>
+<table class="wikitable sortable">
+
+<tbody><tr>
+<th>Name</th>
+<th>Priority Queue Implementation</th>
+<th>Best</th>
+<th>Average</th>
+<th>Worst
+</th></tr>
+<tr align="center">
+<td><a href="https://en.wikipedia.org/wiki/Heapsort" title="Heapsort">Heapsort</a>
+</td>
+<td><a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" title="Heap (data structure)">Heap</a>
+</td>
+<td style="background:#dfd"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n\log(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n\log(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aca080dee55ba2825a2d955bd6ca43c0e7ed04db" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.958ex; height:2.843ex;" alt="n\log(n)"/></span>
+</td>
+<td style="background:#dfd"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n\log(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n\log(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aca080dee55ba2825a2d955bd6ca43c0e7ed04db" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.958ex; height:2.843ex;" alt="n\log(n)"/></span>
+</td>
+<td style="background:#dfd"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n\log(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n\log(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aca080dee55ba2825a2d955bd6ca43c0e7ed04db" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.958ex; height:2.843ex;" alt="n\log(n)"/></span>
+</td></tr>
+<tr align="center">
+<td><a href="https://en.wikipedia.org/wiki/Smoothsort" title="Smoothsort">Smoothsort</a>
+</td>
+<td>Leonardo Heap
+</td>
+<td style="background:#dfd"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span>
+</td>
+<td style="background:#dfd"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n\log(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n\log(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aca080dee55ba2825a2d955bd6ca43c0e7ed04db" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.958ex; height:2.843ex;" alt="n\log(n)"/></span>
+</td>
+<td style="background:#dfd"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n\log(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n\log(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aca080dee55ba2825a2d955bd6ca43c0e7ed04db" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.958ex; height:2.843ex;" alt="n\log(n)"/></span>
+</td></tr>
+<tr align="center">
+<td><a href="https://en.wikipedia.org/wiki/Selection_sort" title="Selection sort">Selection sort</a>
+</td>
+<td>Unordered <a href="https://en.wikipedia.org/wiki/Array#In_computer_science" title="Array">Array</a>
+</td>
+<td style="background:#fdd"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n^{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n^{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ac9810bbdafe4a6a8061338db0f74e25b7952620" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.449ex; height:2.676ex;" alt="n^{2}"/></span>
+</td>
+<td style="background:#fdd"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n^{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n^{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ac9810bbdafe4a6a8061338db0f74e25b7952620" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.449ex; height:2.676ex;" alt="n^{2}"/></span>
+</td>
+<td style="background:#fdd"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n^{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n^{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ac9810bbdafe4a6a8061338db0f74e25b7952620" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.449ex; height:2.676ex;" alt="n^{2}"/></span>
+</td></tr>
+<tr align="center">
+<td><a href="https://en.wikipedia.org/wiki/Insertion_sort" title="Insertion sort">Insertion sort</a>
+</td>
+<td>Ordered <a href="https://en.wikipedia.org/wiki/Array#In_computer_science" title="Array">Array</a>
+</td>
+<td style="background:#dfd"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span>
+</td>
+<td style="background:#fdd"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n^{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n^{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ac9810bbdafe4a6a8061338db0f74e25b7952620" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.449ex; height:2.676ex;" alt="n^2 "/></span>
+</td>
+<td style="background:#fdd"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n^{2}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n^{2}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ac9810bbdafe4a6a8061338db0f74e25b7952620" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.449ex; height:2.676ex;" alt="n^2 "/></span>
+</td></tr>
+<tr align="center">
+<td><a href="https://en.wikipedia.org/wiki/Tree_sort" title="Tree sort">Tree sort</a>
+</td>
+<td><a href="https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree" title="Self-balancing binary search tree">Self-balancing binary search tree</a>
+</td>
+<td style="background:#dfd"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n\log(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n\log(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aca080dee55ba2825a2d955bd6ca43c0e7ed04db" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.958ex; height:2.843ex;" alt="n\log(n)"/></span>
+</td>
+<td style="background:#dfd"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n\log(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n\log(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aca080dee55ba2825a2d955bd6ca43c0e7ed04db" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.958ex; height:2.843ex;" alt="n\log(n)"/></span>
+</td>
+<td style="background:#dfd"><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n\log(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n\log(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aca080dee55ba2825a2d955bd6ca43c0e7ed04db" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.958ex; height:2.843ex;" alt="n\log(n)"/></span>
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="Using_a_sorting_algorithm_to_make_a_priority_queue">Using a sorting algorithm to make a priority queue</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=9" title="Edit section: Using a sorting algorithm to make a priority queue">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>A sorting algorithm can also be used to implement a priority queue. Specifically, Thorup says:<sup id="cite_ref-20" class="reference"><a href="#cite_note-20">&#91;16&#93;</a></sup>
+</p>
+<blockquote>
+<p>We present a general deterministic linear space reduction from priority queues to sorting implying that if we can sort up to <i>n</i> keys in <i>S</i>(<i>n</i>) time per key, then there is a priority queue supporting <i>delete</i> and <i>insert</i> in <i>O</i>(<i>S</i>(<i>n</i>)) time and <i>find-min</i> in constant time.
+</p>
+</blockquote>
+<p>That is, if there is a sorting algorithm which can sort in <i>O</i>(<i>S</i>) time per key, where <i>S</i> is some function of <i>n</i> and <a href="https://en.wikipedia.org/wiki/Word_size" class="mw-redirect" title="Word size">word size</a>,<sup id="cite_ref-21" class="reference"><a href="#cite_note-21">&#91;17&#93;</a></sup> then one can use the given procedure to create a priority queue where pulling the highest-priority element is <i>O</i>(1) time, and inserting new elements (and deleting elements) is <i>O</i>(<i>S</i>) time. For example, if one has an <i>O</i>(<i>n</i>&#160;log&#160;<i>n</i>) sort algorithm, one can create a priority queue with <i>O</i>(1) pulling and <i>O</i>(n&#160;log&#160;<i>n</i>) insertion.
+</p>
+<h2><span class="mw-headline" id="Libraries">Libraries</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=10" title="Edit section: Libraries">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A priority queue is often considered to be a "<a href="https://en.wikipedia.org/wiki/Container_(abstract_data_type)" title="Container (abstract data type)">container data structure</a>".
+</p><p>The <a href="https://en.wikipedia.org/wiki/Standard_Template_Library" title="Standard Template Library">Standard Template Library</a> (STL), and the <a href="https://en.wikipedia.org/wiki/C++" title="C++">C++</a> 1998 standard, specifies <a rel="nofollow" class="external text" href="https://en.cppreference.com/w/cpp/container/priority_queue">std::priority_queue</a> as one of the STL <a href="https://en.wikipedia.org/wiki/Container_(programming)" class="mw-redirect" title="Container (programming)">container</a> <a href="https://en.wikipedia.org/wiki/Adaptor_(programming)" class="mw-redirect" title="Adaptor (programming)">adaptor</a> <a href="https://en.wikipedia.org/wiki/Template_(programming)" class="mw-redirect" title="Template (programming)">class templates</a>. However, it does not specify how two elements with same priority should be served, and indeed, common implementations will not return them according to their order in the queue. It implements a max-priority-queue, and has three parameters: a comparison object for sorting such as a function object (defaults to less&lt;T&gt; if unspecified), the underlying container for storing the data structures (defaults to std::vector&lt;T&gt;), and two iterators to the beginning and end of a sequence. Unlike actual STL containers, it does not allow <a href="https://en.wikipedia.org/wiki/Iterator" title="Iterator">iteration</a> of its elements (it strictly adheres to its abstract data type definition). STL also has utility functions for manipulating another random-access container as a binary max-heap. The <a href="https://en.wikipedia.org/wiki/Boost_(C++_libraries)" title="Boost (C++ libraries)">Boost libraries</a> also have an implementation in the library heap.
+</p><p>Python's <a rel="nofollow" class="external text" href="https://docs.python.org/library/heapq.html">heapq</a> module implements a binary min-heap on top of a list.
+</p><p><a href="https://en.wikipedia.org/wiki/Java_(programming_language)" title="Java (programming language)">Java</a>'s library contains a <code><a rel="nofollow" class="external text" href="https://docs.oracle.com/javase/10/docs/api/java/util/PriorityQueue.html">PriorityQueue</a></code> class, which implements a min-priority-queue.
+</p><p><a href="https://en.wikipedia.org/wiki/.NET" title=".NET">.NET</a>'s library contains a <a rel="nofollow" class="external text" href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.priorityqueue-2?view=net-6.0">PriorityQueue</a> class, which implements an array-backed, quaternary min-heap.
+</p><p><a href="https://en.wikipedia.org/wiki/Scala_(programming_language)" title="Scala (programming language)">Scala</a>'s library contains a <a rel="nofollow" class="external text" href="https://www.scala-lang.org/api/current/scala/collection/mutable/PriorityQueue.html">PriorityQueue</a> class, which implements a max-priority-queue.
+</p><p><a href="https://en.wikipedia.org/wiki/Go_(programming_language)" title="Go (programming language)">Go</a>'s library contains a <a rel="nofollow" class="external text" href="https://golang.org/pkg/container/heap/">container/heap</a> module, which implements a min-heap on top of any compatible data structure.
+</p><p>The <a href="https://en.wikipedia.org/wiki/Standard_PHP_Library" class="mw-redirect" title="Standard PHP Library">Standard PHP Library</a> extension contains the class <a rel="nofollow" class="external text" href="http://us2.php.net/manual/en/class.splpriorityqueue.php">SplPriorityQueue</a>.
+</p><p>Apple's <a href="https://en.wikipedia.org/wiki/Core_Foundation" title="Core Foundation">Core Foundation</a> framework contains a <a rel="nofollow" class="external text" href="https://developer.apple.com/library/mac/#documentation/CoreFoundation/Reference/CFBinaryHeapRef/Reference/reference.html">CFBinaryHeap</a> structure, which implements a min-heap.
+</p>
+<h2><span class="mw-headline" id="Applications">Applications</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=11" title="Edit section: Applications">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Bandwidth_management">Bandwidth management</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=12" title="Edit section: Bandwidth management">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Priority queuing can be used to manage limited resources such as <a href="https://en.wikipedia.org/wiki/Bandwidth_(computing)" title="Bandwidth (computing)">bandwidth</a> on a transmission line from a <a href="https://en.wikipedia.org/wiki/Computer_network" title="Computer network">network</a> <a href="https://en.wikipedia.org/wiki/Router_(computing)" title="Router (computing)">router</a>. In the event of outgoing <a href="https://en.wikipedia.org/wiki/Traffic" title="Traffic">traffic</a> queuing due to insufficient bandwidth, all other queues can be halted to send the traffic from the highest priority queue upon arrival. This ensures that the prioritized traffic (such as real-time traffic, e.g. an <a href="https://en.wikipedia.org/wiki/Real-time_Transport_Protocol" title="Real-time Transport Protocol">RTP</a> stream of a <a href="https://en.wikipedia.org/wiki/Voice_over_Internet_Protocol" class="mw-redirect" title="Voice over Internet Protocol">VoIP</a> connection) is forwarded with the least delay and the least likelihood of being rejected due to a queue reaching its maximum capacity. All other traffic can be handled when the highest priority queue is empty. Another approach used is to send disproportionately more traffic from higher priority queues.
+</p><p>Many modern protocols for <a href="https://en.wikipedia.org/wiki/Local_area_network" title="Local area network">local area networks</a> also include the concept of priority queues at the <a href="https://en.wikipedia.org/wiki/Media_access_control" class="mw-redirect" title="Media access control">media access control</a> (MAC) sub-layer to ensure that high-priority applications (such as <a href="https://en.wikipedia.org/wiki/VoIP" class="mw-redirect" title="VoIP">VoIP</a> or <a href="https://en.wikipedia.org/wiki/IPTV" class="mw-redirect" title="IPTV">IPTV</a>) experience lower latency than other applications which can be served with <a href="https://en.wikipedia.org/wiki/Best-effort_service" class="mw-redirect" title="Best-effort service">best-effort service</a>. Examples include <a href="https://en.wikipedia.org/wiki/IEEE_802.11e" class="mw-redirect" title="IEEE 802.11e">IEEE 802.11e</a> (an amendment to <a href="https://en.wikipedia.org/wiki/IEEE_802.11" title="IEEE 802.11">IEEE 802.11</a> which provides <a href="https://en.wikipedia.org/wiki/Quality_of_service" title="Quality of service">quality of service</a>) and <a href="https://en.wikipedia.org/wiki/ITU-T" title="ITU-T">ITU-T</a> <a href="https://en.wikipedia.org/wiki/G.hn" title="G.hn">G.hn</a> (a standard for high-speed <a href="https://en.wikipedia.org/wiki/Local_area_network" title="Local area network">local area network</a> using existing home wiring (<a href="https://en.wikipedia.org/wiki/Power_line_communication" class="mw-redirect" title="Power line communication">power lines</a>, phone lines and <a href="https://en.wikipedia.org/wiki/Ethernet_over_coax" title="Ethernet over coax">coaxial cables</a>).
+</p><p>Usually a limitation (policer) is set to limit the bandwidth that traffic from the highest priority queue can take, in order to prevent high priority packets from choking off all other traffic. This limit is usually never reached due to high level control instances such as the <a href="https://en.wikipedia.org/wiki/Cisco_Systems,_Inc." class="mw-redirect" title="Cisco Systems, Inc.">Cisco</a> <a href="https://en.wikipedia.org/w/index.php?title=Callmanager&amp;action=edit&amp;redlink=1" class="new" title="Callmanager (page does not exist)">Callmanager</a>, which can be programmed to inhibit calls which would exceed the programmed bandwidth limit.
+</p>
+<h3><span class="mw-headline" id="Discrete_event_simulation">Discrete event simulation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=13" title="Edit section: Discrete event simulation">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Another use of a priority queue is to manage the events in a <a href="https://en.wikipedia.org/wiki/Discrete_event_simulation" class="mw-redirect" title="Discrete event simulation">discrete event simulation</a>. The events are added to the queue with their simulation time used as the priority. The execution of the simulation proceeds by repeatedly pulling the top of the queue and executing the event thereon.
+</p><p><i>See also</i>: <a href="https://en.wikipedia.org/wiki/Scheduling_(computing)" title="Scheduling (computing)">Scheduling (computing)</a>, <a href="https://en.wikipedia.org/wiki/Queueing_theory" title="Queueing theory">queueing theory</a>
+</p>
+<h3><span id="Dijkstra.27s_algorithm"></span><span class="mw-headline" id="Dijkstra's_algorithm">Dijkstra's algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=14" title="Edit section: Dijkstra&#039;s algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>When the graph is stored in the form of <a href="https://en.wikipedia.org/wiki/Adjacency_list" title="Adjacency list">adjacency list</a> or matrix, priority queue can be used to extract minimum efficiently when implementing <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm" title="Dijkstra&#39;s algorithm">Dijkstra's algorithm</a>, although one also needs the ability to alter the priority of a particular vertex in the priority queue efficiently.
+</p><p>If instead, a graph is stored as node objects, and priority-node pairs are inserted into a heap, altering the priority of a particular vertex is not necessary if one tracks visited nodes. Once a node is visited, if it comes up in the heap again (having had a lower priority number associated with it earlier), it is popped-off and ignored.
+</p>
+<h3><span class="mw-headline" id="Huffman_coding">Huffman coding</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=15" title="Edit section: Huffman coding">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><a href="https://en.wikipedia.org/wiki/Huffman_coding" title="Huffman coding">Huffman coding</a> requires one to repeatedly obtain the two lowest-frequency trees. A priority queue is <a href="https://en.wikipedia.org/wiki/Huffman_coding#Compression" title="Huffman coding">one method of doing this</a>.
+</p>
+<h3><span class="mw-headline" id="Best-first_search_algorithms">Best-first search algorithms</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=16" title="Edit section: Best-first search algorithms">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><a href="https://en.wikipedia.org/wiki/Best-first_search" title="Best-first search">Best-first search</a> algorithms, like the <a href="https://en.wikipedia.org/wiki/A*_search_algorithm" title="A* search algorithm">A* search algorithm</a>, find the shortest path between two <a href="https://en.wikipedia.org/wiki/Vertex_(graph_theory)" title="Vertex (graph theory)">vertices</a> or <a href="https://en.wikipedia.org/wiki/Node_(graph_theory)" class="mw-redirect" title="Node (graph theory)">nodes</a> of a <a href="https://en.wikipedia.org/wiki/Weighted_graph" class="mw-redirect" title="Weighted graph">weighted graph</a>, trying out the most promising routes first. A priority queue (also known as the <i>fringe</i>) is used to keep track of unexplored routes; the one for which the estimate (a lower bound in the case of A*) of the total path length is smallest is given highest priority. If memory limitations make best-first search impractical, variants like the <a href="https://en.wikipedia.org/wiki/SMA*" title="SMA*">SMA*</a> algorithm can be used instead, with a <a href="https://en.wikipedia.org/wiki/Double-ended_priority_queue" title="Double-ended priority queue">double-ended priority queue</a> to allow removal of low-priority items.
+</p>
+<h3><span class="mw-headline" id="ROAM_triangulation_algorithm">ROAM triangulation algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=17" title="Edit section: ROAM triangulation algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The Real-time Optimally Adapting Meshes (<a href="https://en.wikipedia.org/wiki/ROAM" title="ROAM">ROAM</a>) algorithm computes a dynamically changing triangulation of a terrain. It works by splitting triangles where more detail is needed and merging them where less detail is needed. The algorithm assigns each triangle in the terrain a priority, usually related to the error decrease if that triangle would be split. The algorithm uses two priority queues, one for triangles that can be split and another for triangles that can be merged. In each step the triangle from the split queue with the highest priority is split, or the triangle from the merge queue with the lowest priority is merged with its neighbours.
+</p>
+<h3><span id="Prim.27s_algorithm_for_minimum_spanning_tree"></span><span class="mw-headline" id="Prim's_algorithm_for_minimum_spanning_tree">Prim's algorithm for minimum spanning tree</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=18" title="Edit section: Prim&#039;s algorithm for minimum spanning tree">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Using <a href="https://en.wikipedia.org/wiki/Binary_heap" title="Binary heap">min heap priority queue</a> in <a href="https://en.wikipedia.org/wiki/Prim%27s_algorithm" title="Prim&#39;s algorithm">Prim's algorithm</a> to find the <a href="https://en.wikipedia.org/wiki/Minimum_spanning_tree" title="Minimum spanning tree">minimum spanning tree</a> of a <a href="https://en.wikipedia.org/wiki/Connected_graph" class="mw-redirect" title="Connected graph">connected</a> and <a href="https://en.wikipedia.org/wiki/Undirected_graph" class="mw-redirect" title="Undirected graph">undirected graph</a>, one can achieve a good running time. This min heap priority queue uses the min heap data structure which supports operations such as <i>insert</i>, <i>minimum</i>, <i>extract-min</i>, <i>decrease-key</i>.<sup id="cite_ref-CLR_22-0" class="reference"><a href="#cite_note-CLR-22">&#91;18&#93;</a></sup> In this implementation, the <a href="https://en.wikipedia.org/wiki/Weighted_graph" class="mw-redirect" title="Weighted graph">weight</a> of the edges is used to decide the priority of the <a href="https://en.wikipedia.org/wiki/Vertex_(graph_theory)" title="Vertex (graph theory)">vertices</a>. Lower the weight, higher the priority and higher the weight, lower the priority.<sup id="cite_ref-GEEKS_23-0" class="reference"><a href="#cite_note-GEEKS-23">&#91;19&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Parallel_priority_queue">Parallel priority queue</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=19" title="Edit section: Parallel priority queue">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Parallelization can be used to speed up priority queues, but requires some changes to the priority queue interface. The reason for such changes is that a sequential update usually only has <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle O(1)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle O(1)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/55a2cd47ca6554fafc21bbef3331256c7e1631ad" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.745ex; height:2.843ex;" alt="{\textstyle O(1)}"/></span> or <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle O(\log n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle O(\log n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/652bcc1f7bfa43527824017e3948b78c4ef942c4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.336ex; height:2.843ex;" alt="{\textstyle O(\log n)}"/></span> cost, and there is no practical gain to parallelize such an operation. One possible change is to allow the concurrent access of multiple processors to the same priority queue. The second possible change is to allow batch operations that work on <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d5595fc0c47452f8fc2aa6e29c3611f047714b0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="{\textstyle k}"/></span> elements, instead of just one element. For example, <i>extractMin</i> will remove the first <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d5595fc0c47452f8fc2aa6e29c3611f047714b0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="{\textstyle k}"/></span> elements with the highest priority.
+</p>
+<h3><span class="mw-headline" id="Concurrent_parallel_access">Concurrent parallel access</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=20" title="Edit section: Concurrent parallel access">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>If the priority queue allows concurrent access, multiple processes can perform operations concurrently on that priority queue. However, this raises two issues. First of all, the definition of the semantics of the individual operations is no longer obvious. For example, if two processes want to extract the element with the highest priority, should they get the same element or different ones? This restricts parallelism on the level of the program using the priority queue. In addition, because multiple processes have access to the same element, this leads to contention.
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Concurrent_prio_queue_conflict.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Concurrent_prio_queue_conflict.svg/220px-Concurrent_prio_queue_conflict.svg.png" decoding="async" width="220" height="161" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Concurrent_prio_queue_conflict.svg/330px-Concurrent_prio_queue_conflict.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Concurrent_prio_queue_conflict.svg/440px-Concurrent_prio_queue_conflict.svg.png 2x" data-file-width="422" data-file-height="309" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Concurrent_prio_queue_conflict.svg" class="internal" title="Enlarge"></a></div>Node 3 is inserted and sets the pointer of node 2 to node 3. Immediately after that, node 2 is deleted and the pointer of node 1 is set to node 4. Now node 3 is no longer reachable.</div></div></div>
+<p>The concurrent access to a priority queue can be implemented on a Concurrent Read, Concurrent Write (CRCW) PRAM model. In the following the priority queue is implemented as a <a href="https://en.wikipedia.org/wiki/Skip_list" title="Skip list">skip list</a>.<sup id="cite_ref-skiplist_24-0" class="reference"><a href="#cite_note-skiplist-24">&#91;20&#93;</a></sup><sup id="cite_ref-25" class="reference"><a href="#cite_note-25">&#91;21&#93;</a></sup> In addition, an atomic synchronization primitive, <a href="https://en.wikipedia.org/wiki/Compare-and-swap" title="Compare-and-swap">CAS</a>, is used to make the skip list <a href="https://en.wikipedia.org/wiki/Lock_(computer_science)" title="Lock (computer science)">lock</a>-free. The nodes of the skip list consists of a unique key, a priority, an <a href="https://en.wikipedia.org/wiki/Array_data_structure" title="Array data structure">array</a> of <a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)" title="Pointer (computer programming)">pointers</a>, for each level, to the next nodes and a <i>delete</i> mark. The <i>delete</i> mark marks if the node is about to be deleted by a process. This ensures that other processes can react to the deletion appropriately.
+</p>
+<ul><li><i>insert(e)</i>: First, a new node with a key and a priority is created. In addition, the node is assigned a number of levels, which dictates the size of the array of pointers. Then a search is performed to find the correct position where to insert the new node. The search starts from the first node and from the highest level. Then the skip list is traversed down to the lowest level until the correct position is found. During the search, for every level the last traversed node will be saved as parent node for the new node at that level. In addition, the node to which the pointer, at that level, of the parent node points towards, will be saved as the successor node of the new node at that level. Afterwards, for every level of the new node, the pointers of the parent node will be set to the new node. Finally, the pointers, for every level, of the new node will be set to the corresponding successor nodes.</li>
+<li><i>extract-min</i>: First, the skip list is traversed until a node is reached whose <i>delete</i> mark is not set. This <i>delete</i> mark is than set to true for that node. Finally the pointers of the parent nodes of the deleted node are updated.</li></ul>
+<p>If the concurrent access to a priority queue is allowed, conflicts may arise between two processes. For example, a conflict arises if one process is trying to insert a new node, but at the same time another process is about to delete the predecessor of that node.<sup id="cite_ref-skiplist_24-1" class="reference"><a href="#cite_note-skiplist-24">&#91;20&#93;</a></sup> There is a risk that the new node is added to the skip list, yet it is not longer reachable. (<a href="https://en.wikipedia.org/wiki/File:Concurrent_prio_queue_conflict.svg" title="File:Concurrent prio queue conflict.svg">See image</a>)
+</p>
+<h3><span class="mw-headline" id="K-element_operations">K-element operations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=21" title="Edit section: K-element operations">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In this setting, operations on a priority queue is generalized to a batch of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d5595fc0c47452f8fc2aa6e29c3611f047714b0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="{\textstyle k}"/></span> elements.
+For instance, <i>k_extract-min</i> deletes the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d5595fc0c47452f8fc2aa6e29c3611f047714b0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="{\textstyle k}"/></span> smallest elements of the priority queue and returns those. 
+</p><p>In a <a href="https://en.wikipedia.org/wiki/Parallel_programming_model" title="Parallel programming model">shared-memory setting</a>, the parallel priority queue can be easily implemented using parallel <a href="https://en.wikipedia.org/wiki/Binary_search_trees" class="mw-redirect" title="Binary search trees">binary search trees</a> and <a href="https://en.wikipedia.org/wiki/Join-based_tree_algorithms" title="Join-based tree algorithms">join-based tree algorithms</a>.  In particular, <i>k_extract-min</i> corresponds to a <i>split</i> on the binary search tree that has <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle O(\log n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle O(\log n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/652bcc1f7bfa43527824017e3948b78c4ef942c4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.336ex; height:2.843ex;" alt="{\textstyle O(\log n)}"/></span> cost and yields a tree that contains the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d5595fc0c47452f8fc2aa6e29c3611f047714b0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="{\textstyle k}"/></span> smallest elements.  <i>k_insert</i> can be applied by a <i>union</i> of the original priority queue and the batch of insertions.  If the batch is already sorted by the key, <i>k_insert</i> has <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle O(k\log(1+{\frac {n}{k}}))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>k</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>+</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>n</mi>
+            <mi>k</mi>
+          </mfrac>
+        </mrow>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle O(k\log(1+{\frac {n}{k}}))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/42eca403362de73c25092dc6e2490d9a4093a6df" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.338ex; width:15.787ex; height:3.343ex;" alt="{\textstyle O(k\log(1+{\frac {n}{k}}))}"/></span> cost.  Otherwise, we need to first sort the batch, so the cost will be <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle O(k\log(1+{\frac {n}{k}})+k\log k)=O(k\log n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>k</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo>+</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>n</mi>
+            <mi>k</mi>
+          </mfrac>
+        </mrow>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mi>k</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>k</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>k</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle O(k\log(1+{\frac {n}{k}})+k\log k)=O(k\log n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6f0d8bf3311158494389bd208eb0e252d3be601c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.338ex; width:37.829ex; height:3.343ex;" alt="{\textstyle O(k\log(1+{\frac {n}{k}})+k\log k)=O(k\log n)}"/></span>.  Other operations for priority queue can be applied similarly.  For instance, <i>k_decrease-key</i> can be done by first applying <i>difference</i> and then <i>union</i>, which first deletes the elements and then inserts them back with the updated keys.  All these operations are highly parallel, and the theoretical and practical efficiency can be found in related research papers.<sup id="cite_ref-join-based_26-0" class="reference"><a href="#cite_note-join-based-26">&#91;22&#93;</a></sup><sup id="cite_ref-pam_27-0" class="reference"><a href="#cite_note-pam-27">&#91;23&#93;</a></sup>
+</p><p>The rest of this section discusses a queue-based algorithm on distributed memory. We assume each processor has its own local memory and a local (sequential) priority queue. The elements of the global (parallel) priority queue are distributed across all processors.
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:BulkDeletionPQ.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/BulkDeletionPQ.svg/220px-BulkDeletionPQ.svg.png" decoding="async" width="220" height="103" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/e1/BulkDeletionPQ.svg/330px-BulkDeletionPQ.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/e1/BulkDeletionPQ.svg/440px-BulkDeletionPQ.svg.png 2x" data-file-width="386" data-file-height="181" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:BulkDeletionPQ.svg" class="internal" title="Enlarge"></a></div><i>k_extract-min</i> is executed on a priority queue with three processors. The green elements are returned and removed from the priority queue.</div></div></div>
+<p>A <i>k_insert</i> operation assigns the elements uniformly random to the processors which insert the elements into their local queues. Note that single elements can still be inserted into the queue. Using this strategy the global smallest elements are in the union of the local smallest elements of every processor with high probability. Thus each processor holds a representative part of the global priority queue.
+</p><p>This property is used when <i>k_extract-min</i> is executed, as the smallest <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle m}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>m</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle m}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3296968aacae7d971a6d649f6b32b5969ed6d4d6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.04ex; height:1.676ex;" alt="{\textstyle m}"/></span> elements of each local queue are removed and collected in a result set. The elements in the result set are still associated with their original processor. The number of elements <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle m}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>m</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle m}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3296968aacae7d971a6d649f6b32b5969ed6d4d6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.04ex; height:1.676ex;" alt="{\textstyle m}"/></span> that is removed from each local queue depends on <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d5595fc0c47452f8fc2aa6e29c3611f047714b0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="{\textstyle k}"/></span> and the number of processors <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle p}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>p</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle p}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ad87bd7009e2a5c52bd0fb5a9bda9d8c1c23a79b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; margin-left: -0.089ex; width:1.259ex; height:2.009ex;" alt="{\textstyle p}"/></span>. 
+<sup id="cite_ref-AlgToolbox_28-0" class="reference"><a href="#cite_note-AlgToolbox-28">&#91;24&#93;</a></sup>
+By parallel selection the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d5595fc0c47452f8fc2aa6e29c3611f047714b0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="{\textstyle k}"/></span> smallest elements of the result set are determined. With high probability these are the global <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d5595fc0c47452f8fc2aa6e29c3611f047714b0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="{\textstyle k}"/></span> smallest elements. If not, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle m}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>m</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle m}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3296968aacae7d971a6d649f6b32b5969ed6d4d6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.04ex; height:1.676ex;" alt="{\textstyle m}"/></span> elements are again removed from each local queue and put into the result set. This is done until the global <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d5595fc0c47452f8fc2aa6e29c3611f047714b0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="{\textstyle k}"/></span> smallest elements are in the result set. Now these <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d5595fc0c47452f8fc2aa6e29c3611f047714b0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="{\textstyle k}"/></span> elements can be returned. All other elements of the result set are inserted back into their local queues. The running time of <i>k_extract-min</i> is expected <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle O({\frac {k}{p}}\log(n))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>k</mi>
+            <mi>p</mi>
+          </mfrac>
+        </mrow>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle O({\frac {k}{p}}\log(n))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1786f666f72262d9af94c2c4f7ae7bd0995fcdb4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.338ex; width:11.838ex; height:3.843ex;" alt="{\textstyle O({\frac {k}{p}}\log(n))}"/></span>, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle k=\Omega (p\cdot \log(p))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>k</mi>
+        <mo>=</mo>
+        <mi mathvariant="normal">&#x03A9;<!-- Ω --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>p</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle k=\Omega (p\cdot \log(p))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b19aef38a319fcd6726a682195492469dd6214a3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:16.596ex; height:2.843ex;" alt="{\textstyle k=\Omega (p\cdot \log(p))}"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cc6e1f880981346a604257ebcacdef24c0aca2d6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="{\textstyle n}"/></span> is the size of the priority queue.<sup id="cite_ref-AlgToolbox_28-1" class="reference"><a href="#cite_note-AlgToolbox-28">&#91;24&#93;</a></sup>
+</p><p>The priority queue can be further improved by not moving the remaining elements of the result set directly back into the local queues after a <i>k_extract-min</i> operation. This saves moving elements back and forth all the time between the result set and the local queues.
+</p><p>By removing several elements at once a considerable speedup can be reached. But not all algorithms can use this kind of priority queue. Dijkstra's algorithm for example can not work on several nodes at once. The algorithm takes the node with the smallest distance from the priority queue and calculates new distances for all its neighbor nodes. If you would take out <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d5595fc0c47452f8fc2aa6e29c3611f047714b0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="{\textstyle k}"/></span> nodes, working at one node could change the distance of another one of the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\textstyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="false" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\textstyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0d5595fc0c47452f8fc2aa6e29c3611f047714b0" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="{\textstyle k}"/></span> nodes. So using k-element operations destroys the label setting property of Dijkstra's algorithm.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=22" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Batch_queue" class="mw-redirect" title="Batch queue">Batch queue</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Command_queue" title="Command queue">Command queue</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Job_scheduler" title="Job scheduler">Job scheduler</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=23" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1011085734"/><div class="reflist">
+<div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite_note-CLRS_priority_queue_pp476-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-CLRS_priority_queue_pp476_1-0">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFCormenLeisersonRivestStein2001" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Cormen, Thomas H.</a>; <a href="https://en.wikipedia.org/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Leiserson, Charles E.</a>; <a href="https://en.wikipedia.org/wiki/Ron_Rivest" title="Ron Rivest">Rivest, Ronald L.</a>; <a href="https://en.wikipedia.org/wiki/Clifford_Stein" title="Clifford Stein">Stein, Clifford</a> (2001) [1990]. "Chapter 20: Fibonacci Heaps". <a href="https://en.wikipedia.org/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms"><i>Introduction to Algorithms</i></a> (2nd&#160;ed.). MIT Press and McGraw-Hill. pp.&#160;476–497. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-262-03293-7" title="Special:BookSources/0-262-03293-7"><bdi>0-262-03293-7</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Chapter+20%3A+Fibonacci+Heaps&amp;rft.btitle=Introduction+to+Algorithms&amp;rft.pages=476-497&amp;rft.edition=2nd&amp;rft.pub=MIT+Press+and+McGraw-Hill&amp;rft.date=2001&amp;rft.isbn=0-262-03293-7&amp;rft.aulast=Cormen&amp;rft.aufirst=Thomas+H.&amp;rft.au=Leiserson%2C+Charles+E.&amp;rft.au=Rivest%2C+Ronald+L.&amp;rft.au=Stein%2C+Clifford&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span> Third edition, p. 518.</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSkiena2010" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Steven_Skiena" title="Steven Skiena">Skiena, Steven</a> (2010). <i>The Algorithm Design Manual</i> (2nd&#160;ed.). <a href="https://en.wikipedia.org/wiki/Springer_Science+Business_Media" title="Springer Science+Business Media">Springer Science+Business Media</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-1-849-96720-4" title="Special:BookSources/978-1-849-96720-4"><bdi>978-1-849-96720-4</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Algorithm+Design+Manual&amp;rft.edition=2nd&amp;rft.pub=Springer+Science%2BBusiness+Media&amp;rft.date=2010&amp;rft.isbn=978-1-849-96720-4&amp;rft.aulast=Skiena&amp;rft.aufirst=Steven&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text">P. van Emde Boas. Preserving order in a forest in less than logarithmic time. In <i>Proceedings of the 16th Annual Symposium on Foundations of Computer Science</i>, pages 75-84. IEEE Computer Society, 1975.</span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><a href="https://en.wikipedia.org/wiki/Michael_Fredman" title="Michael Fredman">Michael L. Fredman</a> and Dan E. Willard. Surpassing the information theoretic bound with fusion trees. <i>Journal of Computer and System Sciences</i>, 48(3):533-551, 1994</span>
+</li>
+<li id="cite_note-CLRS-5"><span class="mw-cite-backlink">^ <a href="#cite_ref-CLRS_5-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-CLRS_5-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-CLRS_5-2"><sup><i><b>c</b></i></sup></a> <a href="#cite_ref-CLRS_5-3"><sup><i><b>d</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCormenLeisersonRivest1990" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Cormen, Thomas H.</a>; <a href="https://en.wikipedia.org/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Leiserson, Charles E.</a>; <a href="https://en.wikipedia.org/wiki/Ron_Rivest" title="Ron Rivest">Rivest, Ronald L.</a> (1990). <a href="https://en.wikipedia.org/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms"><i>Introduction to Algorithms</i></a> (1st&#160;ed.). MIT Press and McGraw-Hill. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-262-03141-8" title="Special:BookSources/0-262-03141-8"><bdi>0-262-03141-8</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Introduction+to+Algorithms&amp;rft.edition=1st&amp;rft.pub=MIT+Press+and+McGraw-Hill&amp;rft.date=1990&amp;rft.isbn=0-262-03141-8&amp;rft.aulast=Cormen&amp;rft.aufirst=Thomas+H.&amp;rft.au=Leiserson%2C+Charles+E.&amp;rft.au=Rivest%2C+Ronald+L.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="https://brilliant.org/wiki/binomial-heap/">"Binomial Heap | Brilliant Math &amp; Science Wiki"</a>. <i>brilliant.org</i><span class="reference-accessdate">. Retrieved <span class="nowrap">2019-09-30</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=brilliant.org&amp;rft.atitle=Binomial+Heap+%7C+Brilliant+Math+%26+Science+Wiki&amp;rft_id=https%3A%2F%2Fbrilliant.org%2Fwiki%2Fbinomial-heap%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Fredman_And_Tarjan-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-Fredman_And_Tarjan_9-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFFredmanTarjan1987" class="citation journal cs1"><a href="https://en.wikipedia.org/wiki/Michael_Fredman" title="Michael Fredman">Fredman, Michael Lawrence</a>; <a href="https://en.wikipedia.org/wiki/Robert_Tarjan" title="Robert Tarjan">Tarjan, Robert E.</a> (July 1987). <a rel="nofollow" class="external text" href="http://bioinfo.ict.ac.cn/~dbu/AlgorithmCourses/Lectures/Fibonacci-Heap-Tarjan.pdf">"Fibonacci heaps and their uses in improved network optimization algorithms"</a> <span class="cs1-format">(PDF)</span>. <i><a href="https://en.wikipedia.org/wiki/Journal_of_the_Association_for_Computing_Machinery" class="mw-redirect" title="Journal of the Association for Computing Machinery">Journal of the Association for Computing Machinery</a></i>. <b>34</b> (3): 596–615. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.309.8927">10.1.1.309.8927</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F28869.28874">10.1145/28869.28874</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+the+Association+for+Computing+Machinery&amp;rft.atitle=Fibonacci+heaps+and+their+uses+in+improved+network+optimization+algorithms&amp;rft.volume=34&amp;rft.issue=3&amp;rft.pages=596-615&amp;rft.date=1987-07&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.309.8927%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1145%2F28869.28874&amp;rft.aulast=Fredman&amp;rft.aufirst=Michael+Lawrence&amp;rft.au=Tarjan%2C+Robert+E.&amp;rft_id=http%3A%2F%2Fbioinfo.ict.ac.cn%2F~dbu%2FAlgorithmCourses%2FLectures%2FFibonacci-Heap-Tarjan.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Iacono-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-Iacono_10-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFIacono2000" class="citation cs2"><a href="https://en.wikipedia.org/wiki/John_Iacono" title="John Iacono">Iacono, John</a> (2000), "Improved upper bounds for pairing heaps", <a rel="nofollow" class="external text" href="http://john2.poly.edu/papers/swat00/paper.pdf"><i>Proc. 7th Scandinavian Workshop on Algorithm Theory</i></a> <span class="cs1-format">(PDF)</span>, Lecture Notes in Computer Science, vol.&#160;1851, Springer-Verlag, pp.&#160;63–77, <a href="https://en.wikipedia.org/wiki/ArXiv_(identifier)" class="mw-redirect" title="ArXiv (identifier)">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://arxiv.org/abs/1110.4428">1110.4428</a></span>, <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.748.7812">10.1.1.748.7812</a></span>, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F3-540-44985-X_5">10.1007/3-540-44985-X_5</a>, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/3-540-67690-2" title="Special:BookSources/3-540-67690-2"><bdi>3-540-67690-2</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Improved+upper+bounds+for+pairing+heaps&amp;rft.btitle=Proc.+7th+Scandinavian+Workshop+on+Algorithm+Theory&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=63-77&amp;rft.pub=Springer-Verlag&amp;rft.date=2000&amp;rft_id=info%3Aarxiv%2F1110.4428&amp;rft_id=info%3Adoi%2F10.1007%2F3-540-44985-X_5&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.748.7812%23id-name%3DCiteSeerX&amp;rft.isbn=3-540-67690-2&amp;rft.aulast=Iacono&amp;rft.aufirst=John&amp;rft_id=http%3A%2F%2Fjohn2.poly.edu%2Fpapers%2Fswat00%2Fpaper.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Fredman1999-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-Fredman1999_11-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFFredman1999" class="citation journal cs1"><a href="https://en.wikipedia.org/wiki/Michael_Fredman" title="Michael Fredman">Fredman, Michael Lawrence</a> (July 1999). <a rel="nofollow" class="external text" href="http://www.uqac.ca/azinflou/Fichiers840/EfficiencyPairingHeap.pdf">"On the Efficiency of Pairing Heaps and Related Data Structures"</a> <span class="cs1-format">(PDF)</span>. <i><a href="https://en.wikipedia.org/wiki/Journal_of_the_Association_for_Computing_Machinery" class="mw-redirect" title="Journal of the Association for Computing Machinery">Journal of the Association for Computing Machinery</a></i>. <b>46</b> (4): 473–501. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F320211.320214">10.1145/320211.320214</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+the+Association+for+Computing+Machinery&amp;rft.atitle=On+the+Efficiency+of+Pairing+Heaps+and+Related+Data+Structures&amp;rft.volume=46&amp;rft.issue=4&amp;rft.pages=473-501&amp;rft.date=1999-07&amp;rft_id=info%3Adoi%2F10.1145%2F320211.320214&amp;rft.aulast=Fredman&amp;rft.aufirst=Michael+Lawrence&amp;rft_id=http%3A%2F%2Fwww.uqac.ca%2Fazinflou%2FFichiers840%2FEfficiencyPairingHeap.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></span>
+</li>
+<li id="cite_note-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-12">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFPettie2005" class="citation conference cs1">Pettie, Seth (2005). <a rel="nofollow" class="external text" href="http://web.eecs.umich.edu/~pettie/papers/focs05.pdf"><i>Towards a Final Analysis of Pairing Heaps</i></a> <span class="cs1-format">(PDF)</span>. FOCS '05 Proceedings of the 46th Annual IEEE Symposium on Foundations of Computer Science. pp.&#160;174–183. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.549.471">10.1.1.549.471</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FSFCS.2005.75">10.1109/SFCS.2005.75</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-7695-2468-0" title="Special:BookSources/0-7695-2468-0"><bdi>0-7695-2468-0</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Towards+a+Final+Analysis+of+Pairing+Heaps&amp;rft.pages=174-183&amp;rft.date=2005&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.549.471%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1109%2FSFCS.2005.75&amp;rft.isbn=0-7695-2468-0&amp;rft.aulast=Pettie&amp;rft.aufirst=Seth&amp;rft_id=http%3A%2F%2Fweb.eecs.umich.edu%2F~pettie%2Fpapers%2Ffocs05.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></span>
+</li>
+<li id="cite_note-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-14">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBrodal1996" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Gerth_Stølting_Brodal" title="Gerth Stølting Brodal">Brodal, Gerth S.</a> (1996), <a rel="nofollow" class="external text" href="http://www.cs.au.dk/~gerth/papers/soda96.pdf">"Worst-Case Efficient Priority Queues"</a> <span class="cs1-format">(PDF)</span>, <i>Proc. 7th Annual ACM-SIAM Symposium on Discrete Algorithms</i>, pp.&#160;52–58</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Worst-Case+Efficient+Priority+Queues&amp;rft.btitle=Proc.+7th+Annual+ACM-SIAM+Symposium+on+Discrete+Algorithms&amp;rft.pages=52-58&amp;rft.date=1996&amp;rft.aulast=Brodal&amp;rft.aufirst=Gerth+S.&amp;rft_id=http%3A%2F%2Fwww.cs.au.dk%2F~gerth%2Fpapers%2Fsoda96.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></span>
+</li>
+<li id="cite_note-15"><span class="mw-cite-backlink"><b><a href="#cite_ref-15">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGoodrichTamassia2004" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Michael_T._Goodrich" title="Michael T. Goodrich">Goodrich, Michael T.</a>; <a href="https://en.wikipedia.org/wiki/Roberto_Tamassia" title="Roberto Tamassia">Tamassia, Roberto</a> (2004). "7.3.6. Bottom-Up Heap Construction". <i>Data Structures and Algorithms in Java</i> (3rd&#160;ed.). pp.&#160;338–341. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-471-46983-1" title="Special:BookSources/0-471-46983-1"><bdi>0-471-46983-1</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=7.3.6.+Bottom-Up+Heap+Construction&amp;rft.btitle=Data+Structures+and+Algorithms+in+Java&amp;rft.pages=338-341&amp;rft.edition=3rd&amp;rft.date=2004&amp;rft.isbn=0-471-46983-1&amp;rft.aulast=Goodrich&amp;rft.aufirst=Michael+T.&amp;rft.au=Tamassia%2C+Roberto&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></span>
+</li>
+<li id="cite_note-17"><span class="mw-cite-backlink"><b><a href="#cite_ref-17">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHaeuplerSenTarjan2011" class="citation journal cs1">Haeupler, Bernhard; Sen, Siddhartha; <a href="https://en.wikipedia.org/wiki/Robert_Tarjan" title="Robert Tarjan">Tarjan, Robert E.</a> (November 2011). <a rel="nofollow" class="external text" href="http://sidsen.org/papers/rp-heaps-journal.pdf">"Rank-pairing heaps"</a> <span class="cs1-format">(PDF)</span>. <i>SIAM J. Computing</i>. <b>40</b> (6): 1463–1485. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1137%2F100785351">10.1137/100785351</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=SIAM+J.+Computing&amp;rft.atitle=Rank-pairing+heaps&amp;rft.volume=40&amp;rft.issue=6&amp;rft.pages=1463-1485&amp;rft.date=2011-11&amp;rft_id=info%3Adoi%2F10.1137%2F100785351&amp;rft.aulast=Haeupler&amp;rft.aufirst=Bernhard&amp;rft.au=Sen%2C+Siddhartha&amp;rft.au=Tarjan%2C+Robert+E.&amp;rft_id=http%3A%2F%2Fsidsen.org%2Fpapers%2Frp-heaps-journal.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></span>
+</li>
+<li id="cite_note-18"><span class="mw-cite-backlink"><b><a href="#cite_ref-18">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBrodalLagogiannisTarjan2012" class="citation conference cs1"><a href="https://en.wikipedia.org/wiki/Gerth_Stølting_Brodal" title="Gerth Stølting Brodal">Brodal, Gerth Stølting</a>; Lagogiannis, George; <a href="https://en.wikipedia.org/wiki/Robert_Tarjan" title="Robert Tarjan">Tarjan, Robert E.</a> (2012). <a rel="nofollow" class="external text" href="http://www.cs.au.dk/~gerth/papers/stoc12.pdf"><i>Strict Fibonacci heaps</i></a> <span class="cs1-format">(PDF)</span>. Proceedings of the 44th symposium on Theory of Computing - STOC '12. pp.&#160;1177–1184. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.233.1740">10.1.1.233.1740</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F2213977.2214082">10.1145/2213977.2214082</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-1-4503-1245-5" title="Special:BookSources/978-1-4503-1245-5"><bdi>978-1-4503-1245-5</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Strict+Fibonacci+heaps&amp;rft.pages=1177-1184&amp;rft.date=2012&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.233.1740%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1145%2F2213977.2214082&amp;rft.isbn=978-1-4503-1245-5&amp;rft.aulast=Brodal&amp;rft.aufirst=Gerth+St%C3%B8lting&amp;rft.au=Lagogiannis%2C+George&amp;rft.au=Tarjan%2C+Robert+E.&amp;rft_id=http%3A%2F%2Fwww.cs.au.dk%2F~gerth%2Fpapers%2Fstoc12.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></span>
+</li>
+<li id="cite_note-19"><span class="mw-cite-backlink"><b><a href="#cite_ref-19">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFTakaoka1999" class="citation cs2"><a href="https://en.wikipedia.org/w/index.php?title=Tadao_Takaoka&amp;action=edit&amp;redlink=1" class="new" title="Tadao Takaoka (page does not exist)">Takaoka, Tadao</a> (1999), <a rel="nofollow" class="external text" href="https://ir.canterbury.ac.nz/bitstream/handle/10092/14769/2-3heaps.pdf"><i>Theory of 2–3 Heaps</i></a> <span class="cs1-format">(PDF)</span>, p.&#160;12</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Theory+of+2%E2%80%933+Heaps&amp;rft.pages=12&amp;rft.date=1999&amp;rft.aulast=Takaoka&amp;rft.aufirst=Tadao&amp;rft_id=https%3A%2F%2Fir.canterbury.ac.nz%2Fbitstream%2Fhandle%2F10092%2F14769%2F2-3heaps.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></span>
+</li>
+<li id="cite_note-20"><span class="mw-cite-backlink"><b><a href="#cite_ref-20">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFThorup2007" class="citation journal cs1"><a href="https://en.wikipedia.org/wiki/Mikkel_Thorup" title="Mikkel Thorup">Thorup, Mikkel</a> (2007). "Equivalence between priority queues and sorting". <i><a href="https://en.wikipedia.org/wiki/Journal_of_the_ACM" title="Journal of the ACM">Journal of the ACM</a></i>. <b>54</b> (6): 28. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F1314690.1314692">10.1145/1314690.1314692</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:11494634">11494634</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+the+ACM&amp;rft.atitle=Equivalence+between+priority+queues+and+sorting&amp;rft.volume=54&amp;rft.issue=6&amp;rft.pages=28&amp;rft.date=2007&amp;rft_id=info%3Adoi%2F10.1145%2F1314690.1314692&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A11494634%23id-name%3DS2CID&amp;rft.aulast=Thorup&amp;rft.aufirst=Mikkel&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></span>
+</li>
+<li id="cite_note-21"><span class="mw-cite-backlink"><b><a href="#cite_ref-21">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://courses.csail.mit.edu/6.851/spring07/scribe/lec17.pdf">"Archived copy"</a> <span class="cs1-format">(PDF)</span>. <a rel="nofollow" class="external text" href="https://web.archive.org/web/20110720000413/http://courses.csail.mit.edu/6.851/spring07/scribe/lec17.pdf">Archived</a> <span class="cs1-format">(PDF)</span> from the original on 2011-07-20<span class="reference-accessdate">. Retrieved <span class="nowrap">2011-02-10</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Archived+copy&amp;rft_id=http%3A%2F%2Fcourses.csail.mit.edu%2F6.851%2Fspring07%2Fscribe%2Flec17.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span><span class="cs1-maint citation-comment"><code class="cs1-code">{{<a href="https://en.wikipedia.org/wiki/Template:Cite_web" title="Template:Cite web">cite web</a>}}</code>:  CS1 maint: archived copy as title (<a href="https://en.wikipedia.org/wiki/Category:CS1_maint:_archived_copy_as_title" title="Category:CS1 maint: archived copy as title">link</a>)</span></span>
+</li>
+<li id="cite_note-CLR-22"><span class="mw-cite-backlink"><b><a href="#cite_ref-CLR_22-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCormenLeisersonRivestStein2009" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Cormen, Thomas H.</a>; <a href="https://en.wikipedia.org/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Leiserson, Charles E.</a>; <a href="https://en.wikipedia.org/wiki/Ron_Rivest" title="Ron Rivest">Rivest, Ronald L.</a>; <a href="https://en.wikipedia.org/wiki/Clifford_Stein" title="Clifford Stein">Stein, Clifford</a> (2009) [1990]. <a href="https://en.wikipedia.org/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms"><i>Introduction to Algorithms</i></a> (3rd&#160;ed.). MIT Press and McGraw-Hill. p.&#160;634. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-262-03384-4" title="Special:BookSources/0-262-03384-4"><bdi>0-262-03384-4</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Introduction+to+Algorithms&amp;rft.pages=634&amp;rft.edition=3rd&amp;rft.pub=MIT+Press+and+McGraw-Hill&amp;rft.date=2009&amp;rft.isbn=0-262-03384-4&amp;rft.aulast=Cormen&amp;rft.aufirst=Thomas+H.&amp;rft.au=Leiserson%2C+Charles+E.&amp;rft.au=Rivest%2C+Ronald+L.&amp;rft.au=Stein%2C+Clifford&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span> "In order to implement Prim's algorithm efficiently, we need a fast way to select a new edge to add to the tree formed by the edges in A."</span>
+</li>
+<li id="cite_note-GEEKS-23"><span class="mw-cite-backlink"><b><a href="#cite_ref-GEEKS_23-0">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://www.geeksforgeeks.org/greedy-algorithms-set-5-prims-minimum-spanning-tree-mst-2/">"Prim's Algorithm"</a>. Geek for Geeks. <a rel="nofollow" class="external text" href="https://web.archive.org/web/20140909020508/http://www.geeksforgeeks.org/greedy-algorithms-set-5-prims-minimum-spanning-tree-mst-2/">Archived</a> from the original on 9 September 2014<span class="reference-accessdate">. Retrieved <span class="nowrap">12 September</span> 2014</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Prim%27s+Algorithm&amp;rft.pub=Geek+for+Geeks&amp;rft_id=http%3A%2F%2Fwww.geeksforgeeks.org%2Fgreedy-algorithms-set-5-prims-minimum-spanning-tree-mst-2%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></span>
+</li>
+<li id="cite_note-skiplist-24"><span class="mw-cite-backlink">^ <a href="#cite_ref-skiplist_24-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-skiplist_24-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSundellTsigas2005" class="citation journal cs1">Sundell, Håkan; Tsigas, Philippas (2005). <a rel="nofollow" class="external text" href="https://doi.org/10.1016/j.jpdc.2004.12.005">"Fast and lock-free concurrent priority queues for multi-thread systems"</a>. <i>Journal of Parallel and Distributed Computing</i>. <b>65</b> (5): 609–627. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FIPDPS.2003.1213189">10.1109/IPDPS.2003.1213189</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:20995116">20995116</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Parallel+and+Distributed+Computing&amp;rft.atitle=Fast+and+lock-free+concurrent+priority+queues+for+multi-thread+systems&amp;rft.volume=65&amp;rft.issue=5&amp;rft.pages=609-627&amp;rft.date=2005&amp;rft_id=info%3Adoi%2F10.1109%2FIPDPS.2003.1213189&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A20995116%23id-name%3DS2CID&amp;rft.aulast=Sundell&amp;rft.aufirst=H%C3%A5kan&amp;rft.au=Tsigas%2C+Philippas&amp;rft_id=https%3A%2F%2Fdoi.org%2F10.1016%2Fj.jpdc.2004.12.005&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></span>
+</li>
+<li id="cite_note-25"><span class="mw-cite-backlink"><b><a href="#cite_ref-25">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFLindén,_Jonsson2013" class="citation cs2 cs1-prop-foreign-lang-source">Lindén, Jonsson (2013), <a rel="nofollow" class="external text" href="http://www.it.uu.se/research/publications/reports/2018-003/">"A Skiplist-Based Concurrent Priority Queue with Minimal Memory Contention"</a>, <i>Technical Report 2018-003</i> (in German)</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Technical+Report+2018-003&amp;rft.atitle=A+Skiplist-Based+Concurrent+Priority+Queue+with+Minimal+Memory+Contention&amp;rft.date=2013&amp;rft.au=Lind%C3%A9n%2C+Jonsson&amp;rft_id=http%3A%2F%2Fwww.it.uu.se%2Fresearch%2Fpublications%2Freports%2F2018-003%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></span>
+</li>
+<li id="cite_note-join-based-26"><span class="mw-cite-backlink"><b><a href="#cite_ref-join-based_26-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBlellochFerizovicSun2016" class="citation cs2">Blelloch, Guy E.; Ferizovic, Daniel; Sun, Yihan (2016), "Just Join for Parallel Ordered Sets", <i>Symposium on Parallel Algorithms and Architectures, Proc. of 28th ACM Symp. Parallel Algorithms and Architectures (SPAA 2016)</i>, ACM, pp.&#160;253–264, <a href="https://en.wikipedia.org/wiki/ArXiv_(identifier)" class="mw-redirect" title="ArXiv (identifier)">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://arxiv.org/abs/1602.02120">1602.02120</a></span>, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F2935764.2935768">10.1145/2935764.2935768</a>, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-1-4503-4210-0" title="Special:BookSources/978-1-4503-4210-0"><bdi>978-1-4503-4210-0</bdi></a>, <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:2897793">2897793</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Just+Join+for+Parallel+Ordered+Sets&amp;rft.btitle=Symposium+on+Parallel+Algorithms+and+Architectures%2C+Proc.+of+28th+ACM+Symp.+Parallel+Algorithms+and+Architectures+%28SPAA+2016%29&amp;rft.pages=253-264&amp;rft.pub=ACM&amp;rft.date=2016&amp;rft_id=info%3Aarxiv%2F1602.02120&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A2897793%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1145%2F2935764.2935768&amp;rft.isbn=978-1-4503-4210-0&amp;rft.aulast=Blelloch&amp;rft.aufirst=Guy+E.&amp;rft.au=Ferizovic%2C+Daniel&amp;rft.au=Sun%2C+Yihan&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></span>
+</li>
+<li id="cite_note-pam-27"><span class="mw-cite-backlink"><b><a href="#cite_ref-pam_27-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBlellochFerizovicSun2018" class="citation cs2">Blelloch, Guy E.; Ferizovic, Daniel; Sun, Yihan (2018), "PAM: parallel augmented maps", <i>Proceedings of the 23rd ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming</i>, ACM, pp.&#160;290–304</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=PAM%3A+parallel+augmented+maps&amp;rft.btitle=Proceedings+of+the+23rd+ACM+SIGPLAN+Symposium+on+Principles+and+Practice+of+Parallel+Programming&amp;rft.pages=290-304&amp;rft.pub=ACM&amp;rft.date=2018&amp;rft.aulast=Blelloch&amp;rft.aufirst=Guy+E.&amp;rft.au=Ferizovic%2C+Daniel&amp;rft.au=Sun%2C+Yihan&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></span>
+</li>
+<li id="cite_note-AlgToolbox-28"><span class="mw-cite-backlink">^ <a href="#cite_ref-AlgToolbox_28-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-AlgToolbox_28-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSandersMehlhornDietzfelbingerDementiev2019" class="citation book cs1">Sanders, Peter; Mehlhorn, Kurt; Dietzfelbinger, Martin; Dementiev, Roman (2019). <i>Sequential and Parallel Algorithms and Data Structures - The Basic Toolbox</i>. Springer International Publishing. pp.&#160;226–229. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-3-030-25209-0">10.1007/978-3-030-25209-0</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-3-030-25208-3" title="Special:BookSources/978-3-030-25208-3"><bdi>978-3-030-25208-3</bdi></a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:201692657">201692657</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Sequential+and+Parallel+Algorithms+and+Data+Structures+-+The+Basic+Toolbox&amp;rft.pages=226-229&amp;rft.pub=Springer+International+Publishing&amp;rft.date=2019&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A201692657%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-030-25209-0&amp;rft.isbn=978-3-030-25208-3&amp;rft.aulast=Sanders&amp;rft.aufirst=Peter&amp;rft.au=Mehlhorn%2C+Kurt&amp;rft.au=Dietzfelbinger%2C+Martin&amp;rft.au=Dementiev%2C+Roman&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="Further_reading">Further reading</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=24" title="Edit section: Further reading">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCormenLeisersonRivestStein2001" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Cormen, Thomas H.</a>; <a href="https://en.wikipedia.org/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Leiserson, Charles E.</a>; <a href="https://en.wikipedia.org/wiki/Ron_Rivest" title="Ron Rivest">Rivest, Ronald L.</a>; <a href="https://en.wikipedia.org/wiki/Clifford_Stein" title="Clifford Stein">Stein, Clifford</a> (2001) [1990]. "Section 6.5: Priority queues". <a href="https://en.wikipedia.org/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms"><i>Introduction to Algorithms</i></a> (2nd&#160;ed.). MIT Press and McGraw-Hill. pp.&#160;138–142. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-262-03293-7" title="Special:BookSources/0-262-03293-7"><bdi>0-262-03293-7</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Section+6.5%3A+Priority+queues&amp;rft.btitle=Introduction+to+Algorithms&amp;rft.pages=138-142&amp;rft.edition=2nd&amp;rft.pub=MIT+Press+and+McGraw-Hill&amp;rft.date=2001&amp;rft.isbn=0-262-03293-7&amp;rft.aulast=Cormen&amp;rft.aufirst=Thomas+H.&amp;rft.au=Leiserson%2C+Charles+E.&amp;rft.au=Rivest%2C+Ronald+L.&amp;rft.au=Stein%2C+Clifford&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3APriority+queue" class="Z3988"></span></li></ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit&amp;section=25" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://en.cppreference.com/w/cpp/container/priority_queue">C++ reference for <code>std::priority_queue</code></a></li>
+<li><a rel="nofollow" class="external text" href="http://leekillough.com/heaps/">Descriptions</a> by <a href="https://en.wikipedia.org/w/index.php?title=Lee_Killough_(programmer)&amp;action=edit&amp;redlink=1" class="new" title="Lee Killough (programmer) (page does not exist)">Lee Killough</a></li>
+<li><a rel="nofollow" class="external text" href="https://bitbucket.org/trijezdci/pqlib/src/">PQlib</a> - Open source Priority Queue library for C</li>
+<li><a rel="nofollow" class="external text" href="https://github.com/vy/libpqueue">libpqueue</a> is a generic priority queue (heap) implementation (in C) used by the Apache HTTP Server project.</li>
+<li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20121103132051/http://www.theturingmachine.com/algorithms/heaps.html">Survey of known priority queue structures</a> by Stefan Xenos</li>
+<li><a rel="nofollow" class="external text" href="https://archive.org/details/ucberkeley_webcast_yIUFT6AKBGE">UC Berkeley - Computer Science 61B - Lecture 24: Priority Queues</a> (video) - introduction to priority queues using binary heap</li></ul>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Well-known_data_structures" style="padding:3px"><table class="nowraplinks hlist mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Data_structures" title="Template:Data structures"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Data_structures" title="Template talk:Data structures"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Data_structures&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Well-known_data_structures" style="font-size:114%;margin:0 4em">Well-known <a href="https://en.wikipedia.org/wiki/Data_structure" title="Data structure">data structures</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Types</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Collection_(abstract_data_type)" title="Collection (abstract data type)">Collection</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Container_(abstract_data_type)" title="Container (abstract data type)">Container</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Abstract_data_type" title="Abstract data type">Abstract</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Associative_array" title="Associative array">Associative array</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Multimap" title="Multimap">Multimap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Retrieval_Data_Structure" title="Retrieval Data Structure">Retrieval Data Structure</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/List_(abstract_data_type)" title="List (abstract data type)">List</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)" title="Stack (abstract data type)">Stack</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)" title="Queue (abstract data type)">Queue</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Double-ended_queue" title="Double-ended queue">Double-ended queue</a></li></ul></li>
+<li><a class="mw-selflink selflink">Priority queue</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Double-ended_priority_queue" title="Double-ended priority queue">Double-ended priority queue</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Set_(abstract_data_type)" title="Set (abstract data type)">Set</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Set_(abstract_data_type)#Multiset" title="Set (abstract data type)">Multiset</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Disjoint-set_data_structure" title="Disjoint-set data structure">Disjoint-set</a></li></ul></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Array_data_structure" title="Array data structure">Arrays</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Bit_array" title="Bit array">Bit array</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Circular_buffer" title="Circular buffer">Circular buffer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dynamic_array" title="Dynamic array">Dynamic array</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hash_table" title="Hash table">Hash table</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hashed_array_tree" title="Hashed array tree">Hashed array tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sparse_matrix" title="Sparse matrix">Sparse matrix</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Linked_data_structure" title="Linked data structure">Linked</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Association_list" title="Association list">Association list</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Linked_list" title="Linked list">Linked list</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Skip_list" title="Skip list">Skip list</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Unrolled_linked_list" title="Unrolled linked list">Unrolled linked list</a></li>
+<li><a href="https://en.wikipedia.org/wiki/XOR_linked_list" title="XOR linked list">XOR linked list</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" title="Tree (data structure)">Trees</a></th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/B-tree" title="B-tree">B-tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binary_search_tree" title="Binary search tree">Binary search tree</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/AA_tree" title="AA tree">AA tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AVL_tree" title="AVL tree">AVL tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Red–black_tree" title="Red–black tree">Red–black tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree" title="Self-balancing binary search tree">Self-balancing tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Splay_tree" title="Splay tree">Splay tree</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" title="Heap (data structure)">Heap</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Binary_heap" title="Binary heap">Binary heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binomial_heap" title="Binomial heap">Binomial heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci heap</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/R-tree" title="R-tree">R-tree</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/R*_tree" class="mw-redirect" title="R* tree">R* tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/R+_tree" title="R+ tree">R+ tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hilbert_R-tree" title="Hilbert R-tree">Hilbert R-tree</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Trie" title="Trie">Trie</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Hash_tree_(persistent_data_structure)" title="Hash tree (persistent data structure)">Hash tree</a></li></ul></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Graph_(abstract_data_type)" title="Graph (abstract data type)">Graphs</a></th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Binary_decision_diagram" title="Binary decision diagram">Binary decision diagram</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph" title="Directed acyclic graph">Directed acyclic graph</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Deterministic_acyclic_finite_state_automaton" title="Deterministic acyclic finite state automaton">Directed acyclic word graph</a></li></ul>
+</div></td></tr><tr><td class="navbox-abovebelow" colspan="2"><div>
+<ul><li><a href="https://en.wikipedia.org/wiki/List_of_data_structures" title="List of data structures">List of data structures</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1443
+Cached time: 20220420150452
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.642 seconds
+Real time usage: 0.798 seconds
+Preprocessor visited node count: 3006/1000000
+Post‐expand include size: 70960/2097152 bytes
+Template argument size: 1936/2097152 bytes
+Highest expansion depth: 16/100
+Expensive parser function count: 0/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 82542/5000000 bytes
+Lua time usage: 0.280/10.000 seconds
+Lua memory usage: 6490172/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  539.262      1 -total
+ 43.95%  236.991      2 Template:Reflist
+ 25.70%  138.572      7 Template:Cite_book
+ 23.84%  128.570      4 Template:Introduction_to_Algorithms
+ 17.74%   95.685      1 Template:Short_description
+ 16.82%   90.679      1 Template:Data_structures
+ 16.18%   87.237      1 Template:Navbox
+  9.65%   52.059      1 Template:Pagetype
+  8.24%   44.413      1 Template:Heap_Running_Times
+  6.40%   34.505      1 Template:Rp
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:24485-0!canonical and timestamp 20220420150451 and revision id 1083761771. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;oldid=1083761771">https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;oldid=1083761771</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Priority_queues" title="Category:Priority queues">Priority queues</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Abstract_data_types" title="Category:Abstract data types">Abstract data types</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:CS1_maint:_archived_copy_as_title" title="Category:CS1 maint: archived copy as title">CS1 maint: archived copy as title</a></li><li><a href="https://en.wikipedia.org/wiki/Category:CS1_German-language_sources_(de)" title="Category:CS1 German-language sources (de)">CS1 German-language sources (de)</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_matches_Wikidata" title="Category:Short description matches Wikidata">Short description matches Wikidata</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Priority+queue" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Priority+queue" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Priority_queue" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Priority_queue" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Priority_queue"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Priority_queue" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Priority_queue" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;oldid=1083761771" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Priority_queue&amp;id=1083761771&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q629283" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Priority_queue&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Priority_queue&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-bg mw-list-item"><a href="https://bg.wikipedia.org/wiki/Приоритетна_опашка" title="Приоритетна опашка – Bulgarian" lang="bg" hreflang="bg" class="interlanguage-link-target"><span>Български</span></a></li><li class="interlanguage-link interwiki-ca mw-list-item"><a href="https://ca.wikipedia.org/wiki/Cua_de_prioritats" title="Cua de prioritats – Catalan" lang="ca" hreflang="ca" class="interlanguage-link-target"><span>Català</span></a></li><li class="interlanguage-link interwiki-cs mw-list-item"><a href="https://cs.wikipedia.org/wiki/Prioritní_fronta" title="Prioritní fronta – Czech" lang="cs" hreflang="cs" class="interlanguage-link-target"><span>Čeština</span></a></li><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Vorrangwarteschlange" title="Vorrangwarteschlange – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-el mw-list-item"><a href="https://el.wikipedia.org/wiki/Ουρά_προτεραιότητας_(δομή_δεδομένων)" title="Ουρά προτεραιότητας (δομή δεδομένων) – Greek" lang="el" hreflang="el" class="interlanguage-link-target"><span>Ελληνικά</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Cola_de_prioridades" title="Cola de prioridades – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/صف_اولویت‌دار" title="صف اولویت‌دار – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/File_de_priorité" title="File de priorité – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-ko mw-list-item"><a href="https://ko.wikipedia.org/wiki/우선순위_큐" title="우선순위 큐 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target"><span>한국어</span></a></li><li class="interlanguage-link interwiki-it mw-list-item"><a href="https://it.wikipedia.org/wiki/Coda_di_priorità" title="Coda di priorità – Italian" lang="it" hreflang="it" class="interlanguage-link-target"><span>Italiano</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/תור_עדיפויות" title="תור עדיפויות – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-lt mw-list-item"><a href="https://lt.wikipedia.org/wiki/Prioritetų_eilė" title="Prioritetų eilė – Lithuanian" lang="lt" hreflang="lt" class="interlanguage-link-target"><span>Lietuvių</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/優先度付きキュー" title="優先度付きキュー – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Kolejka_priorytetowa" title="Kolejka priorytetowa – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Очередь_с_приоритетом_(программирование)" title="Очередь с приоритетом (программирование) – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/Ред_са_приоритетом" title="Ред са приоритетом – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-fi mw-list-item"><a href="https://fi.wikipedia.org/wiki/Prioriteettijono" title="Prioriteettijono – Finnish" lang="fi" hreflang="fi" class="interlanguage-link-target"><span>Suomi</span></a></li><li class="interlanguage-link interwiki-sv mw-list-item"><a href="https://sv.wikipedia.org/wiki/Prioritetskö" title="Prioritetskö – Swedish" lang="sv" hreflang="sv" class="interlanguage-link-target"><span>Svenska</span></a></li><li class="interlanguage-link interwiki-th mw-list-item"><a href="https://th.wikipedia.org/wiki/แถวคอยลำดับความสำคัญ" title="แถวคอยลำดับความสำคัญ – Thai" lang="th" hreflang="th" class="interlanguage-link-target"><span>ไทย</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Черга_з_пріоритетом" title="Черга з пріоритетом – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/優先佇列" title="優先佇列 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q629283#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 20 April 2022, at 15:04<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Priority_queue&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.642","walltime":"0.798","ppvisitednodes":{"value":3006,"limit":1000000},"postexpandincludesize":{"value":70960,"limit":2097152},"templateargumentsize":{"value":1936,"limit":2097152},"expansiondepth":{"value":16,"limit":100},"expensivefunctioncount":{"value":0,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":82542,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  539.262      1 -total"," 43.95%  236.991      2 Template:Reflist"," 25.70%  138.572      7 Template:Cite_book"," 23.84%  128.570      4 Template:Introduction_to_Algorithms"," 17.74%   95.685      1 Template:Short_description"," 16.82%   90.679      1 Template:Data_structures"," 16.18%   87.237      1 Template:Navbox","  9.65%   52.059      1 Template:Pagetype","  8.24%   44.413      1 Template:Heap_Running_Times","  6.40%   34.505      1 Template:Rp"]},"scribunto":{"limitreport-timeusage":{"value":"0.280","limit":"10.000"},"limitreport-memusage":{"value":6490172,"limit":52428800}},"cachereport":{"origin":"mw1443","timestamp":"20220420150452","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Priority queue","url":"https:\/\/en.wikipedia.org\/wiki\/Priority_queue","sameAs":"http:\/\/www.wikidata.org\/entity\/Q629283","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q629283","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2001-10-25T18:00:16Z","dateModified":"2022-04-20T15:04:47Z","headline":"abstract data type in computer science"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Priority queue","url":"https:\/\/en.wikipedia.org\/wiki\/Priority_queue","sameAs":"http:\/\/www.wikidata.org\/entity\/Q629283","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q629283","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2001-10-25T18:00:16Z","dateModified":"2022-04-20T15:04:47Z","headline":"abstract data type in computer science"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":184,"wgHostname":"mw1367"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Priority_queue by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:50 GMT -->
+</html>

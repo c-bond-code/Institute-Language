@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Backtracking by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Backtracking - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"e6dbbfa0-89c9-436b-bca3-db443603c375","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Backtracking","wgTitle":"Backtracking","wgCurRevisionId":1077020832,"wgRevisionId":1077020832,"wgArticleId":238867,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CS1 errors: external links","Articles with short description","Short description is different from Wikidata","Pattern matching","Search algorithms"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Backtracking","wgRelevantArticleId":238867,"wgIsProbablyEditable":
+true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":20000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q798554","wgGENewcomerTasksGuidanceEnabled":true,"wgGEAskQuestionEnabled":false,"wgGELinkRecommendationsFrontendEnabled":false};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading"
+,"ext.cite.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.9"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="Backtracking - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Backtracking"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Backtracking&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Backtracking"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Backtracking rootpage-Backtracking skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Backtracking</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Search algorithm</div>
+<style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">For the <a href="https://en.wikipedia.org/wiki/Line_search" title="Line search">line search</a> algorithm used in <a href="https://en.wikipedia.org/wiki/Mathematical_optimization" title="Mathematical optimization">unconstrained optimization</a>, see <a href="https://en.wikipedia.org/wiki/Backtracking_line_search" title="Backtracking line search">Backtracking line search</a>.</div>
+<style data-mw-deduplicate="TemplateStyles:r1045330069">.mw-parser-output .sidebar{width:22em;float:right;clear:right;margin:0.5em 0 1em 1em;background:#f8f9fa;border:1px solid #aaa;padding:0.2em;text-align:center;line-height:1.4em;font-size:88%;border-collapse:collapse;display:table}body.skin-minerva .mw-parser-output .sidebar{display:table!important;float:right!important;margin:0.5em 0 1em 1em!important}.mw-parser-output .sidebar-subgroup{width:100%;margin:0;border-spacing:0}.mw-parser-output .sidebar-left{float:left;clear:left;margin:0.5em 1em 1em 0}.mw-parser-output .sidebar-none{float:none;clear:both;margin:0.5em 1em 1em 0}.mw-parser-output .sidebar-outer-title{padding:0 0.4em 0.2em;font-size:125%;line-height:1.2em;font-weight:bold}.mw-parser-output .sidebar-top-image{padding:0.4em}.mw-parser-output .sidebar-top-caption,.mw-parser-output .sidebar-pretitle-with-top-image,.mw-parser-output .sidebar-caption{padding:0.2em 0.4em 0;line-height:1.2em}.mw-parser-output .sidebar-pretitle{padding:0.4em 0.4em 0;line-height:1.2em}.mw-parser-output .sidebar-title,.mw-parser-output .sidebar-title-with-pretitle{padding:0.2em 0.8em;font-size:145%;line-height:1.2em}.mw-parser-output .sidebar-title-with-pretitle{padding:0.1em 0.4em}.mw-parser-output .sidebar-image{padding:0.2em 0.4em 0.4em}.mw-parser-output .sidebar-heading{padding:0.1em 0.4em}.mw-parser-output .sidebar-content{padding:0 0.5em 0.4em}.mw-parser-output .sidebar-content-with-subgroup{padding:0.1em 0.4em 0.2em}.mw-parser-output .sidebar-above,.mw-parser-output .sidebar-below{padding:0.3em 0.8em;font-weight:bold}.mw-parser-output .sidebar-collapse .sidebar-above,.mw-parser-output .sidebar-collapse .sidebar-below{border-top:1px solid #aaa;border-bottom:1px solid #aaa}.mw-parser-output .sidebar-navbar{text-align:right;font-size:115%;padding:0 0.4em 0.4em}.mw-parser-output .sidebar-list-title{padding:0 0.4em;text-align:left;font-weight:bold;line-height:1.6em;font-size:105%}.mw-parser-output .sidebar-list-title-c{padding:0 0.4em;text-align:center;margin:0 3.3em}@media(max-width:720px){body.mediawiki .mw-parser-output .sidebar{width:100%!important;clear:both;float:none!important;margin-left:0!important;margin-right:0!important}}</style><table class="sidebar nomobile nowraplinks hlist"><tbody><tr><th class="sidebar-title"><a href="https://en.wikipedia.org/wiki/Graph_traversal" title="Graph traversal">Graph</a> and <a href="https://en.wikipedia.org/wiki/Tree_traversal" title="Tree traversal">tree</a><br /><a href="https://en.wikipedia.org/wiki/Search_algorithm" title="Search algorithm">search algorithms</a></th></tr><tr><td class="sidebar-content">
+<ul><li><a href="https://en.wikipedia.org/wiki/Alpha–beta_pruning" title="Alpha–beta pruning">α–β pruning</a></li>
+<li><a class="mw-selflink selflink">Backtracking</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Beam_search" title="Beam search">Beam search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Best-first_search" title="Best-first search">Best-first search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Branch_and_bound" title="Branch and bound">Branch &amp; bound</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Breadth-first_search" title="Breadth-first search">Breadth-First Search (<b>BFS</b>)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/British_Museum_algorithm" title="British Museum algorithm">British Museum</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Depth-first_search" title="Depth-first search">Depth-First Search (<b>DFS</b>)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hill_climbing" title="Hill climbing">Hill climbing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search" title="Iterative deepening depth-first search">Iterative Deepening DFS (IDDFS)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lexicographic_breadth-first_search" title="Lexicographic breadth-first search">Lexicographic BFS</a></li></ul></td>
+</tr><tr><th class="sidebar-heading">
+<a href="https://en.wikipedia.org/wiki/Shortest_path_problem" title="Shortest path problem">Shortest path</a></th></tr><tr><td class="sidebar-content">
+<ul><li><a href="https://en.wikipedia.org/wiki/A*_search_algorithm" title="A* search algorithm"><b>A*</b></a></li>
+<li><a href="https://en.wikipedia.org/wiki/B*" title="B*">B*</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bellman–Ford_algorithm" title="Bellman–Ford algorithm">Bellman–Ford</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bidirectional_search" title="Bidirectional search">Bidirectional search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/D*" title="D*">D*</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm" title="Dijkstra&#39;s algorithm"><b>Dijkstra's</b></a></li>
+<li><a href="https://en.wikipedia.org/wiki/Floyd–Warshall_algorithm" title="Floyd–Warshall algorithm">Floyd–Warshall</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fringe_search" title="Fringe search">Fringe search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Iterative_deepening_A*" title="Iterative deepening A*">Iterative Deepening (IDA*)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Johnson%27s_algorithm" title="Johnson&#39;s algorithm">Johnson's</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Jump_point_search" title="Jump point search">Jump point search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kruskal%27s_algorithm" title="Kruskal&#39;s algorithm">Kruskal's</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lifelong_Planning_A*" title="Lifelong Planning A*">Lifelong Planning A* (LPA*)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pathfinding" title="Pathfinding">Pathfinding</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SMA*" title="SMA*">SMA*</a></li></ul></td>
+</tr><tr><th class="sidebar-heading">
+Lists</th></tr><tr><td class="sidebar-content">
+<ul><li><i><a href="https://en.wikipedia.org/wiki/Category:Graph_algorithms" title="Category:Graph algorithms">Graph algorithms</a></i></li>
+<li><i><a href="https://en.wikipedia.org/wiki/Category:Search_algorithms" title="Category:Search algorithms">Search algorithms</a></i></li>
+<li><i><a href="https://en.wikipedia.org/wiki/List_of_algorithms#Graph_algorithms" title="List of algorithms">List of graph algorithms</a></i></li></ul></td>
+</tr><tr><th class="sidebar-heading">
+Related topics</th></tr><tr><td class="sidebar-content">
+<ul><li><a href="https://en.wikipedia.org/wiki/Dynamic_programming" title="Dynamic programming">Dynamic programming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Graph_coloring" title="Graph coloring">Graph coloring</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Graph_traversal" title="Graph traversal">Graph traversal</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Minimum_spanning_tree" title="Minimum spanning tree">Minimum spanning tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Search_game" title="Search game">Search games</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Threaded_binary_tree" title="Threaded binary tree">Threaded binary tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tree_traversal" title="Tree traversal">Tree traversal</a></li></ul></td>
+</tr><tr><td class="sidebar-navbar"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Graph_search_algorithm" title="Template:Graph search algorithm"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Graph_search_algorithm" title="Template talk:Graph search algorithm"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Graph_search_algorithm&amp;action=edit"><abbr title="Edit this template">e</abbr></a></li></ul></div></td></tr></tbody></table>
+<p><b>Backtracking</b> is a general <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithm</a> for finding solutions to some <a href="https://en.wikipedia.org/wiki/Computational_problem" title="Computational problem">computational problems</a>, notably <a href="https://en.wikipedia.org/wiki/Constraint_satisfaction_problem" title="Constraint satisfaction problem">constraint satisfaction problems</a>, that incrementally builds candidates to the solutions, and abandons a candidate ("backtracks") as soon as it determines that the candidate cannot possibly be completed to a valid solution.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
+</p><p>The classic textbook example of the use of backtracking is the <a href="https://en.wikipedia.org/wiki/Eight_queens_puzzle" title="Eight queens puzzle">eight queens puzzle</a>, that asks for all arrangements of eight <a href="https://en.wikipedia.org/wiki/Chess" title="Chess">chess</a> <a href="https://en.wikipedia.org/wiki/Queen_(chess)" title="Queen (chess)">queens</a> on a standard <a href="https://en.wikipedia.org/wiki/Chessboard" title="Chessboard">chessboard</a> so that no queen attacks any other.  In the common backtracking approach, the partial candidates are arrangements of <i>k</i> queens in the first <i>k</i> rows of the board, all in different rows and columns.  Any partial solution that contains two mutually attacking queens can be abandoned.
+</p><p>Backtracking can be applied only for problems which admit the concept of a "partial candidate solution" and a relatively quick test of whether it can possibly be completed to a valid solution.  It is useless, for example, for locating a given value in an unordered table.  When it is applicable, however, backtracking is often much faster than <a href="https://en.wikipedia.org/wiki/Brute-force_search" title="Brute-force search">brute-force enumeration</a> of all complete candidates, since it can eliminate many candidates with a single test.
+</p><p>Backtracking is an important tool for solving <a href="https://en.wikipedia.org/wiki/Constraint_satisfaction_problem" title="Constraint satisfaction problem">constraint satisfaction problems</a>,<sup id="cite_ref-BiereHeule2009_2-0" class="reference"><a href="#cite_note-BiereHeule2009-2">&#91;2&#93;</a></sup> such as <a href="https://en.wikipedia.org/wiki/Crosswords" class="mw-redirect" title="Crosswords">crosswords</a>, <a href="https://en.wikipedia.org/wiki/Verbal_arithmetic" title="Verbal arithmetic">verbal arithmetic</a>, <a href="https://en.wikipedia.org/wiki/Algorithmics_of_sudoku" class="mw-redirect" title="Algorithmics of sudoku">Sudoku</a>, and many other puzzles.  It is often the most convenient technique for <a href="https://en.wikipedia.org/wiki/Parsing" title="Parsing">parsing</a>,<sup id="cite_ref-Watson2017_3-0" class="reference"><a href="#cite_note-Watson2017-3">&#91;3&#93;</a></sup> for the <a href="https://en.wikipedia.org/wiki/Knapsack_problem" title="Knapsack problem">knapsack problem</a> and other <a href="https://en.wikipedia.org/wiki/Combinatorial_optimization" title="Combinatorial optimization">combinatorial optimization</a> problems.  It is also the basis of the so-called <a href="https://en.wikipedia.org/wiki/Logic_programming" title="Logic programming">logic programming</a> languages such as  <a href="https://en.wikipedia.org/wiki/Icon_programming_language" class="mw-redirect" title="Icon programming language">Icon</a>, <a href="https://en.wikipedia.org/wiki/Planner_programming_language" class="mw-redirect" title="Planner programming language">Planner</a> and <a href="https://en.wikipedia.org/wiki/Prolog" title="Prolog">Prolog</a>.
+</p><p>Backtracking depends on user-given "<a href="https://en.wikipedia.org/wiki/Procedural_parameter" title="Procedural parameter">black box procedures</a>" that define the problem to be solved, the nature of the partial candidates, and how they are extended into complete candidates.  It is therefore a <a href="https://en.wikipedia.org/wiki/Metaheuristic" title="Metaheuristic">metaheuristic</a> rather than a specific algorithm&#160;– although, unlike many other meta-heuristics, it is guaranteed to find all solutions to a finite problem in a bounded amount of time.
+</p><p>The term "backtrack" was coined by American mathematician <a href="https://en.wikipedia.org/wiki/Derrick_Henry_Lehmer" class="mw-redirect" title="Derrick Henry Lehmer">D. H. Lehmer</a> in the 1950s.<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup> The pioneer string-processing language <a href="https://en.wikipedia.org/wiki/SNOBOL" title="SNOBOL">SNOBOL</a> (1962) may have been the first to provide a built-in general backtracking facility.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Description_of_the_method"><span class="tocnumber">1</span> <span class="toctext">Description of the method</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Pseudocode"><span class="tocnumber">1.1</span> <span class="toctext">Pseudocode</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Usage_considerations"><span class="tocnumber">1.2</span> <span class="toctext">Usage considerations</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Early_stopping_variants"><span class="tocnumber">1.3</span> <span class="toctext">Early stopping variants</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Examples"><span class="tocnumber">2</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#Constraint_satisfaction"><span class="tocnumber">2.1</span> <span class="toctext">Constraint satisfaction</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Notes"><span class="tocnumber">4</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Further_reading"><span class="tocnumber">6</span> <span class="toctext">Further reading</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#External_links"><span class="tocnumber">7</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Description_of_the_method">Description of the method</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Backtracking&amp;action=edit&amp;section=1" title="Edit section: Description of the method">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The backtracking algorithm enumerates a set of <i>partial candidates</i> that, in principle, could be <i>completed</i> in various ways to give all the possible solutions to the given problem. The completion is done incrementally, by a sequence of <i>candidate extension steps.</i>
+</p><p>Conceptually, the partial candidates are represented as the nodes of a <a href="https://en.wikipedia.org/wiki/Tree_structure" title="Tree structure">tree structure</a>, the <i>potential search tree.</i> Each partial candidate is the parent of the candidates that differ from it by a single extension step; the leaves of the tree are the partial candidates that cannot be extended any further.
+</p><p>The backtracking algorithm traverses this search tree <a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)" title="Recursion (computer science)">recursively</a>, from the root down, in <a href="https://en.wikipedia.org/wiki/Depth-first_search" title="Depth-first search">depth-first order</a>.  At each node <i>c</i>, the algorithm checks whether <i>c</i> can be completed to a valid solution.  If it cannot, the whole sub-tree rooted at <i>c</i> is skipped (<i>pruned</i>).  Otherwise, the algorithm (1) checks whether <i>c</i> itself is a valid solution, and if so reports it to the user; and (2) recursively enumerates all sub-trees  of <i>c</i>.  The two tests and the children of each node are defined by user-given procedures.
+</p><p>Therefore, the <i>actual search tree</i> that is traversed by the algorithm is only a part of the potential tree.  The total cost of the algorithm is the number of nodes of the actual tree times the cost of obtaining and processing each node.  This fact should be considered when choosing the potential search tree and implementing the pruning test.
+</p>
+<h3><span class="mw-headline" id="Pseudocode">Pseudocode</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Backtracking&amp;action=edit&amp;section=2" title="Edit section: Pseudocode">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In order to apply backtracking to a specific class of problems, one must provide the data <i>P</i> for the particular instance of the problem that is to be solved, and  six <a href="https://en.wikipedia.org/wiki/Procedural_parameter" title="Procedural parameter">procedural parameters</a>, <i>root</i>, <i>reject</i>, <i>accept</i>, <i>first</i>, <i>next</i>, and <i>output</i>. These procedures should take the instance data <i>P</i> as a parameter and should do the following:
+</p>
+<ol><li><i>root</i>(<i>P</i>):  return the partial candidate at the root of the search tree.</li>
+<li><i>reject</i>(<i>P</i>,<i>c</i>):  return <i>true</i> only if the partial candidate <i>c</i> is not worth completing.</li>
+<li><i>accept</i>(<i>P</i>,<i>c</i>): return <i>true</i> if <i>c</i> is a solution of <i>P</i>, and <i>false</i> otherwise.</li>
+<li><i>first</i>(<i>P</i>,<i>c</i>): generate the first extension of candidate <i>c</i>.</li>
+<li><i>next</i>(<i>P</i>,<i>s</i>): generate the next alternative extension of a candidate, after the extension <i>s</i>.</li>
+<li><i>output</i>(<i>P</i>,<i>c</i>):  use the solution <i>c</i> of <i>P</i>, as appropriate to the application.</li></ol>
+<p>The backtracking algorithm reduces the problem to the call <i>backtrack</i>(<i>root</i>(<i>P</i>)), where <i>backtrack</i> is the following recursive procedure:
+</p>
+<pre><b>procedure</b> backtrack(c) <b>is</b>
+    <b>if</b> reject(P, c) <b>then</b> return
+    <b>if</b> accept(P, c) <b>then</b> output(P, c)
+    s ← first(P, c)
+    <b>while</b> s ≠ NULL <b>do</b>
+        backtrack(s)
+        s ← next(P, s)
+</pre>
+<h3><span class="mw-headline" id="Usage_considerations">Usage considerations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Backtracking&amp;action=edit&amp;section=3" title="Edit section: Usage considerations">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The <i>reject</i> procedure should be a <a href="https://en.wikipedia.org/wiki/Boolean-valued_function" title="Boolean-valued function">boolean-valued function</a> that returns <i>true</i> only if it is certain that no possible extension of <i>c</i> is a valid solution for <i>P</i>.  If the procedure cannot reach a definite conclusion, it should return <i>false</i>. An incorrect <i>true</i> result may  cause the <i>backtrack</i> procedure to miss some valid solutions.  The procedure may assume that <i>reject</i>(<i>P</i>,<i>t</i>) returned <i>false</i> for every ancestor <i>t</i> of <i>c</i> in the search tree.
+</p><p>On the other hand, the efficiency of the backtracking algorithm depends on <i>reject</i> returning <i>true</i> for candidates that are as close to the root as possible.  If <i>reject</i> always returns <i>false</i>, the algorithm will still find all solutions, but it will be equivalent to a brute-force search.
+</p><p>The <i>accept</i> procedure should return <i>true</i> if <i>c</i> is a complete and valid solution for the problem instance <i>P</i>, and <i>false</i> otherwise.  It may assume that the partial candidate <i>c</i> and all its ancestors in the tree have passed the <i>reject</i> test.
+</p><p>The general pseudo-code above does not assume that the valid solutions are always leaves of the potential search tree.  In other words, it admits the possibility that a valid solution for <i>P</i> can be further extended to yield other valid solutions.
+</p><p>The <i>first</i> and <i>next</i> procedures are used by the backtracking algorithm to enumerate the children of a node <i>c</i> of the tree, that is, the candidates that differ from <i>c</i> by a single  extension step.  The call <i>first</i>(<i>P</i>,<i>c</i>) should yield the first child of <i>c</i>, in some order; and the call <i>next</i>(<i>P</i>,<i>s</i>) should return the next sibling of node <i>s</i>, in that order.  Both functions should return a distinctive "NULL" candidate, if the requested child does not exist.
+</p><p>Together, the <i>root</i>, <i>first</i>, and <i>next</i> functions define the set of partial candidates and the potential search tree.  They should be chosen so that every  solution of <i>P</i> occurs somewhere in the tree, and no partial candidate occurs more than once.  Moreover, they should admit an efficient and effective <i>reject</i> predicate.
+</p>
+<h3><span class="mw-headline" id="Early_stopping_variants">Early stopping variants</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Backtracking&amp;action=edit&amp;section=4" title="Edit section: Early stopping variants">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The pseudo-code above will call <i>output</i> for all candidates that are a solution to the given instance <i>P</i>. The algorithm can be modified to stop after finding the first solution, or a specified number of solutions; or after testing a specified number of partial candidates, or after spending a given amount of <a href="https://en.wikipedia.org/wiki/Central_processing_unit" title="Central processing unit">CPU</a> time.
+</p>
+<h2><span class="mw-headline" id="Examples">Examples</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Backtracking&amp;action=edit&amp;section=5" title="Edit section: Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Sudoku_solved_by_bactracking.gif" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Sudoku_solved_by_bactracking.gif/220px-Sudoku_solved_by_bactracking.gif" decoding="async" width="220" height="220" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/8/8c/Sudoku_solved_by_bactracking.gif 1.5x" data-file-width="297" data-file-height="297" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Sudoku_solved_by_bactracking.gif" class="internal" title="Enlarge"></a></div>A <a href="https://en.wikipedia.org/wiki/Sudoku" title="Sudoku">Sudoku</a> solved by backtracking.</div></div></div>
+<p>Examples where backtracking can be used to solve puzzles or problems include:
+</p>
+<ul><li><a href="https://en.wikipedia.org/wiki/Puzzle" title="Puzzle">Puzzles</a> such as <a href="https://en.wikipedia.org/wiki/Eight_queens_puzzle" title="Eight queens puzzle">eight queens puzzle</a>, <a href="https://en.wikipedia.org/wiki/Crosswords" class="mw-redirect" title="Crosswords">crosswords</a>, <a href="https://en.wikipedia.org/wiki/Verbal_arithmetic" title="Verbal arithmetic">verbal arithmetic</a>, <a href="https://en.wikipedia.org/wiki/Algorithmics_of_sudoku" class="mw-redirect" title="Algorithmics of sudoku">Sudoku</a><sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;nb 1&#93;</a></sup>, and <a href="https://en.wikipedia.org/wiki/Peg_solitaire" title="Peg solitaire">Peg Solitaire</a>.</li>
+<li><a href="https://en.wikipedia.org/wiki/Combinatorial_optimization" title="Combinatorial optimization">Combinatorial optimization</a> problems such as <a href="https://en.wikipedia.org/wiki/Parsing" title="Parsing">parsing</a> and the <a href="https://en.wikipedia.org/wiki/Knapsack_problem" title="Knapsack problem">knapsack problem</a>.</li>
+<li><a href="https://en.wikipedia.org/wiki/Logic_programming" title="Logic programming">Logic programming</a> languages such as <a href="https://en.wikipedia.org/wiki/Icon_programming_language" class="mw-redirect" title="Icon programming language">Icon</a>, <a href="https://en.wikipedia.org/wiki/Planner_programming_language" class="mw-redirect" title="Planner programming language">Planner</a> and <a href="https://en.wikipedia.org/wiki/Prolog" title="Prolog">Prolog</a>, which use backtracking internally to generate answers.</li></ul>
+<p>The following is an example where backtracking is used for the <a href="https://en.wikipedia.org/wiki/Constraint_satisfaction_problem" title="Constraint satisfaction problem">constraint satisfaction problem</a>:
+</p>
+<h3><span class="mw-headline" id="Constraint_satisfaction">Constraint satisfaction</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Backtracking&amp;action=edit&amp;section=6" title="Edit section: Constraint satisfaction">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The general <a href="https://en.wikipedia.org/wiki/Constraint_satisfaction_problem" title="Constraint satisfaction problem">constraint satisfaction problem</a> consists in finding a list of integers <span class="nowrap"><i>x</i> = (<i>x</i>[1], <i>x</i>[2], …, <i>x</i>[<i>n</i>])</span>, each in some range <span class="nowrap">{1, 2, …, <i>m</i></span>}, that satisfies some arbitrary constraint (boolean function) <i>F</i>.
+</p><p>For this class of problems, the instance data <i>P</i> would be the integers <i>m</i> and <i>n</i>, and the predicate <i>F</i>. In a typical backtracking solution to this problem, one could define a partial candidate as a list of integers <span class="nowrap"><i>c</i> = (<i>c</i>[1], <i>c</i>[2], …, <i>c</i>[k])</span>, for any <i>k</i> between 0 and <i>n</i>, that are to be assigned to the first <i>k</i> variables <span class="nowrap"><i>x</i>[1], <i>x</i>[2], …, <i>x</i>[<i>k</i>]</span>. The root candidate would then be the empty list (). The <i>first</i> and <i>next</i> procedures would then be
+</p>
+<pre><b>function</b> first(P, c) <b>is</b>
+    k ← length(c)
+    <b>if</b> k = n <b>then</b>
+        <b>return</b> NULL
+    <b>else</b>
+        <b>return</b> (c[1], c[2], …, c[k], 1)
+</pre>
+<pre><b>function</b> next(P, s) <b>is</b>
+    k ← length(s)
+    <b>if</b> s[k] = m <b>then</b>
+        <b>return</b> NULL
+    <b>else</b>
+        <b>return</b> (s[1], s[2], …, s[k − 1], 1 + s[k])
+</pre>
+<p>Here <i>length</i>(<i>c</i>) is the number of elements in the list <i>c</i>.
+</p><p>The call <i>reject</i>(<i>P</i>, <i>c</i>) should return <i>true</i> if the constraint <i>F</i> cannot be satisfied by any list of <i>n</i> integers that begins with the <i>k</i> elements of <i>c</i>. For backtracking to be effective, there must be a way to detect this situation, at least for some candidates <i>c</i>, without enumerating all those <i>m</i><sup><i>n</i> − <i>k</i></sup> <i>n</i>-tuples.
+</p><p>For example, if <i>F</i> is the <a href="https://en.wikipedia.org/wiki/Logical_conjunction" title="Logical conjunction">conjunction</a> of several boolean predicates, <span class="nowrap"><i>F</i> = <i>F</i>[1] ∧ <i>F</i>[2] ∧ … ∧ <i>F</i>[<i>p</i>]</span>, and each <i>F</i>[<i>i</i>] depends only on a small subset of the variables <span class="nowrap"><i>x</i>[1], …, <i>x</i>[<i>n</i>]</span>, then the <i>reject</i> procedure could simply check the terms <i>F</i>[<i>i</i>] that depend only on variables <span class="nowrap"><i>x</i>[1], …, <i>x</i>[<i>k</i>]</span>, and return <i>true</i> if any of those terms returns <i>false</i>. In fact, <i>reject</i> needs only check those terms that do depend on <i>x</i>[<i>k</i>], since the terms that depend only on <span class="nowrap"><i>x</i>[1], …, <i>x</i>[<i>k</i> − 1]</span> will have been tested further up in the search tree.
+</p><p>Assuming that <i>reject</i> is implemented as above, then <i>accept</i>(<i>P</i>, <i>c</i>) needs only check whether <i>c</i> is complete, that is, whether it has <i>n</i> elements.
+</p><p>It is generally better to order the list of variables so that it begins with the most critical ones (i.e. the ones with fewest value options, or which have a greater impact on subsequent choices).
+</p><p>One could also allow the <i>next</i> function to choose which variable should be assigned when extending a partial candidate, based on the values of the variables already assigned by it. Further improvements can be obtained by the technique of <a href="https://en.wikipedia.org/wiki/Constraint_propagation" class="mw-redirect" title="Constraint propagation">constraint propagation</a>.
+</p><p>In addition to retaining minimal recovery values used in backing up, backtracking implementations commonly keep a variable trail, to record value change history. An efficient implementation will avoid creating a variable trail entry between two successive changes when there is no choice point, as the backtracking will erase all of the changes as a single operation.
+</p><p>An alternative to the variable trail is to keep a <a href="https://en.wikipedia.org/wiki/Timestamp" title="Timestamp">timestamp</a> of when the last change was made to the variable. The timestamp is compared to the timestamp of a choice point. If the choice point has an associated time later than that of the variable, it is unnecessary to revert the variable when the choice point is backtracked, as it was changed before the choice point occurred.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Backtracking&amp;action=edit&amp;section=7" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Ariadne%27s_thread_(logic)" title="Ariadne&#39;s thread (logic)">Ariadne's thread (logic)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Backjumping" title="Backjumping">Backjumping</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Backward_chaining" title="Backward chaining">Backward chaining</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Enumeration_algorithm" title="Enumeration algorithm">Enumeration algorithm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sudoku_solving_algorithms" title="Sudoku solving algorithms">Sudoku solving algorithms</a></li></ul>
+<h2><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Backtracking&amp;action=edit&amp;section=8" title="Edit section: Notes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text">See <a href="https://en.wikipedia.org/wiki/Sudoku_solving_algorithms" title="Sudoku solving algorithms">Sudoku solving algorithms</a>.</span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Backtracking&amp;action=edit&amp;section=9" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1011085734"/><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFGurari1999" class="citation web cs1">Gurari, Eitan (1999). <a rel="nofollow" class="external text" href="https://web.archive.org/web/20070317015632/http://www.cse.ohio-state.edu/~gurari/course/cis680/cis680Ch19.html#QQ1-51-128">"CIS 680: DATA STRUCTURES: Chapter 19: Backtracking Algorithms"</a>. Archived from <a rel="nofollow" class="external text" href="http://www.cse.ohio-state.edu/~gurari/course/cis680/cis680Ch19.html">the original</a> on 17 March 2007.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=CIS+680%3A+DATA+STRUCTURES%3A+Chapter+19%3A+Backtracking+Algorithms&amp;rft.date=1999&amp;rft.aulast=Gurari&amp;rft.aufirst=Eitan&amp;rft_id=http%3A%2F%2Fwww.cse.ohio-state.edu%2F~gurari%2Fcourse%2Fcis680%2Fcis680Ch19.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABacktracking" class="Z3988"></span></span>
+</li>
+<li id="cite_note-BiereHeule2009-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-BiereHeule2009_2-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFA._BiereM._HeuleH._van_Maaren2009" class="citation book cs1">A. Biere; M. Heule; H. van Maaren (29 January 2009). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=shLvAgAAQBAJ&amp;q=backtracking"><i>Handbook of Satisfiability</i></a>. IOS Press. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-1-60750-376-7" title="Special:BookSources/978-1-60750-376-7"><bdi>978-1-60750-376-7</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Handbook+of+Satisfiability&amp;rft.pub=IOS+Press&amp;rft.date=2009-01-29&amp;rft.isbn=978-1-60750-376-7&amp;rft.au=A.+Biere&amp;rft.au=M.+Heule&amp;rft.au=H.+van+Maaren&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3DshLvAgAAQBAJ%26q%3Dbacktracking&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABacktracking" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Watson2017-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-Watson2017_3-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFDes_Watson2017" class="citation book cs1">Des Watson (22 March 2017). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=05B0DgAAQBAJ&amp;q=backtracking"><i>A Practical Approach to Compiler Construction</i></a>. Springer. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-3-319-52789-5" title="Special:BookSources/978-3-319-52789-5"><bdi>978-3-319-52789-5</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=A+Practical+Approach+to+Compiler+Construction&amp;rft.pub=Springer&amp;rft.date=2017-03-22&amp;rft.isbn=978-3-319-52789-5&amp;rft.au=Des+Watson&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3D05B0DgAAQBAJ%26q%3Dbacktracking&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABacktracking" class="Z3988"></span></span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFRossiBeek,_Peter_VanWalsh,_Toby2006" class="citation book cs1">Rossi, Francesca; Beek, Peter Van; Walsh, Toby (August 2006). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=Kjap9ZWcKOoC&amp;pg=PA14">"Constraint Satisfaction: An Emerging Paradigm"</a>. <a rel="nofollow" class="external text" href="https://books.google.com/books?id=Kjap9ZWcKOoC"><i>Handbook of Constraint Programming</i></a>. <a rel="nofollow" class="external text" href="http://www.elsevier.com/wps/find/bookdescription.cws_home/BS_FAI/description#description">Foundations of Artificial Intelligence</a>. <a href="https://en.wikipedia.org/wiki/Amsterdam" title="Amsterdam">Amsterdam</a>: <a href="https://en.wikipedia.org/wiki/Elsevier" title="Elsevier">Elsevier</a>. p.&#160;14. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-444-52726-4" title="Special:BookSources/978-0-444-52726-4"><bdi>978-0-444-52726-4</bdi></a><span class="reference-accessdate">. Retrieved <span class="nowrap">2008-12-30</span></span>. <q>Bitner and Reingold credit Lehmer with first using the term 'backtrack' in the 1950s.</q></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Constraint+Satisfaction%3A+An+Emerging+Paradigm&amp;rft.btitle=Handbook+of+Constraint+Programming&amp;rft.place=Amsterdam&amp;rft.series=%5Bhttp%3A%2F%2Fwww.elsevier.com%2Fwps%2Ffind%2Fbookdescription.cws_home%2FBS_FAI%2Fdescription%23description+Foundations+of+Artificial+Intelligence%5D&amp;rft.pages=14&amp;rft.pub=Elsevier&amp;rft.date=2006-08&amp;rft.isbn=978-0-444-52726-4&amp;rft.aulast=Rossi&amp;rft.aufirst=Francesca&amp;rft.au=Beek%2C+Peter+Van&amp;rft.au=Walsh%2C+Toby&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3DKjap9ZWcKOoC%26pg%3DPA14&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABacktracking" class="Z3988"></span> <span class="cs1-visible-error citation-comment"><code class="cs1-code">{{<a href="https://en.wikipedia.org/wiki/Template:Cite_book" title="Template:Cite book">cite book</a>}}</code>: </span><span class="cs1-visible-error citation-comment">External link in <code class="cs1-code"><code class="cs1-code">&#124;series=</code></code> (<a href="https://en.wikipedia.org/wiki/Help:CS1_errors#param_has_ext_link" title="Help:CS1 errors">help</a>)</span></span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="Further_reading">Further reading</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Backtracking&amp;action=edit&amp;section=10" title="Edit section: Further reading">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1054258005">.mw-parser-output .refbegin{font-size:90%;margin-bottom:0.5em}.mw-parser-output .refbegin-hanging-indents>ul{margin-left:0}.mw-parser-output .refbegin-hanging-indents>ul>li{margin-left:0;padding-left:3.2em;text-indent:-3.2em}.mw-parser-output .refbegin-hanging-indents ul,.mw-parser-output .refbegin-hanging-indents ul li{list-style:none}@media(max-width:720px){.mw-parser-output .refbegin-hanging-indents>ul>li{padding-left:1.6em;text-indent:-1.6em}}.mw-parser-output .refbegin-columns{margin-top:0.3em}.mw-parser-output .refbegin-columns ul{margin-top:0}.mw-parser-output .refbegin-columns li{page-break-inside:avoid;break-inside:avoid-column}</style><div class="refbegin" style="">
+<ul><li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGilles_Brassard,_Paul_Bratley1995" class="citation book cs1">Gilles Brassard, Paul Bratley (1995). <span class="cs1-lock-registration" title="Free registration required"><a rel="nofollow" class="external text" href="https://archive.org/details/fundamentalsofal0000bras"><i>Fundamentals of Algorithmics</i></a></span>. Prentice-Hall. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/9780133350685" title="Special:BookSources/9780133350685"><bdi>9780133350685</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Fundamentals+of+Algorithmics&amp;rft.pub=Prentice-Hall&amp;rft.date=1995&amp;rft.isbn=9780133350685&amp;rft.au=Gilles+Brassard%2C+Paul+Bratley&amp;rft_id=https%3A%2F%2Farchive.org%2Fdetails%2Ffundamentalsofal0000bras&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ABacktracking" class="Z3988"></span></li></ul>
+</div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Backtracking&amp;action=edit&amp;section=11" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="http://www.hbmeyer.de/backtrack/backtren.htm">HBmeyer.de</a>, Interactive animation of a backtracking algorithm</li>
+<li><a rel="nofollow" class="external text" href="http://www.drdobbs.com/cpp/solving-combinatorial-problems-with-stl/184401194">Solving Combinatorial Problems with STL and Backtracking</a>, Article and C++ source code for a generic implementation of backtracking</li></ul>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Parsing_algorithms" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1063604349"/><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Parsers" title="Template:Parsers"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Parsers" title="Template talk:Parsers"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Parsers&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Parsing_algorithms" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Parsing" title="Parsing">Parsing algorithms</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Top-down_parsing" title="Top-down parsing">Top-down</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/LL_parser" title="LL parser">LL</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Recursive_descent_parser" title="Recursive descent parser">Recursive descent</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Tail_recursive_parser" title="Tail recursive parser">Tail recursive</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pratt_parser" class="mw-redirect" title="Pratt parser">Pratt parser</a></li></ul></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Bottom-up_parsing" title="Bottom-up parsing">Bottom-up</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li>Precedence
+<ul><li><a href="https://en.wikipedia.org/wiki/Simple_precedence_parser" title="Simple precedence parser">Simple</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Operator-precedence_parser" title="Operator-precedence parser">Operator</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Shunting-yard_algorithm" class="mw-redirect" title="Shunting-yard algorithm">Shunting-yard</a></li></ul></li></ul></li>
+<li>Bounded-context</li>
+<li><a href="https://en.wikipedia.org/wiki/LR_parser" title="LR parser">LR</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Simple_LR_parser" title="Simple LR parser">Simple</a></li>
+<li><a href="https://en.wikipedia.org/wiki/LALR_parser" title="LALR parser">Look-ahead</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Canonical_LR_parser" title="Canonical LR parser">Canonical</a></li>
+<li><a href="https://en.wikipedia.org/wiki/GLR_parser" title="GLR parser">Generalized</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/CYK_algorithm" title="CYK algorithm">CYK</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Recursive_ascent_parser" title="Recursive ascent parser">Recursive ascent</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shift-reduce_parser" title="Shift-reduce parser">Shift-reduce</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Mixed, other</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Parser_combinator" title="Parser combinator">Combinator</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Chart_parser" title="Chart parser">Chart</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Earley_parser" title="Earley parser">Earley</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Related topics</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Parsing_expression_grammar" title="Parsing expression grammar">PEG</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Definite_clause_grammar" title="Definite clause grammar">Definite clause grammar</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Deterministic_parsing" title="Deterministic parsing">Deterministic parsing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dynamic_programming" title="Dynamic programming">Dynamic programming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Memoization" title="Memoization">Memoization</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Compiler-compiler" title="Compiler-compiler">Parser generator</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/LALR_parser_generator" title="LALR parser generator">LALR</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Parse_tree" title="Parse tree">Parse tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree" title="Abstract syntax tree">AST</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Scannerless_parsing" title="Scannerless parsing">Scannerless parsing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/History_of_compiler_construction" title="History of compiler construction">History of compiler construction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Comparison_of_parser_generators" title="Comparison of parser generators">Comparison of parser generators</a></li></ul>
+</div></td></tr></tbody></table></div><div class="navbox-styles nomobile"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1061467846"/></div><div role="navigation" class="navbox" aria-labelledby="Data_structures_and_algorithms" style="padding:3px"><table class="nowraplinks hlist mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1063604349"/><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Data_structures_and_algorithms" title="Template:Data structures and algorithms"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Data_structures_and_algorithms" title="Template talk:Data structures and algorithms"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Data_structures_and_algorithms&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Data_structures_and_algorithms" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Data_structure" title="Data structure">Data structures</a> and <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithms</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Data structures</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Array_data_structure" title="Array data structure">Array</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Associative_array" title="Associative array">Associative array</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binary_search_tree" title="Binary search tree">Binary search tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fenwick_tree" title="Fenwick tree">Fenwick tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Graph_(abstract_data_type)" title="Graph (abstract data type)">Graph</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hash_table" title="Hash table">Hash table</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" title="Heap (data structure)">Heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Linked_list" title="Linked list">Linked list</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)" title="Queue (abstract data type)">Queue</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Segment_tree" title="Segment tree">Segment tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)" title="Stack (abstract data type)">Stack</a></li>
+<li><a href="https://en.wikipedia.org/wiki/String_(computer_science)" title="String (computer science)">String</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" title="Tree (data structure)">Tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Trie" title="Trie">Trie</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Algorithms</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a class="mw-selflink selflink">Backtracking</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binary_search" class="mw-redirect" title="Binary search">Binary search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Breadth-first_search" title="Breadth-first search">Breadth-first search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Depth-first_search" title="Depth-first search">Depth-first search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm" title="Divide-and-conquer algorithm">Divide and conquer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dynamic_programming" title="Dynamic programming">Dynamic programming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fold_(higher-order_function)" title="Fold (higher-order function)">Fold</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Greedy_algorithm" title="Greedy algorithm">Greedy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Minimax" title="Minimax">Minimax</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)" title="Recursion (computer science)">Recursion</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">Sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Streaming_algorithm" title="Streaming algorithm">Streaming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sweep_line_algorithm" title="Sweep line algorithm">Sweep line</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Topological_sorting" title="Topological sorting">Topological sorting</a></li></ul>
+</div></td></tr><tr><td class="navbox-abovebelow" colspan="2"><div>
+<ul><li><a href="https://en.wikipedia.org/wiki/List_of_data_structures" title="List of data structures">List of data structures</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_algorithms" title="List of algorithms">List of algorithms</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1375
+Cached time: 20220504091933
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.463 seconds
+Real time usage: 0.553 seconds
+Preprocessor visited node count: 802/1000000
+Post‐expand include size: 36815/2097152 bytes
+Template argument size: 733/2097152 bytes
+Highest expansion depth: 8/100
+Expensive parser function count: 1/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 27149/5000000 bytes
+Lua time usage: 0.246/10.000 seconds
+Lua memory usage: 4595645/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  451.279      1 -total
+ 36.54%  164.917      2 Template:Reflist
+ 24.54%  110.763      1 Template:Cite_web
+ 21.10%   95.217      1 Template:Short_description
+ 16.49%   74.433      1 Template:Graph_search_algorithm
+ 15.98%   72.106      1 Template:Sidebar
+ 13.87%   62.595      1 Template:Pagetype
+ 12.07%   54.464      2 Template:Navbox
+ 11.10%   50.102      1 Template:Parsers
+  5.28%   23.809      1 Template:For
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:238867-0!canonical and timestamp 20220504091932 and revision id 1077020832. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Backtracking&amp;oldid=1077020832">https://en.wikipedia.org/w/index.php?title=Backtracking&amp;oldid=1077020832</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Pattern_matching" title="Category:Pattern matching">Pattern matching</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Search_algorithms" title="Category:Search algorithms">Search algorithms</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:CS1_errors:_external_links" title="Category:CS1 errors: external links">CS1 errors: external links</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_is_different_from_Wikidata" title="Category:Short description is different from Wikidata">Short description is different from Wikidata</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Backtracking" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Backtracking" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Backtracking" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Backtracking" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Backtracking"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Backtracking&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Backtracking&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Backtracking" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Backtracking" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Backtracking&amp;oldid=1077020832" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Backtracking&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Backtracking&amp;id=1077020832&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q798554" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Backtracking&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Backtracking&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-wikibase-otherprojects" class="mw-portlet mw-portlet-wikibase-otherprojects vector-menu vector-menu-portal portal" aria-labelledby="p-wikibase-otherprojects-label" role="navigation" 
+	 >
+	<label id="p-wikibase-otherprojects-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">In other projects</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="wb-otherproject-link wb-otherproject-commons mw-list-item"><a href="https://commons.wikimedia.org/wiki/Category:Backtracking" hreflang="en"><span>Wikimedia Commons</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-ar mw-list-item"><a href="https://ar.wikipedia.org/wiki/الرجوع_في_الطريق" title="الرجوع في الطريق – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target"><span>العربية</span></a></li><li class="interlanguage-link interwiki-az mw-list-item"><a href="https://az.wikipedia.org/wiki/Geridönmələrlə_izləmə" title="Geridönmələrlə izləmə – Azerbaijani" lang="az" hreflang="az" class="interlanguage-link-target"><span>Azərbaycanca</span></a></li><li class="interlanguage-link interwiki-bg mw-list-item"><a href="https://bg.wikipedia.org/wiki/Бектрекинг" title="Бектрекинг – Bulgarian" lang="bg" hreflang="bg" class="interlanguage-link-target"><span>Български</span></a></li><li class="interlanguage-link interwiki-ca mw-list-item"><a href="https://ca.wikipedia.org/wiki/Backtracking" title="Backtracking – Catalan" lang="ca" hreflang="ca" class="interlanguage-link-target"><span>Català</span></a></li><li class="interlanguage-link interwiki-cs mw-list-item"><a href="https://cs.wikipedia.org/wiki/Backtracking" title="Backtracking – Czech" lang="cs" hreflang="cs" class="interlanguage-link-target"><span>Čeština</span></a></li><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Backtracking" title="Backtracking – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Vuelta_atrás" title="Vuelta atrás – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/روش_پس‌گرد" title="روش پس‌گرد – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Retour_sur_trace" title="Retour sur trace – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-ko mw-list-item"><a href="https://ko.wikipedia.org/wiki/퇴각검색" title="퇴각검색 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target"><span>한국어</span></a></li><li class="interlanguage-link interwiki-hi mw-list-item"><a href="https://hi.wikipedia.org/wiki/बैक_ट्रैकिंग" title="बैक ट्रैकिंग – Hindi" lang="hi" hreflang="hi" class="interlanguage-link-target"><span>हिन्दी</span></a></li><li class="interlanguage-link interwiki-it mw-list-item"><a href="https://it.wikipedia.org/wiki/Backtracking" title="Backtracking – Italian" lang="it" hreflang="it" class="interlanguage-link-target"><span>Italiano</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/גישוש_נסוג" title="גישוש נסוג – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-hu mw-list-item"><a href="https://hu.wikipedia.org/wiki/Visszalépéses_keresés" title="Visszalépéses keresés – Hungarian" lang="hu" hreflang="hu" class="interlanguage-link-target"><span>Magyar</span></a></li><li class="interlanguage-link interwiki-nl mw-list-item"><a href="https://nl.wikipedia.org/wiki/Backtracking" title="Backtracking – Dutch" lang="nl" hreflang="nl" class="interlanguage-link-target"><span>Nederlands</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/バックトラッキング" title="バックトラッキング – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-no mw-list-item"><a href="https://no.wikipedia.org/wiki/Tilbakesporing" title="Tilbakesporing – Norwegian Bokmål" lang="nb" hreflang="nb" class="interlanguage-link-target"><span>Norsk bokmål</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Algorytm_z_nawrotami" title="Algorytm z nawrotami – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/Backtracking" title="Backtracking – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-ro mw-list-item"><a href="https://ro.wikipedia.org/wiki/Backtracking" title="Backtracking – Romanian" lang="ro" hreflang="ro" class="interlanguage-link-target"><span>Română</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Поиск_с_возвратом" title="Поиск с возвратом – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-simple mw-list-item"><a href="https://simple.wikipedia.org/wiki/Backtracking" title="Backtracking – Simple English" lang="en-simple" hreflang="en-simple" class="interlanguage-link-target"><span>Simple English</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/Бектрекинг" title="Бектрекинг – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Пошук_з_вертанням" title="Пошук з вертанням – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-vi mw-list-item"><a href="https://vi.wikipedia.org/wiki/Quay_lui_(khoa_học_máy_tính)" title="Quay lui (khoa học máy tính) – Vietnamese" lang="vi" hreflang="vi" class="interlanguage-link-target"><span>Tiếng Việt</span></a></li><li class="interlanguage-link interwiki-zh-yue mw-list-item"><a href="https://zh-yue.wikipedia.org/wiki/回溯法" title="回溯法 – Cantonese" lang="yue" hreflang="yue" class="interlanguage-link-target"><span>粵語</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/回溯法" title="回溯法 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q798554#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 14 March 2022, at 05:01<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Backtracking&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.463","walltime":"0.553","ppvisitednodes":{"value":802,"limit":1000000},"postexpandincludesize":{"value":36815,"limit":2097152},"templateargumentsize":{"value":733,"limit":2097152},"expansiondepth":{"value":8,"limit":100},"expensivefunctioncount":{"value":1,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":27149,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  451.279      1 -total"," 36.54%  164.917      2 Template:Reflist"," 24.54%  110.763      1 Template:Cite_web"," 21.10%   95.217      1 Template:Short_description"," 16.49%   74.433      1 Template:Graph_search_algorithm"," 15.98%   72.106      1 Template:Sidebar"," 13.87%   62.595      1 Template:Pagetype"," 12.07%   54.464      2 Template:Navbox"," 11.10%   50.102      1 Template:Parsers","  5.28%   23.809      1 Template:For"]},"scribunto":{"limitreport-timeusage":{"value":"0.246","limit":"10.000"},"limitreport-memusage":{"value":4595645,"limit":52428800}},"cachereport":{"origin":"mw1375","timestamp":"20220504091933","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Backtracking","url":"https:\/\/en.wikipedia.org\/wiki\/Backtracking","sameAs":"http:\/\/www.wikidata.org\/entity\/Q798554","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q798554","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2003-06-02T10:06:03Z","dateModified":"2022-03-14T05:01:01Z","headline":"algorithm"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Backtracking","url":"https:\/\/en.wikipedia.org\/wiki\/Backtracking","sameAs":"http:\/\/www.wikidata.org\/entity\/Q798554","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q798554","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2003-06-02T10:06:03Z","dateModified":"2022-03-14T05:01:01Z","headline":"algorithm"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":136,"wgHostname":"mw1409"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Backtracking by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:48 GMT -->
+</html>

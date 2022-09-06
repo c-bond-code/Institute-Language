@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Comparison_sort by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Comparison sort - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"8b568288-3bcb-4e11-b48f-24f42f6cdb4e","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Comparison_sort","wgTitle":"Comparison sort","wgCurRevisionId":1085079401,"wgRevisionId":1085079401,"wgArticleId":3189304,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CS1 Chinese-language sources (zh)","Articles with short description","Short description matches Wikidata","Comparison sorts","Sorting algorithms"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Comparison_sort","wgRelevantArticleId":3189304,
+"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":20000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q2632949"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","skins.vector.styles.legacy":"ready",
+"jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/1/17/Balance_%C3%A0_tabac_1850.JPG"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="1124"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Balance_%C3%A0_tabac_1850.JPG/800px-Balance_%C3%A0_tabac_1850.JPG"/>
+<meta property="og:image:width" content="800"/>
+<meta property="og:image:height" content="749"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Balance_%C3%A0_tabac_1850.JPG/640px-Balance_%C3%A0_tabac_1850.JPG"/>
+<meta property="og:image:width" content="640"/>
+<meta property="og:image:height" content="599"/>
+<meta property="og:title" content="Comparison sort - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Comparison_sort"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Comparison_sort&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Comparison_sort"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Comparison_sort rootpage-Comparison_sort skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Comparison sort</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Type of sorting algorithm that works by comparing pairs of elements</div>
+<div class="thumb tright"><div class="thumbinner" style="width:242px;"><a href="https://en.wikipedia.org/wiki/File:Balance_à_tabac_1850.JPG" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Balance_à_tabac_1850.JPG/240px-Balance_à_tabac_1850.JPG" decoding="async" width="240" height="225" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/17/Balance_%C3%A0_tabac_1850.JPG/360px-Balance_%C3%A0_tabac_1850.JPG 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/17/Balance_%C3%A0_tabac_1850.JPG/480px-Balance_%C3%A0_tabac_1850.JPG 2x" data-file-width="960" data-file-height="899" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Balance_à_tabac_1850.JPG" class="internal" title="Enlarge"></a></div>Sorting a set of unlabelled weights by weight using only a balance scale requires a comparison sort algorithm.</div></div></div>
+<p>A <b>comparison sort</b> is a type of <a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">sorting algorithm</a> that only reads the list elements through a single abstract comparison operation (often a "less than or equal to" operator or a <a href="https://en.wikipedia.org/wiki/Three-way_comparison" title="Three-way comparison">three-way comparison</a>) that determines which of two elements should occur first in the final sorted list. The only requirement is that the operator forms a <a href="https://en.wikipedia.org/wiki/Total_preorder" class="mw-redirect" title="Total preorder">total preorder</a> over the data, with:
+</p>
+<ol><li>if <i>a</i> ≤ <i>b</i> and <i>b</i> ≤ <i>c</i> then <i>a</i> ≤ <i>c</i> (transitivity)</li>
+<li>for all <i>a</i> and <i>b</i>, <i>a</i> ≤ <i>b</i> or <i>b</i> ≤ <i>a</i> (<a href="https://en.wikipedia.org/wiki/Connex_relation" class="mw-redirect" title="Connex relation">connexity</a>).</li></ol>
+<p>It is possible that both <i>a</i> ≤ <i>b</i> and <i>b</i> ≤ <i>a</i>; in this case either may come first in the sorted list. In a <a href="https://en.wikipedia.org/wiki/Sorting_algorithm#Stability" title="Sorting algorithm">stable sort</a>, the input order determines the sorted order in this case.
+</p><p>A metaphor for thinking about comparison sorts is that someone has a set of unlabelled weights and a <a href="https://en.wikipedia.org/wiki/Balance_scale" class="mw-redirect" title="Balance scale">balance scale</a>. Their goal is to line up the weights in order by their weight without any information except that obtained by placing two weights on the scale and seeing which one is heavier (or if they weigh the same).
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Examples"><span class="tocnumber">1</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Performance_limits_and_advantages_of_different_sorting_techniques"><span class="tocnumber">2</span> <span class="toctext">Performance limits and advantages of different sorting techniques</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Alternatives"><span class="tocnumber">3</span> <span class="toctext">Alternatives</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Number_of_comparisons_required_to_sort_a_list"><span class="tocnumber">4</span> <span class="toctext">Number of comparisons required to sort a list</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Lower_bound_for_the_average_number_of_comparisons"><span class="tocnumber">4.1</span> <span class="toctext">Lower bound for the average number of comparisons</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#n_log_n_maximum_number_of_comparisons_for_array-size_in_format_2^k"><span class="tocnumber">4.2</span> <span class="toctext">n log n maximum number of comparisons for array-size in format 2^k</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Sorting_a_pre-sorted_list"><span class="tocnumber">4.3</span> <span class="toctext">Sorting a pre-sorted list</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Notes"><span class="tocnumber">5</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Examples">Examples</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Comparison_sort&amp;action=edit&amp;section=1" title="Edit section: Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Sorting_quicksort_anim.gif" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Sorting_quicksort_anim.gif/220px-Sorting_quicksort_anim.gif" decoding="async" width="220" height="168" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif 1.5x" data-file-width="280" data-file-height="214" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Sorting_quicksort_anim.gif" class="internal" title="Enlarge"></a></div><a href="https://en.wikipedia.org/wiki/Quicksort" title="Quicksort">Quicksort</a> in action on a list of numbers. The horizontal lines are pivot values.</div></div></div>
+<p>Some of the most well-known comparison sorts include:
+</p>
+<ul><li><a href="https://en.wikipedia.org/wiki/Quicksort" title="Quicksort">Quicksort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Heapsort" title="Heapsort">Heapsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shellsort" title="Shellsort">Shellsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Merge_sort" title="Merge sort">Merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Introsort" title="Introsort">Introsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Insertion_sort" title="Insertion sort">Insertion sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Selection_sort" title="Selection sort">Selection sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bubble_sort" title="Bubble sort">Bubble sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Odd–even_sort" title="Odd–even sort">Odd–even sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cocktail_shaker_sort" title="Cocktail shaker sort">Cocktail shaker sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cycle_sort" title="Cycle sort">Cycle sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Merge-insertion_sort" title="Merge-insertion sort">Merge-insertion sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Smoothsort" title="Smoothsort">Smoothsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Timsort" title="Timsort">Timsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Block_sort" title="Block sort">Block sort</a></li></ul>
+<h2><span class="mw-headline" id="Performance_limits_and_advantages_of_different_sorting_techniques">Performance limits and advantages of different sorting techniques</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Comparison_sort&amp;action=edit&amp;section=2" title="Edit section: Performance limits and advantages of different sorting techniques">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>There are fundamental limits on the performance of comparison sorts. A comparison sort must have an average-case lower bound of <a href="https://en.wikipedia.org/wiki/Big-O_notation" class="mw-redirect" title="Big-O notation">Ω</a>(<i>n</i> log <i>n</i>) comparison operations,<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup> which is known as <a href="https://en.wikipedia.org/wiki/Linearithmic" class="mw-redirect" title="Linearithmic">linearithmic</a> time. This is a consequence of the limited information available through comparisons alone — or, to put it differently, of the vague algebraic structure of totally ordered sets. In this sense, mergesort, heapsort, and introsort are <a href="https://en.wikipedia.org/wiki/Asymptotically_optimal" class="mw-redirect" title="Asymptotically optimal">asymptotically optimal</a> in terms of the number of comparisons they must perform, although this metric neglects other operations. Non-comparison sorts (such as the examples discussed below) can achieve <a href="https://en.wikipedia.org/wiki/Big-O_notation" class="mw-redirect" title="Big-O notation">O</a>(<i>n</i>) performance by using operations other than comparisons, allowing them to sidestep this lower bound (assuming elements are constant-sized).
+</p><p>Comparison sorts may run faster on some lists; many <a href="https://en.wikipedia.org/wiki/Adaptive_sort" title="Adaptive sort">adaptive sorts</a> such as <a href="https://en.wikipedia.org/wiki/Insertion_sort" title="Insertion sort">insertion sort</a> run in O(<i>n</i>) time on an already-sorted or nearly-sorted list. The <a href="https://en.wikipedia.org/wiki/Big-O_notation" class="mw-redirect" title="Big-O notation">Ω</a>(<i>n</i> log <i>n</i>) lower bound applies only to the case in which the input list can be in any possible order.
+</p><p>Real-world measures of sorting speed may need to take into account the ability of some algorithms to optimally use relatively fast cached <a href="https://en.wikipedia.org/wiki/Random_Access_Memory" class="mw-redirect" title="Random Access Memory">computer memory</a>, or the application may benefit from sorting methods where sorted data begins to appear to the user quickly (and then user's speed of reading will be the limiting factor) as opposed to sorting methods where no output is available until the whole list is sorted.
+</p><p>Despite these limitations, comparison sorts offer the notable practical advantage that control over the comparison function allows sorting of many different datatypes and fine control over how the list is sorted. For example, reversing the result of the comparison function allows the list to be sorted in reverse; and one can sort a list of <a href="https://en.wikipedia.org/wiki/Tuple" title="Tuple">tuples</a> in <a href="https://en.wikipedia.org/wiki/Lexicographic_order" title="Lexicographic order">lexicographic order</a> by just creating a comparison function that compares each part in sequence:
+</p>
+<pre><b>function</b> tupleCompare((lefta, leftb, leftc), (righta, rightb, rightc))
+    <b>if</b> lefta ≠ righta
+        <b>return</b> compare(lefta, righta)
+    <b>else if</b> leftb ≠ rightb
+        <b>return</b> compare(leftb, rightb)
+    <b>else</b>
+        <b>return</b> compare(leftc, rightc)
+</pre>
+<p><a href="https://en.wikipedia.org/wiki/Balanced_ternary" title="Balanced ternary">Balanced ternary</a> notation allows comparisons to be made in one step, whose result will be one of "less than", "greater than" or "equal to".
+</p><p>Comparison sorts generally adapt more easily to complex orders such as the order of <a href="https://en.wikipedia.org/wiki/Floating-point_number" class="mw-redirect" title="Floating-point number">floating-point numbers</a>. Additionally, once a comparison function is written, any comparison sort can be used without modification; non-comparison sorts typically require specialized versions for each datatype.
+</p><p>This flexibility, together with the efficiency of the above comparison sorting algorithms on modern computers, has led to widespread preference for comparison sorts in most practical work.
+</p>
+<h2><span class="mw-headline" id="Alternatives">Alternatives</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Comparison_sort&amp;action=edit&amp;section=3" title="Edit section: Alternatives">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Some sorting problems admit a strictly faster solution than the <span class="texhtml">Ω(<i>n</i> log <i>n</i>)</span> bound for comparison sorting by using <a href="https://en.wikipedia.org/wiki/Sorting_algorithm#Non-comparison_sorts" title="Sorting algorithm">non-comparison sorts</a>; an example is <a href="https://en.wikipedia.org/wiki/Integer_sorting" title="Integer sorting">integer sorting</a>, where all keys are integers. When the keys form a small (compared to <span class="texhtml mvar" style="font-style:italic;">n</span>) range, <a href="https://en.wikipedia.org/wiki/Counting_sort" title="Counting sort">counting sort</a> is an example algorithm that runs in linear time. Other integer sorting algorithms, such as <a href="https://en.wikipedia.org/wiki/Radix_sort" title="Radix sort">radix sort</a>, are not asymptotically faster than comparison sorting, but can be faster in practice.
+</p><p>The problem of <a href="https://en.wikipedia.org/wiki/X_+_Y_sorting" title="X + Y sorting">sorting pairs of numbers by their sum</a> is not subject to the <span class="texhtml">Ω(<i>n</i>² log <i>n</i>)</span> bound either (the square resulting from the pairing up); the best known algorithm still takes <span class="texhtml">O(<i>n</i>² log <i>n</i>)</span> time, but only <span class="texhtml">O(<i>n</i>²)</span> comparisons.
+</p>
+<h2><span class="mw-headline" id="Number_of_comparisons_required_to_sort_a_list">Number of comparisons required to sort a list</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Comparison_sort&amp;action=edit&amp;section=4" title="Edit section: Number of comparisons required to sort a list">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:270px;">
+<table class="wikitable" style="margin-left:auto; margin-right:auto;">
+<tbody><tr>
+<th><i>n</i></th>
+<th><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \left\lceil \log _{2}(n!)\right\rceil }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow>
+          <mo>&#x2308;</mo>
+          <mrow>
+            <msub>
+              <mi>log</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msub>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mo stretchy="false">(</mo>
+            <mi>n</mi>
+            <mo>!</mo>
+            <mo stretchy="false">)</mo>
+          </mrow>
+          <mo>&#x2309;</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \left\lceil \log _{2}(n!)\right\rceil }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cd0f9fbe42cbca42479014d5306ccf8c83d1538f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.942ex; height:2.843ex;" alt="{\displaystyle \left\lceil \log _{2}(n!)\right\rceil }"/></span></th>
+<th>Minimum
+</th></tr>
+<tr>
+<td style="text-align:right;">1
+</td>
+<td style="text-align:right;">0
+</td>
+<td style="text-align:center;">0
+</td></tr>
+<tr>
+<td style="text-align:right;">2
+</td>
+<td style="text-align:right;">1
+</td>
+<td style="text-align:center;">1
+</td></tr>
+<tr>
+<td style="text-align:right;">3
+</td>
+<td style="text-align:right;">3
+</td>
+<td style="text-align:center;">3
+</td></tr>
+<tr>
+<td style="text-align:right;">4
+</td>
+<td style="text-align:right;">5
+</td>
+<td style="text-align:center;">5
+</td></tr>
+<tr>
+<td style="text-align:right;">5
+</td>
+<td style="text-align:right;">7
+</td>
+<td style="text-align:center;">7
+</td></tr>
+<tr>
+<td style="text-align:right;">6
+</td>
+<td style="text-align:right;">10
+</td>
+<td style="text-align:center;">10
+</td></tr>
+<tr>
+<td style="text-align:right;">7
+</td>
+<td style="text-align:right;">13
+</td>
+<td style="text-align:center;">13
+</td></tr>
+<tr>
+<td style="text-align:right;">8
+</td>
+<td style="text-align:right;">16
+</td>
+<td style="text-align:center;">16
+</td></tr>
+<tr>
+<td style="text-align:right;">9
+</td>
+<td style="text-align:right;">19
+</td>
+<td style="text-align:center;">19
+</td></tr>
+<tr>
+<td style="text-align:right;">10
+</td>
+<td style="text-align:right;">22
+</td>
+<td style="text-align:center;">22
+</td></tr>
+<tr>
+<td style="text-align:right;">11
+</td>
+<td style="text-align:right;">26
+</td>
+<td style="text-align:center;">26
+</td></tr>
+<tr>
+<td style="text-align:right;">12
+</td>
+<td style="text-align:right;">29
+</td>
+<td style="text-align:center;">30<sup id="cite_ref-Wells1965_2-0" class="reference"><a href="#cite_note-Wells1965-2">&#91;2&#93;</a></sup><sup id="cite_ref-Wells1971_3-0" class="reference"><a href="#cite_note-Wells1971-3">&#91;3&#93;</a></sup>
+</td></tr>
+<tr>
+<td style="text-align:right;">13
+</td>
+<td style="text-align:right;">33
+</td>
+<td style="text-align:center;">34<sup id="cite_ref-KasaiSawatoIwata1994_4-0" class="reference"><a href="#cite_note-KasaiSawatoIwata1994-4">&#91;4&#93;</a></sup><sup id="cite_ref-Peczarski2002_5-0" class="reference"><a href="#cite_note-Peczarski2002-5">&#91;5&#93;</a></sup><sup id="cite_ref-Peczarski2004_6-0" class="reference"><a href="#cite_note-Peczarski2004-6">&#91;6&#93;</a></sup>
+</td></tr>
+<tr>
+<td style="text-align:right;">14
+</td>
+<td style="text-align:right;">37
+</td>
+<td style="text-align:center;">38<sup id="cite_ref-Peczarski2004_6-1" class="reference"><a href="#cite_note-Peczarski2004-6">&#91;6&#93;</a></sup>
+</td></tr>
+<tr>
+<td style="text-align:right;">15
+</td>
+<td style="text-align:right;">41
+</td>
+<td style="text-align:center;">42<sup id="cite_ref-Peczarski2006_7-0" class="reference"><a href="#cite_note-Peczarski2006-7">&#91;7&#93;</a></sup><sup id="cite_ref-Peczarski2007_8-0" class="reference"><a href="#cite_note-Peczarski2007-8">&#91;8&#93;</a></sup><sup id="cite_ref-ChengLiuWang2007_9-0" class="reference"><a href="#cite_note-ChengLiuWang2007-9">&#91;9&#93;</a></sup>
+</td></tr>
+<tr>
+<td style="text-align:right;">16
+</td>
+<td style="text-align:right;">45</td>
+<td>45 or 46<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">&#91;10&#93;</a></sup>
+</td></tr>
+<tr>
+<td style="text-align:right;">17
+</td>
+<td style="text-align:right;">49</td>
+<td>49 or 50
+</td></tr>
+<tr>
+<td style="text-align:right;">18
+</td>
+<td style="text-align:right;">53</td>
+<td>53 or 54
+</td></tr>
+<tr>
+<td style="text-align:right;">19
+</td>
+<td style="text-align:right;">57
+</td>
+<td style="text-align:center;">58<sup id="cite_ref-ChengLiuWang2007_9-1" class="reference"><a href="#cite_note-ChengLiuWang2007-9">&#91;9&#93;</a></sup>
+</td></tr>
+<tr>
+<td style="text-align:right;">20
+</td>
+<td style="text-align:right;">62
+</td>
+<td style="text-align:center;">62
+</td></tr>
+<tr>
+<td style="text-align:right;">21
+</td>
+<td style="text-align:right;">66
+</td>
+<td style="text-align:center;">66
+</td></tr>
+<tr>
+<td style="text-align:right;">22
+</td>
+<td style="text-align:right;">70
+</td>
+<td style="text-align:center;">71<sup id="cite_ref-Peczarski2004_6-2" class="reference"><a href="#cite_note-Peczarski2004-6">&#91;6&#93;</a></sup>
+</td></tr>
+<tr>
+<td style="height:5px;"></td>
+<td></td>
+<td>
+</td></tr>
+<tr>
+<th><i>n</i></th>
+<th><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \left\lceil \log _{2}(n!)\right\rceil }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow>
+          <mo>&#x2308;</mo>
+          <mrow>
+            <msub>
+              <mi>log</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msub>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mo stretchy="false">(</mo>
+            <mi>n</mi>
+            <mo>!</mo>
+            <mo stretchy="false">)</mo>
+          </mrow>
+          <mo>&#x2309;</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \left\lceil \log _{2}(n!)\right\rceil }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cd0f9fbe42cbca42479014d5306ccf8c83d1538f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.942ex; height:2.843ex;" alt="{\displaystyle \left\lceil \log _{2}(n!)\right\rceil }"/></span></th>
+<th><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n\log _{2}n-{\frac {n}{\ln 2}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <msub>
+          <mi>log</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>n</mi>
+            <mrow>
+              <mi>ln</mi>
+              <mo>&#x2061;<!-- ⁡ --></mo>
+              <mn>2</mn>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n\log _{2}n-{\frac {n}{\ln 2}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/408f947a81a7d551f6490264b62a19ff768ba6ca" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:14.755ex; height:4.676ex;" alt="{\displaystyle n\log _{2}n-{\frac {n}{\ln 2}}}"/></span>
+</th></tr>
+<tr>
+<td style="text-align:right;">10
+</td>
+<td style="text-align:right;">22
+</td>
+<td style="text-align:center;">19
+</td></tr>
+<tr>
+<td style="text-align:right;">100
+</td>
+<td style="text-align:right;">525
+</td>
+<td style="text-align:center;">521
+</td></tr>
+<tr>
+<td style="text-align:right;">1 000
+</td>
+<td style="text-align:right;">8 530
+</td>
+<td style="text-align:center;">8 524
+</td></tr>
+<tr>
+<td style="text-align:right;">10 000
+</td>
+<td style="text-align:right;">118 459
+</td>
+<td style="text-align:center;">118 451
+</td></tr>
+<tr>
+<td style="text-align:right;">100 000
+</td>
+<td style="text-align:right;">1 516 705
+</td>
+<td style="text-align:center;">1 516 695
+</td></tr>
+<tr>
+<td style="text-align:right;"><span class="nowrap">1 000 000</span>
+</td>
+<td style="text-align:right;">18 488 885
+</td>
+<td style="text-align:center;">18 488 874
+</td></tr></tbody></table>
+<div class="thumbcaption">
+Above: A comparison of the lower bound <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \left\lceil \log _{2}(n!)\right\rceil }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow>
+          <mo>&#x2308;</mo>
+          <mrow>
+            <msub>
+              <mi>log</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msub>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mo stretchy="false">(</mo>
+            <mi>n</mi>
+            <mo>!</mo>
+            <mo stretchy="false">)</mo>
+          </mrow>
+          <mo>&#x2309;</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \left\lceil \log _{2}(n!)\right\rceil }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cd0f9fbe42cbca42479014d5306ccf8c83d1538f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.942ex; height:2.843ex;" alt="{\displaystyle \left\lceil \log _{2}(n!)\right\rceil }"/></span> to the actual minimum number of comparisons (from <span class="nowrap external"><a href="https://en.wikipedia.org/wiki/On-Line_Encyclopedia_of_Integer_Sequences" title="On-Line Encyclopedia of Integer Sequences">OEIS</a>:&#160;<a href="http://oeis.org/A036604" class="extiw" title="oeis:A036604">A036604</a></span>) required to sort a list of <i>n</i> items (for the worst case). Below: Using <a href="https://en.wikipedia.org/wiki/Stirling%27s_approximation" title="Stirling&#39;s approximation">Stirling's approximation</a>, this lower bound is well-approximated by <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n\log _{2}n-{\frac {n}{\ln 2}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <msub>
+          <mi>log</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>n</mi>
+            <mrow>
+              <mi>ln</mi>
+              <mo>&#x2061;<!-- ⁡ --></mo>
+              <mn>2</mn>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n\log _{2}n-{\frac {n}{\ln 2}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/408f947a81a7d551f6490264b62a19ff768ba6ca" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:14.755ex; height:4.676ex;" alt="{\displaystyle n\log _{2}n-{\frac {n}{\ln 2}}}"/></span>.</div>
+</div>
+</div>
+<p>The number of comparisons that a comparison sort algorithm requires increases in proportion to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n\log(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n\log(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aca080dee55ba2825a2d955bd6ca43c0e7ed04db" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.958ex; height:2.843ex;" alt="n\log(n)"/></span>, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> is the number of elements to sort.  This bound is <a href="https://en.wikipedia.org/wiki/Asymptotic_computational_complexity" title="Asymptotic computational complexity">asymptotically tight</a>.
+</p><p>Given a list of distinct numbers (we can assume this because this is a worst-case analysis), there are <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> <a href="https://en.wikipedia.org/wiki/Factorial" title="Factorial">factorial</a> permutations exactly one of which is the list in sorted order. The sort algorithm must gain enough information from the comparisons to identify the correct permutation. If the algorithm always completes after at most <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c1c49fad1eccc4e9af1e4f23f32efdc3ac4da973" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.483ex; height:2.843ex;" alt="f(n)"/></span> steps, it cannot distinguish more than <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 2^{f(n)}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>f</mi>
+            <mo stretchy="false">(</mo>
+            <mi>n</mi>
+            <mo stretchy="false">)</mo>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 2^{f(n)}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bf7592370246b59696719487219d60f955d3ad79" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:4.564ex; height:2.843ex;" alt="2^{{f(n)}}"/></span> cases because the keys are distinct and each comparison has only two possible outcomes. Therefore,
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 2^{f(n)}\geq n!}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>f</mi>
+            <mo stretchy="false">(</mo>
+            <mi>n</mi>
+            <mo stretchy="false">)</mo>
+          </mrow>
+        </msup>
+        <mo>&#x2265;<!-- ≥ --></mo>
+        <mi>n</mi>
+        <mo>!</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 2^{f(n)}\geq n!}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5923fb5c3b850b59520d56a43cd69e28bc6f2b15" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:9.704ex; height:3.009ex;" alt="2^{f(n)}\geq n!"/></span>, or equivalently <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle f(n)\geq \log _{2}(n!).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>f</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2265;<!-- ≥ --></mo>
+        <msub>
+          <mi>log</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo>!</mo>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle f(n)\geq \log _{2}(n!).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3c5431de96b0a6fd51c957d1c1ffaf254523c6e7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:16.105ex; height:2.843ex;" alt="f(n)\geq\log_2(n!)."/></span></dd></dl>
+<p>By looking at the first <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n/2}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mn>2</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n/2}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/95c3931a3fa03cc98cfacd2c49a7ca35b96eaa9b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:3.72ex; height:2.843ex;" alt="n/2"/></span> factors of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n!=n(n-1)\cdots 1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mo>!</mo>
+        <mo>=</mo>
+        <mi>n</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mo>&#x22EF;<!-- ⋯ --></mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n!=n(n-1)\cdots 1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7b51d8826920b8401b03a1905366caab64adb969" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:18.401ex; height:2.843ex;" alt="{\displaystyle n!=n(n-1)\cdots 1}"/></span>, we obtain
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \log _{2}(n!)\geq \log _{2}\left(\left({\frac {n}{2}}\right)^{\frac {n}{2}}\right)={\frac {n}{2}}{\frac {\log n}{\log 2}}-{\frac {n}{2}}=\Theta (n\log n).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>log</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo>!</mo>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2265;<!-- ≥ --></mo>
+        <msub>
+          <mi>log</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mrow>
+          <mo>(</mo>
+          <msup>
+            <mrow>
+              <mo>(</mo>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mfrac>
+                  <mi>n</mi>
+                  <mn>2</mn>
+                </mfrac>
+              </mrow>
+              <mo>)</mo>
+            </mrow>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mfrac>
+                <mi>n</mi>
+                <mn>2</mn>
+              </mfrac>
+            </mrow>
+          </msup>
+          <mo>)</mo>
+        </mrow>
+        <mo>=</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>n</mi>
+            <mn>2</mn>
+          </mfrac>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mi>log</mi>
+              <mo>&#x2061;<!-- ⁡ --></mo>
+              <mi>n</mi>
+            </mrow>
+            <mrow>
+              <mi>log</mi>
+              <mo>&#x2061;<!-- ⁡ --></mo>
+              <mn>2</mn>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo>&#x2212;<!-- − --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>n</mi>
+            <mn>2</mn>
+          </mfrac>
+        </mrow>
+        <mo>=</mo>
+        <mi mathvariant="normal">&#x0398;<!-- Θ --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \log _{2}(n!)\geq \log _{2}\left(\left({\frac {n}{2}}\right)^{\frac {n}{2}}\right)={\frac {n}{2}}{\frac {\log n}{\log 2}}-{\frac {n}{2}}=\Theta (n\log n).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/68fdd75b41ffd1b9cb2850371a968a3f92bd519e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:55.186ex; height:6.343ex;" alt="{\displaystyle \log _{2}(n!)\geq \log _{2}\left(\left({\frac {n}{2}}\right)^{\frac {n}{2}}\right)={\frac {n}{2}}{\frac {\log n}{\log 2}}-{\frac {n}{2}}=\Theta (n\log n).}"/></span></dd>
+<dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \log _{2}(n!)=\Omega (n\log n).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>log</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo>!</mo>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi mathvariant="normal">&#x03A9;<!-- Ω --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \log _{2}(n!)=\Omega (n\log n).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d3a93e489098ccc966ad184f573f5fcfc7f5500f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:21.645ex; height:2.843ex;" alt="{\displaystyle \log _{2}(n!)=\Omega (n\log n).}"/></span></dd></dl>
+<p>This provides the lower-bound part of the claim. A better bound can be given via <a href="https://en.wikipedia.org/wiki/Stirling%27s_approximation" title="Stirling&#39;s approximation">Stirling's approximation</a>.
+</p><p>An identical upper bound follows from the existence of the algorithms that attain this bound in the worst case, like <a href="https://en.wikipedia.org/wiki/Heapsort" title="Heapsort">heapsort</a> and <a href="https://en.wikipedia.org/wiki/Merge_sort" title="Merge sort">mergesort</a>.
+</p><p>The above argument provides an <i>absolute</i>, rather than only asymptotic lower bound on the number of comparisons, namely <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \left\lceil \log _{2}(n!)\right\rceil }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow>
+          <mo>&#x2308;</mo>
+          <mrow>
+            <msub>
+              <mi>log</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msub>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mo stretchy="false">(</mo>
+            <mi>n</mi>
+            <mo>!</mo>
+            <mo stretchy="false">)</mo>
+          </mrow>
+          <mo>&#x2309;</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \left\lceil \log _{2}(n!)\right\rceil }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cd0f9fbe42cbca42479014d5306ccf8c83d1538f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.942ex; height:2.843ex;" alt="{\displaystyle \left\lceil \log _{2}(n!)\right\rceil }"/></span> comparisons. This lower bound is fairly good (it can be approached within a linear tolerance by a simple merge sort), but it is known to be inexact. For example, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \left\lceil \log _{2}(13!)\right\rceil =33}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow>
+          <mo>&#x2308;</mo>
+          <mrow>
+            <msub>
+              <mi>log</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msub>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mo stretchy="false">(</mo>
+            <mn>13</mn>
+            <mo>!</mo>
+            <mo stretchy="false">)</mo>
+          </mrow>
+          <mo>&#x2309;</mo>
+        </mrow>
+        <mo>=</mo>
+        <mn>33</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \left\lceil \log _{2}(13!)\right\rceil =33}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7ba69ee2b08a72d4febd8e43b75a5e8f6f8f7e66" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:16.295ex; height:2.843ex;" alt="{\displaystyle \left\lceil \log _{2}(13!)\right\rceil =33}"/></span>, but the minimal number of comparisons to sort 13 elements has been proved to be 34.
+</p><p>Determining the <i>exact</i> number of comparisons needed to sort a given number of entries is a computationally hard problem even for small <i>n</i>, and no simple formula for the solution is known. For some of the few concrete values that have been computed, see <span class="nowrap external"><a href="https://en.wikipedia.org/wiki/On-Line_Encyclopedia_of_Integer_Sequences" title="On-Line Encyclopedia of Integer Sequences">OEIS</a>:&#160;<a href="http://oeis.org/A036604" class="extiw" title="oeis:A036604">A036604</a></span>.
+</p>
+<h3><span class="mw-headline" id="Lower_bound_for_the_average_number_of_comparisons">Lower bound for the average number of comparisons</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Comparison_sort&amp;action=edit&amp;section=5" title="Edit section: Lower bound for the average number of comparisons">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>A similar bound applies to the average number of comparisons. Assuming that
+</p>
+<ul><li>all keys are distinct, i.e. every comparison will give either <i>a</i>&gt;<i>b</i> or <i>a</i>&lt;<i>b</i>, and</li>
+<li>the input is a random permutation, chosen uniformly from the set of all possible permutations of <i>n</i> elements,</li></ul>
+<p>it is impossible to determine which order the input is in with fewer than <span class="texhtml">log<sub>2</sub>(<i>n</i>!)</span> comparisons on average.
+</p><p>This can be most easily seen using concepts from <a href="https://en.wikipedia.org/wiki/Information_theory" title="Information theory">information theory</a>. The <a href="https://en.wikipedia.org/wiki/Shannon_entropy" class="mw-redirect" title="Shannon entropy">Shannon entropy</a> of such a random permutation is <span class="texhtml">log<sub>2</sub>(<i>n</i>!)</span> bits. Since a comparison can give only two results, the maximum amount of information it provides is 1 bit. Therefore, after <i>k</i> comparisons the remaining entropy of the permutation, given the results of those comparisons, is at least <span class="texhtml">log<sub>2</sub>(<i>n</i>!)&#160;−&#160;<i>k</i></span> bits on average. To perform the sort, complete information is needed, so the remaining entropy must be 0. It follows that <i>k</i> must be at least <span class="texhtml">log<sub>2</sub>(<i>n</i>!)</span> on average. 
+</p><p>The lower bound derived via information theory is phrased as 'information-theoretic lower bound'. Information-theoretic lower bound is correct but is not necessarily the strongest lower bound. And in some cases, the information-theoretic lower bound of a problem may even be far from the true lower bound. For example, the information-theoretic lower bound of selection is <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \left\lceil \log _{2}(n)\right\rceil }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow>
+          <mo>&#x2308;</mo>
+          <mrow>
+            <msub>
+              <mi>log</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mn>2</mn>
+              </mrow>
+            </msub>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mo stretchy="false">(</mo>
+            <mi>n</mi>
+            <mo stretchy="false">)</mo>
+          </mrow>
+          <mo>&#x2309;</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \left\lceil \log _{2}(n)\right\rceil }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/12082efb8a0367653757c4ce8f6675ebd9bf297e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.295ex; height:2.843ex;" alt="{\displaystyle \left\lceil \log _{2}(n)\right\rceil }"/></span> whereas <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n-1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n-1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/fbd0b0f32b28f51962943ee9ede4fb34198a2521" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:5.398ex; height:2.343ex;" alt="n-1"/></span> comparisons are needed by an adversarial argument. The interplay between information-theoretic lower bound and the true lower bound are much like a real-valued function lower-bounding an integer function. However, this is not exactly correct when the average case is considered.
+</p><p>To unearth what happens while analyzing the average case, the key is that what does 'average' refer to? Averaging over what? With some knowledge of information theory, the information-theoretic lower bound averages over the set of all permutations as a whole. But any computer algorithms (under what are believed currently) must treat each permutation as an individual instance of the problem. Hence, the average lower bound we're searching for is averaged over all individual cases.
+</p><p>To search for the lower bound relating to the non-achievability of computers, we adopt the <a href="https://en.wikipedia.org/wiki/Decision_tree_model" title="Decision tree model">Decision tree model</a>. Let's rephrase a bit of what our objective is. In the <a href="https://en.wikipedia.org/wiki/Decision_tree_model" title="Decision tree model">Decision tree model</a>, the lower bound to be shown is the lower bound of the average length of root-to-leaf paths of an <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n!}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mo>!</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n!}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bae971720be3cc9b8d82f4cdac89cb89877514a6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.042ex; height:2.176ex;" alt="n!"/></span>-leaf binary tree (in which each leaf corresponds to a permutation). It would be convinced to say that a balanced full binary tree achieves the minimum of the average length. With some careful calculations, for a balanced full binary tree with <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n!}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mo>!</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n!}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bae971720be3cc9b8d82f4cdac89cb89877514a6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.042ex; height:2.176ex;" alt="n!"/></span> leaves, the average length of root-to-leaf paths is given by 
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {(2n!-2^{\lfloor \log _{2}n!\rfloor +1})\cdot \lceil \log _{2}n!\rceil +(2^{\lfloor \log _{2}n!\rfloor +1}-n!)\cdot \lfloor \log _{2}n!\rfloor }{n!}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mrow>
+              <mo stretchy="false">(</mo>
+              <mn>2</mn>
+              <mi>n</mi>
+              <mo>!</mo>
+              <mo>&#x2212;<!-- − --></mo>
+              <msup>
+                <mn>2</mn>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo fence="false" stretchy="false">&#x230A;<!-- ⌊ --></mo>
+                  <msub>
+                    <mi>log</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>2</mn>
+                    </mrow>
+                  </msub>
+                  <mo>&#x2061;<!-- ⁡ --></mo>
+                  <mi>n</mi>
+                  <mo>!</mo>
+                  <mo fence="false" stretchy="false">&#x230B;<!-- ⌋ --></mo>
+                  <mo>+</mo>
+                  <mn>1</mn>
+                </mrow>
+              </msup>
+              <mo stretchy="false">)</mo>
+              <mo>&#x22C5;<!-- ⋅ --></mo>
+              <mo fence="false" stretchy="false">&#x2308;<!-- ⌈ --></mo>
+              <msub>
+                <mi>log</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <mo>&#x2061;<!-- ⁡ --></mo>
+              <mi>n</mi>
+              <mo>!</mo>
+              <mo fence="false" stretchy="false">&#x2309;<!-- ⌉ --></mo>
+              <mo>+</mo>
+              <mo stretchy="false">(</mo>
+              <msup>
+                <mn>2</mn>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mo fence="false" stretchy="false">&#x230A;<!-- ⌊ --></mo>
+                  <msub>
+                    <mi>log</mi>
+                    <mrow class="MJX-TeXAtom-ORD">
+                      <mn>2</mn>
+                    </mrow>
+                  </msub>
+                  <mo>&#x2061;<!-- ⁡ --></mo>
+                  <mi>n</mi>
+                  <mo>!</mo>
+                  <mo fence="false" stretchy="false">&#x230B;<!-- ⌋ --></mo>
+                  <mo>+</mo>
+                  <mn>1</mn>
+                </mrow>
+              </msup>
+              <mo>&#x2212;<!-- − --></mo>
+              <mi>n</mi>
+              <mo>!</mo>
+              <mo stretchy="false">)</mo>
+              <mo>&#x22C5;<!-- ⋅ --></mo>
+              <mo fence="false" stretchy="false">&#x230A;<!-- ⌊ --></mo>
+              <msub>
+                <mi>log</mi>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mn>2</mn>
+                </mrow>
+              </msub>
+              <mo>&#x2061;<!-- ⁡ --></mo>
+              <mi>n</mi>
+              <mo>!</mo>
+              <mo fence="false" stretchy="false">&#x230B;<!-- ⌋ --></mo>
+            </mrow>
+            <mrow>
+              <mi>n</mi>
+              <mo>!</mo>
+            </mrow>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {(2n!-2^{\lfloor \log _{2}n!\rfloor +1})\cdot \lceil \log _{2}n!\rceil +(2^{\lfloor \log _{2}n!\rfloor +1}-n!)\cdot \lfloor \log _{2}n!\rfloor }{n!}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/88f254ee0c0f9200176e998c122b1caba15acc88" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.005ex; width:58.056ex; height:6.176ex;" alt="{\displaystyle {\frac {(2n!-2^{\lfloor \log _{2}n!\rfloor +1})\cdot \lceil \log _{2}n!\rceil +(2^{\lfloor \log _{2}n!\rfloor +1}-n!)\cdot \lfloor \log _{2}n!\rfloor }{n!}}}"/></span></dd></dl>
+<p>For example, for <span class="texhtml"><i>n</i>&#160;=&#160;3</span>, the information-theoretic lower bound for the average case is approximately 2.58, while the average lower bound derived via <a href="https://en.wikipedia.org/wiki/Decision_tree_model" title="Decision tree model">Decision tree model</a> is 8/3, approximately 2.67.
+</p><p>In the case that multiple items may have the same key, there is no obvious statistical interpretation for the term "average case", so an argument like the above cannot be applied without making specific assumptions about the distribution of keys.
+</p>
+<h3><span id="n_log_n_maximum_number_of_comparisons_for_array-size_in_format_2.5Ek"></span><span class="mw-headline" id="n_log_n_maximum_number_of_comparisons_for_array-size_in_format_2^k">n log n maximum number of comparisons for array-size in format 2^k</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Comparison_sort&amp;action=edit&amp;section=6" title="Edit section: n log n maximum number of comparisons for array-size in format 2^k">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Can easy compute for real algorithm sorted-list-merging (array are sorted n-blocks with size 1, merge to 1-1 to 2, merge 2-2 to 4...).
+</p>
+<pre>(1) = = = = = = = =
+
+(2) =   =   =   =     // max 1 compares (size1+size2-1), 4x repeats to concat 8 arrays with size 1 and 1
+   === === === ===
+
+(3)   =       =       // max 7 compares, 2x repeats to concat 4 arrays with size 2 and 2
+     ===     ===  
+    =====   ===== 
+   ======= =======
+
+(4)                   // max 15 compares, 1x repeats to concat 2 arrays with size 4 and 4
+
+Formula extraction:
+n = 256 = 2^8 (array size in format 2^k, for simplify)
+On = (n-1) + 2(n/2-1) + 4(n/4-1) + 8(n/8-1) + 16(n/16-1) + 32(n/32-1) + 64(n/64-1) + 128(n/128-1)
+On = (n-1) + (n-2) + (n-4) + (n-8) + (n-16) + (n-32) + (n-64) + (n-128)
+On = n+n+n+n+n+n+n+n - (1+2+4+8+16+32+64+128)   | 1+2+4... = formula for geometric sequence Sn = a1 * (q^i - 1) / (n - 1), n is number of items, a1 is first item
+On = 8*n - 1 * (2^8 - 1) / (2 - 1)
+On = 8*n - (2^8 - 1)   | 2^8 = n
+On = 8*n - (n - 1)
+On = (8-1)*n + 1   | 8 = ln(n)/ln(2) = ln(256)/ln(2)
+On = (ln(n)/ln(2) - 1) * n + 1
+
+Example:
+n = 2^4 = 16, On ~= 3*n
+n = 2^8 = 256, On ~= 7*n
+n = 2^10 = 1.024, On ~= 9*n
+n = 2^20 = 1.048.576, On ~= 19*n
+</pre>
+<h3><span class="mw-headline" id="Sorting_a_pre-sorted_list">Sorting a pre-sorted list</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Comparison_sort&amp;action=edit&amp;section=7" title="Edit section: Sorting a pre-sorted list">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="https://en.wikipedia.org/wiki/Adaptive_sort" title="Adaptive sort">Adaptive sort</a></div>
+<p>If a list is already close to sorted, according to some measure of sortedness, the number of comparisons required to sort it can be smaller. An <a href="https://en.wikipedia.org/wiki/Adaptive_sort" title="Adaptive sort">adaptive sort</a> takes advantage of this "presortedness" and runs more quickly on nearly-sorted inputs, often while still maintaining an <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n\log n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n\log n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9d2320768fb54880ca4356e61f60eb02a3f9d9f1" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.118ex; height:2.843ex;" alt="O(n\log n)"/></span> worst case time bound. An example is <a href="https://en.wikipedia.org/wiki/Adaptive_heap_sort" title="Adaptive heap sort">adaptive heap sort</a>, a sorting algorithm based on <a href="https://en.wikipedia.org/wiki/Cartesian_tree" title="Cartesian tree">Cartesian trees</a>. It takes time <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(n\log k)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>k</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(n\log k)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/99e71cfbbb1dbd170050e63d7b342b07b4b014e2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.934ex; height:2.843ex;" alt="O(n\log k)"/></span>, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c3c9a2c7b599b37105512c5d570edc034056dd40" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="k"/></span> is the average, over all values <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/87f9e315fd7e2ba406057a97300593c4802b53e4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.33ex; height:1.676ex;" alt="x"/></span> in the sequence, of the number of times the sequence jumps from below <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/87f9e315fd7e2ba406057a97300593c4802b53e4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.33ex; height:1.676ex;" alt="x"/></span> to above <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>x</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/87f9e315fd7e2ba406057a97300593c4802b53e4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.33ex; height:1.676ex;" alt="x"/></span> or vice versa.<sup id="cite_ref-11" class="reference"><a href="#cite_note-11">&#91;11&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Comparison_sort&amp;action=edit&amp;section=8" title="Edit section: Notes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFCormenLeisersonRivestStein2009" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Cormen, Thomas H.</a>; <a href="https://en.wikipedia.org/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Leiserson, Charles E.</a>; <a href="https://en.wikipedia.org/wiki/Ron_Rivest" title="Ron Rivest">Rivest, Ronald L.</a>; <a href="https://en.wikipedia.org/wiki/Clifford_Stein" title="Clifford Stein">Stein, Clifford</a> (2009) [1990]. <a href="https://en.wikipedia.org/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms"><i>Introduction to Algorithms</i></a> (3rd&#160;ed.). MIT Press and McGraw-Hill. pp.&#160;191–193. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-262-03384-4" title="Special:BookSources/0-262-03384-4"><bdi>0-262-03384-4</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Introduction+to+Algorithms&amp;rft.pages=191-193&amp;rft.edition=3rd&amp;rft.pub=MIT+Press+and+McGraw-Hill&amp;rft.date=2009&amp;rft.isbn=0-262-03384-4&amp;rft.aulast=Cormen&amp;rft.aufirst=Thomas+H.&amp;rft.au=Leiserson%2C+Charles+E.&amp;rft.au=Rivest%2C+Ronald+L.&amp;rft.au=Stein%2C+Clifford&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AComparison+sort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Wells1965-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-Wells1965_2-0">^</a></b></span> <span class="reference-text">Mark Wells, Applications of a language for computing in combinatorics, Information Processing 65 (Proceedings of the 1965 IFIP Congress), 497–498, 1966.</span>
+</li>
+<li id="cite_note-Wells1971-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-Wells1971_3-0">^</a></b></span> <span class="reference-text">Mark Wells, Elements of Combinatorial Computing, Pergamon Press, Oxford, 1971.</span>
+</li>
+<li id="cite_note-KasaiSawatoIwata1994-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-KasaiSawatoIwata1994_4-0">^</a></b></span> <span class="reference-text">Takumi Kasai, Shusaku Sawato, Shigeki Iwata, Thirty four comparisons are required to sort 13 items, LNCS 792, 260-269, 1994.</span>
+</li>
+<li id="cite_note-Peczarski2002-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-Peczarski2002_5-0">^</a></b></span> <span class="reference-text">Marcin Peczarski, Sorting 13 elements requires 34 comparisons, LNCS 2461, 785–794, 2002.</span>
+</li>
+<li id="cite_note-Peczarski2004-6"><span class="mw-cite-backlink">^ <a href="#cite_ref-Peczarski2004_6-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Peczarski2004_6-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-Peczarski2004_6-2"><sup><i><b>c</b></i></sup></a></span> <span class="reference-text">Marcin Peczarski, New results in minimum-comparison sorting, Algorithmica 40 (2), 133–145, 2004.</span>
+</li>
+<li id="cite_note-Peczarski2006-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-Peczarski2006_7-0">^</a></b></span> <span class="reference-text">Marcin Peczarski, Computer assisted research of posets, PhD thesis, University of Warsaw, 2006.</span>
+</li>
+<li id="cite_note-Peczarski2007-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-Peczarski2007_8-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFPeczarski2007" class="citation journal cs1">Peczarski, Marcin (2007). "The Ford-Johnson algorithm is still unbeaten for less than 47 elements". <i>Inf. Process. Lett</i>. <b>101</b> (3): 126–128. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.ipl.2006.09.001">10.1016/j.ipl.2006.09.001</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Inf.+Process.+Lett.&amp;rft.atitle=The+Ford-Johnson+algorithm+is+still+unbeaten+for+less+than+47+elements&amp;rft.volume=101&amp;rft.issue=3&amp;rft.pages=126-128&amp;rft.date=2007&amp;rft_id=info%3Adoi%2F10.1016%2Fj.ipl.2006.09.001&amp;rft.aulast=Peczarski&amp;rft.aufirst=Marcin&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AComparison+sort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-ChengLiuWang2007-9"><span class="mw-cite-backlink">^ <a href="#cite_ref-ChengLiuWang2007_9-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-ChengLiuWang2007_9-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFChengLiuWangLiu2007" class="citation journal cs1 cs1-prop-foreign-lang-source">Cheng, Weiyi; Liu, Xiaoguang; Wang, Gang; Liu, Jing (October 2007). <a rel="nofollow" class="external text" href="http://fcst.ceaj.org/EN/abstract/abstract47.shtml">"最少比较排序问题中S（15）和S（19）的解决"</a> &#91;The results of S(15) and S(19) to minimum-comparison sorting problem&#93;. <i>Journal of Frontiers of Computer Science and Technology</i> (in Chinese). <b>1</b> (3): 305–313.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Frontiers+of+Computer+Science+and+Technology&amp;rft.atitle=%E6%9C%80%E5%B0%91%E6%AF%94%E8%BE%83%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98%E4%B8%ADS%EF%BC%8815%EF%BC%89%E5%92%8CS%EF%BC%8819%EF%BC%89%E7%9A%84%E8%A7%A3%E5%86%B3&amp;rft.volume=1&amp;rft.issue=3&amp;rft.pages=305-313&amp;rft.date=2007-10&amp;rft.aulast=Cheng&amp;rft.aufirst=Weiyi&amp;rft.au=Liu%2C+Xiaoguang&amp;rft.au=Wang%2C+Gang&amp;rft.au=Liu%2C+Jing&amp;rft_id=http%3A%2F%2Ffcst.ceaj.org%2FEN%2Fabstract%2Fabstract47.shtml&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AComparison+sort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFPeczarski2011" class="citation journal cs1">Peczarski, Marcin (3 August 2011). "Towards Optimal Sorting of 16 Elements". <i>Acta Universitatis Sapientiae</i>. <b>4</b> (2): 215–224. <a href="https://en.wikipedia.org/wiki/ArXiv_(identifier)" class="mw-redirect" title="ArXiv (identifier)">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://arxiv.org/abs/1108.0866">1108.0866</a></span>. <a href="https://en.wikipedia.org/wiki/Bibcode_(identifier)" class="mw-redirect" title="Bibcode (identifier)">Bibcode</a>:<a rel="nofollow" class="external text" href="https://ui.adsabs.harvard.edu/abs/2011arXiv1108.0866P">2011arXiv1108.0866P</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Acta+Universitatis+Sapientiae&amp;rft.atitle=Towards+Optimal+Sorting+of+16+Elements&amp;rft.volume=4&amp;rft.issue=2&amp;rft.pages=215-224&amp;rft.date=2011-08-03&amp;rft_id=info%3Aarxiv%2F1108.0866&amp;rft_id=info%3Abibcode%2F2011arXiv1108.0866P&amp;rft.aulast=Peczarski&amp;rft.aufirst=Marcin&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AComparison+sort" class="Z3988"></span></span>
+</li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-11">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFLevcopoulosPetersson1989" class="citation cs2">Levcopoulos, Christos; Petersson, Ola (1989), "Heapsort - Adapted for Presorted Files", <i>WADS '89: Proceedings of the Workshop on Algorithms and Data Structures</i>, Lecture Notes in Computer Science, vol.&#160;382, London, UK: Springer-Verlag, pp.&#160;499–509, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F3-540-51542-9_41">10.1007/3-540-51542-9_41</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Heapsort+-+Adapted+for+Presorted+Files&amp;rft.btitle=WADS+%2789%3A+Proceedings+of+the+Workshop+on+Algorithms+and+Data+Structures&amp;rft.place=London%2C+UK&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=499-509&amp;rft.pub=Springer-Verlag&amp;rft.date=1989&amp;rft_id=info%3Adoi%2F10.1007%2F3-540-51542-9_41&amp;rft.aulast=Levcopoulos&amp;rft.aufirst=Christos&amp;rft.au=Petersson%2C+Ola&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AComparison+sort" class="Z3988"></span>.</span>
+</li>
+</ol></div>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Comparison_sort&amp;action=edit&amp;section=9" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Donald_Knuth" title="Donald Knuth">Donald Knuth</a>. <i><a href="https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming" title="The Art of Computer Programming">The Art of Computer Programming</a></i>, Volume 3: <i>Sorting and Searching</i>, Second Edition. Addison-Wesley, 1997. <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-201-89685-0" title="Special:BookSources/0-201-89685-0">0-201-89685-0</a>. Section 5.3.1: Minimum-Comparison Sorting, pp.&#160;180–197.</li></ul>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Sorting_algorithms" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Sorting" title="Template:Sorting"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Sorting" title="Template talk:Sorting"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Sorting&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Sorting_algorithms" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">Sorting algorithms</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Theory</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" title="Computational complexity theory">Computational complexity theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Big_O_notation" title="Big O notation">Big O notation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Total_order" title="Total order">Total order</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_(abstract_data_type)" title="List (abstract data type)">Lists</a></li>
+<li><a href="https://en.wikipedia.org/wiki/In-place_algorithm" title="In-place algorithm">Inplacement</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sorting_algorithm#Stability" title="Sorting algorithm">Stability</a></li>
+<li><a class="mw-selflink selflink">Comparison sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Adaptive_sort" title="Adaptive sort">Adaptive sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sorting_network" title="Sorting network">Sorting network</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Integer_sorting" title="Integer sorting">Integer sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/X_+_Y_sorting" title="X + Y sorting">X + Y sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Transdichotomous_model" title="Transdichotomous model">Transdichotomous model</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quantum_sort" title="Quantum sort">Quantum sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Exchange sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Bubble_sort" title="Bubble sort">Bubble sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cocktail_shaker_sort" title="Cocktail shaker sort">Cocktail shaker sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Odd–even_sort" title="Odd–even sort">Odd–even sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Comb_sort" title="Comb sort">Comb sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gnome_sort" title="Gnome sort">Gnome sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Proportion_extend_sort" title="Proportion extend sort">Proportion extend sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quicksort" title="Quicksort">Quicksort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Slowsort" title="Slowsort">Slowsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stooge_sort" title="Stooge sort">Stooge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bogosort" title="Bogosort">Bogosort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Selection_algorithm" title="Selection algorithm">Selection sorts</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Selection_sort" title="Selection sort">Selection sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Heapsort" title="Heapsort">Heapsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Smoothsort" title="Smoothsort">Smoothsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cartesian_tree#Application_in_sorting" title="Cartesian tree">Cartesian tree sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tournament_sort" title="Tournament sort">Tournament sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cycle_sort" title="Cycle sort">Cycle sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Weak_heap#Weak-heap_sort" title="Weak heap">Weak-heap sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Insertion sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Insertion_sort" title="Insertion sort">Insertion sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shellsort" title="Shellsort">Shellsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Splaysort" title="Splaysort">Splaysort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tree_sort" title="Tree sort">Tree sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Library_sort" title="Library sort">Library sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Patience_sorting" title="Patience sorting">Patience sorting</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Merge sorts</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Merge_sort" title="Merge sort">Merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cascade_merge_sort" title="Cascade merge sort">Cascade merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Oscillating_merge_sort" title="Oscillating merge sort">Oscillating merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Polyphase_merge_sort" title="Polyphase merge sort">Polyphase merge sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Distribution sorts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/American_flag_sort" title="American flag sort">American flag sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bead_sort" title="Bead sort">Bead sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bucket_sort" title="Bucket sort">Bucket sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Burstsort" title="Burstsort">Burstsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Counting_sort" title="Counting sort">Counting sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Interpolation_sort" title="Interpolation sort">Interpolation sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pigeonhole_sort" title="Pigeonhole sort">Pigeonhole sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Proxmap_sort" title="Proxmap sort">Proxmap sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Radix_sort" title="Radix sort">Radix sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Flashsort" title="Flashsort">Flashsort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Concurrent sorts</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Bitonic_sorter" title="Bitonic sorter">Bitonic sorter</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Batcher_odd–even_mergesort" title="Batcher odd–even mergesort">Batcher odd–even mergesort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pairwise_sorting_network" title="Pairwise sorting network">Pairwise sorting network</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Samplesort" title="Samplesort">Samplesort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Hybrid_algorithm" title="Hybrid algorithm">Hybrid sorts</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Block_sort" title="Block sort">Block merge sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kirkpatrick-Reisch_sort" class="mw-redirect" title="Kirkpatrick-Reisch sort">Kirkpatrick-Reisch sort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Timsort" title="Timsort">Timsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Introsort" title="Introsort">Introsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Spreadsort" title="Spreadsort">Spreadsort</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Merge-insertion_sort" title="Merge-insertion sort">Merge-insertion sort</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Other</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Topological_sorting" title="Topological sorting">Topological sorting</a>
+<ul><li><a href="https://en.wikipedia.org/wiki/Pre-topological_order" title="Pre-topological order">Pre-topological order</a></li></ul></li>
+<li><a href="https://en.wikipedia.org/wiki/Pancake_sorting" title="Pancake sorting">Pancake sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Spaghetti_sort" title="Spaghetti sort">Spaghetti sort</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1324
+Cached time: 20220428082457
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.456 seconds
+Real time usage: 0.567 seconds
+Preprocessor visited node count: 1544/1000000
+Post‐expand include size: 28910/2097152 bytes
+Template argument size: 1936/2097152 bytes
+Highest expansion depth: 14/100
+Expensive parser function count: 1/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 25638/5000000 bytes
+Lua time usage: 0.208/10.000 seconds
+Lua memory usage: 3957385/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  422.802      1 -total
+ 24.74%  104.614      1 Template:Introduction_to_Algorithms
+ 23.94%  101.202      1 Template:Cite_book
+ 21.30%   90.041      1 Template:Short_description
+ 17.50%   73.997      1 Template:Sorting
+ 16.82%   71.106      1 Template:Navbox
+ 12.05%   50.939      1 Template:Pagetype
+  9.42%   39.835      1 Template:ISBN
+  6.74%   28.489      1 Template:Main
+  5.25%   22.202      3 Template:Cite_journal
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:3189304-0!canonical and timestamp 20220428082456 and revision id 1085079401. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Comparison_sort&amp;oldid=1085079401">https://en.wikipedia.org/w/index.php?title=Comparison_sort&amp;oldid=1085079401</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Comparison_sorts" title="Category:Comparison sorts">Comparison sorts</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Sorting_algorithms" title="Category:Sorting algorithms">Sorting algorithms</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:CS1_Chinese-language_sources_(zh)" title="Category:CS1 Chinese-language sources (zh)">CS1 Chinese-language sources (zh)</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_matches_Wikidata" title="Category:Short description matches Wikidata">Short description matches Wikidata</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Comparison+sort" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Comparison+sort" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Comparison_sort" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Comparison_sort" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Comparison_sort"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Comparison_sort&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Comparison_sort&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Comparison_sort" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Comparison_sort" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Comparison_sort&amp;oldid=1085079401" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Comparison_sort&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Comparison_sort&amp;id=1085079401&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q2632949" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Comparison_sort&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Comparison_sort&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/مرتب‌سازی_مقایسه‌ای" title="مرتب‌سازی مقایسه‌ای – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-ko mw-list-item"><a href="https://ko.wikipedia.org/wiki/비교_정렬" title="비교 정렬 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target"><span>한국어</span></a></li><li class="interlanguage-link interwiki-it mw-list-item"><a href="https://it.wikipedia.org/wiki/Algoritmi_di_ordinamento_comparativi" title="Algoritmi di ordinamento comparativi – Italian" lang="it" hreflang="it" class="interlanguage-link-target"><span>Italiano</span></a></li><li class="interlanguage-link interwiki-ml mw-list-item"><a href="https://ml.wikipedia.org/wiki/താരതമ്യ_സോർട്ട്" title="താരതമ്യ സോർട്ട് – Malayalam" lang="ml" hreflang="ml" class="interlanguage-link-target"><span>മലയാളം</span></a></li><li class="interlanguage-link interwiki-no mw-list-item"><a href="https://no.wikipedia.org/wiki/Sammenligningsortering" title="Sammenligningsortering – Norwegian Bokmål" lang="nb" hreflang="nb" class="interlanguage-link-target"><span>Norsk bokmål</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/Ordenação_por_comparação" title="Ordenação por comparação – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/Сортирање_поређењем" title="Сортирање поређењем – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Сортування_порівняннями" title="Сортування порівняннями – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/比较排序" title="比较排序 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q2632949#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 28 April 2022, at 08:24<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Comparison_sort&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.456","walltime":"0.567","ppvisitednodes":{"value":1544,"limit":1000000},"postexpandincludesize":{"value":28910,"limit":2097152},"templateargumentsize":{"value":1936,"limit":2097152},"expansiondepth":{"value":14,"limit":100},"expensivefunctioncount":{"value":1,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":25638,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  422.802      1 -total"," 24.74%  104.614      1 Template:Introduction_to_Algorithms"," 23.94%  101.202      1 Template:Cite_book"," 21.30%   90.041      1 Template:Short_description"," 17.50%   73.997      1 Template:Sorting"," 16.82%   71.106      1 Template:Navbox"," 12.05%   50.939      1 Template:Pagetype","  9.42%   39.835      1 Template:ISBN","  6.74%   28.489      1 Template:Main","  5.25%   22.202      3 Template:Cite_journal"]},"scribunto":{"limitreport-timeusage":{"value":"0.208","limit":"10.000"},"limitreport-memusage":{"value":3957385,"limit":52428800}},"cachereport":{"origin":"mw1324","timestamp":"20220428082457","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Comparison sort","url":"https:\/\/en.wikipedia.org\/wiki\/Comparison_sort","sameAs":"http:\/\/www.wikidata.org\/entity\/Q2632949","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q2632949","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2005-11-18T10:03:13Z","dateModified":"2022-04-28T08:24:55Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/1\/17\/Balance_%C3%A0_tabac_1850.JPG","headline":"type of sorting algorithm that works by comparing pairs of elements"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Comparison sort","url":"https:\/\/en.wikipedia.org\/wiki\/Comparison_sort","sameAs":"http:\/\/www.wikidata.org\/entity\/Q2632949","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q2632949","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2005-11-18T10:03:13Z","dateModified":"2022-04-28T08:24:55Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/1\/17\/Balance_%C3%A0_tabac_1850.JPG","headline":"type of sorting algorithm that works by comparing pairs of elements"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":137,"wgHostname":"mw1418"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Comparison_sort by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:39 GMT -->
+</html>

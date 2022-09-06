@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Ternary_heap by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:32:06 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>d-ary heap - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"3e542c5e-e199-486a-be06-dbd2b5e3ba08","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"D-ary_heap","wgTitle":"D-ary heap","wgCurRevisionId":1076478339,"wgRevisionId":1076478339,"wgArticleId":11960848,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Heaps (data structures)"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"D-ary_heap","wgRelevantArticleId":11960848,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Ternary_heap",
+"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":10000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgInternalRedirectTargetUrl":"/wiki/D-ary_heap","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q5203305"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","skins.vector.styles.legacy":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready",
+"ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["mediawiki.action.view.redirect","ext.cite.ux-enhancements","ext.math.scripts","ext.scribunto.logs","site","mediawiki.page.ready","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="d-ary heap - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/D-ary_heap"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=D-ary_heap&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/D-ary_heap"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-D-ary_heap rootpage-D-ary_heap skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading"><i>d</i>-ary heap</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"><span class="mw-redirectedfrom">&#160;&#160;(Redirected from <a href="https://en.wikipedia.org/w/index.php?title=Ternary_heap&amp;redirect=no" class="mw-redirect" title="Ternary heap">Ternary heap</a>)</span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><p>The <b><span class="texhtml"><i>d</i></span>-ary heap</b> or <b><span class="texhtml"><i>d</i></span>-heap</b> is a <a href="https://en.wikipedia.org/wiki/Priority_queue" title="Priority queue">priority queue</a> <a href="https://en.wikipedia.org/wiki/Data_structure" title="Data structure">data structure</a>, a generalization of the <a href="https://en.wikipedia.org/wiki/Binary_heap" title="Binary heap">binary heap</a> in which the nodes have <span class="texhtml"><i>d</i></span> children instead of 2.<sup id="cite_ref-j75_1-0" class="reference"><a href="#cite_note-j75-1">&#91;1&#93;</a></sup><sup id="cite_ref-t83_2-0" class="reference"><a href="#cite_note-t83-2">&#91;2&#93;</a></sup><sup id="cite_ref-w07_3-0" class="reference"><a href="#cite_note-w07-3">&#91;3&#93;</a></sup> Thus, a binary heap is a 2-heap, and a <b>ternary heap</b> is a 3-heap. According to Tarjan<sup id="cite_ref-t83_2-1" class="reference"><a href="#cite_note-t83-2">&#91;2&#93;</a></sup> and Jensen et al.,<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup> <span class="texhtml"><i>d</i></span>-ary heaps were invented by <a href="https://en.wikipedia.org/wiki/Donald_B._Johnson" title="Donald B. Johnson">Donald B. Johnson</a> in 1975.<sup id="cite_ref-j75_1-1" class="reference"><a href="#cite_note-j75-1">&#91;1&#93;</a></sup>
+</p><p>This data structure allows decrease priority operations to be performed more quickly than binary heaps, at the expense of slower delete minimum operations. This tradeoff leads to better running times for algorithms such as <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm" title="Dijkstra&#39;s algorithm">Dijkstra's algorithm</a> in which decrease priority operations are more common than delete min operations.<sup id="cite_ref-j75_1-2" class="reference"><a href="#cite_note-j75-1">&#91;1&#93;</a></sup><sup id="cite_ref-t2_5-0" class="reference"><a href="#cite_note-t2-5">&#91;5&#93;</a></sup> Additionally, <span class="texhtml"><i>d</i></span>-ary heaps have better <a href="https://en.wikipedia.org/wiki/Memory_cache" class="mw-redirect" title="Memory cache">memory cache</a> behavior than binary heaps, allowing them to run more quickly in practice despite having a theoretically larger worst-case running time.<sup id="cite_ref-nmm91_6-0" class="reference"><a href="#cite_note-nmm91-6">&#91;6&#93;</a></sup> Like binary heaps, <span class="texhtml"><i>d</i></span>-ary heaps are an <a href="https://en.wikipedia.org/wiki/In-place_algorithm" title="In-place algorithm">in-place data structure</a> that uses no additional storage beyond that needed to store the array of items in the heap.<sup id="cite_ref-t83_2-2" class="reference"><a href="#cite_note-t83-2">&#91;2&#93;</a></sup><sup id="cite_ref-mp05_7-0" class="reference"><a href="#cite_note-mp05-7">&#91;7&#93;</a></sup>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Data_structure"><span class="tocnumber">1</span> <span class="toctext">Data structure</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Analysis"><span class="tocnumber">2</span> <span class="toctext">Analysis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Applications"><span class="tocnumber">3</span> <span class="toctext">Applications</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#External_links"><span class="tocnumber">5</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Data_structure">Data structure</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=D-ary_heap&amp;action=edit&amp;section=1" title="Edit section: Data structure">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The <span class="texhtml"><i>d</i></span>-ary heap consists of an <a href="https://en.wikipedia.org/wiki/Array_data_structure" title="Array data structure">array</a> of <span class="texhtml"><i>n</i></span> items, each of which has a priority associated with it. These items may be viewed as the nodes in a complete <span class="texhtml"><i>d</i></span>-ary tree, listed in <a href="https://en.wikipedia.org/wiki/Breadth-first_search" title="Breadth-first search">breadth first traversal order</a>: the item at position 0 of the array (using <a href="https://en.wikipedia.org/wiki/Zero-based_numbering" title="Zero-based numbering">zero-based numbering</a>) forms the root of the tree, the items at positions 1 through <span class="texhtml"><i>d</i></span> are its children, the next <span class="texhtml"><i>d</i><sup>2</sup></span> items are its grandchildren, etc. Thus, the parent of the item at position <span class="texhtml"><i>i</i></span> (for any <span class="texhtml"><i>i</i> &gt; 0</span>) is the item at position <span class="texhtml"><span style="font-size:1em">⌊</span>(<i>i</i> &#8722; 1)/<i>d</i><span style="font-size:1em">⌋</span></span> and its children are the items at positions <span class="texhtml"><i>di</i> + 1</span> through <span class="texhtml"><i>di</i> + <i>d</i></span>. According to the <a href="https://en.wikipedia.org/wiki/Binary_heap" title="Binary heap">heap property</a>, in a min-heap, each item has a priority that is at least as large as its parent; in a max-heap, each item has a priority that is no larger than its parent.<sup id="cite_ref-t83_2-3" class="reference"><a href="#cite_note-t83-2">&#91;2&#93;</a></sup><sup id="cite_ref-w07_3-1" class="reference"><a href="#cite_note-w07-3">&#91;3&#93;</a></sup>
+</p><p>The minimum priority item in a min-heap (or the maximum priority item in a max-heap) may always be found at position 0 of the array. To remove this item from the priority queue, the last item <i>x</i> in the array is moved into its place, and the length of the array is decreased by one. Then, while item <i>x</i> and its children do not satisfy the heap property, item <i>x</i> is swapped with one of its children (the one with the smallest priority in a min-heap, or the one with the largest priority in a max-heap), moving it downward in the tree and later in the array, until eventually the heap property is satisfied. The same downward swapping procedure may be used to increase the priority of an item in a min-heap, or to decrease the priority of an item in a max-heap.<sup id="cite_ref-t83_2-4" class="reference"><a href="#cite_note-t83-2">&#91;2&#93;</a></sup><sup id="cite_ref-w07_3-2" class="reference"><a href="#cite_note-w07-3">&#91;3&#93;</a></sup>
+</p><p>To insert a new item into the heap, the item is appended to the end of the array, and then while the heap property is violated it is swapped with its parent, moving it upward in the tree and earlier in the array, until eventually the heap property is satisfied. The same upward-swapping procedure may be used to decrease the priority of an item in a min-heap, or to increase the priority of an item in a max-heap.<sup id="cite_ref-t83_2-5" class="reference"><a href="#cite_note-t83-2">&#91;2&#93;</a></sup><sup id="cite_ref-w07_3-3" class="reference"><a href="#cite_note-w07-3">&#91;3&#93;</a></sup>
+</p><p>To create a new heap from an array of <span class="texhtml"><i>n</i></span> items, one may loop over the items in reverse order, starting from the item at position <span class="texhtml"><i>n</i> &#8722; 1</span> and ending at the item at position 0, applying the downward-swapping procedure for each item.<sup id="cite_ref-t83_2-6" class="reference"><a href="#cite_note-t83-2">&#91;2&#93;</a></sup><sup id="cite_ref-w07_3-4" class="reference"><a href="#cite_note-w07-3">&#91;3&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Analysis">Analysis</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=D-ary_heap&amp;action=edit&amp;section=2" title="Edit section: Analysis">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In a <span class="texhtml"><i>d</i></span>-ary heap with <span class="texhtml"><i>n</i></span> items in it, both the upward-swapping procedure and the downward-swapping procedure may perform as many as <span class="texhtml">log<sub><i>d</i></sub> <i>n</i> = log <i>n</i> / log <i>d</i></span> swaps. In the upward-swapping procedure, each swap involves a single comparison of an item with its parent, and takes constant time. Therefore, the time to insert a new item into the heap, to decrease the priority of an item in a min-heap, or to increase the priority of an item in a max-heap, is <span class="texhtml">O(log <i>n</i> / log <i>d</i>)</span>. In the downward-swapping procedure, each swap involves <span class="texhtml"><i>d</i></span> comparisons and takes <span class="texhtml">O(<i>d</i>)</span> time: it takes <span class="texhtml"><i>d</i> &#8722; 1</span> comparisons to determine the minimum or maximum of the children and then one more comparison against the parent to determine whether a swap is needed. Therefore, the time to delete the root item, to increase the priority of an item in a min-heap, or to decrease the priority of an item in a max-heap, is <span class="texhtml">O(<i>d</i> log <i>n</i> / log <i>d</i>)</span>.<sup id="cite_ref-t83_2-7" class="reference"><a href="#cite_note-t83-2">&#91;2&#93;</a></sup><sup id="cite_ref-w07_3-5" class="reference"><a href="#cite_note-w07-3">&#91;3&#93;</a></sup>
+</p><p>When creating a <span class="texhtml"><i>d</i></span>-ary heap from a set of <i>n</i> items, most of the items are in positions that will eventually hold leaves of the <span class="texhtml"><i>d</i></span>-ary tree, and no downward swapping is performed for those items. At most <span class="texhtml"><i>n</i>/<i>d</i> + 1</span> items are non-leaves, and may be swapped downwards at least once, at a cost of <span class="texhtml">O(<i>d</i>)</span> time to find the child to swap them with. At most <span class="texhtml"><i>n</i>/<i>d</i><sup>2</sup> + 1</span> nodes may be swapped downward two times, incurring an additional <span class="texhtml">O(<i>d</i>)</span> cost for the second swap beyond the cost already counted in the first term, etc. Therefore, the total amount of time to create a heap in this way is
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \sum _{i=1}^{\log _{d}n}\left({\frac {n}{d^{i}}}+1\right)O(d)=O(n).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <munderover>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>=</mo>
+            <mn>1</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msub>
+              <mi>log</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>d</mi>
+              </mrow>
+            </msub>
+            <mo>&#x2061;<!-- ⁡ --></mo>
+            <mi>n</mi>
+          </mrow>
+        </munderover>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mfrac>
+                <mi>n</mi>
+                <msup>
+                  <mi>d</mi>
+                  <mrow class="MJX-TeXAtom-ORD">
+                    <mi>i</mi>
+                  </mrow>
+                </msup>
+              </mfrac>
+            </mrow>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>d</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \sum _{i=1}^{\log _{d}n}\left({\frac {n}{d^{i}}}+1\right)O(d)=O(n).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7ba0744fb72d55374081c11c9237e9f25f57ceae" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.005ex; width:28.91ex; height:7.509ex;" alt="\sum _{{i=1}}^{{\log _{d}n}}\left({\frac  {n}{d^{i}}}+1\right)O(d)=O(n)."/></span><sup id="cite_ref-t83_2-8" class="reference"><a href="#cite_note-t83-2">&#91;2&#93;</a></sup><sup id="cite_ref-w07_3-6" class="reference"><a href="#cite_note-w07-3">&#91;3&#93;</a></sup></dd></dl>
+<p>The exact value of the above (the worst-case number of comparisons during the construction of d-ary heap) is known to be equal to:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {d}{d-1}}(n-s_{d}(n))-(d-1-(n{\bmod {d}}))\left(e_{d}\left(\left\lfloor {\frac {n}{d}}\right\rfloor \right)+1\right)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mi>d</mi>
+            <mrow>
+              <mi>d</mi>
+              <mo>&#x2212;<!-- − --></mo>
+              <mn>1</mn>
+            </mrow>
+          </mfrac>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>d</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>d</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo lspace="thickmathspace" rspace="thickmathspace">mod</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>d</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <msub>
+              <mi>e</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>d</mi>
+              </mrow>
+            </msub>
+            <mrow>
+              <mo>(</mo>
+              <mrow>
+                <mo>&#x230A;</mo>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mfrac>
+                    <mi>n</mi>
+                    <mi>d</mi>
+                  </mfrac>
+                </mrow>
+                <mo>&#x230B;</mo>
+              </mrow>
+              <mo>)</mo>
+            </mrow>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {d}{d-1}}(n-s_{d}(n))-(d-1-(n{\bmod {d}}))\left(e_{d}\left(\left\lfloor {\frac {n}{d}}\right\rfloor \right)+1\right)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f7d4ff2fcf7f0881705f699863f0105dbf827e9f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.171ex; width:57.485ex; height:5.676ex;" alt="{\displaystyle {\frac {d}{d-1}}(n-s_{d}(n))-(d-1-(n{\bmod {d}}))\left(e_{d}\left(\left\lfloor {\frac {n}{d}}\right\rfloor \right)+1\right)}"/></span>,<sup id="cite_ref-Suchenek_8-0" class="reference"><a href="#cite_note-Suchenek-8">&#91;8&#93;</a></sup></dd></dl>
+<p>where s<sub>d</sub>(n) is the sum of all digits of the standard base-d representation of n and e<sub>d</sub>(n) is the exponent of d in the factorization of n.
+This reduces to
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 2n-2s_{2}(n)-e_{2}(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>2</mn>
+        <mi>n</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>2</mn>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>e</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 2n-2s_{2}(n)-e_{2}(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0134cac877b68b92f3c460708a5a2f4466d1ef86" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:20.091ex; height:2.843ex;" alt=" 2 n - 2 s_2 (n) - e_2 (n) "/></span>,<sup id="cite_ref-Suchenek_8-1" class="reference"><a href="#cite_note-Suchenek-8">&#91;8&#93;</a></sup></dd></dl>
+<p>for d = 2, and to
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {3}{2}}(n-s_{3}(n))-2e_{3}(n)-e_{3}(n-1)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>3</mn>
+            <mn>2</mn>
+          </mfrac>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>2</mn>
+        <msub>
+          <mi>e</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <msub>
+          <mi>e</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {3}{2}}(n-s_{3}(n))-2e_{3}(n)-e_{3}(n-1)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5661de13c70383928b0621499da922bc7ae13b1a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:34.921ex; height:5.176ex;" alt="{\frac  {3}{2}}(n-s_{3}(n))-2e_{3}(n)-e_{3}(n-1)"/></span>,<sup id="cite_ref-Suchenek_8-2" class="reference"><a href="#cite_note-Suchenek-8">&#91;8&#93;</a></sup></dd></dl>
+<p>for d = 3.
+</p><p>The space usage of the <span class="texhtml"><i>d</i>-ary</span> heap, with insert and delete-min operations, is linear, as it uses no extra storage other than an array containing a list of the items in the heap.<sup id="cite_ref-t83_2-9" class="reference"><a href="#cite_note-t83-2">&#91;2&#93;</a></sup><sup id="cite_ref-mp05_7-1" class="reference"><a href="#cite_note-mp05-7">&#91;7&#93;</a></sup> If changes to the priorities of existing items need to be supported, then one must also maintain pointers from the items to their positions in the heap, which again uses only linear storage.<sup id="cite_ref-t83_2-10" class="reference"><a href="#cite_note-t83-2">&#91;2&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Applications">Applications</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=D-ary_heap&amp;action=edit&amp;section=3" title="Edit section: Applications">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>When operating on a <a href="https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)" title="Graph (discrete mathematics)">graph</a> with <span class="texhtml mvar" style="font-style:italic;">m</span> edges and <span class="texhtml mvar" style="font-style:italic;">n</span> vertices, both <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm" title="Dijkstra&#39;s algorithm">Dijkstra's algorithm</a> for <a href="https://en.wikipedia.org/wiki/Shortest_path" class="mw-redirect" title="Shortest path">shortest paths</a> and <a href="https://en.wikipedia.org/wiki/Prim%27s_algorithm" title="Prim&#39;s algorithm">Prim's algorithm</a> for <a href="https://en.wikipedia.org/wiki/Minimum_spanning_tree" title="Minimum spanning tree">minimum spanning trees</a> use a min-heap in which there are <span class="texhtml"><i>n</i></span> delete-min operations and as many as <span class="texhtml mvar" style="font-style:italic;">m</span> decrease-priority operations. By using a <span class="texhtml mvar" style="font-style:italic;">d</span>-ary heap with <span class="texhtml"><i>d</i> = <i>m</i>/<i>n</i></span>, the total times for these two types of operations may be balanced against each other, leading to a total time of <span class="texhtml">O(<i>m</i> log<sub><i>m</i>/<i>n</i></sub> <i>n</i>)</span> for the algorithm, an improvement over the <span class="texhtml">O(<i>m</i> log <i>n</i>)</span> running time of binary heap versions of these algorithms whenever the number of edges is significantly larger than the number of vertices.<sup id="cite_ref-j75_1-3" class="reference"><a href="#cite_note-j75-1">&#91;1&#93;</a></sup><sup id="cite_ref-t2_5-1" class="reference"><a href="#cite_note-t2-5">&#91;5&#93;</a></sup> An alternative priority queue data structure, the <a href="https://en.wikipedia.org/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci heap</a>, gives an even better theoretical running time of <span class="texhtml">O(<i>m</i> + <i>n</i> log <i>n</i>)</span>, but in practice <span class="texhtml mvar" style="font-style:italic;">d</span>-ary heaps are generally at least as fast, and often faster, than Fibonacci heaps for this application.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">&#91;9&#93;</a></sup>
+</p><p>4-heaps may perform better than binary heaps in practice, even for delete-min operations.<sup id="cite_ref-t83_2-11" class="reference"><a href="#cite_note-t83-2">&#91;2&#93;</a></sup><sup id="cite_ref-w07_3-7" class="reference"><a href="#cite_note-w07-3">&#91;3&#93;</a></sup> Additionally,
+a <span class="texhtml mvar" style="font-style:italic;">d</span>-ary heap typically runs much faster than a binary heap for heap sizes that exceed the size of the computer's <a href="https://en.wikipedia.org/wiki/Cache_memory" class="mw-redirect" title="Cache memory">cache memory</a>:
+A binary heap typically requires more <a href="https://en.wikipedia.org/wiki/Cache_miss" class="mw-redirect" title="Cache miss">cache misses</a> and <a href="https://en.wikipedia.org/wiki/Virtual_memory" title="Virtual memory">virtual memory</a> <a href="https://en.wikipedia.org/wiki/Page_fault" title="Page fault">page faults</a> than a <span class="texhtml mvar" style="font-style:italic;">d</span>-ary heap, each one taking far more time than the extra work incurred by the additional comparisons a <span class="texhtml mvar" style="font-style:italic;">d</span>-ary heap makes compared to a binary heap.<sup id="cite_ref-nmm91_6-1" class="reference"><a href="#cite_note-nmm91-6">&#91;6&#93;</a></sup><sup id="cite_ref-k10_10-0" class="reference"><a href="#cite_note-k10-10">&#91;10&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=D-ary_heap&amp;action=edit&amp;section=4" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-j75-1"><span class="mw-cite-backlink">^ <a href="#cite_ref-j75_1-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-j75_1-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-j75_1-2"><sup><i><b>c</b></i></sup></a> <a href="#cite_ref-j75_1-3"><sup><i><b>d</b></i></sup></a></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFJohnson1975" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Donald_B._Johnson" title="Donald B. Johnson">Johnson, D. B.</a> (1975), "Priority queues with update and finding minimum spanning trees", <i>Information Processing Letters</i>, <b>4</b> (3): 53–57, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2F0020-0190(75)90001-0">10.1016/0020-0190(75)90001-0</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Information+Processing+Letters&amp;rft.atitle=Priority+queues+with+update+and+finding+minimum+spanning+trees&amp;rft.volume=4&amp;rft.issue=3&amp;rft.pages=53-57&amp;rft.date=1975&amp;rft_id=info%3Adoi%2F10.1016%2F0020-0190%2875%2990001-0&amp;rft.aulast=Johnson&amp;rft.aufirst=D.+B.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AD-ary+heap" class="Z3988"></span>.</span>
+</li>
+<li id="cite_note-t83-2"><span class="mw-cite-backlink">^ <a href="#cite_ref-t83_2-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-t83_2-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-t83_2-2"><sup><i><b>c</b></i></sup></a> <a href="#cite_ref-t83_2-3"><sup><i><b>d</b></i></sup></a> <a href="#cite_ref-t83_2-4"><sup><i><b>e</b></i></sup></a> <a href="#cite_ref-t83_2-5"><sup><i><b>f</b></i></sup></a> <a href="#cite_ref-t83_2-6"><sup><i><b>g</b></i></sup></a> <a href="#cite_ref-t83_2-7"><sup><i><b>h</b></i></sup></a> <a href="#cite_ref-t83_2-8"><sup><i><b>i</b></i></sup></a> <a href="#cite_ref-t83_2-9"><sup><i><b>j</b></i></sup></a> <a href="#cite_ref-t83_2-10"><sup><i><b>k</b></i></sup></a> <a href="#cite_ref-t83_2-11"><sup><i><b>l</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFTarjan1983" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Robert_Tarjan" title="Robert Tarjan">Tarjan, R. E.</a> (1983), "3.2. <i>d</i>-heaps", <i>Data Structures and Network Algorithms</i>, CBMS-NSF Regional Conference Series in Applied Mathematics, vol.&#160;44, <a href="https://en.wikipedia.org/wiki/Society_for_Industrial_and_Applied_Mathematics" title="Society for Industrial and Applied Mathematics">Society for Industrial and Applied Mathematics</a>, pp.&#160;34–38</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=3.2.+d-heaps&amp;rft.btitle=Data+Structures+and+Network+Algorithms&amp;rft.series=CBMS-NSF+Regional+Conference+Series+in+Applied+Mathematics&amp;rft.pages=34-38&amp;rft.pub=Society+for+Industrial+and+Applied+Mathematics&amp;rft.date=1983&amp;rft.aulast=Tarjan&amp;rft.aufirst=R.+E.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AD-ary+heap" class="Z3988"></span>. Note that Tarjan uses 1-based numbering, not 0-based numbering, so his formulas for the parent and children of a node need to be adjusted when 0-based numbering is used.</span>
+</li>
+<li id="cite_note-w07-3"><span class="mw-cite-backlink">^ <a href="#cite_ref-w07_3-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-w07_3-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-w07_3-2"><sup><i><b>c</b></i></sup></a> <a href="#cite_ref-w07_3-3"><sup><i><b>d</b></i></sup></a> <a href="#cite_ref-w07_3-4"><sup><i><b>e</b></i></sup></a> <a href="#cite_ref-w07_3-5"><sup><i><b>f</b></i></sup></a> <a href="#cite_ref-w07_3-6"><sup><i><b>g</b></i></sup></a> <a href="#cite_ref-w07_3-7"><sup><i><b>h</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFWeiss2007" class="citation cs2">Weiss, M. A. (2007), "<i>d</i>-heaps", <i>Data Structures and Algorithm Analysis</i> (2nd&#160;ed.), Addison-Wesley, p.&#160;216, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-321-37013-9" title="Special:BookSources/0-321-37013-9"><bdi>0-321-37013-9</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=d-heaps&amp;rft.btitle=Data+Structures+and+Algorithm+Analysis&amp;rft.pages=216&amp;rft.edition=2nd&amp;rft.pub=Addison-Wesley&amp;rft.date=2007&amp;rft.isbn=0-321-37013-9&amp;rft.aulast=Weiss&amp;rft.aufirst=M.+A.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AD-ary+heap" class="Z3988"></span>.</span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFJensenKatajainenVitale2004" class="citation cs2">Jensen, C.; Katajainen, J.; Vitale, F. (2004), <a rel="nofollow" class="external text" href="http://www.cphstl.dk/Report/In-place-multiway-heaps/experimental-study.pdf"><i>An extended truth about heaps</i></a> <span class="cs1-format">(PDF)</span></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=An+extended+truth+about+heaps&amp;rft.date=2004&amp;rft.aulast=Jensen&amp;rft.aufirst=C.&amp;rft.au=Katajainen%2C+J.&amp;rft.au=Vitale%2C+F.&amp;rft_id=http%3A%2F%2Fwww.cphstl.dk%2FReport%2FIn-place-multiway-heaps%2Fexperimental-study.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AD-ary+heap" class="Z3988"></span>.</span>
+</li>
+<li id="cite_note-t2-5"><span class="mw-cite-backlink">^ <a href="#cite_ref-t2_5-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-t2_5-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><a href="#CITEREFTarjan1983">Tarjan (1983)</a>, pp. 77 and 91.</span>
+</li>
+<li id="cite_note-nmm91-6"><span class="mw-cite-backlink">^ <a href="#cite_ref-nmm91_6-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-nmm91_6-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFNaorMartelMatloff1991" class="citation cs2">Naor, D.; Martel, C. U.; Matloff, N. S. (October 1991), "Performance of priority queue structures in a virtual memory environment", <i>Computer Journal</i>, <b>34</b> (5): 428–437, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1093%2Fcomjnl%2F34.5.428">10.1093/comjnl/34.5.428</a></span></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Computer+Journal&amp;rft.atitle=Performance+of+priority+queue+structures+in+a+virtual+memory+environment&amp;rft.volume=34&amp;rft.issue=5&amp;rft.pages=428-437&amp;rft.date=1991-10&amp;rft_id=info%3Adoi%2F10.1093%2Fcomjnl%2F34.5.428&amp;rft.aulast=Naor&amp;rft.aufirst=D.&amp;rft.au=Martel%2C+C.+U.&amp;rft.au=Matloff%2C+N.+S.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AD-ary+heap" class="Z3988"></span>.</span>
+</li>
+<li id="cite_note-mp05-7"><span class="mw-cite-backlink">^ <a href="#cite_ref-mp05_7-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-mp05_7-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFMortensenPettie2005" class="citation cs2">Mortensen, C. W.; Pettie, S. (2005), "The complexity of implicit and space efficient priority queues", <i><a href="https://en.wikipedia.org/wiki/SWAT_and_WADS_conferences" title="SWAT and WADS conferences">Algorithms and Data Structures: 9th International Workshop, WADS 2005, Waterloo, Canada, August 15–17, 2005, Proceedings</a></i>, Lecture Notes in Computer Science, vol.&#160;3608, Springer-Verlag, pp.&#160;49–60, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F11534273_6">10.1007/11534273_6</a>, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-3-540-28101-6" title="Special:BookSources/978-3-540-28101-6"><bdi>978-3-540-28101-6</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=The+complexity+of+implicit+and+space+efficient+priority+queues&amp;rft.btitle=Algorithms+and+Data+Structures%3A+9th+International+Workshop%2C+WADS+2005%2C+Waterloo%2C+Canada%2C+August+15%E2%80%9317%2C+2005%2C+Proceedings&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=49-60&amp;rft.pub=Springer-Verlag&amp;rft.date=2005&amp;rft_id=info%3Adoi%2F10.1007%2F11534273_6&amp;rft.isbn=978-3-540-28101-6&amp;rft.aulast=Mortensen&amp;rft.aufirst=C.+W.&amp;rft.au=Pettie%2C+S.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AD-ary+heap" class="Z3988"></span>.</span>
+</li>
+<li id="cite_note-Suchenek-8"><span class="mw-cite-backlink">^ <a href="#cite_ref-Suchenek_8-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Suchenek_8-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-Suchenek_8-2"><sup><i><b>c</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSuchenek2012" class="citation cs2">Suchenek, Marek A. (2012), <a rel="nofollow" class="external text" href="http://www.deepdyve.com/lp/ios-press/elementary-yet-precise-worst-case-analysis-of-floyd-s-heap-50NW30HMxU">"Elementary Yet Precise Worst-Case Analysis of Floyd's Heap-Construction Program"</a>, <i>Fundamenta Informaticae</i>, IOS Press, <b>120</b> (1): 75–92, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.3233%2FFI-2012-751">10.3233/FI-2012-751</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Fundamenta+Informaticae&amp;rft.atitle=Elementary+Yet+Precise+Worst-Case+Analysis+of+Floyd%27s+Heap-Construction+Program&amp;rft.volume=120&amp;rft.issue=1&amp;rft.pages=75-92&amp;rft.date=2012&amp;rft_id=info%3Adoi%2F10.3233%2FFI-2012-751&amp;rft.aulast=Suchenek&amp;rft.aufirst=Marek+A.&amp;rft_id=http%3A%2F%2Fwww.deepdyve.com%2Flp%2Fios-press%2Felementary-yet-precise-worst-case-analysis-of-floyd-s-heap-50NW30HMxU&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AD-ary+heap" class="Z3988"></span>.</span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCherkasskyGoldbergRadzik1996" class="citation cs2">Cherkassky, Boris V.; <a href="https://en.wikipedia.org/wiki/Andrew_V._Goldberg" title="Andrew V. Goldberg">Goldberg, Andrew V.</a>; Radzik, Tomasz (May 1996), <a rel="nofollow" class="external text" href="ftp://www-cs-staff.stanford.edu/cs/theory/goldberg/stan-cs-93-1480.ps.gz#">"Shortest paths algorithms: Theory and experimental evaluation"</a>, <i>Mathematical Programming</i>, <b>73</b> (2): 129–174, <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.48.752">10.1.1.48.752</a></span>, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2FBF02592101">10.1007/BF02592101</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Mathematical+Programming&amp;rft.atitle=Shortest+paths+algorithms%3A+Theory+and+experimental+evaluation&amp;rft.volume=73&amp;rft.issue=2&amp;rft.pages=129-174&amp;rft.date=1996-05&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.48.752%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1007%2FBF02592101&amp;rft.aulast=Cherkassky&amp;rft.aufirst=Boris+V.&amp;rft.au=Goldberg%2C+Andrew+V.&amp;rft.au=Radzik%2C+Tomasz&amp;rft_id=ftp%3A%2F%2Fwww-cs-staff.stanford.edu%2Fcs%2Ftheory%2Fgoldberg%2Fstan-cs-93-1480.ps.gz%23&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AD-ary+heap" class="Z3988"></span>.</span>
+</li>
+<li id="cite_note-k10-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-k10_10-0">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKamp2010" class="citation cs2">Kamp, Poul-Henning (11 June 2010), <a rel="nofollow" class="external text" href="http://queue.acm.org/detail.cfm?id=1814327">"You're doing it wrong"</a>, <i>ACM Queue</i>, <b>8</b> (6)</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=ACM+Queue&amp;rft.atitle=You%27re+doing+it+wrong&amp;rft.volume=8&amp;rft.issue=6&amp;rft.date=2010-06-11&amp;rft.aulast=Kamp&amp;rft.aufirst=Poul-Henning&amp;rft_id=http%3A%2F%2Fqueue.acm.org%2Fdetail.cfm%3Fid%3D1814327&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AD-ary+heap" class="Z3988"></span>.</span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=D-ary_heap&amp;action=edit&amp;section=5" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a rel="nofollow" class="external text" href="https://github.com/valyala/gheap">C++ implementation of generalized heap with D-Heap support</a></li></ul>
+<!-- 
+NewPP limit report
+Parsed by mw1332
+Cached time: 20220418153417
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.384 seconds
+Real time usage: 0.451 seconds
+Preprocessor visited node count: 2527/1000000
+Post‐expand include size: 23952/2097152 bytes
+Template argument size: 2973/2097152 bytes
+Highest expansion depth: 8/100
+Expensive parser function count: 0/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 32991/5000000 bytes
+Lua time usage: 0.192/10.000 seconds
+Lua memory usage: 4641598/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  373.083      1 -total
+ 63.46%  236.740      1 Template:Reflist
+ 39.19%  146.198      9 Template:Citation
+ 28.30%  105.583     38 Template:Math
+ 13.52%   50.451      1 Template:Harvtxt
+  6.03%   22.508     39 Template:Main_other
+  0.63%    2.351      1 Template:Floor
+  0.46%    1.731      8 Template:Mvar
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:11960848-0!canonical and timestamp 20220418153417 and revision id 1076478339. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=D-ary_heap&amp;oldid=1076478339">https://en.wikipedia.org/w/index.php?title=D-ary_heap&amp;oldid=1076478339</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Heaps_(data_structures)" title="Category:Heaps (data structures)">Heaps (data structures)</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=D-ary+heap" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=D-ary+heap" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/D-ary_heap" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:D-ary_heap" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/D-ary_heap"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=D-ary_heap&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=D-ary_heap&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/D-ary_heap" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/D-ary_heap" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=D-ary_heap&amp;oldid=1076478339" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=D-ary_heap&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=D-ary_heap&amp;id=1076478339&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q5203305" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=D-ary_heap&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=D-ary_heap&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-wikibase-otherprojects" class="mw-portlet mw-portlet-wikibase-otherprojects vector-menu vector-menu-portal portal" aria-labelledby="p-wikibase-otherprojects-label" role="navigation" 
+	 >
+	<label id="p-wikibase-otherprojects-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">In other projects</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="wb-otherproject-link wb-otherproject-commons mw-list-item"><a href="https://commons.wikimedia.org/wiki/Category:Algorithms" hreflang="en"><span>Wikimedia Commons</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/هرم_دی‌تایی" title="هرم دی‌تایی – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Kopiec_a-arny" title="Kopiec a-arny – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/D-hip" title="D-hip – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/D-арна_купа" title="D-арна купа – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q5203305#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 11 March 2022, at 09:15<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=D-ary_heap&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.384","walltime":"0.451","ppvisitednodes":{"value":2527,"limit":1000000},"postexpandincludesize":{"value":23952,"limit":2097152},"templateargumentsize":{"value":2973,"limit":2097152},"expansiondepth":{"value":8,"limit":100},"expensivefunctioncount":{"value":0,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":32991,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  373.083      1 -total"," 63.46%  236.740      1 Template:Reflist"," 39.19%  146.198      9 Template:Citation"," 28.30%  105.583     38 Template:Math"," 13.52%   50.451      1 Template:Harvtxt","  6.03%   22.508     39 Template:Main_other","  0.63%    2.351      1 Template:Floor","  0.46%    1.731      8 Template:Mvar"]},"scribunto":{"limitreport-timeusage":{"value":"0.192","limit":"10.000"},"limitreport-memusage":{"value":4641598,"limit":52428800},"limitreport-logs":"anchor_id_list = table#1 {\n  [\"CITEREFCherkasskyGoldbergRadzik1996\"] = 1,\n  [\"CITEREFJensenKatajainenVitale2004\"] = 1,\n  [\"CITEREFJohnson1975\"] = 1,\n  [\"CITEREFKamp2010\"] = 1,\n  [\"CITEREFMortensenPettie2005\"] = 1,\n  [\"CITEREFNaorMartelMatloff1991\"] = 1,\n  [\"CITEREFSuchenek2012\"] = 1,\n  [\"CITEREFTarjan1983\"] = 1,\n  [\"CITEREFWeiss2007\"] = 1,\n}\ntemplate_list = table#1 {\n  [\"Citation\"] = 9,\n  [\"DEFAULTSORT:D-Ary Heap\"] = 1,\n  [\"DISPLAYTITLE:''d''-ary heap\"] = 1,\n  [\"Floor\"] = 1,\n  [\"Harvtxt\"] = 1,\n  [\"Math\"] = 38,\n  [\"Mvar\"] = 8,\n  [\"Reflist\"] = 1,\n}\narticle_whitelist = table#1 {\n}\n"},"cachereport":{"origin":"mw1332","timestamp":"20220418153417","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"D-ary heap","url":"https:\/\/en.wikipedia.org\/wiki\/D-ary_heap","sameAs":"http:\/\/www.wikidata.org\/entity\/Q5203305","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q5203305","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2007-06-26T14:25:59Z","dateModified":"2022-03-11T09:15:27Z","headline":"priority queue data structure, a generalization of the binary heap in which the nodes have d children instead of 2"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"D-ary heap","url":"https:\/\/en.wikipedia.org\/wiki\/D-ary_heap","sameAs":"http:\/\/www.wikidata.org\/entity\/Q5203305","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q5203305","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2007-06-26T14:25:59Z","dateModified":"2022-03-11T09:15:27Z","headline":"priority queue data structure, a generalization of the binary heap in which the nodes have d children instead of 2"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":177,"wgHostname":"mw1353"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Ternary_heap by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:32:06 GMT -->
+</html>

@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Set_cover by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Set cover problem - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"14f9713f-ba90-4cb7-bc41-977ed01e0965","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Set_cover_problem","wgTitle":"Set cover problem","wgCurRevisionId":1079485019,"wgRevisionId":1079485019,"wgArticleId":870399,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles to be expanded from November 2017","All articles to be expanded","Articles using small message boxes","Commons category link from Wikidata","Set families","NP-complete problems","Linear programming","Approximation algorithms","Covering problems"],"wgPageContentLanguage":"en",
+"wgPageContentModel":"wikitext","wgRelevantPageName":"Set_cover_problem","wgRelevantArticleId":870399,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Set_cover","wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":10000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgInternalRedirectTargetUrl":"/wiki/Set_cover_problem","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q1192100"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":
+"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","skins.vector.styles.legacy":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["mediawiki.action.view.redirect","ext.cite.ux-enhancements","ext.math.scripts","ext.scribunto.logs","site","mediawiki.page.ready","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks",
+"ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="Set cover problem - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Set_cover_problem"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Set_cover_problem&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Set_cover_problem"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Set_cover_problem rootpage-Set_cover_problem skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Set cover problem</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"><span class="mw-redirectedfrom">&#160;&#160;(Redirected from <a href="https://en.wikipedia.org/w/index.php?title=Set_cover&amp;redirect=no" class="mw-redirect" title="Set cover">Set cover</a>)</span></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><p>The <b>set cover problem</b> is a classical question in <a href="https://en.wikipedia.org/wiki/Combinatorics" title="Combinatorics">combinatorics</a>, <a href="https://en.wikipedia.org/wiki/Computer_science" title="Computer science">computer science</a>, <a href="https://en.wikipedia.org/wiki/Operations_research" title="Operations research">operations research</a>, and <a href="https://en.wikipedia.org/wiki/Computational_complexity_theory" title="Computational complexity theory">complexity theory</a>. It is one of <a href="https://en.wikipedia.org/wiki/Karp%27s_21_NP-complete_problems" title="Karp&#39;s 21 NP-complete problems">Karp's 21 NP-complete problems</a> shown to be <a href="https://en.wikipedia.org/wiki/NP-complete" class="mw-redirect" title="NP-complete">NP-complete</a> in 1972.
+</p><p>It is a problem "whose study has led to the development of fundamental techniques for the entire field" of <a href="https://en.wikipedia.org/wiki/Approximation_algorithms" class="mw-redirect" title="Approximation algorithms">approximation algorithms</a>.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
+</p><p>Given a set of elements <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{1,2,...,n\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mn>1</mn>
+        <mo>,</mo>
+        <mn>2</mn>
+        <mo>,</mo>
+        <mo>.</mo>
+        <mo>.</mo>
+        <mo>.</mo>
+        <mo>,</mo>
+        <mi>n</mi>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{1,2,...,n\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d413a9d1a2271319b451a05b57d6a33d9420bb9c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:12.248ex; height:2.843ex;" alt="\{1,2,...,n\}"/></span> (called the <a href="https://en.wikipedia.org/wiki/Universe_(mathematics)" title="Universe (mathematics)">universe</a>) and a collection <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4611d85173cd3b508e67077d4a1252c9c05abca2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.499ex; height:2.176ex;" alt="S"/></span> of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle m}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>m</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle m}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0a07d98bb302f3856cbabc47b2b9016692e3f7bc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.04ex; height:1.676ex;" alt="m"/></span> sets whose <a href="https://en.wikipedia.org/wiki/Union_(set_theory)" title="Union (set theory)">union</a> equals the universe, the set cover problem is to identify the smallest sub-collection of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4611d85173cd3b508e67077d4a1252c9c05abca2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.499ex; height:2.176ex;" alt="S"/></span> whose union equals the universe.  For example, consider the universe <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle U=\{1,2,3,4,5\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>U</mi>
+        <mo>=</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mn>1</mn>
+        <mo>,</mo>
+        <mn>2</mn>
+        <mo>,</mo>
+        <mn>3</mn>
+        <mo>,</mo>
+        <mn>4</mn>
+        <mo>,</mo>
+        <mn>5</mn>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle U=\{1,2,3,4,5\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/54c1b7ddad088164520806a010e0756c64a9b26b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:17.154ex; height:2.843ex;" alt="U=\{1,2,3,4,5\}"/></span> and the collection of sets <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle S=\{\{1,2,3\},\{2,4\},\{3,4\},\{4,5\}\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+        <mo>=</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mn>1</mn>
+        <mo>,</mo>
+        <mn>2</mn>
+        <mo>,</mo>
+        <mn>3</mn>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>,</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mn>2</mn>
+        <mo>,</mo>
+        <mn>4</mn>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>,</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mn>3</mn>
+        <mo>,</mo>
+        <mn>4</mn>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>,</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mn>4</mn>
+        <mo>,</mo>
+        <mn>5</mn>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S=\{\{1,2,3\},\{2,4\},\{3,4\},\{4,5\}\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d552ae3ccc232e52a94606201d510c0081ad6c47" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:34.956ex; height:2.843ex;" alt="S=\{\{1,2,3\},\{2,4\},\{3,4\},\{4,5\}\}"/></span>. Clearly the union of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4611d85173cd3b508e67077d4a1252c9c05abca2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.499ex; height:2.176ex;" alt="S"/></span> is <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle U}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>U</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle U}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/458a728f53b9a0274f059cd695e067c430956025" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.783ex; height:2.176ex;" alt="U"/></span>. However, we can cover all of the elements with the following, smaller number of sets: <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \{\{1,2,3\},\{4,5\}\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo fence="false" stretchy="false">{</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mn>1</mn>
+        <mo>,</mo>
+        <mn>2</mn>
+        <mo>,</mo>
+        <mn>3</mn>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo>,</mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mn>4</mn>
+        <mo>,</mo>
+        <mn>5</mn>
+        <mo fence="false" stretchy="false">}</mo>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \{\{1,2,3\},\{4,5\}\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/90d70587a9aa962ef0989dba60e7d8749a9428e1" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:16.923ex; height:2.843ex;" alt="\{\{1,2,3\},\{4,5\}\}"/></span>.
+</p><p>More formally, given a universe <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathcal {U}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">U</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {U}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4e63ea009de5efbca2fc285b8550daaed577c6b8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; margin-left: -0.038ex; width:1.635ex; height:2.176ex;" alt="{\mathcal {U}}"/></span> and a family <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathcal {S}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">S</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {S}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2302a18e269dbecc43c57c0c2aced3bfae15278d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.492ex; height:2.176ex;" alt="{\mathcal {S}}"/></span> of subsets of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathcal {U}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">U</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {U}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4e63ea009de5efbca2fc285b8550daaed577c6b8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; margin-left: -0.038ex; width:1.635ex; height:2.176ex;" alt="{\mathcal {U}}"/></span>,
+a <i>cover</i> is a subfamily <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathcal {C}}\subseteq {\mathcal {S}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">C</mi>
+          </mrow>
+        </mrow>
+        <mo>&#x2286;<!-- ⊆ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">S</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {C}}\subseteq {\mathcal {S}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1a2b383c210b9ab3b049959c62575b0b0b7f5ebb" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:5.83ex; height:2.343ex;" alt="{\mathcal {C}}\subseteq {\mathcal {S}}"/></span> of sets whose union is <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathcal {U}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">U</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {U}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4e63ea009de5efbca2fc285b8550daaed577c6b8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; margin-left: -0.038ex; width:1.635ex; height:2.176ex;" alt="{\mathcal {U}}"/></span>. In the set covering <a href="https://en.wikipedia.org/wiki/Decision_problem" title="Decision problem">decision problem</a>, the input is a pair <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle ({\mathcal {U}},{\mathcal {S}})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">U</mi>
+          </mrow>
+        </mrow>
+        <mo>,</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">S</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle ({\mathcal {U}},{\mathcal {S}})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a54a66f09ec7b244875c1ed01399492d993b1524" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.932ex; height:2.843ex;" alt="({\mathcal {U}},{\mathcal {S}})"/></span> and an integer <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c3c9a2c7b599b37105512c5d570edc034056dd40" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="k"/></span>; the question is whether
+there is a set covering of size <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c3c9a2c7b599b37105512c5d570edc034056dd40" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="k"/></span> or less. In the set covering <a href="https://en.wikipedia.org/wiki/Optimization_problem" title="Optimization problem">optimization problem</a>, the input is a pair <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle ({\mathcal {U}},{\mathcal {S}})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">U</mi>
+          </mrow>
+        </mrow>
+        <mo>,</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">S</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle ({\mathcal {U}},{\mathcal {S}})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a54a66f09ec7b244875c1ed01399492d993b1524" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.932ex; height:2.843ex;" alt="({\mathcal {U}},{\mathcal {S}})"/></span>, and the task is to find a set covering that uses the fewest sets.
+</p><p>The decision version of set covering is <a href="https://en.wikipedia.org/wiki/NP-complete" class="mw-redirect" title="NP-complete">NP-complete</a>, and the optimization/search version of set cover is <a href="https://en.wikipedia.org/wiki/NP-hard" class="mw-redirect" title="NP-hard">NP-hard</a>.<sup id="cite_ref-FOOTNOTEKorteVygen2012414_2-0" class="reference"><a href="#cite_note-FOOTNOTEKorteVygen2012414-2">&#91;2&#93;</a></sup>
+</p><p>If each set is assigned a cost, it becomes a <i>weighted</i> set cover problem.
+</p>
+<style data-mw-deduplicate="TemplateStyles:r1045330069">.mw-parser-output .sidebar{width:22em;float:right;clear:right;margin:0.5em 0 1em 1em;background:#f8f9fa;border:1px solid #aaa;padding:0.2em;text-align:center;line-height:1.4em;font-size:88%;border-collapse:collapse;display:table}body.skin-minerva .mw-parser-output .sidebar{display:table!important;float:right!important;margin:0.5em 0 1em 1em!important}.mw-parser-output .sidebar-subgroup{width:100%;margin:0;border-spacing:0}.mw-parser-output .sidebar-left{float:left;clear:left;margin:0.5em 1em 1em 0}.mw-parser-output .sidebar-none{float:none;clear:both;margin:0.5em 1em 1em 0}.mw-parser-output .sidebar-outer-title{padding:0 0.4em 0.2em;font-size:125%;line-height:1.2em;font-weight:bold}.mw-parser-output .sidebar-top-image{padding:0.4em}.mw-parser-output .sidebar-top-caption,.mw-parser-output .sidebar-pretitle-with-top-image,.mw-parser-output .sidebar-caption{padding:0.2em 0.4em 0;line-height:1.2em}.mw-parser-output .sidebar-pretitle{padding:0.4em 0.4em 0;line-height:1.2em}.mw-parser-output .sidebar-title,.mw-parser-output .sidebar-title-with-pretitle{padding:0.2em 0.8em;font-size:145%;line-height:1.2em}.mw-parser-output .sidebar-title-with-pretitle{padding:0.1em 0.4em}.mw-parser-output .sidebar-image{padding:0.2em 0.4em 0.4em}.mw-parser-output .sidebar-heading{padding:0.1em 0.4em}.mw-parser-output .sidebar-content{padding:0 0.5em 0.4em}.mw-parser-output .sidebar-content-with-subgroup{padding:0.1em 0.4em 0.2em}.mw-parser-output .sidebar-above,.mw-parser-output .sidebar-below{padding:0.3em 0.8em;font-weight:bold}.mw-parser-output .sidebar-collapse .sidebar-above,.mw-parser-output .sidebar-collapse .sidebar-below{border-top:1px solid #aaa;border-bottom:1px solid #aaa}.mw-parser-output .sidebar-navbar{text-align:right;font-size:115%;padding:0 0.4em 0.4em}.mw-parser-output .sidebar-list-title{padding:0 0.4em;text-align:left;font-weight:bold;line-height:1.6em;font-size:105%}.mw-parser-output .sidebar-list-title-c{padding:0 0.4em;text-align:center;margin:0 3.3em}@media(max-width:720px){body.mediawiki .mw-parser-output .sidebar{width:100%!important;clear:both;float:none!important;margin-left:0!important;margin-right:0!important}}</style><table class="sidebar nomobile nowraplinks"><tbody><tr><th class="sidebar-title" style="font-size:130%;"><a href="https://en.wikipedia.org/wiki/Linear_programming#Covering/packing_dualities" title="Linear programming">Covering/packing-problem pairs</a></th></tr><tr><td class="sidebar-content">
+<table style="width:100%;border-collapse:collapse;border-spacing:0px 0px;border:none;display:block;margin-top:0.4em;"><tbody><tr style="vertical-align:top"><td style="font-weight:bold;background:#ddf;text-align:center;border:1px #fafafa solid;"> <a href="https://en.wikipedia.org/wiki/Covering_problems" title="Covering problems">Covering problems</a></td><td style="font-weight:bold;background:#ddf;text-align:center;border:1px #fafafa solid;"> <a href="https://en.wikipedia.org/wiki/Packing_problems" title="Packing problems">Packing problems</a></td></tr><tr style="vertical-align:top"><td style="padding-top:0.15em;"> <a class="mw-selflink selflink">Minimum set cover</a></td><td style="padding-top:0.15em;"> <a href="https://en.wikipedia.org/wiki/Set_packing" title="Set packing">Maximum set packing</a></td></tr><tr style="vertical-align:top"><td> <a href="https://en.wikipedia.org/wiki/Edge_cover" title="Edge cover">Minimum edge cover</a></td><td> <a href="https://en.wikipedia.org/wiki/Matching_(graph_theory)" title="Matching (graph theory)">Maximum matching</a></td></tr><tr style="vertical-align:top"><td> <a href="https://en.wikipedia.org/wiki/Vertex_cover" title="Vertex cover">Minimum vertex cover</a></td><td> <a href="https://en.wikipedia.org/wiki/Independent_set_(graph_theory)" title="Independent set (graph theory)">Maximum independent set</a></td></tr><tr style="vertical-align:top"><td> <a href="https://en.wikipedia.org/wiki/Bin_covering_problem" title="Bin covering problem">Bin covering</a></td><td> <a href="https://en.wikipedia.org/wiki/Bin_packing_problem" title="Bin packing problem">Bin packing</a></td></tr><tr style="vertical-align:top"><td> <a href="https://en.wikipedia.org/wiki/Polygon_covering" title="Polygon covering">Polygon covering</a></td><td> <a href="https://en.wikipedia.org/wiki/Rectangle_packing" title="Rectangle packing">Rectangle packing</a></td></tr></tbody></table></td>
+</tr><tr><td class="sidebar-navbar"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Covering/packing-problem_pairs" title="Template:Covering/packing-problem pairs"><abbr title="View this template">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Covering/packing-problem_pairs" title="Template talk:Covering/packing-problem pairs"><abbr title="Discuss this template">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Covering/packing-problem_pairs&amp;action=edit"><abbr title="Edit this template">e</abbr></a></li></ul></div></td></tr></tbody></table>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Integer_linear_program_formulation"><span class="tocnumber">1</span> <span class="toctext">Integer linear program formulation</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Hitting_set_formulation"><span class="tocnumber">2</span> <span class="toctext">Hitting set formulation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Greedy_algorithm"><span class="tocnumber">3</span> <span class="toctext">Greedy algorithm</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Low-frequency_systems"><span class="tocnumber">4</span> <span class="toctext">Low-frequency systems</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Inapproximability_results"><span class="tocnumber">5</span> <span class="toctext">Inapproximability results</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Weighted_set_cover"><span class="tocnumber">6</span> <span class="toctext">Weighted set cover</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Related_problems"><span class="tocnumber">7</span> <span class="toctext">Related problems</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Notes"><span class="tocnumber">8</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#References"><span class="tocnumber">9</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#External_links"><span class="tocnumber">10</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Integer_linear_program_formulation">Integer linear program formulation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Set_cover_problem&amp;action=edit&amp;section=1" title="Edit section: Integer linear program formulation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The minimum set cover problem can be formulated as the following <a href="https://en.wikipedia.org/wiki/Integer_linear_program" class="mw-redirect" title="Integer linear program">integer linear program</a> (ILP).<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup>
+</p>
+<table>
+<tbody><tr>
+<td>minimize
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \sum _{s\in {\mathcal {S}}}x_{s}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <munder>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+            <mo>&#x2208;<!-- ∈ --></mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi class="MJX-tex-caligraphic" mathvariant="script">S</mi>
+              </mrow>
+            </mrow>
+          </mrow>
+        </munder>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \sum _{s\in {\mathcal {S}}}x_{s}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a1e2f60cd355f06204bf1da711452132bf86508e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.171ex; width:6.075ex; height:5.676ex;" alt="{\displaystyle \sum _{s\in {\mathcal {S}}}x_{s}}"/></span>
+</td>
+<td>
+</td>
+<td>(minimize the number of sets)
+</td></tr>
+<tr>
+<td>subject to
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \sum _{s\colon e\in s}x_{s}\geqslant 1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <munder>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+            <mo>&#x003A;<!-- : --></mo>
+            <mi>e</mi>
+            <mo>&#x2208;<!-- ∈ --></mo>
+            <mi>s</mi>
+          </mrow>
+        </munder>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2A7E;<!-- ⩾ --></mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \sum _{s\colon e\in s}x_{s}\geqslant 1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e911f16679564fee106a541c31b420288d6ee745" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.005ex; width:10.843ex; height:5.509ex;" alt="{\displaystyle \sum _{s\colon e\in s}x_{s}\geqslant 1}"/></span>
+</td>
+<td>for all <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle e\in {\mathcal {U}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>e</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">U</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle e\in {\mathcal {U}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/52fbdfd3f053f606226b62e9ecc6b695b017d135" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.521ex; height:2.176ex;" alt="e\in {\mathcal {U}}"/></span>
+</td>
+<td>(cover every element of the universe)
+</td></tr>
+<tr>
+<td>
+</td>
+<td><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{s}\in \{0,1\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mn>0</mn>
+        <mo>,</mo>
+        <mn>1</mn>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{s}\in \{0,1\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7569b835309c1fd0efbeab3ebdbdcd491ca1c69f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.857ex; height:2.843ex;" alt="{\displaystyle x_{s}\in \{0,1\}}"/></span>
+</td>
+<td>for all <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle s\in {\mathcal {S}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>s</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">S</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s\in {\mathcal {S}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5910e838e174b2206e639d6f5b170fc9fb6dc892" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.423ex; height:2.176ex;" alt="{\displaystyle s\in {\mathcal {S}}}"/></span>.
+</td>
+<td>(every set is either in the set cover or not)
+</td></tr></tbody></table>
+<p>This ILP belongs to the more general class of ILPs for <a href="https://en.wikipedia.org/wiki/Covering_problem" class="mw-redirect" title="Covering problem">covering problems</a>.
+The <a href="https://en.wikipedia.org/wiki/Linear_programming_relaxation#Approximation_and_integrality_gap" title="Linear programming relaxation">integrality gap</a> of this ILP is at most <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \scriptstyle \log n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mstyle displaystyle="false" scriptlevel="1">
+          <mi>log</mi>
+          <mo>&#x2061;<!-- ⁡ --></mo>
+          <mi>n</mi>
+        </mstyle>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \scriptstyle \log n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e5517011492f0c98c22745bd799dbcc125998726" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:3.475ex; height:2.009ex;" alt="\scriptstyle \log n"/></span>, so its <a href="https://en.wikipedia.org/wiki/Linear_programming_relaxation" title="Linear programming relaxation">relaxation</a> gives a factor-<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \scriptstyle \log n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mstyle displaystyle="false" scriptlevel="1">
+          <mi>log</mi>
+          <mo>&#x2061;<!-- ⁡ --></mo>
+          <mi>n</mi>
+        </mstyle>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \scriptstyle \log n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e5517011492f0c98c22745bd799dbcc125998726" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:3.475ex; height:2.009ex;" alt="\scriptstyle \log n"/></span> <a href="https://en.wikipedia.org/wiki/Approximation_algorithm" title="Approximation algorithm">approximation algorithm</a> for the minimum set cover problem (where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \scriptstyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mstyle displaystyle="false" scriptlevel="1">
+          <mi>n</mi>
+        </mstyle>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \scriptstyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/76760f2e577f85ef1b9818b3a1f7676f3378c0e7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:0.986ex; height:1.343ex;" alt="\scriptstyle n"/></span> is the size of the universe).<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup>
+</p><p>In weighted set cover, the sets are assigned weights. Denote the weight of set <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle s\in {\mathcal {S}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>s</mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">S</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s\in {\mathcal {S}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5910e838e174b2206e639d6f5b170fc9fb6dc892" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.423ex; height:2.176ex;" alt="{\displaystyle s\in {\mathcal {S}}}"/></span> by <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle w_{s}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w_{s}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7b7ca5570145467b270c093b1cb4c31c04868a6a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.667ex; height:2.009ex;" alt="{\displaystyle w_{s}}"/></span>. Then the integer linear program describing weighted set cover is identical to the one given above, except that the objective function to minimize is <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \sum _{s\in {\mathcal {S}}}w_{s}x_{s}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <munder>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+            <mo>&#x2208;<!-- ∈ --></mo>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi class="MJX-tex-caligraphic" mathvariant="script">S</mi>
+              </mrow>
+            </mrow>
+          </mrow>
+        </munder>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>s</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \sum _{s\in {\mathcal {S}}}w_{s}x_{s}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f140519268b57c94f60722b775c593847d3073fa" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -3.171ex; width:8.743ex; height:5.676ex;" alt="{\displaystyle \sum _{s\in {\mathcal {S}}}w_{s}x_{s}}"/></span>.
+</p>
+<h2><span class="mw-headline" id="Hitting_set_formulation">Hitting set formulation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Set_cover_problem&amp;action=edit&amp;section=2" title="Edit section: Hitting set formulation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Set covering is equivalent to the <b>hitting set problem</b>. That is seen by observing that an instance of set covering can
+be viewed as an arbitrary <a href="https://en.wikipedia.org/wiki/Bipartite_graph" title="Bipartite graph">bipartite graph</a>, with sets represented by vertices on the left, the universe represented by vertices on the
+right, and edges representing the inclusion of elements in sets. The task is then to find a minimum cardinality subset of left-vertices which covers all of the right-vertices. In the Hitting set problem, the objective is to cover the left-vertices using a minimum subset of the right vertices. Converting from one problem to the other is therefore achieved by interchanging the two sets of vertices.
+</p>
+<h2><span class="mw-headline" id="Greedy_algorithm">Greedy algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Set_cover_problem&amp;action=edit&amp;section=3" title="Edit section: Greedy algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>There is a <a href="https://en.wikipedia.org/wiki/Greedy_algorithm" title="Greedy algorithm">greedy algorithm</a> for polynomial time approximation of set covering that chooses sets according to one rule: at each stage, choose the set that contains the largest number of uncovered elements. This method can be implemented in time linear in the sum of sizes of the input sets, using a <a href="https://en.wikipedia.org/wiki/Bucket_queue" title="Bucket queue">bucket queue</a> to prioritize the sets.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup> It achieves an approximation ratio of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle H(s)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>H</mi>
+        <mo stretchy="false">(</mo>
+        <mi>s</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H(s)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f1b91390324fc9c33ec00fe57e3924ad7118cc1e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:4.963ex; height:2.843ex;" alt="H(s)"/></span>, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle s}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>s</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/01d131dfd7673938b947072a13a9744fe997e632" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.09ex; height:1.676ex;" alt="s"/></span> is the size of the set to be covered.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup> In other words, it finds a covering that may be <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle H(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>H</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/be4e983a8ea1e65323a9af036edd5d57c51e8c18" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.268ex; height:2.843ex;" alt="H(n)"/></span> times as large as the minimum one, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle H(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>H</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/be4e983a8ea1e65323a9af036edd5d57c51e8c18" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.268ex; height:2.843ex;" alt="H(n)"/></span> is the <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span>-th <a href="https://en.wikipedia.org/wiki/Harmonic_number" title="Harmonic number">harmonic number</a>:
+<div class="mwe-math-element"><div class="mwe-math-mathml-display mwe-math-mathml-a11y" style="display: none;"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle H(n)=\sum _{k=1}^{n}{\frac {1}{k}}\leq \ln {n}+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>H</mi>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <munderover>
+          <mo>&#x2211;<!-- ∑ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+            <mo>=</mo>
+            <mn>1</mn>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </munderover>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <mi>k</mi>
+          </mfrac>
+        </mrow>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mi>ln</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi>n</mi>
+        </mrow>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H(n)=\sum _{k=1}^{n}{\frac {1}{k}}\leq \ln {n}+1}</annotation>
+  </semantics>
+</math></div><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ddb71f94e054882c9d6562d7743a8d16a3247c1b" class="mwe-math-fallback-image-display" aria-hidden="true" style="vertical-align: -3.005ex; width:24.978ex; height:6.843ex;" alt="{\displaystyle H(n)=\sum _{k=1}^{n}{\frac {1}{k}}\leq \ln {n}+1}"/></div>
+</p><p>This greedy algorithm actually achieves an approximation ratio of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle H(s^{\prime })}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>H</mi>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-variant" mathvariant="normal">&#x2032;<!-- ′ --></mi>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle H(s^{\prime })}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ea4e6cd3c3f1a783c49b2c5dfcab93c9bb8397ff" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.648ex; height:3.009ex;" alt="H(s^{\prime })"/></span> where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle s^{\prime }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>s</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-variant" mathvariant="normal">&#x2032;<!-- ′ --></mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle s^{\prime }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/826067450a6b4c65e5914c3317237accd0426c34" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.775ex; height:2.509ex;" alt="s^{\prime }"/></span> is the maximum cardinality set of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4611d85173cd3b508e67077d4a1252c9c05abca2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.499ex; height:2.176ex;" alt="S"/></span>. For <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \delta -}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03B4;<!-- δ --></mi>
+        <mo>&#x2212;<!-- − --></mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \delta -}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/88d6a73993054818d1d29390e4ddcfbc68bb7498" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:2.857ex; height:2.509ex;" alt="{\displaystyle \delta -}"/></span>dense instances, however, there exists a <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle c\ln {m}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>c</mi>
+        <mi>ln</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi>m</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle c\ln {m}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c23ddccbe6855286a9ea6a4a2b48058d3aab2e64" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.761ex; height:2.176ex;" alt="c\ln {m}"/></span>-approximation algorithm for every <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle c&gt;0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>c</mi>
+        <mo>&gt;</mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle c&gt;0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2ba126f626d61752f62eaacaf11761a54de4dc84" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.268ex; height:2.176ex;" alt="c&gt;0"/></span>.<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup>
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:204px;"><a href="https://en.wikipedia.org/wiki/File:SetCoverGreedy.gif" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/4/4b/SetCoverGreedy.gif" decoding="async" width="202" height="72" class="thumbimage" data-file-width="202" data-file-height="72" /></a>  <div class="thumbcaption">Tight example for the greedy algorithm with k=3</div></div></div>
+<p>There is a standard example on which the greedy algorithm achieves an approximation ratio of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \log _{2}(n)/2}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>log</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mn>2</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \log _{2}(n)/2}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b3a68bb87c8dd43156f8e00f297accf9bd3f2197" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.555ex; height:2.843ex;" alt="\log _{2}(n)/2"/></span>.
+The universe consists of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n=2^{(k+1)}-2}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+        <mo>=</mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">(</mo>
+            <mi>k</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+            <mo stretchy="false">)</mo>
+          </mrow>
+        </msup>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>2</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n=2^{(k+1)}-2}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2ef1796a35cad3c3dabaadb28f6e623aa074eee3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:14.127ex; height:3.009ex;" alt="n=2^{(k+1)}-2"/></span> elements. The set system consists of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c3c9a2c7b599b37105512c5d570edc034056dd40" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.211ex; height:2.176ex;" alt="k"/></span> pairwise disjoint sets 
+<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle S_{1},\ldots ,S_{k}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>S</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>S</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S_{1},\ldots ,S_{k}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/305f10651b52c158bdc6915995037bdba50745fe" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:10.171ex; height:2.509ex;" alt="S_{1},\ldots ,S_{k}"/></span> with sizes <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 2,4,8,\ldots ,2^{k}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>2</mn>
+        <mo>,</mo>
+        <mn>4</mn>
+        <mo>,</mo>
+        <mn>8</mn>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 2,4,8,\ldots ,2^{k}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6dede1a90a01d2dc481b91877982198b1b35846b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:12.985ex; height:3.009ex;" alt="2,4,8,\ldots ,2^{k}"/></span> respectively, as well as two additional disjoint sets <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle T_{0},T_{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>T</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>T</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T_{0},T_{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2506b0c76ba39c409b041a4ecc17c8bd82dd1f67" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:5.858ex; height:2.509ex;" alt="T_{0},T_{1}"/></span>,
+each of which contains half of the elements from each <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle S_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>S</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/de6e810a93f67802ecb603ee0e3324005c6e583e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.225ex; height:2.509ex;" alt="S_{i}"/></span>. On this input, the greedy algorithm takes the sets
+<span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle S_{k},\ldots ,S_{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>S</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <mo>&#x2026;<!-- … --></mo>
+        <mo>,</mo>
+        <msub>
+          <mi>S</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S_{k},\ldots ,S_{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0b4f05defdc2fc19e020dec24443fffc07a09554" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:10.171ex; height:2.509ex;" alt="S_{k},\ldots ,S_{1}"/></span>, in that order, while the optimal solution consists only of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle T_{0}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>T</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T_{0}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/55b9e7d7b96196b5a6a26f4349caa3ac82fd67e3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.412ex; height:2.509ex;" alt="T_{0}"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle T_{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>T</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle T_{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2f304724948a3ef606c4a92459e22b87a954d993" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.412ex; height:2.509ex;" alt="T_{1}"/></span>.
+An example of such an input for <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k=3}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+        <mo>=</mo>
+        <mn>3</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k=3}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/662e06a2436f8a44fec791f5c794621f10dc8f30" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.472ex; height:2.176ex;" alt="k=3"/></span> is pictured on the right.
+</p><p>Inapproximability results show that the greedy algorithm is essentially the best-possible polynomial time approximation algorithm for set cover up to lower order terms
+(see <a href="https://en.wikipedia.org/wiki/Set_cover_problem#Inapproximability_results" title="Set cover problem">Inapproximability results</a> below), under plausible complexity assumptions. A tighter analysis for the greedy algorithm shows that the approximation ratio is exactly <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \ln {n}-\ln {\ln {n}}+\Theta (1)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>ln</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi>n</mi>
+        </mrow>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>ln</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi>ln</mi>
+          <mo>&#x2061;<!-- ⁡ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </mrow>
+        <mo>+</mo>
+        <mi mathvariant="normal">&#x0398;<!-- Θ --></mi>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \ln {n}-\ln {\ln {n}}+\Theta (1)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3c5b9ddcb8c6a1b980039ddd4129f920f2b1a217" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:20.229ex; height:2.843ex;" alt="{\displaystyle \ln {n}-\ln {\ln {n}}+\Theta (1)}"/></span>.<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Low-frequency_systems">Low-frequency systems</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Set_cover_problem&amp;action=edit&amp;section=4" title="Edit section: Low-frequency systems">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>If each element occurs in at most <var style="padding-right: 1px;">f</var> sets, then a solution can be found in polynomial time that approximates the optimum to within a factor of <var style="padding-right: 1px;">f</var> using <a href="https://en.wikipedia.org/wiki/Linear_programming_relaxation" title="Linear programming relaxation">LP relaxation</a>.
+</p><p>If the constraint <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{S}\in \{0,1\}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>S</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mo fence="false" stretchy="false">{</mo>
+        <mn>0</mn>
+        <mo>,</mo>
+        <mn>1</mn>
+        <mo fence="false" stretchy="false">}</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{S}\in \{0,1\}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/82e49e33e82e0ce1aa711458d3c02581bdf0c7ac" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:11.146ex; height:2.843ex;" alt="{\displaystyle x_{S}\in \{0,1\}}"/></span> is replaced by <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle x_{S}\geq 0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>x</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>S</mi>
+          </mrow>
+        </msub>
+        <mo>&#x2265;<!-- ≥ --></mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle x_{S}\geq 0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d13dad39c6199c7656ceb283682c9e5b074302f7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:6.883ex; height:2.509ex;" alt="{\displaystyle x_{S}\geq 0}"/></span> for all <var style="padding-right: 1px;">S</var> in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathcal {S}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">S</mi>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {S}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2302a18e269dbecc43c57c0c2aced3bfae15278d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.492ex; height:2.176ex;" alt="{\mathcal {S}}"/></span> in the integer linear program shown <a href="#Integer_linear_program_formulation">above</a>, then it becomes a (non-integer) linear program <var style="padding-right: 1px;">L</var>. The algorithm can be described as follows:
+</p>
+<ol><li>Find an optimal solution <var style="padding-right: 1px;">O</var> for the program <var style="padding-right: 1px;">L</var> using some polynomial-time method of solving linear programs.</li>
+<li>Pick all sets <var style="padding-right: 1px;">S</var> for which the corresponding variable <var style="padding-right: 1px;">x</var><sub><var style="padding-right: 1px;">S</var></sub> has value at least 1/<var style="padding-right: 1px;">f</var> in the solution <var style="padding-right: 1px;">O</var>.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">&#91;9&#93;</a></sup></li></ol>
+<h2><span class="mw-headline" id="Inapproximability_results">Inapproximability results</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Set_cover_problem&amp;action=edit&amp;section=5" title="Edit section: Inapproximability results">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>When <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> refers to the size of the universe, <a href="#CITEREFLundYannakakis1994">Lund &amp; Yannakakis (1994)</a> showed that set covering cannot be approximated in polynomial time to within a factor of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\tfrac {1}{2}}\log _{2}{n}\approx 0.72\ln {n}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mstyle displaystyle="false" scriptlevel="0">
+            <mfrac>
+              <mn>1</mn>
+              <mn>2</mn>
+            </mfrac>
+          </mstyle>
+        </mrow>
+        <msub>
+          <mi>log</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msub>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi>n</mi>
+        </mrow>
+        <mo>&#x2248;<!-- ≈ --></mo>
+        <mn>0.72</mn>
+        <mi>ln</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi>n</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\tfrac {1}{2}}\log _{2}{n}\approx 0.72\ln {n}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/57e19cb1059b7d1fc8a56d974f09b7b1ad9cc444" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.171ex; width:19.194ex; height:3.509ex;" alt="{\tfrac {1}{2}}\log _{2}{n}\approx 0.72\ln {n}"/></span>, unless <b>NP</b> has <a href="https://en.wikipedia.org/wiki/Quasi-polynomial_time" class="mw-redirect" title="Quasi-polynomial time">quasi-polynomial time</a> algorithms. <a href="https://en.wikipedia.org/wiki/Uriel_Feige" title="Uriel Feige">Feige</a> (1998) improved this lower bound to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\bigl (}1-o(1){\bigr )}\cdot \ln {n}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-OPEN">
+            <mo maxsize="1.2em" minsize="1.2em">(</mo>
+          </mrow>
+        </mrow>
+        <mn>1</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>o</mi>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-CLOSE">
+            <mo maxsize="1.2em" minsize="1.2em">)</mo>
+          </mrow>
+        </mrow>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mi>ln</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi>n</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\bigl (}1-o(1){\bigr )}\cdot \ln {n}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a5f126544377957deea309c92659d125719d0137" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:15.632ex; height:3.176ex;" alt="{\bigl (}1-o(1){\bigr )}\cdot \ln {n}"/></span> under the same assumptions, which essentially matches the approximation ratio achieved by the greedy algorithm. <a href="#CITEREFRazSafra1997">Raz &amp; Safra (1997)</a> established a lower bound
+of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle c\cdot \ln {n}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>c</mi>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mi>ln</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi>n</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle c\cdot \ln {n}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e71a6fb0b8f1246393953512c99d0c1fd7c30a48" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:6.407ex; height:2.176ex;" alt="c\cdot \ln {n}"/></span>, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle c}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>c</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle c}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/86a67b81c2de995bd608d5b2df50cd8cd7d92455" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.007ex; height:1.676ex;" alt="c"/></span> is a certain constant, under the weaker assumption that <b>P</b><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \not =}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo>&#x2260;</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \not =}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ebf8afec7dacd23ce8632c3a4b4abb3873afa97e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:1.808ex; height:2.676ex;" alt="\not ="/></span><b>NP</b>.
+A similar result with a higher value of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle c}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>c</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle c}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/86a67b81c2de995bd608d5b2df50cd8cd7d92455" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.007ex; height:1.676ex;" alt="c"/></span> was recently proved by <a href="#CITEREFAlonMoshkovitzSafra2006">Alon, Moshkovitz &amp; Safra (2006)</a>. <a href="#CITEREFDinurSteurer2013">Dinur &amp; Steurer (2013)</a> showed optimal inapproximability by proving that it cannot be approximated to <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\bigl (}1-o(1){\bigr )}\cdot \ln {n}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-OPEN">
+            <mo maxsize="1.2em" minsize="1.2em">(</mo>
+          </mrow>
+        </mrow>
+        <mn>1</mn>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>o</mi>
+        <mo stretchy="false">(</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-CLOSE">
+            <mo maxsize="1.2em" minsize="1.2em">)</mo>
+          </mrow>
+        </mrow>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mi>ln</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mi>n</mi>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\bigl (}1-o(1){\bigr )}\cdot \ln {n}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a5f126544377957deea309c92659d125719d0137" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:15.632ex; height:3.176ex;" alt="{\bigl (}1-o(1){\bigr )}\cdot \ln {n}"/></span> unless <b>P</b><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle =}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo>=</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle =}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/505a4ceef454c69dffd23792c84b90f488543743" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: 0.307ex; margin-bottom: -0.478ex; width:1.808ex; height:1.343ex;" alt="="/></span><b>NP</b>.
+</p>
+<h2><span class="mw-headline" id="Weighted_set_cover">Weighted set cover</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Set_cover_problem&amp;action=edit&amp;section=6" title="Edit section: Weighted set cover">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="box-Expand_section plainlinks metadata ambox mbox-small-left ambox-content" role="presentation"><tbody><tr><td class="mbox-image"><a href="https://en.wikipedia.org/wiki/File:Wiki_letter_w_cropped.svg" class="image"><img alt="[icon]" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/20px-Wiki_letter_w_cropped.svg.png" decoding="async" width="20" height="14" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/30px-Wiki_letter_w_cropped.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wiki_letter_w_cropped.svg/40px-Wiki_letter_w_cropped.svg.png 2x" data-file-width="44" data-file-height="31" /></a></td><td class="mbox-text"><div class="mbox-text-span">This section <b>needs expansion</b>. You can help by <a class="external text" href="https://en.wikipedia.org/w/index.php?title=Set_cover_problem&amp;action=edit&amp;section=">adding to it</a>.  <span class="date-container"><i>(<span class="date">November 2017</span>)</i></span></div></td></tr></tbody></table>
+<p><a href="https://en.wikipedia.org/wiki/Linear_programming_relaxation" title="Linear programming relaxation">Relaxing</a> the integer linear program for weighted set cover stated <a href="#Integer_linear_program_formulation">above</a>, one may use <a href="https://en.wikipedia.org/wiki/Randomized_rounding" title="Randomized rounding">randomized rounding</a> to get an <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle O(\log n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>O</mi>
+        <mo stretchy="false">(</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle O(\log n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/aae0f22048ba6b7c05dbae17b056bfa16e21807d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.336ex; height:2.843ex;" alt="O(\log n)"/></span>-factor approximation. Non weighted set cover can be adapted to the weighted case.<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">&#91;10&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Related_problems">Related problems</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Set_cover_problem&amp;action=edit&amp;section=7" title="Edit section: Related problems">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>Hitting set is an equivalent reformulation of Set Cover.</li>
+<li><a href="https://en.wikipedia.org/wiki/Vertex_cover_problem" class="mw-redirect" title="Vertex cover problem">Vertex cover</a> is a special case of Hitting Set.</li>
+<li><a href="https://en.wikipedia.org/wiki/Edge_cover_problem" class="mw-redirect" title="Edge cover problem">Edge cover</a> is a special case of Set Cover.</li>
+<li><a href="https://en.wikipedia.org/wiki/Geometric_Set_Cover_Problem" class="mw-redirect" title="Geometric Set Cover Problem">Geometric set cover</a> is a special case of Set Cover when the universe is a set of points in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \mathbb {R} ^{d}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="double-struck">R</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>d</mi>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \mathbb {R} ^{d}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a713426956296f1668fce772df3c60b9dde8a685" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.77ex; height:2.676ex;" alt="\mathbb {R} ^{d}"/></span> and the sets are induced by the intersection of the universe and geometric shapes (e.g., disks, rectangles).</li>
+<li><a href="https://en.wikipedia.org/wiki/Set_packing" title="Set packing">Set packing</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Maximum_coverage_problem" title="Maximum coverage problem">Maximum coverage problem</a> is to choose at most k sets to cover as many elements as possible.</li>
+<li><a href="https://en.wikipedia.org/wiki/Dominating_set" title="Dominating set">Dominating set</a> is the problem of selecting a set of vertices (the dominating set) in a graph such that all other vertices are adjacent to at least one vertex in the dominating set. The Dominating set problem was shown to be NP complete through a reduction from Set cover.</li>
+<li><a href="https://en.wikipedia.org/wiki/Exact_cover_problem" class="mw-redirect" title="Exact cover problem">Exact cover problem</a> is to choose a set cover with no element included in more than one covering set.</li>
+<li>Red Blue Set Cover.<sup id="cite_ref-11" class="reference"><a href="#cite_note-11">&#91;11&#93;</a></sup></li>
+<li><a href="https://en.wikipedia.org/wiki/Set-cover_abduction" class="mw-redirect" title="Set-cover abduction">Set-cover abduction</a>.</li></ul>
+<h2><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Set_cover_problem&amp;action=edit&amp;section=8" title="Edit section: Notes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><a href="#CITEREFVazirani2001">Vazirani (2001</a>, p.&#160;15)</span>
+</li>
+<li id="cite_note-FOOTNOTEKorteVygen2012414-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTEKorteVygen2012414_2-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFKorteVygen2012">Korte &amp; Vygen 2012</a>, p.&#160;414.</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><a href="#CITEREFVazirani2001">Vazirani (2001</a>, p.&#160;108)</span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><a href="#CITEREFVazirani2001">Vazirani (2001</a>, pp.&#160;110–112)</span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFCormenLeisersonRivestStein2009" class="citation book cs2"><a href="https://en.wikipedia.org/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Cormen, Thomas H.</a>; <a href="https://en.wikipedia.org/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Leiserson, Charles E.</a>; <a href="https://en.wikipedia.org/wiki/Ron_Rivest" title="Ron Rivest">Rivest, Ronald L.</a>; <a href="https://en.wikipedia.org/wiki/Clifford_Stein" title="Clifford Stein">Stein, Clifford</a> (2009) [1990], "Exercise 35.3-3", <a href="https://en.wikipedia.org/wiki/Introduction_to_Algorithms" title="Introduction to Algorithms"><i>Introduction to Algorithms</i></a> (3rd&#160;ed.), MIT Press and McGraw-Hill, p.&#160;1122, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-262-03384-4" title="Special:BookSources/0-262-03384-4"><bdi>0-262-03384-4</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Exercise+35.3-3&amp;rft.btitle=Introduction+to+Algorithms&amp;rft.pages=1122&amp;rft.edition=3rd&amp;rft.pub=MIT+Press+and+McGraw-Hill&amp;rft.date=2009&amp;rft.isbn=0-262-03384-4&amp;rft.aulast=Cormen&amp;rft.aufirst=Thomas+H.&amp;rft.au=Leiserson%2C+Charles+E.&amp;rft.au=Rivest%2C+Ronald+L.&amp;rft.au=Stein%2C+Clifford&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASet+cover+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text">Chvatal, V. <a rel="nofollow" class="external text" href="https://www.jstor.org/stable/3689577">A Greedy Heuristic for the Set-Covering Problem</a>. Mathematics of Operations Research
+Vol. 4, No. 3 (Aug., 1979), pp. 233-235</span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text">
+<a href="#CITEREFKarpinskiZelikovsky1998">Karpinski &amp; Zelikovsky 1998</a></span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text">Slavík Petr  <a rel="nofollow" class="external text" href="http://dl.acm.org/citation.cfm?id=237991">A tight analysis of the greedy algorithm for set cover</a>. STOC'96, Pages 435-441, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F237814.237991">10.1145/237814.237991</a></span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><a href="#CITEREFVazirani2001">Vazirani (2001</a>, pp.&#160;118–119)</span>
+</li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text"><a href="#CITEREFVazirani2001">Vazirani (2001</a>, Chapter 14)</span>
+</li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-11">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFInformation.1999" class="citation book cs1">Information., Sandia National Laboratories. United States. Department of Energy. United States. Department of Energy. Office of Scientific and Technical (1999). <a rel="nofollow" class="external text" href="http://worldcat.org/oclc/68396743"><i>On the Red-Blue Set Cover Problem</i></a>. United States. Dept. of Energy. <a href="https://en.wikipedia.org/wiki/OCLC_(identifier)" class="mw-redirect" title="OCLC (identifier)">OCLC</a>&#160;<a rel="nofollow" class="external text" href="http://www.worldcat.org/oclc/68396743">68396743</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=On+the+Red-Blue+Set+Cover+Problem.&amp;rft.pub=United+States.+Dept.+of+Energy&amp;rft.date=1999&amp;rft_id=info%3Aoclcnum%2F68396743&amp;rft.aulast=Information.&amp;rft.aufirst=Sandia+National+Laboratories.+United+States.+Department+of+Energy.+United+States.+Department+of+Energy.+Office+of+Scientific+and+Technical&amp;rft_id=http%3A%2F%2Fworldcat.org%2Foclc%2F68396743&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASet+cover+problem" class="Z3988"></span></span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Set_cover_problem&amp;action=edit&amp;section=9" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFAlonMoshkovitzSafra2006" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Noga_Alon" title="Noga Alon">Alon, Noga</a>; <a href="https://en.wikipedia.org/wiki/Dana_Moshkovitz" title="Dana Moshkovitz">Moshkovitz, Dana</a>; <a href="https://en.wikipedia.org/wiki/Shmuel_Safra" title="Shmuel Safra">Safra, Shmuel</a> (2006), "Algorithmic construction of sets for k-restrictions", <i>ACM Trans. Algorithms</i>, <b>2</b> (2): 153–177, <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.138.8682">10.1.1.138.8682</a></span>, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F1150334.1150336">10.1145/1150334.1150336</a>, <a href="https://en.wikipedia.org/wiki/ISSN_(identifier)" class="mw-redirect" title="ISSN (identifier)">ISSN</a>&#160;<a rel="nofollow" class="external text" href="http://www.worldcat.org/issn/1549-6325">1549-6325</a>, <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:11922650">11922650</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=ACM+Trans.+Algorithms&amp;rft.atitle=Algorithmic+construction+of+sets+for+k-restrictions&amp;rft.volume=2&amp;rft.issue=2&amp;rft.pages=153-177&amp;rft.date=2006&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.138.8682%23id-name%3DCiteSeerX&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A11922650%23id-name%3DS2CID&amp;rft.issn=1549-6325&amp;rft_id=info%3Adoi%2F10.1145%2F1150334.1150336&amp;rft.aulast=Alon&amp;rft.aufirst=Noga&amp;rft.au=Moshkovitz%2C+Dana&amp;rft.au=Safra%2C+Shmuel&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASet+cover+problem" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCormenLeisersonRivestStein2001" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Cormen, Thomas H.</a>; <a href="https://en.wikipedia.org/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Leiserson, Charles E.</a>; <a href="https://en.wikipedia.org/wiki/Ronald_L._Rivest" class="mw-redirect" title="Ronald L. Rivest">Rivest, Ronald L.</a>; <a href="https://en.wikipedia.org/wiki/Clifford_Stein" title="Clifford Stein">Stein, Clifford</a> (2001), <i>Introduction to Algorithms</i>, Cambridge, Mass.: MIT Press and McGraw-Hill, pp.&#160;1033–1038, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-262-03293-3" title="Special:BookSources/978-0-262-03293-3"><bdi>978-0-262-03293-3</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Introduction+to+Algorithms&amp;rft.place=Cambridge%2C+Mass.&amp;rft.pages=1033-1038&amp;rft.pub=MIT+Press+and+McGraw-Hill&amp;rft.date=2001&amp;rft.isbn=978-0-262-03293-3&amp;rft.aulast=Cormen&amp;rft.aufirst=Thomas+H.&amp;rft.au=Leiserson%2C+Charles+E.&amp;rft.au=Rivest%2C+Ronald+L.&amp;rft.au=Stein%2C+Clifford&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASet+cover+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFFeige1998" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Uriel_Feige" title="Uriel Feige">Feige, Uriel</a> (1998), "A threshold of ln n for approximating set cover", <i><a href="https://en.wikipedia.org/wiki/Journal_of_the_ACM" title="Journal of the ACM">Journal of the ACM</a></i>, <b>45</b> (4): 634–652, <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.70.5014">10.1.1.70.5014</a></span>, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F285055.285059">10.1145/285055.285059</a>, <a href="https://en.wikipedia.org/wiki/ISSN_(identifier)" class="mw-redirect" title="ISSN (identifier)">ISSN</a>&#160;<a rel="nofollow" class="external text" href="http://www.worldcat.org/issn/0004-5411">0004-5411</a>, <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:52827488">52827488</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+the+ACM&amp;rft.atitle=A+threshold+of+ln+n+for+approximating+set+cover&amp;rft.volume=45&amp;rft.issue=4&amp;rft.pages=634-652&amp;rft.date=1998&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.70.5014%23id-name%3DCiteSeerX&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A52827488%23id-name%3DS2CID&amp;rft.issn=0004-5411&amp;rft_id=info%3Adoi%2F10.1145%2F285055.285059&amp;rft.aulast=Feige&amp;rft.aufirst=Uriel&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASet+cover+problem" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKarpinskiZelikovsky1998" class="citation cs2">Karpinski, Marek; Zelikovsky, Alexander (1998), "Approximating dense cases of covering problems", <a rel="nofollow" class="external text" href="https://books.google.com/books?id=IMmuF0RZk1MC&amp;q=karpinski+zelikovsky+cover+dense&amp;pg=PA169"><i>Proceedings of the DIMACS Workshop on Network Design: Connectivity and Facilities Location</i></a>, vol.&#160;40, pp.&#160;169–178, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/9780821870846" title="Special:BookSources/9780821870846"><bdi>9780821870846</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Approximating+dense+cases+of+covering+problems&amp;rft.btitle=Proceedings+of+the+DIMACS+Workshop+on+Network+Design%3A+Connectivity+and+Facilities+Location&amp;rft.pages=169-178&amp;rft.date=1998&amp;rft.isbn=9780821870846&amp;rft.aulast=Karpinski&amp;rft.aufirst=Marek&amp;rft.au=Zelikovsky%2C+Alexander&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3DIMmuF0RZk1MC%26q%3Dkarpinski%2Bzelikovsky%2Bcover%2Bdense%26pg%3DPA169&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASet+cover+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFLundYannakakis1994" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Carsten_Lund" title="Carsten Lund">Lund, Carsten</a>; <a href="https://en.wikipedia.org/wiki/Mihalis_Yannakakis" title="Mihalis Yannakakis">Yannakakis, Mihalis</a> (1994), "On the hardness of approximating minimization problems", <i><a href="https://en.wikipedia.org/wiki/Journal_of_the_ACM" title="Journal of the ACM">Journal of the ACM</a></i>, <b>41</b> (5): 960–981, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F185675.306789">10.1145/185675.306789</a>, <a href="https://en.wikipedia.org/wiki/ISSN_(identifier)" class="mw-redirect" title="ISSN (identifier)">ISSN</a>&#160;<a rel="nofollow" class="external text" href="http://www.worldcat.org/issn/0004-5411">0004-5411</a>, <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:9021065">9021065</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+the+ACM&amp;rft.atitle=On+the+hardness+of+approximating+minimization+problems&amp;rft.volume=41&amp;rft.issue=5&amp;rft.pages=960-981&amp;rft.date=1994&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A9021065%23id-name%3DS2CID&amp;rft.issn=0004-5411&amp;rft_id=info%3Adoi%2F10.1145%2F185675.306789&amp;rft.aulast=Lund&amp;rft.aufirst=Carsten&amp;rft.au=Yannakakis%2C+Mihalis&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASet+cover+problem" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFRazSafra1997" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Ran_Raz" title="Ran Raz">Raz, Ran</a>; <a href="https://en.wikipedia.org/wiki/Shmuel_Safra" title="Shmuel Safra">Safra, Shmuel</a> (1997), "A sub-constant error-probability low-degree test, and a sub-constant error-probability PCP characterization of NP", <i>STOC '97: Proceedings of the twenty-ninth annual ACM symposium on Theory of computing</i>, ACM, pp.&#160;475–484, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-89791-888-6" title="Special:BookSources/978-0-89791-888-6"><bdi>978-0-89791-888-6</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=A+sub-constant+error-probability+low-degree+test%2C+and+a+sub-constant+error-probability+PCP+characterization+of+NP&amp;rft.btitle=STOC+%2797%3A+Proceedings+of+the+twenty-ninth+annual+ACM+symposium+on+Theory+of+computing&amp;rft.pages=475-484&amp;rft.pub=ACM&amp;rft.date=1997&amp;rft.isbn=978-0-89791-888-6&amp;rft.aulast=Raz&amp;rft.aufirst=Ran&amp;rft.au=Safra%2C+Shmuel&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASet+cover+problem" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFDinurSteurer2013" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Irit_Dinur" title="Irit Dinur">Dinur, Irit</a>; Steurer, David (2013), "Analytical approach to parallel repetition", <i>STOC '14: Proceedings of the forty-sixth annual ACM symposium on Theory of computing</i>, ACM, pp.&#160;624–633</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Analytical+approach+to+parallel+repetition&amp;rft.btitle=STOC+%2714%3A+Proceedings+of+the+forty-sixth+annual+ACM+symposium+on+Theory+of+computing&amp;rft.pages=624-633&amp;rft.pub=ACM&amp;rft.date=2013&amp;rft.aulast=Dinur&amp;rft.aufirst=Irit&amp;rft.au=Steurer%2C+David&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASet+cover+problem" class="Z3988"></span>.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFVazirani2001" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Vijay_Vazirani" title="Vijay Vazirani">Vazirani, Vijay V.</a> (2001), <a rel="nofollow" class="external text" href="https://www.ics.uci.edu/~vazirani/book.pdf"><i>Approximation Algorithms</i></a> <span class="cs1-format">(PDF)</span>, Springer-Verlag, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-3-540-65367-7" title="Special:BookSources/978-3-540-65367-7"><bdi>978-3-540-65367-7</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Approximation+Algorithms&amp;rft.pub=Springer-Verlag&amp;rft.date=2001&amp;rft.isbn=978-3-540-65367-7&amp;rft.aulast=Vazirani&amp;rft.aufirst=Vijay+V.&amp;rft_id=https%3A%2F%2Fwww.ics.uci.edu%2F~vazirani%2Fbook.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASet+cover+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKorteVygen2012" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Bernhard_Korte" title="Bernhard Korte">Korte, Bernhard</a>; Vygen, Jens (2012), <i>Combinatorial Optimization: Theory and Algorithms</i> (5&#160;ed.), Springer, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-3-642-24487-2" title="Special:BookSources/978-3-642-24487-2"><bdi>978-3-642-24487-2</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Combinatorial+Optimization%3A+Theory+and+Algorithms&amp;rft.edition=5&amp;rft.pub=Springer&amp;rft.date=2012&amp;rft.isbn=978-3-642-24487-2&amp;rft.aulast=Korte&amp;rft.aufirst=Bernhard&amp;rft.au=Vygen%2C+Jens&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASet+cover+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCardosoAbreu2014" class="citation cs2">Cardoso, Nuno; Abreu, Rui (2014), <a rel="nofollow" class="external text" href="http://dx-2014.ist.tugraz.at/papers/DX14_Mon_PM_S1_paper1.pdf">"An Efficient Distributed Algorithm for Computing Minimal Hitting Sets"</a> <span class="cs1-format">(PDF)</span>, <i>Proceedings of the 25th International Workshop on Principles of Diagnosis</i>, Graz, Austria, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.5281%2Fzenodo.10037">10.5281/zenodo.10037</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=An+Efficient+Distributed+Algorithm+for+Computing+Minimal+Hitting+Sets&amp;rft.btitle=Proceedings+of+the+25th+International+Workshop+on+Principles+of+Diagnosis&amp;rft.place=Graz%2C+Austria&amp;rft.date=2014&amp;rft_id=info%3Adoi%2F10.5281%2Fzenodo.10037&amp;rft.aulast=Cardoso&amp;rft.aufirst=Nuno&amp;rft.au=Abreu%2C+Rui&amp;rft_id=http%3A%2F%2Fdx-2014.ist.tugraz.at%2Fpapers%2FDX14_Mon_PM_S1_paper1.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASet+cover+problem" class="Z3988"></span></li></ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Set_cover_problem&amp;action=edit&amp;section=10" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table role="presentation" class="mbox-small plainlinks sistersitebox" style="background-color:#f9f9f9;border:1px solid #aaa;color:#000">
+<tbody><tr>
+<td class="mbox-image"><img alt="" src="http://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/30px-Commons-logo.svg.png" decoding="async" width="30" height="40" class="noviewer" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/45px-Commons-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/59px-Commons-logo.svg.png 2x" data-file-width="1024" data-file-height="1376" /></td>
+<td class="mbox-text plainlist">Wikimedia Commons has media related to <span style="font-weight: bold; font-style: italic;"><a href="https://commons.wikimedia.org/wiki/Category:Set_cover_problem" class="extiw" title="commons:Category:Set cover problem">Set cover problem</a></span>.</td></tr>
+</tbody></table>
+<ul><li><a rel="nofollow" class="external text" href="http://www.nlsde.buaa.edu.cn/~kexu/benchmarks/set-benchmarks.htm">Benchmarks with Hidden Optimum Solutions for Set Covering, Set Packing and Winner Determination</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.csc.kth.se/~viggo/wwwcompendium/node146.html">A compendium of NP optimization problems - Minimum Set Cover</a></li></ul>
+<!-- 
+NewPP limit report
+Parsed by mw1414
+Cached time: 20220419000316
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.594 seconds
+Real time usage: 0.754 seconds
+Preprocessor visited node count: 1918/1000000
+Post‐expand include size: 40919/2097152 bytes
+Template argument size: 664/2097152 bytes
+Highest expansion depth: 14/100
+Expensive parser function count: 1/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 33801/5000000 bytes
+Lua time usage: 0.298/10.000 seconds
+Lua memory usage: 7255669/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  495.347      1 -total
+ 31.44%  155.720      1 Template:Reflist
+ 22.31%  110.489      2 Template:Cite_book
+ 21.31%  105.548      1 Template:Introduction_to_Algorithms
+ 16.34%   80.920     10 Template:Citation
+ 13.87%   68.726      1 Template:Covering-Packing_Problem_Pairs
+ 13.13%   65.028      1 Template:Commons_category
+ 13.10%   64.893      1 Template:Sidebar
+ 11.94%   59.141      1 Template:Sfn
+ 11.87%   58.796      1 Template:Sister_project
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:870399-0!canonical and timestamp 20220419000315 and revision id 1079485019. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Set_cover_problem&amp;oldid=1079485019">https://en.wikipedia.org/w/index.php?title=Set_cover_problem&amp;oldid=1079485019</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Set_families" title="Category:Set families">Set families</a></li><li><a href="https://en.wikipedia.org/wiki/Category:NP-complete_problems" title="Category:NP-complete problems">NP-complete problems</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Linear_programming" title="Category:Linear programming">Linear programming</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Approximation_algorithms" title="Category:Approximation algorithms">Approximation algorithms</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Covering_problems" title="Category:Covering problems">Covering problems</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Articles_to_be_expanded_from_November_2017" title="Category:Articles to be expanded from November 2017">Articles to be expanded from November 2017</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_to_be_expanded" title="Category:All articles to be expanded">All articles to be expanded</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_using_small_message_boxes" title="Category:Articles using small message boxes">Articles using small message boxes</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Commons_category_link_from_Wikidata" title="Category:Commons category link from Wikidata">Commons category link from Wikidata</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Set+cover+problem" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Set+cover+problem" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Set_cover_problem" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Set_cover_problem" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Set_cover_problem"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Set_cover_problem&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Set_cover_problem&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Set_cover_problem" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Set_cover_problem" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Set_cover_problem&amp;oldid=1079485019" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Set_cover_problem&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Set_cover_problem&amp;id=1079485019&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q1192100" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Set_cover_problem&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Set_cover_problem&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-wikibase-otherprojects" class="mw-portlet mw-portlet-wikibase-otherprojects vector-menu vector-menu-portal portal" aria-labelledby="p-wikibase-otherprojects-label" role="navigation" 
+	 >
+	<label id="p-wikibase-otherprojects-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">In other projects</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="wb-otherproject-link wb-otherproject-commons mw-list-item"><a href="https://commons.wikimedia.org/wiki/Category:Set_cover_problem" hreflang="en"><span>Wikimedia Commons</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Mengenüberdeckungsproblem" title="Mengenüberdeckungsproblem – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Problema_del_conjunto_de_cobertura" title="Problema del conjunto de cobertura – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/پوشش_مجموعه" title="پوشش مجموعه – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Problème_de_couverture_par_ensembles" title="Problème de couverture par ensembles – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-ko mw-list-item"><a href="https://ko.wikipedia.org/wiki/집합_덮개_문제" title="집합 덮개 문제 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target"><span>한국어</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/בעיית_כיסוי_קבוצות" title="בעיית כיסוי קבוצות – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-nl mw-list-item"><a href="https://nl.wikipedia.org/wiki/Verzamelingenoverdekking" title="Verzamelingenoverdekking – Dutch" lang="nl" hreflang="nl" class="interlanguage-link-target"><span>Nederlands</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/集合被覆問題" title="集合被覆問題 – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/Problema_de_cobertura_de_conjuntos" title="Problema de cobertura de conjuntos – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Задача_о_покрытии_множества" title="Задача о покрытии множества – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-th mw-list-item"><a href="https://th.wikipedia.org/wiki/ปัญหาการปกคลุมเซต" title="ปัญหาการปกคลุมเซต – Thai" lang="th" hreflang="th" class="interlanguage-link-target"><span>ไทย</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Задача_про_покриття_множини" title="Задача про покриття множини – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/集合覆盖问题" title="集合覆盖问题 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q1192100#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 27 March 2022, at 01:27<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Set_cover_problem&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.594","walltime":"0.754","ppvisitednodes":{"value":1918,"limit":1000000},"postexpandincludesize":{"value":40919,"limit":2097152},"templateargumentsize":{"value":664,"limit":2097152},"expansiondepth":{"value":14,"limit":100},"expensivefunctioncount":{"value":1,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":33801,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  495.347      1 -total"," 31.44%  155.720      1 Template:Reflist"," 22.31%  110.489      2 Template:Cite_book"," 21.31%  105.548      1 Template:Introduction_to_Algorithms"," 16.34%   80.920     10 Template:Citation"," 13.87%   68.726      1 Template:Covering-Packing_Problem_Pairs"," 13.13%   65.028      1 Template:Commons_category"," 13.10%   64.893      1 Template:Sidebar"," 11.94%   59.141      1 Template:Sfn"," 11.87%   58.796      1 Template:Sister_project"]},"scribunto":{"limitreport-timeusage":{"value":"0.298","limit":"10.000"},"limitreport-memusage":{"value":7255669,"limit":52428800},"limitreport-logs":"anchor_id_list = table#1 {\n  [\"CITEREFAlonMoshkovitzSafra2006\"] = 1,\n  [\"CITEREFCardosoAbreu2014\"] = 1,\n  [\"CITEREFCormenLeisersonRivestStein2001\"] = 1,\n  [\"CITEREFDinurSteurer2013\"] = 1,\n  [\"CITEREFFeige1998\"] = 1,\n  [\"CITEREFInformation.1999\"] = 1,\n  [\"CITEREFKarpinskiZelikovsky1998\"] = 1,\n  [\"CITEREFKorteVygen2012\"] = 1,\n  [\"CITEREFLundYannakakis1994\"] = 1,\n  [\"CITEREFRazSafra1997\"] = 1,\n  [\"CITEREFVazirani2001\"] = 1,\n}\ntemplate_list = table#1 {\n  [\"Citation\"] = 10,\n  [\"Cite book\"] = 1,\n  [\"Commons category\"] = 1,\n  [\"Covering-Packing Problem Pairs\"] = 1,\n  [\"DEFAULTSORT:Set Cover Problem\"] = 1,\n  [\"Doi\"] = 1,\n  [\"Expand section\"] = 1,\n  [\"Harvnb\"] = 1,\n  [\"Harvtxt\"] = 9,\n  [\"Introduction to Algorithms\"] = 1,\n  [\"Reflist\"] = 1,\n  [\"Sfn\"] = 1,\n  [\"Var\"] = 11,\n}\narticle_whitelist = table#1 {\n}\n"},"cachereport":{"origin":"mw1414","timestamp":"20220419000316","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Set cover problem","url":"https:\/\/en.wikipedia.org\/wiki\/Set_cover_problem","sameAs":"http:\/\/www.wikidata.org\/entity\/Q1192100","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q1192100","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-08-01T01:58:58Z","dateModified":"2022-03-27T01:27:48Z"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Set cover problem","url":"https:\/\/en.wikipedia.org\/wiki\/Set_cover_problem","sameAs":"http:\/\/www.wikidata.org\/entity\/Q1192100","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q1192100","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-08-01T01:58:58Z","dateModified":"2022-03-27T01:27:48Z"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":127,"wgHostname":"mw1411"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Set_cover by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:52 GMT -->
+</html>

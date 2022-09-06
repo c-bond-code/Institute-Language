@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/K-way_merge_algorithm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:32:05 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>k-way merge algorithm - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"9dae27fa-118e-4caa-9fed-e3360de13498","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"K-way_merge_algorithm","wgTitle":"K-way merge algorithm","wgCurRevisionId":1047851465,"wgRevisionId":1047851465,"wgArticleId":48597951,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Sorting algorithms"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"K-way_merge_algorithm","wgRelevantArticleId":48597951,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],
+"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":20000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q25111796"};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","skins.vector.styles.legacy":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":
+"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.ready","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="k-way merge algorithm - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/K-way_merge_algorithm"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/K-way_merge_algorithm"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-K-way_merge_algorithm rootpage-K-way_merge_algorithm skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading"><i>k</i>-way merge algorithm</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><p>In <a href="https://en.wikipedia.org/wiki/Computer_science" title="Computer science">computer science</a>, <b><i>k</i>-way merge algorithms</b> or multiway merges are a specific type of <a href="https://en.wikipedia.org/wiki/Merge_algorithm" title="Merge algorithm">sequence merge algorithms</a> that specialize in taking in k sorted lists and merging them into a single sorted list. These merge algorithms generally refer to merge algorithms that take in a number of sorted lists greater than two. Two-way merges are also referred to as binary merges.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Two-way_merge"><span class="tocnumber">1</span> <span class="toctext">Two-way merge</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#k-way_merge"><span class="tocnumber">2</span> <span class="toctext"><i>k</i>-way merge</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Iterative_2-way_merge"><span class="tocnumber">2.1</span> <span class="toctext">Iterative 2-way merge</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Direct_k-way_merge"><span class="tocnumber">2.2</span> <span class="toctext">Direct <i>k</i>-way merge</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#Heap"><span class="tocnumber">2.2.1</span> <span class="toctext">Heap</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Tournament_Tree"><span class="tocnumber">2.2.2</span> <span class="toctext">Tournament Tree</span></a>
+<ul>
+<li class="toclevel-4 tocsection-7"><a href="#Algorithm"><span class="tocnumber">2.2.2.1</span> <span class="toctext">Algorithm</span></a></li>
+<li class="toclevel-4 tocsection-8"><a href="#Running_time"><span class="tocnumber">2.2.2.2</span> <span class="toctext">Running time</span></a></li>
+<li class="toclevel-4 tocsection-9"><a href="#Example"><span class="tocnumber">2.2.2.3</span> <span class="toctext">Example</span></a>
+<ul>
+<li class="toclevel-5 tocsection-10"><a href="#Replacement_selection"><span class="tocnumber">2.2.2.3.1</span> <span class="toctext">Replacement selection</span></a></li>
+<li class="toclevel-5 tocsection-11"><a href="#Merge"><span class="tocnumber">2.2.2.3.2</span> <span class="toctext">Merge</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-12"><a href="#Lower_bound_on_running_time"><span class="tocnumber">2.3</span> <span class="toctext">Lower bound on running time</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="#External_sorting"><span class="tocnumber">3</span> <span class="toctext">External sorting</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Two-way_merge">Two-way merge</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;action=edit&amp;section=1" title="Edit section: Two-way merge">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>A 2-way merge, or a binary merge, has been studied extensively due to its key role in <a href="https://en.wikipedia.org/wiki/Merge_sort" title="Merge sort">merge sort</a>. An example of such is the classic merge that appears frequently in merge sort examples. The classic merge outputs the data item with the lowest key at each step; given some sorted lists, it produces a sorted list containing all the elements in any of the input lists, and it does so in time proportional to the sum of the lengths of the input lists.
+</p><p>Denote by A[1..p] and B[1..q] two arrays sorted in increasing order.
+Further, denote by C[1..n] the output array.
+The canonical 2-way merge algorithm<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup> stores indices i, j, and k into A, B, and C respectively.
+Initially, these indices refer to the first element, i.e., are 1.
+If A[i] &lt; B[j], then the algorithm copies A[i] into C[k] and increases i and k.  
+Otherwise, the algorithm copies B[j] into C[k] and increases j and k.
+A special case arises if either i or j have reached the end of A or B.
+In this case the algorithm copies the remaining elements of B or A into C and terminates.
+</p>
+<h2><span class="mw-headline" id="k-way_merge"><i>k</i>-way merge</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;action=edit&amp;section=2" title="Edit section: k-way merge">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The <i>k</i>-way merge problem consists of merging k sorted arrays to produce a single sorted array with the same elements.
+Denote by n the total number of elements.
+n is equal to the size of the output array and the sum of the sizes of the k input arrays.
+For simplicity, we assume that none of the input arrays is empty.
+As a consequence <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle k\leq n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>k</mi>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle k\leq n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/621f658bb51d7caac329d29e9bf435361813777f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:5.704ex; height:2.343ex;" alt="k\leq n"/></span>, which simplifies the reported running times.
+The problem can be solved in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathcal {O}}(n\cdot \log(k))}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">O</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo>&#x22C5;<!-- ⋅ --></mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mi>k</mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {O}}(n\cdot \log(k))}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3f230f1c4a6df34126529473608976678b0c39eb" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:12.725ex; height:2.843ex;" alt="{\displaystyle {\mathcal {O}}(n\cdot \log(k))}"/></span> running time with <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\mathcal {O}}(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">O</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {O}}(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3c7bbe0124ae81792773344bc8709fc2f9c9910d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.054ex; height:2.843ex;" alt="{\mathcal {O}}(n)"/></span> space.
+Several algorithms that achieve this running time exist.
+</p>
+<h3><span class="mw-headline" id="Iterative_2-way_merge">Iterative 2-way merge</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;action=edit&amp;section=3" title="Edit section: Iterative 2-way merge">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The problem can be solved by iteratively merging two of the k arrays using a 2-way merge until only a single array is left. If the arrays are merged in arbitrary order, then the resulting running time is only O(kn). This is suboptimal.
+</p><p>The running time can be improved by iteratively merging the first with the second, the third with the fourth, and so on. As the number of arrays is halved in each iteration, there are only Θ(log k) iterations. In each iteration every element is moved exactly once. The running time per iteration is therefore in Θ(n) as n is the number of elements. The total running time is therefore in Θ(n log k).
+</p><p>We can further improve upon this algorithm, by iteratively merging the two shortest arrays. It is clear that this minimizes the running time and can therefore not be worse than the strategy described in the previous paragraph. The running time is therefore in O(n log k). Fortunately, in border cases the running time can be better. Consider for example the degenerate case, where all but one array contain only one element. The strategy explained in the previous paragraph needs Θ(n log k) running time, while the improved one only needs Θ(n + k log k) running time.
+</p>
+<h3><span class="mw-headline" id="Direct_k-way_merge">Direct <i>k</i>-way merge</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;action=edit&amp;section=4" title="Edit section: Direct k-way merge">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In this case, we would simultaneously merge k-runs together.
+</p><p>A straightforward implementation would scan all k arrays to determine the minimum.
+This straightforward implementation results in a running time of Θ(kn).
+Note that this is mentioned only as a possibility, for the sake of discussion. Although it would work, it is not efficient.
+</p><p>We can improve upon this by computing the smallest element faster.
+By using either <a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" title="Heap (data structure)">heaps</a>, tournament trees, or <a href="https://en.wikipedia.org/wiki/Splay_tree" title="Splay tree">splay trees</a>, the smallest element can be determined in O(log k) time.
+The resulting running times are therefore in O(n log k).
+</p><p>The heap is more commonly used, although a tournament tree is faster in practice. A heap uses approximately 2*log(k) comparisons in each step because it handles the tree from the root down to the bottom and needs to compare both children of each node. Meanwhile, a tournament tree only needs log(k) comparisons because it starts on the bottom of the tree and works up to the root, only making a single comparison in each layer. The tournament tree should therefore be the preferred implementation.
+</p>
+<h4><span class="mw-headline" id="Heap">Heap</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;action=edit&amp;section=5" title="Edit section: Heap">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>The idea is to maintain a min-heap of the k lists, each keyed by their smallest current element.  A simple algorithm builds an output buffer with nodes from the heap.  Start by building a min-heap of nodes, where each node consists of a head element of the list, and the rest (or tail) of the list.  Because the lists are sorted initially, the head is the smallest element of each list; the heap property guarantees that the root contains the minimum element over all lists.  Extract the root node from the heap, add the head element to the output buffer, create a new node out of the tail, and insert it into the heap.  Repeat until there is only one node left in the heap, at which point just append that remaining list (head and tail) to the output buffer.
+</p><p>Using pointers, an in-place heap algorithm 
+<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup>
+allocates a min-heap of pointers into the input arrays.
+Initially these pointers point to the smallest elements of the input array.
+The pointers are sorted by the value that they point to.
+In an O(k) preprocessing step the heap is created using the standard heapify procedure.
+Afterwards, the algorithm iteratively transfers the element that the root pointer points to, increases this pointer and executes the standard decrease key procedure upon the root element.
+The running time of the increase key procedure is bounded by O(log k).
+As there are n elements, the total running time is O(n log k).
+</p><p>Note that the operation of replacing the key and iteratively doing decrease-key or sift-down are not supported by many Priority Queue libraries such as C++ stl and Java. Doing an extract-min and insert function is less efficient.
+</p>
+<h4><span class="mw-headline" id="Tournament_Tree">Tournament Tree</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;action=edit&amp;section=6" title="Edit section: Tournament Tree">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Tournament_tree.png" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Tournament_tree.png/220px-Tournament_tree.png" decoding="async" width="220" height="165" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Tournament_tree.png/330px-Tournament_tree.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Tournament_tree.png/440px-Tournament_tree.png 2x" data-file-width="1512" data-file-height="1134" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Tournament_tree.png" class="internal" title="Enlarge"></a></div>Tournament tree</div></div></div>
+<p>The Tournament Tree <sup id="cite_ref-knuth98_3-0" class="reference"><a href="#cite_note-knuth98-3">&#91;3&#93;</a></sup> is based on an elimination tournament, as in sports competitions. In each game, two of the input elements compete. The winner is promoted to the next round. Therefore, we get a <a href="https://en.wikipedia.org/wiki/Binary_tree" title="Binary tree">binary tree</a> of games. The list is sorted in ascending order, so the winner of a game is the smaller one of both elements.
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Loser_tree.png" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Loser_tree.png/220px-Loser_tree.png" decoding="async" width="220" height="165" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Loser_tree.png/330px-Loser_tree.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Loser_tree.png/440px-Loser_tree.png 2x" data-file-width="1512" data-file-height="1134" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Loser_tree.png" class="internal" title="Enlarge"></a></div>Loser tree</div></div></div>
+<p>For k-way merging, it is more efficient to only store the loser of each game (see image). The data structure is therefore called a loser tree. When building the tree or replacing an element with the next one from its list, we still promote the winner of the game to the top. The tree is filled like in a sports match but the nodes only store the loser. Usually, an additional node above the root is added that represents the overall winner. Every leaf stores a pointer to one of the input arrays. Every inner node stores a value and an index. The index of an inner node indicates which input array the value comes from. The value contains a copy of the first element of the corresponding input array.
+</p><p>The algorithm iteratively appends the minimum element to the result and then removes the element from the corresponding input list. It updates the nodes on the path from the updated leaf to the root (<i>replacement selection</i>). The removed element is the overall winner. Therefore, it has won each game on the path from the input array to the root. When selecting a new element from the input array, the element needs to compete against the previous losers on the path to the root. When using a loser tree, the partner for replaying the games is already stored in the nodes. The loser of each replayed game is written to the node and the winner is iteratively promoted to the top. When the root is reached, the new overall winner was found and can be used in the next round of merging.
+</p><p>The images of the tournament tree and the loser tree in this section use the same data and can be compared to understand the way a loser tree works.
+</p>
+<h5><span class="mw-headline" id="Algorithm">Algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;action=edit&amp;section=7" title="Edit section: Algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<p>A tournament tree can be represented as a balanced binary tree by adding sentinels to the input lists (i.e. adding a member to the end of each list with a value of infinity) and by adding null lists (comprising only a sentinel) until the number of lists is a power of two. The balanced tree can be stored in a single array. The parent element can be reached by dividing the current index by two.
+</p><p>When one of the leaves is updated, all games from the leaf to the root are replayed. In the following <a href="https://en.wikipedia.org/wiki/Pseudocode" title="Pseudocode">pseudocode</a>, an object oriented tree is used instead of an array because it is easier to understand. Additionally, the number of lists to merge is assumed to be a power of two.
+</p>
+<pre><b>function</b> merge(L1, …, Ln)
+    buildTree(heads of L1, …, Ln)
+    <b>while</b> tree has elements
+        winner&#160;:= tree.winner
+        output winner.value
+        new&#160;:= winner.index.next
+        replayGames(winner, new) // Replacement selection
+</pre>
+<pre><b>function</b> replayGames(node, new)
+    loser, winner&#160;:= playGame(node, new)
+    node.value&#160;:= loser.value
+    node.index&#160;:= loser.index
+    <b>if</b> node&#160;!= root
+        replayGames(node.parent, winner)
+</pre>
+<pre><b>function</b> buildTree(elements)
+    nextLayer&#160;:= new Array()
+    <b>while</b> elements not empty
+        el1&#160;:= elements.take()
+        el2&#160;:= elements.take()
+        loser, winner&#160;:= playGame(el1, el2)
+        parent&#160;:= new Node(el1, el2, loser)
+        nextLayer.add(parent)
+    <b>if</b> nextLayer.size == 1
+        <b>return</b> nextLayer // only root
+    <b>else</b>
+        <b>return</b> buildTree(nextLayer)
+</pre>
+<h5><span class="mw-headline" id="Running_time">Running time</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;action=edit&amp;section=8" title="Edit section: Running time">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<p>In the beginning, the tree is first created in time Θ(k). In each step of merging, only the games on the path from the new element to the root need to be replayed. In each layer, only one comparison is needed. As the tree is balanced, the path from one of the input arrays to the root contains only Θ(log k) elements. In total, there are n elements that need to be transferred. The resulting total running time is therefore in Θ(n log k). <sup id="cite_ref-knuth98_3-1" class="reference"><a href="#cite_note-knuth98-3">&#91;3&#93;</a></sup>
+</p>
+<h5><span class="mw-headline" id="Example">Example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;action=edit&amp;section=9" title="Edit section: Example">edit</a><span class="mw-editsection-bracket">]</span></span></h5>
+<p>The following section contains a detailed example for the replacement selection step and one example for a complete merge containing multiple replacement selections.
+</p>
+<h6><span class="mw-headline" id="Replacement_selection">Replacement selection</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;action=edit&amp;section=10" title="Edit section: Replacement selection">edit</a><span class="mw-editsection-bracket">]</span></span></h6>
+<p>Games are replayed from the bottom to the top. In each layer of the tree, the currently stored element of the node and the element that was provided from the layer below compete. The winner is promoted to the top until we found the new overall winner. The loser is stored in the node of the tree.
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Loser_tree_replacement_selection.gif" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Loser_tree_replacement_selection.gif/220px-Loser_tree_replacement_selection.gif" decoding="async" width="220" height="165" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Loser_tree_replacement_selection.gif/330px-Loser_tree_replacement_selection.gif 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Loser_tree_replacement_selection.gif/440px-Loser_tree_replacement_selection.gif 2x" data-file-width="1512" data-file-height="1134" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Loser_tree_replacement_selection.gif" class="internal" title="Enlarge"></a></div>Example for replacement selection</div></div></div></div>
+<table class="wikitable">
+
+<tbody><tr>
+<th>Step</th>
+<th>Action
+</th></tr>
+<tr>
+<td>1</td>
+<td>Leaf 1 (overall winner) is replaced by 9, the next element from the input list.
+</td></tr>
+<tr>
+<td>2</td>
+<td>Replaying the game 9 vs 7 (previous loser). 7 wins because it is smaller. Therefore, 7 is promoted to the top while 9 is saved in the node.
+</td></tr>
+<tr>
+<td>3</td>
+<td>Replaying the game 7 vs 3 (previous loser). 3 wins because it is smaller. Therefore, 3 is promoted to the top while 7 is saved in the node.
+</td></tr>
+<tr>
+<td>4</td>
+<td>Replaying the game 3 vs 2 (previous loser). 2 wins because it is smaller. Therefore, 2 is promoted to the top while 3 is saved in the node.
+</td></tr>
+<tr>
+<td>5</td>
+<td>The new overall winner 2 is saved above the root.
+</td></tr></tbody></table>
+<h6><span class="mw-headline" id="Merge">Merge</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;action=edit&amp;section=11" title="Edit section: Merge">edit</a><span class="mw-editsection-bracket">]</span></span></h6>
+<p>To execute the merge itself, the overall smallest element is repeatedly replaced with the next input element. After that, the games to the top are replayed.
+</p><p>This example uses four sorted arrays as input.
+</p>
+<pre>{2, 7, 16}
+{5, 10, 20}
+{3, 6, 21}
+{4, 8, 9}
+</pre>
+<p>The algorithm is initiated with the heads of each input list. Using these elements, a binary tree of losers is built. For merging, the lowest list element 2 is determined by looking at the overall minimum element at the top of the tree. That value is then popped off, and its leaf is refilled with 7, the next value in the input list. The games on the way to the top are replayed like in the previous section about replacement selection. The next element that is removed is 3. Starting from the next value in the list, 6, the games are replayed up until the root. This is being repeated until the minimum of the tree equals infinity.
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Loser_tree_merge.gif" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Loser_tree_merge.gif/220px-Loser_tree_merge.gif" decoding="async" width="220" height="165" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Loser_tree_merge.gif/330px-Loser_tree_merge.gif 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Loser_tree_merge.gif/440px-Loser_tree_merge.gif 2x" data-file-width="1512" data-file-height="1134" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Loser_tree_merge.gif" class="internal" title="Enlarge"></a></div>Visualization for the whole algorithm</div></div></div></div>
+<h3><span class="mw-headline" id="Lower_bound_on_running_time">Lower bound on running time</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;action=edit&amp;section=12" title="Edit section: Lower bound on running time">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>One can show that no comparison-based <i>k</i>-way merge algorithm exists with a running time in O(n f(k)) where f grows asymptotically slower than a logarithm, and n being the total number of elements.
+(Excluding data with desirable distributions such as disjoint ranges.)
+The proof is a straightforward reduction from comparison-based sorting.
+Suppose that such an algorithm existed, then we could construct a comparison-based sorting algorithm with running time O(n f(n)) as follows:
+Chop the input array into n arrays of size 1. 
+Merge these n arrays with the <i>k</i>-way merge algorithm.
+The resulting array is sorted and the algorithm has a running time in O(n f(n)).
+This is a contradiction to the well-known result that no comparison-based sorting algorithm with a worst case running time below O(n log n) exists.
+</p>
+<h2><span class="mw-headline" id="External_sorting">External sorting</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;action=edit&amp;section=13" title="Edit section: External sorting">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">See also: <a href="https://en.wikipedia.org/wiki/External_sorting" title="External sorting">External sorting</a></div>
+<p><i>k</i>-way merges are used in external sorting procedures.<sup id="cite_ref-4" class="reference"><a href="#cite_note-4">&#91;4&#93;</a></sup> <a href="https://en.wikipedia.org/wiki/External_sorting" title="External sorting">External sorting algorithms</a> are a class of sorting algorithms that can handle massive amounts of data. External sorting is required when the data being sorted do not fit into the main memory of a computing device (usually RAM) and instead they must reside in the slower external memory (usually a hard drive). <i>k</i>-way merge algorithms usually take place in the second stage of external sorting algorithms, much like they do for merge sort.
+</p><p>A multiway merge allows for the files outside of memory to be merged in fewer passes than in a binary merge. If there are 6 runs that need be merged then a binary merge would need to take 3 merge passes, as opposed to a 6-way merge's single merge pass. This reduction of merge passes is especially important considering the large amount of information that is usually being sorted in the first place, allowing for greater speed-ups while also reducing the amount of accesses to slower memory.
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;action=edit&amp;section=14" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFThomas_H._CormenCharles_E._LeisersonRonald_L._RivestClifford_Stein2001" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Thomas H. Cormen</a>; Charles E. Leiserson; <a href="https://en.wikipedia.org/wiki/Ron_Rivest" title="Ron Rivest">Ronald L. Rivest</a>; Clifford Stein (2001). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=NLngYyWFl_YC&amp;pg=PA11"><i>Introduction To Algorithms</i></a>. MIT Press. pp.&#160;28–29. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-262-03293-3" title="Special:BookSources/978-0-262-03293-3"><bdi>978-0-262-03293-3</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Introduction+To+Algorithms&amp;rft.pages=28-29&amp;rft.pub=MIT+Press&amp;rft.date=2001&amp;rft.isbn=978-0-262-03293-3&amp;rft.au=Thomas+H.+Cormen&amp;rft.au=Charles+E.+Leiserson&amp;rft.au=Ronald+L.+Rivest&amp;rft.au=Clifford+Stein&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3DNLngYyWFl_YC%26pg%3DPA11&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AK-way+merge+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBentley2000" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Jon_Bentley_(computer_scientist)" title="Jon Bentley (computer scientist)">Bentley, Jon Louis</a> (2000). <i>Programming Pearls</i> (2nd&#160;ed.). Addison Wesley. pp.&#160;147–162. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0201657880" title="Special:BookSources/0201657880"><bdi>0201657880</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Programming+Pearls&amp;rft.pages=147-162&amp;rft.edition=2nd&amp;rft.pub=Addison+Wesley&amp;rft.date=2000&amp;rft.isbn=0201657880&amp;rft.aulast=Bentley&amp;rft.aufirst=Jon+Louis&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AK-way+merge+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-knuth98-3"><span class="mw-cite-backlink">^ <a href="#cite_ref-knuth98_3-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-knuth98_3-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKnuth1998" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Donald_Knuth" title="Donald Knuth">Knuth, Donald</a> (1998). "Chapter 5.4.1. Multiway Merging and Replacement Selection". <i>Sorting and Searching</i>. <a href="https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming" title="The Art of Computer Programming">The Art of Computer Programming</a>. Vol.&#160;3 (2nd&#160;ed.). Addison-Wesley. pp.&#160;252–255. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-201-89685-0" title="Special:BookSources/0-201-89685-0"><bdi>0-201-89685-0</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Chapter+5.4.1.+Multiway+Merging+and+Replacement+Selection&amp;rft.btitle=Sorting+and+Searching&amp;rft.series=The+Art+of+Computer+Programming&amp;rft.pages=252-255&amp;rft.edition=2nd&amp;rft.pub=Addison-Wesley&amp;rft.date=1998&amp;rft.isbn=0-201-89685-0&amp;rft.aulast=Knuth&amp;rft.aufirst=Donald&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AK-way+merge+algorithm" class="Z3988"></span></span>
+</li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFShaffer2012" class="citation book cs1">Shaffer, Clifford A. (2012-07-26). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=AijEAgAAQBAJ"><i>Data Structures and Algorithm Analysis in C++, Third Edition</i></a>. Courier Corporation. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/9780486172620" title="Special:BookSources/9780486172620"><bdi>9780486172620</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Data+Structures+and+Algorithm+Analysis+in+C%2B%2B%2C+Third+Edition&amp;rft.pub=Courier+Corporation&amp;rft.date=2012-07-26&amp;rft.isbn=9780486172620&amp;rft.aulast=Shaffer&amp;rft.aufirst=Clifford+A.&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3DAijEAgAAQBAJ&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AK-way+merge+algorithm" class="Z3988"></span></span>
+</li>
+</ol></div></div>
+<!-- 
+NewPP limit report
+Parsed by mw1376
+Cached time: 20220417014639
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.234 seconds
+Real time usage: 0.296 seconds
+Preprocessor visited node count: 325/1000000
+Post‐expand include size: 7268/2097152 bytes
+Template argument size: 85/2097152 bytes
+Highest expansion depth: 8/100
+Expensive parser function count: 1/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 13427/5000000 bytes
+Lua time usage: 0.127/10.000 seconds
+Lua memory usage: 2994010/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  214.415      1 -total
+ 76.03%  163.014      1 Template:Reflist
+ 62.92%  134.910      4 Template:Cite_book
+ 23.44%   50.252      1 Template:See_also
+  1.45%    3.104      1 Template:Main_other
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:48597951-0!canonical and timestamp 20220417014639 and revision id 1047851465. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;oldid=1047851465">https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;oldid=1047851465</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Sorting_algorithms" title="Category:Sorting algorithms">Sorting algorithms</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=K-way+merge+algorithm" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=K-way+merge+algorithm" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/K-way_merge_algorithm" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:K-way_merge_algorithm" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/K-way_merge_algorithm"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/K-way_merge_algorithm" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/K-way_merge_algorithm" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;oldid=1047851465" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=K-way_merge_algorithm&amp;id=1047851465&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q25111796" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=K-way_merge_algorithm&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		<div class="after-portlet after-portlet-lang"><span class="uls-after-portlet-link"></span><span class="wb-langlinks-add wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q25111796#sitelinks-wikipedia" title="Add interlanguage links" class="wbc-editpage">Add links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 2 October 2021, at 21:46<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=K-way_merge_algorithm&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.234","walltime":"0.296","ppvisitednodes":{"value":325,"limit":1000000},"postexpandincludesize":{"value":7268,"limit":2097152},"templateargumentsize":{"value":85,"limit":2097152},"expansiondepth":{"value":8,"limit":100},"expensivefunctioncount":{"value":1,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":13427,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  214.415      1 -total"," 76.03%  163.014      1 Template:Reflist"," 62.92%  134.910      4 Template:Cite_book"," 23.44%   50.252      1 Template:See_also","  1.45%    3.104      1 Template:Main_other"]},"scribunto":{"limitreport-timeusage":{"value":"0.127","limit":"10.000"},"limitreport-memusage":{"value":2994010,"limit":52428800}},"cachereport":{"origin":"mw1376","timestamp":"20220417014639","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"K-way merge algorithm","url":"https:\/\/en.wikipedia.org\/wiki\/K-way_merge_algorithm","sameAs":"http:\/\/www.wikidata.org\/entity\/Q25111796","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q25111796","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2015-11-19T19:17:52Z","dateModified":"2021-10-02T21:46:51Z","headline":"type of merge algorithm"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"K-way merge algorithm","url":"https:\/\/en.wikipedia.org\/wiki\/K-way_merge_algorithm","sameAs":"http:\/\/www.wikidata.org\/entity\/Q25111796","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q25111796","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2015-11-19T19:17:52Z","dateModified":"2021-10-02T21:46:51Z","headline":"type of merge algorithm"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":166,"wgHostname":"mw1350"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/K-way_merge_algorithm by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:32:05 GMT -->
+</html>

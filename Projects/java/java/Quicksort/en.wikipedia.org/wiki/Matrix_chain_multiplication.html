@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Matrix_chain_multiplication by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Matrix chain multiplication - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"d28266b2-938f-4d89-bcd1-7343ee28a48a","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Matrix_chain_multiplication","wgTitle":"Matrix chain multiplication","wgCurRevisionId":1084210691,"wgRevisionId":1084210691,"wgArticleId":1538007,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CS1: long volume value","Webarchive template wayback links","Articles with short description","Short description is different from Wikidata","All articles with unsourced statements","Articles with unsourced statements from February 2021",
+"Optimization algorithms and methods","Matrices","Dynamic programming"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Matrix_chain_multiplication","wgRelevantArticleId":1538007,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":20000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q917612"};RLSTATE={"ext.globalCssJs.user.styles":
+"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.pygments":"ready","mediawiki.page.gallery.styles":"ready","ext.math.styles":"ready","skins.vector.styles.legacy":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","mediawiki.page.gallery","ext.math.scripts","site","mediawiki.page.ready","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher",
+"ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.pygments%2CwikimediaBadges%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cmediawiki.page.gallery.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.10"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="Matrix chain multiplication - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Matrix_chain_multiplication"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Matrix_chain_multiplication&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Matrix_chain_multiplication"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Matrix_chain_multiplication rootpage-Matrix_chain_multiplication skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Matrix chain multiplication</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Mathematics optimization problem</div>
+<p><b>Matrix chain multiplication</b> (or the <b>matrix chain ordering problem</b><sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (February 2021)">citation needed</span></a></i>&#93;</sup>) is an <a href="https://en.wikipedia.org/wiki/Optimization_problem" title="Optimization problem">optimization problem</a> concerning the most efficient way to <a href="https://en.wikipedia.org/wiki/Matrix_multiplication" title="Matrix multiplication">multiply</a> a given sequence of <a href="https://en.wikipedia.org/wiki/Matrix_(mathematics)" title="Matrix (mathematics)">matrices</a>.  The problem is not actually to <i>perform</i> the multiplications, but merely to decide the sequence of the matrix multiplications involved.  The problem may be solved using <a href="https://en.wikipedia.org/wiki/Dynamic_programming" title="Dynamic programming">dynamic programming</a>.
+</p><p>There are many options because matrix multiplication is <a href="https://en.wikipedia.org/wiki/Associativity" class="mw-redirect" title="Associativity">associative</a>. In other words, no matter how the product is <a href="https://en.wikipedia.org/wiki/Bracket_(mathematics)" title="Bracket (mathematics)">parenthesized</a>, the result obtained will remain the same. For example, for four matrices <i>A</i>, <i>B</i>, <i>C</i>, and <i>D</i>, there are five possible options:
+</p>
+<dl><dd>((<i>AB</i>)<i>C</i>)<i>D</i> = (<i>A</i>(<i>BC</i>))<i>D</i> = (<i>AB</i>)(<i>CD</i>) = <i>A</i>((<i>BC</i>)<i>D</i>) = <i>A</i>(<i>B</i>(<i>CD</i>)).</dd></dl>
+<p>Although it does not affect the product, the order in which the terms are parenthesized affects the number of simple arithmetic operations needed to compute the product, that is, the <a href="https://en.wikipedia.org/wiki/Computational_complexity" title="Computational complexity">computational complexity</a>. 
+For example, if <i>A</i> is a 10 &#215; 30 matrix, <i>B</i> is a 30 &#215; 5 matrix, and <i>C</i> is a 5 &#215; 60 matrix, then
+</p>
+<dl><dd>computing (<i>AB</i>)<i>C</i> needs (10&#215;30&#215;5) + (10&#215;5&#215;60)  = 1500 + 3000 = 4500 operations, while</dd>
+<dd>computing <i>A</i>(<i>BC</i>) needs (30&#215;5&#215;60) + (10&#215;30&#215;60) = 9000 + 18000 = 27000 operations.</dd></dl>
+<p>Clearly the first method is more efficient. With this information, the problem statement can be refined as "how to determine the optimal parenthesization of a product of <i>n</i> matrices?" Checking each possible parenthesization (<a href="https://en.wikipedia.org/wiki/Brute-force_search" title="Brute-force search">brute force</a>) would require a <a href="https://en.wikipedia.org/wiki/Time_complexity" title="Time complexity">run-time</a> that is exponential in the number of matrices, which is very slow and impractical for large <i>n</i>. A quicker solution to this problem can be achieved by breaking up the problem into a set of related subproblems.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#A_dynamic_programming_algorithm"><span class="tocnumber">1</span> <span class="toctext">A dynamic programming algorithm</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#More_efficient_algorithms"><span class="tocnumber">2</span> <span class="toctext">More efficient algorithms</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Hu_&amp;_Shing"><span class="tocnumber">2.1</span> <span class="toctext">Hu &amp; Shing</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Other_O(n_log_n)_algorithms"><span class="tocnumber">2.2</span> <span class="toctext">Other <i>O</i>(<i>n</i>&#160;log&#160;<i>n</i>) algorithms</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Chin-Hu-Shing_approximate_solution"><span class="tocnumber">2.3</span> <span class="toctext">Chin-Hu-Shing approximate solution</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Generalizations"><span class="tocnumber">3</span> <span class="toctext">Generalizations</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="A_dynamic_programming_algorithm">A dynamic programming algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Matrix_chain_multiplication&amp;action=edit&amp;section=1" title="Edit section: A dynamic programming algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>To begin, let us assume that all we really want to know is the minimum cost, or minimum number of arithmetic operations needed to multiply out the matrices. If we are only multiplying two matrices, there is only one way to multiply them, so the minimum cost is the cost of doing this. In general, we can find the minimum cost using the following <a href="https://en.wikipedia.org/wiki/Recursion" title="Recursion">recursive algorithm</a>:
+</p>
+<ul><li>Take the sequence of matrices and separate it into two subsequences.</li>
+<li>Find the minimum cost of multiplying out each subsequence.</li>
+<li>Add these costs together, and add in the cost of multiplying the two result matrices.</li>
+<li>Do this for each possible position at which the sequence of matrices can be split, and take the minimum over all of them.</li></ul>
+<p>For example, if we have four matrices <i>ABCD</i>, we compute the cost required to find each of (<i>A</i>)(<i>BCD</i>), (<i>AB</i>)(<i>CD</i>), and (<i>ABC</i>)(<i>D</i>), making recursive calls to find the minimum cost to compute <i>ABC</i>, <i>AB</i>, <i>CD</i>, and <i>BCD</i>. We then choose the best one. Better still, this yields not only the minimum cost, but also demonstrates the best way of doing the multiplication: group it the way that yields the lowest total cost, and do the same for each factor.
+</p><p>However, this algorithm has exponential runtime complexity making it as inefficient as the naive approach of trying all permutations. The reason is that the algorithm does a lot of redundant work. For example, above we made a recursive call to find the best cost for computing both <i>ABC</i> and <i>AB</i>. But finding the best cost for computing ABC also requires finding the best cost for <i>AB</i>. As the recursion grows deeper, more and more of this type of unnecessary repetition occurs.
+</p><p>One simple solution is called <a href="https://en.wikipedia.org/wiki/Memoization" title="Memoization">memoization</a>: each time we compute the minimum cost needed to multiply out a specific subsequence, we save it. If we are ever asked to compute it again, we simply give the saved answer, and do not recompute it. Since there are about <i>n</i><sup>2</sup>/2 different subsequences, where <i>n</i> is the number of matrices, the space required to do this is reasonable. It can be shown that this simple trick brings the runtime down to O(<i>n</i><sup>3</sup>) from O(2<sup><i>n</i></sup>), which is more than efficient enough for real applications. This is <a href="https://en.wikipedia.org/wiki/Top-down_and_bottom-up_design" title="Top-down and bottom-up design">top-down</a> dynamic programming.
+</p><p>The following bottom-up approach <sup id="cite_ref-Cormen_1-0" class="reference"><a href="#cite_note-Cormen-1">&#91;1&#93;</a></sup> computes, for each 2 ≤ <i>k</i> ≤ n, the minimum costs of all subsequences of length <i>k</i> using the costs of smaller subsequences already computed.
+It has the same asymptotic runtime and requires no recursion.
+</p><p>Pseudocode:
+</p>
+<div class="mw-highlight mw-highlight-lang-java mw-content-ltr" dir="ltr"><pre><span></span><span class="c1">// Matrix A[i] has dimension dims[i-1] x dims[i] for i = 1..n</span>
+<span class="n">MatrixChainOrder</span><span class="p">(</span><span class="kt">int</span> <span class="n">dims</span><span class="o">[]</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// length[dims] = n + 1</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">dims</span><span class="p">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="c1">// m[i,j] = Minimum number of scalar multiplications (i.e., cost)</span>
+    <span class="c1">// needed to compute the matrix A[i]A[i+1]...A[j] = A[i..j]</span>
+    <span class="c1">// The cost is zero when multiplying one matrix</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="n">m</span><span class="o">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">len</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">len</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="p">;</span> <span class="n">len</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// Subsequence lengths</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="o">-</span> <span class="n">len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="n">m</span><span class="o">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">MAXINT</span><span class="p">;</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">cost</span> <span class="o">=</span> <span class="n">m</span><span class="o">[</span><span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="o">]</span> <span class="o">+</span> <span class="n">m</span><span class="o">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">]</span> <span class="o">+</span> <span class="n">dims</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]*</span><span class="n">dims</span><span class="o">[</span><span class="n">k</span><span class="o">]*</span><span class="n">dims</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">cost</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">]</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">m</span><span class="o">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">cost</span><span class="p">;</span>
+                    <span class="n">s</span><span class="o">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span> <span class="c1">// Index of the subsequence split that achieved minimal cost</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<ul><li>Note&#160;: The first index for dims is 0 and the first index for m and s is 1.</li></ul>
+<p>A <a href="https://en.wikipedia.org/wiki/Java_(programming_language)" title="Java (programming language)">Java</a> implementation using zero based array indexes along with a convenience method for printing the solved order of operations:
+</p>
+<div class="mw-highlight mw-highlight-lang-java mw-content-ltr" dir="ltr"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MatrixOrderOptimization</span> <span class="p">{</span>
+    <span class="kd">protected</span> <span class="kt">int</span><span class="o">[][]</span><span class="n">m</span><span class="p">;</span>
+    <span class="kd">protected</span> <span class="kt">int</span><span class="o">[][]</span><span class="n">s</span><span class="p">;</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">matrixChainOrder</span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">dims</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">dims</span><span class="p">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">n</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">n</span><span class="o">]</span><span class="p">;</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">lenMinusOne</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">lenMinusOne</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">lenMinusOne</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="n">lenMinusOne</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">lenMinusOne</span><span class="p">;</span>
+                <span class="n">m</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">Integer</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">;</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">j</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="kt">int</span> <span class="n">cost</span> <span class="o">=</span> <span class="n">m</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">k</span><span class="o">]</span> <span class="o">+</span> <span class="n">m</span><span class="o">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">+</span> <span class="n">dims</span><span class="o">[</span><span class="n">i</span><span class="o">]*</span><span class="n">dims</span><span class="o">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="o">]*</span><span class="n">dims</span><span class="o">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">cost</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">m</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">cost</span><span class="p">;</span>
+                        <span class="n">s</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">k</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">printOptimalParenthesizations</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kt">boolean</span><span class="o">[]</span> <span class="n">inAResult</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">boolean</span><span class="o">[</span><span class="n">s</span><span class="p">.</span><span class="na">length</span><span class="o">]</span><span class="p">;</span>
+        <span class="n">printOptimalParenthesizations</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="na">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inAResult</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="nf">printOptimalParenthesizations</span><span class="p">(</span><span class="kt">int</span><span class="o">[][]</span><span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">j</span><span class="p">,</span>  <span class="cm">/* for pretty printing: */</span> <span class="kt">boolean</span><span class="o">[]</span> <span class="n">inAResult</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">printOptimalParenthesizations</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="p">,</span> <span class="n">inAResult</span><span class="p">);</span>
+            <span class="n">printOptimalParenthesizations</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">inAResult</span><span class="p">);</span>
+            <span class="n">String</span> <span class="n">istr</span> <span class="o">=</span> <span class="n">inAResult</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">?</span> <span class="s">&quot;_result &quot;</span> <span class="p">:</span> <span class="s">&quot; &quot;</span><span class="p">;</span>
+            <span class="n">String</span> <span class="n">jstr</span> <span class="o">=</span> <span class="n">inAResult</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">?</span> <span class="s">&quot;_result &quot;</span> <span class="p">:</span> <span class="s">&quot; &quot;</span><span class="p">;</span>
+            <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot; A_&quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="n">istr</span> <span class="o">+</span> <span class="s">&quot;* A_&quot;</span> <span class="o">+</span> <span class="n">j</span> <span class="o">+</span> <span class="n">jstr</span><span class="p">);</span>
+            <span class="n">inAResult</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="n">inAResult</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<p>At the end of this program, we have the minimum cost for the full sequence.
+</p>
+<h2><span class="mw-headline" id="More_efficient_algorithms">More efficient algorithms</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Matrix_chain_multiplication&amp;action=edit&amp;section=2" title="Edit section: More efficient algorithms">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>There are algorithms that are more efficient than the <i>O</i>(<i>n</i><sup>3</sup>) dynamic programming algorithm, though they are more complex.
+</p>
+<h3><span id="Hu_.26_Shing"></span><span class="mw-headline" id="Hu_&amp;_Shing">Hu &amp; Shing</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Matrix_chain_multiplication&amp;action=edit&amp;section=3" title="Edit section: Hu &amp; Shing">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>An algorithm published by Hu and Shing achieves <i>O</i>(<i>n</i>&#160;log&#160;<i>n</i>) <a href="https://en.wikipedia.org/wiki/Computational_complexity" title="Computational complexity">computational complexity</a>.<sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup><sup id="cite_ref-HuPartII_3-0" class="reference"><a href="#cite_note-HuPartII-3">&#91;3&#93;</a></sup><sup id="cite_ref-Czumaj_4-0" class="reference"><a href="#cite_note-Czumaj-4">&#91;4&#93;</a></sup>
+They showed how the matrix chain multiplication problem can be transformed (or <a href="https://en.wikipedia.org/wiki/Reduction_(complexity)" title="Reduction (complexity)">reduced</a>) into the problem of <a href="https://en.wikipedia.org/wiki/Polygon_triangulation" title="Polygon triangulation">triangulation</a> of a <a href="https://en.wikipedia.org/wiki/Regular_polygon" title="Regular polygon">regular polygon</a>.  The polygon is oriented such that there is a horizontal bottom side, called the base, which represents the final result. The other <i>n</i> sides of the polygon, in the clockwise direction, represent the matrices. The vertices on each end of a side are the dimensions of the matrix represented by that side.  With <i>n</i> matrices in the multiplication chain there are <i>n</i>−1 <a href="https://en.wikipedia.org/wiki/Binary_operation" title="Binary operation">binary operations</a> and <i>C</i><sub><i>n</i>−1</sub> ways of placing parentheses, where <i>C</i><sub><i>n</i>−1</sub> is the (<i>n</i>−1)-th <a href="https://en.wikipedia.org/wiki/Catalan_number" title="Catalan number">Catalan number</a>. The algorithm exploits that there are also <i>C</i><sub><i>n</i>−1</sub> possible triangulations of a polygon with <i>n</i>+1 sides.
+</p><p>This image illustrates possible triangulations of a regular <a href="https://en.wikipedia.org/wiki/Hexagon" title="Hexagon">hexagon</a>.  These correspond to the different ways that parentheses can be placed to order the multiplications for a product of 5 matrices.
+</p>
+<div class="center"><div class="floatnone"><a href="https://en.wikipedia.org/wiki/File:Catalan-Hexagons-example.svg" class="image"><img alt="Catalan-Hexagons-example.svg" src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Catalan-Hexagons-example.svg/400px-Catalan-Hexagons-example.svg.png" decoding="async" width="400" height="200" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Catalan-Hexagons-example.svg/600px-Catalan-Hexagons-example.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Catalan-Hexagons-example.svg/800px-Catalan-Hexagons-example.svg.png 2x" data-file-width="680" data-file-height="340" /></a></div></div>
+<p>For the example below, there are four sides: A, B, C and the final result ABC.  A is a 10×30 matrix, B is a 30×5 matrix, C is a 5×60 matrix, and the final result is a 10×60 matrix. The regular polygon for this example is a 4-gon, i.e. a square:
+</p>
+<div class="center"><div class="floatnone"><a href="https://en.wikipedia.org/wiki/File:Matrix_chain_multiplication_polygon_example.svg" class="image"><img alt="Matrix chain multiplication polygon example.svg" src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Matrix_chain_multiplication_polygon_example.svg/125px-Matrix_chain_multiplication_polygon_example.svg.png" decoding="async" width="125" height="125" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Matrix_chain_multiplication_polygon_example.svg/188px-Matrix_chain_multiplication_polygon_example.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Matrix_chain_multiplication_polygon_example.svg/250px-Matrix_chain_multiplication_polygon_example.svg.png 2x" data-file-width="153" data-file-height="153" /></a></div></div>
+<p>The matrix product AB is a 10x5 matrix and BC is a 30x60 matrix. The two possible triangulations in this example are:
+</p>
+<ul class="gallery mw-gallery-packed">
+		<li class="gallerybox" style="width: 122px"><div style="width: 122px">
+			<div class="thumb" style="width: 120px;"><div style="margin:0px auto;"><a href="https://en.wikipedia.org/wiki/File:Matrix_chain_multiplication_polygon_example_AB.svg" class="image"><img alt="(AB)C" src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Matrix_chain_multiplication_polygon_example_AB.svg/180px-Matrix_chain_multiplication_polygon_example_AB.svg.png" decoding="async" width="120" height="120" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Matrix_chain_multiplication_polygon_example_AB.svg/270px-Matrix_chain_multiplication_polygon_example_AB.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Matrix_chain_multiplication_polygon_example_AB.svg/360px-Matrix_chain_multiplication_polygon_example_AB.svg.png 2x" data-file-width="153" data-file-height="153" /></a></div></div>
+			<div class="gallerytext">
+<p>Polygon representation of (AB)C
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 122px"><div style="width: 122px">
+			<div class="thumb" style="width: 120px;"><div style="margin:0px auto;"><a href="https://en.wikipedia.org/wiki/File:Matrix_chain_multiplication_polygon_example_BC.svg" class="image"><img alt="A(BC)" src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Matrix_chain_multiplication_polygon_example_BC.svg/180px-Matrix_chain_multiplication_polygon_example_BC.svg.png" decoding="async" width="120" height="120" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/5/55/Matrix_chain_multiplication_polygon_example_BC.svg/270px-Matrix_chain_multiplication_polygon_example_BC.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/5/55/Matrix_chain_multiplication_polygon_example_BC.svg/360px-Matrix_chain_multiplication_polygon_example_BC.svg.png 2x" data-file-width="153" data-file-height="153" /></a></div></div>
+			<div class="gallerytext">
+<p>Polygon representation of A(BC)
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>The cost of a single triangle in terms of the number of multiplications needed is the product of its vertices. The total cost of a particular triangulation of the polygon is the sum of the costs of all its triangles:
+</p>
+<dl><dd>(<i>AB</i>)<i>C</i>: (10×30×5) + (10×5×60) = 1500 + 3000 = 4500 multiplications</dd>
+<dd><i>A</i>(<i>BC</i>): (30×5×60) + (10×30×60) = 9000 + 18000 = 27000 multiplications</dd></dl>
+<p>Hu &amp; Shing developed an algorithm that finds an optimum solution for the minimum cost partition problem in <i>O</i>(<i>n</i>&#160;log&#160;<i>n</i>) time. Their proof of correctness of the algorithm relies on "Lemma 1" proved in a 1981 technical report and omitted from the published paper.<sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup><sup id="cite_ref-HuPartII_3-1" class="reference"><a href="#cite_note-HuPartII-3">&#91;3&#93;</a></sup> The technical report's proof of the lemma is incorrect, but Shing has presented a corrected proof.<sup id="cite_ref-Schwartz_6-0" class="reference"><a href="#cite_note-Schwartz-6">&#91;6&#93;</a></sup>
+</p>
+<h3><span id="Other_O.28n_log_n.29_algorithms"></span><span class="mw-headline" id="Other_O(n_log_n)_algorithms">Other <i>O</i>(<i>n</i>&#160;log&#160;<i>n</i>) algorithms</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Matrix_chain_multiplication&amp;action=edit&amp;section=4" title="Edit section: Other O(n log n) algorithms">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Wang, Zhu and Tian have published a simplified <i>O</i>(<i>n</i>&#160;log&#160;<i>m</i>) algorithm, where <i>n</i> is the number of matrices in the chain and <i>m</i> is the number of local minimums in the dimension sequence of the given matrix chain.<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup>
+</p><p>Nimbark, Gohel, and Doshi have published a greedy <i>O</i>(<i>n</i>&#160;log&#160;<i>n</i>) algorithm,<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup> but their proof of optimality is incorrect and their algorithm fails to produce the most efficient parentheses assignment for some matrix chains.<sup id="cite_ref-Schwartz_6-1" class="reference"><a href="#cite_note-Schwartz-6">&#91;6&#93;</a></sup>
+</p>
+<h3><span class="mw-headline" id="Chin-Hu-Shing_approximate_solution">Chin-Hu-Shing approximate solution</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Matrix_chain_multiplication&amp;action=edit&amp;section=5" title="Edit section: Chin-Hu-Shing approximate solution">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>An algorithm created independently by Chin<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">&#91;9&#93;</a></sup> and Hu &amp; Shing<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">&#91;10&#93;</a></sup> runs in O(<i>n</i>) and produces a parenthesization which is at most 15.47% worse than the optimal choice. In most cases the algorithm yields the optimal solution or a solution which is only 1-2 percent worse than the optimal one.<sup id="cite_ref-Czumaj_4-1" class="reference"><a href="#cite_note-Czumaj-4">&#91;4&#93;</a></sup>
+</p><p>The algorithm starts by translating the problem to the polygon partitioning problem. To each vertex <i>V</i> of the polygon is associated a weight <i>w</i>. Suppose we have three consecutive vertices <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V_{i-1},V_{i},V_{i+1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{i-1},V_{i},V_{i+1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6b3fb49bfd4579aaf7cead9f5e8be246d0864373" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:12.734ex; height:2.509ex;" alt="{\displaystyle V_{i-1},V_{i},V_{i+1}}"/></span>, and that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V_{\min }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo movablelimits="true" form="prefix">min</mo>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{\min }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/eaa79864d1d0daa501f2559740ed199ab21f8d48" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:4.328ex; height:2.509ex;" alt="{\displaystyle V_{\min }}"/></span> is the vertex with minimum weight <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle w_{\min }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo movablelimits="true" form="prefix">min</mo>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w_{\min }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/cc8cc749a4c2af2aea669117577df53e384d8734" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:4.637ex; height:2.009ex;" alt="{\displaystyle w_{\min }}"/></span>.
+We look at the quadrilateral with vertices <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V_{\min },V_{i-1},V_{i},V_{i+1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo movablelimits="true" form="prefix">min</mo>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{\min },V_{i-1},V_{i},V_{i+1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d5ee311b56694b8b999ac65a5963f10bda014669" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:18.095ex; height:2.509ex;" alt="{\displaystyle V_{\min },V_{i-1},V_{i},V_{i+1}}"/></span> (in clockwise order).
+We can triangulate it in two ways:
+</p>
+<ul><li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (V_{\min },V_{i-1},V_{i})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo movablelimits="true" form="prefix">min</mo>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (V_{\min },V_{i-1},V_{i})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/71d46fba973924eb519f01aa425d25f14128ef90" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:14.615ex; height:2.843ex;" alt="{\displaystyle (V_{\min },V_{i-1},V_{i})}"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (V_{\min },V_{i+1},V_{i})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo movablelimits="true" form="prefix">min</mo>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (V_{\min },V_{i+1},V_{i})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c239c83d29159c59836a9b6971538df25f0dcef8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:14.615ex; height:2.843ex;" alt="{\displaystyle (V_{\min },V_{i+1},V_{i})}"/></span>, with cost <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle w_{\min }w_{i-1}w_{i}+w_{\min }w_{i+1}w_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo movablelimits="true" form="prefix">min</mo>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo movablelimits="true" form="prefix">min</mo>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w_{\min }w_{i-1}w_{i}+w_{\min }w_{i+1}w_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/40f72e56d10bdb2d71c1761687da15b6d6694537" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:26.17ex; height:2.343ex;" alt="{\displaystyle w_{\min }w_{i-1}w_{i}+w_{\min }w_{i+1}w_{i}}"/></span></li>
+<li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (V_{\min },V_{i-1},V_{i+1})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo movablelimits="true" form="prefix">min</mo>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (V_{\min },V_{i-1},V_{i+1})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/83103e56d4c81cf8e8aa18ff7a595b44339816ef" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:16.716ex; height:2.843ex;" alt="{\displaystyle (V_{\min },V_{i-1},V_{i+1})}"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (V_{i-1},V_{i},V_{i+1})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (V_{i-1},V_{i},V_{i+1})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/53a2a454d7ba45470a6016a5319af6e46a2b629f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:14.543ex; height:2.843ex;" alt="{\displaystyle (V_{i-1},V_{i},V_{i+1})}"/></span> with cost <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle w_{\min }w_{i-1}w_{i+1}+w_{i-1}w_{i}w_{i+1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo movablelimits="true" form="prefix">min</mo>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w_{\min }w_{i-1}w_{i+1}+w_{i-1}w_{i}w_{i+1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3b15743825d4da4b677902ed213eb3bf37e82430" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:28.198ex; height:2.343ex;" alt="{\displaystyle w_{\min }w_{i-1}w_{i+1}+w_{i-1}w_{i}w_{i+1}}"/></span>.</li></ul>
+<p>Therefore, if
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle w_{\min }w_{i-1}w_{i+1}+w_{i-1}w_{i}w_{i+1}&lt;w_{\min }w_{i-1}w_{i}+w_{\min }w_{i+1}w_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo movablelimits="true" form="prefix">min</mo>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>&lt;</mo>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo movablelimits="true" form="prefix">min</mo>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>+</mo>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo movablelimits="true" form="prefix">min</mo>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>w</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle w_{\min }w_{i-1}w_{i+1}+w_{i-1}w_{i}w_{i+1}&lt;w_{\min }w_{i-1}w_{i}+w_{\min }w_{i+1}w_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/99c3fe3c04e039393350a7900d37608f041ffc76" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:57.467ex; height:2.343ex;" alt="{\displaystyle w_{\min }w_{i-1}w_{i+1}+w_{i-1}w_{i}w_{i+1}&lt;w_{\min }w_{i-1}w_{i}+w_{\min }w_{i+1}w_{i}}"/></span></dd></dl>
+<p>or equivalently
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\frac {1}{w_{i}}}+{\frac {1}{w_{\min }}}&lt;{\frac {1}{w_{i+1}}}+{\frac {1}{w_{i-1}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <msub>
+              <mi>w</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+          </mfrac>
+        </mrow>
+        <mo>+</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <msub>
+              <mi>w</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo movablelimits="true" form="prefix">min</mo>
+              </mrow>
+            </msub>
+          </mfrac>
+        </mrow>
+        <mo>&lt;</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <msub>
+              <mi>w</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+                <mo>+</mo>
+                <mn>1</mn>
+              </mrow>
+            </msub>
+          </mfrac>
+        </mrow>
+        <mo>+</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mfrac>
+            <mn>1</mn>
+            <msub>
+              <mi>w</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+                <mo>&#x2212;<!-- − --></mo>
+                <mn>1</mn>
+              </mrow>
+            </msub>
+          </mfrac>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\frac {1}{w_{i}}}+{\frac {1}{w_{\min }}}&lt;{\frac {1}{w_{i+1}}}+{\frac {1}{w_{i-1}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4807391b7f4415da72664f6f4985bcde29dcf2e2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.338ex; width:28.353ex; height:5.676ex;" alt="{\displaystyle {\frac {1}{w_{i}}}+{\frac {1}{w_{\min }}}&lt;{\frac {1}{w_{i+1}}}+{\frac {1}{w_{i-1}}}}"/></span></dd></dl>
+<p>we remove the vertex <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f300b83673e961a9d48f3862216b167f94e5668c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.155ex; height:2.509ex;" alt="V_{i}"/></span> from the polygon and add the side <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (V_{i-1},V_{i+1})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>&#x2212;<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (V_{i-1},V_{i+1})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f2972f47dfbf8492c0d66f1f13d675dc975e84cc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:11.354ex; height:2.843ex;" alt="{\displaystyle (V_{i-1},V_{i+1})}"/></span> to the triangulation.
+We repeat this process until no <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f300b83673e961a9d48f3862216b167f94e5668c" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.155ex; height:2.509ex;" alt="V_{i}"/></span> satisfies the condition above.
+For all the remaining vertices <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle V_{n}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle V_{n}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3ebc5a637019ce3415183f06995aeeca93547767" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.574ex; height:2.509ex;" alt="V_{n}"/></span>, we add the side <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (V_{\min },V_{n})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo movablelimits="true" form="prefix">min</mo>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>V</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>n</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (V_{\min },V_{n})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0c4edafe1b90c1c789327a9aa017c87d074de768" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:9.745ex; height:2.843ex;" alt="{\displaystyle (V_{\min },V_{n})}"/></span> to the triangulation. 
+This gives us a nearly optimal triangulation.
+</p>
+<h2><span class="mw-headline" id="Generalizations">Generalizations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Matrix_chain_multiplication&amp;action=edit&amp;section=6" title="Edit section: Generalizations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The matrix chain multiplication problem generalizes to solving a more abstract problem: given a linear sequence of objects, an associative binary operation on those objects, and a way to compute the cost of performing that operation on any two given objects (as well as all partial results), compute the minimum cost way to group the objects to apply the operation over the sequence.<sup id="cite_ref-11" class="reference"><a href="#cite_note-11">&#91;11&#93;</a></sup> One somewhat contrived special case of this is <a href="https://en.wikipedia.org/wiki/String_concatenation" class="mw-redirect" title="String concatenation">string concatenation</a> of a list of strings. In <a href="https://en.wikipedia.org/wiki/C_(programming_language)" title="C (programming language)">C</a>, for example, the cost of concatenating two strings of length <i>m</i> and <i>n</i> using <i>strcat</i> is O(<i>m</i>&#160;+&#160;<i>n</i>), since we need O(<i>m</i>) time to find the end of the first string and O(<i>n</i>) time to copy the second string onto the end of it. Using this cost function, we can write a dynamic programming algorithm to find the fastest way to concatenate a sequence of strings. However, this optimization is rather useless because we can straightforwardly concatenate the strings in time proportional to the sum of their lengths. A similar problem exists for singly <a href="https://en.wikipedia.org/wiki/Linked_lists" class="mw-redirect" title="Linked lists">linked lists</a>.
+</p><p>Another generalization is to solve the problem when parallel processors are available. In this case, instead of adding the costs of computing each factor of a matrix product, we take the maximum because we can do them simultaneously. This can drastically affect both the minimum cost and the final optimal grouping; more "balanced" groupings that keep all the processors busy are favored. There are even more sophisticated approaches.<sup id="cite_ref-12" class="reference"><a href="#cite_note-12">&#91;12&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Matrix_chain_multiplication&amp;action=edit&amp;section=7" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Associahedron" title="Associahedron">Associahedron</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tamari_lattice" title="Tamari lattice">Tamari lattice</a></li></ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Matrix_chain_multiplication&amp;action=edit&amp;section=8" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite_note-Cormen-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-Cormen_1-0">^</a></b></span> <span class="reference-text">
+<style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite id="CITEREFCormenLeisersonRivestStein2001" class="citation book cs1 cs1-prop-long-vol"><a href="https://en.wikipedia.org/wiki/Thomas_H._Cormen" title="Thomas H. Cormen">Cormen, Thomas H</a>; <a href="https://en.wikipedia.org/wiki/Charles_E._Leiserson" title="Charles E. Leiserson">Leiserson, Charles E</a>; <a href="https://en.wikipedia.org/wiki/Ron_Rivest" title="Ron Rivest">Rivest, Ronald L</a>; <a href="https://en.wikipedia.org/wiki/Clifford_Stein" title="Clifford Stein">Stein, Clifford</a> (2001). "15.2: Matrix-chain multiplication". <i>Introduction to Algorithms</i>. Vol.&#160;Second Edition. MIT Press and McGraw-Hill. pp.&#160;331–338. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-262-03293-3" title="Special:BookSources/978-0-262-03293-3"><bdi>978-0-262-03293-3</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=15.2%3A+Matrix-chain+multiplication&amp;rft.btitle=Introduction+to+Algorithms&amp;rft.pages=331-338&amp;rft.pub=MIT+Press+and+McGraw-Hill&amp;rft.date=2001&amp;rft.isbn=978-0-262-03293-3&amp;rft.aulast=Cormen&amp;rft.aufirst=Thomas+H&amp;rft.au=Leiserson%2C+Charles+E&amp;rft.au=Rivest%2C+Ronald+L&amp;rft.au=Stein%2C+Clifford&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMatrix+chain+multiplication" class="Z3988"></span></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHuShing1982" class="citation journal cs1">Hu, TC; Shing, MT (1982). <a rel="nofollow" class="external text" href="http://www.cs.ust.hk/mjg_lib/bibs/DPSu/DPSu.Files/0211028.pdf">"Computation of Matrix Chain Products, Part I"</a> <span class="cs1-format">(PDF)</span>. <i>SIAM Journal on Computing</i>. <b>11</b> (2): 362–373. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.695.2923">10.1.1.695.2923</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1137%2F0211028">10.1137/0211028</a>. <a href="https://en.wikipedia.org/wiki/ISSN_(identifier)" class="mw-redirect" title="ISSN (identifier)">ISSN</a>&#160;<a rel="nofollow" class="external text" href="http://www.worldcat.org/issn/0097-5397">0097-5397</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=SIAM+Journal+on+Computing&amp;rft.atitle=Computation+of+Matrix+Chain+Products%2C+Part+I&amp;rft.volume=11&amp;rft.issue=2&amp;rft.pages=362-373&amp;rft.date=1982&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.695.2923%23id-name%3DCiteSeerX&amp;rft.issn=0097-5397&amp;rft_id=info%3Adoi%2F10.1137%2F0211028&amp;rft.aulast=Hu&amp;rft.aufirst=TC&amp;rft.au=Shing%2C+MT&amp;rft_id=http%3A%2F%2Fwww.cs.ust.hk%2Fmjg_lib%2Fbibs%2FDPSu%2FDPSu.Files%2F0211028.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMatrix+chain+multiplication" class="Z3988"></span></span>
+</li>
+<li id="cite_note-HuPartII-3"><span class="mw-cite-backlink">^ <a href="#cite_ref-HuPartII_3-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-HuPartII_3-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHuShing1984" class="citation journal cs1">Hu, TC; Shing, MT (1984). <a rel="nofollow" class="external text" href="http://www.cs.ust.hk/mjg_lib/bibs/DPSu/DPSu.Files/0213017.pdf">"Computation of Matrix Chain Products, Part II"</a> <span class="cs1-format">(PDF)</span>. <i>SIAM Journal on Computing</i>. <b>13</b> (2): 228–251. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.695.4875">10.1.1.695.4875</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1137%2F0213017">10.1137/0213017</a>. <a href="https://en.wikipedia.org/wiki/ISSN_(identifier)" class="mw-redirect" title="ISSN (identifier)">ISSN</a>&#160;<a rel="nofollow" class="external text" href="http://www.worldcat.org/issn/0097-5397">0097-5397</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=SIAM+Journal+on+Computing&amp;rft.atitle=Computation+of+Matrix+Chain+Products%2C+Part+II&amp;rft.volume=13&amp;rft.issue=2&amp;rft.pages=228-251&amp;rft.date=1984&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.695.4875%23id-name%3DCiteSeerX&amp;rft.issn=0097-5397&amp;rft_id=info%3Adoi%2F10.1137%2F0213017&amp;rft.aulast=Hu&amp;rft.aufirst=TC&amp;rft.au=Shing%2C+MT&amp;rft_id=http%3A%2F%2Fwww.cs.ust.hk%2Fmjg_lib%2Fbibs%2FDPSu%2FDPSu.Files%2F0213017.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMatrix+chain+multiplication" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Czumaj-4"><span class="mw-cite-backlink">^ <a href="#cite_ref-Czumaj_4-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Czumaj_4-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFArtur1996" class="citation journal cs1">Artur, Czumaj (1996). <a rel="nofollow" class="external text" href="https://web.archive.org/web/20180727180949/https://pdfs.semanticscholar.org/e8b8/40a921f7967b30ac161b3dd9654b27998ddb.pdf">"Very Fast Approximation of the Matrix Chain Product Problem"</a> <span class="cs1-format">(PDF)</span>. <i>Journal of Algorithms</i>. <b>21</b>: 71–79. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.218.8168">10.1.1.218.8168</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1006%2Fjagm.1996.0037">10.1006/jagm.1996.0037</a>. Archived from <a rel="nofollow" class="external text" href="https://pdfs.semanticscholar.org/e8b8/40a921f7967b30ac161b3dd9654b27998ddb.pdf">the original</a> <span class="cs1-format">(PDF)</span> on 2018-07-27.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Algorithms&amp;rft.atitle=Very+Fast+Approximation+of+the+Matrix+Chain+Product+Problem&amp;rft.volume=21&amp;rft.pages=71-79&amp;rft.date=1996&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.218.8168%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1006%2Fjagm.1996.0037&amp;rft.aulast=Artur&amp;rft.aufirst=Czumaj&amp;rft_id=https%3A%2F%2Fpdfs.semanticscholar.org%2Fe8b8%2F40a921f7967b30ac161b3dd9654b27998ddb.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMatrix+chain+multiplication" class="Z3988"></span></span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text">
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHuShing1981" class="citation techreport cs1">Hu, TC; Shing, MT (1981). <a rel="nofollow" class="external text" href="http://infolab.stanford.edu/pub/cstr/reports/cs/tr/81/875/CS-TR-81-875.pdf#page=31"><i>Computation of Matrix Chain Products, Part I, Part II</i></a> <span class="cs1-format">(PDF)</span> (Technical report). Stanford University, Department of Computer Science. Part II, page 3. STAN-CS-TR-81-875.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=report&amp;rft.btitle=Computation+of+Matrix+Chain+Products%2C+Part+I%2C+Part+II&amp;rft.pages=Part+II%2C+page+3&amp;rft.pub=Stanford+University%2C+Department+of+Computer+Science&amp;rft.date=1981&amp;rft.aulast=Hu&amp;rft.aufirst=TC&amp;rft.au=Shing%2C+MT&amp;rft_id=http%3A%2F%2Finfolab.stanford.edu%2Fpub%2Fcstr%2Freports%2Fcs%2Ftr%2F81%2F875%2FCS-TR-81-875.pdf%23page%3D31&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMatrix+chain+multiplication" class="Z3988"></span></span>
+</li>
+<li id="cite_note-Schwartz-6"><span class="mw-cite-backlink">^ <a href="#cite_ref-Schwartz_6-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Schwartz_6-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSchwartzWeiss2019" class="citation journal cs1">Schwartz, Oded; Weiss, Elad (January 2019). "Revisiting "Computation of Matrix Chain Products<i>". </i>SIAM Journal on Computing<i>. <b>48</b> (5): 1481–1486. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1137%2F18m1195401">10.1137/18m1195401</a>.</i></cite><i><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=SIAM+Journal+on+Computing&amp;rft.atitle=Revisiting+%E2%80%9CComputation+of+Matrix+Chain+Products&amp;rft.volume=48&amp;rft.issue=5&amp;rft.pages=1481-1486&amp;rft.date=2019-01&amp;rft_id=info%3Adoi%2F10.1137%2F18m1195401&amp;rft.aulast=Schwartz&amp;rft.aufirst=Oded&amp;rft.au=Weiss%2C+Elad&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMatrix+chain+multiplication" class="Z3988"></span></i></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFWangZhuTian2013" class="citation journal cs1">Wang, Xiaodong; Zhu, Daxin; Tian, Jun (April 2013). "Efficient computation of matrix chain". <i>2013 8th International Conference on Computer Science Education</i>: 703–707. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2FICCSE.2013.6553999">10.1109/ICCSE.2013.6553999</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=2013+8th+International+Conference+on+Computer+Science+Education&amp;rft.atitle=Efficient+computation+of+matrix+chain&amp;rft.pages=703-707&amp;rft.date=2013-04&amp;rft_id=info%3Adoi%2F10.1109%2FICCSE.2013.6553999&amp;rft.aulast=Wang&amp;rft.aufirst=Xiaodong&amp;rft.au=Zhu%2C+Daxin&amp;rft.au=Tian%2C+Jun&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMatrix+chain+multiplication" class="Z3988"></span></span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFNimbarkGohelDoshi2011" class="citation journal cs1">Nimbark, Hitesh; Gohel, Shobhen; Doshi, Nishant (2011). "A Novel Approach for Matrix Chain Multiplication Using Greedy Technique for Packet Processing". <i>Computer Networks and Information Technologies</i>. <b>142</b>: 318–321. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-3-642-19542-6_58">10.1007/978-3-642-19542-6_58</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Computer+Networks+and+Information+Technologies&amp;rft.atitle=A+Novel+Approach+for+Matrix+Chain+Multiplication+Using+Greedy+Technique+for+Packet+Processing&amp;rft.volume=142&amp;rft.pages=318-321&amp;rft.date=2011&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-642-19542-6_58&amp;rft.aulast=Nimbark&amp;rft.aufirst=Hitesh&amp;rft.au=Gohel%2C+Shobhen&amp;rft.au=Doshi%2C+Nishant&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMatrix+chain+multiplication" class="Z3988"></span></span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFChin1978" class="citation journal cs1">Chin, Francis Y. (July 1978). <a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F359545.359556">"An O(n) algorithm for determining a near-optimal computation order of matrix chain products"</a>. <i>Communications of the ACM</i>. <b>21</b> (7): 544–549. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F359545.359556">10.1145/359545.359556</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Communications+of+the+ACM&amp;rft.atitle=An+O%28n%29+algorithm+for+determining+a+near-optimal+computation+order+of+matrix+chain+products&amp;rft.volume=21&amp;rft.issue=7&amp;rft.pages=544-549&amp;rft.date=1978-07&amp;rft_id=info%3Adoi%2F10.1145%2F359545.359556&amp;rft.aulast=Chin&amp;rft.aufirst=Francis+Y.&amp;rft_id=%2F%2Fdoi.org%2F10.1145%252F359545.359556&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMatrix+chain+multiplication" class="Z3988"></span></span>
+</li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHuShing1981" class="citation journal cs1">Hu, T.C; Shing, M.T (June 1981). "An O(n) algorithm to find a near-optimum partition of a convex polygon". <i>Journal of Algorithms</i>. <b>2</b> (2): 122–138. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2F0196-6774(81)90014-6">10.1016/0196-6774(81)90014-6</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Journal+of+Algorithms&amp;rft.atitle=An+O%28n%29+algorithm+to+find+a+near-optimum+partition+of+a+convex+polygon&amp;rft.volume=2&amp;rft.issue=2&amp;rft.pages=122-138&amp;rft.date=1981-06&amp;rft_id=info%3Adoi%2F10.1016%2F0196-6774%2881%2990014-6&amp;rft.aulast=Hu&amp;rft.aufirst=T.C&amp;rft.au=Shing%2C+M.T&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMatrix+chain+multiplication" class="Z3988"></span></span>
+</li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-11">^</a></b></span> <span class="reference-text">G. Baumgartner, D. Bernholdt, D. Cociorva, R. Harrison, M. Nooijen, J. Ramanujam and P. Sadayappan. A Performance Optimization Framework for Compilation of Tensor Contraction Expressions into Parallel Programs. 7th International Workshop on High-Level Parallel Programming Models and Supportive Environments (HIPS '02). Fort Lauderdale, Florida. 2002 available at <a rel="nofollow" class="external free" href="http://citeseer.ist.psu.edu/610463.html">http://citeseer.ist.psu.edu/610463.html</a> and at <a rel="nofollow" class="external free" href="http://www.csc.lsu.edu/~gb/TCE/Publications/OptFramework-HIPS02.pdf">http://www.csc.lsu.edu/~gb/TCE/Publications/OptFramework-HIPS02.pdf</a></span>
+</li>
+<li id="cite_note-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-12">^</a></b></span> <span class="reference-text">Heejo Lee, Jong Kim, Sungje Hong, and Sunggu Lee. <a rel="nofollow" class="external text" href="http://ccs.korea.ac.kr/pds/tpds03.pdf">Processor Allocation and Task Scheduling of Matrix Chain Products on Parallel Systems</a> <a rel="nofollow" class="external text" href="https://web.archive.org/web/20110722132611/http://ccs.korea.ac.kr/pds/tpds03.pdf">Archived</a> 2011-07-22 at the <a href="https://en.wikipedia.org/wiki/Wayback_Machine" title="Wayback Machine">Wayback Machine</a>. <i>IEEE Trans. on Parallel and Distributed Systems,</i> Vol. 14, No. 4, pp.&#160;394–407, Apr. 2003</span>
+</li>
+</ol></div></div>
+<!-- 
+NewPP limit report
+Parsed by mw1444
+Cached time: 20220423052615
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.311 seconds
+Real time usage: 0.427 seconds
+Preprocessor visited node count: 1009/1000000
+Post‐expand include size: 24956/2097152 bytes
+Template argument size: 1085/2097152 bytes
+Highest expansion depth: 12/100
+Expensive parser function count: 1/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 52700/5000000 bytes
+Lua time usage: 0.133/10.000 seconds
+Lua memory usage: 4679513/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  305.597      1 -total
+ 53.31%  162.925      1 Template:Reflist
+ 25.08%   76.638      1 Template:Cite_book
+ 22.89%   69.941      1 Template:Short_description
+ 17.83%   54.479      1 Template:Citation_needed
+ 15.39%   47.032      1 Template:Fix
+ 13.95%   42.633      1 Template:Pagetype
+ 12.14%   37.087      8 Template:Cite_journal
+  8.75%   26.749      2 Template:Category_handler
+  4.82%   14.732      1 Template:Delink
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:1538007-0!canonical and timestamp 20220423052641 and revision id 1084210691. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Matrix_chain_multiplication&amp;oldid=1084210691">https://en.wikipedia.org/w/index.php?title=Matrix_chain_multiplication&amp;oldid=1084210691</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Optimization_algorithms_and_methods" title="Category:Optimization algorithms and methods">Optimization algorithms and methods</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Matrices" title="Category:Matrices">Matrices</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Dynamic_programming" title="Category:Dynamic programming">Dynamic programming</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:CS1:_long_volume_value" title="Category:CS1: long volume value">CS1: long volume value</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Webarchive_template_wayback_links" title="Category:Webarchive template wayback links">Webarchive template wayback links</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_is_different_from_Wikidata" title="Category:Short description is different from Wikidata">Short description is different from Wikidata</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_unsourced_statements_from_February_2021" title="Category:Articles with unsourced statements from February 2021">Articles with unsourced statements from February 2021</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Matrix+chain+multiplication" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Matrix+chain+multiplication" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Matrix_chain_multiplication" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Matrix_chain_multiplication" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Matrix_chain_multiplication"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Matrix_chain_multiplication&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Matrix_chain_multiplication&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Matrix_chain_multiplication" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Matrix_chain_multiplication" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Matrix_chain_multiplication&amp;oldid=1084210691" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Matrix_chain_multiplication&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Matrix_chain_multiplication&amp;id=1084210691&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q917612" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Matrix_chain_multiplication&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Matrix_chain_multiplication&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-ar mw-list-item"><a href="https://ar.wikipedia.org/wiki/ضرب_سلسلة_مصفوفات" title="ضرب سلسلة مصفوفات – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target"><span>العربية</span></a></li><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Matrix-Kettenmultiplikation" title="Matrix-Kettenmultiplikation – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/ضرب_زنجیره‌ای_ماتریس" title="ضرب زنجیره‌ای ماتریس – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Problème_des_multiplications_matricielles_enchaînées" title="Problème des multiplications matricielles enchaînées – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Problem_nawiasowania_ciągu_macierzy" title="Problem nawiasowania ciągu macierzy – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/Multiplicação_de_cadeia_de_matrizes" title="Multiplicação de cadeia de matrizes – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Задача_о_порядке_перемножения_матриц" title="Задача о порядке перемножения матриц – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/Множење_ланаца_матрица" title="Множење ланаца матрица – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-th mw-list-item"><a href="https://th.wikipedia.org/wiki/การคูณลูกโซ่ของเมทริกซ์" title="การคูณลูกโซ่ของเมทริกซ์ – Thai" lang="th" hreflang="th" class="interlanguage-link-target"><span>ไทย</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/矩陣鏈乘積" title="矩陣鏈乘積 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q917612#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 23 April 2022, at 05:26<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Matrix_chain_multiplication&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.311","walltime":"0.427","ppvisitednodes":{"value":1009,"limit":1000000},"postexpandincludesize":{"value":24956,"limit":2097152},"templateargumentsize":{"value":1085,"limit":2097152},"expansiondepth":{"value":12,"limit":100},"expensivefunctioncount":{"value":1,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":52700,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  305.597      1 -total"," 53.31%  162.925      1 Template:Reflist"," 25.08%   76.638      1 Template:Cite_book"," 22.89%   69.941      1 Template:Short_description"," 17.83%   54.479      1 Template:Citation_needed"," 15.39%   47.032      1 Template:Fix"," 13.95%   42.633      1 Template:Pagetype"," 12.14%   37.087      8 Template:Cite_journal","  8.75%   26.749      2 Template:Category_handler","  4.82%   14.732      1 Template:Delink"]},"scribunto":{"limitreport-timeusage":{"value":"0.133","limit":"10.000"},"limitreport-memusage":{"value":4679513,"limit":52428800}},"cachereport":{"origin":"mw1444","timestamp":"20220423052615","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Matrix chain multiplication","url":"https:\/\/en.wikipedia.org\/wiki\/Matrix_chain_multiplication","sameAs":"http:\/\/www.wikidata.org\/entity\/Q917612","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q917612","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2005-02-23T21:36:00Z","dateModified":"2022-04-23T05:26:15Z","headline":"optimization problem"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Matrix chain multiplication","url":"https:\/\/en.wikipedia.org\/wiki\/Matrix_chain_multiplication","sameAs":"http:\/\/www.wikidata.org\/entity\/Q917612","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q917612","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2005-02-23T21:36:00Z","dateModified":"2022-04-23T05:26:15Z","headline":"optimization problem"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":140,"wgHostname":"mw1429"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Matrix_chain_multiplication by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:50 GMT -->
+</html>

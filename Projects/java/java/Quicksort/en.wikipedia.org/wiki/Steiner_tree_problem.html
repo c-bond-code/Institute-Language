@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Steiner_tree_problem by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Steiner tree problem - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"c811729e-7b52-41eb-a967-3c65ff1db6cf","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Steiner_tree_problem","wgTitle":"Steiner tree problem","wgCurRevisionId":1085745899,"wgRevisionId":1085745899,"wgArticleId":498304,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Harv and Sfn no-target errors","Articles with short description","Short description matches Wikidata","Use dmy dates from May 2022","CS1 Russian-language sources (ru)","Commons category link is on Wikidata","NP-complete problems","Trees (graph theory)",
+"Computational problems in graph theory","Geometric algorithms","Geometric graphs"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Steiner_tree_problem","wgRelevantArticleId":498304,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":30000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q1764144","wgGENewcomerTasksGuidanceEnabled":
+true,"wgGEAskQuestionEnabled":false,"wgGELinkRecommendationsFrontendEnabled":false};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","skins.vector.styles.legacy":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","ext.scribunto.logs","site","mediawiki.page.ready","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons",
+"ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.9"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Steiner_3_points.svg/1200px-Steiner_3_points.svg.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="1050"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Steiner_3_points.svg/800px-Steiner_3_points.svg.png"/>
+<meta property="og:image:width" content="800"/>
+<meta property="og:image:height" content="700"/>
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Steiner_3_points.svg/640px-Steiner_3_points.svg.png"/>
+<meta property="og:image:width" content="640"/>
+<meta property="og:image:height" content="560"/>
+<meta property="og:title" content="Steiner tree problem - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Steiner_tree_problem"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Steiner_tree_problem&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Steiner_tree_problem"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Steiner_tree_problem rootpage-Steiner_tree_problem skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Steiner tree problem</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Class of problems in combinatorial mathematics</div>
+<p class="mw-empty-elt">
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Steiner_3_points.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Steiner_3_points.svg/220px-Steiner_3_points.svg.png" decoding="async" width="220" height="193" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Steiner_3_points.svg/330px-Steiner_3_points.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Steiner_3_points.svg/440px-Steiner_3_points.svg.png 2x" data-file-width="200" data-file-height="175" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Steiner_3_points.svg" class="internal" title="Enlarge"></a></div>Steiner tree for three points <i>A</i>, <i>B</i>, and <i>C</i> (note there are no direct connections between <i>A</i>, <i>B</i>, <i>C</i>). The Steiner point <i>S</i> is located at the <a href="https://en.wikipedia.org/wiki/Fermat_point" title="Fermat point">Fermat point</a> of the <a href="https://en.wikipedia.org/wiki/Triangle" title="Triangle">triangle</a> <i>ABC</i>.</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Steiner_4_points.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Steiner_4_points.svg/220px-Steiner_4_points.svg.png" decoding="async" width="220" height="248" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Steiner_4_points.svg/330px-Steiner_4_points.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Steiner_4_points.svg/440px-Steiner_4_points.svg.png 2x" data-file-width="200" data-file-height="225" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Steiner_4_points.svg" class="internal" title="Enlarge"></a></div>Solution for four points—there are two Steiner points, <i>S</i><sub>1</sub> and <i>S</i><sub>2</sub></div></div></div>
+<p>The <b>Steiner tree problem</b>, or <b>minimum Steiner tree problem</b>, named after <a href="https://en.wikipedia.org/wiki/Jakob_Steiner" title="Jakob Steiner">Jakob Steiner</a>, is an <a href="https://en.wikipedia.org/wiki/Umbrella_term" class="mw-redirect" title="Umbrella term">umbrella term</a> for a class of problems in <a href="https://en.wikipedia.org/wiki/Combinatorial_optimization" title="Combinatorial optimization">combinatorial optimization</a>. While Steiner tree problems may be formulated in a number of settings, they all require an optimal interconnect for a given set of objects and a predefined objective function.  One well-known variant, which is often used synonymously with the term Steiner tree problem, is the <b>Steiner tree problem in graphs</b>. Given an <a href="https://en.wikipedia.org/wiki/Undirected_graph" class="mw-redirect" title="Undirected graph">undirected graph</a> with non-negative edge weights and a subset of vertices, usually referred to as <b>terminals,</b> the Steiner tree problem in graphs requires a <a href="https://en.wikipedia.org/wiki/Tree_(graph_theory)" title="Tree (graph theory)">tree</a> of minimum weight that contains all terminals (but may include additional vertices). Further well-known variants are the <b>Euclidean Steiner tree problem</b> and the <b>rectilinear minimum Steiner tree problem</b>.
+</p><p>The Steiner tree problem in graphs can be seen as a generalization of two other famous combinatorial optimization problems: the (non-negative) <a href="https://en.wikipedia.org/wiki/Shortest_path_problem" title="Shortest path problem">shortest path problem</a> and the <a href="https://en.wikipedia.org/wiki/Minimum_spanning_tree" title="Minimum spanning tree">minimum spanning tree problem</a>. If a Steiner tree problem in graphs contains exactly two terminals, it reduces to finding the shortest path. If, on the other hand, all vertices are terminals, the Steiner tree problem in graphs is equivalent to the minimum spanning tree. However, while both the non-negative shortest path and the minimum spanning tree problem are solvable in polynomial time, the <a href="https://en.wikipedia.org/wiki/Decision_problem" title="Decision problem">decision variant</a> of the Steiner tree problem in graphs is <a href="https://en.wikipedia.org/wiki/NP-complete" class="mw-redirect" title="NP-complete">NP-complete</a> (which implies that the optimization variant is <a href="https://en.wikipedia.org/wiki/NP-hardness" title="NP-hardness">NP-hard</a>); in fact, the decision variant was among <a href="https://en.wikipedia.org/wiki/Karp%27s_21_NP-complete_problems" title="Karp&#39;s 21 NP-complete problems">Karp's original 21 NP-complete problems</a>. The Steiner tree problem in graphs has applications in <a href="https://en.wikipedia.org/wiki/Electrical_network" title="Electrical network">circuit</a> layout or <a href="https://en.wikipedia.org/wiki/Network_design" class="mw-redirect" title="Network design">network design</a>. However, practical applications usually require variations, giving rise to a multitude of Steiner tree problem variants.
+</p><p>Most versions of the Steiner tree problem are <a href="https://en.wikipedia.org/wiki/NP-complete" class="mw-redirect" title="NP-complete">NP-hard</a>, but some restricted cases can be solved in <a href="https://en.wikipedia.org/wiki/Polynomial_time" class="mw-redirect" title="Polynomial time">polynomial time</a>. Despite the pessimistic worst-case complexity, several Steiner tree problem variants, including the Steiner tree problem in graphs and the rectilinear Steiner tree problem, can be solved efficiently in practice, even for large-scale real-world problems.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup><sup id="cite_ref-FOOTNOTEJuhlWarmeWinterZachariasen2014_2-0" class="reference"><a href="#cite_note-FOOTNOTEJuhlWarmeWinterZachariasen2014-2">&#91;2&#93;</a></sup>
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Euclidean_Steiner_tree"><span class="tocnumber">1</span> <span class="toctext">Euclidean Steiner tree</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Rectilinear_Steiner_tree"><span class="tocnumber">2</span> <span class="toctext">Rectilinear Steiner tree</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steiner_tree_in_graphs_and_variants"><span class="tocnumber">3</span> <span class="toctext">Steiner tree in graphs and variants</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Approximating_the_Steiner_tree"><span class="tocnumber">4</span> <span class="toctext">Approximating the Steiner tree</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Parameterized_complexity_of_Steiner_tree"><span class="tocnumber">5</span> <span class="toctext">Parameterized complexity of Steiner tree</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Steiner_ratio"><span class="tocnumber">6</span> <span class="toctext">Steiner ratio</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Notes"><span class="tocnumber">8</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#References"><span class="tocnumber">9</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#External_links"><span class="tocnumber">10</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Euclidean_Steiner_tree">Euclidean Steiner tree</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Steiner_tree_problem&amp;action=edit&amp;section=1" title="Edit section: Euclidean Steiner tree">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:222px;"><a href="https://en.wikipedia.org/wiki/File:Regular_polygon_Euclidean_Steiner_tree.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Regular_polygon_Euclidean_Steiner_tree.svg/220px-Regular_polygon_Euclidean_Steiner_tree.svg.png" decoding="async" width="220" height="330" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Regular_polygon_Euclidean_Steiner_tree.svg/330px-Regular_polygon_Euclidean_Steiner_tree.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Regular_polygon_Euclidean_Steiner_tree.svg/440px-Regular_polygon_Euclidean_Steiner_tree.svg.png 2x" data-file-width="512" data-file-height="768" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Regular_polygon_Euclidean_Steiner_tree.svg" class="internal" title="Enlarge"></a></div>Minimum Steiner trees of vertices of regular polygons with <i>N</i> = 3 to 8 sides. The lowest network length <i>L</i> for <i>N</i> &gt; 5 is the circumference less one side. Squares represent Steiner points.</div></div></div>
+<p>The original problem was stated in the form that has become known as the <b>Euclidean Steiner tree problem</b> or <b>geometric Steiner tree problem</b>: Given <i>N</i> points in the <a href="https://en.wikipedia.org/wiki/Plane_(geometry)" title="Plane (geometry)">plane</a>, the goal is to connect them by lines of minimum total length in such a way that any two points may be interconnected by <a href="https://en.wikipedia.org/wiki/Line_segment" title="Line segment">line segments</a> either directly or via other <a href="https://en.wikipedia.org/wiki/Point_(geometry)" title="Point (geometry)">points</a> and line segments. It may be shown that the connecting line segments do not intersect each other except at the endpoints and form a tree, hence the name of the problem.
+</p><p>The problem for <i>N</i>&#160;=&#160;3 has long been considered, and quickly extended to the problem of finding a <a href="https://en.wikipedia.org/wiki/Star_(graph_theory)" title="Star (graph theory)">star network</a> with a single hub connecting to all of the <i>N</i> given points, of minimum total length.
+However, although the full Steiner tree problem was formulated in a letter by <a href="https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss" title="Carl Friedrich Gauss">Gauss</a>, its first serious treatment was in a 1934 paper written in Czech by <a href="https://en.wikipedia.org/wiki/Vojtěch_Jarník" title="Vojtěch Jarník">Vojtěch Jarník</a> and <a href="https://en.wikipedia.org/w/index.php?title=Milo%C5%A1_K%C3%B6ssler&amp;action=edit&amp;redlink=1" class="new" title="Miloš Kössler (page does not exist)">Miloš Kössler</a><span class="noprint" style="font-size:85%; font-style: normal;">&#160;&#91;<a href="https://cs.wikipedia.org/wiki/Miloš_Kössler" class="extiw" title="cs:Miloš Kössler">cs</a>&#93;</span>. This paper was long overlooked, but it already contains "virtually all general properties of Steiner trees" later attributed to other researchers, including the generalization of the problem from the plane to higher dimensions.<sup id="cite_ref-3" class="reference"><a href="#cite_note-3">&#91;3&#93;</a></sup>
+</p><p>For the Euclidean Steiner problem, points added to the graph (<a href="https://en.wikipedia.org/wiki/Steiner_point_(computational_geometry)" title="Steiner point (computational geometry)">Steiner points</a>) must have a <a href="https://en.wikipedia.org/wiki/Degree_(graph_theory)" title="Degree (graph theory)">degree</a> of three, and the three edges incident to such a point must form three 120 degree angles (see <a href="https://en.wikipedia.org/wiki/Fermat_point" title="Fermat point">Fermat point</a>). It follows that the maximum number of Steiner points that a Steiner tree can have is <i>N</i>&#160;&#8722;&#160;2, where <i>N</i> is the initial number of given points.
+</p><p>For <i>N</i> = 3 there are two possible cases: if the triangle formed by the given points has all angles which are less than 120 degrees, the solution is given by a Steiner point located at the <a href="https://en.wikipedia.org/wiki/Fermat_point" title="Fermat point">Fermat point</a>; otherwise the solution is given by the two sides of the triangle which meet on the angle with 120 or more degrees.
+</p><p>For general <i>N</i>, the Euclidean Steiner tree problem is <a href="https://en.wikipedia.org/wiki/NP-hard" class="mw-redirect" title="NP-hard">NP-hard</a>, and hence it is not known whether an <a href="https://en.wikipedia.org/wiki/Optimization_problem" title="Optimization problem">optimal solution</a> can be found by using a <a href="https://en.wikipedia.org/wiki/Polynomial-time_algorithm" class="mw-redirect" title="Polynomial-time algorithm">polynomial-time algorithm</a>. However, there is a <a href="https://en.wikipedia.org/wiki/Polynomial-time_approximation_scheme" title="Polynomial-time approximation scheme">polynomial-time approximation scheme</a> (PTAS) for Euclidean Steiner trees, i.e., a <i>near-optimal</i> solution can be found in polynomial time.<sup id="cite_ref-FOOTNOTECrescenziKannHalldórssonKarpinski2000_4-0" class="reference"><a href="#cite_note-FOOTNOTECrescenziKannHalldórssonKarpinski2000-4">&#91;4&#93;</a></sup> It is not known whether the Euclidean Steiner tree problem is NP-complete, since membership to the complexity class NP is not known.
+</p>
+<h2><span class="mw-headline" id="Rectilinear_Steiner_tree">Rectilinear Steiner tree</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Steiner_tree_problem&amp;action=edit&amp;section=2" title="Edit section: Rectilinear Steiner tree">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="https://en.wikipedia.org/wiki/Rectilinear_Steiner_tree" title="Rectilinear Steiner tree">Rectilinear Steiner tree</a></div>
+<p>The rectilinear Steiner tree problem is a variant of the geometric Steiner tree problem in the plane, in which the <a href="https://en.wikipedia.org/wiki/Euclidean_distance" title="Euclidean distance">Euclidean distance</a> is replaced with the <a href="https://en.wikipedia.org/wiki/Rectilinear_distance" class="mw-redirect" title="Rectilinear distance">rectilinear distance</a>. The problem arises in the <a href="https://en.wikipedia.org/wiki/Physical_design_(electronics)" title="Physical design (electronics)">physical design</a> of <a href="https://en.wikipedia.org/wiki/Electronic_design_automation" title="Electronic design automation">electronic design automation</a>. In <a href="https://en.wikipedia.org/wiki/VLSI_circuit" class="mw-redirect" title="VLSI circuit">VLSI circuits</a>, <a href="https://en.wikipedia.org/wiki/Wire_routing" class="mw-redirect" title="Wire routing">wire routing</a> is carried out by wires that are often constrained by design rules to run only in vertical and horizontal directions, so the rectilinear Steiner tree problem can be used to model the routing of nets with more than two terminals.<sup id="cite_ref-FOOTNOTESherwani1993228_5-0" class="reference"><a href="#cite_note-FOOTNOTESherwani1993228-5">&#91;5&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Steiner_tree_in_graphs_and_variants">Steiner tree in graphs and variants</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Steiner_tree_problem&amp;action=edit&amp;section=3" title="Edit section: Steiner tree in graphs and variants">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Steiner trees have been extensively studied in the context of <a href="https://en.wikipedia.org/wiki/Weighted_graph" class="mw-redirect" title="Weighted graph">weighted graphs</a>. The prototype is, arguably, the <b>Steiner tree problem</b> <b>in graphs</b>. Let <i>G</i>&#160;=&#160;(<i>V</i>,&#160;<i>E</i>) be an undirected graph with non-negative edge weights c and let <i>S</i>&#160;⊆&#160;<i>V</i> be a subset of vertices, called <b>terminals</b>. A <b>Steiner tree</b> is a tree in <i>G</i> that spans <i>S</i>. There are two versions of the problem: in the <a href="https://en.wikipedia.org/wiki/Optimization_problem" title="Optimization problem">optimization problem</a> associated with Steiner trees, the task is to find a minimum-weight Steiner tree; in the <a href="https://en.wikipedia.org/wiki/Decision_problem" title="Decision problem">decision problem</a> the edge weights are integers and the task is to determine whether a Steiner tree exists whose total weight does not exceed a predefined <a href="https://en.wikipedia.org/wiki/Natural_number" title="Natural number">natural number</a> <i>k</i>. The decision problem is one of <a href="https://en.wikipedia.org/wiki/Karp%27s_21_NP-complete_problems" title="Karp&#39;s 21 NP-complete problems">Karp's 21 NP-complete problems</a>; hence the optimization problem is <a href="https://en.wikipedia.org/wiki/NP-hard" class="mw-redirect" title="NP-hard">NP-hard</a>. Steiner tree problems in graphs are applied to various problems in research and industry,<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup> including multicast routing<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup> and bioinformatics.<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup>
+</p><p>A special case of this problem is when <i>G</i> is a <a href="https://en.wikipedia.org/wiki/Complete_graph" title="Complete graph">complete graph</a>, each vertex <i>v</i>&#160;∈&#160;<i>V</i> corresponds to a point in a <a href="https://en.wikipedia.org/wiki/Metric_space" title="Metric space">metric space</a>, and the edge weights <i>w</i>(<i>e</i>) for each <i>e</i>&#160;∈&#160;<i>E</i> correspond to distances in the space. Put otherwise, the edge weights satisfy the <a href="https://en.wikipedia.org/wiki/Triangle_inequality" title="Triangle inequality">triangle inequality</a>. This variant is known as the <b>metric Steiner tree problem</b>. Given an instance of the (non-metric) Steiner tree problem, we can transform it in polynomial time into an equivalent instance of the metric Steiner tree problem; the transformation preserves the approximation factor.<sup id="cite_ref-FOOTNOTEVazirani200327–28_9-0" class="reference"><a href="#cite_note-FOOTNOTEVazirani200327–28-9">&#91;9&#93;</a></sup>
+</p><p>While the Euclidean version admits a PTAS, it is known that the metric Steiner tree problem is <a href="https://en.wikipedia.org/wiki/APX-complete" class="mw-redirect" title="APX-complete">APX-complete</a>, i.e., unless <a href="https://en.wikipedia.org/wiki/P_%3D_NP" class="mw-redirect" title="P = NP">P = NP</a>, it is impossible to achieve approximation ratios that are arbitrarily close to 1 in polynomial time. There is a polynomial-time algorithm that <a href="https://en.wikipedia.org/wiki/Approximation_algorithm" title="Approximation algorithm">approximates</a> the minimum Steiner tree to within a factor of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \ln(4)+\varepsilon \approx 1.386}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>ln</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mn>4</mn>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mi>&#x03B5;<!-- ε --></mi>
+        <mo>&#x2248;<!-- ≈ --></mo>
+        <mn>1.386</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \ln(4)+\varepsilon \approx 1.386}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a707490b210490b5892339dc7eabef084dbfe578" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:17.23ex; height:2.843ex;" alt="{\displaystyle \ln(4)+\varepsilon \approx 1.386}"/></span>;<sup id="cite_ref-FOOTNOTEByrkaGrandoniRothvoßSanita2010_10-0" class="reference"><a href="#cite_note-FOOTNOTEByrkaGrandoniRothvoßSanita2010-10">&#91;10&#93;</a></sup>
+however, approximating within a factor <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 96/95\approx 1.0105}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>96</mn>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mo>/</mo>
+        </mrow>
+        <mn>95</mn>
+        <mo>&#x2248;<!-- ≈ --></mo>
+        <mn>1.0105</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 96/95\approx 1.0105}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8d0d13bac72ceaf4d79bc95d1f14455ea2bfb216" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:15.37ex; height:2.843ex;" alt="96/95\approx 1.0105"/></span> is NP-hard.<sup id="cite_ref-FOOTNOTEChlebíkChlebíková2008_11-0" class="reference"><a href="#cite_note-FOOTNOTEChlebíkChlebíková2008-11">&#91;11&#93;</a></sup> For the restricted case of Steiner Tree problem with distances 1 and 2, a 1.25-approximation algorithm is known.<sup id="cite_ref-FOOTNOTEBermanKarpinskiZelikovsky2009_12-0" class="reference"><a href="#cite_note-FOOTNOTEBermanKarpinskiZelikovsky2009-12">&#91;12&#93;</a></sup> Karpinski and <a href="https://en.wikipedia.org/wiki/Alexander_Zelikovsky" title="Alexander Zelikovsky">Alexander Zelikovsky</a> constructed PTAS for the dense instances of Steiner Tree problems.<sup id="cite_ref-FOOTNOTEKarpinskiZelikovsky1998_13-0" class="reference"><a href="#cite_note-FOOTNOTEKarpinskiZelikovsky1998-13">&#91;13&#93;</a></sup>
+</p><p>In a special case of the graph problem, the Steiner tree problem for <a href="https://en.wikipedia.org/wiki/Quasi-bipartite_graph" title="Quasi-bipartite graph">quasi-bipartite graphs</a>, <i>S</i> is required to include at least one endpoint of every edge in <i>G</i>.
+</p><p>The Steiner tree problem has also been investigated in higher dimensions and on various surfaces. Algorithms to find the Steiner minimal tree have been found on the sphere, torus, <a href="https://en.wikipedia.org/wiki/Projective_plane" title="Projective plane">projective plane</a>, wide and narrow cones, and others.<sup id="cite_ref-FOOTNOTESmithWinter1995361_14-0" class="reference"><a href="#cite_note-FOOTNOTESmithWinter1995361-14">&#91;14&#93;</a></sup>
+</p><p>Other generalizations of the Steiner tree problem are the <b><i>k</i>-edge-connected Steiner network problem</b> and the <b><i>k</i>-vertex-connected Steiner network problem</b>, where the goal is to find a <a href="https://en.wikipedia.org/wiki/K-edge-connected_graph" title="K-edge-connected graph"><i>k</i>-edge-connected graph</a> or a <a href="https://en.wikipedia.org/wiki/K-vertex-connected_graph" title="K-vertex-connected graph"><i>k</i>-vertex-connected graph</a> rather than any connected graph.
+</p><p>The Steiner problem has also been stated in the general setting of metric spaces and for possibly infinitely many points.<sup id="cite_ref-FOOTNOTEPaoliniStepanov2012_15-0" class="reference"><a href="#cite_note-FOOTNOTEPaoliniStepanov2012-15">&#91;15&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Approximating_the_Steiner_tree">Approximating the Steiner tree</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Steiner_tree_problem&amp;action=edit&amp;section=4" title="Edit section: Approximating the Steiner tree">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The general graph Steiner tree problem can be approximated by computing the minimum spanning tree of the subgraph of the metric closure of the graph induced by the terminal vertices, as first published in 1981 by Kou et al.<sup id="cite_ref-FOOTNOTEKouMarkowskyBerman1981_16-0" class="reference"><a href="#cite_note-FOOTNOTEKouMarkowskyBerman1981-16">&#91;16&#93;</a></sup> The metric closure of a graph <i>G</i> is the complete graph in which each edge is weighted by the shortest path distance between the nodes in <i>G</i>. This algorithm produces a tree whose weight is within a 2&#160;−&#160;2/<i>t</i> factor of the weight of the optimal Steiner tree where <i>t</i> is the number of leaves in the optimal Steiner tree; this can be proven by considering a traveling salesperson tour on the optimal Steiner tree. This approximate solution is computable in O(|S| |V|²) <a href="https://en.wikipedia.org/wiki/Time_complexity#Polynomial_time" title="Time complexity">polynomial time</a> by first solving the <a href="https://en.wikipedia.org/wiki/Shortest_path_problem#All-pairs_shortest_paths" title="Shortest path problem">all-pairs shortest paths problem</a> to compute the metric closure, then by solving the <a href="https://en.wikipedia.org/wiki/Minimum_spanning_tree" title="Minimum spanning tree">minimum spanning tree problem</a>.
+</p><p>Another popular algorithm to approximate the Steiner tree in graphs was published by Takahashi and Matsuyama in 1980.<sup id="cite_ref-FOOTNOTETakahashiMatsuyama1980_17-0" class="reference"><a href="#cite_note-FOOTNOTETakahashiMatsuyama1980-17">&#91;17&#93;</a></sup> Their solution incrementally builds up the Steiner tree by starting from an arbitrary vertex, and repeatedly adding the shortest path from the tree to the nearest vertex in <i>S</i> that has not yet been added. This algorithm also has O(|<i>S</i>| |<i>V</i>|²) running time, and produces a tree whose weight is within 2&#160;−&#160;2/|<i>S</i>| of optimal.
+</p><p>In 1986, Wu et al.<sup id="cite_ref-FOOTNOTEWuWidmayerWong1986_18-0" class="reference"><a href="#cite_note-FOOTNOTEWuWidmayerWong1986-18">&#91;18&#93;</a></sup> improved dramatically on the running time by avoiding precomputation of the all-pairs shortest paths. Instead, they take a similar approach to <a href="https://en.wikipedia.org/wiki/Kruskal%27s_algorithm" title="Kruskal&#39;s algorithm">Kruskal's algorithm</a> for computing a minimum spanning tree, by starting from a forest of |<i>S</i>| disjoint trees, and "growing" them simultaneously using a breadth-first search resembling <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm" title="Dijkstra&#39;s algorithm">Dijkstra's algorithm</a> but starting from multiple initial vertices. When the search encounters a vertex that does not belong to the current tree, the two trees are merged into one. This process is repeated until only one tree remains. By using a <a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" title="Heap (data structure)">Heap (data structure)</a> to implement the priority queue and a <a href="https://en.wikipedia.org/wiki/Disjoint-set_data_structure" title="Disjoint-set data structure">disjoint-set data structure</a> to track to which tree each visited vertex belongs, this algorithm achieves O(|<i>E</i>| log |<i>V</i>|) running time, although it does not improve on the 2&#160;−&#160;2/<i>t</i> cost ratio from Kou et al..
+</p><p>A series of papers provided approximation algorithms for the minimum Steiner tree problem with approximation ratios that improved upon the 2&#160;−&#160;2/<i>t</i> ratio. This sequence culminated with Robins and Zelikovsky's algorithm in 2000 which improved the ratio to 1.55 by iteratively improving upon the minimum cost terminal spanning tree. More recently, however, Jaroslaw Byrka et al. proved an <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \ln(4)+\varepsilon \leq 1.39}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>ln</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mo stretchy="false">(</mo>
+        <mn>4</mn>
+        <mo stretchy="false">)</mo>
+        <mo>+</mo>
+        <mi>&#x03B5;<!-- ε --></mi>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mn>1.39</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \ln(4)+\varepsilon \leq 1.39}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8c24912143c50ce5492ca929ffb3e5c406e2df78" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:16.068ex; height:2.843ex;" alt="{\displaystyle \ln(4)+\varepsilon \leq 1.39}"/></span> approximation using a linear programming relaxation and a technique called iterative, randomized rounding.<sup id="cite_ref-FOOTNOTEByrkaGrandoniRothvoßSanita2010_10-1" class="reference"><a href="#cite_note-FOOTNOTEByrkaGrandoniRothvoßSanita2010-10">&#91;10&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Parameterized_complexity_of_Steiner_tree">Parameterized complexity of Steiner tree</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Steiner_tree_problem&amp;action=edit&amp;section=5" title="Edit section: Parameterized complexity of Steiner tree">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The general graph Steiner tree problem is known to be <a href="https://en.wikipedia.org/wiki/Parameterized_complexity#FPT" title="Parameterized complexity">fixed-parameter tractable</a>, with the number of terminals as a parameter, by the Dreyfus-Wagner algorithm.<sup id="cite_ref-FOOTNOTEDreyfusWagner1971_19-0" class="reference"><a href="#cite_note-FOOTNOTEDreyfusWagner1971-19">&#91;19&#93;</a></sup><sup id="cite_ref-FOOTNOTELevin1971_20-0" class="reference"><a href="#cite_note-FOOTNOTELevin1971-20">&#91;20&#93;</a></sup> The running time of the Dreyfus-Wagner algorithm is <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 3^{|S|}{\text{poly}}(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mn>3</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+            <mi>S</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+          </mrow>
+        </msup>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>poly</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 3^{|S|}{\text{poly}}(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3f5e47d8d4c8581ff5ea999f0ebb754cf705c550" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.903ex; height:3.343ex;" alt="{\displaystyle 3^{|S|}{\text{poly}}(n)}"/></span>, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> is the number of vertices of the graph and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle S}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>S</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle S}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/4611d85173cd3b508e67077d4a1252c9c05abca2" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.499ex; height:2.176ex;" alt="S"/></span> is the set of terminals. Faster algorithms exist, running in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle c^{|S|}{\text{poly}}(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mi>c</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+            <mi>S</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+          </mrow>
+        </msup>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>poly</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle c^{|S|}{\text{poly}}(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/86c57ab64c74eb3c35df9a632ac0288cebfbe48a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.747ex; height:3.343ex;" alt="{\displaystyle c^{|S|}{\text{poly}}(n)}"/></span> time for any <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle c&gt;2}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>c</mi>
+        <mo>&gt;</mo>
+        <mn>2</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle c&gt;2}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/23589bfa9e6bcefa64f663a435c2338fee9eca15" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.268ex; height:2.176ex;" alt="{\displaystyle c&gt;2}"/></span> or, in the case of small weights, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 2^{|S|}{\text{poly}}(n)W}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+            <mi>S</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+          </mrow>
+        </msup>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>poly</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mi>W</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 2^{|S|}{\text{poly}}(n)W}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0f5d0c937923932abb05612c658a2cf0e40dbc5a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:13.338ex; height:3.343ex;" alt="{\displaystyle 2^{|S|}{\text{poly}}(n)W}"/></span> time, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle W}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>W</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle W}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/54a9c4c547f4d6111f81946cad242b18298d70b7" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.435ex; height:2.176ex;" alt="W"/></span> is the maximum weight of any edge.<sup id="cite_ref-FOOTNOTEFuchsKernMölleRichter2007_21-0" class="reference"><a href="#cite_note-FOOTNOTEFuchsKernMölleRichter2007-21">&#91;21&#93;</a></sup><sup id="cite_ref-FOOTNOTEBjörklundHusfeldtKaskiKoivisto2007_22-0" class="reference"><a href="#cite_note-FOOTNOTEBjörklundHusfeldtKaskiKoivisto2007-22">&#91;22&#93;</a></sup> A disadvantage of the aforementioned algorithms is that they use <a href="https://en.wikipedia.org/wiki/Space_complexity" title="Space complexity">exponential space</a>; there exist polynomial-space algorithms running in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 2^{|S|}{\text{poly}}(n)W}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+            <mi>S</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+          </mrow>
+        </msup>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>poly</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mi>W</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 2^{|S|}{\text{poly}}(n)W}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0f5d0c937923932abb05612c658a2cf0e40dbc5a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:13.338ex; height:3.343ex;" alt="{\displaystyle 2^{|S|}{\text{poly}}(n)W}"/></span> time and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (7.97)^{|S|}{\text{poly}}(n)\log W}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mn>7.97</mn>
+        <msup>
+          <mo stretchy="false">)</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+            <mi>S</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo stretchy="false">|</mo>
+            </mrow>
+          </mrow>
+        </msup>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>poly</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+        <mi>log</mi>
+        <mo>&#x2061;<!-- ⁡ --></mo>
+        <mi>W</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (7.97)^{|S|}{\text{poly}}(n)\log W}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/1f0b3e624ff4ae121915c7ce0d3602f357d5e938" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:21.865ex; height:3.343ex;" alt="{\displaystyle (7.97)^{|S|}{\text{poly}}(n)\log W}"/></span> time.<sup id="cite_ref-FOOTNOTELokshtanovNederlof2010_23-0" class="reference"><a href="#cite_note-FOOTNOTELokshtanovNederlof2010-23">&#91;23&#93;</a></sup><sup id="cite_ref-FOOTNOTEFominKaskiLokshtanovPanolan2015_24-0" class="reference"><a href="#cite_note-FOOTNOTEFominKaskiLokshtanovPanolan2015-24">&#91;24&#93;</a></sup>
+</p><p>It is known that the general graph Steiner tree problem does not have a parameterized algorithm running in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 2^{\epsilon t}{\text{poly}}(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03F5;<!-- ϵ --></mi>
+            <mi>t</mi>
+          </mrow>
+        </msup>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>poly</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 2^{\epsilon t}{\text{poly}}(n)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f5a3f5f4b85d99a0f6895a3e688772bfae7f5e11" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.189ex; height:3.009ex;" alt="{\displaystyle 2^{\epsilon t}{\text{poly}}(n)}"/></span> time for any <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \epsilon &lt;1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03F5;<!-- ϵ --></mi>
+        <mo>&lt;</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \epsilon &lt;1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7417f4c8125c318b0f6d8cb3588901b846b3b095" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.205ex; height:2.176ex;" alt="\epsilon &lt; 1"/></span>, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle t}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>t</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle t}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/65658b7b223af9e1acc877d848888ecdb4466560" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:0.84ex; height:2.009ex;" alt="t"/></span> is the number of edges of the optimal Steiner tree, unless the <a href="https://en.wikipedia.org/wiki/Set_cover_problem" title="Set cover problem">Set cover problem</a> has an algorithm running in <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 2^{\epsilon n}{\text{poly}}(m)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mn>2</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03F5;<!-- ϵ --></mi>
+            <mi>n</mi>
+          </mrow>
+        </msup>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>poly</mtext>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>m</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 2^{\epsilon n}{\text{poly}}(m)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/24ae870fe541238a6c6a96815bf5cfad45fb2424" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:11.228ex; height:2.843ex;" alt="{\displaystyle 2^{\epsilon n}{\text{poly}}(m)}"/></span> time for some <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \epsilon &lt;1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03F5;<!-- ϵ --></mi>
+        <mo>&lt;</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \epsilon &lt;1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7417f4c8125c318b0f6d8cb3588901b846b3b095" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.205ex; height:2.176ex;" alt="\epsilon &lt; 1"/></span>, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle n}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>n</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle n}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a601995d55609f2d9f5e233e36fbe9ea26011b3b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.395ex; height:1.676ex;" alt="n"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle m}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>m</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle m}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0a07d98bb302f3856cbabc47b2b9016692e3f7bc" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.04ex; height:1.676ex;" alt="m"/></span> are the number of elements and the number of sets, respectively, of the instance of the set cover problem.<sup id="cite_ref-FOOTNOTECyganDellLokshtanovMarx2016_25-0" class="reference"><a href="#cite_note-FOOTNOTECyganDellLokshtanovMarx2016-25">&#91;25&#93;</a></sup>
+Furthermore, it is known that the problem does not admit a <a href="https://en.wikipedia.org/wiki/Kernelization" title="Kernelization">polynomial kernel</a> unless <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\text{coNP}}\subseteq {\text{NP/poly}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>coNP</mtext>
+        </mrow>
+        <mo>&#x2286;<!-- ⊆ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtext>NP/poly</mtext>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\text{coNP}}\subseteq {\text{NP/poly}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/30711c7efa49771cb98168011a0cdf0e4c57b41b" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:17.437ex; height:2.843ex;" alt="{\displaystyle {\text{coNP}}\subseteq {\text{NP/poly}}}"/></span>, even parameterized by the number of edges of the optimal Steiner tree and if all edge weights are 1.<sup id="cite_ref-FOOTNOTEDomLokshtanovSaurabh2014_26-0" class="reference"><a href="#cite_note-FOOTNOTEDomLokshtanovSaurabh2014-26">&#91;26&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="Steiner_ratio">Steiner ratio</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Steiner_tree_problem&amp;action=edit&amp;section=6" title="Edit section: Steiner ratio">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The <b>Steiner ratio</b> is the <a href="https://en.wikipedia.org/wiki/Supremum" class="mw-redirect" title="Supremum">supremum</a> of the ratio of the total length of the minimum spanning tree to the minimum Steiner tree for a set of points in the Euclidean plane.<sup id="cite_ref-FOOTNOTEGanley2004_27-0" class="reference"><a href="#cite_note-FOOTNOTEGanley2004-27">&#91;27&#93;</a></sup>
+</p><p>In the Euclidean Steiner tree problem, the Steiner ratio is conjectured to be <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\tfrac {2}{\sqrt {3}}}\approx 1.1547}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mstyle displaystyle="false" scriptlevel="0">
+            <mfrac>
+              <mn>2</mn>
+              <msqrt>
+                <mn>3</mn>
+              </msqrt>
+            </mfrac>
+          </mstyle>
+        </mrow>
+        <mo>&#x2248;<!-- ≈ --></mo>
+        <mn>1.1547</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\tfrac {2}{\sqrt {3}}}\approx 1.1547}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/53f10a3ec0e09cbde59b752a21304f5d59688038" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.838ex; width:12.585ex; height:4.176ex;" alt="{\displaystyle {\tfrac {2}{\sqrt {3}}}\approx 1.1547}"/></span>, the ratio that is achieved by three points in an <a href="https://en.wikipedia.org/wiki/Equilateral_triangle" title="Equilateral triangle">equilateral triangle</a> with a spanning tree that uses two sides of the triangle and a Steiner tree that connects the points through the centroid of the triangle. Despite earlier claims of a proof,<sup id="cite_ref-28" class="reference"><a href="#cite_note-28">&#91;28&#93;</a></sup> the conjecture is still open.<sup id="cite_ref-FOOTNOTEIvanovTuzhilin2012_29-0" class="reference"><a href="#cite_note-FOOTNOTEIvanovTuzhilin2012-29">&#91;29&#93;</a></sup> The best widely accepted <a href="https://en.wikipedia.org/wiki/Upper_bound" class="mw-redirect" title="Upper bound">upper bound</a> for the problem is 1.2134, by <a href="#CITEREFChungGraham1985">Chung &amp; Graham (1985)</a>.
+</p><p>For the rectilinear Steiner tree problem, the Steiner ratio is exactly <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\tfrac {3}{2}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mstyle displaystyle="false" scriptlevel="0">
+            <mfrac>
+              <mn>3</mn>
+              <mn>2</mn>
+            </mfrac>
+          </mstyle>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\tfrac {3}{2}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/631d66184353d37ebfe470a07a6a61487da227ac" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.171ex; width:1.658ex; height:3.509ex;" alt="{\displaystyle {\tfrac {3}{2}}}"/></span>, the ratio that is achieved by four points in a square with a spanning tree that uses three sides of the square and a Steiner tree that connects the points through the center of the square.<sup id="cite_ref-FOOTNOTEHwang1976_30-0" class="reference"><a href="#cite_note-FOOTNOTEHwang1976-30">&#91;30&#93;</a></sup> More precisely, for <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle L_{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>L</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle L_{1}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0e79dc1b001f8b923df475ed14de023cbc456013" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.637ex; height:2.509ex;" alt="L_{1}"/></span> distance the square should be tilted at <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle 45^{\circ }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msup>
+          <mn>45</mn>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2218;<!-- ∘ --></mo>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 45^{\circ }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c28223ddedeb94a84bb15474cc64b5ce436cbe50" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:3.379ex; height:2.343ex;" alt="{\displaystyle 45^{\circ }}"/></span> with respect to the coordinate axes, while for <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle L_{\infty }}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>L</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">&#x221E;<!-- ∞ --></mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle L_{\infty }}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a5ecf05fae003abbd91bc8c749d5a8a807d6efd8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:3.458ex; height:2.509ex;" alt="L_{\infty }"/></span> distance the square should be axis-aligned.
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Steiner_tree_problem&amp;action=edit&amp;section=7" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="https://en.wikipedia.org/wiki/Opaque_forest_problem" class="mw-redirect" title="Opaque forest problem">Opaque forest problem</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem" title="Travelling salesman problem">Travelling salesman problem</a></li></ul>
+<h2><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Steiner_tree_problem&amp;action=edit&amp;section=8" title="Edit section: Notes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap mw-references-columns"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite class="citation web cs1"><a rel="nofollow" class="external text" href="http://dimacs11.zib.de/papers/PolzinVahdatiDIMACS.pdf">"Report by Polzin and Vahdati Daneshmand"</a> <span class="cs1-format">(PDF)</span><span class="reference-accessdate">. Retrieved <span class="nowrap">11 November</span> 2016</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=unknown&amp;rft.btitle=Report+by+Polzin+and+Vahdati+Daneshmand&amp;rft_id=http%3A%2F%2Fdimacs11.zib.de%2Fpapers%2FPolzinVahdatiDIMACS.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-FOOTNOTEJuhlWarmeWinterZachariasen2014-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTEJuhlWarmeWinterZachariasen2014_2-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFJuhlWarmeWinterZachariasen2014">Juhl et al. (2014)</a>.</span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKorteNešetřil2001" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Bernhard_Korte" title="Bernhard Korte">Korte, Bernhard</a>; <a href="https://en.wikipedia.org/wiki/Jaroslav_Nešetřil" title="Jaroslav Nešetřil">Nešetřil, Jaroslav</a> (2001), "Vojtěch Jarnik's work in combinatorial optimization", <i>Discrete Mathematics</i>, <b>235</b> (1–3): 1–17, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2FS0012-365X(00)00256-9">10.1016/S0012-365X(00)00256-9</a>, <a href="https://en.wikipedia.org/wiki/Hdl_(identifier)" class="mw-redirect" title="Hdl (identifier)">hdl</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://hdl.handle.net/10338.dmlcz%2F500662">10338.dmlcz/500662</a></span>, <a href="https://en.wikipedia.org/wiki/MR_(identifier)" class="mw-redirect" title="MR (identifier)">MR</a>&#160;<a rel="nofollow" class="external text" href="http://www.ams.org/mathscinet-getitem?mr=1829832">1829832</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Discrete+Mathematics&amp;rft.atitle=Vojt%C4%9Bch+Jarnik%27s+work+in+combinatorial+optimization&amp;rft.volume=235&amp;rft.issue=1%E2%80%933&amp;rft.pages=1-17&amp;rft.date=2001&amp;rft_id=info%3Ahdl%2F10338.dmlcz%2F500662&amp;rft_id=%2F%2Fwww.ams.org%2Fmathscinet-getitem%3Fmr%3D1829832%23id-name%3DMR&amp;rft_id=info%3Adoi%2F10.1016%2FS0012-365X%2800%2900256-9&amp;rft.aulast=Korte&amp;rft.aufirst=Bernhard&amp;rft.au=Ne%C5%A1et%C5%99il%2C+Jaroslav&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span>.</span>
+</li>
+<li id="cite_note-FOOTNOTECrescenziKannHalldórssonKarpinski2000-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTECrescenziKannHalldórssonKarpinski2000_4-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFCrescenziKannHalldórssonKarpinski2000">Crescenzi et al. (2000)</a>.</span>
+</li>
+<li id="cite_note-FOOTNOTESherwani1993228-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTESherwani1993228_5-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFSherwani1993">Sherwani (1993)</a>, p.&#160;228.</span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFLjubić2021" class="citation journal cs1">Ljubić, Ivana (2021). <a rel="nofollow" class="external text" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/net.22005">"Solving Steiner trees: Recent advances, challenges, and perspectives"</a>. <i>Networks</i>. <b>77</b> (2): 177–204. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1002%2Fnet.22005">10.1002/net.22005</a>. <a href="https://en.wikipedia.org/wiki/ISSN_(identifier)" class="mw-redirect" title="ISSN (identifier)">ISSN</a>&#160;<a rel="nofollow" class="external text" href="http://www.worldcat.org/issn/1097-0037">1097-0037</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Networks&amp;rft.atitle=Solving+Steiner+trees%3A+Recent+advances%2C+challenges%2C+and+perspectives&amp;rft.volume=77&amp;rft.issue=2&amp;rft.pages=177-204&amp;rft.date=2021&amp;rft_id=info%3Adoi%2F10.1002%2Fnet.22005&amp;rft.issn=1097-0037&amp;rft.aulast=Ljubi%C4%87&amp;rft.aufirst=Ivana&amp;rft_id=https%3A%2F%2Fonlinelibrary.wiley.com%2Fdoi%2Fabs%2F10.1002%2Fnet.22005&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFNovakRugeljKandus2001" class="citation journal cs1">Novak, Roman; Rugelj, Joz̆e; Kandus, Gorazd (1 October 2001). <a rel="nofollow" class="external text" href="https://www.sciencedirect.com/science/article/pii/S0305054800000290">"A note on distributed multicast routing in point-to-point networks"</a>. <i>Computers &amp; Operations Research</i>. <b>28</b> (12): 1149–1164. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1016%2FS0305-0548(00)00029-0">10.1016/S0305-0548(00)00029-0</a>. <a href="https://en.wikipedia.org/wiki/ISSN_(identifier)" class="mw-redirect" title="ISSN (identifier)">ISSN</a>&#160;<a rel="nofollow" class="external text" href="http://www.worldcat.org/issn/0305-0548">0305-0548</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Computers+%26+Operations+Research&amp;rft.atitle=A+note+on+distributed+multicast+routing+in+point-to-point+networks&amp;rft.volume=28&amp;rft.issue=12&amp;rft.pages=1149-1164&amp;rft.date=2001-10-01&amp;rft_id=info%3Adoi%2F10.1016%2FS0305-0548%2800%2900029-0&amp;rft.issn=0305-0548&amp;rft.aulast=Novak&amp;rft.aufirst=Roman&amp;rft.au=Rugelj%2C+Joz%CC%86e&amp;rft.au=Kandus%2C+Gorazd&amp;rft_id=https%3A%2F%2Fwww.sciencedirect.com%2Fscience%2Farticle%2Fpii%2FS0305054800000290&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKlimmToledoMonfeugaZhang2020" class="citation journal cs1">Klimm, Florian; Toledo, Enrique M.; Monfeuga, Thomas; Zhang, Fang; Deane, Charlotte M.; Reinert, Gesine (2 November 2020). <a rel="nofollow" class="external text" href="https://doi.org/10.1186/s12864-020-07144-2">"Functional module detection through integration of single-cell RNA sequencing data with protein–protein interaction networks"</a>. <i>BMC Genomics</i>. <b>21</b> (1): 756. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1186%2Fs12864-020-07144-2">10.1186/s12864-020-07144-2</a>. <a href="https://en.wikipedia.org/wiki/ISSN_(identifier)" class="mw-redirect" title="ISSN (identifier)">ISSN</a>&#160;<a rel="nofollow" class="external text" href="http://www.worldcat.org/issn/1471-2164">1471-2164</a>. <a href="https://en.wikipedia.org/wiki/PMC_(identifier)" class="mw-redirect" title="PMC (identifier)">PMC</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC7607865">7607865</a></span>. <a href="https://en.wikipedia.org/wiki/PMID_(identifier)" class="mw-redirect" title="PMID (identifier)">PMID</a>&#160;<a rel="nofollow" class="external text" href="http://pubmed.ncbi.nlm.nih.gov/33138772">33138772</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=BMC+Genomics&amp;rft.atitle=Functional+module+detection+through+integration+of+single-cell+RNA+sequencing+data+with+protein%E2%80%93protein+interaction+networks&amp;rft.volume=21&amp;rft.issue=1&amp;rft.pages=756&amp;rft.date=2020-11-02&amp;rft_id=%2F%2Fwww.ncbi.nlm.nih.gov%2Fpmc%2Farticles%2FPMC7607865%23id-name%3DPMC&amp;rft.issn=1471-2164&amp;rft_id=info%3Apmid%2F33138772&amp;rft_id=info%3Adoi%2F10.1186%2Fs12864-020-07144-2&amp;rft.aulast=Klimm&amp;rft.aufirst=Florian&amp;rft.au=Toledo%2C+Enrique+M.&amp;rft.au=Monfeuga%2C+Thomas&amp;rft.au=Zhang%2C+Fang&amp;rft.au=Deane%2C+Charlotte+M.&amp;rft.au=Reinert%2C+Gesine&amp;rft_id=https%3A%2F%2Fdoi.org%2F10.1186%2Fs12864-020-07144-2&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></span>
+</li>
+<li id="cite_note-FOOTNOTEVazirani200327–28-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTEVazirani200327–28_9-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFVazirani2003">Vazirani (2003)</a>, pp.&#160;27–28.</span>
+</li>
+<li id="cite_note-FOOTNOTEByrkaGrandoniRothvoßSanita2010-10"><span class="mw-cite-backlink">^ <a href="#cite_ref-FOOTNOTEByrkaGrandoniRothvoßSanita2010_10-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-FOOTNOTEByrkaGrandoniRothvoßSanita2010_10-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><a href="#CITEREFByrkaGrandoniRothvoßSanita2010">Byrka et al. (2010)</a>.</span>
+</li>
+<li id="cite_note-FOOTNOTEChlebíkChlebíková2008-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTEChlebíkChlebíková2008_11-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFChlebíkChlebíková2008">Chlebík &amp; Chlebíková (2008)</a>.</span>
+</li>
+<li id="cite_note-FOOTNOTEBermanKarpinskiZelikovsky2009-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTEBermanKarpinskiZelikovsky2009_12-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFBermanKarpinskiZelikovsky2009">Berman, Karpinski &amp; Zelikovsky (2009)</a>.</span>
+</li>
+<li id="cite_note-FOOTNOTEKarpinskiZelikovsky1998-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTEKarpinskiZelikovsky1998_13-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFKarpinskiZelikovsky1998">Karpinski &amp; Zelikovsky (1998)</a>.</span>
+</li>
+<li id="cite_note-FOOTNOTESmithWinter1995361-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTESmithWinter1995361_14-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFSmithWinter1995">Smith &amp; Winter (1995)</a>, p.&#160;361.</span>
+</li>
+<li id="cite_note-FOOTNOTEPaoliniStepanov2012-15"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTEPaoliniStepanov2012_15-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFPaoliniStepanov2012">Paolini &amp; Stepanov (2012)</a>.</span>
+</li>
+<li id="cite_note-FOOTNOTEKouMarkowskyBerman1981-16"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTEKouMarkowskyBerman1981_16-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFKouMarkowskyBerman1981">Kou, Markowsky &amp; Berman (1981)</a>.</span>
+</li>
+<li id="cite_note-FOOTNOTETakahashiMatsuyama1980-17"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTETakahashiMatsuyama1980_17-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFTakahashiMatsuyama1980">Takahashi &amp; Matsuyama (1980)</a>.<span class="error harv-error" style="display: none; font-size:100%"> sfnp error: no target: CITEREFTakahashiMatsuyama1980 (<a href="https://en.wikipedia.org/wiki/Category:Harv_and_Sfn_template_errors" title="Category:Harv and Sfn template errors">help</a>)</span></span>
+</li>
+<li id="cite_note-FOOTNOTEWuWidmayerWong1986-18"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTEWuWidmayerWong1986_18-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFWuWidmayerWong1986">Wu, Widmayer &amp; Wong (1986)</a>.<span class="error harv-error" style="display: none; font-size:100%"> sfnp error: no target: CITEREFWuWidmayerWong1986 (<a href="https://en.wikipedia.org/wiki/Category:Harv_and_Sfn_template_errors" title="Category:Harv and Sfn template errors">help</a>)</span></span>
+</li>
+<li id="cite_note-FOOTNOTEDreyfusWagner1971-19"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTEDreyfusWagner1971_19-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFDreyfusWagner1971">Dreyfus &amp; Wagner (1971)</a>.</span>
+</li>
+<li id="cite_note-FOOTNOTELevin1971-20"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTELevin1971_20-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFLevin1971">Levin (1971)</a>.</span>
+</li>
+<li id="cite_note-FOOTNOTEFuchsKernMölleRichter2007-21"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTEFuchsKernMölleRichter2007_21-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFFuchsKernMölleRichter2007">Fuchs et al. (2007)</a>.</span>
+</li>
+<li id="cite_note-FOOTNOTEBjörklundHusfeldtKaskiKoivisto2007-22"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTEBjörklundHusfeldtKaskiKoivisto2007_22-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFBjörklundHusfeldtKaskiKoivisto2007">Björklund et al. (2007)</a>.</span>
+</li>
+<li id="cite_note-FOOTNOTELokshtanovNederlof2010-23"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTELokshtanovNederlof2010_23-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFLokshtanovNederlof2010">Lokshtanov &amp; Nederlof (2010)</a>.</span>
+</li>
+<li id="cite_note-FOOTNOTEFominKaskiLokshtanovPanolan2015-24"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTEFominKaskiLokshtanovPanolan2015_24-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFFominKaskiLokshtanovPanolan2015">Fomin et al. (2015)</a>.</span>
+</li>
+<li id="cite_note-FOOTNOTECyganDellLokshtanovMarx2016-25"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTECyganDellLokshtanovMarx2016_25-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFCyganDellLokshtanovMarx2016">Cygan et al. (2016)</a>.</span>
+</li>
+<li id="cite_note-FOOTNOTEDomLokshtanovSaurabh2014-26"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTEDomLokshtanovSaurabh2014_26-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFDomLokshtanovSaurabh2014">Dom, Lokshtanov &amp; Saurabh (2014)</a>.</span>
+</li>
+<li id="cite_note-FOOTNOTEGanley2004-27"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTEGanley2004_27-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFGanley2004">Ganley (2004)</a>.</span>
+</li>
+<li id="cite_note-28"><span class="mw-cite-backlink"><b><a href="#cite_ref-28">^</a></b></span> <span class="reference-text"><i>The New York Times</i>, 30 Oct 1990, reported that a proof had been found, and that <a href="https://en.wikipedia.org/wiki/Ronald_Graham" title="Ronald Graham">Ronald Graham</a>, who had offered $500 for a proof, was about to mail a check to the authors.</span>
+</li>
+<li id="cite_note-FOOTNOTEIvanovTuzhilin2012-29"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTEIvanovTuzhilin2012_29-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFIvanovTuzhilin2012">Ivanov &amp; Tuzhilin (2012)</a>.</span>
+</li>
+<li id="cite_note-FOOTNOTEHwang1976-30"><span class="mw-cite-backlink"><b><a href="#cite_ref-FOOTNOTEHwang1976_30-0">^</a></b></span> <span class="reference-text"><a href="#CITEREFHwang1976">Hwang (1976)</a>.</span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Steiner_tree_problem&amp;action=edit&amp;section=9" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1054258005">.mw-parser-output .refbegin{font-size:90%;margin-bottom:0.5em}.mw-parser-output .refbegin-hanging-indents>ul{margin-left:0}.mw-parser-output .refbegin-hanging-indents>ul>li{margin-left:0;padding-left:3.2em;text-indent:-3.2em}.mw-parser-output .refbegin-hanging-indents ul,.mw-parser-output .refbegin-hanging-indents ul li{list-style:none}@media(max-width:720px){.mw-parser-output .refbegin-hanging-indents>ul>li{padding-left:1.6em;text-indent:-1.6em}}.mw-parser-output .refbegin-columns{margin-top:0.3em}.mw-parser-output .refbegin-columns ul{margin-top:0}.mw-parser-output .refbegin-columns li{page-break-inside:avoid;break-inside:avoid-column}</style><div class="refbegin refbegin-columns references-column-width" style="column-width: 30em">
+<ul><li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBermanKarpinskiZelikovsky2009" class="citation conference cs1">Berman, Piotr; <a href="https://en.wikipedia.org/wiki/Marek_Karpinski" title="Marek Karpinski">Karpinski, Marek</a>; Zelikovsky, Alexander (2009). "1.25-approximation algorithm for Steiner tree problem with distances 1 and 2". <i>Algorithms and Data Structures: 11th International Symposium, WADS 2009, Banff, Canada, August 21–23, 2009, Proceedings</i>. Lecture Notes in Computer Science. Vol.&#160;5664. pp.&#160;86–97. <a href="https://en.wikipedia.org/wiki/ArXiv_(identifier)" class="mw-redirect" title="ArXiv (identifier)">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://arxiv.org/abs/0810.1851">0810.1851</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-3-642-03367-4_8">10.1007/978-3-642-03367-4_8</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.atitle=1.25-approximation+algorithm+for+Steiner+tree+problem+with+distances+1+and+2&amp;rft.btitle=Algorithms+and+Data+Structures%3A+11th+International+Symposium%2C+WADS+2009%2C+Banff%2C+Canada%2C+August+21%E2%80%9323%2C+2009%2C+Proceedings&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft.pages=86-97&amp;rft.date=2009&amp;rft_id=info%3Aarxiv%2F0810.1851&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-642-03367-4_8&amp;rft.aulast=Berman&amp;rft.aufirst=Piotr&amp;rft.au=Karpinski%2C+Marek&amp;rft.au=Zelikovsky%2C+Alexander&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBernGraham1989" class="citation journal cs1">Bern, Marshall W.; <a href="https://en.wikipedia.org/wiki/Ronald_Graham" title="Ronald Graham">Graham, Ronald L.</a> (1989). "The shortest-network problem". <i>Scientific American</i>. <b>260</b> (1): 84–89. <a href="https://en.wikipedia.org/wiki/Bibcode_(identifier)" class="mw-redirect" title="Bibcode (identifier)">Bibcode</a>:<a rel="nofollow" class="external text" href="https://ui.adsabs.harvard.edu/abs/1989SciAm.260a..84B">1989SciAm.260a..84B</a>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1038%2Fscientificamerican0189-84">10.1038/scientificamerican0189-84</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Scientific+American&amp;rft.atitle=The+shortest-network+problem&amp;rft.volume=260&amp;rft.issue=1&amp;rft.pages=84-89&amp;rft.date=1989&amp;rft_id=info%3Adoi%2F10.1038%2Fscientificamerican0189-84&amp;rft_id=info%3Abibcode%2F1989SciAm.260a..84B&amp;rft.aulast=Bern&amp;rft.aufirst=Marshall+W.&amp;rft.au=Graham%2C+Ronald+L.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFBjörklundHusfeldtKaskiKoivisto2007" class="citation conference cs1">Björklund, Andreas; Husfeldt, Thore; Kaski, Petteri; Koivisto, Mikko (2007). "Fourier Meets Möbius: Fast Subset Convolution". <i><a href="https://en.wikipedia.org/wiki/Symposium_on_Theory_of_Computing" title="Symposium on Theory of Computing">Proceedings of the 39th ACM Symposium on Theory of Computing</a></i>. pp.&#160;67–74. <a href="https://en.wikipedia.org/wiki/ArXiv_(identifier)" class="mw-redirect" title="ArXiv (identifier)">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://arxiv.org/abs/cs/0611101">cs/0611101</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F1250790.1250801">10.1145/1250790.1250801</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.atitle=Fourier+Meets+M%C3%B6bius%3A+Fast+Subset+Convolution&amp;rft.btitle=Proceedings+of+the+39th+ACM+Symposium+on+Theory+of+Computing&amp;rft.pages=67-74&amp;rft.date=2007&amp;rft_id=info%3Aarxiv%2Fcs%2F0611101&amp;rft_id=info%3Adoi%2F10.1145%2F1250790.1250801&amp;rft.aulast=Bj%C3%B6rklund&amp;rft.aufirst=Andreas&amp;rft.au=Husfeldt%2C+Thore&amp;rft.au=Kaski%2C+Petteri&amp;rft.au=Koivisto%2C+Mikko&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFByrkaGrandoniRothvoßSanita2010" class="citation conference cs1">Byrka, J.; Grandoni, F.; Rothvoß, T.; Sanita, L. (2010). "An improved LP-based approximation for Steiner tree". <i><a href="https://en.wikipedia.org/wiki/Symposium_on_Theory_of_Computing" title="Symposium on Theory of Computing">Proceedings of the 42nd ACM Symposium on Theory of Computing</a></i>. pp.&#160;583–592. <a href="https://en.wikipedia.org/wiki/CiteSeerX_(identifier)" class="mw-redirect" title="CiteSeerX (identifier)">CiteSeerX</a>&#160;<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.177.3565">10.1.1.177.3565</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F1806689.1806769">10.1145/1806689.1806769</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.atitle=An+improved+LP-based+approximation+for+Steiner+tree&amp;rft.btitle=Proceedings+of+the+42nd+ACM+Symposium+on+Theory+of+Computing&amp;rft.pages=583-592&amp;rft.date=2010&amp;rft_id=%2F%2Fciteseerx.ist.psu.edu%2Fviewdoc%2Fsummary%3Fdoi%3D10.1.1.177.3565%23id-name%3DCiteSeerX&amp;rft_id=info%3Adoi%2F10.1145%2F1806689.1806769&amp;rft.aulast=Byrka&amp;rft.aufirst=J.&amp;rft.au=Grandoni%2C+F.&amp;rft.au=Rothvo%C3%9F%2C+T.&amp;rft.au=Sanita%2C+L.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFChlebíkChlebíková2008" class="citation journal cs1">Chlebík, Miroslav; <a href="https://en.wikipedia.org/wiki/Janka_Chlebíková" title="Janka Chlebíková">Chlebíková, Janka</a> (2008). <a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.tcs.2008.06.046">"The Steiner tree problem on graphs: Inapproximability results"</a>. <i><a href="https://en.wikipedia.org/wiki/Theoretical_Computer_Science_(journal)" title="Theoretical Computer Science (journal)">Theoretical Computer Science</a></i>. <b>406</b> (3): 207–214. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="https://doi.org/10.1016%2Fj.tcs.2008.06.046">10.1016/j.tcs.2008.06.046</a></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Theoretical+Computer+Science&amp;rft.atitle=The+Steiner+tree+problem+on+graphs%3A+Inapproximability+results&amp;rft.volume=406&amp;rft.issue=3&amp;rft.pages=207-214&amp;rft.date=2008&amp;rft_id=info%3Adoi%2F10.1016%2Fj.tcs.2008.06.046&amp;rft.aulast=Chleb%C3%ADk&amp;rft.aufirst=Miroslav&amp;rft.au=Chleb%C3%ADkov%C3%A1%2C+Janka&amp;rft_id=%2F%2Fdoi.org%2F10.1016%252Fj.tcs.2008.06.046&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFChungGraham1985" class="citation conference cs1"><a href="https://en.wikipedia.org/wiki/Fan_Chung" title="Fan Chung">Chung, F. R. K.</a>; <a href="https://en.wikipedia.org/wiki/Ronald_Graham" title="Ronald Graham">Graham, R. L.</a> (1985). "A new bound for Euclidean Steiner minimal trees". <i>Discrete geometry and convexity (New York, 1982)</i>. Annals of the New York Academy of Science. Vol.&#160;440. New York: New York Academy of Science. pp.&#160;328–346. <a href="https://en.wikipedia.org/wiki/Bibcode_(identifier)" class="mw-redirect" title="Bibcode (identifier)">Bibcode</a>:<a rel="nofollow" class="external text" href="https://ui.adsabs.harvard.edu/abs/1985NYASA.440..328C">1985NYASA.440..328C</a>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1111%2Fj.1749-6632.1985.tb14564.x">10.1111/j.1749-6632.1985.tb14564.x</a>. <a href="https://en.wikipedia.org/wiki/MR_(identifier)" class="mw-redirect" title="MR (identifier)">MR</a>&#160;<a rel="nofollow" class="external text" href="http://www.ams.org/mathscinet-getitem?mr=0809217">0809217</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.atitle=A+new+bound+for+Euclidean+Steiner+minimal+trees&amp;rft.btitle=Discrete+geometry+and+convexity+%28New+York%2C+1982%29&amp;rft.place=New+York&amp;rft.series=Annals+of+the+New+York+Academy+of+Science&amp;rft.pages=328-346&amp;rft.pub=New+York+Academy+of+Science&amp;rft.date=1985&amp;rft_id=%2F%2Fwww.ams.org%2Fmathscinet-getitem%3Fmr%3D809217%23id-name%3DMR&amp;rft_id=info%3Adoi%2F10.1111%2Fj.1749-6632.1985.tb14564.x&amp;rft_id=info%3Abibcode%2F1985NYASA.440..328C&amp;rft.aulast=Chung&amp;rft.aufirst=F.+R.+K.&amp;rft.au=Graham%2C+R.+L.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCieslik1998" class="citation book cs1">Cieslik, Dietmar (1998). <i>Steiner Minimal Trees</i>. p.&#160;319. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-7923-4983-0" title="Special:BookSources/0-7923-4983-0"><bdi>0-7923-4983-0</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Steiner+Minimal+Trees&amp;rft.pages=319&amp;rft.date=1998&amp;rft.isbn=0-7923-4983-0&amp;rft.aulast=Cieslik&amp;rft.aufirst=Dietmar&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCrescenziKannHalldórssonKarpinski2000" class="citation web cs1">Crescenzi, Pierluigi; Kann, Viggo; Halldórsson, Magnús; <a href="https://en.wikipedia.org/wiki/Marek_Karpinski" title="Marek Karpinski">Karpinski, Marek</a>; <a href="https://en.wikipedia.org/wiki/Gerhard_J._Woeginger" title="Gerhard J. Woeginger">Woeginger, Gerhard</a> (2000). <a rel="nofollow" class="external text" href="http://www.nada.kth.se/~viggo/wwwcompendium/node79.html">"Minimum geometric Steiner tree"</a>. <i>A Compendium of NP Optimization Problems</i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=A+Compendium+of+NP+Optimization+Problems&amp;rft.atitle=Minimum+geometric+Steiner+tree&amp;rft.date=2000&amp;rft.aulast=Crescenzi&amp;rft.aufirst=Pierluigi&amp;rft.au=Kann%2C+Viggo&amp;rft.au=Halld%C3%B3rsson%2C+Magn%C3%BAs&amp;rft.au=Karpinski%2C+Marek&amp;rft.au=Woeginger%2C+Gerhard&amp;rft_id=http%3A%2F%2Fwww.nada.kth.se%2F~viggo%2Fwwwcompendium%2Fnode79.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFCyganDellLokshtanovMarx2016" class="citation journal cs1">Cygan, Marek; Dell, Holger; Lokshtanov, Daniel; Marx, Dániel; Nederlof, Jesper; Okamoto, Yoshio; Paturi, Ramamohan; Saurabh, Saket; Wahlström, Magnus (2016). <a rel="nofollow" class="external text" href="http://eprints.sztaki.hu/9047/">"On Problems as Hard as CNF-SAT"</a>. <i>ACM Transactions on Algorithms</i>. <b>12</b> (3): 41:1–41:24. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F2925416">10.1145/2925416</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:7320634">7320634</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=ACM+Transactions+on+Algorithms&amp;rft.atitle=On+Problems+as+Hard+as+CNF-SAT&amp;rft.volume=12&amp;rft.issue=3&amp;rft.pages=41%3A1-41%3A24&amp;rft.date=2016&amp;rft_id=info%3Adoi%2F10.1145%2F2925416&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A7320634%23id-name%3DS2CID&amp;rft.aulast=Cygan&amp;rft.aufirst=Marek&amp;rft.au=Dell%2C+Holger&amp;rft.au=Lokshtanov%2C+Daniel&amp;rft.au=Marx%2C+D%C3%A1niel&amp;rft.au=Nederlof%2C+Jesper&amp;rft.au=Okamoto%2C+Yoshio&amp;rft.au=Paturi%2C+Ramamohan&amp;rft.au=Saurabh%2C+Saket&amp;rft.au=Wahlstr%C3%B6m%2C+Magnus&amp;rft_id=http%3A%2F%2Feprints.sztaki.hu%2F9047%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFDomLokshtanovSaurabh2014" class="citation journal cs1">Dom, Michael; Lokshtanov, Daniel; Saurabh, Saket (2014). "Kernelization Lower Bounds Through Colors and IDs". <i>ACM Transactions on Algorithms</i>. <b>11</b> (2): 13:1–13:20. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F2650261">10.1145/2650261</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:13570734">13570734</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=ACM+Transactions+on+Algorithms&amp;rft.atitle=Kernelization+Lower+Bounds+Through+Colors+and+IDs&amp;rft.volume=11&amp;rft.issue=2&amp;rft.pages=13%3A1-13%3A20&amp;rft.date=2014&amp;rft_id=info%3Adoi%2F10.1145%2F2650261&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A13570734%23id-name%3DS2CID&amp;rft.aulast=Dom&amp;rft.aufirst=Michael&amp;rft.au=Lokshtanov%2C+Daniel&amp;rft.au=Saurabh%2C+Saket&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFDreyfusWagner1971" class="citation journal cs1">Dreyfus, S.E.; Wagner, R.A. (1971). "The Steiner problem in graphs". <i>Networks</i>. <b>1</b> (3): 195–207. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1002%2Fnet.3230010302">10.1002/net.3230010302</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Networks&amp;rft.atitle=The+Steiner+problem+in+graphs&amp;rft.volume=1&amp;rft.issue=3&amp;rft.pages=195-207&amp;rft.date=1971&amp;rft_id=info%3Adoi%2F10.1002%2Fnet.3230010302&amp;rft.aulast=Dreyfus&amp;rft.aufirst=S.E.&amp;rft.au=Wagner%2C+R.A.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFFominKaskiLokshtanovPanolan2015" class="citation conference cs1">Fomin, Fedor V.; Kaski, Petteri; Lokshtanov, Daniel; Panolan, Fahad; Saurabh, Saket (2015). "Parameterized Single-Exponential Time Polynomial Space Algorithm for Steiner Tree". <i><a href="https://en.wikipedia.org/wiki/International_Colloquium_on_Automata,_Languages_and_Programming" title="International Colloquium on Automata, Languages and Programming">Automata, Languages, and Programming – 42nd International Colloquium, ICALP 2015, Proceedings, Part I</a></i>. pp.&#160;494–505. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2F978-3-662-47672-7_40">10.1007/978-3-662-47672-7_40</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.atitle=Parameterized+Single-Exponential+Time+Polynomial+Space+Algorithm+for+Steiner+Tree&amp;rft.btitle=Automata%2C+Languages%2C+and+Programming+%E2%80%93+42nd+International+Colloquium%2C+ICALP+2015%2C+Proceedings%2C+Part+I&amp;rft.pages=494-505&amp;rft.date=2015&amp;rft_id=info%3Adoi%2F10.1007%2F978-3-662-47672-7_40&amp;rft.aulast=Fomin&amp;rft.aufirst=Fedor+V.&amp;rft.au=Kaski%2C+Petteri&amp;rft.au=Lokshtanov%2C+Daniel&amp;rft.au=Panolan%2C+Fahad&amp;rft.au=Saurabh%2C+Saket&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFFuchsKernMölleRichter2007" class="citation journal cs1">Fuchs, Benjamin; Kern, Walter; Mölle, Daniel; Richter, Stefan; Rossmanith, Peter; Wang, Xinhui (2007). <a rel="nofollow" class="external text" href="http://e-archive.informatik.uni-koeln.de/492/2/zaik2005-492.pdf">"Dynamic Programming for Minimum Steiner Trees"</a> <span class="cs1-format">(PDF)</span>. <i>Theory of Computing Systems</i>. <b>41</b> (3): 493–500. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2Fs00224-007-1324-4">10.1007/s00224-007-1324-4</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:7478978">7478978</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Theory+of+Computing+Systems&amp;rft.atitle=Dynamic+Programming+for+Minimum+Steiner+Trees&amp;rft.volume=41&amp;rft.issue=3&amp;rft.pages=493-500&amp;rft.date=2007&amp;rft_id=info%3Adoi%2F10.1007%2Fs00224-007-1324-4&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A7478978%23id-name%3DS2CID&amp;rft.aulast=Fuchs&amp;rft.aufirst=Benjamin&amp;rft.au=Kern%2C+Walter&amp;rft.au=M%C3%B6lle%2C+Daniel&amp;rft.au=Richter%2C+Stefan&amp;rft.au=Rossmanith%2C+Peter&amp;rft.au=Wang%2C+Xinhui&amp;rft_id=http%3A%2F%2Fe-archive.informatik.uni-koeln.de%2F492%2F2%2Fzaik2005-492.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGanley2004" class="citation book cs1">Ganley, Joseph L. (2004). "Steiner ratio".  In Black, Paul E. (ed.). <a rel="nofollow" class="external text" href="https://xlinux.nist.gov/dads/HTML/steinerratio.html"><i>Dictionary of Algorithms and Data Structures</i></a>. U.S. National Institute of Standards and Technology<span class="reference-accessdate">. Retrieved <span class="nowrap">24 May</span> 2012</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Steiner+ratio&amp;rft.btitle=Dictionary+of+Algorithms+and+Data+Structures&amp;rft.pub=U.S.+National+Institute+of+Standards+and+Technology&amp;rft.date=2004&amp;rft.aulast=Ganley&amp;rft.aufirst=Joseph+L.&amp;rft_id=https%3A%2F%2Fxlinux.nist.gov%2Fdads%2FHTML%2Fsteinerratio.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFGareyJohnson1979" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Michael_Garey" title="Michael Garey">Garey, Michael R.</a>; <a href="https://en.wikipedia.org/wiki/David_S._Johnson" title="David S. Johnson">Johnson, David S.</a> (1979), <i><a href="https://en.wikipedia.org/wiki/Computers_and_Intractability" title="Computers and Intractability">Computers and Intractability: A Guide to the Theory of NP-Completeness</a></i>, <a href="https://en.wikipedia.org/wiki/W._H._Freeman_and_Company" title="W. H. Freeman and Company">W.&#160;H.&#160;Freeman</a>, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-7167-1045-5" title="Special:BookSources/0-7167-1045-5"><bdi>0-7167-1045-5</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Computers+and+Intractability%3A+A+Guide+to+the+Theory+of+NP-Completeness&amp;rft.pub=W.+H.+Freeman&amp;rft.date=1979&amp;rft.isbn=0-7167-1045-5&amp;rft.aulast=Garey&amp;rft.aufirst=Michael+R.&amp;rft.au=Johnson%2C+David+S.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span>, pp.&#160;208–209, problems ND12 and ND13.</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHwang1976" class="citation journal cs1">Hwang, F. K. (1976). "On Steiner minimal trees with rectilinear distance". <i>SIAM Journal on Applied Mathematics</i>. <b>30</b> (1): 104–114. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1137%2F0130013">10.1137/0130013</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=SIAM+Journal+on+Applied+Mathematics&amp;rft.atitle=On+Steiner+minimal+trees+with+rectilinear+distance&amp;rft.volume=30&amp;rft.issue=1&amp;rft.pages=104-114&amp;rft.date=1976&amp;rft_id=info%3Adoi%2F10.1137%2F0130013&amp;rft.aulast=Hwang&amp;rft.aufirst=F.+K.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHwangRichardsWinter1992" class="citation book cs1">Hwang, F. K.; Richards, D. S.; Winter, P. (1992). <i>The Steiner Tree Problem</i>. Annals of Discrete Mathematics. Vol.&#160;53. <a href="https://en.wikipedia.org/wiki/North-Holland_Publishing_Company" class="mw-redirect" title="North-Holland Publishing Company">North-Holland</a>: <a href="https://en.wikipedia.org/wiki/Elsevier" title="Elsevier">Elsevier</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-444-89098-X" title="Special:BookSources/0-444-89098-X"><bdi>0-444-89098-X</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Steiner+Tree+Problem&amp;rft.place=North-Holland&amp;rft.series=Annals+of+Discrete+Mathematics&amp;rft.pub=Elsevier&amp;rft.date=1992&amp;rft.isbn=0-444-89098-X&amp;rft.aulast=Hwang&amp;rft.aufirst=F.+K.&amp;rft.au=Richards%2C+D.+S.&amp;rft.au=Winter%2C+P.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFIvanovTuzhilin1994" class="citation book cs1">Ivanov, Alexander; Tuzhilin, Alexey (1994). <span class="cs1-lock-registration" title="Free registration required"><a rel="nofollow" class="external text" href="https://archive.org/details/minimalnetworkss0000ivan"><i>Minimal Networks: The Steiner Problem and Its Generalizations</i></a></span>. N.W., Boca Raton, Florida: <a href="https://en.wikipedia.org/wiki/CRC_Press" title="CRC Press">CRC Press</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-8493-8642-8" title="Special:BookSources/978-0-8493-8642-8"><bdi>978-0-8493-8642-8</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Minimal+Networks%3A+The+Steiner+Problem+and+Its+Generalizations&amp;rft.place=N.W.%2C+Boca+Raton%2C+Florida&amp;rft.pub=CRC+Press&amp;rft.date=1994&amp;rft.isbn=978-0-8493-8642-8&amp;rft.aulast=Ivanov&amp;rft.aufirst=Alexander&amp;rft.au=Tuzhilin%2C+Alexey&amp;rft_id=https%3A%2F%2Farchive.org%2Fdetails%2Fminimalnetworkss0000ivan&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFIvanovTuzhilin2000" class="citation book cs1">Ivanov, Alexander; Tuzhilin, Alexey (2000). <i>Branching solutions to one-dimensional variational problems</i>. Singapore-New Jersey-London-Hong Kong: <a href="https://en.wikipedia.org/wiki/World_Scientific" title="World Scientific">World Scientific</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-981-02-4060-8" title="Special:BookSources/978-981-02-4060-8"><bdi>978-981-02-4060-8</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Branching+solutions+to+one-dimensional+variational+problems&amp;rft.place=Singapore-New+Jersey-London-Hong+Kong&amp;rft.pub=World+Scientific&amp;rft.date=2000&amp;rft.isbn=978-981-02-4060-8&amp;rft.aulast=Ivanov&amp;rft.aufirst=Alexander&amp;rft.au=Tuzhilin%2C+Alexey&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFIvanovTuzhilin2003" class="citation book cs1 cs1-prop-foreign-lang-source">Ivanov, Alexander; Tuzhilin, Alexey (2003). <i>Extreme Networks Theory</i> (in Russian). Moscow-Izhevsk: Institute of Computer Investigations. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/5-93972-292-X" title="Special:BookSources/5-93972-292-X"><bdi>5-93972-292-X</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Extreme+Networks+Theory&amp;rft.place=Moscow-Izhevsk&amp;rft.pub=Institute+of+Computer+Investigations&amp;rft.date=2003&amp;rft.isbn=5-93972-292-X&amp;rft.aulast=Ivanov&amp;rft.aufirst=Alexander&amp;rft.au=Tuzhilin%2C+Alexey&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFIvanovTuzhilin2012" class="citation journal cs1">Ivanov, Alexander; Tuzhilin, Alexey (2012). "The Steiner ratio Gilbert–Pollak conjecture is still open: Clarification statement". <i>Algorithmica</i>. <b>62</b> (1–2): 630–632. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2Fs00453-011-9508-3">10.1007/s00453-011-9508-3</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:7486839">7486839</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Algorithmica&amp;rft.atitle=The+Steiner+ratio+Gilbert%E2%80%93Pollak+conjecture+is+still+open%3A+Clarification+statement&amp;rft.volume=62&amp;rft.issue=1%E2%80%932&amp;rft.pages=630-632&amp;rft.date=2012&amp;rft_id=info%3Adoi%2F10.1007%2Fs00453-011-9508-3&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A7486839%23id-name%3DS2CID&amp;rft.aulast=Ivanov&amp;rft.aufirst=Alexander&amp;rft.au=Tuzhilin%2C+Alexey&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFIvanovTuzhilin2015" class="citation journal cs1">Ivanov, Alexander; Tuzhilin, Alexey (2015). "Branched coverings and Steiner ratio". <i>International Transactions in Operational Research</i>. <b>23</b> (5): 875–882. <a href="https://en.wikipedia.org/wiki/ArXiv_(identifier)" class="mw-redirect" title="ArXiv (identifier)">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://arxiv.org/abs/1412.5433">1412.5433</a></span>. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1111%2Fitor.12182">10.1111/itor.12182</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:3386263">3386263</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=International+Transactions+in+Operational+Research&amp;rft.atitle=Branched+coverings+and+Steiner+ratio&amp;rft.volume=23&amp;rft.issue=5&amp;rft.pages=875-882&amp;rft.date=2015&amp;rft_id=info%3Aarxiv%2F1412.5433&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A3386263%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1111%2Fitor.12182&amp;rft.aulast=Ivanov&amp;rft.aufirst=Alexander&amp;rft.au=Tuzhilin%2C+Alexey&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFJuhlWarmeWinterZachariasen2014" class="citation conference cs1">Juhl, D.; Warme, D.M.; Winter, P.; Zachariasen, M. (2014). "The GeoSteiner Software Package for computing Steiner trees in the plane: an updated computational study". <a rel="nofollow" class="external text" href="http://dimacs11.zib.de/workshop/JuhlWarmeWinterZachariasen.pdf"><i>Proceedings of the 11th DIMACS Implementation Challenge</i></a> <span class="cs1-format">(PDF)</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.atitle=The+GeoSteiner+Software+Package+for+computing+Steiner+trees+in+the+plane%3A+an+updated+computational+study&amp;rft.btitle=Proceedings+of+the+11th+DIMACS+Implementation+Challenge&amp;rft.date=2014&amp;rft.aulast=Juhl&amp;rft.aufirst=D.&amp;rft.au=Warme%2C+D.M.&amp;rft.au=Winter%2C+P.&amp;rft.au=Zachariasen%2C+M.&amp;rft_id=http%3A%2F%2Fdimacs11.zib.de%2Fworkshop%2FJuhlWarmeWinterZachariasen.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKarpinskiZelikovsky1998" class="citation conference cs1">Karpinski, Marek; Zelikovsky, Alexander (1998). <a rel="nofollow" class="external text" href="https://books.google.com/books?id=IMmuF0RZk1MC&amp;pg=PA169">"Approximating dense cases of covering problems"</a>. <i>Proceedings of the DIMACS Workshop on Network Design: Connectivity and Facilities Location</i>. DIMACS Series in Discrete Mathematics and Theoretical Computer Science. Vol.&#160;40. American Mathematical Society. pp.&#160;169–178.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.atitle=Approximating+dense+cases+of+covering+problems&amp;rft.btitle=Proceedings+of+the+DIMACS+Workshop+on+Network+Design%3A+Connectivity+and+Facilities+Location&amp;rft.series=DIMACS+Series+in+Discrete+Mathematics+and+Theoretical+Computer+Science&amp;rft.pages=169-178&amp;rft.pub=American+Mathematical+Society&amp;rft.date=1998&amp;rft.aulast=Karpinski&amp;rft.aufirst=Marek&amp;rft.au=Zelikovsky%2C+Alexander&amp;rft_id=https%3A%2F%2Fbooks.google.com%2Fbooks%3Fid%3DIMmuF0RZk1MC%26pg%3DPA169&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKorteVygen2006" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Bernhard_Korte" title="Bernhard Korte">Korte, Bernhard</a>; Vygen, Jens (2006). "Section 20.1". <i>Combinatorial Optimization: Theory and Algorithms</i> (3rd&#160;ed.). <a href="https://en.wikipedia.org/wiki/Springer_Science+Business_Media" title="Springer Science+Business Media">Springer</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/3-540-25684-9" title="Special:BookSources/3-540-25684-9"><bdi>3-540-25684-9</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Section+20.1&amp;rft.btitle=Combinatorial+Optimization%3A+Theory+and+Algorithms&amp;rft.edition=3rd&amp;rft.pub=Springer&amp;rft.date=2006&amp;rft.isbn=3-540-25684-9&amp;rft.aulast=Korte&amp;rft.aufirst=Bernhard&amp;rft.au=Vygen%2C+Jens&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFKouMarkowskyBerman1981" class="citation journal cs1">Kou, L.; Markowsky, G.; Berman, L. (1 June 1981). "A fast algorithm for Steiner trees". <i>Acta Informatica</i>. <b>15</b> (2): 141–145. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2FBF00288961">10.1007/BF00288961</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:21057232">21057232</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Acta+Informatica&amp;rft.atitle=A+fast+algorithm+for+Steiner+trees&amp;rft.volume=15&amp;rft.issue=2&amp;rft.pages=141-145&amp;rft.date=1981-06-01&amp;rft_id=info%3Adoi%2F10.1007%2FBF00288961&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A21057232%23id-name%3DS2CID&amp;rft.aulast=Kou&amp;rft.aufirst=L.&amp;rft.au=Markowsky%2C+G.&amp;rft.au=Berman%2C+L.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFLevin1971" class="citation journal cs1">Levin, A. Yu. (1971). "Algorithm for the shortest connection of a group of graph vertices". <i>Soviet Mathematics Doklady</i>. <b>12</b>: 1477–1481.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Soviet+Mathematics+Doklady&amp;rft.atitle=Algorithm+for+the+shortest+connection+of+a+group+of+graph+vertices&amp;rft.volume=12&amp;rft.pages=1477-1481&amp;rft.date=1971&amp;rft.aulast=Levin&amp;rft.aufirst=A.+Yu.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFLokshtanovNederlof2010" class="citation conference cs1">Lokshtanov, Daniel; Nederlof, Jesper (2010). "Saving space by algebraization". <i><a href="https://en.wikipedia.org/wiki/Symposium_on_Theory_of_Computing" title="Symposium on Theory of Computing">Proceedings of the 42nd ACM Symposium on Theory of Computing</a></i>. pp.&#160;321–330. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1145%2F1806689.1806735">10.1145/1806689.1806735</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.atitle=Saving+space+by+algebraization&amp;rft.btitle=Proceedings+of+the+42nd+ACM+Symposium+on+Theory+of+Computing&amp;rft.pages=321-330&amp;rft.date=2010&amp;rft_id=info%3Adoi%2F10.1145%2F1806689.1806735&amp;rft.aulast=Lokshtanov&amp;rft.aufirst=Daniel&amp;rft.au=Nederlof%2C+Jesper&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFPaoliniStepanov2012" class="citation journal cs1">Paolini, E.; Stepanov, E. (2012). <a rel="nofollow" class="external text" href="https://flore.unifi.it/bitstream/2158/600141/1/final-for-CalcVar.pdf">"Existence and regularity results for the Steiner problem"</a> <span class="cs1-format">(PDF)</span>. <i>Calc. Var. Partial Diff. Equations</i>. <b>46</b> (3–4): 837–860. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2Fs00526-012-0505-4">10.1007/s00526-012-0505-4</a>. <a href="https://en.wikipedia.org/wiki/Hdl_(identifier)" class="mw-redirect" title="Hdl (identifier)">hdl</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://hdl.handle.net/2158%2F600141">2158/600141</a></span>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:55793499">55793499</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Calc.+Var.+Partial+Diff.+Equations&amp;rft.atitle=Existence+and+regularity+results+for+the+Steiner+problem&amp;rft.volume=46&amp;rft.issue=3%E2%80%934&amp;rft.pages=837-860&amp;rft.date=2012&amp;rft_id=info%3Ahdl%2F2158%2F600141&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A55793499%23id-name%3DS2CID&amp;rft_id=info%3Adoi%2F10.1007%2Fs00526-012-0505-4&amp;rft.aulast=Paolini&amp;rft.aufirst=E.&amp;rft.au=Stepanov%2C+E.&amp;rft_id=https%3A%2F%2Fflore.unifi.it%2Fbitstream%2F2158%2F600141%2F1%2Ffinal-for-CalcVar.pdf&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFRobinsZelikovsky2000" class="citation conference cs1">Robins, Gabriel; Zelikovsky, Alexander (2000). <a rel="nofollow" class="external text" href="http://dl.acm.org/citation.cfm?id=338219.338638">"Improved Steiner Tree Approximation in Graphs"</a>. <a rel="nofollow" class="external text" href="https://archive.org/details/proceedingsofele0000acms/page/770"><i>Proceedings of the Eleventh Annual ACM-SIAM Symposium on Discrete Algorithms (SODA '00)</i></a>. Philadelphia, PA, USA: Society for Industrial and Applied Mathematics. pp.&#160;<a rel="nofollow" class="external text" href="https://archive.org/details/proceedingsofele0000acms/page/770">770–779</a>. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-89871-453-2" title="Special:BookSources/0-89871-453-2"><bdi>0-89871-453-2</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.atitle=Improved+Steiner+Tree+Approximation+in+Graphs&amp;rft.btitle=Proceedings+of+the+Eleventh+Annual+ACM-SIAM+Symposium+on+Discrete+Algorithms+%28SODA+%2700%29&amp;rft.place=Philadelphia%2C+PA%2C+USA&amp;rft.pages=770-779&amp;rft.pub=Society+for+Industrial+and+Applied+Mathematics&amp;rft.date=2000&amp;rft.isbn=0-89871-453-2&amp;rft.aulast=Robins&amp;rft.aufirst=Gabriel&amp;rft.au=Zelikovsky%2C+Alexander&amp;rft_id=http%3A%2F%2Fdl.acm.org%2Fcitation.cfm%3Fid%3D338219.338638&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSherwani1993" class="citation book cs1">Sherwani, Naveed A. (1993). <i>Algorithms for VLSI Physical Design Automation</i>. Kluwer Academic Publishers. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/9781475722192" title="Special:BookSources/9781475722192"><bdi>9781475722192</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Algorithms+for+VLSI+Physical+Design+Automation&amp;rft.pub=Kluwer+Academic+Publishers&amp;rft.date=1993&amp;rft.isbn=9781475722192&amp;rft.aulast=Sherwani&amp;rft.aufirst=Naveed+A.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFSmithWinter1995" class="citation book cs1">Smith, J. M.; Winter, P. (1995). "Computational geometry and topological network design".  In Du, Ding-Zhu; Hwang, Frank (eds.). <i>Computing in Euclidean geometry</i>. Lecture Notes Series on Computing. Vol.&#160;4 (2nd&#160;ed.). River Edge, NJ: World Scientific Publishing Co. pp.&#160;351–451. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/981-02-1876-1" title="Special:BookSources/981-02-1876-1"><bdi>981-02-1876-1</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Computational+geometry+and+topological+network+design&amp;rft.btitle=Computing+in+Euclidean+geometry&amp;rft.place=River+Edge%2C+NJ&amp;rft.series=Lecture+Notes+Series+on+Computing&amp;rft.pages=351-451&amp;rft.edition=2nd&amp;rft.pub=World+Scientific+Publishing+Co&amp;rft.date=1995&amp;rft.isbn=981-02-1876-1&amp;rft.aulast=Smith&amp;rft.aufirst=J.+M.&amp;rft.au=Winter%2C+P.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="takahashi1980" class="citation journal cs1">Takahashi, Hiromitsu; Matsuyama, Akira (1980). "An approximate solution for the Steiner problem in graphs". <i>Math. Japonica</i>. <b>24</b> (6): 573–577.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Math.+Japonica&amp;rft.atitle=An+approximate+solution+for+the+Steiner+problem+in+graphs&amp;rft.volume=24&amp;rft.issue=6&amp;rft.pages=573-577&amp;rft.date=1980&amp;rft.aulast=Takahashi&amp;rft.aufirst=Hiromitsu&amp;rft.au=Matsuyama%2C+Akira&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFVazirani2003" class="citation book cs1"><a href="https://en.wikipedia.org/wiki/Vijay_Vazirani" title="Vijay Vazirani">Vazirani, Vijay V.</a> (2003). <i>Approximation Algorithms</i>. Berlin: Springer. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/3-540-65367-8" title="Special:BookSources/3-540-65367-8"><bdi>3-540-65367-8</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Approximation+Algorithms&amp;rft.place=Berlin&amp;rft.pub=Springer&amp;rft.date=2003&amp;rft.isbn=3-540-65367-8&amp;rft.aulast=Vazirani&amp;rft.aufirst=Vijay+V.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFWuChao2004" class="citation book cs1">Wu, Bang Ye; Chao, Kun-Mao (2004). "Chapter 7". <i>Spanning Trees and Optimization Problems</i>. Chapman &amp; Hall/CRC. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/1-58488-436-3" title="Special:BookSources/1-58488-436-3"><bdi>1-58488-436-3</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Chapter+7&amp;rft.btitle=Spanning+Trees+and+Optimization+Problems&amp;rft.pub=Chapman+%26+Hall%2FCRC&amp;rft.date=2004&amp;rft.isbn=1-58488-436-3&amp;rft.aulast=Wu&amp;rft.aufirst=Bang+Ye&amp;rft.au=Chao%2C+Kun-Mao&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="wu1986" class="citation journal cs1">Wu, Y. F.; Widmayer, P.; Wong, C. K. (May 1986). "A faster approximation algorithm for the Steiner problem in graphs". <i>Acta Informatica</i>. <b>23</b> (2): 223–229. <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1007%2Fbf00289500">10.1007/bf00289500</a>. <a href="https://en.wikipedia.org/wiki/S2CID_(identifier)" class="mw-redirect" title="S2CID (identifier)">S2CID</a>&#160;<a rel="nofollow" class="external text" href="https://api.semanticscholar.org/CorpusID:7772232">7772232</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Acta+Informatica&amp;rft.atitle=A+faster+approximation+algorithm+for+the+Steiner+problem+in+graphs&amp;rft.volume=23&amp;rft.issue=2&amp;rft.pages=223-229&amp;rft.date=1986-05&amp;rft_id=info%3Adoi%2F10.1007%2Fbf00289500&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A7772232%23id-name%3DS2CID&amp;rft.aulast=Wu&amp;rft.aufirst=Y.+F.&amp;rft.au=Widmayer%2C+P.&amp;rft.au=Wong%2C+C.+K.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li></ul>
+</div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Steiner_tree_problem&amp;action=edit&amp;section=10" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table role="presentation" class="mbox-small plainlinks sistersitebox" style="background-color:#f9f9f9;border:1px solid #aaa;color:#000">
+<tbody><tr>
+<td class="mbox-image"><img alt="" src="http://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/30px-Commons-logo.svg.png" decoding="async" width="30" height="40" class="noviewer" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/45px-Commons-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/59px-Commons-logo.svg.png 2x" data-file-width="1024" data-file-height="1376" /></td>
+<td class="mbox-text plainlist">Wikimedia Commons has media related to <span style="font-weight: bold; font-style: italic;"><a href="https://commons.wikimedia.org/wiki/Category:Steiner_tree_problem" class="extiw" title="commons:Category:Steiner tree problem">Steiner tree problem</a></span>.</td></tr>
+</tbody></table>
+<ul><li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHazewinkel2001" class="citation cs2">Hazewinkel, M. (2001) [1994], <a rel="nofollow" class="external text" href="https://www.encyclopediaofmath.org/index.php?title=Steiner_tree_problem">"Steiner tree problem"</a>, <i><a href="https://en.wikipedia.org/wiki/Encyclopedia_of_Mathematics" title="Encyclopedia of Mathematics">Encyclopedia of Mathematics</a></i>, <a href="https://en.wikipedia.org/wiki/European_Mathematical_Society" title="European Mathematical Society">EMS Press</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Steiner+tree+problem&amp;rft.btitle=Encyclopedia+of+Mathematics&amp;rft.pub=EMS+Press&amp;rft.date=2001&amp;rft.aulast=Hazewinkel&amp;rft.aufirst=M.&amp;rft_id=https%3A%2F%2Fwww.encyclopediaofmath.org%2Findex.php%3Ftitle%3DSteiner_tree_problem&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li>
+<li><a rel="nofollow" class="external text" href="http://theory.cs.uni-bonn.de/info5/steinerkompendium/">M. Hauptmann, M. Karpinski (2013): A Compendium on Steiner Tree Problems</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.cs.sunysb.edu/~algorith/implement/geosteiner/implement.shtml">GeoSteiner</a> (Euclidean and rectilinear Steiner tree solver; Source available, for non commercial use)</li>
+<li><a rel="nofollow" class="external text" href="https://scipjack.zib.de/">SCIP-Jack</a> (Solver for the Steiner tree problem in graphs and 14 variants, e.g., prize-collecting Steiner tree problem; Source available, free for academic use)</li>
+<li><a rel="nofollow" class="external text" href="https://archive.org/details/RonaldLG1988">https://archive.org/details/RonaldLG1988</a> (Movie: Ronald L Graham: The Shortest Network Problem (1988)</li>
+<li><a rel="nofollow" class="external text" href="http://nuclear.llnl.gov/CNP/apt/apt/aptsver.html">Fortran subroutine</a> for finding the Steiner vertex of a triangle (i.e., <a href="https://en.wikipedia.org/wiki/Fermat_point" title="Fermat point">Fermat point</a>), its distances from the triangle vertices, and the relative vertex weights.</li>
+<li><a rel="nofollow" class="external text" href="http://phylomurka.sf.net/">Phylomurka</a> (Solver for small-scale Steiner tree problems in graphs)</li>
+<li><a rel="nofollow" class="external text" href="https://www.youtube.com/watch?v=PI6rAOWu-Og">https://www.youtube.com/watch?v=PI6rAOWu-Og</a> (Movie: solving the Steiner tree problem with water and soap)</li>
+<li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFNoormohammadpourRaghavendraRaoKandula2017" class="citation cs2">Noormohammadpour, Mohammad; Raghavendra, Cauligi S.; Rao, Sriram; Kandula, Srikanth (2017), "Using Steiner Trees to Minimize Average Completion Times of Bulk Data Transfers", <a rel="nofollow" class="external text" href="https://www.researchgate.net/publication/316921061"><i>DCCast: Efficient Point to Multipoint Transfers Across Datacenters</i></a>, USENIX Association, <a href="https://en.wikipedia.org/wiki/ArXiv_(identifier)" class="mw-redirect" title="ArXiv (identifier)">arXiv</a>:<span class="cs1-lock-free" title="Freely accessible"><a rel="nofollow" class="external text" href="http://arxiv.org/abs/1707.02096">1707.02096</a></span></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Using+Steiner+Trees+to+Minimize+Average+Completion+Times+of+Bulk+Data+Transfers&amp;rft.btitle=DCCast%3A+Efficient+Point+to+Multipoint+Transfers+Across+Datacenters&amp;rft.pub=USENIX+Association&amp;rft.date=2017&amp;rft_id=info%3Aarxiv%2F1707.02096&amp;rft.aulast=Noormohammadpour&amp;rft.aufirst=Mohammad&amp;rft.au=Raghavendra%2C+Cauligi+S.&amp;rft.au=Rao%2C+Sriram&amp;rft.au=Kandula%2C+Srikanth&amp;rft_id=https%3A%2F%2Fwww.researchgate.net%2Fpublication%2F316921061&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ASteiner+tree+problem" class="Z3988"></span></li></ul>
+<!-- 
+NewPP limit report
+Parsed by mw1396
+Cached time: 20220502062024
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.935 seconds
+Real time usage: 1.842 seconds
+Preprocessor visited node count: 4263/1000000
+Post‐expand include size: 99510/2097152 bytes
+Template argument size: 3248/2097152 bytes
+Highest expansion depth: 13/100
+Expensive parser function count: 3/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 99034/5000000 bytes
+Lua time usage: 0.522/10.000 seconds
+Lua memory usage: 8060253/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00% 1616.063      1 -total
+ 23.75%  383.893      1 Template:Short_description
+ 20.63%  333.326      1 Template:Ill
+ 19.18%  310.040     25 Template:Sfnp
+ 12.87%  208.039      1 Template:Pagetype
+ 12.49%  201.792      1 Template:Separated_entries
+ 10.91%  176.343      1 Template:Reflist
+  7.29%  117.808     17 Template:Cite_journal
+  6.13%   99.048      2 Template:Cite_web
+  3.85%   62.230     11 Template:Cite_book
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:498304-0!canonical and timestamp 20220502062022 and revision id 1085745899. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Steiner_tree_problem&amp;oldid=1085745899">https://en.wikipedia.org/w/index.php?title=Steiner_tree_problem&amp;oldid=1085745899</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:NP-complete_problems" title="Category:NP-complete problems">NP-complete problems</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Trees_(graph_theory)" title="Category:Trees (graph theory)">Trees (graph theory)</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Computational_problems_in_graph_theory" title="Category:Computational problems in graph theory">Computational problems in graph theory</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Geometric_algorithms" title="Category:Geometric algorithms">Geometric algorithms</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Geometric_graphs" title="Category:Geometric graphs">Geometric graphs</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Harv_and_Sfn_no-target_errors" title="Category:Harv and Sfn no-target errors">Harv and Sfn no-target errors</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_matches_Wikidata" title="Category:Short description matches Wikidata">Short description matches Wikidata</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Use_dmy_dates_from_May_2022" title="Category:Use dmy dates from May 2022">Use dmy dates from May 2022</a></li><li><a href="https://en.wikipedia.org/wiki/Category:CS1_Russian-language_sources_(ru)" title="Category:CS1 Russian-language sources (ru)">CS1 Russian-language sources (ru)</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Commons_category_link_is_on_Wikidata" title="Category:Commons category link is on Wikidata">Commons category link is on Wikidata</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Steiner+tree+problem" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Steiner+tree+problem" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Steiner_tree_problem" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Steiner_tree_problem" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Steiner_tree_problem"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Steiner_tree_problem&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Steiner_tree_problem&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Steiner_tree_problem" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Steiner_tree_problem" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Steiner_tree_problem&amp;oldid=1085745899" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Steiner_tree_problem&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Steiner_tree_problem&amp;id=1085745899&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q1764144" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Steiner_tree_problem&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Steiner_tree_problem&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-wikibase-otherprojects" class="mw-portlet mw-portlet-wikibase-otherprojects vector-menu vector-menu-portal portal" aria-labelledby="p-wikibase-otherprojects-label" role="navigation" 
+	 >
+	<label id="p-wikibase-otherprojects-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">In other projects</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="wb-otherproject-link wb-otherproject-commons mw-list-item"><a href="https://commons.wikimedia.org/wiki/Category:Steiner_tree_problem" hreflang="en"><span>Wikimedia Commons</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Steinerbaumproblem" title="Steinerbaumproblem – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Árbol_de_Steiner" title="Árbol de Steiner – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/مسئله_درخت_اشتاینر" title="مسئله درخت اشتاینر – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Problème_de_l%27arbre_de_Steiner" title="Problème de l&#039;arbre de Steiner – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/בעיית_העץ_של_שטיינר" title="בעיית העץ של שטיינר – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-nl mw-list-item"><a href="https://nl.wikipedia.org/wiki/Steinerboomprobleem" title="Steinerboomprobleem – Dutch" lang="nl" hreflang="nl" class="interlanguage-link-target"><span>Nederlands</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/シュタイナー木" title="シュタイナー木 – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Drzewo_Steinera" title="Drzewo Steinera – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/Problema_da_árvore_de_Steiner" title="Problema da árvore de Steiner – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Задача_Штейнера_о_минимальном_дереве" title="Задача Штейнера о минимальном дереве – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/Štajnerovo_drvo" title="Štajnerovo drvo – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Задача_Штейнера" title="Задача Штейнера – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-vi mw-list-item"><a href="https://vi.wikipedia.org/wiki/Cây_Steiner" title="Cây Steiner – Vietnamese" lang="vi" hreflang="vi" class="interlanguage-link-target"><span>Tiếng Việt</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q1764144#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 2 May 2022, at 06:20<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Steiner_tree_problem&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.935","walltime":"1.842","ppvisitednodes":{"value":4263,"limit":1000000},"postexpandincludesize":{"value":99510,"limit":2097152},"templateargumentsize":{"value":3248,"limit":2097152},"expansiondepth":{"value":13,"limit":100},"expensivefunctioncount":{"value":3,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":99034,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00% 1616.063      1 -total"," 23.75%  383.893      1 Template:Short_description"," 20.63%  333.326      1 Template:Ill"," 19.18%  310.040     25 Template:Sfnp"," 12.87%  208.039      1 Template:Pagetype"," 12.49%  201.792      1 Template:Separated_entries"," 10.91%  176.343      1 Template:Reflist","  7.29%  117.808     17 Template:Cite_journal","  6.13%   99.048      2 Template:Cite_web","  3.85%   62.230     11 Template:Cite_book"]},"scribunto":{"limitreport-timeusage":{"value":"0.522","limit":"10.000"},"limitreport-memusage":{"value":8060253,"limit":52428800},"limitreport-logs":"anchor_id_list = table#1 {\n  [\"CITEREFBermanKarpinskiZelikovsky2009\"] = 1,\n  [\"CITEREFBernGraham1989\"] = 1,\n  [\"CITEREFBjörklundHusfeldtKaskiKoivisto2007\"] = 1,\n  [\"CITEREFByrkaGrandoniRothvoßSanita2010\"] = 1,\n  [\"CITEREFChlebíkChlebíková2008\"] = 1,\n  [\"CITEREFChungGraham1985\"] = 1,\n  [\"CITEREFCieslik1998\"] = 1,\n  [\"CITEREFCrescenziKannHalldórssonKarpinski2000\"] = 1,\n  [\"CITEREFCyganDellLokshtanovMarx2016\"] = 1,\n  [\"CITEREFDomLokshtanovSaurabh2014\"] = 1,\n  [\"CITEREFDreyfusWagner1971\"] = 1,\n  [\"CITEREFFominKaskiLokshtanovPanolan2015\"] = 1,\n  [\"CITEREFFuchsKernMölleRichter2007\"] = 1,\n  [\"CITEREFGanley2004\"] = 1,\n  [\"CITEREFHwang1976\"] = 1,\n  [\"CITEREFHwangRichardsWinter1992\"] = 1,\n  [\"CITEREFIvanovTuzhilin1994\"] = 1,\n  [\"CITEREFIvanovTuzhilin2000\"] = 1,\n  [\"CITEREFIvanovTuzhilin2003\"] = 1,\n  [\"CITEREFIvanovTuzhilin2012\"] = 1,\n  [\"CITEREFIvanovTuzhilin2015\"] = 1,\n  [\"CITEREFJuhlWarmeWinterZachariasen2014\"] = 1,\n  [\"CITEREFKarpinskiZelikovsky1998\"] = 1,\n  [\"CITEREFKlimmToledoMonfeugaZhang2020\"] = 1,\n  [\"CITEREFKorteNešetřil2001\"] = 1,\n  [\"CITEREFKorteVygen2006\"] = 1,\n  [\"CITEREFKouMarkowskyBerman1981\"] = 1,\n  [\"CITEREFLevin1971\"] = 1,\n  [\"CITEREFLjubić2021\"] = 1,\n  [\"CITEREFLokshtanovNederlof2010\"] = 1,\n  [\"CITEREFNoormohammadpourRaghavendraRaoKandula2017\"] = 1,\n  [\"CITEREFNovakRugeljKandus2001\"] = 1,\n  [\"CITEREFPaoliniStepanov2012\"] = 1,\n  [\"CITEREFRobinsZelikovsky2000\"] = 1,\n  [\"CITEREFSherwani1993\"] = 1,\n  [\"CITEREFSmithWinter1995\"] = 1,\n  [\"CITEREFVazirani2003\"] = 1,\n  [\"CITEREFWuChao2004\"] = 1,\n  [\"takahashi1980\"] = 1,\n  [\"wu1986\"] = 1,\n}\ntemplate_list = table#1 {\n  [\"Citation\"] = 2,\n  [\"Cite book\"] = 11,\n  [\"Cite conference\"] = 9,\n  [\"Cite journal\"] = 17,\n  [\"Cite web\"] = 2,\n  [\"Commons category\"] = 1,\n  [\"Garey-Johnson\"] = 1,\n  [\"Harvtxt\"] = 1,\n  [\"Ill\"] = 1,\n  [\"Main article\"] = 1,\n  [\"Refbegin\"] = 1,\n  [\"Refend\"] = 1,\n  [\"Reflist\"] = 1,\n  [\"Regular_polygon_minimum_spanning_tree.svg\"] = 1,\n  [\"Sfnp\"] = 25,\n  [\"Short description\"] = 1,\n  [\"Springer\"] = 1,\n  [\"Use dmy dates\"] = 1,\n}\narticle_whitelist = table#1 {\n}\n"},"cachereport":{"origin":"mw1396","timestamp":"20220502062024","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Steiner tree problem","url":"https:\/\/en.wikipedia.org\/wiki\/Steiner_tree_problem","sameAs":"http:\/\/www.wikidata.org\/entity\/Q1764144","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q1764144","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-03-02T03:08:09Z","dateModified":"2022-05-02T06:20:16Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/3\/3f\/Steiner_3_points.svg","headline":"class of problems in combinatorial mathematics"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Steiner tree problem","url":"https:\/\/en.wikipedia.org\/wiki\/Steiner_tree_problem","sameAs":"http:\/\/www.wikidata.org\/entity\/Q1764144","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q1764144","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-03-02T03:08:09Z","dateModified":"2022-05-02T06:20:16Z","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/3\/3f\/Steiner_3_points.svg","headline":"class of problems in combinatorial mathematics"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":140,"wgHostname":"mw1395"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Steiner_tree_problem by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:50 GMT -->
+</html>

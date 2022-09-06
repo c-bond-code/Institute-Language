@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<!-- Mirrored from en.wikipedia.org/wiki/Minimax by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8"/>
+<title>Minimax - Wikipedia</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"716f08d9-ae03-4e8a-b763-54286e3a9dc1","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Minimax","wgTitle":"Minimax","wgCurRevisionId":1076761456,"wgRevisionId":1076761456,"wgArticleId":19589,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["CS1 maint: uses authors parameter","Articles with short description","Short description is different from Wikidata","All articles with failed verification","Articles with failed verification from February 2015","Webarchive template wayback links","Articles with example pseudocode","Detection theory",
+"Game artificial intelligence","Graph algorithms","Optimization algorithms and methods","Search algorithms","Game theory","Theorems in discrete mathematics","Decision theory","Fixed points (mathematics)"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Minimax","wgRelevantArticleId":19589,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{"status":{"levels":1}}},"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en"},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgWMESchemaEditAttemptStepOversample":false,"wgWMEPageLength":30000,"wgNoticeProject":"wikipedia","wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsFlags":10,"wgULSCurrentAutonym":"English","wgEditSubmitButtonLabelPublish":true,"wgCentralAuthMobileDomain":false,"wgULSPosition":
+"interlanguage","wgULSisCompactLinksEnabled":true,"wgWikibaseItemId":"Q751319","wgGENewcomerTasksGuidanceEnabled":true,"wgGEAskQuestionEnabled":false,"wgGELinkRecommendationsFrontendEnabled":false};RLSTATE={"ext.globalCssJs.user.styles":"ready","site.styles":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","skins.vector.styles.legacy":"ready","jquery.makeCollapsible.styles":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.wikimediaBadges":"ready","ext.uls.interlanguage":"ready","wikibase.client.init":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.ready","jquery.makeCollapsible","mediawiki.toc","https://en.wikipedia.org/wiki/skins.vector.legacy.js","mmv.head","mmv.bootstrap.autostart","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming",
+"ext.cx.eventlogging.campaigns","ext.centralNotice.geoIP","ext.centralNotice.startUp","ext.gadget.ReferenceTooltips","ext.gadget.charinsert","ext.gadget.extra-toolbar-buttons","ext.gadget.refToolbar","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.uls.compactlinks","ext.uls.interface","ext.growthExperiments.SuggestedEditSession"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=ext.cite.styles%7Cext.math.styles%7Cext.uls.interlanguage%7Cext.visualEditor.desktopArticleTarget.noscript%7Cext.wikimediaBadges%7Cjquery.makeCollapsible.styles%7Cskins.vector.styles.legacy%7Cwikibase.client.init&amp;only=styles&amp;skin=vector"/>
+<script async="" src="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="https://en.wikipedia.org/w/load.php?lang=en&amp;modules=site.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="generator" content="MediaWiki 1.39.0-wmf.9"/>
+<meta name="referrer" content="origin"/>
+<meta name="referrer" content="origin-when-crossorigin"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="format-detection" content="telephone=no"/>
+<meta property="og:title" content="Minimax - Wikipedia"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="http://upload.wikimedia.org/"/>
+<link rel="alternate" media="only screen and (max-width: 720px)" href="http://en.m.wikipedia.org/wiki/Minimax"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Minimax"/>
+<link rel="dns-prefetch" href="http://meta.wikimedia.org/" />
+<link rel="dns-prefetch" href="http://login.wikimedia.org/"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-Minimax rootpage-Minimax skin-vector action-view skin-vector-legacy"><div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice"><!-- CentralNotice --></div>
+	<div class="mw-indicators">
+	</div>
+	<h1 id="firstHeading" class="firstHeading mw-first-heading">Minimax</h1>
+	<div id="bodyContent" class="vector-body">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		<div id="contentSub2"></div>
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#searchInput">Jump to search</a>
+		<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="shortdescription nomobile noexcerpt noprint searchaux" style="display:none">Decision rule used for minimizing the possible loss for a worst case scenario</div>
+<style data-mw-deduplicate="TemplateStyles:r1033289096">.mw-parser-output .hatnote{font-style:italic}.mw-parser-output div.hatnote{padding-left:1.6em;margin-bottom:0.5em}.mw-parser-output .hatnote i{font-style:normal}.mw-parser-output .hatnote+link+.hatnote{margin-top:-0.5em}</style><div role="note" class="hatnote navigation-not-searchable">This article is about the decision theory concept. For other uses, see <a href="https://en.wikipedia.org/wiki/Minimax_(disambiguation)" class="mw-disambig" title="Minimax (disambiguation)">Minimax (disambiguation)</a>.</div>
+<p><b>Minimax</b> (sometimes <b>MinMax</b>, <b>MM</b><sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup> or <b>saddle point</b><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">&#91;2&#93;</a></sup>) is a decision rule used in <a href="https://en.wikipedia.org/wiki/Artificial_intelligence" title="Artificial intelligence">artificial intelligence</a>, <a href="https://en.wikipedia.org/wiki/Decision_theory" title="Decision theory">decision theory</a>, <a href="https://en.wikipedia.org/wiki/Game_theory" title="Game theory">game theory</a>, <a href="https://en.wikipedia.org/wiki/Statistics" title="Statistics">statistics</a>, and <a href="https://en.wikipedia.org/wiki/Philosophy" title="Philosophy">philosophy</a> for <i>mini</i>mizing the possible <a href="https://en.wikipedia.org/wiki/Loss_function" title="Loss function">loss</a> for a <a href="https://en.wikipedia.org/wiki/Worst-case_scenario" title="Worst-case scenario">worst case (<i>max</i>imum loss) scenario</a>.  When dealing with gains, it is referred to as "maximin"—to maximize the minimum gain.  Originally formulated for n-player <a href="https://en.wikipedia.org/wiki/Zero-sum" class="mw-redirect" title="Zero-sum">zero-sum</a> <a href="https://en.wikipedia.org/wiki/Game_theory" title="Game theory">game theory</a>, covering both the cases where players take alternate moves and those where they make simultaneous moves, it has also been extended to more complex games and to general decision-making in the presence of uncertainty.
+</p>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Game_theory"><span class="tocnumber">1</span> <span class="toctext">Game theory</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#In_general_games"><span class="tocnumber">1.1</span> <span class="toctext">In general games</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#In_zero-sum_games"><span class="tocnumber">1.2</span> <span class="toctext">In zero-sum games</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Example"><span class="tocnumber">1.3</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Maximin"><span class="tocnumber">1.4</span> <span class="toctext">Maximin</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#In_repeated_games"><span class="tocnumber">1.5</span> <span class="toctext">In repeated games</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Combinatorial_game_theory"><span class="tocnumber">2</span> <span class="toctext">Combinatorial game theory</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#Minimax_algorithm_with_alternate_moves"><span class="tocnumber">2.1</span> <span class="toctext">Minimax algorithm with alternate moves</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Pseudocode"><span class="tocnumber">2.2</span> <span class="toctext">Pseudocode</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Example_2"><span class="tocnumber">2.3</span> <span class="toctext">Example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#Minimax_for_individual_decisions"><span class="tocnumber">3</span> <span class="toctext">Minimax for individual decisions</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="#Minimax_in_the_face_of_uncertainty"><span class="tocnumber">3.1</span> <span class="toctext">Minimax in the face of uncertainty</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Minimax_criterion_in_statistical_decision_theory"><span class="tocnumber">3.2</span> <span class="toctext">Minimax criterion in statistical decision theory</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Non-probabilistic_decision_theory"><span class="tocnumber">3.3</span> <span class="toctext">Non-probabilistic decision theory</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="#Maximin_in_philosophy"><span class="tocnumber">4</span> <span class="toctext">Maximin in philosophy</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="#Notes"><span class="tocnumber">6</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="#External_links"><span class="tocnumber">7</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Game_theory">Game theory</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit&amp;section=1" title="Edit section: Game theory">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="In_general_games">In general games</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit&amp;section=2" title="Edit section: In general games">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The <b>maximin value</b> is the highest value that the player can be sure to get without knowing the actions of the other players; equivalently, it is the lowest value the other players can force the player to receive when they know the player's action. Its formal definition is:<sup id="cite_ref-ZMS2013_3-0" class="reference"><a href="#cite_note-ZMS2013-3">&#91;3&#93;</a></sup>
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\underline {v_{i}}}=\max _{a_{i}}\min _{a_{-i}}{v_{i}(a_{i},a_{-i})}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <munder>
+            <msub>
+              <mi>v</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+            <mo>&#x005F;<!-- _ --></mo>
+          </munder>
+        </mrow>
+        <mo>=</mo>
+        <munder>
+          <mo movablelimits="true" form="prefix">max</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msub>
+              <mi>a</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+          </mrow>
+        </munder>
+        <munder>
+          <mo movablelimits="true" form="prefix">min</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msub>
+              <mi>a</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo>&#x2212;<!-- − --></mo>
+                <mi>i</mi>
+              </mrow>
+            </msub>
+          </mrow>
+        </munder>
+        <mrow class="MJX-TeXAtom-ORD">
+          <msub>
+            <mi>v</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>i</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false">(</mo>
+          <msub>
+            <mi>a</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>i</mi>
+            </mrow>
+          </msub>
+          <mo>,</mo>
+          <msub>
+            <mi>a</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo>&#x2212;<!-- − --></mo>
+              <mi>i</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false">)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\underline {v_{i}}}=\max _{a_{i}}\min _{a_{-i}}{v_{i}(a_{i},a_{-i})}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/76d2fe8fe2fc328093c7b0c19e83a0197004a5d3" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.338ex; width:24.111ex; height:4.343ex;" alt="{\underline {v_{i}}}=\max _{a_{i}}\min _{a_{-i}}{v_{i}(a_{i},a_{-i})}"/></span></dd></dl>
+<p>Where:
+</p>
+<ul><li><span class="texhtml mvar" style="font-style:italic;">i</span> is the index of the player of interest.</li>
+<li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle -i}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>i</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle -i}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/91fddb9f89a520937db3a8821575068cdcc76f60" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:2.611ex; height:2.343ex;" alt="-i"/></span> denotes all other players except player <span class="texhtml mvar" style="font-style:italic;">i</span>.</li>
+<li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle a_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0bc77764b2e74e64a63341054fa90f3e07db275f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.029ex; height:2.009ex;" alt="a_{i}"/></span> is the action taken by player <span class="texhtml mvar" style="font-style:italic;">i</span>.</li>
+<li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle a_{-i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2212;<!-- − --></mo>
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle a_{-i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/42ad62ea9270fed5d53c1ec1d7f41177e50d0abf" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:3.308ex; height:2.009ex;" alt="a_{{-i}}"/></span> denotes the actions taken by all other players.</li>
+<li><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle v_{i}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{i}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7dffe5726650f6daac54829972a94f38eb8ec127" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:1.927ex; height:2.009ex;" alt="v_{i}"/></span> is the value function of player <span class="texhtml mvar" style="font-style:italic;">i</span>.</li></ul>
+<p>Calculating the maximin value of a player is done in a worst-case approach: for each possible action of the player, we check all possible actions of the other players and determine the worst possible combination of actions—the one that gives player <span class="texhtml mvar" style="font-style:italic;">i</span> the smallest value. Then, we determine which action player <span class="texhtml mvar" style="font-style:italic;">i</span> can take in order to make sure that this smallest value is the highest possible.
+</p><p>For example, consider the following game for two players, where the first player ("row player") may choose any of three moves, labelled <span class="texhtml mvar" style="font-style:italic;">T</span>, <span class="texhtml mvar" style="font-style:italic;">M</span>, or <span class="texhtml mvar" style="font-style:italic;">B</span>, and the second player ("column" player) may choose either of two moves, <span class="texhtml mvar" style="font-style:italic;">L</span> or <span class="texhtml mvar" style="font-style:italic;">R</span>. The result of the combination of both moves is expressed in a payoff table:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\begin{array}{c|cc}\hline &amp;L&amp;R\\\hline T&amp;3,1&amp;2,-20\\M&amp;5,0&amp;-10,1\\B&amp;-100,2&amp;4,4\\\hline \end{array}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <menclose notation="top bottom">
+            <mtable columnalign="center center center" rowspacing="4pt" columnspacing="1em" rowlines="solid none none" columnlines="solid none">
+              <mtr>
+                <mtd />
+                <mtd>
+                  <mi>L</mi>
+                </mtd>
+                <mtd>
+                  <mi>R</mi>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mi>T</mi>
+                </mtd>
+                <mtd>
+                  <mn>3</mn>
+                  <mo>,</mo>
+                  <mn>1</mn>
+                </mtd>
+                <mtd>
+                  <mn>2</mn>
+                  <mo>,</mo>
+                  <mo>&#x2212;<!-- − --></mo>
+                  <mn>20</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mi>M</mi>
+                </mtd>
+                <mtd>
+                  <mn>5</mn>
+                  <mo>,</mo>
+                  <mn>0</mn>
+                </mtd>
+                <mtd>
+                  <mo>&#x2212;<!-- − --></mo>
+                  <mn>10</mn>
+                  <mo>,</mo>
+                  <mn>1</mn>
+                </mtd>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <mi>B</mi>
+                </mtd>
+                <mtd>
+                  <mo>&#x2212;<!-- − --></mo>
+                  <mn>100</mn>
+                  <mo>,</mo>
+                  <mn>2</mn>
+                </mtd>
+                <mtd>
+                  <mn>4</mn>
+                  <mo>,</mo>
+                  <mn>4</mn>
+                </mtd>
+              </mtr>
+            </mtable>
+          </menclose>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{array}{c|cc}\hline &amp;L&amp;R\\\hline T&amp;3,1&amp;2,-20\\M&amp;5,0&amp;-10,1\\B&amp;-100,2&amp;4,4\\\hline \end{array}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c94218d6211047370d9243ce80081b8860b90c33" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -6.338ex; width:23.091ex; height:13.843ex;" alt="{\displaystyle {\begin{array}{c|cc}\hline &amp;L&amp;R\\\hline T&amp;3,1&amp;2,-20\\M&amp;5,0&amp;-10,1\\B&amp;-100,2&amp;4,4\\\hline \end{array}}}"/></span></dd></dl>
+<p>(where the first number in each cell is the pay-out of the row player and the second number is the pay-out of the column player).
+</p><p>For the sake of example, we consider only <a href="https://en.wikipedia.org/wiki/Strategy_(game_theory)#Pure_and_mixed_strategies" title="Strategy (game theory)">pure strategies</a>. Check each player in turn:
+</p>
+<ul><li>The row player can play <span class="texhtml mvar" style="font-style:italic;">T</span>, which guarantees them a payoff of at least <span class="nowrap"><span data-sort-value="7000200000000000000♠"></span>2</span> (playing <span class="texhtml mvar" style="font-style:italic;">B</span> is risky since it can lead to payoff <span class="nowrap"><span data-sort-value="2997900000000000000♠"></span>−100</span>, and playing <span class="texhtml mvar" style="font-style:italic;">M</span> can result in a payoff of <span class="nowrap"><span data-sort-value="2998900000000000000♠"></span>−10</span>). Hence: <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\underline {v_{row}}}=2}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <munder>
+            <msub>
+              <mi>v</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>r</mi>
+                <mi>o</mi>
+                <mi>w</mi>
+              </mrow>
+            </msub>
+            <mo>&#x005F;<!-- _ --></mo>
+          </munder>
+        </mrow>
+        <mo>=</mo>
+        <mn>2</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\underline {v_{row}}}=2}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a2506f62ac53a3d64ade893dca7134bd4142a037" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.877ex; margin-bottom: -0.795ex; width:8.339ex; height:3.509ex;" alt="{\underline {v_{row}}}=2"/></span>.</li>
+<li>The column player can play <span class="texhtml mvar" style="font-style:italic;">L</span> and secure a payoff of at least <span class="nowrap"><span data-sort-value="5000000000000000000♠"></span>0</span> (playing <span class="texhtml mvar" style="font-style:italic;">R</span> puts them in the risk of getting <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle -20}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>20</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle -20}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/498de4e7b3ddc127b4be006bd2efafed19fa120d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:4.133ex; height:2.343ex;" alt="{\displaystyle -20}"/></span>). Hence: <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\underline {v_{col}}}=0}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <munder>
+            <msub>
+              <mi>v</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>c</mi>
+                <mi>o</mi>
+                <mi>l</mi>
+              </mrow>
+            </msub>
+            <mo>&#x005F;<!-- _ --></mo>
+          </munder>
+        </mrow>
+        <mo>=</mo>
+        <mn>0</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\underline {v_{col}}}=0}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/05ec335c2a2babeb8424432c8f1552b0c8dded90" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.878ex; margin-bottom: -0.793ex; width:7.623ex; height:3.509ex;" alt="{\underline {v_{col}}}=0"/></span>.</li></ul>
+<p>If both players play their respective maximin strategies <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (T,L)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>T</mi>
+        <mo>,</mo>
+        <mi>L</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (T,L)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/20493aa06e4ba84a0057e0fc6a261dc87667ca8e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.062ex; height:2.843ex;" alt="{\displaystyle (T,L)}"/></span>, the payoff vector is <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (3,1)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mn>3</mn>
+        <mo>,</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (3,1)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a8933db1c87b5fefc8d54c6e2d157e4b343bb8b8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.168ex; height:2.843ex;" alt="(3,1)"/></span>.
+</p><p>The <b>minimax value</b> of a player is the smallest value that the other players can force the player to receive, without knowing the player's actions; equivalently, it is the largest value the player can be sure to get when they <i>know</i> the actions of the other players. Its formal definition is:<sup id="cite_ref-ZMS2013_3-1" class="reference"><a href="#cite_note-ZMS2013-3">&#91;3&#93;</a></sup>
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\overline {v_{i}}}=\min _{a_{-i}}\max _{a_{i}}{v_{i}(a_{i},a_{-i})}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <msub>
+              <mi>v</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+            <mo accent="false">&#x00AF;<!-- ¯ --></mo>
+          </mover>
+        </mrow>
+        <mo>=</mo>
+        <munder>
+          <mo movablelimits="true" form="prefix">min</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msub>
+              <mi>a</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo>&#x2212;<!-- − --></mo>
+                <mi>i</mi>
+              </mrow>
+            </msub>
+          </mrow>
+        </munder>
+        <munder>
+          <mo movablelimits="true" form="prefix">max</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msub>
+              <mi>a</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+          </mrow>
+        </munder>
+        <mrow class="MJX-TeXAtom-ORD">
+          <msub>
+            <mi>v</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>i</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false">(</mo>
+          <msub>
+            <mi>a</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>i</mi>
+            </mrow>
+          </msub>
+          <mo>,</mo>
+          <msub>
+            <mi>a</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo>&#x2212;<!-- − --></mo>
+              <mi>i</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false">)</mo>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\overline {v_{i}}}=\min _{a_{-i}}\max _{a_{i}}{v_{i}(a_{i},a_{-i})}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/074c806d741e20cc0e770027e6efcb9796b72871" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.338ex; width:24.224ex; height:4.343ex;" alt="{\overline {v_{i}}}=\min _{a_{-i}}\max _{a_{i}}{v_{i}(a_{i},a_{-i})}"/></span></dd></dl>
+<p>The definition is very similar to that of the maximin value—only the order of the maximum and minimum operators is inverse. In the above example:
+</p>
+<ul><li>The row player can get a maximum value of <span class="texhtml mvar" style="font-style:italic;">4</span> (if the other player plays <span class="texhtml mvar" style="font-style:italic;">R</span>) or <span class="nowrap"><span data-sort-value="7000500000000000000♠"></span>5</span> (if the other player plays <span class="texhtml mvar" style="font-style:italic;">L</span>), so: <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\overline {v_{row}}}=4}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <msub>
+              <mi>v</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>r</mi>
+                <mi>o</mi>
+                <mi>w</mi>
+              </mrow>
+            </msub>
+            <mo accent="false">&#x00AF;<!-- ¯ --></mo>
+          </mover>
+        </mrow>
+        <mo>=</mo>
+        <mn>4</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\overline {v_{row}}}=4}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/54d20f6ad8bba4aa9e20892664f55fb57079f170" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:8.451ex; height:2.676ex;" alt="\overline{v_{row}} = 4"/></span>.</li>
+<li>The column player can get a maximum value of <span class="texhtml mvar" style="font-style:italic;">1</span> (if the other player plays <span class="texhtml mvar" style="font-style:italic;">T</span>), <span class="nowrap"><span data-sort-value="7000100000000000000♠"></span>1</span> (if <span class="texhtml mvar" style="font-style:italic;">M</span>) or <span class="nowrap"><span data-sort-value="7000400000000000000♠"></span>4</span> (if <span class="texhtml mvar" style="font-style:italic;">B</span>). Hence: <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\overline {v_{col}}}=1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <msub>
+              <mi>v</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>c</mi>
+                <mi>o</mi>
+                <mi>l</mi>
+              </mrow>
+            </msub>
+            <mo accent="false">&#x00AF;<!-- ¯ --></mo>
+          </mover>
+        </mrow>
+        <mo>=</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\overline {v_{col}}}=1}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/2000a5a2d9e5ae28fc38c96ea0c8503e97fd9199" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:7.735ex; height:2.676ex;" alt="\overline{v_{col}} = 1"/></span>.</li></ul>
+<p>For every player <span class="texhtml mvar" style="font-style:italic;">i</span>, the maximin is at most the minimax:
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\underline {v_{i}}}\leq {\overline {v_{i}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <munder>
+            <msub>
+              <mi>v</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+            <mo>&#x005F;<!-- _ --></mo>
+          </munder>
+        </mrow>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <msub>
+              <mi>v</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+            <mo accent="false">&#x00AF;<!-- ¯ --></mo>
+          </mover>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\underline {v_{i}}}\leq {\overline {v_{i}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/36dd33ead0af78f7bfbc890a8b6561a5203e7289" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.877ex; margin-bottom: -0.795ex; width:7.07ex; height:3.676ex;" alt="\underline{v_i} \leq \overline{v_i}"/></span></dd></dl>
+<p>Intuitively, in maximin the maximization comes after the minimization, so player <span class="texhtml mvar" style="font-style:italic;">i</span> tries to maximize their value before knowing what the others will do; in minimax the maximization comes before the minimization, so player <span class="texhtml mvar" style="font-style:italic;">i</span> is in a much better position—they maximize their value knowing what the others did.
+</p><p>Another way to understand the <i>notation</i> is by reading from right to left: when we write
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\overline {v_{i}}}=\min _{a_{-i}}\max _{a_{i}}{v_{i}(a_{i},a_{-i})}=\min _{a_{-i}}{\Big (}\max _{a_{i}}{v_{i}(a_{i},a_{-i})}{\Big )}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <msub>
+              <mi>v</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+            <mo accent="false">&#x00AF;<!-- ¯ --></mo>
+          </mover>
+        </mrow>
+        <mo>=</mo>
+        <munder>
+          <mo movablelimits="true" form="prefix">min</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msub>
+              <mi>a</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo>&#x2212;<!-- − --></mo>
+                <mi>i</mi>
+              </mrow>
+            </msub>
+          </mrow>
+        </munder>
+        <munder>
+          <mo movablelimits="true" form="prefix">max</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msub>
+              <mi>a</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+          </mrow>
+        </munder>
+        <mrow class="MJX-TeXAtom-ORD">
+          <msub>
+            <mi>v</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>i</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false">(</mo>
+          <msub>
+            <mi>a</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>i</mi>
+            </mrow>
+          </msub>
+          <mo>,</mo>
+          <msub>
+            <mi>a</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo>&#x2212;<!-- − --></mo>
+              <mi>i</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false">)</mo>
+        </mrow>
+        <mo>=</mo>
+        <munder>
+          <mo movablelimits="true" form="prefix">min</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msub>
+              <mi>a</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mo>&#x2212;<!-- − --></mo>
+                <mi>i</mi>
+              </mrow>
+            </msub>
+          </mrow>
+        </munder>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo maxsize="1.623em" minsize="1.623em">(</mo>
+          </mrow>
+        </mrow>
+        <munder>
+          <mo movablelimits="true" form="prefix">max</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <msub>
+              <mi>a</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>i</mi>
+              </mrow>
+            </msub>
+          </mrow>
+        </munder>
+        <mrow class="MJX-TeXAtom-ORD">
+          <msub>
+            <mi>v</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>i</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false">(</mo>
+          <msub>
+            <mi>a</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>i</mi>
+            </mrow>
+          </msub>
+          <mo>,</mo>
+          <msub>
+            <mi>a</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo>&#x2212;<!-- − --></mo>
+              <mi>i</mi>
+            </mrow>
+          </msub>
+          <mo stretchy="false">)</mo>
+        </mrow>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo maxsize="1.623em" minsize="1.623em">)</mo>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\overline {v_{i}}}=\min _{a_{-i}}\max _{a_{i}}{v_{i}(a_{i},a_{-i})}=\min _{a_{-i}}{\Big (}\max _{a_{i}}{v_{i}(a_{i},a_{-i})}{\Big )}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/77e920b4e68020c5447fb03276dfc107aa8c3a82" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.338ex; width:49.568ex; height:5.343ex;" alt="{\displaystyle {\overline {v_{i}}}=\min _{a_{-i}}\max _{a_{i}}{v_{i}(a_{i},a_{-i})}=\min _{a_{-i}}{\Big (}\max _{a_{i}}{v_{i}(a_{i},a_{-i})}{\Big )}}"/></span></dd></dl>
+<p>the initial set of outcomes <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle v_{i}(a_{i},a_{-i})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2212;<!-- − --></mo>
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{i}(a_{i},a_{-i})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d6d9fc159469cf6df16c86e019b298557ee7c751" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.108ex; height:2.843ex;" alt="{\displaystyle v_{i}(a_{i},a_{-i})}"/></span> depends on both <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {a_{i}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <msub>
+            <mi>a</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>i</mi>
+            </mrow>
+          </msub>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {a_{i}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7b451383d62588c35b768dd4595ba364ab417139" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.029ex; height:2.009ex;" alt="{\displaystyle {a_{i}}}"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {a_{-i}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <msub>
+            <mi>a</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo>&#x2212;<!-- − --></mo>
+              <mi>i</mi>
+            </mrow>
+          </msub>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {a_{-i}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9194a406a3213d04cc60dc4be73e3f5160bbe15d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:3.308ex; height:2.009ex;" alt="{\displaystyle {a_{-i}}}"/></span>.  We first <i>marginalize away</i> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {a_{i}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <msub>
+            <mi>a</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>i</mi>
+            </mrow>
+          </msub>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {a_{i}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7b451383d62588c35b768dd4595ba364ab417139" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.029ex; height:2.009ex;" alt="{\displaystyle {a_{i}}}"/></span> from <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle v_{i}(a_{i},a_{-i})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2212;<!-- − --></mo>
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v_{i}(a_{i},a_{-i})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d6d9fc159469cf6df16c86e019b298557ee7c751" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:10.108ex; height:2.843ex;" alt="{\displaystyle v_{i}(a_{i},a_{-i})}"/></span>, by maximizing over <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {a_{i}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <msub>
+            <mi>a</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi>i</mi>
+            </mrow>
+          </msub>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {a_{i}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7b451383d62588c35b768dd4595ba364ab417139" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.029ex; height:2.009ex;" alt="{\displaystyle {a_{i}}}"/></span> (for every possible value of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {a_{-i}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <msub>
+            <mi>a</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo>&#x2212;<!-- − --></mo>
+              <mi>i</mi>
+            </mrow>
+          </msub>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {a_{-i}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9194a406a3213d04cc60dc4be73e3f5160bbe15d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:3.308ex; height:2.009ex;" alt="{\displaystyle {a_{-i}}}"/></span>) to yield a set of marginal outcomes <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle v'_{i}(a_{-i})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msubsup>
+          <mi>v</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>i</mi>
+          </mrow>
+          <mo>&#x2032;</mo>
+        </msubsup>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>a</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>&#x2212;<!-- − --></mo>
+            <mi>i</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle v'_{i}(a_{-i})}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ef2810da7c7ff6ab8eb7a5be4f90043ab2dae0c1" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:7.045ex; height:3.009ex;" alt="{\displaystyle v&#039;_{i}(a_{-i})}"/></span>, which depends only on <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {a_{-i}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <msub>
+            <mi>a</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo>&#x2212;<!-- − --></mo>
+              <mi>i</mi>
+            </mrow>
+          </msub>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {a_{-i}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9194a406a3213d04cc60dc4be73e3f5160bbe15d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:3.308ex; height:2.009ex;" alt="{\displaystyle {a_{-i}}}"/></span>.  We then minimize over <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {a_{-i}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <msub>
+            <mi>a</mi>
+            <mrow class="MJX-TeXAtom-ORD">
+              <mo>&#x2212;<!-- − --></mo>
+              <mi>i</mi>
+            </mrow>
+          </msub>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {a_{-i}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/9194a406a3213d04cc60dc4be73e3f5160bbe15d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:3.308ex; height:2.009ex;" alt="{\displaystyle {a_{-i}}}"/></span> over these outcomes.  (Conversely for maximin.)
+</p><p>Although it is always the case that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\underline {v_{row}}}\leq {\overline {v_{row}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <munder>
+            <msub>
+              <mi>v</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>r</mi>
+                <mi>o</mi>
+                <mi>w</mi>
+              </mrow>
+            </msub>
+            <mo>&#x005F;<!-- _ --></mo>
+          </munder>
+        </mrow>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <msub>
+              <mi>v</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>r</mi>
+                <mi>o</mi>
+                <mi>w</mi>
+              </mrow>
+            </msub>
+            <mo accent="false">&#x00AF;<!-- ¯ --></mo>
+          </mover>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\underline {v_{row}}}\leq {\overline {v_{row}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/321f28fb68bcdf3a151942c98bde7fb547b4af0a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.877ex; margin-bottom: -0.795ex; width:11.367ex; height:3.676ex;" alt="{\displaystyle {\underline {v_{row}}}\leq {\overline {v_{row}}}}"/></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\underline {v_{col}}}\leq {\overline {v_{col}}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <munder>
+            <msub>
+              <mi>v</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>c</mi>
+                <mi>o</mi>
+                <mi>l</mi>
+              </mrow>
+            </msub>
+            <mo>&#x005F;<!-- _ --></mo>
+          </munder>
+        </mrow>
+        <mo>&#x2264;<!-- ≤ --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mover>
+            <msub>
+              <mi>v</mi>
+              <mrow class="MJX-TeXAtom-ORD">
+                <mi>c</mi>
+                <mi>o</mi>
+                <mi>l</mi>
+              </mrow>
+            </msub>
+            <mo accent="false">&#x00AF;<!-- ¯ --></mo>
+          </mover>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\underline {v_{col}}}\leq {\overline {v_{col}}}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3ca7f22a65a599c81b810533ee423acb57afb576" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.878ex; margin-bottom: -0.793ex; width:9.935ex; height:3.676ex;" alt="{\displaystyle {\underline {v_{col}}}\leq {\overline {v_{col}}}}"/></span>, the payoff vector resulting from both players playing their minimax strategies, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (2,-20)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mn>2</mn>
+        <mo>,</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>20</mn>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (2,-20)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/5f1a9e2b04fc0934e136fddb7957c2baad07b127" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.139ex; height:2.843ex;" alt="{\displaystyle (2,-20)}"/></span> in the case of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (T,R)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>T</mi>
+        <mo>,</mo>
+        <mi>R</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (T,R)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/dc7f8f1898cca258f50fd24e2a2f16f14230a774" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.244ex; height:2.843ex;" alt="{\displaystyle (T,R)}"/></span> or <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (-10,1)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mn>10</mn>
+        <mo>,</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (-10,1)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/d864d6c2532b278cfcefb38f1b33d339f3b5d5f5" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:8.139ex; height:2.843ex;" alt="{\displaystyle (-10,1)}"/></span> in the case of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (M,R)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mi>M</mi>
+        <mo>,</mo>
+        <mi>R</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (M,R)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e2ee1d5516de1e3b2306e64b067d3e2a61b81185" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:7.049ex; height:2.843ex;" alt="{\displaystyle (M,R)}"/></span>, cannot similarly be ranked against the payoff vector <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle (3,1)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo stretchy="false">(</mo>
+        <mn>3</mn>
+        <mo>,</mo>
+        <mn>1</mn>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle (3,1)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a8933db1c87b5fefc8d54c6e2d157e4b343bb8b8" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.168ex; height:2.843ex;" alt="(3,1)"/></span> resulting from both players playing their maximin strategy.
+</p>
+<h3><span class="mw-headline" id="In_zero-sum_games">In zero-sum games</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit&amp;section=3" title="Edit section: In zero-sum games">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><span id="Minimax_theorem"></span>
+In two-player <a href="https://en.wikipedia.org/wiki/Zero-sum_game" title="Zero-sum game">zero-sum games</a>, the minimax solution is the same as the <a href="https://en.wikipedia.org/wiki/Nash_equilibrium" title="Nash equilibrium">Nash equilibrium</a>.
+</p><p>In the context of zero-sum games, the <a href="https://en.wikipedia.org/wiki/Minimax_theorem" title="Minimax theorem">minimax theorem</a> is equivalent to:<sup id="cite_ref-Osborne_4-0" class="reference"><a href="#cite_note-Osborne-4">&#91;4&#93;</a></sup><sup class="noprint Inline-Template" style="white-space:nowrap;">&#91;<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Verifiability" title="Wikipedia:Verifiability"><span title="The material near this tag failed verification of its source citation(s). (February 2015)">failed verification</span></a></i>&#93;</sup>
+</p>
+<blockquote><p>For every two-person, <a href="https://en.wikipedia.org/wiki/Zero-sum" class="mw-redirect" title="Zero-sum">zero-sum</a> game with finitely many strategies, there exists a value V and a mixed strategy for each player, such that
+</p><dl><dd>(a) Given player 2's strategy, the best payoff possible for player 1 is V, and</dd>
+<dd>(b) Given player 1's strategy, the best payoff possible for player 2 is −V.</dd></dl>
+</blockquote>
+<p>Equivalently, Player 1's strategy guarantees them a payoff of V regardless of Player 2's strategy, and similarly Player 2 can guarantee themselves a payoff of −V.  The name minimax arises because each player minimizes the maximum payoff possible for the other—since the game is zero-sum, they also minimize their own maximum loss (i.e. maximize their minimum payoff).
+See also <a href="https://en.wikipedia.org/wiki/Example_of_a_game_without_a_value" class="mw-redirect" title="Example of a game without a value">example of a game without a value</a>.
+</p>
+<h3><span class="mw-headline" id="Example">Example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit&amp;section=4" title="Edit section: Example">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<table class="wikitable" style="text-align:center; float:right; margin-left:1em">
+<caption align="bottom" style="caption-side: bottom">Payoff matrix for player A
+</caption>
+<tbody><tr>
+<th>
+</th>
+<th>B chooses B1
+</th>
+<th>B chooses B2
+</th>
+<th>B chooses B3
+</th></tr>
+<tr>
+<th>A chooses A1
+</th>
+<td>+3
+</td>
+<td>−2
+</td>
+<td>+2
+</td></tr>
+<tr>
+<th>A chooses A2
+</th>
+<td>−1
+</td>
+<td><span style="visibility:hidden;color:transparent;">+</span>0
+</td>
+<td>+4
+</td></tr>
+<tr>
+<th>A chooses A3
+</th>
+<td>−4
+</td>
+<td>−3
+</td>
+<td>+1
+</td></tr></tbody></table>
+<p>The following example of a zero-sum game, where <b>A</b> and <b>B</b> make simultaneous moves, illustrates <i>maximin</i> solutions. Suppose each player has three choices and consider the <a href="https://en.wikipedia.org/wiki/Payoff_matrix" class="mw-redirect" title="Payoff matrix">payoff matrix</a> for <b>A</b> displayed on the table ("Payoff matrix for player A"). Assume the payoff matrix for <b>B</b> is the same matrix with the signs reversed (i.e. if the choices are A1 and B1 then <b>B</b> pays 3 to <b>A</b>). Then, the maximin choice for <b>A</b> is A2 since the worst possible result is then having to pay 1, while the simple maximin choice for <b>B</b> is B2 since the worst possible result is then no payment.  However, this solution is not stable, since if <b>B</b> believes <b>A</b> will choose A2 then <b>B</b> will choose B1 to gain 1; then if <b>A</b> believes <b>B</b> will choose B1 then <b>A</b> will choose A1 to gain 3; and then <b>B</b> will choose B2; and eventually both players will realize the difficulty of making a choice. So a more stable strategy is needed.
+</p><p>Some choices are <i>dominated</i> by others and can be eliminated: <b>A</b> will not choose A3 since either A1 or A2 will produce a better result, no matter what <b>B</b> chooses; <b>B</b> will not choose B3 since some mixtures of B1 and B2 will produce a better result, no matter what <b>A</b> chooses.
+</p><p><b>A</b> can avoid having to make an expected payment of more than 1/3 by choosing A1 with probability 1/6 and A2 with probability 5/6: The expected payoff for <b>A</b> would be 3 × (1/6) − 1 × (5/6) = −1/3 in case <b>B</b> chose B1 and −2 × (1/6) + 0 × (5/6) = −1/3 in case <b>B</b> chose B2.  Similarly, <b>B</b> can ensure an expected gain of at least 1/3, no matter what <b>A</b> chooses, by using a randomized strategy of choosing B1 with probability 1/3 and B2 with probability 2/3. These <a href="https://en.wikipedia.org/wiki/Mixed_strategy" class="mw-redirect" title="Mixed strategy">mixed</a> minimax strategies are now stable and cannot be improved.
+</p>
+<h3><span class="mw-headline" id="Maximin">Maximin</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit&amp;section=5" title="Edit section: Maximin">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Frequently, in game theory, <b>maximin</b> is distinct from minimax. Minimax is used in zero-sum games to denote minimizing the opponent's maximum payoff. In a <a href="https://en.wikipedia.org/wiki/Zero-sum_game" title="Zero-sum game">zero-sum game</a>, this is identical to minimizing one's own maximum loss, and to maximizing one's own minimum gain.
+</p><p>"Maximin" is a term commonly used for non-zero-sum games to describe the strategy which maximizes one's own minimum payoff. In non-zero-sum games, this is not generally the same as minimizing the opponent's maximum gain, nor the same as the <a href="https://en.wikipedia.org/wiki/Nash_equilibrium" title="Nash equilibrium">Nash equilibrium</a> strategy.
+</p>
+<h3><span class="mw-headline" id="In_repeated_games">In repeated games</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit&amp;section=6" title="Edit section: In repeated games">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The minimax values are very important in the theory of <a href="https://en.wikipedia.org/wiki/Repeated_games" class="mw-redirect" title="Repeated games">repeated games</a>. One of the central theorems in this theory, the <a href="https://en.wikipedia.org/wiki/Folk_theorem_(game_theory)" title="Folk theorem (game theory)">folk theorem</a>, relies on the minimax values.
+</p>
+<h2><span class="mw-headline" id="Combinatorial_game_theory">Combinatorial game theory</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit&amp;section=7" title="Edit section: Combinatorial game theory">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In <a href="https://en.wikipedia.org/wiki/Combinatorial_game_theory" title="Combinatorial game theory">combinatorial game theory</a>, there is a minimax algorithm for game solutions.
+</p><p>A <b>simple</b> version of the minimax <i>algorithm</i>, stated below, deals with games such as <a href="https://en.wikipedia.org/wiki/Tic-tac-toe" title="Tic-tac-toe">tic-tac-toe</a>, where each player can win, lose, or draw. If player A <i>can</i> win in one move, their best move is that winning move. If player B knows that one move will lead to the situation where player A <i>can</i> win in one move, while another move will lead to the situation where player A can, at best, draw, then player B's best move is the one leading to a draw. Late in the game, it's easy to see what the "best" move is. The Minimax algorithm helps find the best move, by working backwards from the end of the game. At each step it assumes that player A is trying to <b>maximize</b> the chances of A winning, while on the next turn player B is trying to <b>minimize</b> the chances of A winning (i.e., to maximize B's own chances of winning).
+</p>
+<h3><span class="mw-headline" id="Minimax_algorithm_with_alternate_moves">Minimax algorithm with alternate moves</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit&amp;section=8" title="Edit section: Minimax algorithm with alternate moves">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>A <b>minimax algorithm</b><sup id="cite_ref-5" class="reference"><a href="#cite_note-5">&#91;5&#93;</a></sup> is a recursive <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithm</a> for choosing the next move in an n-player <a href="https://en.wikipedia.org/wiki/Game_theory" title="Game theory">game</a>, usually a two-player game. A value is associated with each position or state of the game. This value is computed by means of a <a href="https://en.wikipedia.org/wiki/Evaluation_function" title="Evaluation function">position evaluation function</a> and it indicates how good it would be for a player to reach that position. The player then makes the move that maximizes the minimum value of the position resulting from the opponent's possible following moves. If it is <b>A</b>'s turn to move, <b>A</b> gives a value to each of their legal moves.
+</p><p>A possible allocation method consists in assigning a certain win for <b>A</b> as +1 and for <b>B</b> as −1.  This leads to <a href="https://en.wikipedia.org/wiki/Combinatorial_game_theory" title="Combinatorial game theory">combinatorial game theory</a> as developed by <a href="https://en.wikipedia.org/wiki/John_Horton_Conway" title="John Horton Conway">John Horton Conway</a>. An alternative is using a rule that if the result of a move is an immediate win for <b>A</b> it is assigned positive infinity and if it is an immediate win for <b>B</b>, negative infinity. The value to <b>A</b> of any other move is the maximum of the values resulting from each of <b>B</b>'s possible replies. For this reason, <b>A</b> is called the <i>maximizing player</i> and <b>B</b> is called the <i>minimizing player</i>, hence the name <i>minimax algorithm</i>. The above algorithm will assign a value of positive or negative infinity to any position since the value of every position will be the value of some final winning or losing position.  Often this is generally only possible at the very end of complicated games such as <a href="https://en.wikipedia.org/wiki/Chess" title="Chess">chess</a> or <a href="https://en.wikipedia.org/wiki/Go_(board_game)" class="mw-redirect" title="Go (board game)">go</a>, since it is not computationally feasible to look ahead as far as the completion of the game, except towards the end, and instead, positions are given finite values as estimates of the degree of belief that they will lead to a win for one player or another.
+</p><p>This can be extended if we can supply a <a href="https://en.wikipedia.org/wiki/Heuristic" title="Heuristic">heuristic</a> evaluation function which gives values to non-final game states without considering all possible following complete sequences. We can then limit the minimax algorithm to look only at a certain number of moves ahead. This number is called the "look-ahead", measured in "<a href="https://en.wikipedia.org/wiki/Ply_(chess)" class="mw-redirect" title="Ply (chess)">plies</a>". For example, the chess computer <a href="https://en.wikipedia.org/wiki/IBM_Deep_Blue" class="mw-redirect" title="IBM Deep Blue">Deep Blue</a> (the first one to beat a reigning world champion, <a href="https://en.wikipedia.org/wiki/Garry_Kasparov" title="Garry Kasparov">Garry Kasparov</a> at that time) looked ahead at least 12 plies, then applied a heuristic evaluation function.<sup id="cite_ref-6" class="reference"><a href="#cite_note-6">&#91;6&#93;</a></sup>
+</p><p>The algorithm can be thought of as exploring the <a href="https://en.wikipedia.org/wiki/Node_(computer_science)" title="Node (computer science)">nodes</a> of a <i><a href="https://en.wikipedia.org/wiki/Game_tree" title="Game tree">game tree</a></i>. The <i>effective <a href="https://en.wikipedia.org/wiki/Branching_factor" title="Branching factor">branching factor</a></i> of the tree is the average number of <a href="https://en.wikipedia.org/wiki/Child_node" class="mw-redirect" title="Child node">children</a> of each node (i.e., the average number of legal moves in a position).  The number of nodes to be explored usually <a href="https://en.wikipedia.org/wiki/Exponential_growth" title="Exponential growth">increases exponentially</a> with the number of plies (it is less than exponential if evaluating <a href="https://en.wikipedia.org/wiki/Forced_move" class="mw-redirect" title="Forced move">forced moves</a> or repeated positions). The number of nodes to be explored for the analysis of a game is therefore approximately the branching factor raised to the power of the number of plies. It is therefore <a href="https://en.wikipedia.org/wiki/Computational_complexity_theory#Intractability" title="Computational complexity theory">impractical</a> to completely analyze games such as chess using the minimax algorithm.
+</p><p>The performance of the naïve minimax algorithm may be improved dramatically, without affecting the result, by the use of <a href="https://en.wikipedia.org/wiki/Alpha–beta_pruning" title="Alpha–beta pruning">alpha–beta pruning</a>. Other heuristic pruning methods can also be used, but not all of them are guaranteed to give the same result as the un-pruned search.
+</p><p>A naïve minimax algorithm may be trivially modified to additionally return an entire <a href="https://en.wikipedia.org/wiki/Variation_(game_tree)#Principal_variation" title="Variation (game tree)">Principal Variation</a> along with a minimax score.
+</p>
+<h3><span class="mw-headline" id="Pseudocode">Pseudocode</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit&amp;section=9" title="Edit section: Pseudocode">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Pseudocode" title="Pseudocode">pseudocode</a> for the depth limited minimax algorithm is given below.
+</p>
+<pre><b>function </b> minimax(node, depth, maximizingPlayer) <b>is</b>
+    <b>if</b> depth = 0 <b>or</b> node is a terminal node <b>then</b>
+        <b>return</b> the heuristic value of node
+    <b>if</b> maximizingPlayer <b>then</b>
+        value&#160;:= &#8722;∞
+        <b>for each</b> child of node <b>do</b>
+            value&#160;:= max(value, minimax(child, depth &#8722; 1, FALSE))
+        <b>return</b> value
+    <b>else</b> <i>(* minimizing player *)</i>
+        value&#160;:= +∞
+        <b>for each</b> child of node <b>do</b>
+            value&#160;:= min(value, minimax(child, depth &#8722; 1, TRUE))
+        <b>return</b> value
+</pre>
+<pre><i>(* Initial call *)</i>
+minimax(origin, depth, TRUE)
+</pre>
+<p>The minimax function returns a heuristic value for <a href="https://en.wikipedia.org/wiki/Leaf_nodes" class="mw-redirect" title="Leaf nodes">leaf nodes</a> (terminal nodes and nodes at the maximum search depth). Non-leaf nodes inherit their value from a descendant leaf node. The heuristic value is a score measuring the favorability of the node for the maximizing player. Hence nodes resulting in a favorable outcome, such as a win, for the maximizing player have higher scores than nodes more favorable for the minimizing player. The heuristic value for terminal (game ending) leaf nodes are scores corresponding to win, loss, or draw, for the maximizing player. For non terminal leaf nodes at the maximum search depth, an evaluation function estimates a heuristic value for the node. The quality of this estimate and the search depth determine the quality and accuracy of the final minimax result.
+</p><p>Minimax treats the two players (the maximizing player and the minimizing player) separately in its code. Based on the observation that <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \max(a,b)=-\min(-a,-b)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mo movablelimits="true" form="prefix">max</mo>
+        <mo stretchy="false">(</mo>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mo movablelimits="true" form="prefix">min</mo>
+        <mo stretchy="false">(</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>a</mi>
+        <mo>,</mo>
+        <mo>&#x2212;<!-- − --></mo>
+        <mi>b</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \max(a,b)=-\min(-a,-b)}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/e64fb74b232e7412ce1967d786e07fd56b08296f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:27.252ex; height:2.843ex;" alt="\max(a,b) = -\min(-a,-b)"/></span>, minimax may often be simplified into the <a href="https://en.wikipedia.org/wiki/Negamax" title="Negamax">negamax</a> algorithm.
+</p>
+<h3><span class="mw-headline" id="Example_2">Example</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit&amp;section=10" title="Edit section: Example">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="thumb tright"><div class="thumbinner" style="width:402px;"><a href="https://en.wikipedia.org/wiki/File:Minimax.svg" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Minimax.svg/400px-Minimax.svg.png" decoding="async" width="400" height="182" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Minimax.svg/600px-Minimax.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Minimax.svg/800px-Minimax.svg.png 2x" data-file-width="900" data-file-height="410" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Minimax.svg" class="internal" title="Enlarge"></a></div>A minimax tree example</div></div></div>
+<div class="thumb tright"><div class="thumbinner" style="width:402px;"><a href="https://en.wikipedia.org/wiki/File:Plminmax.gif" class="image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Plminmax.gif/400px-Plminmax.gif" decoding="async" width="400" height="290" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Plminmax.gif/600px-Plminmax.gif 1.5x, //upload.wikimedia.org/wikipedia/commons/e/e1/Plminmax.gif 2x" data-file-width="800" data-file-height="580" /></a>  <div class="thumbcaption"><div class="magnify"><a href="https://en.wikipedia.org/wiki/File:Plminmax.gif" class="internal" title="Enlarge"></a></div>An animated pedagogical example that attempts to be human-friendly by substituting initial infinite (or arbitrarily large) values for emptiness and by avoiding using the <a href="https://en.wikipedia.org/wiki/Negamax" title="Negamax">negamax</a> coding simplifications.</div></div></div>
+<p>Suppose the game being played only has a maximum of two possible moves per player each turn. The algorithm generates the <a href="https://en.wikipedia.org/wiki/Game_tree" title="Game tree">tree</a> on the right, where the circles represent the moves of the player running the algorithm (<i>maximizing player</i>), and squares represent the moves of the opponent (<i>minimizing player</i>). Because of the limitation of computation resources, as explained above, the tree is limited to a <i>look-ahead</i> of 4 moves.
+</p><p>The algorithm evaluates each <i><a href="https://en.wikipedia.org/wiki/Leaf_node" class="mw-redirect" title="Leaf node">leaf node</a></i> using a heuristic evaluation function, obtaining the values shown. The moves where the <i>maximizing player</i> wins are assigned with positive infinity, while the moves that lead to a win of the <i>minimizing player</i> are assigned with negative infinity. At level 3, the algorithm will choose, for each node, the <b>smallest</b> of the <i><a href="https://en.wikipedia.org/wiki/Child_node" class="mw-redirect" title="Child node">child node</a></i> values, and assign it to that same node (e.g. the node on the left will choose the minimum between "10" and "+∞", therefore assigning the value "10" to itself). The next step, in level 2, consists of choosing for each node the <b>largest</b> of the <i>child node</i> values. Once again, the values are assigned to each <i><a href="https://en.wikipedia.org/wiki/Parent_node" class="mw-redirect" title="Parent node">parent node</a></i>. The algorithm continues evaluating the maximum and minimum values of the child nodes alternately until it reaches the <i><a href="https://en.wikipedia.org/wiki/Root_node" class="mw-redirect" title="Root node">root node</a></i>, where it chooses the move with the largest value (represented in the figure with a blue arrow). This is the move that the player should make in order to <i>minimize</i> the <i>maximum</i> possible <a href="https://en.wikipedia.org/wiki/Loss_function" title="Loss function">loss</a>.
+</p>
+<h2><span class="mw-headline" id="Minimax_for_individual_decisions">Minimax for individual decisions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit&amp;section=11" title="Edit section: Minimax for individual decisions">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Minimax_in_the_face_of_uncertainty">Minimax in the face of uncertainty</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit&amp;section=12" title="Edit section: Minimax in the face of uncertainty">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Minimax theory has been extended to decisions where there is no other player, but where the consequences of decisions depend on unknown facts.  For example, deciding to prospect for minerals entails a cost which will be wasted if the minerals are not present, but will bring major rewards if they are.  One approach is to treat this as a game against <i>nature</i> (see <a href="https://en.wikipedia.org/wiki/Move_by_nature" title="Move by nature">move by nature</a>), and using a similar mindset as <a href="https://en.wikipedia.org/wiki/Murphy%27s_law" title="Murphy&#39;s law">Murphy's law</a> or <a href="https://en.wikipedia.org/wiki/Resistentialism" title="Resistentialism">resistentialism</a>, take an approach which minimizes the maximum expected loss, using the same techniques as in the two-person zero-sum games.
+</p><p>In addition, <a href="https://en.wikipedia.org/wiki/Expectiminimax_tree" class="mw-redirect" title="Expectiminimax tree">expectiminimax trees</a> have been developed, for two-player games in which chance (for example, dice) is a factor.
+</p>
+<h3><span class="mw-headline" id="Minimax_criterion_in_statistical_decision_theory">Minimax criterion in statistical decision theory</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit&amp;section=13" title="Edit section: Minimax criterion in statistical decision theory">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1033289096"/><div role="note" class="hatnote navigation-not-searchable">Main article: <a href="https://en.wikipedia.org/wiki/Minimax_estimator" title="Minimax estimator">Minimax estimator</a></div>
+<p>In classical statistical <a href="https://en.wikipedia.org/wiki/Decision_theory" title="Decision theory">decision theory</a>, we have an <a href="https://en.wikipedia.org/wiki/Estimator" title="Estimator">estimator</a> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \delta }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03B4;<!-- δ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \delta }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c5321cfa797202b3e1f8620663ff43c4660ea03a" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.049ex; height:2.343ex;" alt="\delta "/></span> that is used to estimate a <a href="https://en.wikipedia.org/wiki/Parameter" title="Parameter">parameter</a> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \theta \in \Theta }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>&#x03B8;<!-- θ --></mi>
+        <mo>&#x2208;<!-- ∈ --></mo>
+        <mi mathvariant="normal">&#x0398;<!-- Θ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \theta \in \Theta }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bc76a89f6f175a02e371f31f86a8906fa3fd5e7e" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.739ex; height:2.176ex;" alt="\theta \in \Theta "/></span>. We also assume a <a href="https://en.wikipedia.org/wiki/Risk_function" class="mw-redirect" title="Risk function">risk function</a> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle R(\theta ,\delta )}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>R</mi>
+        <mo stretchy="false">(</mo>
+        <mi>&#x03B8;<!-- θ --></mi>
+        <mo>,</mo>
+        <mi>&#x03B4;<!-- δ --></mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle R(\theta ,\delta )}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a25d1f349da68123f557de56e7f2f3707d28a04d" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:6.746ex; height:2.843ex;" alt="R(\theta,\delta)"/></span>, usually specified as the integral of a <a href="https://en.wikipedia.org/wiki/Loss_function" title="Loss function">loss function</a>. In this framework, <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle {\tilde {\delta }}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>&#x03B4;<!-- δ --></mi>
+              <mo stretchy="false">&#x007E;<!-- ~ --></mo>
+            </mover>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\tilde {\delta }}}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c99935e5ac53dbce0e5cf38f46e7fd31cc747b6f" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.302ex; height:2.676ex;" alt="\tilde{\delta}"/></span> is called <b>minimax</b> if it satisfies
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \sup _{\theta }R(\theta ,{\tilde {\delta }})=\inf _{\delta }\sup _{\theta }R(\theta ,\delta ).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <munder>
+          <mo movablelimits="true" form="prefix">sup</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03B8;<!-- θ --></mi>
+          </mrow>
+        </munder>
+        <mi>R</mi>
+        <mo stretchy="false">(</mo>
+        <mi>&#x03B8;<!-- θ --></mi>
+        <mo>,</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>&#x03B4;<!-- δ --></mi>
+              <mo stretchy="false">&#x007E;<!-- ~ --></mo>
+            </mover>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <munder>
+          <mo movablelimits="true" form="prefix">inf</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03B4;<!-- δ --></mi>
+          </mrow>
+        </munder>
+        <munder>
+          <mo movablelimits="true" form="prefix">sup</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>&#x03B8;<!-- θ --></mi>
+          </mrow>
+        </munder>
+        <mi>R</mi>
+        <mo stretchy="false">(</mo>
+        <mi>&#x03B8;<!-- θ --></mi>
+        <mo>,</mo>
+        <mi>&#x03B4;<!-- δ --></mi>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \sup _{\theta }R(\theta ,{\tilde {\delta }})=\inf _{\delta }\sup _{\theta }R(\theta ,\delta ).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/bab958cd55e76117df97490172a7b07e439b63d6" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.505ex; width:28.307ex; height:4.843ex;" alt="\sup_\theta R(\theta,\tilde{\delta}) = \inf_\delta \sup_\theta R(\theta,\delta)."/></span></dd></dl>
+<p>An alternative criterion in the decision theoretic framework is the <a href="https://en.wikipedia.org/wiki/Bayes_estimator" title="Bayes estimator">Bayes estimator</a> in the presence of a <a href="https://en.wikipedia.org/wiki/Prior_distribution" class="mw-redirect" title="Prior distribution">prior distribution</a> <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \Pi }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi mathvariant="normal">&#x03A0;<!-- Π --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \Pi }</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/eed3e3db6cc2028a183af948212ed2551d25c954" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.743ex; height:2.176ex;" alt="\Pi "/></span>. An estimator is Bayes if it minimizes the <i><a href="https://en.wikipedia.org/wiki/Average" title="Average">average</a></i> risk
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML"  alttext="{\displaystyle \int _{\Theta }R(\theta ,\delta )\,d\Pi (\theta ).}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mo>&#x222B;<!-- ∫ --></mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi mathvariant="normal">&#x0398;<!-- Θ --></mi>
+          </mrow>
+        </msub>
+        <mi>R</mi>
+        <mo stretchy="false">(</mo>
+        <mi>&#x03B8;<!-- θ --></mi>
+        <mo>,</mo>
+        <mi>&#x03B4;<!-- δ --></mi>
+        <mo stretchy="false">)</mo>
+        <mspace width="thinmathspace" />
+        <mi>d</mi>
+        <mi mathvariant="normal">&#x03A0;<!-- Π --></mi>
+        <mo stretchy="false">(</mo>
+        <mi>&#x03B8;<!-- θ --></mi>
+        <mo stretchy="false">)</mo>
+        <mo>.</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \int _{\Theta }R(\theta ,\delta )\,d\Pi (\theta ).}</annotation>
+  </semantics>
+</math></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f9167c225fbbf43d68d0d6eee1628f226e5b8cc4" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -2.338ex; width:16.829ex; height:5.676ex;" alt="\int_\Theta R(\theta,\delta)\,d\Pi(\theta)."/></span></dd></dl>
+<h3><span class="mw-headline" id="Non-probabilistic_decision_theory">Non-probabilistic decision theory</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit&amp;section=14" title="Edit section: Non-probabilistic decision theory">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>A key feature of minimax decision making is being non-probabilistic: in contrast to decisions using <a href="https://en.wikipedia.org/wiki/Expected_value" title="Expected value">expected value</a> or <a href="https://en.wikipedia.org/wiki/Expected_utility" class="mw-redirect" title="Expected utility">expected utility</a>, it makes no assumptions about the probabilities of various outcomes, just <a href="https://en.wikipedia.org/wiki/Scenario_analysis" class="mw-redirect" title="Scenario analysis">scenario analysis</a> of what the possible outcomes are. It is thus <a href="https://en.wiktionary.org/wiki/robust" class="extiw" title="wikt:robust">robust</a> to changes in the assumptions, as these other decision techniques are not. Various extensions of this non-probabilistic approach exist, notably <a href="https://en.wikipedia.org/wiki/Minimax_regret" class="mw-redirect" title="Minimax regret">minimax regret</a> and <a href="https://en.wikipedia.org/wiki/Info-gap_decision_theory" title="Info-gap decision theory">Info-gap decision theory</a>.
+</p><p>Further, minimax only requires <a href="https://en.wikipedia.org/wiki/Ordinal_measurement" class="mw-redirect" title="Ordinal measurement">ordinal measurement</a> (that outcomes be compared and ranked), not <i>interval</i> measurements (that outcomes include "how much better or worse"), and returns ordinal data, using only the modeled outcomes: the conclusion of a minimax analysis is: "this strategy is minimax, as the worst case is (outcome), which is less bad than any other strategy". Compare to expected value analysis, whose conclusion is of the form: "this strategy yields E(<i>X</i>)=<i>n.</i>" Minimax thus can be used on ordinal data, and can be more transparent.
+</p>
+<h2><span class="mw-headline" id="Maximin_in_philosophy">Maximin in philosophy</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit&amp;section=15" title="Edit section: Maximin in philosophy">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In philosophy, the term "maximin" is often used in the context of <a href="https://en.wikipedia.org/wiki/John_Rawls" title="John Rawls">John Rawls</a>'s <i><a href="https://en.wikipedia.org/wiki/A_Theory_of_Justice" title="A Theory of Justice">A Theory of Justice</a>,</i> where he refers to it (Rawls 1971, p.&#160;152) in the context of The <a href="https://en.wikipedia.org/wiki/Difference_Principle" class="mw-redirect" title="Difference Principle">Difference Principle</a>. Rawls defined this principle as the rule which states that social and economic inequalities should be arranged so that "they are to be of the greatest benefit to the least-advantaged members of society".<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">&#91;7&#93;</a></sup><sup id="cite_ref-8" class="reference"><a href="#cite_note-8">&#91;8&#93;</a></sup>
+</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit&amp;section=16" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r998391716">.mw-parser-output .div-col{margin-top:0.3em;column-width:30em}.mw-parser-output .div-col-small{font-size:90%}.mw-parser-output .div-col-rules{column-rule:1px solid #aaa}.mw-parser-output .div-col dl,.mw-parser-output .div-col ol,.mw-parser-output .div-col ul{margin-top:0}.mw-parser-output .div-col li,.mw-parser-output .div-col dd{page-break-inside:avoid;break-inside:avoid-column}</style><div class="div-col" style="column-width: 20em;"> 
+<ul><li><a href="https://en.wikipedia.org/wiki/Alpha–beta_pruning" title="Alpha–beta pruning">Alpha–beta pruning</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Expectiminimax" title="Expectiminimax">Expectiminimax</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Negamax" title="Negamax">Negamax</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sion%27s_minimax_theorem" title="Sion&#39;s minimax theorem">Sion's minimax theorem</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Minimax_Condorcet" class="mw-redirect" title="Minimax Condorcet">Minimax Condorcet</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Computer_chess" title="Computer chess">Computer chess</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Horizon_effect" title="Horizon effect">Horizon effect</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Monte_Carlo_tree_search" title="Monte Carlo tree search">Monte Carlo tree search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Regret_(decision_theory)#Minimax_regret" title="Regret (decision theory)">Minimax regret</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Negascout" class="mw-redirect" title="Negascout">Negascout</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tit_for_Tat" class="mw-redirect" title="Tit for Tat">Tit for Tat</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Transposition_table" title="Transposition table">Transposition table</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Wald%27s_maximin_model" title="Wald&#39;s maximin model">Wald's maximin model</a></li></ul>
+</div>
+<h2><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit&amp;section=17" title="Edit section: Notes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<style data-mw-deduplicate="TemplateStyles:r1011085734">.mw-parser-output .reflist{font-size:90%;margin-bottom:0.5em;list-style-type:decimal}.mw-parser-output .reflist .references{font-size:100%;margin-bottom:0;list-style-type:inherit}.mw-parser-output .reflist-columns-2{column-width:30em}.mw-parser-output .reflist-columns-3{column-width:25em}.mw-parser-output .reflist-columns{margin-top:0.3em}.mw-parser-output .reflist-columns ol{margin-top:0}.mw-parser-output .reflist-columns li{page-break-inside:avoid;break-inside:avoid-column}.mw-parser-output .reflist-upper-alpha{list-style-type:upper-alpha}.mw-parser-output .reflist-upper-roman{list-style-type:upper-roman}.mw-parser-output .reflist-lower-alpha{list-style-type:lower-alpha}.mw-parser-output .reflist-lower-greek{list-style-type:lower-greek}.mw-parser-output .reflist-lower-roman{list-style-type:lower-roman}</style><div class="reflist">
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://www.fraserinstitute.org/uploadedFiles/fraser-ca/Content/research-news/research/publications/provincial-healthcare-index-2013.pdf">Provincial Healthcare Index 2013</a> (Bacchus Barua, Fraser Institute, January 2013 -see page 25-)</span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="https://www.youtube.com/watch?v=fJltiCjPeMA&amp;t=12m0s">Turing and von Neumann - Professor Raymond Flood - Gresham College at 12:00</a></span>
+</li>
+<li id="cite_note-ZMS2013-3"><span class="mw-cite-backlink">^ <a href="#cite_ref-ZMS2013_3-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-ZMS2013_3-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><style data-mw-deduplicate="TemplateStyles:r1067248974">.mw-parser-output cite.citation{font-style:inherit;word-wrap:break-word}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation:target{background-color:rgba(0,127,255,0.133)}.mw-parser-output .id-lock-free a,.mw-parser-output .citation .cs1-lock-free a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/6/65/Lock-green.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-limited a,.mw-parser-output .id-lock-registration a,.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/d/d6/Lock-gray-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .id-lock-subscription a,.mw-parser-output .citation .cs1-lock-subscription a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/a/aa/Lock-red-alt-2.svg")right 0.1em center/9px no-repeat}.mw-parser-output .cs1-ws-icon a{background:linear-gradient(transparent,transparent),url("http://upload.wikimedia.org/wikipedia/commons/4/4c/Wikisource-logo.svg")right 0.1em center/12px no-repeat}.mw-parser-output .cs1-code{color:inherit;background:inherit;border:none;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;color:#d33}.mw-parser-output .cs1-visible-error{color:#d33}.mw-parser-output .cs1-maint{display:none;color:#3a3;margin-left:0.3em}.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right{padding-right:0.2em}.mw-parser-output .citation .mw-selflink{font-weight:inherit}</style><cite class="citation book cs1">Michael Maschler, <a href="https://en.wikipedia.org/wiki/Eilon_Solan" title="Eilon Solan">Eilon Solan</a> &amp; Shmuel Zamir (2013). <i>Game Theory</i>. <a href="https://en.wikipedia.org/wiki/Cambridge_University_Press" title="Cambridge University Press">Cambridge University Press</a>. pp.&#160;176–180. <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/9781107005488" title="Special:BookSources/9781107005488"><bdi>9781107005488</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Game+Theory&amp;rft.pages=176-180&amp;rft.pub=Cambridge+University+Press&amp;rft.date=2013&amp;rft.isbn=9781107005488&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMinimax" class="Z3988"></span><span class="cs1-maint citation-comment"><code class="cs1-code">{{<a href="https://en.wikipedia.org/wiki/Template:Cite_book" title="Template:Cite book">cite book</a>}}</code>:  CS1 maint: uses authors parameter (<a href="https://en.wikipedia.org/wiki/Category:CS1_maint:_uses_authors_parameter" title="Category:CS1 maint: uses authors parameter">link</a>)</span></span>
+</li>
+<li id="cite_note-Osborne-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-Osborne_4-0">^</a></b></span> <span class="reference-text">Osborne, Martin J., and <a href="https://en.wikipedia.org/wiki/Ariel_Rubinstein" title="Ariel Rubinstein">Ariel Rubinstein</a>. <i>A Course in Game Theory</i>. Cambridge, MA: MIT, 1994. Print. <link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/9780262150415" title="Special:BookSources/9780262150415">9780262150415</a>.</span>
+</li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFRussellNorvig2003" class="citation cs2"><a href="https://en.wikipedia.org/wiki/Stuart_J._Russell" title="Stuart J. Russell">Russell, Stuart J.</a>; <a href="https://en.wikipedia.org/wiki/Peter_Norvig" title="Peter Norvig">Norvig, Peter</a> (2003), <a rel="nofollow" class="external text" href="http://aima.cs.berkeley.edu/"><i>Artificial Intelligence: A Modern Approach</i></a> (2nd&#160;ed.), Upper Saddle River, New Jersey: Prentice Hall, pp.&#160;163–171, <a href="https://en.wikipedia.org/wiki/ISBN_(identifier)" class="mw-redirect" title="ISBN (identifier)">ISBN</a>&#160;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-13-790395-2" title="Special:BookSources/0-13-790395-2"><bdi>0-13-790395-2</bdi></a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Artificial+Intelligence%3A+A+Modern+Approach&amp;rft.place=Upper+Saddle+River%2C+New+Jersey&amp;rft.pages=163-171&amp;rft.edition=2nd&amp;rft.pub=Prentice+Hall&amp;rft.date=2003&amp;rft.isbn=0-13-790395-2&amp;rft.aulast=Russell&amp;rft.aufirst=Stuart+J.&amp;rft.au=Norvig%2C+Peter&amp;rft_id=http%3A%2F%2Faima.cs.berkeley.edu%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMinimax" class="Z3988"></span></span>
+</li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite id="CITEREFHsu1999" class="citation cs2">Hsu, Feng-Hsiung (1999), "IBM's Deep Blue Chess Grandmaster Chips", <i>IEEE Micro</i>, Los Alamitos, CA, USA: IEEE Computer Society, <b>19</b> (2): 70–81, <a href="https://en.wikipedia.org/wiki/Doi_(identifier)" class="mw-redirect" title="Doi (identifier)">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1109%2F40.755469">10.1109/40.755469</a>, <q>During the 1997 match, the software search extended the search to about 40 plies along the forcing lines, even though the nonextended search reached only about 12 plies.</q></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=IEEE+Micro&amp;rft.atitle=IBM%27s+Deep+Blue+Chess+Grandmaster+Chips&amp;rft.volume=19&amp;rft.issue=2&amp;rft.pages=70-81&amp;rft.date=1999&amp;rft_id=info%3Adoi%2F10.1109%2F40.755469&amp;rft.aulast=Hsu&amp;rft.aufirst=Feng-Hsiung&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMinimax" class="Z3988"></span></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7">^</a></b></span> <span class="reference-text"><a href="https://en.wikipedia.org/wiki/Kenneth_Arrow" title="Kenneth Arrow">Arrow</a>, "<a rel="nofollow" class="external text" href="https://www.pdcnet.org/jphil/content/jphil_1973_0070_0009_0245_0263">Some Ordinalist-Utilitarian Notes on Rawls's Theory of Justice</a>, Journal of Philosophy 70, 9 (May 1973), pp. 245–263.</span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><a href="https://en.wikipedia.org/wiki/John_Harsanyi" title="John Harsanyi">Harsanyi</a>, "<a rel="nofollow" class="external text" href="http://piketty.pse.ens.fr/files/Harsanyi1975.pdf">Can the Maximin Principle Serve as a Basis for Morality?</a> a Critique of John Rawls's Theory, American Political Science Review 69, 2 (June 1975), pp. 594-606.</span>
+</li>
+</ol></div></div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit&amp;section=18" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table role="presentation" class="mbox-small plainlinks sistersitebox" style="background-color:#f9f9f9;border:1px solid #aaa;color:#000">
+<tbody><tr>
+<td class="mbox-image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Wiktionary-logo-en-v2.svg/40px-Wiktionary-logo-en-v2.svg.png" decoding="async" width="40" height="40" class="noviewer" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/99/Wiktionary-logo-en-v2.svg/60px-Wiktionary-logo-en-v2.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/99/Wiktionary-logo-en-v2.svg/80px-Wiktionary-logo-en-v2.svg.png 2x" data-file-width="512" data-file-height="512" /></td>
+<td class="mbox-text plainlist">Look up <i><b><a href="https://en.wiktionary.org/wiki/Special:Search/minimax" class="extiw" title="wiktionary:Special:Search/minimax">minimax</a></b></i> in Wiktionary, the free dictionary.</td></tr>
+</tbody></table>
+<table role="presentation" class="mbox-small plainlinks sistersitebox" style="background-color:#f9f9f9;border:1px solid #aaa;color:#000">
+<tbody><tr>
+<td class="mbox-image"><img alt="" src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/34px-Wikiquote-logo.svg.png" decoding="async" width="34" height="40" class="noviewer" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/51px-Wikiquote-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/68px-Wikiquote-logo.svg.png 2x" data-file-width="300" data-file-height="355" /></td>
+<td class="mbox-text plainlist">Wikiquote has quotations related to: <i><b><a href="https://en.wikiquote.org/wiki/Special:Search/Minimax" class="extiw" title="q:Special:Search/Minimax">Minimax</a></b></i></td></tr>
+</tbody></table>
+<ul><li><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1067248974"/><cite class="citation cs2"><a rel="nofollow" class="external text" href="https://www.encyclopediaofmath.org/index.php?title=Minimax_principle">"Minimax principle"</a>, <i><a href="https://en.wikipedia.org/wiki/Encyclopedia_of_Mathematics" title="Encyclopedia of Mathematics">Encyclopedia of Mathematics</a></i>, <a href="https://en.wikipedia.org/wiki/European_Mathematical_Society" title="European Mathematical Society">EMS Press</a>, 2001 [1994]</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Minimax+principle&amp;rft.btitle=Encyclopedia+of+Mathematics&amp;rft.pub=EMS+Press&amp;rft.date=2001&amp;rft_id=https%3A%2F%2Fwww.encyclopediaofmath.org%2Findex.php%3Ftitle%3DMinimax_principle&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AMinimax" class="Z3988"></span></li>
+<li><a rel="nofollow" class="external text" href="http://www.cut-the-knot.org/Curriculum/Games/MixedStrategies.shtml">A visualization applet</a></li>
+<li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20060307183023/http://www.swif.uniba.it/lei/foldop/foldoc.cgi?maximin+principle">Maximin principle</a> at Dictionary of Philosophical Terms and Names</li>
+<li><a rel="nofollow" class="external text" href="http://www.bewersdorff-online.de/quaak/rules.htm">Play a betting-and-bluffing game against a mixed minimax strategy</a></li>
+<li><a rel="nofollow" class="external text" href="https://xlinux.nist.gov/dads/HTML/minimax.html">Minimax</a> at <a href="https://en.wikipedia.org/wiki/Dictionary_of_Algorithms_and_Data_Structures" class="mw-redirect" title="Dictionary of Algorithms and Data Structures">Dictionary of Algorithms and Data Structures</a></li>
+<li><a rel="nofollow" class="external text" href="http://ksquared.de/gamevisual/launch.php">Minimax</a> <a rel="nofollow" class="external text" href="https://web.archive.org/web/20150324045417/http://ksquared.de/gamevisual/launch.php">Archived</a> 2015-03-24 at the <a href="https://en.wikipedia.org/wiki/Wayback_Machine" title="Wayback Machine">Wayback Machine</a> (with or without alpha-beta pruning) algorithm visualization &#8212; game tree solving (Java Applet), for balance or off-balance trees.</li>
+<li><a rel="nofollow" class="external text" href="http://apmonitor.com/me575/index.php/Main/MiniMax">Minimax Tutorial with a Numerical Solution Platform</a></li>
+<li><a rel="nofollow" class="external text" href="https://github.com/ykaragol/checkersmaster/blob/master/CheckersMaster/src/checkers/algorithm/MinimaxAlgorithm.java">Java implementation used in a Checkers Game</a></li></ul>
+<div class="navbox-styles nomobile"><style data-mw-deduplicate="TemplateStyles:r1061467846">.mw-parser-output .navbox{box-sizing:border-box;border:1px solid #a2a9b1;width:100%;clear:both;font-size:88%;text-align:center;padding:1px;margin:1em auto 0}.mw-parser-output .navbox .navbox{margin-top:0}.mw-parser-output .navbox+.navbox,.mw-parser-output .navbox+.navbox-styles+.navbox{margin-top:-1px}.mw-parser-output .navbox-inner,.mw-parser-output .navbox-subgroup{width:100%}.mw-parser-output .navbox-group,.mw-parser-output .navbox-title,.mw-parser-output .navbox-abovebelow{padding:0.25em 1em;line-height:1.5em;text-align:center}.mw-parser-output .navbox-group{white-space:nowrap;text-align:right}.mw-parser-output .navbox,.mw-parser-output .navbox-subgroup{background-color:#fdfdfd}.mw-parser-output .navbox-list{line-height:1.5em;border-color:#fdfdfd}.mw-parser-output .navbox-list-with-group{text-align:left;border-left-width:2px;border-left-style:solid}.mw-parser-output tr+tr>.navbox-abovebelow,.mw-parser-output tr+tr>.navbox-group,.mw-parser-output tr+tr>.navbox-image,.mw-parser-output tr+tr>.navbox-list{border-top:2px solid #fdfdfd}.mw-parser-output .navbox-title{background-color:#ccf}.mw-parser-output .navbox-abovebelow,.mw-parser-output .navbox-group,.mw-parser-output .navbox-subgroup .navbox-title{background-color:#ddf}.mw-parser-output .navbox-subgroup .navbox-group,.mw-parser-output .navbox-subgroup .navbox-abovebelow{background-color:#e6e6ff}.mw-parser-output .navbox-even{background-color:#f7f7f7}.mw-parser-output .navbox-odd{background-color:transparent}.mw-parser-output .navbox .hlist td dl,.mw-parser-output .navbox .hlist td ol,.mw-parser-output .navbox .hlist td ul,.mw-parser-output .navbox td.hlist dl,.mw-parser-output .navbox td.hlist ol,.mw-parser-output .navbox td.hlist ul{padding:0.125em 0}.mw-parser-output .navbox .navbar{display:block;font-size:100%}.mw-parser-output .navbox-title .navbar{float:left;text-align:left;margin-right:0.5em}</style></div><div role="navigation" class="navbox" aria-labelledby="Topics_in_game_theory" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><style data-mw-deduplicate="TemplateStyles:r1063604349">.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:"[ "}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:" ]"}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a>span,.mw-parser-output .navbar a>abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}</style><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Game_theory" title="Template:Game theory"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Game_theory" title="Template talk:Game theory"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Game_theory&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Topics_in_game_theory" style="font-size:114%;margin:0 4em">Topics in <a href="https://en.wikipedia.org/wiki/Game_theory" title="Game theory">game theory</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Definitions</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Congestion_game" title="Congestion game">Congestion game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cooperative_game_theory" title="Cooperative game theory">Cooperative game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Determinacy" title="Determinacy">Determinacy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Escalation_of_commitment" title="Escalation of commitment">Escalation of commitment</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Extensive-form_game" title="Extensive-form game">Extensive-form game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/First-player_and_second-player_win" title="First-player and second-player win">First-player and second-player win</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Game_complexity" title="Game complexity">Game complexity</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Game_description_language" class="mw-redirect" title="Game description language">Game description language</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Graphical_game_theory" title="Graphical game theory">Graphical game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hierarchy_of_beliefs" title="Hierarchy of beliefs">Hierarchy of beliefs</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Information_set_(game_theory)" title="Information set (game theory)">Information set</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Normal-form_game" title="Normal-form game">Normal-form game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Preference_(economics)" title="Preference (economics)">Preference</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sequential_game" title="Sequential game">Sequential game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Simultaneous_game" title="Simultaneous game">Simultaneous game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Simultaneous_action_selection" title="Simultaneous action selection">Simultaneous action selection</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Solved_game" title="Solved game">Solved game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Succinct_game" title="Succinct game">Succinct game</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Economic_equilibrium" title="Economic equilibrium">Equilibrium</a><br /><a href="https://en.wikipedia.org/wiki/Solution_concept" title="Solution concept">concepts</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Bayesian_Nash_equilibrium" class="mw-redirect" title="Bayesian Nash equilibrium">Bayesian Nash equilibrium</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Berge_equilibrium" title="Berge equilibrium">Berge equilibrium</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Core_(game_theory)" title="Core (game theory)"> Core</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Correlated_equilibrium" title="Correlated equilibrium">Correlated equilibrium</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Epsilon-equilibrium" title="Epsilon-equilibrium">Epsilon-equilibrium</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Evolutionarily_stable_strategy" title="Evolutionarily stable strategy">Evolutionarily stable strategy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gibbs_measure" title="Gibbs measure">Gibbs equilibrium</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Mertens-stable_equilibrium" title="Mertens-stable equilibrium">Mertens-stable equilibrium</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Markov_perfect_equilibrium" title="Markov perfect equilibrium">Markov perfect equilibrium</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Nash_equilibrium" title="Nash equilibrium">Nash equilibrium</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pareto_efficiency" title="Pareto efficiency">Pareto efficiency</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Perfect_Bayesian_equilibrium" title="Perfect Bayesian equilibrium">Perfect Bayesian equilibrium</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Proper_equilibrium" title="Proper equilibrium">Proper equilibrium</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Perfect_Bayesian_equilibrium" title="Perfect Bayesian equilibrium">Perfect Bayesian equilibrium</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quantal_response_equilibrium" title="Quantal response equilibrium">Quantal response equilibrium</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Quasi-perfect_equilibrium" title="Quasi-perfect equilibrium">Quasi-perfect equilibrium</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Risk_dominance" title="Risk dominance">Risk dominance</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Satisfaction_Equilibrium" class="mw-redirect" title="Satisfaction Equilibrium">Satisfaction equilibrium</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Self-confirming_equilibrium" title="Self-confirming equilibrium">Self-confirming equilibrium</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sequential_equilibrium" title="Sequential equilibrium">Sequential equilibrium</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shapley_value" title="Shapley value">Shapley value</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Strong_Nash_equilibrium" title="Strong Nash equilibrium">Strong Nash equilibrium</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Subgame_perfect_equilibrium" title="Subgame perfect equilibrium">Subgame perfection</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Trembling_hand_perfect_equilibrium" title="Trembling hand perfect equilibrium">Trembling hand</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Strategy_(game_theory)" title="Strategy (game theory)">Strategies</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Backward_induction" title="Backward induction">Backward induction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bid_shading" title="Bid shading">Bid shading</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Collusion" title="Collusion">Collusion</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Forward_induction" class="mw-redirect" title="Forward induction">Forward induction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Grim_trigger" title="Grim trigger">Grim trigger</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Markov_strategy" title="Markov strategy">Markov strategy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Strategic_dominance" title="Strategic dominance">Dominant strategies</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Strategy_(game_theory)" title="Strategy (game theory)">Pure strategy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Strategy_(game_theory)#Mixed_strategy" title="Strategy (game theory)">Mixed strategy</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Strategy-stealing_argument" title="Strategy-stealing argument">Strategy-stealing argument</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tit_for_tat" title="Tit for tat">Tit for tat</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/Category:Game_theory_game_classes" title="Category:Game theory game classes">Classes<br />of games</a></th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Bargaining_problem" class="mw-redirect" title="Bargaining problem">Bargaining problem</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cheap_talk" title="Cheap talk">Cheap talk</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Global_game" title="Global game">Global game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Intransitive_game" title="Intransitive game">Intransitive game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Mean-field_game_theory" title="Mean-field game theory">Mean-field game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Mechanism_design" title="Mechanism design">Mechanism design</a></li>
+<li><a href="https://en.wikipedia.org/wiki/N-player_game" title="N-player game"><i>n</i>-player game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Perfect_information" title="Perfect information">Perfect information</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Poisson_games" title="Poisson games">Large Poisson game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Potential_game" title="Potential game">Potential game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Repeated_game" title="Repeated game">Repeated game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Screening_game" title="Screening game">Screening game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Signaling_game" title="Signaling game">Signaling game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stackelberg_competition" title="Stackelberg competition">Stackelberg competition</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Strictly_determined_game" title="Strictly determined game">Strictly determined game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stochastic_game" title="Stochastic game">Stochastic game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Symmetric_game" title="Symmetric game">Symmetric game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Zero-sum_game" title="Zero-sum game">Zero-sum game</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%"><a href="https://en.wikipedia.org/wiki/List_of_games_in_game_theory" title="List of games in game theory">Games</a></th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Go_(game)" title="Go (game)">Go</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Chess" title="Chess">Chess</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Infinite_chess" title="Infinite chess">Infinite chess</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Draughts" class="mw-redirect" title="Draughts">Checkers</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tic-tac-toe" title="Tic-tac-toe">Tic-tac-toe</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Prisoner%27s_dilemma" title="Prisoner&#39;s dilemma">Prisoner's dilemma</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Gift-exchange_game" title="Gift-exchange game">Gift-exchange game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Optional_prisoner%27s_dilemma" title="Optional prisoner&#39;s dilemma">Optional prisoner's dilemma</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Traveler%27s_dilemma" title="Traveler&#39;s dilemma">Traveler's dilemma</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Coordination_game" title="Coordination game">Coordination game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Chicken_(game)" title="Chicken (game)">Chicken</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Centipede_game" title="Centipede game">Centipede game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lewis_signaling_game" title="Lewis signaling game">Lewis signaling game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Volunteer%27s_dilemma" title="Volunteer&#39;s dilemma">Volunteer's dilemma</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dollar_auction" title="Dollar auction">Dollar auction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Battle_of_the_sexes_(game_theory)" title="Battle of the sexes (game theory)">Battle of the sexes</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stag_hunt" title="Stag hunt">Stag hunt</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Matching_pennies" title="Matching pennies">Matching pennies</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ultimatum_game" title="Ultimatum game">Ultimatum game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Rock_paper_scissors" title="Rock paper scissors">Rock paper scissors</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Pirate_game" title="Pirate game">Pirate game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dictator_game" title="Dictator game">Dictator game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Public_goods_game" title="Public goods game">Public goods game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Blotto_game" title="Blotto game">Blotto game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/War_of_attrition_(game)" title="War of attrition (game)">War of attrition</a></li>
+<li><a href="https://en.wikipedia.org/wiki/El_Farol_Bar_problem" title="El Farol Bar problem">El Farol Bar problem</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fair_division" title="Fair division">Fair division</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fair_cake-cutting" title="Fair cake-cutting">Fair cake-cutting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cournot_competition" title="Cournot competition">Cournot game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Deadlock_(game_theory)" title="Deadlock (game theory)">Deadlock</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Unscrupulous_diner%27s_dilemma" title="Unscrupulous diner&#39;s dilemma">Diner's dilemma</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Guess_2/3_of_the_average" title="Guess 2/3 of the average">Guess 2/3 of the average</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kuhn_poker" title="Kuhn poker">Kuhn poker</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bargaining_problem" class="mw-redirect" title="Bargaining problem">Nash bargaining game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Induction_puzzles" title="Induction puzzles">Induction puzzles</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dictator_game#Trust_game" title="Dictator game">Trust game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Princess_and_monster_game" title="Princess and monster game">Princess and monster game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Rendezvous_problem" title="Rendezvous problem">Rendezvous problem</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Theorems</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Arrow%27s_impossibility_theorem" title="Arrow&#39;s impossibility theorem">Arrow's impossibility theorem</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Aumann%27s_agreement_theorem" title="Aumann&#39;s agreement theorem">Aumann's agreement theorem</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Folk_theorem_(game_theory)" title="Folk theorem (game theory)">Folk theorem</a></li>
+<li><a class="mw-selflink selflink">Minimax theorem</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Nash_equilibrium" title="Nash equilibrium">Nash's theorem</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Purification_theorem" title="Purification theorem">Purification theorem</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Revelation_principle" title="Revelation principle">Revelation principle</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Zermelo%27s_theorem_(game_theory)" title="Zermelo&#39;s theorem (game theory)">Zermelo's theorem</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Key<br />figures</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Albert_W._Tucker" title="Albert W. Tucker">Albert W. Tucker</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Amos_Tversky" title="Amos Tversky">Amos Tversky</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Antoine_Augustin_Cournot" title="Antoine Augustin Cournot">Antoine Augustin Cournot</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ariel_Rubinstein" title="Ariel Rubinstein">Ariel Rubinstein</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Claude_Shannon" title="Claude Shannon">Claude Shannon</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Daniel_Kahneman" title="Daniel Kahneman">Daniel Kahneman</a></li>
+<li><a href="https://en.wikipedia.org/wiki/David_K._Levine" title="David K. Levine">David K. Levine</a></li>
+<li><a href="https://en.wikipedia.org/wiki/David_M._Kreps" title="David M. Kreps">David M. Kreps</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Donald_B._Gillies" title="Donald B. Gillies">Donald B. Gillies</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Drew_Fudenberg" title="Drew Fudenberg">Drew Fudenberg</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Eric_Maskin" title="Eric Maskin">Eric Maskin</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Harold_W._Kuhn" title="Harold W. Kuhn">Harold W. Kuhn</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Herbert_A._Simon" title="Herbert A. Simon">Herbert Simon</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hervé_Moulin" title="Hervé Moulin">Hervé Moulin</a></li>
+<li><a href="https://en.wikipedia.org/wiki/John_Conway" class="mw-redirect" title="John Conway">John Conway</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Jean_Tirole" title="Jean Tirole">Jean Tirole</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Jean-François_Mertens" title="Jean-François Mertens">Jean-François Mertens</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Jennifer_Tour_Chayes" title="Jennifer Tour Chayes">Jennifer Tour Chayes</a></li>
+<li><a href="https://en.wikipedia.org/wiki/John_Harsanyi" title="John Harsanyi">John Harsanyi</a></li>
+<li><a href="https://en.wikipedia.org/wiki/John_Maynard_Smith" title="John Maynard Smith">John Maynard Smith</a></li>
+<li><a href="https://en.wikipedia.org/wiki/John_Forbes_Nash_Jr." title="John Forbes Nash Jr.">John Nash</a></li>
+<li><a href="https://en.wikipedia.org/wiki/John_von_Neumann" title="John von Neumann">John von Neumann</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kenneth_Arrow" title="Kenneth Arrow">Kenneth Arrow</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Kenneth_Binmore" title="Kenneth Binmore">Kenneth Binmore</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Leonid_Hurwicz" title="Leonid Hurwicz">Leonid Hurwicz</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lloyd_Shapley" title="Lloyd Shapley">Lloyd Shapley</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Melvin_Dresher" title="Melvin Dresher">Melvin Dresher</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Merrill_M._Flood" title="Merrill M. Flood">Merrill M. Flood</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Olga_Bondareva" title="Olga Bondareva">Olga Bondareva</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Oskar_Morgenstern" title="Oskar Morgenstern">Oskar Morgenstern</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Paul_Milgrom" title="Paul Milgrom">Paul Milgrom</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Peyton_Young" title="Peyton Young">Peyton Young</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Reinhard_Selten" title="Reinhard Selten">Reinhard Selten</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Robert_Axelrod" title="Robert Axelrod">Robert Axelrod</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Robert_Aumann" title="Robert Aumann">Robert Aumann</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Robert_B._Wilson" title="Robert B. Wilson">Robert B. Wilson</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Roger_Myerson" title="Roger Myerson">Roger Myerson</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Samuel_Bowles_(economist)" title="Samuel Bowles (economist)"> Samuel Bowles</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Suzanne_Scotchmer" title="Suzanne Scotchmer">Suzanne Scotchmer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Thomas_Schelling" title="Thomas Schelling">Thomas Schelling</a></li>
+<li><a href="https://en.wikipedia.org/wiki/William_Vickrey" title="William Vickrey">William Vickrey</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Miscellaneous</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/All-pay_auction" title="All-pay auction">All-pay auction</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Alpha–beta_pruning" title="Alpha–beta pruning">Alpha–beta pruning</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bertrand_paradox_(economics)" title="Bertrand paradox (economics)">Bertrand paradox</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bounded_rationality" title="Bounded rationality">Bounded rationality</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Combinatorial_game_theory" title="Combinatorial game theory">Combinatorial game theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Confrontation_analysis" title="Confrontation analysis">Confrontation analysis</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Coopetition" title="Coopetition">Coopetition</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Evolutionary_game_theory" title="Evolutionary game theory">Evolutionary game theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/First-move_advantage_in_chess" title="First-move advantage in chess">First-move advantage in chess</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Game_Description_Language" title="Game Description Language">Game Description Language</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Game_mechanics" title="Game mechanics">Game mechanics</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Glossary_of_game_theory" title="Glossary of game theory">Glossary of game theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_game_theorists" title="List of game theorists">List of game theorists</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_games_in_game_theory" title="List of games in game theory">List of games in game theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/No-win_situation" title="No-win situation">No-win situation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Solving_chess" title="Solving chess">Solving chess</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Topological_game" title="Topological game">Topological game</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tragedy_of_the_commons" title="Tragedy of the commons">Tragedy of the commons</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tyranny_of_small_decisions" title="Tyranny of small decisions">Tyranny of small decisions</a></li></ul>
+</div></td></tr></tbody></table></div><div class="navbox-styles nomobile"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1061467846"/></div><div role="navigation" class="navbox" aria-labelledby="Data_structures_and_algorithms" style="padding:3px"><table class="nowraplinks hlist mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1063604349"/><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Data_structures_and_algorithms" title="Template:Data structures and algorithms"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Data_structures_and_algorithms" title="Template talk:Data structures and algorithms"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Data_structures_and_algorithms&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Data_structures_and_algorithms" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Data_structure" title="Data structure">Data structures</a> and <a href="https://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithms</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Data structures</th><td class="navbox-list-with-group navbox-list navbox-odd" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Array_data_structure" title="Array data structure">Array</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Associative_array" title="Associative array">Associative array</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binary_search_tree" title="Binary search tree">Binary search tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fenwick_tree" title="Fenwick tree">Fenwick tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Graph_(abstract_data_type)" title="Graph (abstract data type)">Graph</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Hash_table" title="Hash table">Hash table</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Heap_(data_structure)" title="Heap (data structure)">Heap</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Linked_list" title="Linked list">Linked list</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)" title="Queue (abstract data type)">Queue</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Segment_tree" title="Segment tree">Segment tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)" title="Stack (abstract data type)">Stack</a></li>
+<li><a href="https://en.wikipedia.org/wiki/String_(computer_science)" title="String (computer science)">String</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Tree_(data_structure)" title="Tree (data structure)">Tree</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Trie" title="Trie">Trie</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Algorithms</th><td class="navbox-list-with-group navbox-list navbox-even" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Backtracking" title="Backtracking">Backtracking</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Binary_search" class="mw-redirect" title="Binary search">Binary search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Breadth-first_search" title="Breadth-first search">Breadth-first search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Depth-first_search" title="Depth-first search">Depth-first search</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm" title="Divide-and-conquer algorithm">Divide and conquer</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Dynamic_programming" title="Dynamic programming">Dynamic programming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Fold_(higher-order_function)" title="Fold (higher-order function)">Fold</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Greedy_algorithm" title="Greedy algorithm">Greedy</a></li>
+<li><a class="mw-selflink selflink">Minimax</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)" title="Recursion (computer science)">Recursion</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sorting_algorithm" title="Sorting algorithm">Sorting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Streaming_algorithm" title="Streaming algorithm">Streaming</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sweep_line_algorithm" title="Sweep line algorithm">Sweep line</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Topological_sorting" title="Topological sorting">Topological sorting</a></li></ul>
+</div></td></tr><tr><td class="navbox-abovebelow" colspan="2"><div>
+<ul><li><a href="https://en.wikipedia.org/wiki/List_of_data_structures" title="List of data structures">List of data structures</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_algorithms" title="List of algorithms">List of algorithms</a></li></ul>
+</div></td></tr></tbody></table></div>
+<div class="navbox-styles nomobile"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1061467846"/></div><div role="navigation" class="navbox" aria-labelledby="Decision_theory" style="padding:3px"><table class="nowraplinks mw-collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><link rel="mw-deduplicated-inline-style" href="https://en.wikipedia.org/wiki/mw-data:TemplateStyles:r1063604349"/><div class="navbar plainlinks hlist navbar-mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Decision_theory" title="Template:Decision theory"><abbr title="View this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/w/index.php?title=Template_talk:Decision_theory&amp;action=edit&amp;redlink=1" class="new" title="Template talk:Decision theory (page does not exist)"><abbr title="Discuss this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Decision_theory&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;box-shadow:none;padding:0;">e</abbr></a></li></ul></div><div id="Decision_theory" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Decision_theory" title="Decision theory">Decision theory</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Decisions</th><td class="navbox-list-with-group navbox-list navbox-odd hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Expected_utility_hypothesis" title="Expected utility hypothesis">Expected utility hypothesis</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Intertemporal_choice" title="Intertemporal choice">Intertemporal choice</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Concepts</th><td class="navbox-list-with-group navbox-list navbox-even hlist" style="width:100%;padding:0"><div style="padding:0 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Decision-matrix_method" title="Decision-matrix method">Decision-matrix method</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Decision_matrix" title="Decision matrix">Decision matrix</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Expected_utility" class="mw-redirect" title="Expected utility">Expected utility</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Strategic_dominance" title="Strategic dominance">Strategic dominance</a></li>
+<li><a class="mw-selflink selflink">Minimax</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Leximin" class="mw-redirect" title="Leximin">Leximin</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Principle_of_indifference" title="Principle of indifference">Principle of indifference</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Risk" title="Risk">Risk</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Allais_paradox" title="Allais paradox">Allais paradox</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ellsberg_paradox" title="Ellsberg paradox">Ellsberg paradox</a></li>
+<li><a href="https://en.wikipedia.org/wiki/St._Petersburg_paradox" title="St. Petersburg paradox">St. Petersburg paradox</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Heuristics_in_judgment_and_decision-making" class="mw-redirect" title="Heuristics in judgment and decision-making">Heuristics in judgment and decision-making</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Probability_theory" title="Probability theory">Probability theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Bayesian_epistemology" title="Bayesian epistemology">Bayesian epistemology</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Risk_aversion_(psychology)" title="Risk aversion (psychology)">Risk aversion</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Game_theory" title="Game theory">Game theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Social_choice_theory" title="Social choice theory">Social choice theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Causal_decision_theory" title="Causal decision theory">Causal decision theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Emotional_choice_theory" title="Emotional choice theory">Emotional choice theory</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Evidential_decision_theory" title="Evidential decision theory">Evidential decision theory</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1380
+Cached time: 20220504091934
+Cache expiry: 1814400
+Reduced expiry: false
+Complications: [vary‐revision‐sha1]
+CPU time usage: 0.664 seconds
+Real time usage: 0.842 seconds
+Preprocessor visited node count: 1934/1000000
+Post‐expand include size: 57915/2097152 bytes
+Template argument size: 2175/2097152 bytes
+Highest expansion depth: 16/100
+Expensive parser function count: 3/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 27406/5000000 bytes
+Lua time usage: 0.290/10.000 seconds
+Lua memory usage: 6304833/52428800 bytes
+Number of Wikibase entities loaded: 0/400
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  588.417      1 -total
+ 37.84%  222.653      1 Template:Reflist
+ 20.07%  118.091      1 Template:Cite_book
+ 12.95%   76.179      3 Template:Navbox
+ 12.06%   70.953      1 Template:Game_theory
+ 11.46%   67.448      1 Template:Short_description
+  9.54%   56.124      7 Template:Val
+  7.89%   46.412      1 Template:ISBN
+  6.46%   38.041      1 Template:Failed_verification
+  5.89%   34.673      1 Template:Pagetype
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:19589-0!canonical and timestamp 20220504091933 and revision id 1076761456. Serialized with JSON.
+ -->
+</div><noscript><img src="http://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript>
+<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;oldid=1076761456">https://en.wikipedia.org/w/index.php?title=Minimax&amp;oldid=1076761456</a>"</div></div>
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Detection_theory" title="Category:Detection theory">Detection theory</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Game_artificial_intelligence" title="Category:Game artificial intelligence">Game artificial intelligence</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Graph_algorithms" title="Category:Graph algorithms">Graph algorithms</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Optimization_algorithms_and_methods" title="Category:Optimization algorithms and methods">Optimization algorithms and methods</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Search_algorithms" title="Category:Search algorithms">Search algorithms</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Game_theory" title="Category:Game theory">Game theory</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Theorems_in_discrete_mathematics" title="Category:Theorems in discrete mathematics">Theorems in discrete mathematics</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Decision_theory" title="Category:Decision theory">Decision theory</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Fixed_points_(mathematics)" title="Category:Fixed points (mathematics)">Fixed points (mathematics)</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:CS1_maint:_uses_authors_parameter" title="Category:CS1 maint: uses authors parameter">CS1 maint: uses authors parameter</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_short_description" title="Category:Articles with short description">Articles with short description</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Short_description_is_different_from_Wikidata" title="Category:Short description is different from Wikidata">Short description is different from Wikidata</a></li><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_with_failed_verification" title="Category:All articles with failed verification">All articles with failed verification</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_failed_verification_from_February_2015" title="Category:Articles with failed verification from February 2015">Articles with failed verification from February 2015</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Webarchive_template_wayback_links" title="Category:Webarchive template wayback links">Webarchive template wayback links</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_example_pseudocode" title="Category:Articles with example pseudocode">Articles with example pseudocode</a></li></ul></div></div>
+	</div>
+</div>
+<div id='mw-data-after-content'>
+	<div class="read-more-container"></div>
+</div>
+
+<div id="mw-navigation">
+	<h2>Navigation menu</h2>
+	<div id="mw-head">
+		
+<nav id="p-personal" class="mw-portlet mw-portlet-personal vector-user-menu-legacy vector-menu" aria-labelledby="p-personal-label" role="navigation" 
+	 >
+	<label id="p-personal-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="pt-anonuserpage" class="mw-list-item"><span title="The user page for the IP address you are editing as">Not logged in</span></li><li id="pt-anontalk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [n]" accesskey="n"><span>Talk</span></a></li><li id="pt-anoncontribs" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [y]" accesskey="y"><span>Contributions</span></a></li><li id="pt-createaccount" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=Minimax" title="You are encouraged to create an account and log in; however, it is not mandatory"><span>Create account</span></a></li><li id="pt-login" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Minimax" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o"><span>Log in</span></a></li></ul>
+		
+	</div>
+</nav>
+
+		<div id="left-navigation">
+			
+<nav id="p-namespaces" class="mw-portlet mw-portlet-namespaces vector-menu vector-menu-tabs" aria-labelledby="p-namespaces-label" role="navigation" 
+	 >
+	<label id="p-namespaces-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Namespaces</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Minimax" title="View the content page [c]" accesskey="c"><span>Article</span></a></li><li id="ca-talk" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Talk:Minimax" rel="discussion" title="Discuss improvements to the content page [t]" accesskey="t"><span>Talk</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-variants" class="mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-variants-label" role="navigation" 
+	 >
+	<input type="checkbox"
+		id="p-variants-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-variants"
+		class="vector-menu-checkbox" aria-labelledby="p-variants-label" />
+	<label id="p-variants-label" aria-label="Change language variant" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+		</div>
+		<div id="right-navigation">
+			
+<nav id="p-views" class="mw-portlet mw-portlet-views vector-menu vector-menu-tabs" aria-labelledby="p-views-label" role="navigation" 
+	 >
+	<label id="p-views-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Views</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://en.wikipedia.org/wiki/Minimax"><span>Read</span></a></li><li id="ca-edit" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=edit" title="Edit this page [e]" accesskey="e"><span>Edit</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=history" title="Past revisions of this page [h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</nav>
+
+			
+<nav id="p-cactions" class="mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown-noicon vector-menu vector-menu-dropdown" aria-labelledby="p-cactions-label" role="navigation"  title="More options"
+	 >
+	<input type="checkbox"
+		id="p-cactions-checkbox"
+		role="button"
+		aria-haspopup="true"
+		data-event-name="ui.dropdown-p-cactions"
+		class="vector-menu-checkbox" aria-labelledby="p-cactions-label" />
+	<label id="p-cactions-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</nav>
+
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<div>
+			<h3 >
+				<label for="searchInput">Search</label>
+			</h3>
+		<form action="https://en.wikipedia.org/w/index.php" id="searchform"
+			class="vector-search-box-form">
+			<div id="simpleSearch"
+				class="vector-search-box-inner"
+				 data-search-loc="header-navigation">
+				<input class="vector-search-box-input"
+					 type="search" name="search" placeholder="Search Wikipedia" aria-label="Search Wikipedia" autocapitalize="sentences" title="Search Wikipedia [f]" accesskey="f" id="searchInput"
+				/>
+				<input type="hidden" name="title" value="Special:Search"/>
+				<input id="mw-searchButton"
+					 class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search Wikipedia for this text" value="Search" />
+				<input id="searchButton"
+					 class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go" />
+			</div>
+		</form>
+	</div>
+</div>
+
+		</div>
+	</div>
+	
+
+<div id="mw-panel">
+	<div id="p-logo" role="banner">
+		<a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page"
+			title="Visit the main page"></a>
+	</div>
+	
+<nav id="p-navigation" class="mw-portlet mw-portlet-navigation vector-menu vector-menu-portal portal" aria-labelledby="p-navigation-label" role="navigation" 
+	 >
+	<label id="p-navigation-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Navigation</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Main_Page" icon="home" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-contents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contents" title="Guides to browsing Wikipedia"><span>Contents</span></a></li><li id="n-currentevents" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Articles related to current events"><span>Current events</span></a></li><li id="n-randompage" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:Random" icon="die" title="Visit a randomly selected article [x]" accesskey="x"><span>Random article</span></a></li><li id="n-aboutsite" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Learn about Wikipedia and how it works"><span>About Wikipedia</span></a></li><li id="n-contactpage" class="mw-list-item"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia"><span>Contact us</span></a></li><li id="n-sitesupport" class="mw-list-item"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us by donating to the Wikimedia Foundation"><span>Donate</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-interaction" class="mw-portlet mw-portlet-interaction vector-menu vector-menu-portal portal" aria-labelledby="p-interaction-label" role="navigation" 
+	 >
+	<label id="p-interaction-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Contribute</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-help" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Contents" icon="help" title="Guidance on how to use and edit Wikipedia"><span>Help</span></a></li><li id="n-introduction" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Help:Introduction" title="Learn how to edit Wikipedia"><span>Learn to edit</span></a></li><li id="n-portal" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="The hub for editors"><span>Community portal</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" icon="recentChanges" title="A list of recent changes to Wikipedia [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Add images or other media for use on Wikipedia"><span>Upload file</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-tb" class="mw-portlet mw-portlet-tb vector-menu vector-menu-portal portal" aria-labelledby="p-tb-label" role="navigation" 
+	 >
+	<label id="p-tb-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Tools</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/Minimax" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/Minimax" rel="nofollow" title="Recent changes in pages linked from this page [k]" accesskey="k"><span>Related changes</span></a></li><li id="t-upload" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u"><span>Upload file</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;oldid=1076761456" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=Minimax&amp;id=1076761456&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li><li id="t-wikibase" class="mw-list-item"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q751319" title="Structured data on this page hosted by Wikidata [g]" accesskey="g"><span>Wikidata item</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-coll-print_export" class="mw-portlet mw-portlet-coll-print_export vector-menu vector-menu-portal portal" aria-labelledby="p-coll-print_export-label" role="navigation" 
+	 >
+	<label id="p-coll-print_export-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Print/export</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="coll-download-as-rl" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Special:DownloadAsPdf&amp;page=Minimax&amp;action=show-download-screen" title="Download this page as a PDF file"><span>Download as PDF</span></a></li><li id="t-print" class="mw-list-item"><a href="https://en.wikipedia.org/w/index.php?title=Minimax&amp;printable=yes" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li></ul>
+		
+	</div>
+</nav>
+
+<nav id="p-wikibase-otherprojects" class="mw-portlet mw-portlet-wikibase-otherprojects vector-menu vector-menu-portal portal" aria-labelledby="p-wikibase-otherprojects-label" role="navigation" 
+	 >
+	<label id="p-wikibase-otherprojects-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">In other projects</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="wb-otherproject-link wb-otherproject-wikiquote mw-list-item"><a href="https://en.wikiquote.org/wiki/Minimax" hreflang="en"><span>Wikiquote</span></a></li></ul>
+		
+	</div>
+</nav>
+
+	
+<nav id="p-lang" class="mw-portlet mw-portlet-lang vector-menu vector-menu-portal portal" aria-labelledby="p-lang-label" role="navigation" 
+	 >
+	<label id="p-lang-label" aria-label="" class="vector-menu-heading "  >
+		<span class="vector-menu-heading-label">Languages</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li class="interlanguage-link interwiki-ar mw-list-item"><a href="https://ar.wikipedia.org/wiki/ميني_ماكس" title="ميني ماكس – Arabic" lang="ar" hreflang="ar" class="interlanguage-link-target"><span>العربية</span></a></li><li class="interlanguage-link interwiki-ca mw-list-item"><a href="https://ca.wikipedia.org/wiki/Minimax" title="Minimax – Catalan" lang="ca" hreflang="ca" class="interlanguage-link-target"><span>Català</span></a></li><li class="interlanguage-link interwiki-cs mw-list-item"><a href="https://cs.wikipedia.org/wiki/Minimax_(algoritmus)" title="Minimax (algoritmus) – Czech" lang="cs" hreflang="cs" class="interlanguage-link-target"><span>Čeština</span></a></li><li class="interlanguage-link interwiki-de mw-list-item"><a href="https://de.wikipedia.org/wiki/Minimax-Algorithmus" title="Minimax-Algorithmus – German" lang="de" hreflang="de" class="interlanguage-link-target"><span>Deutsch</span></a></li><li class="interlanguage-link interwiki-es mw-list-item"><a href="https://es.wikipedia.org/wiki/Minimax" title="Minimax – Spanish" lang="es" hreflang="es" class="interlanguage-link-target"><span>Español</span></a></li><li class="interlanguage-link interwiki-fa mw-list-item"><a href="https://fa.wikipedia.org/wiki/مینیماکس" title="مینیماکس – Persian" lang="fa" hreflang="fa" class="interlanguage-link-target"><span>فارسی</span></a></li><li class="interlanguage-link interwiki-fr mw-list-item"><a href="https://fr.wikipedia.org/wiki/Algorithme_minimax" title="Algorithme minimax – French" lang="fr" hreflang="fr" class="interlanguage-link-target"><span>Français</span></a></li><li class="interlanguage-link interwiki-ko mw-list-item"><a href="https://ko.wikipedia.org/wiki/최소극대화" title="최소극대화 – Korean" lang="ko" hreflang="ko" class="interlanguage-link-target"><span>한국어</span></a></li><li class="interlanguage-link interwiki-hy mw-list-item"><a href="https://hy.wikipedia.org/wiki/Մինիմաքս" title="Մինիմաքս – Armenian" lang="hy" hreflang="hy" class="interlanguage-link-target"><span>Հայերեն</span></a></li><li class="interlanguage-link interwiki-id mw-list-item"><a href="https://id.wikipedia.org/wiki/Minimax" title="Minimax – Indonesian" lang="id" hreflang="id" class="interlanguage-link-target"><span>Bahasa Indonesia</span></a></li><li class="interlanguage-link interwiki-it mw-list-item"><a href="https://it.wikipedia.org/wiki/Minimax" title="Minimax – Italian" lang="it" hreflang="it" class="interlanguage-link-target"><span>Italiano</span></a></li><li class="interlanguage-link interwiki-he mw-list-item"><a href="https://he.wikipedia.org/wiki/עץ_מינימקס" title="עץ מינימקס – Hebrew" lang="he" hreflang="he" class="interlanguage-link-target"><span>עברית</span></a></li><li class="interlanguage-link interwiki-jv mw-list-item"><a href="https://jv.wikipedia.org/wiki/Minimax" title="Minimax – Javanese" lang="jv" hreflang="jv" class="interlanguage-link-target"><span>Jawa</span></a></li><li class="interlanguage-link interwiki-hu mw-list-item"><a href="https://hu.wikipedia.org/wiki/Minimax_elv" title="Minimax elv – Hungarian" lang="hu" hreflang="hu" class="interlanguage-link-target"><span>Magyar</span></a></li><li class="interlanguage-link interwiki-nl mw-list-item"><a href="https://nl.wikipedia.org/wiki/Minimax" title="Minimax – Dutch" lang="nl" hreflang="nl" class="interlanguage-link-target"><span>Nederlands</span></a></li><li class="interlanguage-link interwiki-ja mw-list-item"><a href="https://ja.wikipedia.org/wiki/ミニマックス法" title="ミニマックス法 – Japanese" lang="ja" hreflang="ja" class="interlanguage-link-target"><span>日本語</span></a></li><li class="interlanguage-link interwiki-pl mw-list-item"><a href="https://pl.wikipedia.org/wiki/Algorytm_min-max" title="Algorytm min-max – Polish" lang="pl" hreflang="pl" class="interlanguage-link-target"><span>Polski</span></a></li><li class="interlanguage-link interwiki-pt mw-list-item"><a href="https://pt.wikipedia.org/wiki/Minimax" title="Minimax – Portuguese" lang="pt" hreflang="pt" class="interlanguage-link-target"><span>Português</span></a></li><li class="interlanguage-link interwiki-ro mw-list-item"><a href="https://ro.wikipedia.org/wiki/Minimax" title="Minimax – Romanian" lang="ro" hreflang="ro" class="interlanguage-link-target"><span>Română</span></a></li><li class="interlanguage-link interwiki-ru mw-list-item"><a href="https://ru.wikipedia.org/wiki/Минимакс" title="Минимакс – Russian" lang="ru" hreflang="ru" class="interlanguage-link-target"><span>Русский</span></a></li><li class="interlanguage-link interwiki-sk mw-list-item"><a href="https://sk.wikipedia.org/wiki/Minimax_(algoritmus)" title="Minimax (algoritmus) – Slovak" lang="sk" hreflang="sk" class="interlanguage-link-target"><span>Slovenčina</span></a></li><li class="interlanguage-link interwiki-sr mw-list-item"><a href="https://sr.wikipedia.org/wiki/Минимакс_(алгоритам)" title="Минимакс (алгоритам) – Serbian" lang="sr" hreflang="sr" class="interlanguage-link-target"><span>Српски / srpski</span></a></li><li class="interlanguage-link interwiki-th mw-list-item"><a href="https://th.wikipedia.org/wiki/ขั้นตอนวิธีมินิแมกซ์" title="ขั้นตอนวิธีมินิแมกซ์ – Thai" lang="th" hreflang="th" class="interlanguage-link-target"><span>ไทย</span></a></li><li class="interlanguage-link interwiki-uk mw-list-item"><a href="https://uk.wikipedia.org/wiki/Мінімакс" title="Мінімакс – Ukrainian" lang="uk" hreflang="uk" class="interlanguage-link-target"><span>Українська</span></a></li><li class="interlanguage-link interwiki-vi mw-list-item"><a href="https://vi.wikipedia.org/wiki/Minimax" title="Minimax – Vietnamese" lang="vi" hreflang="vi" class="interlanguage-link-target"><span>Tiếng Việt</span></a></li><li class="interlanguage-link interwiki-zh-yue mw-list-item"><a href="https://zh-yue.wikipedia.org/wiki/最小最大化" title="最小最大化 – Cantonese" lang="yue" hreflang="yue" class="interlanguage-link-target"><span>粵語</span></a></li><li class="interlanguage-link interwiki-zh mw-list-item"><a href="https://zh.wikipedia.org/wiki/极小化极大算法" title="极小化极大算法 – Chinese" lang="zh" hreflang="zh" class="interlanguage-link-target"><span>中文</span></a></li></ul>
+		<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q751319#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>
+	</div>
+</nav>
+
+</div>
+
+</div>
+
+<footer id="footer" class="mw-footer" role="contentinfo" >
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 12 March 2022, at 19:58<span class="anonymous-show">&#160;(UTC)</span>.</li>
+	<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License 3.0</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="http://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="http://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+	<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+	<li id="footer-places-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+	<li id="footer-places-mobileview"><a href="http://en.m.wikipedia.org/w/index.php?title=Minimax&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+	<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+	<li id="footer-places-statslink"><a href="https://stats.wikimedia.org/#/en.wikipedia.org">Statistics</a></li>
+	<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://wikimediafoundation.org/"><img src="https://en.wikipedia.org/static/images/footer/wikimedia-button.png" srcset="/static/images/footer/wikimedia-button-1.5x.png 1.5x, /static/images/footer/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation" loading="lazy" /></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/"><img src="https://en.wikipedia.org/static/images/footer/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/footer/poweredby_mediawiki_132x47.png 1.5x, /static/images/footer/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"/></a></li>
+</ul>
+
+</footer>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.664","walltime":"0.842","ppvisitednodes":{"value":1934,"limit":1000000},"postexpandincludesize":{"value":57915,"limit":2097152},"templateargumentsize":{"value":2175,"limit":2097152},"expansiondepth":{"value":16,"limit":100},"expensivefunctioncount":{"value":3,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":27406,"limit":5000000},"entityaccesscount":{"value":0,"limit":400},"timingprofile":["100.00%  588.417      1 -total"," 37.84%  222.653      1 Template:Reflist"," 20.07%  118.091      1 Template:Cite_book"," 12.95%   76.179      3 Template:Navbox"," 12.06%   70.953      1 Template:Game_theory"," 11.46%   67.448      1 Template:Short_description","  9.54%   56.124      7 Template:Val","  7.89%   46.412      1 Template:ISBN","  6.46%   38.041      1 Template:Failed_verification","  5.89%   34.673      1 Template:Pagetype"]},"scribunto":{"limitreport-timeusage":{"value":"0.290","limit":"10.000"},"limitreport-memusage":{"value":6304833,"limit":52428800}},"cachereport":{"origin":"mw1380","timestamp":"20220504091934","ttl":1814400,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Minimax","url":"https:\/\/en.wikipedia.org\/wiki\/Minimax","sameAs":"http:\/\/www.wikidata.org\/entity\/Q751319","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q751319","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2002-02-25T15:43:11Z","dateModified":"2022-03-12T19:58:33Z","headline":"decision rule used in artificial intelligence, decision theory, game theory, statistics and philosophy for minimizing the possible loss for a worst case (maximum loss) scenario"}</script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"Minimax","url":"https:\/\/en.wikipedia.org\/wiki\/Minimax","sameAs":"http:\/\/www.wikidata.org\/entity\/Q751319","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q751319","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2002-02-25T15:43:11Z","dateModified":"2022-03-12T19:58:33Z","headline":"decision rule used in artificial intelligence, decision theory, game theory, statistics and philosophy for minimizing the possible loss for a worst case (maximum loss) scenario"}</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":172,"wgHostname":"mw1353"});});</script>
+</body>
+
+<!-- Mirrored from en.wikipedia.org/wiki/Minimax by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 05 May 2022 18:31:48 GMT -->
+</html>
