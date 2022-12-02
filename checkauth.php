@@ -1,12 +1,4 @@
-<!-- ********************************
-Name: Clayton Bond
-Username: cloud101
-Problem Set: PS1
-Due Date: 11 15, 2019
-******************************** -->
-
- <?php
-
+<?php
   session_unset();
   session_destroy();
 
@@ -15,15 +7,15 @@ Due Date: 11 15, 2019
 	$db   = "cbdatabase";
 	$host = "10.29.21.4";
 
-  $dbuser = "root";
-	$dbpass = "Forkbomb00";
+  $dbuser = "Language";
+	$dbpass = "qNYsStBG5ruvYUQ1Wh";
 	$database = "cbdatabase";
 	$dbhost = "10.29.21.4";
 
-  $sql = "SELECT COUNT(*) AS TOTALCOUNT, TYPE FROM UAFSBULK
-              WHERE User_ID = ?
-              AND Password = SHA2(?, 256)
-                GROUP BY type";
+  $sql = "SELECT COUNT(*) AS TOTALCOUNT, TYPE FROM LANGUAGEBULK
+          WHERE User_ID = ?
+          AND Password = SHA2(?, 256)
+          GROUP BY type";
 
  //  Connect
 $con =  mysqli_connect($dbhost, $dbuser, $dbpass, $database);
@@ -56,6 +48,5 @@ if ( mysqli_num_rows($rs) > 0 ) {
 // -------------------------------------------------------------------------------------
 
 mysqli_close($con);
-
 
 ?>

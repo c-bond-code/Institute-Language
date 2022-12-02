@@ -1,10 +1,3 @@
-<!-- ********************************
-Name: Clayton Bond
-Username: cloud101
-Problem Set: PS1
-Due Date: 11 15, 2019
-******************************** -->
-
 <!doctype html>
 
 <?php
@@ -16,12 +9,12 @@ Due Date: 11 15, 2019
  $db   = "cbdatabase";
  $host = "10.29.21.4";
 
- $dbuser = "root";
- $dbpass = "Forkbomb00";
+ $dbuser = "Language";
+ $dbpass = "qNYsStBG5ruvYUQ1Wh";
  $database = "cbdatabase";
  $dbhost = "10.29.21.4";  
 
- $sql = "SELECT * FROM UAFSBULK
+ $sql = "SELECT * FROM LANGUAGEBULK
         limit 1000";
 
 //  Connect
@@ -42,14 +35,11 @@ Due Date: 11 15, 2019
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
     <title>View Users</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
-
-    <!-- Bootstrap core CSS -->
+    <link rel="icon" href="media/logo.png">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
     <link href="css/form-validation.css" rel="stylesheet">
+    
   </head>
 
 
@@ -58,7 +48,7 @@ Due Date: 11 15, 2019
     <div class="container">
 
       <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="logo.png" alt="" width="72" height="72">
+        <img class="d-block mx-auto mb-4" src="media/logo.png" alt="" width="72" height="72">
         <h2>View Users</h2>
         <p class="lead">Students and Faculty currently enrolled at the Institution of Language, Fort Smith. </p>
       </div>
@@ -251,10 +241,6 @@ Due Date: 11 15, 2019
             </div>
           </form>
 
-
-          
-
-
         </div>
       </div>
 
@@ -272,24 +258,16 @@ Due Date: 11 15, 2019
       </footer>
     </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="../../assets/js/vendor/popper.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
     <script src="../../assets/js/vendor/holder.min.js"></script>
     <script>
-      // Example starter JavaScript for disabling form submissions if there are invalid fields
       (function() {
         'use strict';
-
         window.addEventListener('load', function() {
-          // Fetch all the forms we want to apply custom Bootstrap validation styles to
           var forms = document.getElementsByClassName('needs-validation');
-
-          // Loop over them and prevent submission
           var validation = Array.prototype.filter.call(forms, function(form) {
             form.addEventListener('submit', function(event) {
               if (form.checkValidity() === false) {

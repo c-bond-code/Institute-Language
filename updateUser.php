@@ -3,8 +3,8 @@
 	$db   = "cbdatabase";
  	$host = "10.29.21.4";
 
- 	$dbuser = "root";
- 	$dbpass = "Forkbomb00";
+ 	$dbuser = "Language";
+ 	$dbpass = "qNYsStBG5ruvYUQ1Wh";
  	$database = "cbdatabase";
  	$dbhost = "10.29.21.4"; 
 
@@ -17,7 +17,7 @@
 	$major = $_POST["major"];
 	$type = $_POST["type"];
 
-	$sql = "UPDATE UAFSBULK
+	$sql = "UPDATE LANGUAGEBULK
 			SET FIRST_NAME = ?, LAST_NAME = ?, USER_ID = ?, EMAIL = ?, MAJOR = ?, TYPE = ?
             WHERE USER_ID = ?;";
 

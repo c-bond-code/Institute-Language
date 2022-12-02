@@ -1,17 +1,11 @@
-<!-- ********************************
-Name: Clayton Bond
-Username: cloud101
-Problem Set: PS1
-Due Date: 11 15, 2019
-******************************** -->
 
 <?php
 
 	$db   = "cbdatabase";
 	$host = "10.29.21.4";
 
-	$dbuser = "root";
-	$dbpass = "Forkbomb00";
+	$dbuser = "Language";
+	$dbpass = "qNYsStBG5ruvYUQ1Wh";
 	$database = "cbdatabase";
 	$dbhost = "10.29.21.4";  
 
@@ -24,7 +18,7 @@ Due Date: 11 15, 2019
 	$type = $_POST["type"];
 
 
-	$sql = "INSERT INTO UAFSBULK (
+	$sql = "INSERT INTO LANGUAGEBULK (
 			FIRST_NAME,
 			LAST_NAME,
 			USER_ID,

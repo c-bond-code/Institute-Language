@@ -1,22 +1,15 @@
-<!-- ********************************
-Name: Clayton Bond
-Username: cloud101
-Problem Set: PS1
-Due Date: 11 15, 2019
-******************************** -->
-
 <?php
 
 	$user = $_POST["user"];
 	$db   = "cbdatabase";
 	$host = "10.29.21.4";
 
-	$dbuser = "root";
-	$dbpass = "Forkbomb00";
+	$dbuser = "Language";
+	$dbpass = "qNYsStBG5ruvYUQ1Wh";
 	$database = "cbdatabase";
 	$dbhost = "10.29.21.4";  
 
-	$sql = "DELETE FROM UAFSBULK WHERE USER_ID = ?;";
+	$sql = "DELETE FROM LANGUAGEBULK WHERE USER_ID = ?;";
 
      //  Connect
 	$con =  mysqli_connect($dbhost, $dbuser, $dbpass, $database);

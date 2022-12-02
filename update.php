@@ -1,3 +1,4 @@
+
 <!doctype html>
 
 <?php
@@ -8,8 +9,8 @@
  $db   = "cbdatabase";
  $host = "10.29.21.4";
 
- $dbuser = "root";
- $dbpass = "Forkbomb00";
+ $dbuser = "Language";
+ $dbpass = "qNYsStBG5ruvYUQ1Wh";
  $database = "cbdatabase";
  $dbhost = "10.29.21.4";  
 
@@ -25,6 +26,7 @@
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
     <title>Update Users</title>
+    <link rel="icon" href="media/logo.png">
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
 
@@ -36,11 +38,10 @@
   </head>
 
   <?php
-    mysqli_report(MYSQLI_REPORT_OFF); //Turn off irritating default messages
-
+  
     $mysqli = new mysqli($dbhost, $dbuser, $dbpass, $database);
 
-    $query = "SELECT COUNT(USER_ID) AS TOTALCOUNT, FIRST_NAME, LAST_NAME, USER_ID, EMAIL, MAJOR, TYPE FROM UAFSBULK
+    $query = "SELECT COUNT(USER_ID) AS TOTALCOUNT, FIRST_NAME, LAST_NAME, USER_ID, EMAIL, MAJOR, TYPE FROM LANGUAGEBULK
                 WHERE USER_ID = '" . $user . "' GROUP BY USER_ID;";
     $rs = $mysqli->query($query);
 
@@ -48,7 +49,7 @@
         try {   
             throw new Exception("MySQL error $mysqli->error <br> Query:<br> $query", $msqli->errno);   
         } catch(Exception $e ) {
-            echo "Error No: ".$e->getCode(). " - ". $e->getMessage() . "<br >";
+            echo "Error No: ".$e->getCode(). " - ". $e->getMessage() . "<br> Some random message that is editable";
             echo nl2br($e->getTraceAsString());
         }
     }
@@ -99,7 +100,7 @@
   } 
   // -------------------------------------------------------------------------------------
 
-  mysqli_close($con);
+  //mysqli_close($con);
 
   ?>
 
@@ -107,7 +108,7 @@
     <div class="container">
 
       <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="logo.png" alt="" width="72" height="72">
+        <img class="d-block mx-auto mb-4" src="media/logo.png" alt="" width="72" height="72">
         <h2>Update Users</h2>
         <p class="lead">Students and Faculty currently enrolled at the Institution of Language, Fort Smith. </p>
       </div>
@@ -127,7 +128,7 @@
           <tbody>
 
 <?php //Iterate through the result set
-  $sql = "SELECT * FROM UAFSBULK
+  $sql = "SELECT * FROM LANGUAGEBULK
           LIMIT 1000";
 
   //  Connect
@@ -317,7 +318,7 @@
             <div class="row">
               <div class="col-md-3"></div>
               <div class="col-md-6 mb-3 text-center">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Save</button>
+                <button class="btn btn-primary btn-lg btn-block btn-color" type="submit">Save</button>
               </div>
             </div>
           </form>
